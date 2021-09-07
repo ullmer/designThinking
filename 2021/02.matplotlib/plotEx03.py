@@ -15,7 +15,8 @@ for row in dataReader:
     names.append(city); values.append(d1)
   except: pass
 
-plt.figure(); plt.bar(names, values, orientation=u'vertical'); plt.show()
+plt.figure(); subplot = plt.subplot(); subplot.invert_yaxis()
+plt.barh(names, values); plt.show()
 
 ### end ###
 
