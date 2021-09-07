@@ -13,11 +13,9 @@ for row in dataReader:
   try:
     state, city, date, d1, d2, d3, d4 = row
     names.append(city); values.append(d1)
+  except: pass
 
-plt.figure()
-#plt.subplot()
-plt.bar(names, values)
-plt.show()
+plt.figure(); plt.bar(names, values); plt.show()
 
 ### end ###
 
