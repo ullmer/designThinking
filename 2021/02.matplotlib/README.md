@@ -1,5 +1,6 @@
 
-- **ex00: Example provided by matplotlib developers**
+ex00: Example provided by matplotlib developers
+-----------------------------------------------
 
 *This is the first provided example in the 
 [matplotlib tutorial](https://matplotlib.org/stable/tutorials/introductory/pyplot.html#sphx-glr-tutorials-introductory-pyplot-py) illustrating bar graphs*
