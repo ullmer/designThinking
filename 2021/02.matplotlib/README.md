@@ -3,13 +3,10 @@ ex00: Example provided by matplotlib developers
 -----------------------------------------------
 
 *This is the first provided example in the 
-[matplotlib tutorial](https://matplotlib.org/stable/tutorials/introductory/pyplot.html#sphx-glr-tutorials-introductory-pyplot-py) illustrating bar graphs
+[matplotlib tutorial](https://matplotlib.org/stable/tutorials/introductory/pyplot.html#sphx-glr-tutorials-introductory-pyplot-py) illustrating bar graphs*
 
 
-[My image](username.github.com/repository/img/image.jpg)
-
-plotEx00.py
-plotEx00a.png
+[plotEx00](plotEx00a.png) [(py)](plotEx00.py)
 
 plotEx01.py
 
