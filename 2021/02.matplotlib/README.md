@@ -10,13 +10,13 @@
 **ex01: Extraction of bar graph alone**
 
 <img src="images/plotEx02a.png" width=300> [(py)](plotEx02.py)
-**ex02: **
+**ex02: Beginning to import data** : *note X axis illegible, y axis scrambled*
 
 <img src="images/plotEx03a.png" width=300> [(py)](plotEx03.py)
-**ex03: **
+**ex03: Swap of axes; values axis still ~random**
 
 <img src="images/plotEx04a.png" width=300> [(py)](plotEx04.py)
-**ex04: **
+**ex04: Partial resolution of values axis**
 
 procHospital8.csv
 procHospital8a.csv
