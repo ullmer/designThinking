@@ -5,19 +5,24 @@ ex00: Example provided by matplotlib developers
 *This is the first provided example in the 
 [matplotlib tutorial](https://matplotlib.org/stable/tutorials/introductory/pyplot.html#sphx-glr-tutorials-introductory-pyplot-py) illustrating bar graphs*
 
-
 <img src="images/plotEx00a.png" width=300> [(py)](plotEx00.py)
 
-plotEx01.py
+ex01: Extraction of bar graph alone
+-----------------------------------
+<img src="images/plotEx01a.png" width=300> [(py)](plotEx01.py)
 
-plotEx02.py
-plotEx02a.png
+ex02: 
+-----------------------------------
+<img src="images/plotEx02a.png" width=300> [(py)](plotEx02.py)
 
-plotEx03.py
-plotEx03a.png
+ex03: 
+-----------------------------------
+<img src="images/plotEx03a.png" width=300> [(py)](plotEx03.py)
 
-plotEx04.py
-plotEx04a.png
+ex04: 
+-----------------------------------
+<img src="images/plotEx04a.png" width=300> [(py)](plotEx04.py)
+
 
 procHospital8.csv
 procHospital8a.csv
