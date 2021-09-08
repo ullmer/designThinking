@@ -6,7 +6,7 @@ ex00: Example provided by matplotlib developers
 [matplotlib tutorial](https://matplotlib.org/stable/tutorials/introductory/pyplot.html#sphx-glr-tutorials-introductory-pyplot-py) illustrating bar graphs*
 
 
-<img src="plotEx99a.jpg" width=300> [(py)](plotEx00.py)
+<img src="plotEx00a.jpg" width=300> [(py)](plotEx00.py)
 
 plotEx01.py
 
