@@ -1,0 +1,12 @@
+fields: {
+ - L:19, abbrev:tPedHospCovC+Si, full:"total_pediatric_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg"
+ - L:20:"total_pediatric_patients_hospitalized_confirmed_covid_7_day_avg"
+ - L:38:"total_pediatric_patients_hospitalized_confirmed_and_suspected_covid_7_day_sum"
+ - L:39:"total_pediatric_patients_hospitalized_confirmed_covid_7_day_sum"
+ - L:57:"total_pediatric_patients_hospitalized_confirmed_and_suspected_covid_7_day_coverage"
+ - L:58:"total_pediatric_patients_hospitalized_confirmed_covid_7_day_coverage"
+ - L:79:"previous_day_admission_pediatric_covid_confirmed_7_day_sum"
+ - L:91:"previous_day_admission_pediatric_covid_suspected_7_day_sum"
+ - L:97:"previous_day_admission_pediatric_covid_confirmed_7_day_coverage"
+ - L:99:"previous_day_admission_pediatric_covid_suspected_7_day_coverage"
+}
