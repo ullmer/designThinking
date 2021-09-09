@@ -10,4 +10,9 @@ print("full dump of yaml parsing:", str(ydata))
 L1 = ydata['fields'][0]['L']
 print("Line number of first field:", L1)
 
+lines = []
+for row in ydata['fields']:
+  line = row['L']; lines.append(line)
+print("Line numbers:", str(lines))
+
 ### end ###
