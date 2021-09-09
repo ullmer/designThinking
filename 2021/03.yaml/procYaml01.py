@@ -4,6 +4,7 @@
 import yaml
 
 yfn   = 'hospital-fields-pediatric.yaml'; yf = open(yfn, 'r')
-ydata = yaml.load(yf)
+ydata = yaml.safe_load(yf)
+print(ydata)
 
 ### end ###
