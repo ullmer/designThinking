@@ -1,18 +1,15 @@
 fields: 
-- {L: 6, abbrev: city,  full: city}
-- {L: 2, abbrev: state, full: state}
-- {L: 1, abbrev: week,  full: collection_week}
+ - {L: 6, abbrev: city,  full: city}
+ - {L: 2, abbrev: state, full: state}
+ - {L: 1, abbrev: week,  full: collection_week}
 
-- {L: 35, abbrev: tac, full: total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_sum}
-- {L: 31, abbrev: tb,  full: all_adult_hospital_beds_7_day_sum}
-- {L: 34, abbrev: taa, full: all_adult_hospital_inpatient_bed_occupied_7_day_sum}
-
-21 total_icu_beds_7_day_avg
-24 staffed_adult_icu_bed_occupancy_7_day_avg
-25 staffed_icu_adult_patients_confirmed_and_suspected_covid_7_day_avg
-
-city, state, date                        = d[6], d[2], d[1]
-tac, tb, taa, icuBeds, icuUsed, icuCovid = getFieldsFloat(d, [35, 31, 34, 21, 24, 25])
+ - {L: 35, abbrev: tac, full: total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_sum}
+ - {L: 31, abbrev: tb,  full: all_adult_hospital_beds_7_day_sum}
+ - {L: 34, abbrev: taa, full: all_adult_hospital_inpatient_bed_occupied_7_day_sum}
+ 
+ - {L: 21, abbrev: icuBeds,  full: total_icu_beds_7_day_avg}
+ - {L: 24, abbrev: icuUsed,  full: staffed_adult_icu_bed_occupancy_7_day_avg}
+ - {L: 25, abbrev: icuCovid, full: staffed_icu_adult_patients_confirmed_and_suspected_covid_7_day_avg}
 
  - {L: 19, abbrev: tPedHospCovCS7, full: total_pediatric_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg}
  - {L: 20, abbrev:tPedHospCovC7,   full: total_pediatric_patients_hospitalized_confirmed_covid_7_day_avg}
@@ -25,3 +22,4 @@ tac, tb, taa, icuBeds, icuUsed, icuCovid = getFieldsFloat(d, [35, 31, 34, 21, 24
  - {L: 97, full: previous_day_admission_pediatric_covid_confirmed_7_day_coverage}
  - {L: 99, full: previous_day_admission_pediatric_covid_suspected_7_day_coverage}
 
+### end ###
