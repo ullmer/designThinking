@@ -1,5 +1,5 @@
 #Clemson Design Thinking, 2021-08-30 (Brygg Ullmer)
-import yaml, csv, sys, traceback, dtHelper
+import yaml, csv, sys, traceback
 
 ################## extract data fields ##################
 # extract specified fields from list cd (short for csvData), using 
