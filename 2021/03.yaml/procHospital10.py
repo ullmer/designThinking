@@ -1,6 +1,11 @@
 #Clemson Design Thinking, 2021-08-30 (Brygg Ullmer)
 import csv, sys, traceback
-covidF        = open('COVID-19_Reported_Patient_Impact_and_Hospital_Capacity_by_Facility.csv', 'r+t')
+
+try:    yamlF         = open(sys.argv[0], 'r')
+except: print("problem opening command-line YAML metainfo; aborting"); sys.exit(-1)
+yd = yaml.safeload(yamlF)
+ 
+covidF        = open(yd['sourceDataCsv'], 'r+t')
 dataReader    = csv.reader(covidF, delimiter=','); 
 
 def getFieldsFloat(d, fields): # extract specified float fields from list d
