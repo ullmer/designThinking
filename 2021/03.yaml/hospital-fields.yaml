@@ -1,0 +1,26 @@
+fields: 
+
+6 city
+2 state
+1 collection_week
+35 total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_sum
+31 all_adult_hospital_beds_7_day_sum
+34 all_adult_hospital_inpatient_bed_occupied_7_day_sum
+21 total_icu_beds_7_day_avg
+24 staffed_adult_icu_bed_occupancy_7_day_avg
+25 staffed_icu_adult_patients_confirmed_and_suspected_covid_7_day_avg
+
+city, state, date                        = d[6], d[2], d[1]
+tac, tb, taa, icuBeds, icuUsed, icuCovid = getFieldsFloat(d, [35, 31, 34, 21, 24, 25])
+
+ - {L: 19, abbrev: tPedHospCovCS7, full: total_pediatric_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg}
+ - {L: 20, abbrev:tPedHospCovC7,   full: total_pediatric_patients_hospitalized_confirmed_covid_7_day_avg}
+ - {L: 38, full: total_pediatric_patients_hospitalized_confirmed_and_suspected_covid_7_day_sum}
+ - {L: 39, full: total_pediatric_patients_hospitalized_confirmed_covid_7_day_sum}
+ - {L: 57, full: total_pediatric_patients_hospitalized_confirmed_and_suspected_covid_7_day_coverage}
+ - {L: 58, full: total_pediatric_patients_hospitalized_confirmed_covid_7_day_coverage}
+ - {L: 79, full: previous_day_admission_pediatric_covid_confirmed_7_day_sum}
+ - {L: 91, full: previous_day_admission_pediatric_covid_suspected_7_day_sum}
+ - {L: 97, full: previous_day_admission_pediatric_covid_confirmed_7_day_coverage}
+ - {L: 99, full: previous_day_admission_pediatric_covid_suspected_7_day_coverage}
+
