@@ -3,13 +3,15 @@
 # https://stackoverflow.com/questions/2887878/importing-a-csv-file-into-a-sqlite3-database-table-using-python
 # https://datatofish.com/pandas-dataframe-to-sql/
 
-import sys
+import sys, pandas, sqlite3
 
-try:    csvFn, sqlFn = sys.argv[1], sys.argv[2]
-except: print("Expecting two arguments: CSV filename and SQLite filename"); sys.exit(-1)
+try:    csvFn, sqlFn, tableName = sys.argv[1:3]
+except: print("Expecting three arguments: CSV filename, SQLite filename, tablename"); sys.exit(-1)
+
+conn = sqlite3.connect(sqlFn)
 
 df = pandas.read_csv(csvfile) # https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html
-df.to_sql(table_name, conn, if_exists='append', index=False)
+df.to_sql(tableName, conn, if_exists='append', index=False)
 
 ### end ###
 
