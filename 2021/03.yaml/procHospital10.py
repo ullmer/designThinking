@@ -1,23 +1,34 @@
 #Clemson Design Thinking, 2021-08-30 (Brygg Ullmer)
-import csv, sys, traceback
+import yaml, csv, sys, traceback, dtHelper
 
 try:    yamlF         = open(sys.argv[0], 'r')
 except: print("problem opening command-line YAML metainfo; aborting"); sys.exit(-1)
-yd = yaml.safeload(yamlF)
+yd = yaml.safeload(yamlF) #yd = YAML data
  
 covidF        = open(yd['sourceDataCsv'], 'r+t')
 dataReader    = csv.reader(covidF, delimiter=','); 
 
-def getFieldsFloat(d, fields): # extract specified float fields from list d
+################## extract data fields ##################
+
+def getFieldsText(d, fields): # extract specified float fields from list d
   result = []
+  for field in fields: result.append(d[field])
+  return result
+
+def getFieldsFloat(cd, yd, fields): # extract specified float fields from list d
+  tresult = getFieldsText(cd, yd, fields)
   for field in fields: result.append(float(d[field]))
   return result
 
+################## extract percentages ##################
+
 def perc(f): return str(int(100*f))
 
-for d in dataReader:
+################## main ##################
+
+for cd in dataReader: #cd = CSV Data
   try:
-    city, state, date                        = d[6], d[2], d[1]
+    city, state, date = getFieldsText(cd, yd, ['city', 'state', 'date'])
     tac, tb, taa, icuBeds, icuUsed, icuCovid = getFieldsFloat(d, [35, 31, 34, 21, 24, 25])
     covidBeds = perc(tac/tb); ocuBeds=perc(taa/tb); percIcu = perc(icuUsed/icuBeds); pIC = perc(icuCovid/icuBeds)
     if float(covidBeds) >= 20: print(','.join([state, city, date, covidBeds, ocuBeds, pIC, percIcu]))
