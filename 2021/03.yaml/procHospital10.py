@@ -13,7 +13,8 @@ dataReader    = csv.reader(covidF, delimiter=',');
 for cd in dataReader: #cd = CSV Data
   try:
     city, state, date = getFieldsText(cd, yd, ['city', 'state', 'date'])
-    tac, tb, taa, icuBeds, icuUsed, icuCovid = getFieldsFloat(d, [35, 31, 34, 21, 24, 25])
+    tac, tb, taa, icuBeds, icuUsed, icuCovid =
+      getFieldsFloat(cd, yd, ['tac', 'tb', 'taa', 'icuBeds', 'icuUsed', 'icuCovid'])
     covidBeds = perc(tac/tb); ocuBeds=perc(taa/tb); percIcu = perc(icuUsed/icuBeds); pIC = perc(icuCovid/icuBeds)
     if float(covidBeds) >= 20: print(','.join([state, city, date, covidBeds, ocuBeds, pIC, percIcu]))
   except: pass #traceback.print_exc()
