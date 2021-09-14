@@ -17,4 +17,13 @@ def getFieldsFloat(cd, yd, fields): # extract specified float fields from list d
 
 def perc(f): return str(int(100*f))
 
+################## extract percentages ##################
+
+def printCSV(fields): 
+  if isinstance(fields, list):
+    csvList = ','.join(fields) # join together fields, separated by commas
+    print(csvList)
+  else:
+    print("dt.printCSV: argument passed is not list")
+
 ### end ###

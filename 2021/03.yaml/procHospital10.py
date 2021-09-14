@@ -16,7 +16,7 @@ for cd in dataReader: #cd = CSV Data
     tac, tb, taa, icuBeds, icuUsed, icuCovid =
       dt.getFieldsFloat(cd, yd, ['tac', 'tb', 'taa', 'icuBeds', 'icuUsed', 'icuCovid'])
     covidBeds = perc(tac/tb); ocuBeds=perc(taa/tb); percIcu = perc(icuUsed/icuBeds); pIC = perc(icuCovid/icuBeds)
-    if float(covidBeds) >= 20: printCSVLine print(','.join([state, city, date, covidBeds, ocuBeds, pIC, percIcu]))
+    if float(covidBeds) >= 20: dt.printCSV([state, city, date, covidBeds, ocuBeds, pIC, percIcu])
   except: pass #traceback.print_exc()
 
 ### end ###
