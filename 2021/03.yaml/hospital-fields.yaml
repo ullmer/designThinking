@@ -1,11 +1,12 @@
 fields: 
+- {L: 6, abbrev: city,  full: city}
+- {L: 2, abbrev: state, full: state}
+- {L: 1, abbrev: week,  full: collection_week}
 
-6 city
-2 state
-1 collection_week
-35 total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_sum
-31 all_adult_hospital_beds_7_day_sum
-34 all_adult_hospital_inpatient_bed_occupied_7_day_sum
+- {L: 35, abbrev: tac, full: total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_sum}
+- {L: 31, abbrev: tb,  full: all_adult_hospital_beds_7_day_sum}
+- {L: 34, abbrev: taa, full: all_adult_hospital_inpatient_bed_occupied_7_day_sum}
+
 21 total_icu_beds_7_day_avg
 24 staffed_adult_icu_bed_occupancy_7_day_avg
 25 staffed_icu_adult_patients_confirmed_and_suspected_covid_7_day_avg
