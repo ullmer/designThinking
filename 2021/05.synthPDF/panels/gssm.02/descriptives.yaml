@@ -4,11 +4,16 @@ scgssm-alumni-awards:
           gssmGrad: 1991, ug: "BS, USC, 1996"; gr: "JD, USC, 2000",
           current: ["US Magistrate Judge", "District of South Carolina"]
           image: "https://www.scgssm.org/sites/default/files/shiva_hodges_-_1991.jpg",
-          url: " "}
+          imageCrop: [0,0,0,0],
+          url: "https://www.leadershipsc.com/alumni/shiva-hodges/"}
+
    2017: {name: "Dr. Jason Hong",
           gssmGrad: 1993, ug: "BS, CS, Ga Tech, 1997", 
           gr: "PhD, UC Berkeley, 2004",
           current: ["Professor", "School of Computer Science", 
                   "Human Comp Interaction Inst.", "Carnegie Mellon University"],
-          image: , url: }
-          
+          image: "https://www.scgssm.org/sites/default/files/jason_hong_2_0.jpg", 
+          imageCrop: [0,0,0,0],
+          url: "http://www.cs.cmu.edu/~jasonh/"}
+         
+### end ### 
