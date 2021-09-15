@@ -1,0 +1,25 @@
+fields: 
+ - {L: 6, abbrev: city,  full: city}
+ - {L: 2, abbrev: state, full: state}
+ - {L: 1, abbrev: week,  full: collection_week}
+
+ - {L: 35, abbrev: tac, full: total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_sum}
+ - {L: 31, abbrev: tb,  full: all_adult_hospital_beds_7_day_sum}
+ - {L: 34, abbrev: taa, full: all_adult_hospital_inpatient_bed_occupied_7_day_sum}
+ 
+ - {L: 21, abbrev: icuBeds,  full: total_icu_beds_7_day_avg}
+ - {L: 24, abbrev: icuUsed,  full: staffed_adult_icu_bed_occupancy_7_day_avg}
+ - {L: 25, abbrev: icuCovid, full: staffed_icu_adult_patients_confirmed_and_suspected_covid_7_day_avg}
+
+ - {L: 19, abbrev: tPedHospCovCS7, full: total_pediatric_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg}
+ - {L: 20, abbrev:tPedHospCovC7,   full: total_pediatric_patients_hospitalized_confirmed_covid_7_day_avg}
+ - {L: 38, full: total_pediatric_patients_hospitalized_confirmed_and_suspected_covid_7_day_sum}
+ - {L: 39, full: total_pediatric_patients_hospitalized_confirmed_covid_7_day_sum}
+ - {L: 57, full: total_pediatric_patients_hospitalized_confirmed_and_suspected_covid_7_day_coverage}
+ - {L: 58, full: total_pediatric_patients_hospitalized_confirmed_covid_7_day_coverage}
+ - {L: 79, full: previous_day_admission_pediatric_covid_confirmed_7_day_sum}
+ - {L: 91, full: previous_day_admission_pediatric_covid_suspected_7_day_sum}
+ - {L: 97, full: previous_day_admission_pediatric_covid_confirmed_7_day_coverage}
+ - {L: 99, full: previous_day_admission_pediatric_covid_suspected_7_day_coverage}
+
+### end ###
