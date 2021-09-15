@@ -6,8 +6,8 @@ source_url: "https://www.scgssm.org/alumni/outstanding-alum-award"
 scgssm-alumni-awards:
  years: 
    2011: {name: "The Honorable Shiva Hodges", 
-          gssmGrad: 1991, ug: "BS, USC, 1996"; gr: "JD, USC, 2000",
-          current: ["US Magistrate Judge", "District of South Carolina"]
+          gssmGrad: 1991, ug: "BS, USC, 1996", gr: "JD, USC, 2000",
+          current: ["US Magistrate Judge", "District of South Carolina"],
           image: "https://www.scgssm.org/sites/default/files/shiva_hodges_-_1991.jpg",
           imageCrop: [0,0,0,0],
           url: "https://www.leadershipsc.com/alumni/shiva-hodges/"}

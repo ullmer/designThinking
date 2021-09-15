@@ -10,6 +10,18 @@ sourceYFn = "descriptives.yaml"
 sourceYF  = open(sourceYFn, "r+t")
 sourceYD  = yaml.safe_load(sourceYF)
 
-print(sourceYD)
+#print(sourceYD)
+
+yearsStruct = sourceYD['scgssm-alumni-awards']['years']
+years = yearsStruct.keys()
+print("years:", years)
+
+sampleYear = 2011
+syStruct = yearsStruct[sampleYear]
+syName   = syStruct['name']
+
+print("2011:", str(syStruct))
+print("2011 name:", str(syName))
+
 
 ### end ###
