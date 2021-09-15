@@ -1,3 +1,8 @@
+# SC GSSM Outstanding Alum Award metainformation file
+# Transcoded by Brygg Ullmer and Aika Washington, Clemson University
+
+source_url: "https://www.scgssm.org/alumni/outstanding-alum-award"
+
 scgssm-alumni-awards:
  years: 
    2011: {name: "The Honorable Shiva Hodges", 
@@ -25,8 +30,7 @@ scgssm-alumni-awards:
    2021: {name: "Dr. Brygg Ullmer", gssmGrad: 1991,
           ug: "", gr: "",
           current: ["", ""], imageCrop: [0,0,0,0],
-          url: "",
-
+          url: "", image""}
 
    2019: {name: "Dr. Nathan Kwan", gssmGrad: 2004,
           ug: "", gr: "",
