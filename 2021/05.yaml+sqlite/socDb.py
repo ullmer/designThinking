@@ -100,6 +100,7 @@ def main():
   print(soc.showMajorResearchAreas())
 
   print("\n", halfline, "HCC subfields, default ordering", halfline)
+  #print(soc.showResearchFields('Human-Centered Computing'))
   print(soc.showResearchFields('Human-Centered Computing'))
 
 if __name__ == "__main__":
