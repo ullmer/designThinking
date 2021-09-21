@@ -64,7 +64,7 @@ class socDb:
      """select f.name, f.division, f.rank 
           from faculty as f, researchArea as ra, personResearchRelation as prr
           where ra.name = '%s' and 
-                prr.id = ra.id and prr.id = f.id
+                prr.raid = ra.id and prr.fid = f.id
           group by f.name order by f.rank, f.division""" % subarea
   
     df = pd.read_sql_query(query, self.dbConn)

@@ -17,14 +17,14 @@ select ra.name from researchArea as ra, researchAreaRelation as rar
 
 select f.name, f.division, f.rank 
    from faculty as f, researchArea as ra, personResearchRelation as prr
-   where ra.name = 'Artificial Intelligence' and prr.id = ra.id and prr.id = f.id
+   where ra.name = 'Artificial Intelligence' and prr.raid = ra.id and prr.fid = f.id
    group by f.name order by f.rank, f.division;
 
 -- find all faculty investigating HCC-related research fields
 
 select f.name, f.division, f.rank 
    from faculty as f, researchArea as ra, personResearchRelation as prr
-   where ra.name = 'Human-Centered Computing' and prr.id = ra.id and prr.fid = f.fid
+   where ra.name = 'Human-Centered Computing' and prr.raid = ra.id and prr.fid = f.fid
    group by f.name order by f.division, f.lastName;
 
 --- end ---
