@@ -72,21 +72,14 @@ class socDb:
 
 ############### show subarea, with custom ordering  ############### 
 
-  def showResearchFieldsOrdered(self, subarea, orderList):
-    if type(orderList) is not list:
-       print("socDB::showResearchFieldsOrdered: 2nd arg orderList not passed as list!"); return None
-
-    #orderList examples: [f.division, f.lastName] ; [f.rank, f.division]
-
-    orderStr = ",".join(orderList) 
+  def showResearchFieldsOrdered(self, subarea, orderStr):
+    #orderStr examples: "f.division,f.lastName"; "f.rank,f.division"
 
     query = """select f.name, f.division, f.rank 
                 from faculty as f, researchArea as ra, personResearchRelation as prr
-                where ra.name = '%s' and prr.id = ra.id and prr.id = f.id
+                where ra.name = '%s' and prr.raid = ra.id and prr.fid = f.id
                 group by f.name order by %s""" % (subarea, orderStr)
 
-    if verbose: print("socDB::showResearchFieldsOrdered query:", query)
-  
     try:    df = pd.read_sql_query(query, self.dbConn); return df
     except: print("socDB::showResearchFieldsOrdered error")
 
@@ -100,8 +93,10 @@ def main():
   print(soc.showMajorResearchAreas())
 
   print("\n", halfline, "HCC subfields, default ordering", halfline)
-  #print(soc.showResearchFields('Human-Centered Computing'))
   print(soc.showResearchFields('Human-Centered Computing'))
+  
+  print("\n", halfline, "HCC subfields, custom ordering", halfline)
+  print(soc.showResearchFieldsOrdered('Human-Centered Computing', "f.division,f.lastName"))
 
 if __name__ == "__main__":
   main()
