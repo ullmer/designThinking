@@ -11,7 +11,7 @@ import socDb
 
 def main():
 
-  soc = socDb()
+  soc = socDb.socDb()
   hccFaculty = soc.getFacultyByDivision('HCC')
   print("hccFaculty:", str(hccFaculty))
 

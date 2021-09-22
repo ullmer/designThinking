@@ -37,7 +37,7 @@ class socDb:
 ############### list all faculty ############### 
   
   def getFacultyByDivision(self, division):
-    query  = "select name from faculty where division=%s" % division;
+    query  = "select name from faculty where division='%s'" % division;
     result = self.execSqlQuery(query)
     return result
 
@@ -48,7 +48,7 @@ class socDb:
     df = pd.read_sql_query(query, self.dbConn)
    
     for row in self.dbCursor.execute(query):
-      result.append(row)
+      result.append(str(row[0]))
 
     return result
 
