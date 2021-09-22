@@ -10,7 +10,9 @@
 # ... and is synthesized by Python3 code procSoC1.py 
 
 import sqlite3
-import pandas as pd # this has particular value for Jupyter use
+
+try: import pandas as pd # this has particular value for Jupyter use
+except: print("pandas not found; working around")
 
 ################################################################################
 ############### School of Computing faculty/research areas class ############### 
@@ -20,6 +22,7 @@ class socDb:
   dbConn     = None
   dbCursor   = None
   verbose    = False
+  usePandas  = False
 
 ############### School of Computing faculty/research areas class ############### 
 
@@ -40,17 +43,17 @@ class socDb:
     query  = """select name from faculty 
                  where division='%s' 
                  order by lastName""" % division;
-    result = self.execSqlQuery(query)
+
+    result1 = self.execSqlQuery(query); result = []
+    for entry in result1: result.append(str(entry[0]))
     return result
 
 ############### exec sql query ############### 
 
   def execSqlQuery(self, query):
     result = []
-    df = pd.read_sql_query(query, self.dbConn)
-   
     for row in self.dbCursor.execute(query):
-      result.append(str(row[0]))
+      result.append(row)
 
     return result
 

@@ -25,7 +25,7 @@ def main():
   cr.set_source_rgb(0, 0, 0)
   cr.select_font_face("Oswald", cairo.FONT_SLANT_NORMAL,
       cairo.FONT_WEIGHT_NORMAL)
-  cr.set_font_size(40)
+  cr.set_font_size(24)
 
   ypos = 150; yx = 30  
   for faculty in hccFaculty:
