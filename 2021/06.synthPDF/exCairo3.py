@@ -17,11 +17,11 @@ def main():
     cr = cairo.Context(ps)
 
     cr.set_source_rgb(0, 0, 0)
-    cr.select_font_face("Sans", cairo.FONT_SLANT_NORMAL,
+    cr.select_font_face("Oswald", cairo.FONT_SLANT_NORMAL,
         cairo.FONT_WEIGHT_NORMAL)
     cr.set_font_size(40)
     
-    cr.move_to(10, 50)
+    cr.move_to(10, 150)
     cr.show_text("Forward ho.")
 
     cr.set_source_surface(imgSurf, 10, 10)
