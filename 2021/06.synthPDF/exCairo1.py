@@ -26,7 +26,6 @@ ctx.move_to(0.5, 0.5)
 ctx.show_text("Drawing text")
 # End of drawing code
 
-surface.write_to_png('text.png')    
-surface.write_to_pdf('text.pdf')    
+surface.write_to_png('exCairo1.png')    
 
 ### end ###
