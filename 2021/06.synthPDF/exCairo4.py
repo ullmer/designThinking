@@ -23,8 +23,9 @@ def main():
   cr = cairo.Context(ps)
 
   cr.set_source_rgb(0, 0, 0)
+  #cr.select_font_face("Futura Bk BT")
   cr.select_font_face("Oswald", cairo.FONT_SLANT_NORMAL,
-      cairo.FONT_WEIGHT_NORMAL)
+                                cairo.FONT_WEIGHT_NORMAL)
   cr.set_font_size(24)
 
   ypos = 150; yx = 30  
