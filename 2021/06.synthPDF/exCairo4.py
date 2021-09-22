@@ -13,6 +13,7 @@ def main():
 
   soc = socDb.socDb()
   hccFaculty = soc.getFacultyByDivision('HCC')
+
   print("hccFaculty:", str(hccFaculty))
 
   imgFn   = 'images/computing2.png'
@@ -25,9 +26,11 @@ def main():
   cr.select_font_face("Oswald", cairo.FONT_SLANT_NORMAL,
       cairo.FONT_WEIGHT_NORMAL)
   cr.set_font_size(40)
-  
-  cr.move_to(10, 150)
-  cr.show_text("Forward ho.")
+
+  ypos = 150; yx = 30  
+  for faculty in hccFaculty:
+    cr.move_to(10, ypos)
+    cr.show_text(faculty); ypos += yx
 
   cr.set_source_surface(imgSurf, 10, 10)
   cr.paint()

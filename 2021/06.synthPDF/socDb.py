@@ -37,7 +37,9 @@ class socDb:
 ############### list all faculty ############### 
   
   def getFacultyByDivision(self, division):
-    query  = "select name from faculty where division='%s'" % division;
+    query  = """select name from faculty 
+                 where division='%s' 
+                 order by lastName""" % division;
     result = self.execSqlQuery(query)
     return result
 
