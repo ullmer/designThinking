@@ -55,9 +55,6 @@ class socDb:
 ############### show major research areas ############### 
 
   def showMajorResearchAreas(self):
-############### show major research areas ############### 
-
-  def showMajorResearchAreas(self):
     query = "select ra.name from researchArea as ra, researchAreaRelation as rar \
                where rar.parentID = 0 and ra.id = rar.childID;"
     df = pd.read_sql_query(query, self.dbConn)
