@@ -9,9 +9,13 @@ import cairo
 from PIL import Image
 
 def main():
+
+    imgFn = 'images/computing2.png'
+    imgF  = open(imgFn, 'r+b')
     
     ps = cairo.PDFSurface("exCairo2.pdf", 504, 648)
     cr = cairo.Context(ps)
+
     
     cr.set_source_rgb(0, 0, 0)
     cr.select_font_face("Sans", cairo.FONT_SLANT_NORMAL,
