@@ -22,7 +22,9 @@ def main():
   divisions = soc.getDivisions()
 
   xImg = 10; xTxt =  315
-  rankMap = {'asst':'Asst. Prof.', 'assoc':'Assoc. Prof.', 'full':'Professor'}
+  rankMap = {'asst':'Asst. Prof.', 'assoc':'Assoc. Prof.', 'full':'Professor',
+             'lecturer':'Lecturer', 'slecturer':'Senior Lecturer', 
+             'pop':'Prof. of Practice'}
 
   ps = cairo.PDFSurface("exCairo10.pdf", 2700, 648)
   cr = cairo.Context(ps)
