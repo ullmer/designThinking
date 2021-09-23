@@ -6,8 +6,7 @@
 # https://zetcode.com/gfx/pycairo/images/
 
 from PIL import Image
-import cairo
-import socDb
+import cairo, traceback, socDb
 
 def name2image(name):
   lowerName = name.lower()
@@ -41,9 +40,10 @@ def main():
     try:
       imgSurf  = cairo.ImageSurface.create_from_png(imageFn)
       imgSurf2 = cairo.ImageSurface.image_surface_create_for_data(imgSurf, CAIRO_FORMAT_RGB24, 100, 100, 0)
-      cr.set_source_surface(imgSurf, xImg, ypos)
+      cr.set_source_surface(imgSurf2, xImg, ypos)
       cr.paint()
-    except: print("ignoring image:", imageFn)
+    except: print("ignoring image:", imageFn); traceback.print_exc()
+
 
   cr.show_page()
       
