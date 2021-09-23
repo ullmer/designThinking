@@ -67,6 +67,15 @@ class socDb:
     for entry in result1: result.append(entry[0:2])
     return result
 
+  def getFacultyRankExtraByDivision(self, division):
+    query  = """select name, rank, extraRole from faculty 
+                 where division='%s' 
+                 order by lastName""" % division;
+
+    result1 = self.execSqlQuery(query); result = []
+    for entry in result1: result.append(entry[0:3])
+    return result
+
 ############### exec sql query ############### 
 
   def execSqlQuery(self, query):
