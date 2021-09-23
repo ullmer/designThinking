@@ -11,6 +11,7 @@
 from PIL import Image
 import cairo, traceback, socDb
 
+
 def name2image(name):
   lowerName = name.lower()
   name2     = lowerName.replace(' ', '_')
@@ -18,9 +19,8 @@ def name2image(name):
   return result
 
 def main():
-
   soc = socDb.socDb()
-  hccFaculty = soc.getFacultyByDivision('HCC')
+  hccFaculty = soc.getFacultyRankByDivision('HCC')
 
   print("hccFaculty:", str(hccFaculty))
 
@@ -38,8 +38,11 @@ def main():
   xImg = 10; xTxt =  315;   idx = 0
   yTxtOrig = yTxt =   70; dyTxt = 325
   yImgOrig = yImg =  350; dyImg = 325
+
+  rankMap = {'asst':'Asst. Prof.', 'assoc':'Assoc. Prof.', 'full':'Professor'}
   
   for faculty in hccFaculty:
+    name, rank = faculty
     if idx % 1 == 0: cr.set_source_rgba(0.8, 0.6, 0, .1)
     else:            cr.set_source_rgba(0.8, 0.6, 0, .95)
     cr.rectangle(xTxt-295, yTxt-50, xTxt+350, yTxt-50+dyImg)
@@ -47,12 +50,19 @@ def main():
 
     cr.move_to(xTxt, yTxt)
     cr.set_source_rgb(0,0,0)
-    cr.show_text(faculty); yTxt += dyTxt;   idx += 1
-    if idx % 5 == 0:       yTxt = yTxtOrig; xTxt += 605
+    cr.show_text(name)       
+
+    cr.move_to(xTxt, yTxt+50)
+    cr.set_source_rgb(.3, .3, .3)
+    cr.show_text(rankMap[rank])
+
+    yTxt += dyTxt;    idx += 1
+    if idx % 5 == 0:          yTxt = yTxtOrig; xTxt += 605
 
   idx = 0
   for faculty in hccFaculty:
-    imageFn = name2image(faculty)
+    name, rank = faculty
+    imageFn = name2image(name)
     try:
       imgSurf  = cairo.ImageSurface.create_from_png(imageFn)
       cr.set_source_surface(imgSurf, xImg, yImg - dyImg)
