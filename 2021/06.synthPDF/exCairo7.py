@@ -34,7 +34,7 @@ def main():
   cr.set_font_size(50)
 
   xImg = 10; xText = 200; idx = 0
-  yorig = ypos = 50; dy = 330; imgDy = 350
+  yorig = ypos = 70; dy = 330; imgDy = 370
 
   for faculty in hccFaculty:
     cr.move_to(xText, ypos)
