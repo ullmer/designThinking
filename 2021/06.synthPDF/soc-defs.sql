@@ -8,7 +8,8 @@ create table faculty(
   firstName text,
   lastName  text, 
   division  text,
-  rank      text
+  rank      text,
+  extraRole text
 );
 
 create table researchArea(
