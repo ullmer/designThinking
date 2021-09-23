@@ -32,16 +32,15 @@ def main():
   cr.scale(.3,.3)
   cr.set_font_size(80)
 
-  xImg = 10;  xText = 30
-  ypos = 150; yx = 30  
+  xImg = 10;  xText = 200
+  ypos = 150; dy = 300
   for faculty in hccFaculty:
     cr.move_to(xText, ypos)
-    cr.show_text(faculty); ypos += yx
+    cr.show_text(faculty); ypos += dy
 
     imageFn = name2image(faculty)
     try:
       imgSurf  = cairo.ImageSurface.create_from_png(imageFn)
-      #imgSurf2 = cairo.ImageSurface.create_for_data(imgSurf, cairo.FORMAT_RGB24, 100, 100, 0)
       cr.set_source_surface(imgSurf, xImg, ypos)
       cr.paint()
     except: print("ignoring image:", imageFn); traceback.print_exc()
