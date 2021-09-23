@@ -4,6 +4,7 @@
 
 # https://zetcode.com/gfx/pycairo/backends/
 # https://zetcode.com/gfx/pycairo/images/
+# https://pycairo.readthedocs.io/en/latest/reference/surfaces.html
 
 from PIL import Image
 import cairo, traceback, socDb
@@ -21,14 +22,15 @@ def main():
 
   print("hccFaculty:", str(hccFaculty))
 
-  ps = cairo.PDFSurface("exCairo5.pd6", 504, 648)
+  ps = cairo.PDFSurface("exCairo6.pdf", 504, 648)
   cr = cairo.Context(ps)
 
   cr.set_source_rgb(0, 0, 0)
   #cr.select_font_face("Futura Bk BT")
   cr.select_font_face("Georgia", cairo.FONT_SLANT_NORMAL,
                                  cairo.FONT_WEIGHT_NORMAL)
-  cr.set_font_size(24)
+  cr.scale(.3,.3)
+  cr.set_font_size(80)
 
   xImg = 10;  xText = 30
   ypos = 150; yx = 30  
@@ -39,8 +41,8 @@ def main():
     imageFn = name2image(faculty)
     try:
       imgSurf  = cairo.ImageSurface.create_from_png(imageFn)
-      imgSurf2 = cairo.ImageSurface.create_for_data(imgSurf, cairo.FORMAT_RGB24, 100, 100, 0)
-      cr.set_source_surface(imgSurf2, xImg, ypos)
+      #imgSurf2 = cairo.ImageSurface.create_for_data(imgSurf, cairo.FORMAT_RGB24, 100, 100, 0)
+      cr.set_source_surface(imgSurf, xImg, ypos)
       cr.paint()
     except: print("ignoring image:", imageFn); traceback.print_exc()
 
