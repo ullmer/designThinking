@@ -1,8 +1,15 @@
 dt21:
  teams:
-  t1: {s: [Alexander, Kriz, Saunders],          ag: Yarin}
-  t2: {s: [Caffery, Case],                      ag: Hummels}
-  t3: {s: [Binz, Nejman, Tompkins],             ag: Ringel Morris}
-  t4: {s: [DuBay, Furlong, Meininger, Sleeper], ag: Levy}
+  t1:  {s: [Alexander, Kriz, Saunders],          ag: Yarin}
+  t2:  {s: [Caffery, Case],                      ag: Hummels}
+  t3:  {s: [Binz, Nejman, Tompkins],             ag: Ringel Morris}
+  t4:  {s: [DuBay, Furlong, Meininger, Sleeper], ag: Levy}
+  t5:  {s: [Filipiak, Foh, Pichai],              ag: Nabil}
+  t6:  {s: [Attam, Boyt, Chhatwal, Divney],      ag: Doornbos}
+  t7:  {s: [Catoe, Hochrine, Kline, Murphy],     ag: Doornbos}
+  t8:  {s: [Hartsell, Justice, Negron, Shaw],    ag: Heaton}
+  t9:  {s: [Tarleton, Washington],               ag: Villar}
+  t10: {s: [Dalley, McGeehan, Provost, Watson],  ag: Fulmer Bell}
+  t11: {s: [Kaltenbach, Morrissey, Pirkle],      ag: TBD}
 
 ### end ###
