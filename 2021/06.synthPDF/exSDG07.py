@@ -34,7 +34,7 @@ def main():
       cr.rectangle(0, 0, pageWidth*20, 1000)
       cr.fill()
 
-      cr.set_font_size(1000); cr.move_to(10,800); cr.set_source_rgba(1,1,1,.8)
+      cr.set_font_size(800); cr.move_to(100,700); cr.set_source_rgba(1,1,1,.7)
       cr.show_text('un sdg :: p%i' % pageNum); pageNum += 1
 
     try:
