@@ -33,14 +33,14 @@ def main():
   cr.scale(s,s)
   cr.set_font_size(40)
 
-  xImg = 10;  xText = 315;     idx = 0
-  yTextOrig = yText =  70;  dyText = 100
-  yImgOrig  = yImg  = -300;  dyImg = 370
+  xImg = 10; xTxt =  315;   idx = 0
+  yTxtOrig = yTxt =   70; dyTxt = 100
+  yImgOrig = yImg =  350; dyImg = 325
   
 
   for faculty in hccFaculty:
-    cr.move_to(xText, yText)
-    cr.show_text(faculty); yText += dyText
+    cr.move_to(xTxt, yTxt)
+    cr.show_text(faculty); yTxt += dyTxt
 
     imageFn = name2image(faculty)
     try:
@@ -50,7 +50,7 @@ def main():
     except: print("ignoring image:", imageFn); traceback.print_exc()
 
     idx += 1; yImg += dyImg
-    if idx % 5 == 0: yImg = yText = yOrig; xImg += 600
+    if idx % 5 == 0: yImg = yImgOrig; yTxt = yTxtOrig; xImg += 600
 
   cr.show_page()
       
