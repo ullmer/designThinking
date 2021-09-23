@@ -25,11 +25,16 @@ def main():
   xImg = 10; xTxt =  315
   rankMap = {'asst':'Asst. Prof.', 'assoc':'Assoc. Prof.', 'full':'Professor'}
 
-  ps = cairo.PDFSurface("exCairo9.pdf", 2004, 648)
+  ps = cairo.PDFSurface("exCairo9.pdf", 3000, 648)
   cr = cairo.Context(ps)
+  s = .38
+  cr.scale(s,s)
 
   for division in divisions:
   
+    yTxtOrig = yTxt =   70; dyTxt = 325
+    yImgOrig = yImg =  350; dyImg = 325
+
     divFaculty = soc.getFacultyRankByDivision(division)
   
     print("divFaculty:", str(division), str(divFaculty))
@@ -40,14 +45,9 @@ def main():
     #cr.select_font_face("Georgia", cairo.FONT_SLANT_NORMAL,
     cr.select_font_face("Arial", cairo.FONT_SLANT_NORMAL,
                                  cairo.FONT_WEIGHT_BOLD)
-    s = .38
-    cr.scale(s,s)
     cr.set_font_size(40)
-  
-    idx = 0
-    yTxtOrig = yTxt =   70; dyTxt = 325
-    yImgOrig = yImg =  350; dyImg = 325
-  
+
+    idx = 0; 
     for faculty in divFaculty:
       name, rank = faculty
       if idx % 1 == 0: cr.set_source_rgba(0.8, 0.6, 0, .1)
@@ -65,7 +65,7 @@ def main():
         cr.show_text(rankMap[rank])
   
       yTxt += dyTxt;    idx += 1
-      if idx % 5 == 0:          yTxt = yTxtOrig; xTxt += 605
+      if idx % 5 == 0:  yTxt = yTxtOrig; xTxt += 600
   
     idx = 0
     for faculty in divFaculty:
