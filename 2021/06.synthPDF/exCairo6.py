@@ -39,7 +39,7 @@ def main():
     imageFn = name2image(faculty)
     try:
       imgSurf  = cairo.ImageSurface.create_from_png(imageFn)
-      imgSurf2 = cairo.ImageSurface.image_surface_create_for_data(imgSurf, CAIRO_FORMAT_RGB24, 100, 100, 0)
+      imgSurf2 = cairo.ImageSurface.create_for_data(imgSurf, cairo.FORMAT_RGB24, 100, 100, 0)
       cr.set_source_surface(imgSurf2, xImg, ypos)
       cr.paint()
     except: print("ignoring image:", imageFn); traceback.print_exc()
