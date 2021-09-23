@@ -34,13 +34,15 @@ def main():
   cr.set_font_size(40)
 
   xImg = 10; xTxt =  315;   idx = 0
-  yTxtOrig = yTxt =   70; dyTxt = 20
+  #yTxtOrig = yTxt =   70; dyTxt = 5
+  yTxtOrig = yTxt =   270; dyTxt = 40
   yImgOrig = yImg =  350; dyImg = 325
   
 
   for faculty in hccFaculty:
     cr.move_to(xTxt, yTxt)
     cr.show_text(faculty); yTxt += dyTxt
+    cr.paint()
 
     imageFn = name2image(faculty)
     try:
