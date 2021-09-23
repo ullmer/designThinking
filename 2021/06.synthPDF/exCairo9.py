@@ -25,6 +25,9 @@ def main():
   xImg = 10; xTxt =  315
   rankMap = {'asst':'Asst. Prof.', 'assoc':'Assoc. Prof.', 'full':'Professor'}
 
+  ps = cairo.PDFSurface("exCairo9.pdf", 2004, 648)
+  cr = cairo.Context(ps)
+
   for division in divisions:
   
     divFaculty = soc.getFacultyRankByDivision(division)
@@ -32,8 +35,6 @@ def main():
     print("divFaculty:", str(division), str(divFaculty))
   
     #ps = cairo.PDFSurface("exCairo8.pdf", 504, 648)
-    ps = cairo.PDFSurface("exCairo9.pdf", 2004, 648)
-    cr = cairo.Context(ps)
   
     cr.set_source_rgb(0, 0, 0)
     #cr.select_font_face("Georgia", cairo.FONT_SLANT_NORMAL,
