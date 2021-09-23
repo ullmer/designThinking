@@ -37,6 +37,14 @@ class socDb:
     df = pd.read_sql_query(query, self.dbConn)
     return df
 
+############### get divisions ############### 
+
+  def getDivisions(self):
+    query  = "select name from facultyDivisions;"
+    rresult = self.execSqlQuery(query); result = []
+    for entry in rresult: result.append(entry[0])
+    return result
+
 ############### list all faculty ############### 
   
   def getFacultyByDivision(self, division):
@@ -45,7 +53,18 @@ class socDb:
                  order by lastName""" % division;
 
     result1 = self.execSqlQuery(query); result = []
-    for entry in result1: result.append(str(entry[0]))
+    for entry in result1: result.append(entry[0])
+    return result
+
+############### list all faculty ############### 
+
+  def getFacultyRankByDivision(self, division):
+    query  = """select name, rank from faculty 
+                 where division='%s' 
+                 order by lastName""" % division;
+
+    result1 = self.execSqlQuery(query); result = []
+    for entry in result1: result.append(entry[0:2])
     return result
 
 ############### exec sql query ############### 
