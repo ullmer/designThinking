@@ -22,7 +22,7 @@ def main():
   cr.scale(s,s)
   cr.select_font_face("Arial", cairo.FONT_SLANT_NORMAL,
                                cairo.FONT_WEIGHT_BOLD)
-  xImgOrig = xImg = 500; dxImg = 3000
+  xImgOrig = xImg = 500;  dxImg = 3500
   yImgOrig = yImg = 1000; dyImg = 3000
   pageNum = 1
 
@@ -31,7 +31,7 @@ def main():
 
     if sdgNum % 12 == 1:
       cr.set_source_rgba(0.8, 0.6, 0, .95)
-      cr.rectangle(0, 0, pageWidth*40, 1200)
+      cr.rectangle(0, 0, pageWidth*40, 1000)
       cr.fill()
 
       cr.set_font_size(800); cr.move_to(100,700); cr.set_source_rgba(1,1,1,.7)
@@ -43,9 +43,9 @@ def main():
       cr.paint()
     except: print("ignoring image:", imageFn); traceback.print_exc()
 
-    if    (sdgNum - 1) % 3 == 0 and (sdgNum - 1) % 12 != 0: xImg += dxImg;  yImg = yImgOrig
+    if    sdgNum in [3,6,9,15]: xImg += dxImg;  yImg = yImgOrig
     else: yImg += dyImg
-    if    sdgNum % 12 == 0: cr.show_page(); xImg = xImgOrig # render + new page
+    if    sdgNum % 12 == 0: cr.show_page(); xImg = xImgOrig; yImg = yImgOrig # render + new page
         
 if __name__ == "__main__":    
   main()
