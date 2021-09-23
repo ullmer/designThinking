@@ -1,7 +1,8 @@
 dt21:
  teams:
-  t1: {s: [Alexander, Kriz, Saunders], ag: yarin}
-  t2: {s: [Caffery, Case],             ag: hummels}
-  t3: {s: [Binz, Nejman, Tompkins],    ag: ringel morris}
+  t1: {s: [Alexander, Kriz, Saunders],          ag: Yarin}
+  t2: {s: [Caffery, Case],                      ag: Hummels}
+  t3: {s: [Binz, Nejman, Tompkins],             ag: Ringel Morris}
+  t4: {s: [DuBay, Furlong, Meininger, Sleeper], ag: Levy}
 
 ### end ###
