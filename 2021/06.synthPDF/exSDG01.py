@@ -11,6 +11,8 @@
 from PIL import Image
 import cairo, traceback
 
+def genSdgImgFn(sdgNum): return "images/unsdg/%0.2i.png" % sdgNum
+
 def main():
   ps = cairo.PDFSurface("exSDG01.pdf", 72*15, 72*5)
   cr = cairo.Context(ps)
@@ -20,11 +22,13 @@ def main():
                                cairo.FONT_WEIGHT_BOLD)
   cr.set_font_size(256); cr.move_to(10,200); cr.set_source_rgb(.1,.1,.6)
   cr.show_text('UN SDG')
+  xImg = 10
 
-  for sdgn in range(1,18):
+  for sdgNum in range(1,18):
   
     yTxtOrig = yTxt  = 400; dyTxt = 325
     yImgOrig = yImg  = 680; dyImg = 325
+    imageFn = genSdgImgFn(sdgNum)
 
     try:
       imgSurf  = cairo.ImageSurface.create_from_png(imageFn)
