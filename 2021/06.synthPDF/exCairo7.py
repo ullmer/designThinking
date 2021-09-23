@@ -31,24 +31,26 @@ def main():
                                cairo.FONT_WEIGHT_BOLD)
   s = .38
   cr.scale(s,s)
-  cr.set_font_size(50)
+  cr.set_font_size(40)
 
-  xImg = 10; xText = 200; idx = 0
-  yorig = ypos = 70; dy = 330; imgDy = 370
+  xImg = 10;  xText = 315;     idx = 0
+  yTextOrig = yText =  70;  dyText = 100
+  yImgOrig  = yImg  = -300;  dyImg = 370
+  
 
   for faculty in hccFaculty:
-    cr.move_to(xText, ypos)
-    cr.show_text(faculty); ypos += dy
+    cr.move_to(xText, yText)
+    cr.show_text(faculty); yText += dyText
 
     imageFn = name2image(faculty)
     try:
       imgSurf  = cairo.ImageSurface.create_from_png(imageFn)
-      cr.set_source_surface(imgSurf, xImg, ypos-imgDy)
+      cr.set_source_surface(imgSurf, xImg, yImg - dyImg)
       cr.paint()
     except: print("ignoring image:", imageFn); traceback.print_exc()
 
-    idx += 1
-    if idx % 5 == 0: ypos = yorig; xImg += 600
+    idx += 1; yImg += dyImg
+    if idx % 5 == 0: yImg = yText = yOrig; xImg += 600
 
   cr.show_page()
       
