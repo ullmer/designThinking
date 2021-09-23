@@ -24,7 +24,7 @@ def main():
   xImg = 10; xTxt =  315
   rankMap = {'asst':'Asst. Prof.', 'assoc':'Assoc. Prof.', 'full':'Professor'}
 
-  ps = cairo.PDFSurface("exCairo10.pdf", 2300, 648)
+  ps = cairo.PDFSurface("exCairo10.pdf", 2700, 648)
   cr = cairo.Context(ps)
   s = .38
   cr.scale(s,s)
@@ -48,7 +48,7 @@ def main():
 
     idx = 0; 
     for faculty in divFaculty:
-      if idx != 0 and idx % 6 == 0:  yTxt = yTxtOrig; xTxt += 600
+      if idx != 0 and idx % 5 == 0:  yTxt = yTxtOrig; xTxt += 600
 
       name, rank, extraRole = faculty
       if idx % 1 == 0: cr.set_source_rgba(0.8, 0.6, 0, .1)
@@ -82,7 +82,7 @@ def main():
   
     idx = 0
     for faculty in divFaculty:
-      if idx != 0 and idx % 6 == 0: yImg = yImgOrig; xImg += 600
+      if idx != 0 and idx % 5 == 0: yImg = yImgOrig; xImg += 600
       name, rank, extra = faculty
       imageFn = name2image(name)
       try:
