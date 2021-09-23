@@ -34,16 +34,17 @@ def main():
   cr.set_font_size(40)
 
   xImg = 10; xTxt =  315;   idx = 0
-  #yTxtOrig = yTxt =   70; dyTxt = 5
-  yTxtOrig = yTxt =   270; dyTxt = 40
+  #yTxtOrig = yTxt =  70; dyTxt = 5
+  yTxtOrig = yTxt =   70; dyTxt = 325
   yImgOrig = yImg =  350; dyImg = 325
   
-
   for faculty in hccFaculty:
     cr.move_to(xTxt, yTxt)
-    cr.show_text(faculty); yTxt += dyTxt
-    cr.paint()
+    cr.show_text(faculty); yTxt += dyTxt;   idx += 1
+    if idx % 5 == 0:       yTxt = yTxtOrig; xTxt += 600
 
+  idx = 0
+  for faculty in hccFaculty:
     imageFn = name2image(faculty)
     try:
       imgSurf  = cairo.ImageSurface.create_from_png(imageFn)
@@ -53,7 +54,7 @@ def main():
 
     idx += 1; yImg += dyImg
 
-    if idx % 5 == 0: yImg = yImgOrig; yTxt = yTxtOrig; xImg += 600
+    if idx % 5 == 0: yImg = yImgOrig; xImg += 600
 
   cr.show_page()
       
