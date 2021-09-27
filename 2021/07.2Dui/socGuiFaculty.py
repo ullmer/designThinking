@@ -4,6 +4,24 @@ from tkinter   import *
 from socDb     import *
 from functools import partial
 
+#####################################################################################
+##################### Clemson School of Computing GUI : Faculty ##################### 
+#####################################################################################
+
+class socGuiFaculty:
+   root
+   socDivisions
+   colWidth     = 17
+   
+   fontBase     = "Sans"
+   fontSize     = 12
+   headerFont   = None
+   bodyFont     = None
+   div2but      = None #division to button
+   faculty2but  = None #faculty to button
+
+##################### constructor ##################### 
+
 soc = socDb()
 
 def divisionCb(whichDivision):
