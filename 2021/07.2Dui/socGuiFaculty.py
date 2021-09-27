@@ -1,4 +1,6 @@
-# https://en.wikipedia.org/wiki/Tkinter
+# Example Clemson School of Computing GUI
+# By Brygg Ullmer, Clemson University
+# Begun 2021-09-27
 
 from tkinter   import *
 from socDb     import *
@@ -9,52 +11,56 @@ from functools import partial
 #####################################################################################
 
 class socGuiFaculty:
-   root
-   socDivisions
+   tkRoot       = None
    colWidth     = 17
-   
+
    fontBase     = "Sans"
    fontSize     = 12
    headerFont   = None
    bodyFont     = None
+
+   socDivisions = None
    div2but      = None #division to button
    faculty2but  = None #faculty to button
+   soc          = None
 
 ##################### constructor ##################### 
 
-soc = socDb()
+def __init__(self, tkRoot):
 
-def divisionCb(whichDivision):
-  print("division %s was pushed" % whichDivision)
+  self.soc         = socDb()
+  self.tkRoot      = tkRoot;
+  self.div2but     = {}
+  self.faculty2but = {}
+  self.buildGui()
 
-def facultyCb(whichFaculty):
-  print("faculty %s was pushed" % whichFaculty)
+##################### constructor ##################### 
 
-root       = Tk() 
-divisions  = soc.getDivisions()
-colWidth   = 17
-headerFont = ('Sans','12','bold')
-bodyFont   = ('Sans','12')
+def buildGui(self):
+  self.headerFont   = (self.fontBase, str(self.fontSize), 'bold')
+  self.bodyFont     = (self.fontBase, str(self.fontSize))
+  self.socDivisions = soc.getDivisions()
 
-#https://www.geeksforgeeks.org/how-to-pass-arguments-to-tkinter-button-command/
-#https://www.geeksforgeeks.org/partial-functions-python/
-#https://stackoverflow.com/questions/15331726/how-does-functools-partial-do-what-it-does
-#https://stackoverflow.com/questions/2297336/tkinter-specifying-arguments-for-a-function-thats-called-when-you-press-a-butt
+  for division in socDivisions:
+    divisionFrame  = Frame(root); divisionFrame.pack(side=LEFT, anchor=N)
 
-for division in divisions:
-  divisionFrame  = Frame(root); divisionFrame.pack(side=LEFT, anchor=N)
+    cb = partial(self.divisionCb, division)
+    b  = Button(divisionFrame, text=division, command=cb, width=colWidth, font=headerFont)
+    b.pack(side=TOP); self.div2but[division] = b
 
-  b    = Button(divisionFrame, text=division, command=partial(divisionCb,division),
-                width=colWidth, font=headerFont)
-  b.pack(side=TOP)
+    divisionFaculty = self.soc.getFacultyByDivision(division)
 
-  divisionFaculty = soc.getFacultyByDivision(division)
-  for faculty in divisionFaculty:
-    b    = Button(divisionFrame, text=faculty, command=partial(facultyCb, faculty),
-                  font=bodyFont)
-    b.pack(side=TOP, expand=True, fill=BOTH)
+    for faculty in divisionFaculty:
+      cb = partial(self.facultyCb, faculty)
+      b  = Button(divisionFrame, text=faculty, command=cb, font=bodyFont)
+      b.pack(side=TOP, expand=True, fill=BOTH); self.faculty2but[faculty] = b
 
-root.mainloop()                                          
+##################### callbacks ##################### 
 
+  def divisionCb(self, whichDivision):
+    print("division %s was pushed" % whichDivision)
+
+  def facultyCb(self, whichFaculty):
+    print("faculty %s was pushed" % whichFaculty)
 
 ### end ###
