@@ -6,8 +6,11 @@ from functools import partial
 
 soc = socDb()
 
-def divisionCb(whichCategory):
-  print("division %s was pushed" % whichCategory)
+def divisionCb(whichDivision):
+  print("division %s was pushed" % whichDivision)
+
+def facultyCb(whichFaculty):
+  print("faculty %s was pushed" % whichFaculty)
 
 root       = Tk() 
 divisions  = soc.getDivisions()
@@ -21,15 +24,20 @@ bodyFont   = ('Sans','12')
 #https://stackoverflow.com/questions/2297336/tkinter-specifying-arguments-for-a-function-thats-called-when-you-press-a-butt
 
 for division in divisions:
-  divisionFrame  = Frame(root)
+  divisionFrame  = Frame(root); divisionFrame.pack(side=LEFT)
+
   b    = Button(divisionFrame, text=division, command=partial(divisionCb,division),
                 width=colWidth, font=headerFont)
+  b.pack(side=TOP)
 
-  #b    = Button(root, text=division, command=lambda: divisionCb(division),
-  b.pack(side=LEFT)
+  divisionFaculty = soc.getFacultyByDivision(division)
+  for faculty in divisionFaculty:
+    b    = Button(divisionFrame, text=faculty, command=partial(divisionCb,division),
+                width=colWidth, font=bodyFont)
+    b.pack(side=TOP)
+  
 
 root.mainloop()                                          
 
-#getFacultyByDivision
 
 ### end ###
