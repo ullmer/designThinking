@@ -15,9 +15,9 @@ headerFont = ('Sans','12','bold')
 bodyFont   = ('Sans','12')
 
 for division in divisions:
-  w    = Button(root, text=division, command=helloCB, 
+  b    = Button(root, text=division, command=helloCB, 
                 width=colWidth, font=headerFont)
-  w.pack(side=LEFT)
+  b.pack(side=LEFT)
 
 root.mainloop()                                          
 

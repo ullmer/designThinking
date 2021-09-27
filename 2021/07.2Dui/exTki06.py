@@ -21,10 +21,11 @@ bodyFont   = ('Sans','12')
 #https://stackoverflow.com/questions/2297336/tkinter-specifying-arguments-for-a-function-thats-called-when-you-press-a-butt
 
 for division in divisions:
-  b    = Button(root, text=division, command=partial(divisionCb, division),
+  divisionFrame  = Frame(root)
+  b    = Button(divisionFrame, text=division, command=partial(divisionCb,division),
                 width=colWidth, font=headerFont)
 
-  #b   = Button(root, text=division, command=lambda: divisionCb(division),
+  #b    = Button(root, text=division, command=lambda: divisionCb(division),
   b.pack(side=LEFT)
 
 root.mainloop()                                          
