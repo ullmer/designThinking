@@ -11,51 +11,51 @@ from functools import partial
 #####################################################################################
 
 class socGuiFaculty:
-   tkRoot       = None
-   colWidth     = 17
+  tkRoot       = None
+  colWidth     = 17
 
-   fontBase     = "Sans"
-   fontSize     = 12
-   headerFont   = None
-   bodyFont     = None
+  fontBase     = "Sans"
+  fontSize     = 12
+  headerFont   = None
+  bodyFont     = None
 
-   socDivisions = None
-   div2but      = None #division to button
-   faculty2but  = None #faculty to button
-   soc          = None
+  socDivisions = None
+  div2but      = None #division to button
+  faculty2but  = None #faculty to button
+  soc          = None
 
-##################### constructor ##################### 
+  ##################### constructor ##################### 
 
-def __init__(self, tkRoot):
+  def __init__(self, tkRoot):
 
-  self.soc         = socDb()
-  self.tkRoot      = tkRoot;
-  self.div2but     = {}
-  self.faculty2but = {}
-  self.buildGui()
+    self.soc         = socDb()
+    self.tkRoot      = tkRoot
+    self.div2but     = {}
+    self.faculty2but = {}
+    self.buildGui()
 
-##################### constructor ##################### 
-
-def buildGui(self):
-  self.headerFont   = (self.fontBase, str(self.fontSize), 'bold')
-  self.bodyFont     = (self.fontBase, str(self.fontSize))
-  self.socDivisions = soc.getDivisions()
-
-  for division in socDivisions:
-    divisionFrame  = Frame(root); divisionFrame.pack(side=LEFT, anchor=N)
-
-    cb = partial(self.divisionCb, division)
-    b  = Button(divisionFrame, text=division, command=cb, width=colWidth, font=headerFont)
-    b.pack(side=TOP); self.div2but[division] = b
-
-    divisionFaculty = self.soc.getFacultyByDivision(division)
-
-    for faculty in divisionFaculty:
-      cb = partial(self.facultyCb, faculty)
-      b  = Button(divisionFrame, text=faculty, command=cb, font=bodyFont)
-      b.pack(side=TOP, expand=True, fill=BOTH); self.faculty2but[faculty] = b
-
-##################### callbacks ##################### 
+  ##################### constructor ##################### 
+  
+  def buildGui(self):
+    self.headerFont   = (self.fontBase, str(self.fontSize), 'bold')
+    self.bodyFont     = (self.fontBase, str(self.fontSize))
+    self.socDivisions = soc.getDivisions()
+  
+    for division in socDivisions:
+      divisionFrame  = Frame(root); divisionFrame.pack(side=LEFT, anchor=N)
+  
+      cb = partial(self.divisionCb, division)
+      b  = Button(divisionFrame, text=division, command=cb, width=colWidth, font=headerFont)
+      b.pack(side=TOP); self.div2but[division] = b
+  
+      divisionFaculty = self.soc.getFacultyByDivision(division)
+  
+      for faculty in divisionFaculty:
+        cb = partial(self.facultyCb, faculty)
+        b  = Button(divisionFrame, text=faculty, command=cb, font=bodyFont)
+        b.pack(side=TOP, expand=True, fill=BOTH); self.faculty2but[faculty] = b
+  
+  ##################### callbacks ##################### 
 
   def divisionCb(self, whichDivision):
     print("division %s was pushed" % whichDivision)
