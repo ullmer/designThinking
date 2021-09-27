@@ -39,20 +39,20 @@ class socGuiFaculty:
   def buildGui(self):
     self.headerFont   = (self.fontBase, str(self.fontSize), 'bold')
     self.bodyFont     = (self.fontBase, str(self.fontSize))
-    self.socDivisions = soc.getDivisions()
+    self.socDivisions = self.soc.getDivisions()
   
-    for division in socDivisions:
-      divisionFrame  = Frame(root); divisionFrame.pack(side=LEFT, anchor=N)
+    for division in self.socDivisions:
+      divisionFrame  = Frame(self.tkRoot); divisionFrame.pack(side=LEFT, anchor=N)
   
       cb = partial(self.divisionCb, division)
-      b  = Button(divisionFrame, text=division, command=cb, width=colWidth, font=headerFont)
+      b  = Button(divisionFrame, text=division, command=cb, width=self.colWidth, font=self.headerFont)
       b.pack(side=TOP); self.div2but[division] = b
   
       divisionFaculty = self.soc.getFacultyByDivision(division)
   
       for faculty in divisionFaculty:
         cb = partial(self.facultyCb, faculty)
-        b  = Button(divisionFrame, text=faculty, command=cb, font=bodyFont)
+        b  = Button(divisionFrame, text=faculty, command=cb, font=self.bodyFont)
         b.pack(side=TOP, expand=True, fill=BOTH); self.faculty2but[faculty] = b
   
   ##################### callbacks ##################### 
