@@ -19,8 +19,11 @@ class socGuiFaculty:
   headerFont   = None
   bodyFont     = None
 
-  colHdrBg     = '#555'
-  colHdrFg     = '#fff'
+  colHdr1Bg     = '#531'
+  colHdr1Fg     = '#fff'
+
+  colHdr2Bg     = '#555'
+  colHdr2Fg     = '#fff'
 
   colRowBg1    = '#eee'
   colRowBg2    = '#ccc'
@@ -52,12 +55,22 @@ class socGuiFaculty:
     self.bodyFont     = (self.fontBase, str(self.fontSize))
     self.socDivisions = self.soc.getDivisions()
   
-    for division in self.socDivisions:
-      divisionFrame  = Frame(self.tkRoot); divisionFrame.pack(side=LEFT, anchor=N)
+    facultyFrame = Frame(self.tkRoot)
+    facultyFrame.pack()
+
+    h1 = Label(facultyFrame, text="faculty", 
+               bg=self.colHdr1Bg, fg=self.colHdr1Fg, font=self.headerFont)
+    h1.pack(side=TOP, expand=True, fill=X)
+
+    divisionsFrame = Frame(facultyFrame)
+    divisionsFrame.pack(side=TOP, expand=True, fill=BOTH)
   
+    for division in self.socDivisions:
+      divisionFrame  = Frame(divisionsFrame); divisionFrame.pack(side=LEFT, anchor=N)
+
       cb = partial(self.divisionCb, division)
       b  = Button(divisionFrame, text=division, command=cb, width=self.colWidth, 
-                  font=self.headerFont, bg = self.colHdrBg, fg = self.colHdrFg)
+                  font=self.headerFont, bg = self.colHdr2Bg, fg = self.colHdr2Fg)
 
       b.pack(side=TOP); self.div2but[division] = b
   
