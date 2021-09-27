@@ -7,9 +7,17 @@ from functools import partial
 from socDb         import *
 from socGuiFaculty import *
 
+soc = socDb()
+
 root = Tk() 
 gui  = socGuiFaculty(root)
 
+facultyInRank = soc.getFacultyByRank('asst')
+for faculty in facultyInRank:
+  gui.highlightFaculty(faculty)
+
 root.mainloop()                                          
+
+
 
 ### end ###

@@ -25,6 +25,8 @@ class socGuiFaculty:
   colRowBg1    = '#eee'
   colRowBg2    = '#ccc'
 
+  colHL1       = '#fc5'
+
   socDivisions   = None
   div2but        = None #division to button
   faculty2but    = None #faculty to button
@@ -73,6 +75,20 @@ class socGuiFaculty:
         b.pack(side=TOP, expand=True, fill=BOTH); self.faculty2but[faculty] = b
         rowNum += 1
   
+  ##################### highlightFaculty ##################### 
+
+  def highlightFaculty(self, faculty): # accept either singular name, or list of names
+
+    flist = faculty
+    if isinstance(faculty, list) is False: flist = [faculty]  #convert to a list if not already
+
+    for name in flist:
+      if name in self.faculty2but:
+        b = self.faculty2but[name]
+        #b.itemconfig(bg=self.colHL1)
+        b.configure(bg=self.colHL1)
+      else: print("socGUIFaculty.highlightFaculty: problem argument:", name)
+
   ##################### callbacks ##################### 
 
   def divisionCb(self, whichDivision):
