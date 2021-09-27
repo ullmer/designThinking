@@ -19,19 +19,28 @@ class socGuiFaculty:
   headerFont   = None
   bodyFont     = None
 
-  socDivisions = None
-  div2but      = None #division to button
-  faculty2but  = None #faculty to button
-  soc          = None
+  colHdrBg     = '#555'
+  colHdrFg     = '#fff'
+
+  colRowBg1    = '#eee'
+  colRowBg2    = '#ccc'
+
+  socDivisions   = None
+  div2but        = None #division to button
+  faculty2but    = None #faculty to button
+  faculty2rowNum = None #faculty to button
+  soc            = None
 
   ##################### constructor ##################### 
 
   def __init__(self, tkRoot):
-
     self.soc         = socDb()
     self.tkRoot      = tkRoot
-    self.div2but     = {}
-    self.faculty2but = {}
+
+    self.div2but        = {}
+    self.faculty2but    = {}
+    self.faculty2rowNum = {}
+
     self.buildGui()
 
   ##################### constructor ##################### 
@@ -45,15 +54,24 @@ class socGuiFaculty:
       divisionFrame  = Frame(self.tkRoot); divisionFrame.pack(side=LEFT, anchor=N)
   
       cb = partial(self.divisionCb, division)
-      b  = Button(divisionFrame, text=division, command=cb, width=self.colWidth, font=self.headerFont)
+      b  = Button(divisionFrame, text=division, command=cb, width=self.colWidth, 
+                  font=self.headerFont, bg = self.colHdrBg, fg = self.colHdrFg)
+
       b.pack(side=TOP); self.div2but[division] = b
   
       divisionFaculty = self.soc.getFacultyByDivision(division)
   
+      rowNum = 1
       for faculty in divisionFaculty:
         cb = partial(self.facultyCb, faculty)
-        b  = Button(divisionFrame, text=faculty, command=cb, font=self.bodyFont)
+        if rowNum % 2 == 0: rbg = self.colRowBg1 # row background
+        else:               rbg = self.colRowBg2
+
+        b  = Button(divisionFrame, text=faculty, command=cb, font=self.bodyFont, bg=rbg)
+        self.faculty2rowNum[faculty] = rowNum
+    
         b.pack(side=TOP, expand=True, fill=BOTH); self.faculty2but[faculty] = b
+        rowNum += 1
   
   ##################### callbacks ##################### 
 
