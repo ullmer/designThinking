@@ -34,6 +34,7 @@ class socGuiBase:
 
   colHL1    = '#fc5'
   colHL2    = '#d84'
+  #colHL2    = '#d08040'
   
   bodyFrame          = None
   bodyFramePacked    = None
