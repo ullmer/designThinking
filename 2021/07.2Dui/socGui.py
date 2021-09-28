@@ -52,6 +52,37 @@ class socGuiBase:
 ##################### Clemson School of Computing GUI : Faculty ##################### 
 #####################################################################################
 
+class socGuiRank(socGuiBase):
+  socRanks           = None
+  rank2but           = None 
+  bodyFrame          = None
+  bodyFramePacked    = None
+  socHighlightedRank = None
+
+  ##################### constructor ##################### 
+
+  def __init__(self, soc, tkRoot):
+    super().__init__(soc, tkRoot) # call parent (socGuiBase) constructor
+    self.rank2but = {}
+    self.buildGui()
+
+  ##################### constructor ##################### 
+  
+  def buildGui(self):
+    self.socRanks = self.soc.getRanks()
+
+    rankFrame = Frame(self.tkRoot)
+    rankFrame.pack()
+
+    cb = partial(self.bodyCb, "rank")
+    h1 = Button(facultyFrame, text="rank", command=cb,
+                bg=self.colHdr1Bg, fg=self.colHdr1Fg, font=self.titleFont)
+    h1.pack(side=TOP, expand=True, fill=X)
+
+#####################################################################################
+##################### Clemson School of Computing GUI : Faculty ##################### 
+#####################################################################################
+
 class socGuiFaculty(socGuiBase):
   socDivisions   = None
   div2but        = None #division to button
