@@ -5,13 +5,8 @@ insert into facultyRanks(order, abbrev, name) values
   (1, 'asst',  'Asst. Prof.'),
   (2, 'assoc', 'Assoc. Prof.'),
   (3, 'full',  'Professor'),
-  (4, 'lecturer', 'Lecturer'),
-
-create table facultyRanks(
-  id   integer primary key,
-  abbrev text,
-  name   text,
-  order  int
-);
+  (4, 'lecturer',  'Lecturer'),
+  (5, 'slecturer', 'Senior Lecturer'),
+  (6, 'pop',       'Professor of Practice');
 
 
