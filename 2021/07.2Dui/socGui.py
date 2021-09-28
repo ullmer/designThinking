@@ -66,6 +66,7 @@ class socGuiBase:
 class socGuiRank(socGuiBase):
   socRanks           = None
   rank2but           = None 
+  rank2rowNum        = None 
   socHighlightedRank = None
   facultyGui         = None
 
@@ -73,7 +74,9 @@ class socGuiRank(socGuiBase):
 
   def __init__(self, soc, tkRoot, facultyGui):
     super().__init__(soc, tkRoot) # call parent (socGuiBase) constructor
-    self.rank2but = {}
+    self.rank2but    = {}
+    self.rank2rowNum = {}
+
     self.buildGui()
     self.facultyGui = facultyGui
 
@@ -93,6 +96,7 @@ class socGuiRank(socGuiBase):
     h1.pack(side=TOP, expand=True, fill=X)
 
     self.bodyFrame = rankFrame  = Frame(ranksFrame); rankFrame.pack(side=TOP, anchor=N)
+
     rowNum = 1
     self.socRanks = []
 
@@ -108,6 +112,7 @@ class socGuiRank(socGuiBase):
                   font=self.bodyFont, bg = rbg)
 
       b.pack(side=TOP); self.rank2but[rank] = b
+      self.rank2rowNum[rank] = rowNum
       rowNum += 1
 
     self.bodyFramePacked = True
@@ -118,8 +123,41 @@ class socGuiRank(socGuiBase):
     print("rank %s was selected" % whichRank)
     facultyInRank = self.soc.getFacultyByRank(whichRank)
 
+    #highlight self appropriately
+    self.clearHighlightedRanks()
+    self.highlightRank(whichRank)
+
+    #highlight entangled faculty
     self.facultyGui.clearHighlightedFaculty()
     self.facultyGui.highlightFaculty(facultyInRank)
+
+  ##################### highlightRank ##################### 
+
+  def highlightRank(self, rank): # accept either singular rank, or list of ranks
+
+    rlist = rank
+    if isinstance(rank, list) is False: rlist = [rank]  #convert to a list if not already
+
+    self.socHighlightedRank = []
+    for rank in rlist:
+      if rank in self.rank2but:
+        b = self.rank2but[rank]
+        b.configure(bg=self.colHL1)
+        self.socHighlightedRank.append(rank)
+      else: print("socGUIRank.highlightRank: problem argument:", rank)
+
+  ##################### clear Highlighted Ranks ##################### 
+
+  def clearHighlightedRanks (self): 
+    if self.socHighlightedRank == None or self.socHighlightedRank == []:
+      return
+
+    for rank in self.socHighlightedRank:
+      button = self.rank2but[rank]
+      rowNum = self.rank2rowNum[rank]
+      if rowNum % 2 == 0: rbg = self.colRowBg1 # row background
+      else:               rbg = self.colRowBg2
+      button.configure(bg=rbg)
 
 #####################################################################################
 ##################### Clemson School of Computing GUI : Faculty ##################### 
