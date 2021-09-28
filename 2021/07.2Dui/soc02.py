@@ -14,7 +14,7 @@ facultyGui = socGuiFaculty(soc, root)
 rankGui    = socGuiRank(soc, root)
 
 facultyInRank = soc.getFacultyByRank('asst')
-gui.highlightFaculty(facultyInRank)
+facultyGui.highlightFaculty(facultyInRank)
 
 #gui.clearHighlightedFaculty()
 

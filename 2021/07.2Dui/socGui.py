@@ -72,12 +72,19 @@ class socGuiRank(socGuiBase):
     self.socRanks = self.soc.getRanks()
 
     rankFrame = Frame(self.tkRoot)
-    rankFrame.pack()
+    rankFrame.pack(side=LEFT, anchor=N)
 
     cb = partial(self.bodyCb, "rank")
-    h1 = Button(facultyFrame, text="rank", command=cb,
+    h1 = Button(rankFrame, text="rank", command=cb,
                 bg=self.colHdr1Bg, fg=self.colHdr1Fg, font=self.titleFont)
     h1.pack(side=TOP, expand=True, fill=X)
+
+  ##################### callbacks ##################### 
+
+  def bodyCb(self, whichFacet):
+    print("body %s was selected" % whichFacet)
+    if self.bodyFramePacked: self.bodyFrame.pack_forget(); self.bodyFramePacked = False
+    else:                    self.bodyFrame.pack();        self.bodyFramePacked = True
 
 #####################################################################################
 ##################### Clemson School of Computing GUI : Faculty ##################### 
@@ -109,7 +116,7 @@ class socGuiFaculty(socGuiBase):
     self.socDivisions = self.soc.getDivisions()
   
     facultyFrame = Frame(self.tkRoot)
-    facultyFrame.pack()
+    facultyFrame.pack(side=LEFT, anchor=N)
 
     cb = partial(self.bodyCb, "faculty")
     h1 = Button(facultyFrame, text="faculty", command=cb,
