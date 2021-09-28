@@ -33,6 +33,7 @@ class socGuiBase:
   colRowBg2 = '#ccc'
 
   colHL1    = '#fc5'
+  colHL2    = '#d84'
   
   bodyFrame          = None
   bodyFramePacked    = None
@@ -125,7 +126,7 @@ class socGuiRank(socGuiBase):
 
     #highlight self appropriately
     self.clearHighlightedRanks()
-    self.highlightRank(whichRank)
+    self.highlightRank(whichRank, 'primaryFocus')
 
     #highlight entangled faculty
     self.facultyGui.clearHighlightedFaculty()
@@ -133,7 +134,7 @@ class socGuiRank(socGuiBase):
 
   ##################### highlightRank ##################### 
 
-  def highlightRank(self, rank): # accept either singular rank, or list of ranks
+  def highlightRank(self, rank, highlightColor='defaultHighlight'): 
 
     rlist = rank
     if isinstance(rank, list) is False: rlist = [rank]  #convert to a list if not already
@@ -142,7 +143,8 @@ class socGuiRank(socGuiBase):
     for rank in rlist:
       if rank in self.rank2but:
         b = self.rank2but[rank]
-        b.configure(bg=self.colHL1)
+        if highlightColor == 'defaultHighlight': b.configure(bg=self.colHL1)
+        else:                                    b.configure(bg=self.colHL2)
         self.socHighlightedRank.append(rank)
       else: print("socGUIRank.highlightRank: problem argument:", rank)
 
