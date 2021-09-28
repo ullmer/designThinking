@@ -11,8 +11,9 @@ from functools import partial
 #####################################################################################
 
 class socGuiBase:
-  tkRoot       = None
-  colWidth     = 17
+  soc            = None
+  tkRoot         = None
+  colWidth       = 17
 
   fontBase       = "Sans"
   titleFontSize  = 18
@@ -21,16 +22,31 @@ class socGuiBase:
   headerFont     = None
   bodyFont       = None
 
-  colHdr1Bg     = '#531'
-  colHdr1Fg     = '#fff'
+  colHdr1Bg = '#531'
+  colHdr1Fg = '#fff'
 
-  colHdr2Bg     = '#555'
-  colHdr2Fg     = '#fff'
+  colHdr2Bg = '#555'
+  colHdr2Fg = '#fff'
 
-  colRowBg1    = '#eee'
-  colRowBg2    = '#ccc'
+  colRowBg1 = '#eee'
+  colRowBg2 = '#ccc'
 
-  colHL1       = '#fc5'
+  colHL1    = '#fc5'
+  
+  ##################### constructor ##################### 
+
+  def __init__(self, soc, tkRoot):
+    self.soc         = soc
+    self.tkRoot      = tkRoot
+
+    self.buildFonts()
+
+  ##################### buildFonts ##################### 
+
+  def buildFonts(self):
+    self.titleFont    = (self.fontBase, str(self.titleFontSize), 'bold')
+    self.headerFont   = (self.fontBase, str(self.fontSize), 'bold')
+    self.bodyFont     = (self.fontBase, str(self.fontSize))
 
 #####################################################################################
 ##################### Clemson School of Computing GUI : Faculty ##################### 
@@ -43,14 +59,12 @@ class socGuiFaculty(socGuiBase):
   faculty2rowNum = None #faculty to button
   facetFrame       = None
   facetFramePacked = None
-  soc            = None
   socHighlightedFaculty = None
 
   ##################### constructor ##################### 
 
   def __init__(self, soc, tkRoot):
-    self.soc         = soc
-    self.tkRoot      = tkRoot
+    super().__init__(soc, tkRoot) # call parent (socGuiBase) constructor
 
     self.div2but        = {}
     self.faculty2but    = {}
@@ -61,9 +75,6 @@ class socGuiFaculty(socGuiBase):
   ##################### constructor ##################### 
   
   def buildGui(self):
-    self.titleFont    = (self.fontBase, str(self.titleFontSize), 'bold')
-    self.headerFont   = (self.fontBase, str(self.fontSize), 'bold')
-    self.bodyFont     = (self.fontBase, str(self.fontSize))
     self.socDivisions = self.soc.getDivisions()
   
     facultyFrame = Frame(self.tkRoot)
