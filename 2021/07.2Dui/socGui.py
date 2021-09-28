@@ -7,9 +7,9 @@ from tkinter     import *
 from socDb       import *
 from functools   import partial
 
-#####################################################################################
-##################### Clemson School of Computing GUI : Base    ##################### 
-#####################################################################################
+#############################################################################
+################# Clemson School of Computing GUI : Base    #################
+#############################################################################
 
 class socGuiBase:
   soc            = None
@@ -261,4 +261,103 @@ class socGuiFaculty(socGuiBase):
   def facultyCb(self, whichFaculty):
     print("faculty %s was selected" % whichFaculty)
 
+#####################################################################################
+################ Clemson School of Computing GUI : researchAreas ####################
+#####################################################################################
+
+class socGuiResearchAreas(socGuiBase):
+  socResearchAreas = None
+  area2but         = None #major research areas to button
+  field2but        = None #research fields      to button
+  field2rowNum     = None #research field to row number
+  socHighlightedFields = None
+
+  ##################### constructor ##################### 
+
+  def __init__(self, soc, tkRoot, facultyGui):
+    super().__init__(soc, tkRoot) # call parent (socGuiBase) constructor
+
+    self.area2but        = {}
+    self.field2but    = {}
+    self.field2rowNum = {}
+
+    self.buildGui()
+    self.facultyGui = facultyGui
+
+  ##################### constructor ##################### 
+  
+  def buildGui(self):
+    self.socResearchAreas = self.soc.getMajorResearchAreas()
+  
+    rasFrame = Frame(self.tkRoot) #research areas frmae
+    rasFrame.pack(side=LEFT, anchor=N)
+
+    cb = partial(self.bodyCb, "areas")
+    h1 = Button(rasFrame, text="research areas", command=cb,
+                bg=self.colHdr1Bg, fg=self.colHdr1Fg, font=self.titleFont)
+    h1.pack(side=TOP, expand=True, fill=X)
+
+    self.bodyFrame = divisionsFrame = Frame(facultyFrame)
+    divisionsFrame.pack(side=TOP, expand=True, fill=BOTH)
+  
+    for researchArea in self.socResearchAreas:
+      raFrame  = Frame(divisionsFrame); raFrame.pack(side=LEFT, anchor=N)
+
+      cb = partial(self.divisionCb, researchArea)
+      b  = Button(raFrame, text=division, command=cb, width=self.colWidth, 
+                  font=self.headerFont, bg = self.colHdr2Bg, fg = self.colHdr2Fg)
+
+      b.pack(side=TOP); self.div2but[division] = b
+  
+      divisionFaculty = self.soc.getFacultyByDivision(division)
+  
+      rowNum = 1
+      for faculty in divisionFaculty:
+        cb = partial(self.facultyCb, faculty)
+        if rowNum % 2 == 0: rbg = self.colRowBg1 # row background
+        else:               rbg = self.colRowBg2
+
+        b  = Button(raFrame, text=faculty, command=cb, font=self.bodyFont, bg=rbg)
+        self.faculty2rowNum[faculty] = rowNum
+    
+        b.pack(side=TOP, expand=True, fill=BOTH); self.faculty2but[faculty] = b
+        rowNum += 1
+    self.bodyFramePacked = True
+  
+  ##################### highlightFaculty ##################### 
+
+  def highlightFaculty(self, faculty): # accept either singular name, or list of names
+
+    flist = faculty
+    if isinstance(faculty, list) is False: flist = [faculty]  #convert to a list if not already
+
+    self.socHighlightedFaculty = []
+    for name in flist:
+      if name in self.faculty2but:
+        b = self.faculty2but[name]
+        #b.itemconfig(bg=self.colHL1)
+        b.configure(bg=self.colHL1)
+        self.socHighlightedFaculty.append(name)
+      else: print("socGUIFaculty.highlightFaculty: problem argument:", name)
+
+  ##################### highlightFaculty ##################### 
+
+  def clearHighlightedFaculty(self): 
+    if self.socHighlightedFaculty == None or self.socHighlightedFaculty == []:
+      return
+
+    for faculty in self.socHighlightedFaculty:
+      button = self.faculty2but[faculty]
+      rowNum = self.faculty2rowNum[faculty]
+      if rowNum % 2 == 0: rbg = self.colRowBg1 # row background
+      else:               rbg = self.colRowBg2
+      button.configure(bg=rbg)
+
+  ##################### callbacks ##################### 
+
+  def divisionCb(self, whichDivision):
+    print("division %s was selected" % whichDivision)
+
+  def facultyCb(self, whichFaculty):
+    print("faculty %s was selected" % whichFaculty)
 ### end ###

@@ -99,6 +99,16 @@ class socDb:
     for entry in result1: result.append(entry[0:3])
     return result
 
+############### show major research areas ###############
+
+  def getMajorResearchAreas(self):
+    query = """select ra.name from researchArea as ra, 
+               researchAreaRelation as rar 
+               where rar.parentID = 0 and ra.id = rar.childID;"""
+    rresult = self.execSqlQuery(query); result = []
+    for entry in rresult: result.append(entry[0])
+    return result
+
 ############### exec sql query ############### 
 
   def execSqlQuery(self, query):
