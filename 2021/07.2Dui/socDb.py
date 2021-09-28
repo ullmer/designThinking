@@ -39,8 +39,8 @@ class socDb:
 
 ############### get divisions ############### 
 
-  def getRanks(self, compact=True):
-    if compact:
+  def getRanks(self, form='compact'):
+    if form == 'compact':
       #query  = "select rank from faculty group by rank;"
       query  = "select abbrev from facultyRanks order by rankOrder;"
       rresult = self.execSqlQuery(query); result = []

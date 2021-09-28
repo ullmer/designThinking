@@ -80,7 +80,9 @@ class socGuiRank(socGuiBase):
   ##################### constructor ##################### 
   
   def buildGui(self):
-    self.socRanks = self.soc.getRanks()
+    #self.socRanks = self.soc.getRanks()
+    expandedRanks = self.soc.getRanks('expanded')
+    print('expandedRanks:', str(expandedRanks))
 
     ranksFrame = Frame(self.tkRoot)
     ranksFrame.pack(side=LEFT, anchor=N)
@@ -92,14 +94,17 @@ class socGuiRank(socGuiBase):
 
     self.bodyFrame = rankFrame  = Frame(ranksFrame); rankFrame.pack(side=TOP, anchor=N)
     rowNum = 1
+    self.socRanks = []
 
-    for rank in self.socRanks:
+    for erank in expandedRanks:
+      rank, fullRankName = erank
+      self.socRanks.append(rank)
       cb = partial(self.rankCb, rank)
 
       if rowNum % 2 == 0: rbg = self.colRowBg1 # row background
       else:               rbg = self.colRowBg2
 
-      b  = Button(rankFrame, text=rank, command=cb, width=self.colWidth, 
+      b  = Button(rankFrame, text=fullRankName, command=cb, width=self.colWidth, 
                   font=self.bodyFont, bg = rbg)
 
       b.pack(side=TOP); self.rank2but[rank] = b
