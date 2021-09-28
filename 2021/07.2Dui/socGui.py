@@ -57,8 +57,8 @@ class socGuiFaculty(socGuiBase):
   div2but        = None #division to button
   faculty2but    = None #faculty to button
   faculty2rowNum = None #faculty to button
-  facetFrame       = None
-  facetFramePacked = None
+  bodyFrame       = None
+  bodyFramePacked = None
   socHighlightedFaculty = None
 
   ##################### constructor ##################### 
@@ -80,12 +80,12 @@ class socGuiFaculty(socGuiBase):
     facultyFrame = Frame(self.tkRoot)
     facultyFrame.pack()
 
-    cb = partial(self.facetCb, "faculty")
+    cb = partial(self.bodyCb, "faculty")
     h1 = Button(facultyFrame, text="faculty", command=cb,
                 bg=self.colHdr1Bg, fg=self.colHdr1Fg, font=self.titleFont)
     h1.pack(side=TOP, expand=True, fill=X)
 
-    self.facetFrame = divisionsFrame = Frame(facultyFrame)
+    self.bodyFrame = divisionsFrame = Frame(facultyFrame)
     divisionsFrame.pack(side=TOP, expand=True, fill=BOTH)
   
     for division in self.socDivisions:
@@ -110,7 +110,7 @@ class socGuiFaculty(socGuiBase):
     
         b.pack(side=TOP, expand=True, fill=BOTH); self.faculty2but[faculty] = b
         rowNum += 1
-    self.facetFramePacked = True
+    self.bodyFramePacked = True
   
   ##################### highlightFaculty ##################### 
 
@@ -143,10 +143,10 @@ class socGuiFaculty(socGuiBase):
 
   ##################### callbacks ##################### 
 
-  def facetCb(self, whichFacet):
-    print("facet %s was selected" % whichFacet)
-    if self.facetFramePacked: self.facetFrame.pack_forget(); self.facetFramePacked = False
-    else:                     self.facetFrame.pack();        self.facetFramePacked = True
+  def bodyCb(self, whichFacet):
+    print("body %s was selected" % whichFacet)
+    if self.bodyFramePacked: self.bodyFrame.pack_forget(); self.bodyFramePacked = False
+    else:                    self.bodyFrame.pack();        self.bodyFramePacked = True
 
   def divisionCb(self, whichDivision):
     print("division %s was selected" % whichDivision)
