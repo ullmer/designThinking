@@ -33,6 +33,9 @@ class socGuiBase:
 
   colHL1    = '#fc5'
   
+  bodyFrame          = None
+  bodyFramePacked    = None
+
   ##################### constructor ##################### 
 
   def __init__(self, soc, tkRoot):
@@ -48,6 +51,13 @@ class socGuiBase:
     self.headerFont   = (self.fontBase, str(self.fontSize), 'bold')
     self.bodyFont     = (self.fontBase, str(self.fontSize))
 
+  ##################### callbacks ##################### 
+
+  def bodyCb(self, whichFacet):
+    print("body %s was selected" % whichFacet)
+    if self.bodyFramePacked: self.bodyFrame.pack_forget(); self.bodyFramePacked = False
+    else:                    self.bodyFrame.pack();        self.bodyFramePacked = True
+
 #####################################################################################
 ##################### Clemson School of Computing GUI : Faculty ##################### 
 #####################################################################################
@@ -55,8 +65,6 @@ class socGuiBase:
 class socGuiRank(socGuiBase):
   socRanks           = None
   rank2but           = None 
-  bodyFrame          = None
-  bodyFramePacked    = None
   socHighlightedRank = None
 
   ##################### constructor ##################### 
@@ -71,20 +79,28 @@ class socGuiRank(socGuiBase):
   def buildGui(self):
     self.socRanks = self.soc.getRanks()
 
-    rankFrame = Frame(self.tkRoot)
-    rankFrame.pack(side=LEFT, anchor=N)
+    ranksFrame = Frame(self.tkRoot)
+    ranksFrame.pack(side=LEFT, anchor=N)
 
     cb = partial(self.bodyCb, "rank")
-    h1 = Button(rankFrame, text="rank", command=cb,
+    h1 = Button(ranksFrame, text="rank", command=cb,
                 bg=self.colHdr1Bg, fg=self.colHdr1Fg, font=self.titleFont)
     h1.pack(side=TOP, expand=True, fill=X)
 
+    self.bodyFrame = rankFrame  = Frame(ranksFrame); rankFrame.pack(side=TOP, anchor=N)
+    for rank in self.socRanks:
+      cb = partial(self.rankCb, rank)
+      b  = Button(rankFrame, text=rank, command=cb, width=self.colWidth, 
+                  font=self.headerFont, bg = self.colHdr2Bg, fg = self.colHdr2Fg)
+
+      b.pack(side=TOP); self.rank2but[rank] = b
+
+    self.bodyFramePacked = True
+
   ##################### callbacks ##################### 
 
-  def bodyCb(self, whichFacet):
-    print("body %s was selected" % whichFacet)
-    if self.bodyFramePacked: self.bodyFrame.pack_forget(); self.bodyFramePacked = False
-    else:                    self.bodyFrame.pack();        self.bodyFramePacked = True
+  def rankCb(self, whichRank):
+    print("rank %s was selected" % whichFacet)
 
 #####################################################################################
 ##################### Clemson School of Computing GUI : Faculty ##################### 
@@ -95,8 +111,6 @@ class socGuiFaculty(socGuiBase):
   div2but        = None #division to button
   faculty2but    = None #faculty to button
   faculty2rowNum = None #faculty to button
-  bodyFrame       = None
-  bodyFramePacked = None
   socHighlightedFaculty = None
 
   ##################### constructor ##################### 
@@ -180,11 +194,6 @@ class socGuiFaculty(socGuiBase):
       button.configure(bg=rbg)
 
   ##################### callbacks ##################### 
-
-  def bodyCb(self, whichFacet):
-    print("body %s was selected" % whichFacet)
-    if self.bodyFramePacked: self.bodyFrame.pack_forget(); self.bodyFramePacked = False
-    else:                    self.bodyFrame.pack();        self.bodyFramePacked = True
 
   def divisionCb(self, whichDivision):
     print("division %s was selected" % whichDivision)
