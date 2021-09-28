@@ -11,12 +11,7 @@ soc = socDb()
 
 root = Tk() 
 facultyGui = socGuiFaculty(soc, root)
-rankGui    = socGuiRank(soc, root)
-
-facultyInRank = soc.getFacultyByRank('asst')
-facultyGui.highlightFaculty(facultyInRank)
-
-#gui.clearHighlightedFaculty()
+rankGui    = socGuiRank(soc, root, facultyGui)
 
 root.mainloop()                                          
 

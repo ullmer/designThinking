@@ -66,13 +66,15 @@ class socGuiRank(socGuiBase):
   socRanks           = None
   rank2but           = None 
   socHighlightedRank = None
+  facultyGui         = None
 
   ##################### constructor ##################### 
 
-  def __init__(self, soc, tkRoot):
+  def __init__(self, soc, tkRoot, facultyGui):
     super().__init__(soc, tkRoot) # call parent (socGuiBase) constructor
     self.rank2but = {}
     self.buildGui()
+    self.facultyGui = facultyGui
 
   ##################### constructor ##################### 
   
@@ -108,6 +110,10 @@ class socGuiRank(socGuiBase):
 
   def rankCb(self, whichRank):
     print("rank %s was selected" % whichRank)
+    facultyInRank = self.soc.getFacultyByRank(whichRank)
+
+    self.facultyGui.clearHighlightedFaculty()
+    self.facultyGui.highlightFaculty(facultyInRank)
 
 #####################################################################################
 ##################### Clemson School of Computing GUI : Faculty ##################### 
