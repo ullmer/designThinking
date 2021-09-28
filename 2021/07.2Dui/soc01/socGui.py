@@ -14,10 +14,12 @@ class socGuiFaculty:
   tkRoot       = None
   colWidth     = 17
 
-  fontBase     = "Sans"
-  fontSize     = 12
-  headerFont   = None
-  bodyFont     = None
+  fontBase       = "Sans"
+  titleFontSize  = 18
+  fontSize       = 12
+  titleFont      = None
+  headerFont     = None
+  bodyFont       = None
 
   colHdr1Bg     = '#531'
   colHdr1Fg     = '#fff'
@@ -34,7 +36,10 @@ class socGuiFaculty:
   div2but        = None #division to button
   faculty2but    = None #faculty to button
   faculty2rowNum = None #faculty to button
+  facetFrame       = None
+  facetFramePacked = None
   soc            = None
+  socHighlightedFaculty = None
 
   ##################### constructor ##################### 
 
@@ -51,6 +56,7 @@ class socGuiFaculty:
   ##################### constructor ##################### 
   
   def buildGui(self):
+    self.titleFont    = (self.fontBase, str(self.titleFontSize), 'bold')
     self.headerFont   = (self.fontBase, str(self.fontSize), 'bold')
     self.bodyFont     = (self.fontBase, str(self.fontSize))
     self.socDivisions = self.soc.getDivisions()
@@ -58,11 +64,12 @@ class socGuiFaculty:
     facultyFrame = Frame(self.tkRoot)
     facultyFrame.pack()
 
-    h1 = Label(facultyFrame, text="faculty", 
-               bg=self.colHdr1Bg, fg=self.colHdr1Fg, font=self.headerFont)
+    cb = partial(self.facetCb, "faculty")
+    h1 = Button(facultyFrame, text="faculty", command=cb,
+                bg=self.colHdr1Bg, fg=self.colHdr1Fg, font=self.titleFont)
     h1.pack(side=TOP, expand=True, fill=X)
 
-    divisionsFrame = Frame(facultyFrame)
+    self.facetFrame = divisionsFrame = Frame(facultyFrame)
     divisionsFrame.pack(side=TOP, expand=True, fill=BOTH)
   
     for division in self.socDivisions:
@@ -87,6 +94,7 @@ class socGuiFaculty:
     
         b.pack(side=TOP, expand=True, fill=BOTH); self.faculty2but[faculty] = b
         rowNum += 1
+    self.facetFramePacked = True
   
   ##################### highlightFaculty ##################### 
 
@@ -95,19 +103,39 @@ class socGuiFaculty:
     flist = faculty
     if isinstance(faculty, list) is False: flist = [faculty]  #convert to a list if not already
 
+    self.socHighlightedFaculty = []
     for name in flist:
       if name in self.faculty2but:
         b = self.faculty2but[name]
         #b.itemconfig(bg=self.colHL1)
         b.configure(bg=self.colHL1)
+        self.socHighlightedFaculty.append(name)
       else: print("socGUIFaculty.highlightFaculty: problem argument:", name)
+
+  ##################### highlightFaculty ##################### 
+
+  def clearHighlightedFaculty(self): 
+    if self.socHighlightedFaculty == None or self.socHighlightedFaculty == []:
+      return
+
+    for faculty in self.socHighlightedFaculty:
+      button = self.faculty2but[faculty]
+      rowNum = self.faculty2rowNum[faculty]
+      if rowNum % 2 == 0: rbg = self.colRowBg1 # row background
+      else:               rbg = self.colRowBg2
+      button.configure(bg=rbg)
 
   ##################### callbacks ##################### 
 
+  def facetCb(self, whichFacet):
+    print("facet %s was selected" % whichFacet)
+    if self.facetFramePacked: self.facetFrame.pack_forget(); self.facetFramePacked = False
+    else:                     self.facetFrame.pack();        self.facetFramePacked = True
+
   def divisionCb(self, whichDivision):
-    print("division %s was pushed" % whichDivision)
+    print("division %s was selected" % whichDivision)
 
   def facultyCb(self, whichFaculty):
-    print("faculty %s was pushed" % whichFaculty)
+    print("faculty %s was selected" % whichFaculty)
 
 ### end ###

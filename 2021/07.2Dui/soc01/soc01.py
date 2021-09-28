@@ -4,8 +4,8 @@
 
 from tkinter   import *
 from functools import partial
-from socDb         import *
-from socGuiFaculty import *
+from socDb     import *
+from socGui    import *
 
 soc = socDb()
 
@@ -13,11 +13,9 @@ root = Tk()
 gui  = socGuiFaculty(root)
 
 facultyInRank = soc.getFacultyByRank('asst')
-for faculty in facultyInRank:
-  gui.highlightFaculty(faculty)
+gui.highlightFaculty(facultyInRank)
+#gui.clearHighlightedFaculty()
 
 root.mainloop()                                          
-
-
 
 ### end ###
