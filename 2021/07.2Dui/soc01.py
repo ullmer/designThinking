@@ -10,10 +10,11 @@ from socGui    import *
 soc = socDb()
 
 root = Tk() 
-gui  = socGuiFaculty(root)
+gui  = socGuiFaculty(soc, root)
 
 facultyInRank = soc.getFacultyByRank('asst')
 gui.highlightFaculty(facultyInRank)
+
 #gui.clearHighlightedFaculty()
 
 root.mainloop()                                          

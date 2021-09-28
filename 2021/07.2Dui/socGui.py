@@ -48,8 +48,8 @@ class socGuiFaculty(socGuiBase):
 
   ##################### constructor ##################### 
 
-  def __init__(self, tkRoot):
-    self.soc         = socDb()
+  def __init__(self, soc, tkRoot):
+    self.soc         = soc
     self.tkRoot      = tkRoot
 
     self.div2but        = {}
