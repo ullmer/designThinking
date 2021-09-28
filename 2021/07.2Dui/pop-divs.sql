@@ -1,7 +1,7 @@
 insert into facultyDivisions(name) 
   values ('CS'),('HCC'),('VC'),('FOI');
 
-insert into facultyRanks(order, abbrev, name) values
+insert into facultyRanks(rankOrder, abbrev, name) values
   (1, 'asst',  'Asst. Prof.'),
   (2, 'assoc', 'Assoc. Prof.'),
   (3, 'full',  'Professor'),

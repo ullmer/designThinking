@@ -18,10 +18,10 @@ create table researchArea(
 );
 
 create table facultyRanks(
-  id   integer primary key,
-  abbrev text,
-  name   text,
-  order  int
+  id         integer primary key,
+  abbrev     text,
+  name       text,
+  rankOrder  integer
 );
 
 create table facultyDivisions(
