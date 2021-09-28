@@ -2,9 +2,10 @@
 # By Brygg Ullmer, Clemson University
 # Begun 2021-09-27
 
-from tkinter   import *
-from socDb     import *
-from functools import partial
+from tkinter     import *
+#from tkinter.ttk import *
+from socDb       import *
+from functools   import partial
 
 #####################################################################################
 ##################### Clemson School of Computing GUI : Base    ##################### 
