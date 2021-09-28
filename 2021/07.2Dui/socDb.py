@@ -45,6 +45,14 @@ class socDb:
     for entry in rresult: result.append(entry[0])
     return result
 
+############### get divisions ############### 
+
+  def getFacultyByRank(self, rank):
+    query  = "select name from faculty where rank=\"%s\";" % rank
+    rresult = self.execSqlQuery(query); result = []
+    for entry in rresult: result.append(entry[0])
+    return result
+
 ############### list all faculty ############### 
   
   def getFacultyByDivision(self, division):
