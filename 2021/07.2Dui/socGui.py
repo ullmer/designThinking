@@ -35,6 +35,7 @@ class socGuiFaculty:
   faculty2but    = None #faculty to button
   faculty2rowNum = None #faculty to button
   soc            = None
+  socHighlightedFaculty = None
 
   ##################### constructor ##################### 
 
@@ -95,12 +96,27 @@ class socGuiFaculty:
     flist = faculty
     if isinstance(faculty, list) is False: flist = [faculty]  #convert to a list if not already
 
+    self.socHighlightedFaculty = []
     for name in flist:
       if name in self.faculty2but:
         b = self.faculty2but[name]
         #b.itemconfig(bg=self.colHL1)
         b.configure(bg=self.colHL1)
+        self.socHighlightedFaculty.append(name)
       else: print("socGUIFaculty.highlightFaculty: problem argument:", name)
+
+  ##################### highlightFaculty ##################### 
+
+  def clearHighlightedFaculty(self): 
+    if self.socHighlightedFaculty == None or self.socHighlightedFaculty == []:
+      return
+
+    for faculty in self.socHighlightedFaculty:
+      button = self.faculty2but[faculty]
+      rowNum = self.faculty2rowNum[faculty]
+      if rowNum % 2 == 0: rbg = self.colRowBg1 # row background
+      else:               rbg = self.colRowBg2
+      button.configure(bg=rbg)
 
   ##################### callbacks ##################### 
 
