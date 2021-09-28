@@ -7,10 +7,10 @@ from socDb     import *
 from functools import partial
 
 #####################################################################################
-##################### Clemson School of Computing GUI : Faculty ##################### 
+##################### Clemson School of Computing GUI : Base    ##################### 
 #####################################################################################
 
-class socGuiFaculty:
+class socGuiBase:
   tkRoot       = None
   colWidth     = 17
 
@@ -32,6 +32,11 @@ class socGuiFaculty:
 
   colHL1       = '#fc5'
 
+#####################################################################################
+##################### Clemson School of Computing GUI : Faculty ##################### 
+#####################################################################################
+
+class socGuiFaculty(socGuiBase):
   socDivisions   = None
   div2but        = None #division to button
   faculty2but    = None #faculty to button
