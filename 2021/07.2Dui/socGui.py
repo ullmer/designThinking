@@ -58,9 +58,9 @@ class socGuiBase:
     if self.bodyFramePacked: self.bodyFrame.pack_forget(); self.bodyFramePacked = False
     else:                    self.bodyFrame.pack();        self.bodyFramePacked = True
 
-#####################################################################################
-##################### Clemson School of Computing GUI : Faculty ##################### 
-#####################################################################################
+##################################################################################
+##################### Clemson School of Computing GUI : Rank ##################### 
+##################################################################################
 
 class socGuiRank(socGuiBase):
   socRanks           = None
@@ -88,19 +88,26 @@ class socGuiRank(socGuiBase):
     h1.pack(side=TOP, expand=True, fill=X)
 
     self.bodyFrame = rankFrame  = Frame(ranksFrame); rankFrame.pack(side=TOP, anchor=N)
+    rowNum = 1
+
     for rank in self.socRanks:
       cb = partial(self.rankCb, rank)
+
+      if rowNum % 2 == 0: rbg = self.colRowBg1 # row background
+      else:               rbg = self.colRowBg2
+
       b  = Button(rankFrame, text=rank, command=cb, width=self.colWidth, 
-                  font=self.headerFont, bg = self.colHdr2Bg, fg = self.colHdr2Fg)
+                  font=self.bodyFont, bg = rbg)
 
       b.pack(side=TOP); self.rank2but[rank] = b
+      rowNum += 1
 
     self.bodyFramePacked = True
 
   ##################### callbacks ##################### 
 
   def rankCb(self, whichRank):
-    print("rank %s was selected" % whichFacet)
+    print("rank %s was selected" % whichRank)
 
 #####################################################################################
 ##################### Clemson School of Computing GUI : Faculty ##################### 
