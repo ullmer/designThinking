@@ -24,12 +24,12 @@ dbDescr: #database description
       query: "select name from faculty where rank=\"%s\";" 
       results: [name]
 
-    getFacultyByDivision(self, division):
+    getFacultyByDivision:
       arguments: [division]
       query: "select name from faculty where division='%s' order by lastName;"
       results: [name]
 
-    getFacultyRankByDivision(self, division):
+    getFacultyRankByDivision:
       arguments: [division]
       query: "select name, rank from faculty where division='%s' order by lastName"
       results: [name, rank]
