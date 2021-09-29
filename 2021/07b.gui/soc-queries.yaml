@@ -24,32 +24,20 @@ dbDescr: #database description
       query: "select name from faculty where rank=\"%s\";" 
       columns: 1
 
-############### list all faculty ############### 
-  
-  def getFacultyByDivision(self, division):
-    query  = """select name from faculty 
-                 where division='%s' 
-                 order by lastName""" % division;
+    getFacultyByDivision(self, division):
+      arguments: [division]
+      query: "select name from faculty where division='%s' order by lastName;"
+      columns: 1
 
-    result1 = self.execSqlQuery(query); result = []
-    for entry in result1: result.append(entry[0])
-    return result
+    getFacultyRankByDivision(self, division):
+      arguments: [division]
+      query: "select name, rank from faculty where division='%s' order by lastName"
+      columns: 2
 
-############### list all faculty ############### 
-
-  def getFacultyRankByDivision(self, division):
-    query  = """select name, rank from faculty 
-                 where division='%s' 
-                 order by lastName""" % division;
-
-    result1 = self.execSqlQuery(query); result = []
-    for entry in result1: result.append(entry[0:2])
-    return result
-
-  def getFacultyRankExtraByDivision(self, division):
-    query  = """select name, rank, extraRole from faculty 
-                 where division='%s' 
-                 order by lastName""" % division;
+    getFacultyRankExtraByDivision:
+      arguments: [division]
+      query: "select name, rank, extraRole from faculty where division='%s' order by lastName"
+      columns: 3
 
     result1 = self.execSqlQuery(query); result = []
     for entry in result1: result.append(entry[0:3])
