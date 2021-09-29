@@ -9,44 +9,38 @@ dbDescr: #database description
   queries: 
     getRanksCompact: 
       query:   "select abbrev from facultyRanks order by rankOrder;"
-      columns: 1
+      results: [abbrev]
 
     getRanksExpanded: 
       query: "select abbrev, name from facultyRanks order by rankOrder;"
-      columns: 2
+      results: [abbrev, name]
 
     getDivisions:
       query:  "select name from facultyDivisions;"
-      columns: 1
+      results: [name]
 
     getFacultyByRank:
       arguments: [rank]
       query: "select name from faculty where rank=\"%s\";" 
-      columns: 1
+      results: [name]
 
     getFacultyByDivision(self, division):
       arguments: [division]
       query: "select name from faculty where division='%s' order by lastName;"
-      columns: 1
+      results: [name]
 
     getFacultyRankByDivision(self, division):
       arguments: [division]
       query: "select name, rank from faculty where division='%s' order by lastName"
-      columns: 2
+      results: [name, rank]
 
     getFacultyRankExtraByDivision:
       arguments: [division]
       query: "select name, rank, extraRole from faculty where division='%s' order by lastName"
-      columns: 3
+      results: [name, rank, extraRole]
 
-    result1 = self.execSqlQuery(query); result = []
-    for entry in result1: result.append(entry[0:3])
-    return result
-
-############### show major research areas ###############
-
-  def getMajorResearchAreas(self):
-    query = """select ra.name from researchArea as ra, 
+    getMajorResearchAreas(self):
+      query: "select ra.name from researchArea as ra, 
                researchAreaRelation as rar 
                where rar.parentID = 0 and ra.id = rar.childID;"""
     rresult = self.execSqlQuery(query); result = []
