@@ -44,6 +44,12 @@ class socDb:
     try:    
       self.queriesY = self.queriesYFull['dbDescr']['queries']
       self.queriesList = self.queriesY.keys()
+      for queryName in self.queriesList:
+        queryFields = self.queriesY[queryName]
+
+	queryStr, queryResults = queryFields['query'], queryFields['results']
+	if 'arguments' in queryFields: arguments = queryFields['arguments']
+	else:                          arguments = []
 
     except: print("socDb::loadYamlQueries error"); traceback.print_exc()
 
