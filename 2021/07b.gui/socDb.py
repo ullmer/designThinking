@@ -104,13 +104,13 @@ def main():
   soc = socDb()
   halfline = "=" * 20
   print("\n", halfline, "major research areas", halfline)
-  print(soc.showMajorResearchAreas())
+  print(soc.getMajorResearchAreas())
 
   print("\n", halfline, "HCC subfields, default ordering", halfline)
-  print(soc.showResearchFields('Human-Centered Computing'))
+  print(soc.getResearchFields('Human-Centered Computing'))
   
   print("\n", halfline, "HCC subfields, custom ordering", halfline)
-  print(soc.showResearchFieldsOrdered('Human-Centered Computing', "f.division,f.lastName"))
+  print(soc.getResearchFieldsOrdered('Human-Centered Computing', "f.division,f.lastName"))
 
 if __name__ == "__main__":
   main()
