@@ -28,7 +28,7 @@ class socDb:
   queryResults = None
   dbConn       = None
   dbCursor     = None
-  verbose      = False
+  verbose      = True
   usePandas    = False
 
 ############### School of Computing faculty/research areas class ############### 
@@ -57,11 +57,11 @@ class socDb:
         queryStr, queryResults = queryFields['query'], queryFields['results']
         if 'arguments' in queryFields: queryArgs = queryFields['arguments']
         else:                          queryArgs = []
-         self.constructPartialQuery(queryName, queryStr, queryArgs, queryResults)
+        self.constructPartialQuery(queryName, queryStr, queryArgs, queryResults)
 
     except: print("socDb::loadYamlQueries error"); traceback.print_exc(); return 
 
-    print("Loaded queries from %s: %s" % (yamlFn, self.queriesList))
+    #print("Loaded queries from %s: %s" % (yamlFn, self.queriesList))
     #print(self.queriesY)
 
   ############### load YAML queries ###############
@@ -75,7 +75,7 @@ class socDb:
     self.queryArgs[queryName]    = queryArgs
     self.queryResults[queryName] = queryResults
 
-    print("socDb::constructPartialQuery:: constructing %s partialmethod" % queryName)
+    if self.verbose: print("socDb::constructPartialQuery:: constructing partialmethod", queryName)
     functools.partialmethod(self.queryWrapper, queryName, queryArgs)
 
 ############### show major research areas ###############
