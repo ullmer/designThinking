@@ -9,7 +9,7 @@
 # and SQL tables described in: soc-defs.sql
 # ... and is synthesized by Python3 code procSoC1.py 
 
-import sqlite3, yaml, traceback
+import sqlite3, yaml, traceback, functools
 
 try: import pandas as pd # this has particular value for Jupyter use
 except: print("pandas not found; working around")
@@ -23,6 +23,9 @@ class socDb:
   queriesYFull = None #more expansive representation, including embedded sqliteDbFn 
   queriesY     = None #just the queries 
   queriesList  = None #list of queries
+  queryStrs    = None
+  queryArgs    = None
+  queryResults = None
   dbConn       = None
   dbCursor     = None
   verbose      = False
@@ -41,6 +44,10 @@ class socDb:
     yf           = open(yamlFn, "r+t")
     self.queriesYFull = yaml.safe_load(yf); yf.close()
 
+    self.queryStrs    = {}
+    self.queryArgs    = {}
+    self.queryResults = {}
+
     try:    
       self.queriesY = self.queriesYFull['dbDescr']['queries']
       self.queriesList = self.queriesY.keys()
@@ -56,13 +63,17 @@ class socDb:
     print("Loaded queries from %s: %s" % (yamlFn, self.queriesList))
     #print(self.queriesY)
 
-############### load YAML queries ###############
+  ############### load YAML queries ###############
 
-#https://stackoverflow.com/questions/16626789/functools-partial-on-class-method
-#https://docs.python.org/3/library/functools.html#functools.partialmethod
+  #https://stackoverflow.com/questions/16626789/functools-partial-on-class-method
+  #https://docs.python.org/3/library/functools.html#functools.partialmethod
 
   def constructPartialQuery(self, queryName, queryStr, queryArgs, queryResults):
-    partial
+    self.queryStrs[queryName]    = queryStr
+    self.queryArgs[queryName]    = queryArgs
+    self.queryResults[queryName] = queryResults
+
+    functools.partialmethod(self.constructQueryWrapper, queryName, queryArgs)
 
 ############### show major research areas ###############
 
