@@ -58,7 +58,7 @@ class socDb:
         if 'arguments' in queryFields: arguments = queryFields['arguments']
         else:                          arguments = []
 
-    except: print("socDb::loadYamlQueries error"); traceback.print_exc()
+    except: print("socDb::loadYamlQueries error"); traceback.print_exc(); return 
 
     print("Loaded queries from %s: %s" % (yamlFn, self.queriesList))
     #print(self.queriesY)
@@ -85,8 +85,8 @@ class socDb:
       numQueryResults  = length(queryResults)
       rresult = self.execSqlQuery(query); result = []
       for entry in rresult: result.append(entry[0:numQueryResults])
-
-    return result
+      return result
+    except: print("socDb::queryWrapper error"); traceback.print_exc(); return None
 
 ############### exec sql query ############### 
 
