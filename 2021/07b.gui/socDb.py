@@ -40,7 +40,7 @@ class socDb:
     yf           = open(yamlFn, "r+t")
     self.queriesYFull = yaml.safe_load(yf); yf.close()
 
-    try:    self.queriesY = self.queriesYFull['queries']
+    try:    self.queriesY = self.queriesYFull['dbDescr']['queries']
     except: print("socDb::loadYamlQueries error"); traceback.print_exc()
 
     print(self.queriesY)
