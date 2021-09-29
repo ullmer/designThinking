@@ -56,6 +56,14 @@ class socDb:
     print("Loaded queries from %s: %s" % (yamlFn, self.queriesList))
     #print(self.queriesY)
 
+############### load YAML queries ###############
+
+#https://stackoverflow.com/questions/16626789/functools-partial-on-class-method
+#https://docs.python.org/3/library/functools.html#functools.partialmethod
+
+  def constructPartialQuery(self, queryName, queryStr, queryArgs, queryResults):
+    partial
+
 ############### show major research areas ###############
 
   def getMajorResearchAreas(self):
