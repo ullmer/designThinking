@@ -73,16 +73,19 @@ class socDb:
     self.queryArgs[queryName]    = queryArgs
     self.queryResults[queryName] = queryResults
 
-    functools.partialmethod(self.constructQueryWrapper, queryName, queryArgs)
+    functools.partialmethod(self.queryWrapper, queryName, queryArgs)
 
 ############### show major research areas ###############
 
-  def getMajorResearchAreas(self):
-    query = """select ra.name from researchArea as ra, 
-               researchAreaRelation as rar 
-               where rar.parentID = 0 and ra.id = rar.childID;"""
-    rresult = self.execSqlQuery(query); result = []
-    for entry in rresult: result.append(entry[0])
+  def queryWrapper(self, queryName, queryArgs):
+    try: 
+      queryStrTemplate = self.queryStrs[queryName]
+      queryStr         = queryStrTemplate % queryArgs
+      queryResults     = self.queryResults[queryName]
+      numQueryResults  = length(queryResults)
+      rresult = self.execSqlQuery(query); result = []
+      for entry in rresult: result.append(entry[0:numQueryResults])
+
     return result
 
 ############### exec sql query ############### 
