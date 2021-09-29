@@ -9,7 +9,7 @@
 # and SQL tables described in: soc-defs.sql
 # ... and is synthesized by Python3 code procSoC1.py 
 
-import sqlite3, yaml
+import sqlite3, yaml, traceback
 
 try: import pandas as pd # this has particular value for Jupyter use
 except: print("pandas not found; working around")
@@ -18,13 +18,14 @@ except: print("pandas not found; working around")
 ############### School of Computing faculty/research areas class ############### 
 
 class socDb:
-  sqliteDbFn = 'soc.db3'
-  queriesYFn = 'soc-queries.yaml'
-  queriesY   = None
-  dbConn     = None
-  dbCursor   = None
-  verbose    = False
-  usePandas  = False
+  sqliteDbFn   = 'soc.db3'
+  queriesYFn   = 'soc-queries.yaml'
+  queriesYFull = None #more expansive representation, including embedded sqliteDbFn 
+  queriesY     = None #just the queries 
+  dbConn       = None
+  dbCursor     = None
+  verbose      = False
+  usePandas    = False
 
 ############### School of Computing faculty/research areas class ############### 
 
@@ -36,11 +37,13 @@ class socDb:
 ############### load YAML queries ###############
 
   def loadYamlQueries(self, yamlFn):
-    yf       = open(yamlFn, "r+t")
-    queriesY = yaml.safe_load(yf)
-    yf.close()
+    yf           = open(yamlFn, "r+t")
+    self.queriesYFull = yaml.safe_load(yf); yf.close()
 
-    print(queriesY)
+    try:    self.queriesY = self.queriesYFull['queries']
+    except: print("socDb::loadYamlQueries error"); traceback.print_exc()
+
+    print(self.queriesY)
 
 ############### show major research areas ###############
 
