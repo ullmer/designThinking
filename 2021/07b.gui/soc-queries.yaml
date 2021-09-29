@@ -3,10 +3,10 @@
 # By Brygg Ullmer, Clemson University
 # Begun 2021-09-20
 
-dbaseDescription:
-  sqliteDb: 'soc.db3'
+dbDescr: #database description
+  sqliteDb: 'soc.db3' #source sqlite filename
 
-  facultyQueries:
+  queries: 
     getRanksCompact: 
       query:   "select abbrev from facultyRanks order by rankOrder;"
       columns: 1
@@ -15,21 +15,14 @@ dbaseDescription:
       query: "select abbrev, name from facultyRanks order by rankOrder;"
       columns: 2
 
-############### get divisions ############### 
+    getDivisions:
+      query:  "select name from facultyDivisions;"
+      columns: 1
 
-  def getDivisions(self):
-    query  = "select name from facultyDivisions;"
-    rresult = self.execSqlQuery(query); result = []
-    for entry in rresult: result.append(entry[0])
-    return result
-
-############### get divisions ############### 
-
-  def getFacultyByRank(self, rank):
-    query  = "select name from faculty where rank=\"%s\";" % rank
-    rresult = self.execSqlQuery(query); result = []
-    for entry in rresult: result.append(entry[0])
-    return result
+    getFacultyByRank:
+      arguments: [rank]
+      query: "select name from faculty where rank=\"%s\";" 
+      columns: 1
 
 ############### list all faculty ############### 
   
