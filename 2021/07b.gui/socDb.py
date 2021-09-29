@@ -22,6 +22,7 @@ class socDb:
   queriesYFn   = 'soc-queries.yaml'
   queriesYFull = None #more expansive representation, including embedded sqliteDbFn 
   queriesY     = None #just the queries 
+  queriesList  = None #list of queries
   dbConn       = None
   dbCursor     = None
   verbose      = False
@@ -40,10 +41,14 @@ class socDb:
     yf           = open(yamlFn, "r+t")
     self.queriesYFull = yaml.safe_load(yf); yf.close()
 
-    try:    self.queriesY = self.queriesYFull['dbDescr']['queries']
+    try:    
+      self.queriesY = self.queriesYFull['dbDescr']['queries']
+      self.queriesList = self.queriesY.keys()
+
     except: print("socDb::loadYamlQueries error"); traceback.print_exc()
 
-    print(self.queriesY)
+    print("Loaded queries from %s: %s" % (yamlFn, self.queriesList))
+    #print(self.queriesY)
 
 ############### show major research areas ###############
 
@@ -70,7 +75,7 @@ class socDb:
 def main():
   soc = socDb()
   halfline = "=" * 20
-  print(halfline, "major research areas", halfline)
+  print("\n", halfline, "major research areas", halfline)
   print(soc.showMajorResearchAreas())
 
   print("\n", halfline, "HCC subfields, default ordering", halfline)
