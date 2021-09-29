@@ -55,8 +55,9 @@ class socDb:
         queryFields = self.queriesY[queryName]
 
         queryStr, queryResults = queryFields['query'], queryFields['results']
-        if 'arguments' in queryFields: arguments = queryFields['arguments']
-        else:                          arguments = []
+        if 'arguments' in queryFields: queryArgs = queryFields['arguments']
+        else:                          queryArgs = []
+         self.constructPartialQuery(queryName, queryStr, queryArgs, queryResults)
 
     except: print("socDb::loadYamlQueries error"); traceback.print_exc(); return 
 
@@ -67,12 +68,14 @@ class socDb:
 
   #https://stackoverflow.com/questions/16626789/functools-partial-on-class-method
   #https://docs.python.org/3/library/functools.html#functools.partialmethod
+  #https://florian-dahlitz.de/articles/introduction-to-pythons-functools-module#partialmethod-the-partial-for-methods 
 
   def constructPartialQuery(self, queryName, queryStr, queryArgs, queryResults):
     self.queryStrs[queryName]    = queryStr
     self.queryArgs[queryName]    = queryArgs
     self.queryResults[queryName] = queryResults
 
+    print("socDb::constructPartialQuery:: constructing %s partialmethod" % queryName)
     functools.partialmethod(self.queryWrapper, queryName, queryArgs)
 
 ############### show major research areas ###############
