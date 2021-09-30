@@ -18,8 +18,8 @@ except: print("pandas not found; working around")
 ############### School of Computing faculty/research areas class ############### 
 
 class socDb:
-  sqliteDbFn   = 'soc.db3'
-  queriesYFn   = 'soc-queries.yaml'
+  sqliteDbFn   = None
+  queriesYFn   = None
   queriesYFull = None #more expansive representation, including embedded sqliteDbFn 
   queriesY     = None #just the queries 
   queriesList  = None #list of queries
@@ -33,7 +33,9 @@ class socDb:
 
 ############### School of Computing faculty/research areas class ############### 
 
-  def __init__(self):
+  def __init__(self, sqliteDbFn='soc.db3', queriesYFn='soc-queries.yaml'):
+    self.sqliteDbFn = sqliteDbFn; self.queriesYFn = queriesYFn
+
     self.dbConn   = sqlite3.connect(self.sqliteDbFn)
     self.dbCursor = self.dbConn.cursor()
     self.loadYamlQueries(self.queriesYFn)
@@ -60,7 +62,6 @@ class socDb:
         self.constructPartialQuery(queryName, queryStr, queryArgs, queryResults)
 
     except: print("socDb::loadYamlQueries error"); traceback.print_exc(); return 
-
     #print("Loaded queries from %s: %s" % (yamlFn, self.queriesList))
     #print(self.queriesY)
 
@@ -69,6 +70,7 @@ class socDb:
   #https://stackoverflow.com/questions/16626789/functools-partial-on-class-method
   #https://docs.python.org/3/library/functools.html#functools.partialmethod
   #https://florian-dahlitz.de/articles/introduction-to-pythons-functools-module#partialmethod-the-partial-for-methods 
+  #https://betterprogramming.pub/python-reflection-and-introspection-97b348be54d8
 
   def constructPartialQuery(self, queryName, queryStr, queryArgs, queryResults):
     self.queryStrs[queryName]    = queryStr
@@ -76,7 +78,8 @@ class socDb:
     self.queryResults[queryName] = queryResults
 
     if self.verbose: print("socDb::constructPartialQuery:: constructing partialmethod", queryName)
-    functools.partialmethod(self.queryWrapper, queryName, queryArgs)
+    pm = functools.partialmethod(self.queryWrapper, queryName, queryArgs)
+    setattr(self, queryName, pm)
 
 ############### show major research areas ###############
 
@@ -104,7 +107,10 @@ class socDb:
 ############### main ############### 
 
 def main():
-  soc = socDb()
+  sqliteDbFn   = 'soc.db3'
+  queriesYFn   = 'soc-queries.yaml'
+  soc = socDb(sqliteDbFn, queriesYFn)
+
   halfline = "=" * 20
   print("\n", halfline, "major research areas", halfline)
   print(soc.getMajorResearchAreas())
