@@ -303,25 +303,23 @@ class socGuiResearchAreas(socGuiBase):
     for researchArea in self.socResearchAreas:
       raFrame  = Frame(self.bodyFrame); raFrame.pack(side=LEFT, anchor=N)
 
-      cb = partial(self.divisionCb, researchArea)
+      cb = partial(self.raCb, researchArea)
       b  = Button(raFrame, text=researchArea, command=cb, width=self.colWidth, 
                   font=self.headerFont, bg = self.colHdr2Bg, fg = self.colHdr2Fg)
 
       b.pack(side=TOP); self.area2but[researchArea] = b
-      continue
-  
-      divisionFaculty = self.soc.getFacultyByDivision(division)
+      ras = self.soc.getResearchFields(researchArea)
   
       rowNum = 1
-      for faculty in divisionFaculty:
-        cb = partial(self.facultyCb, faculty)
+      for ra in ras:
+        cb = partial(self.raCb, ra)
         if rowNum % 2 == 0: rbg = self.colRowBg1 # row background
         else:               rbg = self.colRowBg2
 
-        b  = Button(raFrame, text=faculty, command=cb, font=self.bodyFont, bg=rbg)
-        self.faculty2rowNum[faculty] = rowNum
+        b  = Button(raFrame, text=ra, command=cb, font=self.bodyFont, bg=rbg)
+        self.field2rowNum[ra] = rowNum
     
-        b.pack(side=TOP, expand=True, fill=BOTH); self.faculty2but[faculty] = b
+        b.pack(side=TOP, expand=True, fill=BOTH); self.field2but[ra] = b
         rowNum += 1
     self.bodyFramePacked = True
   
@@ -356,9 +354,7 @@ class socGuiResearchAreas(socGuiBase):
 
   ##################### callbacks ##################### 
 
-  def divisionCb(self, whichDivision):
-    print("division %s was selected" % whichDivision)
+  def raCb(self, whichRa):
+    print("research area %s was selected" % whichRa)
 
-  def facultyCb(self, whichFaculty):
-    print("faculty %s was selected" % whichFaculty)
 ### end ###
