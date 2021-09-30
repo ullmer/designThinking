@@ -284,6 +284,9 @@ class socGuiResearchAreas(socGuiBase):
     self.buildGui()
     self.facultyGui = facultyGui
 
+    self.fontSize = 7
+    self.bodyFont = (self.fontBase, str(self.fontSize))
+
   ##################### constructor ##################### 
   
   def buildGui(self):
@@ -317,7 +320,7 @@ class socGuiResearchAreas(socGuiBase):
         if rowNum % 2 == 0: rbg = self.colRowBg1 # row background
         else:               rbg = self.colRowBg2
 
-        b  = Button(raFrame, text=ra, command=cb, font=self.bodyFont, bg=rbg)
+        b  = Button(raFrame, text=ra, command=cb, font=self.bodyFont, bg=rbg, width=18)
         self.field2rowNum[ra] = rowNum
     
         b.pack(side=TOP, expand=True, fill=BOTH); self.field2but[ra] = b
