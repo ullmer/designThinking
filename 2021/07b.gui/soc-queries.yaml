@@ -40,9 +40,9 @@ dbDescr: #database description
       results: [name, rank, extraRole]
 
     getMajorResearchAreas:
-      query: "select ra.name from researchArea as ra, 
+      query: select ra.name from researchArea as ra, 
                researchAreaRelation as rar 
-               where rar.parentID = 0 and ra.id = rar.childID;"
+               where rar.parentID = 0 and ra.id = rar.childID;
       results: [name]
     
     getResearchFields:

@@ -92,7 +92,7 @@ class enoDb: #enodia database class
       queryStr         = queryStrTemplate % queryArgs
       queryResults     = self.queryResults[queryName]
       numQueryResults  = len(queryResults)
-      rresult = self.execSqlQuery(query); result = []
+      rresult = self.execSqlQuery(queryStr); result = []
       for entry in rresult: result.append(entry[0:numQueryResults])
       return result
     except: print("socDb::queryWrapper error"); traceback.print_exc(); return None
