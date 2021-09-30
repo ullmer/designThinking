@@ -61,7 +61,7 @@ class enoDb: #enodia database class
         else:                          queryArgs = []
         self.constructPartialQuery(queryName, queryStr, queryArgs, queryResults)
 
-    except: print("socDb::loadYamlQueries error"); traceback.print_exc(); return 
+    except: print("enoDb::loadYamlQueries error"); traceback.print_exc(); return 
     #print("Loaded queries from %s: %s" % (yamlFn, self.queriesList))
     #print(self.queriesY)
 
@@ -74,7 +74,7 @@ class enoDb: #enodia database class
     self.queryArgs[queryName]    = queryArgs
     self.queryResults[queryName] = queryResults
 
-    if self.verbose: print("socDb::constructPartialQuery:: constructing partial", queryName)
+    if self.verbose: print("enoDb::constructPartialQuery:: constructing partial", queryName)
     p = functools.partial(self.queryWrapper, queryName, queryArgs)
     setattr(self, queryName, p) #this worked for me better than partialmethod
 
@@ -91,7 +91,7 @@ class enoDb: #enodia database class
       rresult = self.execSqlQuery(queryStr); result = []
       for entry in rresult: result.append(entry[0:numQueryResults])
       return result
-    except: print("socDb::queryWrapper error"); traceback.print_exc(); return None
+    except: print("enoDb::queryWrapper error"); traceback.print_exc(); return None
 
 ############### exec sql query ############### 
 
