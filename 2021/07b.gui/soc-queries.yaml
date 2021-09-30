@@ -49,7 +49,7 @@ dbDescr: #database description
       arguments: [majorResearchArea]
       query: select ra1.name from researchArea as ra1, researchArea as ra2,
                researchAreaRelation as rar 
-               where where ra2.name="%s" and 
+               where ra2.name="%s" and 
                      rar.parentId = ra2.id and rar.childId = ra1.id;
       results: [name]
 #               where where ra2.name="Artificial Intelligence" and 
