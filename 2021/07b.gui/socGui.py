@@ -360,5 +360,6 @@ class socGuiResearchAreas(socGuiBase):
 
   def raCb(self, whichRa):
     print("research area %s was selected" % whichRa)
+    print(self.soc.getFacultyResearchFields(whichRa))
 
 ### end ###
