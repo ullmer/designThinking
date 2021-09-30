@@ -116,7 +116,7 @@ def main():
   print(soc.getResearchFields('Human-Centered Computing'))
   
   print("\n", halfline, "HCC subfields, custom ordering", halfline)
-  print(soc.getResearchFieldsOrdered('Human-Centered Computing', "f.division,f.lastName"))
+  print(soc.getResearchFieldsOrdered(('Human-Centered Computing', "f.division,f.lastName")))
 
 if __name__ == "__main__":
   main()
