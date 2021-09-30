@@ -360,6 +360,14 @@ class socGuiResearchAreas(socGuiBase):
 
   def raCb(self, whichRa):
     print("research area %s was selected" % whichRa)
-    print(self.soc.getFacultyResearchFields(whichRa))
+    facultyRecs = self.soc.getFacultyResearchFields(whichRa)
+    print(facultyRecs)
+
+    faculty = []
+    for fr in facultyRecs: faculty.append(fr[0])
+
+    #highlight entangled faculty
+    self.facultyGui.clearHighlightedFaculty()
+    self.facultyGui.highlightFaculty(faculty)
 
 ### end ###
