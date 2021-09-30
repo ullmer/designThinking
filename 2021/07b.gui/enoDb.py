@@ -89,7 +89,7 @@ class enoDb: #enodia database class
   def queryWrapper(self, queryName, queryArgs):
     try: 
       queryStrTemplate = self.queryStrs[queryName]
-      queryStr         = queryStrTemplate % queryArgs
+      queryStr         = queryStrTemplate % (queryArgs)
       queryResults     = self.queryResults[queryName]
       numQueryResults  = len(queryResults)
       rresult = self.execSqlQuery(queryStr); result = []
