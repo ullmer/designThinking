@@ -44,5 +44,27 @@ dbDescr: #database description
                researchAreaRelation as rar 
                where rar.parentID = 0 and ra.id = rar.childID;"
       results: [name]
+    
+    getResearchFields:
+      arguments: [subarea]
+      query: select f.name, f.division, f.rank
+                from faculty as f, researchArea as ra, 
+                personResearchRelation as prr
+                where ra.name = '%s' and
+                  prr.raid = ra.id and prr.fid = f.id
+               group by f.name order by f.rank, f.division
+      results: [name, division, rank]
+
+    getResearchFieldsOrdered:
+      arguments: [subarea, orderStr]
+      query: select f.name, f.division, f.rank
+                from faculty as f, researchArea as ra, 
+                personResearchRelation as prr
+                where ra.name = '%s' and
+                  prr.raid = ra.id and prr.fid = f.id
+               group by f.name order by %s
+      results: [name, division, rank]
+
+### end ###
 
 ### end ###
