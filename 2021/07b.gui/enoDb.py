@@ -110,7 +110,7 @@ def main():
 
   halfline = "=" * 20
   print("\n", halfline, "major research areas", halfline)
-  print(soc.getMajorResearchAreas([]))
+  print(soc.getMajorResearchAreas())
 
   print("\n", halfline, "HCC subfields, default ordering", halfline)
   print(soc.getResearchFields(['Human-Centered Computing']))
