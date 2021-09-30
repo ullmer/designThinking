@@ -80,10 +80,8 @@ class enoDb: #enodia database class
 
 ############### show major research areas ###############
 
-  def queryWrapper(self, **kwargs):
+  def queryWrapper(self, queryName, queryArgs):
     try: 
-      queryName = kwargs[0]
-      queryArgs = kwargs[1:]
       queryStrTemplate = self.queryStrs[queryName]
       queryStr         = queryStrTemplate % queryArgs
       queryResults     = self.queryResults[queryName]
@@ -112,13 +110,13 @@ def main():
 
   halfline = "=" * 20
   print("\n", halfline, "major research areas", halfline)
-  print(soc.getMajorResearchAreas())
+  print(soc.getMajorResearchAreas([]))
 
   print("\n", halfline, "HCC subfields, default ordering", halfline)
-  print(soc.getResearchFields('Human-Centered Computing'))
+  print(soc.getResearchFields(['Human-Centered Computing']))
   
   print("\n", halfline, "HCC subfields, custom ordering", halfline)
-  print(soc.getResearchFieldsOrdered('Human-Centered Computing', "f.division,f.lastName"))
+  print(soc.getResearchFieldsOrdered(['Human-Centered Computing', "f.division,f.lastName"]))
 
 if __name__ == "__main__":
   main()
