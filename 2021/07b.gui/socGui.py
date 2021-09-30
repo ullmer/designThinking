@@ -309,6 +309,7 @@ class socGuiResearchAreas(socGuiBase):
 
       b.pack(side=TOP); self.area2but[researchArea] = b
       ras = self.soc.getResearchFields(researchArea)
+      print("RAs:", ras)
   
       rowNum = 1
       for ra in ras:
