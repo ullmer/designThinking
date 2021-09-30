@@ -67,13 +67,7 @@ class enoDb: #enodia database class
 
   ############### construct partial query ###############
 
-  #https://stackoverflow.com/questions/16626789/functools-partial-on-class-method
-  #https://docs.python.org/3/library/functools.html#functools.partialmethod
-  #https://florian-dahlitz.de/articles/introduction-to-pythons-functools-module#partialmethod-the-partial-for-methods 
-  #https://betterprogramming.pub/python-reflection-and-introspection-97b348be54d8
-  #https://stackoverflow.com/questions/49662666/unable-to-call-function-defined-by-partialmethod
-  #https://stackoverflow.com/questions/41070352/usage-of-functool-partialmethod-and-functool-partial
-
+  # note list of URLs consulted toward expression of partial queries below
 
   def constructPartialQuery(self, queryName, queryStr, queryArgs, queryResults):
     self.queryStrs[queryName]    = queryStr
@@ -86,10 +80,12 @@ class enoDb: #enodia database class
 
 ############### show major research areas ###############
 
-  def queryWrapper(self, queryName, queryArgs):
+  def queryWrapper(self, **kwargs):
     try: 
+      queryName = kwargs[0]
+      queryArgs = kwargs[1:]
       queryStrTemplate = self.queryStrs[queryName]
-      queryStr         = queryStrTemplate % (queryArgs)
+      queryStr         = queryStrTemplate % queryArgs
       queryResults     = self.queryResults[queryName]
       numQueryResults  = len(queryResults)
       rresult = self.execSqlQuery(queryStr); result = []
@@ -127,4 +123,14 @@ def main():
 if __name__ == "__main__":
   main()
 
+# list of URLs consulted toward expression of partial queries: 
+#https://stackoverflow.com/questions/16626789/functools-partial-on-class-method
+#https://docs.python.org/3/library/functools.html#functools.partialmethod
+#https://florian-dahlitz.de/articles/introduction-to-pythons-functools-module#partialmethod-the-partial-for-methods 
+#https://betterprogramming.pub/python-reflection-and-introspection-97b348be54d8
+#https://stackoverflow.com/questions/49662666/unable-to-call-function-defined-by-partialmethod
+#https://stackoverflow.com/questions/41070352/usage-of-functool-partialmethod-and-functool-partial
+
+  def constructPartialQuery(self, queryName, queryStr, queryArgs, queryResults):
+    self.queryStrs[queryName]    = queryStr
 ### end ###
