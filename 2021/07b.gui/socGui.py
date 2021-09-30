@@ -17,8 +17,8 @@ class socGuiBase:
   colWidth       = 17
 
   fontBase       = "Sans"
-  titleFontSize  = 18
-  fontSize       = 12
+  titleFontSize  = 14
+  fontSize       = 9
   titleFont      = None
   headerFont     = None
   bodyFont       = None
@@ -307,7 +307,7 @@ class socGuiResearchAreas(socGuiBase):
       raFrame  = Frame(self.bodyFrame); raFrame.pack(side=LEFT, anchor=N)
 
       cb = partial(self.raCb, researchArea)
-      b  = Button(raFrame, text=researchArea, command=cb, width=self.colWidth, 
+      b  = Button(raFrame, text=researchArea, command=cb, width=self.colWidth, anchor=W,
                   font=self.headerFont, bg = self.colHdr2Bg, fg = self.colHdr2Fg)
 
       b.pack(side=TOP); self.area2but[researchArea] = b
@@ -320,10 +320,10 @@ class socGuiResearchAreas(socGuiBase):
         if rowNum % 2 == 0: rbg = self.colRowBg1 # row background
         else:               rbg = self.colRowBg2
 
-        b  = Button(raFrame, text=ra, command=cb, font=self.bodyFont, bg=rbg, width=18)
+        b  = Button(raFrame, text=ra, command=cb, font=self.bodyFont, bg=rbg, width=16)
         self.field2rowNum[ra] = rowNum
     
-        b.pack(side=TOP, expand=True, fill=BOTH); self.field2but[ra] = b
+        b.pack(side=TOP, expand=True, fill=BOTH, anchor=W); self.field2but[ra] = b
         rowNum += 1
     self.bodyFramePacked = True
   
