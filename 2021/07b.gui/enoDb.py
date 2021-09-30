@@ -87,7 +87,10 @@ class enoDb: #enodia database class
       queryResults     = self.queryResults[queryName]
       numQueryResults  = len(queryResults)
       rresult = self.execSqlQuery(queryStr); result = []
-      for entry in rresult: result.append(entry[0:numQueryResults])
+      if numQueryResults == 1: 
+        for entry in rresult: result.append(entry[0])
+      else:                    
+        for entry in rresult: result.append(entry)
       return result
     except: print("enoDb::queryWrapper error"); traceback.print_exc(); return None
 
