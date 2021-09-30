@@ -287,7 +287,7 @@ class socGuiResearchAreas(socGuiBase):
   ##################### constructor ##################### 
   
   def buildGui(self):
-    self.socResearchAreas = self.soc.getMajorResearchAreas()
+    self.socResearchAreas = self.soc.getMajorResearchAreas([])
   
     rasFrame = Frame(self.tkRoot) #research areas frmae
     rasFrame.pack(side=LEFT, anchor=N)
@@ -297,7 +297,7 @@ class socGuiResearchAreas(socGuiBase):
                 bg=self.colHdr1Bg, fg=self.colHdr1Fg, font=self.titleFont)
     h1.pack(side=TOP, expand=True, fill=X)
 
-    self.bodyFrame = divisionsFrame = Frame(facultyFrame)
+    self.bodyFrame = Frame(rasFrame)
     divisionsFrame.pack(side=TOP, expand=True, fill=BOTH)
   
     for researchArea in self.socResearchAreas:
