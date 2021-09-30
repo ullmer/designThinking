@@ -7,34 +7,34 @@ dbDescr: #database description
   sqliteDb: 'soc.db3' #source sqlite filename
 
   queries: 
-    getRanksCompact: 
+    getRanksCompact: ###################################
       query:   "select abbrev from facultyRanks order by rankOrder;"
       results: [abbrev]
 
-    getRanksExpanded: 
+    getRanksExpanded: ##################################
       query: "select abbrev, name from facultyRanks order by rankOrder;"
       results: [abbrev, name]
 
-    getDivisions:
+    getDivisions: ######################################
       query:  "select name from facultyDivisions;"
       results: [name]
 
-    getFacultyByRank:
+    getFacultyByRank: ##################################
       arguments: [rank]
       query: "select name from faculty where rank=\"%s\";" 
       results: [name]
 
-    getFacultyByDivision:
+    getFacultyByDivision: ##############################
       arguments: [division]
       query: "select name from faculty where division='%s' order by lastName;"
       results: [name]
 
-    getFacultyRankByDivision:
+    getFacultyRankByDivision: ###########################
       arguments: [division]
       query: "select name, rank from faculty where division='%s' order by lastName"
       results: [name, rank]
 
-    getFacultyRankExtraByDivision:
+    getFacultyRankExtraByDivision: #####################
       arguments: [division]
       query: "select name, rank, extraRole from faculty where division='%s' order by lastName"
       results: [name, rank, extraRole]
@@ -45,7 +45,7 @@ dbDescr: #database description
                where rar.parentID = 0 and ra.id = rar.childID;
       results: [name]
     
-    getResearchFields:
+    getResearchFields: ##################################
       arguments: [subarea]
       query: select f.name, f.division, f.rank
                 from faculty as f, researchArea as ra, 
@@ -55,7 +55,7 @@ dbDescr: #database description
                 group by f.name order by f.rank, f.division
       results: [name, division, rank]
 
-    getResearchFieldsOrdered:
+    getResearchFieldsOrdered: ############################
       arguments: [subarea, orderStr]
       query: select f.name, f.division, f.rank
                 from faculty as f, researchArea as ra, 
