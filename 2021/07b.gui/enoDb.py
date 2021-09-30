@@ -80,9 +80,9 @@ class enoDb: #enodia database class
     self.queryArgs[queryName]    = queryArgs
     self.queryResults[queryName] = queryResults
 
-    if self.verbose: print("socDb::constructPartialQuery:: constructing partialmethod", queryName)
+    if self.verbose: print("socDb::constructPartialQuery:: constructing partial", queryName)
     p = functools.partial(self.queryWrapper, queryName, queryArgs)
-    setattr(self, queryName, p)
+    setattr(self, queryName, p) #this worked for me better than partialmethod
 
 ############### show major research areas ###############
 
