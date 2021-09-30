@@ -65,12 +65,14 @@ class socDb:
     #print("Loaded queries from %s: %s" % (yamlFn, self.queriesList))
     #print(self.queriesY)
 
-  ############### load YAML queries ###############
+  ############### construct partial query ###############
 
   #https://stackoverflow.com/questions/16626789/functools-partial-on-class-method
   #https://docs.python.org/3/library/functools.html#functools.partialmethod
   #https://florian-dahlitz.de/articles/introduction-to-pythons-functools-module#partialmethod-the-partial-for-methods 
   #https://betterprogramming.pub/python-reflection-and-introspection-97b348be54d8
+  #https://stackoverflow.com/questions/49662666/unable-to-call-function-defined-by-partialmethod
+
 
   def constructPartialQuery(self, queryName, queryStr, queryArgs, queryResults):
     self.queryStrs[queryName]    = queryStr
@@ -78,7 +80,7 @@ class socDb:
     self.queryResults[queryName] = queryResults
 
     if self.verbose: print("socDb::constructPartialQuery:: constructing partialmethod", queryName)
-    pm = functools.partialmethod(self.queryWrapper, queryName, queryArgs)
+    pm = functools.partialmethod(self.queryWrapper, queryName, queryArgs).__get__()
     setattr(self, queryName, pm)
 
 ############### show major research areas ###############
