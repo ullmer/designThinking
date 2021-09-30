@@ -75,7 +75,7 @@ class enoDb: #enodia database class
     self.queryResults[queryName] = queryResults
 
     if self.verbose: print("enoDb::constructPartialQuery:: constructing partial", queryName)
-    p = functools.partial(self.queryWrapper, queryName, queryArgs)
+    p = functools.partial(self.queryWrapper, queryName)
     setattr(self, queryName, p) #this worked for me better than partialmethod
 
 ############### show major research areas ###############
@@ -110,13 +110,13 @@ def main():
 
   halfline = "=" * 20
   print("\n", halfline, "major research areas", halfline)
-  print(soc.getMajorResearchAreas())
+  print(soc.getMajorResearchAreas([]))
 
   print("\n", halfline, "HCC subfields, default ordering", halfline)
-  print(soc.getResearchFields(['Human-Centered Computing']))
+  print(soc.getResearchFields('Human-Centered Computing'))
   
   print("\n", halfline, "HCC subfields, custom ordering", halfline)
-  print(soc.getResearchFieldsOrdered(['Human-Centered Computing', "f.division,f.lastName"]))
+  print(soc.getResearchFieldsOrdered('Human-Centered Computing', "f.division,f.lastName"))
 
 if __name__ == "__main__":
   main()
