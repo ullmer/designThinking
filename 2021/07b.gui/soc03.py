@@ -4,15 +4,17 @@
 
 from tkinter   import *
 from functools import partial
-from socDb     import *
+from enoDb     import *
 from socGui    import *
 
-soc = socDb()
+sqliteDbFn   = 'soc.db3'
+queriesYFn   = 'soc-queries.yaml'
+soc = enoDb(sqliteDbFn, queriesYFn)
 
 root = Tk() 
 facultyGui      = socGuiFaculty(soc,       root)
 rankGui         = socGuiRank(soc,          root, facultyGui)
-researchAreaGui = socGuiResearchAreas(soc, root, facultyGui)
+#researchAreaGui = socGuiResearchAreas(soc, root, facultyGui)
 
 root.mainloop()                                          
 

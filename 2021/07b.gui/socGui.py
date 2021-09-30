@@ -4,7 +4,7 @@
 
 from tkinter     import *
 #from tkinter.ttk import *
-from socDb       import *
+from enoDb       import *
 from functools   import partial
 
 #############################################################################
@@ -86,7 +86,7 @@ class socGuiRank(socGuiBase):
   
   def buildGui(self):
     #self.socRanks = self.soc.getRanks()
-    expandedRanks = self.soc.getRanks('expanded')
+    expandedRanks = self.soc.getRanksExpanded([])
     print('expandedRanks:', str(expandedRanks))
 
     ranksFrame = Frame(self.tkRoot)
@@ -187,7 +187,7 @@ class socGuiFaculty(socGuiBase):
   ##################### constructor ##################### 
   
   def buildGui(self):
-    self.socDivisions = self.soc.getDivisions()
+    self.socDivisions = self.soc.getDivisions([])
   
     facultyFrame = Frame(self.tkRoot)
     facultyFrame.pack(side=LEFT, anchor=N)
