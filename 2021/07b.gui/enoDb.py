@@ -28,7 +28,7 @@ class enoDb: #enodia database class
   queryResults = None
   dbConn       = None
   dbCursor     = None
-  verbose      = True
+  verbose      = False
   usePandas    = False
 
 ############### School of Computing faculty/research areas class ############### 

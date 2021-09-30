@@ -298,16 +298,17 @@ class socGuiResearchAreas(socGuiBase):
     h1.pack(side=TOP, expand=True, fill=X)
 
     self.bodyFrame = Frame(rasFrame)
-    divisionsFrame.pack(side=TOP, expand=True, fill=BOTH)
-  
+    self.bodyFrame.pack(side=TOP, expand=True, fill=BOTH)
+
     for researchArea in self.socResearchAreas:
-      raFrame  = Frame(divisionsFrame); raFrame.pack(side=LEFT, anchor=N)
+      raFrame  = Frame(self.bodyFrame); raFrame.pack(side=LEFT, anchor=N)
 
       cb = partial(self.divisionCb, researchArea)
-      b  = Button(raFrame, text=division, command=cb, width=self.colWidth, 
+      b  = Button(raFrame, text=researchArea, command=cb, width=self.colWidth, 
                   font=self.headerFont, bg = self.colHdr2Bg, fg = self.colHdr2Fg)
 
-      b.pack(side=TOP); self.div2but[division] = b
+      b.pack(side=TOP); self.area2but[researchArea] = b
+      continue
   
       divisionFaculty = self.soc.getFacultyByDivision(division)
   
