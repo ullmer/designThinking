@@ -15,9 +15,9 @@ try: import pandas as pd # this has particular value for Jupyter use
 except: print("pandas not found; working around")
 
 ################################################################################
-############### School of Computing faculty/research areas class ############### 
+############### Enodia sqlite wrappers class ############### 
 
-class socDb:
+class enoDb: #enodia database class
   sqliteDbFn   = None
   queriesYFn   = None
   queriesYFull = None #more expansive representation, including embedded sqliteDbFn 
@@ -72,6 +72,7 @@ class socDb:
   #https://florian-dahlitz.de/articles/introduction-to-pythons-functools-module#partialmethod-the-partial-for-methods 
   #https://betterprogramming.pub/python-reflection-and-introspection-97b348be54d8
   #https://stackoverflow.com/questions/49662666/unable-to-call-function-defined-by-partialmethod
+  #https://stackoverflow.com/questions/41070352/usage-of-functool-partialmethod-and-functool-partial
 
 
   def constructPartialQuery(self, queryName, queryStr, queryArgs, queryResults):
@@ -80,8 +81,8 @@ class socDb:
     self.queryResults[queryName] = queryResults
 
     if self.verbose: print("socDb::constructPartialQuery:: constructing partialmethod", queryName)
-    pm = functools.partialmethod(self.queryWrapper, queryName, queryArgs).__get__()
-    setattr(self, queryName, pm)
+    p = functools.partial(self.queryWrapper, queryName, queryArgs)
+    setattr(self, queryName, p)
 
 ############### show major research areas ###############
 
@@ -90,7 +91,7 @@ class socDb:
       queryStrTemplate = self.queryStrs[queryName]
       queryStr         = queryStrTemplate % queryArgs
       queryResults     = self.queryResults[queryName]
-      numQueryResults  = length(queryResults)
+      numQueryResults  = len(queryResults)
       rresult = self.execSqlQuery(query); result = []
       for entry in rresult: result.append(entry[0:numQueryResults])
       return result
@@ -111,7 +112,7 @@ class socDb:
 def main():
   sqliteDbFn   = 'soc.db3'
   queriesYFn   = 'soc-queries.yaml'
-  soc = socDb(sqliteDbFn, queriesYFn)
+  soc = enoDb(sqliteDbFn, queriesYFn)
 
   halfline = "=" * 20
   print("\n", halfline, "major research areas", halfline)
