@@ -1,3 +1,7 @@
+# Enodia Shapefile abstractions
+# Brygg Ullmer, Clemson University
+# Begun 10/02/2021
+
 #https://github.com/GeospatialPython/pyshp
 #https://www.pythoninformer.com/python-libraries/pycairo/drawing-shapes/
 
@@ -5,7 +9,21 @@ import shapefile
 import cairo
 import sys
 
-llmm = [-122.406817, -71.024618, 29.39391499999999, 47.71432] #lat long min max
+################ Enodia Shapefile (TIGER GIS/Maps ################ 
+
+class enShapefile:
+  shapeFn = "shape/tl_2020_us_primaryroads.shp"
+
+
+  method __init__(self):
+
+
+
+
+
+sf = shapefile.Reader("shape/tl_2020_us_primaryroads.shp")
+
+ #llmm = [-122.406817, -71.024618, 29.39391499999999, 47.71432] #lat long min max
 latMin = llmm[0];  latMax  = llmm[1]; latRange  = abs(latMax - latMin)
 longMin = llmm[2]; longMax = llmm[3]; longRange = abs(longMax - longMin)
 
