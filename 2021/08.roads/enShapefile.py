@@ -26,7 +26,7 @@ class enShapefile:
   records = None
   numRecs = None
 
-  targetRoads    =[10,40,80,90] #Interstates
+  targetRoads    = [10,40,80,90] #Interstates
   targetRoadStrs = []
 
   ################ constructor ################ 
@@ -39,21 +39,20 @@ class enShapefile:
    self.fields  = sf.fields
    self.records = sf.records()
 
-latRange  = abs(latMax - latMin)
-longRange = abs(longMax - longMin)
-
-print([latRange, longRange]); sys.exit()
-WIDTH = 3; HEIGHT=2
-
-sf = shapefile.Reader("shape/tl_2020_us_primaryroads.shp")
+   self.extractInterstateVerts()
+   self.calcLatLongMinMaxRange()
 
 
 
-vertices = {}
+
 
 for tr in targetRoads:
   trStr = "I- " + str(tr)
   targetRoadStrs.append(trStr)
+
+
+
+
 
 for i in range(numRecs):
   sl = len(shapes[i].points)
@@ -62,21 +61,29 @@ for i in range(numRecs):
     if name in targetRoadStrs:
       #print("shape %i : points %i : name %s" % (i, sl, name))
       numPoints = len(shapes[i].points)
-      if name not in vertices.keys(): vertices[name] = []
-      for coord in shapes[i].points:  vertices[name].append(coord)
+      if name not in roadVertexSeqs.keys(): roadVertexSeqs[name] = []
+      for coord in shapes[i].points:        roadVertexSeqs[name].append(coord)
 
-#for name in targetRoadStrs:
-#  print('='*10, name, '='*10)
-#  print(vertices[name]) 
 
-fig, ax = plt.subplots(figsize = (20,20))
+   self.calcLatLongMinMaxRange()
+### get minimum and maximum ###
 
-ExistingRoutesMap.plot(ax=ax,color = 'green', label = 'bus routes')
+latMin = latMax = longMin = longMax = None
 
-plt.show()
+for rvs in roadVertexSeqs.keys():
+  for vertex in roadVertexSeqs[rvs]:
+    lat, long = vertex
+    if latMin == None: latMin = latMax = lat; longMin = longMax = long
+    else:
+      if lat < latMin: latMin = lat
+      if lat > latMax: latMax = lat
 
-#shape = shapes[3].points[7]
-#['%.3f' % coord for coord in shape]
-#['-122.471', '37.787']
+      if long < longMin: longMin = long
+      if long > longMax: longMax = long
+
+
+latRange  = abs(latMax - latMin)
+longRange = abs(longMax - longMin)
+
 
 ### end ###
