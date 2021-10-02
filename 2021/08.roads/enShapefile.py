@@ -44,7 +44,7 @@ class enShapefile:
 
   ################ constructor ################ 
 
-  method __init__(self):
+  def __init__(self):
    self.sf = shapefile.Reader(self.shapeFn)
 
    self.numRecs = len(sf)
@@ -60,7 +60,7 @@ class enShapefile:
 
   ################ calculate normalized lat and long ################ 
 
-  method calcNormLatLong(self, lat, long):
+  def calcNormLatLong(self, lat, long):
     if self.latMin == None: self.calcLatLongMinMaxRange() #calculate bounds if not already done
 
     if lat < self.latMin or lat > self.latMax:
@@ -76,7 +76,7 @@ class enShapefile:
 
   ################ plotCaiVertSeq ################ 
 
-  method plotCaiCreateSurface(self): #use Cairo to create surface for plotting
+  def plotCaiCreateSurface(self): #use Cairo to create surface for plotting
 
     self.caiSurface = cairo.ImageSurface(cairo.FORMAT_RGB24,
                              self.normWidth * pixelScale,
@@ -90,12 +90,12 @@ class enShapefile:
 
   ################ plotCaiVertSeq ################ 
 
-  method plotCaiWritePng(self): #use Cairo to create surface for plotting
+  def plotCaiWritePng(self): #use Cairo to create surface for plotting
     self.surface.write_to_png(self.outPngFn)
   
   ################ plotCaiVertSeq ################ 
 
-  method plotCaiVertSeq(self, vertSeq): #use Cairo to plot vertex sequence
+  def plotCaiVertSeq(self, vertSeq): #use Cairo to plot vertex sequence
     normVerts = []
     for vert in vertSeq:
       normVert = self.calcNormLatLong(vert[0], vert[1])
@@ -116,7 +116,7 @@ class enShapefile:
 
   ################ extract Interstate Vertices ################ 
 
-  method extractInterstateVerts(self):
+  def extractInterstateVerts(self):
     for tr in self.targetRoads:
       trStr = "I- " + str(tr)
       self.targetRoadStrs.append(trStr)
@@ -140,7 +140,7 @@ class enShapefile:
     
   ############ calculate latitude, longitude min, max, range ############
 
-   method calcLatLongMinMaxRange(self):
+  def calcLatLongMinMaxRange(self):
 
     for rvs in self.roadVertexSeqs.keys():
       for vertex in roadVertexSeqs[rvs]:
