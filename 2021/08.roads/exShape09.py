@@ -38,12 +38,18 @@ for rvsName in rvsNames:      #primary road names
     es.plotCaiVertSeq(rvSeq)
 
 #es.drawCircle([-81, 34], .02) #, Columbia, SC
-firstline = True
+
+firstline = True; lineNum = 0
+
 for capitolDS in dataReader: #state capitol data structure
   if firstline: firstline = False; continue
-  city, state, long, lat= capitolDS
+  city, state, long, lat = capitolDS; lineNum += 1
+  #if lineNum == 31: es.drawCircle([float(lat), float(long)], .02) 
+
   try:    es.drawCircle([float(lat), float(long)], .02) 
   except: print(traceback.print_exc())
+
+es.ctx.stroke()
 
 es.plotCaiWritePng("ex09.png")
     

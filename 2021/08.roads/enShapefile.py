@@ -106,17 +106,19 @@ class enShapefile:
   # https://zetcode.com/gfx/pycairo/basicdrawing/
 
   def drawCircle(self, vert, diam): 
+    print("drawCircle:", vert)
     vert = self.calcNormLatLong(vert[0], vert[1])
     cr   = self.ctx
 
+    cr.save()
     cr.translate(vert[0], vert[1])
     cr.arc(0, 0, diam, 0, 2*math.pi)
     #cr.stroke_preserve()
         
     cr.set_source_rgb(0.7, .2, .2)
     cr.fill()
+    cr.restore()
     cr.stroke()
-    print("drawCircle:", vert)
 
   ################ plotCaiVertSeq ################ 
 
