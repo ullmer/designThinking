@@ -72,7 +72,8 @@ class enShapefile:
 
     latNorm  = abs(lat  - self.latMin)  / self.latRange
     longNorm = abs(long - self.longMin) / self.longRange
-    result = [latNorm, longNorm]
+    result = [latNorm * self.normWidth, longNorm * self.normHeight]
+    #print('cnLL:', result)
     return result
 
   ################ plotCaiVertSeq ################ 
@@ -115,13 +116,14 @@ class enShapefile:
 
     for vert in normVerts[1:]:
       # if distance from last point sufficient, then plot; otherwise, ignore
-      if self.vertDist(vert, [lastX, lastY]) > self.minDiff: 
-        self.ctx.line_to(vert[0], vert[1])
-        lastX, lastY = vert
+      #if self.vertDist(vert, [lastX, lastY]) > self.minDiff: 
+      self.ctx.line_to(vert[0], vert[1])
+      lastX, lastY = vert
    
     c = self.lineColor
     self.ctx.set_source_rgb(c[0], c[1], c[2])
-    self.ctx.set_line_width(0.06)
+    #self.ctx.set_line_width(0.06)
+    self.ctx.set_line_width(0.01)
     self.ctx.stroke()
 
   ################ extract Interstate Vertices ################ 
