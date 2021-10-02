@@ -5,7 +5,7 @@
 from enShapefile import *
 
 es       = enShapefile()
-es.targetRoads = [10, 40, 80, 90,  5, 15, 35, 55, 75, 85, 95]
+es.targetRoads = [10, 20, 30, 40, 50, 60, 70, 80, 90,  5, 15, 25, 35, 45, 55, 65, 75, 85, 95]
 es.extractInterstateVerts()
 es.calcLatLongMinMaxRange()
 
