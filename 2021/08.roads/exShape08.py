@@ -2,7 +2,7 @@
 # Brygg Ullmer, Clemson University
 # Begun 10/02/2021
 
-import enShapefile
+from enShapefile import *
 
 es       = enShapefile()
 es.targetRoads = [10, 40, 80, 90,  5, 15, 35, 55, 75, 85, 95]

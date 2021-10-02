@@ -72,7 +72,7 @@ class enShapefile:
 
     latNorm  = abs(lat  - self.latMin)  / self.latRange
     longNorm = abs(long - self.longMin) / self.longRange
-    result = [latNorm * self.normWidth, longNorm * self.normHeight]
+    result = [latNorm * self.normWidth, (1.-longNorm) * self.normHeight]
     #print('cnLL:', result)
     return result
 
