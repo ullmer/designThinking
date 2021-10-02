@@ -107,8 +107,10 @@ class enShapefile:
     self.ctx.move_to(lastX, lastY)
 
     for vert in normVerts[1:]:
-      if self.vertDist(vert, [lastX, lastY]) > self.minDiff: # if distance from last point sufficient
+      # if distance from last point sufficient, then plot; otherwise, ignore
+      if self.vertDist(vert, [lastX, lastY]) > self.minDiff: 
         self.ctx.line_to(vert[0], vert[1])
+        lastX, lastY = vert
    
     c = self.lineColor
     self.ctx.set_source_rgb(c[0], c[1], c[2])
