@@ -30,8 +30,8 @@ class enShapefile:
   records = None
   numRecs = None
   
-  normWidth  = 4.
-  normHeight = 2.
+  normWidth  = 4
+  normHeight = 2
   pixelScale = 100
   minDiff    = .05 # if new coord is less than this thresh offset, then ignore
 
@@ -80,9 +80,9 @@ class enShapefile:
   def plotCaiCreateSurface(self): #use Cairo to create surface for plotting
 
     self.caiSurface = cairo.ImageSurface(cairo.FORMAT_RGB24,
-                             self.normWidth * pixelScale,
-                             self.normHeight * pixelScale)
-    self.ctx = cairo.Context(surface)
+                             self.normWidth * self.pixelScale,
+                             self.normHeight * self.pixelScale)
+    self.ctx = cairo.Context(self.caiSurface)
     self.ctx.scale(self.pixelScale, self.pixelScale)
 
     self.ctx.rectangle(0, 0, self.normWidth, self.normHeight)
