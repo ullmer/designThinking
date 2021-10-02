@@ -80,17 +80,34 @@ class enShapefile:
                              self.normWidth * pixelScale,
                              self.normHeight * pixelScale)
     self.ctx = cairo.Context(surface)
-    self.ctx.scale(PIXEL_SCALE, PIXEL_SCALE)
+    self.ctx.scale(self.pixelScale, self.pixelScale)
+
+    self.ctx.rectangle(0, 0, self.normWidth, self.normHeight)
+    self.ctx.set_source_rgb(0.8, 0.8, 1)
+    self.ctx.fill()
+
+    #surface.write_to_png('line.png')
   
-normWidth  = 4.
-  normHeight = 2.
-  pixelScale = 100
-
-
   ################ plotCaiVertSeq ################ 
 
-  method plotCaiVertSeq(self): #use Cairo to plot vertex sequence
+  method plotCaiVertSeq(self, vertSeq): #use Cairo to plot vertex sequence
+    normVerts = []
+    for vert in vertSeq:
+      normVert = self.calcNormLatLong(vert[0], vert[1])
+      normVerts.append(normVert)
+      
+    # Drawing code
+    lastX, lastY = normVerts[0]
+    ctx.move_to(lastX, lastY)
 
+    for vert in normVerts[1:]:
+
+
+    ctx.line_to(2.5, 1.5)
+    
+    ctx.set_source_rgb(1, 0, 0)
+    ctx.set_line_width(0.06)
+    ctx.stroke()
 
   ################ extract Interstate Vertices ################ 
 
