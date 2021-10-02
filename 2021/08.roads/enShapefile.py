@@ -171,5 +171,7 @@ def main():
         self.plotCaiVertSeq(rvSeq)
 
   es.plotCaiWritePng()
+
+if __name__ == "__main__": main()
     
 ### end ###
