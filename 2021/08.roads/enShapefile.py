@@ -39,6 +39,7 @@ class enShapefile:
     
   caiSurface = None #Cairo surface
   ctx        = None
+  lineColor  = [1, .8, 0]
 
   ################ constructor ################ 
 
@@ -98,16 +99,16 @@ class enShapefile:
       
     # Drawing code
     lastX, lastY = normVerts[0]
-    ctx.move_to(lastX, lastY)
+    self.ctx.move_to(lastX, lastY)
 
     for vert in normVerts[1:]:
-
-
-    ctx.line_to(2.5, 1.5)
-    
-    ctx.set_source_rgb(1, 0, 0)
-    ctx.set_line_width(0.06)
-    ctx.stroke()
+      if self.vertDist(vert, [lastX, lastY]) > self.minDiff: # if distance from last point sufficient
+        self.ctx.line_to(vert[0], vert[1])
+   
+    c = self.lineColor
+    self.ctx.set_source_rgb(c[0], c[1], c[2])
+    self.ctx.set_line_width(0.06)
+    self.ctx.stroke()
 
   ################ extract Interstate Vertices ################ 
 
