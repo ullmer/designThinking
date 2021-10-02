@@ -30,6 +30,7 @@ class enShapefile:
   
   normWidth  = 4.
   normHeight = 2.
+  minDiff    = .05 # if new coord is less than this thresh offset, then ignore
 
   targetRoads    = [10,40,80,90] #Interstates
   targetRoadStrs = None
@@ -59,12 +60,13 @@ class enShapefile:
     if lat < self.latMin or lat > self.latMax:
       print("enShapefile:calcNormLatLong: lat arg outside range"); return None
 
-    self.normWidth 
-    self.normHeight
+    if long < self.longMin or long > self.longMax:
+      print("enShapefile:calcNormLatLong: long arg outside range"); return None
 
-  ################ extract Interstate Vertices ################ 
-
-  method extractInterstateVerts(self):
+    latNorm  = abs(lat  - self.latMin)  / self.latRange
+    longNorm = abs(long - self.longMin) / self.longRange
+    result = [latNorm, longNorm]
+    return result
 
   ################ extract Interstate Vertices ################ 
 
