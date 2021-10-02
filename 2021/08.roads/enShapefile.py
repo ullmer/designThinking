@@ -8,7 +8,7 @@
 
 import shapefile
 import cairo
-import sys
+import sys, math
 
 ################ Enodia Shapefile (TIGER GIS/Maps ################ 
 
@@ -92,11 +92,18 @@ class enShapefile:
   ################ plotCaiVertSeq ################ 
 
   def plotCaiWritePng(self): #use Cairo to create surface for plotting
-    self.surface.write_to_png(self.outPngFn)
+    self.caiSurface.write_to_png(self.outPngFn)
+  
+  ################ vertDist ################ 
+
+  def vertDist(self, vert1, vert2): 
+    result = math.dist(vert1, vert2)
+    return result 
   
   ################ plotCaiVertSeq ################ 
 
   def plotCaiVertSeq(self, vertSeq): #use Cairo to plot vertex sequence
+    #print("plotCaiVerSeq:", vertSeq)
     normVerts = []
     for vert in vertSeq:
       normVert = self.calcNormLatLong(vert[0], vert[1])
@@ -172,9 +179,8 @@ def main():
   es.plotCaiCreateSurface()
 
   for rvsName in rvsNames:      #primary road names
-    for rvSeqs in rvs[rvsName]: #list of constituitive vertex sequences
-      for rvSeq in rvSeqs:
-        es.plotCaiVertSeq(rvSeq)
+    for rvSeq in rvs[rvsName]: #list of constituitive vertex sequences
+      es.plotCaiVertSeq(rvSeq)
 
   es.plotCaiWritePng()
 
