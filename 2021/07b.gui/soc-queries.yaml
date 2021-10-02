@@ -46,6 +46,15 @@ dbDescr: #database description
       results: [name]
     
     getResearchFields: ##################################
+      arguments: [majorResearchArea]
+      query: select ra1.name from researchArea as ra1, researchArea as ra2,
+               researchAreaRelation as rar 
+               where ra2.name="%s" and 
+                     rar.parentId = ra2.id and rar.childId = ra1.id;
+      results: [name]
+#               where where ra2.name="Artificial Intelligence" and 
+
+    getFacultyResearchFields: ##################################
       arguments: [subarea]
       query: select f.name, f.division, f.rank
                 from faculty as f, researchArea as ra, 

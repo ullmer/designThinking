@@ -6,6 +6,10 @@ from tkinter   import *
 from functools import partial
 from enoDb     import *
 from socGui    import *
+try: from tkmacosx import Button
+except: 
+  print("If running on a Mac, buttons will not change color until tkmacosx installed") 
+#https://stackoverflow.com/questions/1529847/how-to-change-the-foreground-or-background-colour-of-a-tkinter-button-on-mac-os
 
 sqliteDbFn   = 'soc.db3'
 queriesYFn   = 'soc-queries.yaml'
