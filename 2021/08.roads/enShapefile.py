@@ -172,7 +172,7 @@ def main():
   for rvsName in rvsNames:      #primary road names
     for rvSeqs in rvs[rvsName]: #list of constituitive vertex sequences
       for rvSeq in rvSeqs:
-        self.plotCaiVertSeq(rvSeq)
+        es.plotCaiVertSeq(rvSeq)
 
   es.plotCaiWritePng()
 
