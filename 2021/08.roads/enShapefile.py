@@ -32,7 +32,7 @@ class enShapefile:
   
   normWidth  = 4
   normHeight = 2
-  pixelScale = 100
+  pixelScale = 200
   minDiff    = .05 # if new coord is less than this thresh offset, then ignore
 
   targetRoads    = [10,40,80,90] #Interstates
@@ -86,7 +86,7 @@ class enShapefile:
     self.ctx.scale(self.pixelScale, self.pixelScale)
 
     self.ctx.rectangle(0, 0, self.normWidth, self.normHeight)
-    self.ctx.set_source_rgb(0.8, 0.8, 1)
+    self.ctx.set_source_rgb(0.9, 0.9, 1)
     self.ctx.fill()
 
   ################ plotCaiVertSeq ################ 
