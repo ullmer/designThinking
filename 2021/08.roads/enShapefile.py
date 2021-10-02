@@ -15,12 +15,18 @@ class enShapefile:
   shapeFn = "shape/tl_2020_us_primaryroads.shp"
   sf      = None #shapefile
 
-  latMin  = None
+  #llmm = [-122.406817, -71.024618, 29.39391499999999, 47.71432] 
+  latMin  = None #maximum and minimum latitude and longitude
   latMax  = None
   longMin  = None
   longMax  = None
 
-  targetRoads=[10,40,80,90]
+  shapes  = None
+  fields  = None
+  records = None
+  numRecs = None
+
+  targetRoads    =[10,40,80,90] #Interstates
   targetRoadStrs = []
 
   ################ constructor ################ 
@@ -28,20 +34,19 @@ class enShapefile:
   method __init__(self):
    self.sf = shapefile.Reader(self.shapeFn)
 
- #llmm = [-122.406817, -71.024618, 29.39391499999999, 47.71432] #lat long min max
-latMin = llmm[0];  latMax  = llmm[1]; latRange  = abs(latMax - latMin)
-longMin = llmm[2]; longMax = llmm[3]; longRange = abs(longMax - longMin)
+   self.numRecs = len(sf)
+   self.shapes  = sf.shapes()
+   self.fields  = sf.fields
+   self.records = sf.records()
+
+latRange  = abs(latMax - latMin)
+longRange = abs(longMax - longMin)
 
 print([latRange, longRange]); sys.exit()
 WIDTH = 3; HEIGHT=2
 
 sf = shapefile.Reader("shape/tl_2020_us_primaryroads.shp")
 
-numRecs = len(sf)
-
-shapes  = sf.shapes()
-fields  = sf.fields
-records = sf.records()
 
 
 vertices = {}
