@@ -30,11 +30,15 @@ class enShapefile:
   
   normWidth  = 4.
   normHeight = 2.
+  pixelScale = 100
   minDiff    = .05 # if new coord is less than this thresh offset, then ignore
 
   targetRoads    = [10,40,80,90] #Interstates
   targetRoadStrs = None
   roadVertexSeqs = None
+    
+  caiSurface = None #Cairo surface
+  ctx        = None
 
   ################ constructor ################ 
 
@@ -67,6 +71,26 @@ class enShapefile:
     longNorm = abs(long - self.longMin) / self.longRange
     result = [latNorm, longNorm]
     return result
+
+  ################ plotCaiVertSeq ################ 
+
+  method plotCaiCreateSurface (self): #use Cairo to create surface for plotting
+
+    self.caiSurface = cairo.ImageSurface(cairo.FORMAT_RGB24,
+                             self.normWidth * pixelScale,
+                             self.normHeight * pixelScale)
+    self.ctx = cairo.Context(surface)
+    self.ctx.scale(PIXEL_SCALE, PIXEL_SCALE)
+  
+normWidth  = 4.
+  normHeight = 2.
+  pixelScale = 100
+
+
+  ################ plotCaiVertSeq ################ 
+
+  method plotCaiVertSeq(self): #use Cairo to plot vertex sequence
+
 
   ################ extract Interstate Vertices ################ 
 
