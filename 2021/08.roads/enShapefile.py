@@ -48,10 +48,10 @@ class enShapefile:
   def __init__(self):
    self.sf = shapefile.Reader(self.shapeFn)
 
-   self.numRecs = len(sf)
-   self.shapes  = sf.shapes()
-   self.fields  = sf.fields
-   self.records = sf.records()
+   self.numRecs = len(self.sf)
+   self.shapes  = self.sf.shapes()
+   self.fields  = self.sf.fields
+   self.records = self.sf.records()
 
    self.targetRoadStrs = []
    self.roadVertexSeqs = {}
@@ -129,7 +129,7 @@ class enShapefile:
       if (len(name.rstrip()) > 0 and name[0]=='I' and name[1]=='-'):
         if name in self.targetRoadStrs:
           #print("shape %i : points %i : name %s" % (i, sl, name))
-          numPoints = len(shapes[i].points)
+          numPoints = len(self.shapes[i].points)
 
           if name not in self.roadVertexSeqs.keys(): 
             self.roadVertexSeqs[name] = []
@@ -144,15 +144,16 @@ class enShapefile:
   def calcLatLongMinMaxRange(self):
 
     for rvs in self.roadVertexSeqs.keys():
-      for vertex in roadVertexSeqs[rvs]:
-        lat, long = vertex
-        if latMin == None: latMin = latMax = lat; longMin = longMax = long
-        else:
-          if lat < latMin: latMin = lat
-          if lat > latMax: latMax = lat
+      for vertexSeq in self.roadVertexSeqs[rvs]:
+        for vertex in vertexSeq:
+          lat, long = vertex
+          if latMin == None: latMin = latMax = lat; longMin = longMax = long
+          else:
+            if lat < latMin: latMin = lat
+            if lat > latMax: latMax = lat
     
-          if long < longMin: longMin = long
-          if long > longMax: longMax = long
+            if long < longMin: longMin = long
+            if long > longMax: longMax = long
     
     self.latRange  = abs(latMax - latMin)
     self.longRange = abs(longMax - longMin)
