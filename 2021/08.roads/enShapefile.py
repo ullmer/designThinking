@@ -27,6 +27,9 @@ class enShapefile:
   fields  = None
   records = None
   numRecs = None
+  
+  normWidth  = 4.
+  normHeight = 2.
 
   targetRoads    = [10,40,80,90] #Interstates
   targetRoadStrs = None
@@ -47,6 +50,21 @@ class enShapefile:
 
    self.extractInterstateVerts()
    self.calcLatLongMinMaxRange()
+
+  ################ calculate normalized lat and long ################ 
+
+  method calcNormLatLong(self, lat, long):
+    if self.latMin == None: self.calcLatLongMinMaxRange() #calculate bounds if not already done
+
+    if lat < self.latMin or lat > self.latMax:
+      print("enShapefile:calcNormLatLong: lat arg outside range"); return None
+
+    self.normWidth 
+    self.normHeight
+
+  ################ extract Interstate Vertices ################ 
+
+  method extractInterstateVerts(self):
 
   ################ extract Interstate Vertices ################ 
 
