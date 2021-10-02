@@ -1,20 +1,20 @@
 #https://github.com/GeospatialPython/pyshp
+#http://cimms.ou.edu/~lakshman/spatialprogramming/chapter03_basicgis/ch03_basicgis.pdf
 
 import shapefile
 sf = shapefile.Reader("shape/tl_2020_us_primaryroads.shp")
 
-print(len(sf))
-print(sf.fields)
+numRecs = len(sf)
 
-#shapeRecs = sf.shapeRecords()
-#print(dir(shapeRecs[0]))
-#print(shapeRecs[0]['FULLNAME'])
+shapes  = sf.shapes()
+fields  = sf.fields
+records = sf.records()
 
-shapes = sf.shapes()
-
-for i in range(100):
+for i in range(numRecs):
   sl = len(shapes[i].points)
-  print("shape %i : points %i" % (i, sl))
+  name = records[i][1]
+  if (len(name.rstrip()) > 0):
+    print("shape %i : points %i : name %s" % (i, sl, name))
 
 
 #shape = shapes[3].points[7]
