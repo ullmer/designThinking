@@ -13,7 +13,7 @@ records = sf.records()
 for i in range(numRecs):
   sl = len(shapes[i].points)
   name = records[i][1]
-  if (len(name.rstrip()) > 0):
+  if (len(name.rstrip()) > 0 and name[0]=='I' and name[1]=='-'):
     print("shape %i : points %i : name %s" % (i, sl, name))
 
 
