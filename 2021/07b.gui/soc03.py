@@ -14,7 +14,7 @@ soc = enoDb(sqliteDbFn, queriesYFn)
 root = Tk() 
 facultyGui      = socGuiFaculty(soc,       root)
 rankGui         = socGuiRank(soc,          root, facultyGui)
-#researchAreaGui = socGuiResearchAreas(soc, root, facultyGui)
+researchAreaGui = socGuiResearchAreas(soc, root, facultyGui)
 
 root.mainloop()                                          
 
