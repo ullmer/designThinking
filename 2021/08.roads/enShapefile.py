@@ -15,7 +15,7 @@ import sys, math
 class enShapefile:
   shapeFn  = "shape/tl_2020_us_primaryroads.shp"
   outPngFn = "ex08.png"
-  sf       = None #shapefile
+  sf       = None            #shapefile
 
   #llmm = [-122.406817, -71.024618, 29.39391499999999, 47.71432] 
   latMin    = None #maximum and minimum latitude and longitude
@@ -32,7 +32,7 @@ class enShapefile:
   
   normWidth  = 4
   normHeight = 2
-  pixelScale = 200
+  pixelScale = 300
   minDiff    = .05 # if new coord is less than this thresh offset, then ignore
 
   targetRoads    = [10,40,80,90] #Interstates
@@ -41,7 +41,7 @@ class enShapefile:
     
   caiSurface = None #Cairo surface
   ctx        = None
-  lineColor  = [1, .8, 0]
+  lineColor  = [0, .1, .4]
 
   ################ constructor ################ 
 
@@ -92,8 +92,9 @@ class enShapefile:
 
   ################ plotCaiVertSeq ################ 
 
-  def plotCaiWritePng(self): #use Cairo to create surface for plotting
-    self.caiSurface.write_to_png(self.outPngFn)
+  def plotCaiWritePng(self, pngFn=None): #use Cairo to create surface for plotting
+    if pngFn==None: pngFn= self.outPngFn
+    self.caiSurface.write_to_png(pngFn)
   
   ################ vertDist ################ 
 
@@ -101,6 +102,21 @@ class enShapefile:
     result = math.dist(vert1, vert2)
     return result 
   
+  ################ drawCircle ################ 
+  # https://zetcode.com/gfx/pycairo/basicdrawing/
+
+  def drawCircle(self, vert, diam): 
+    print("drawCircle:", vert)
+    vert = self.calcNormLatLong(vert[0], vert[1])
+    cr   = self.ctx
+
+    cr.translate(vert[0], vert[1])
+    cr.arc(0, 0, diam, 0, 2*math.pi)
+    #cr.stroke_preserve()
+        
+    cr.set_source_rgb(0.7, .2, .2)
+    cr.fill()
+
   ################ plotCaiVertSeq ################ 
 
   def plotCaiVertSeq(self, vertSeq): #use Cairo to plot vertex sequence
@@ -168,6 +184,7 @@ class enShapefile:
             if long < self.longMin: self.longMin = long
             if long > self.longMax: self.longMax = long
     
+    print([self.latMin, self.latMax, self.longMin, self.longMax])
     self.latRange  = abs(self.latMax  - self.latMin)
     self.longRange = abs(self.longMax - self.longMin)
   

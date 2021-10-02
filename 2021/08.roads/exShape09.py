@@ -6,6 +6,11 @@
 
 from enShapefile import *
 
+import csv, traceback
+capitolsFn = 'state-capitols.csv'
+capitolsF  = open(capitolsFn, 'r+t')
+dataReader = csv.reader(capitolsF, delimiter=',');
+
 es       = enShapefile()
 es.targetRoads = []
 
@@ -32,7 +37,13 @@ for rvsName in rvsNames:      #primary road names
   for rvSeq in rvs[rvsName]: #list of constituitive vertex sequences
     es.plotCaiVertSeq(rvSeq)
 
-es.drawCircle([-81, 34], .02) #, Columbia, SC
+#es.drawCircle([-81, 34], .02) #, Columbia, SC
+firstline = True
+for capitolDS in dataReader: #state capitol data structure
+  if firstline: firstline = False; continue
+  city, state, long, lat= capitolDS
+  try:    es.drawCircle([float(lat), float(long)], .02) 
+  except: print(traceback.print_exc())
 
 es.plotCaiWritePng("ex09.png")
     
