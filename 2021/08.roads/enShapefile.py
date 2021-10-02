@@ -16,10 +16,12 @@ class enShapefile:
   sf      = None #shapefile
 
   #llmm = [-122.406817, -71.024618, 29.39391499999999, 47.71432] 
-  latMin  = None #maximum and minimum latitude and longitude
-  latMax  = None
-  longMin  = None
-  longMax  = None
+  latMin    = None #maximum and minimum latitude and longitude
+  latMax    = None
+  longMin   = None
+  longMax   = None
+  latRange  = None
+  longRange = None
 
   shapes  = None
   fields  = None
@@ -83,8 +85,7 @@ class enShapefile:
           if long < longMin: longMin = long
           if long > longMax: longMax = long
     
-    
-    latRange  = abs(latMax - latMin)
-    longRange = abs(longMax - longMin)
+    self.latRange  = abs(latMax - latMin)
+    self.longRange = abs(longMax - longMin)
     
 ### end ###
