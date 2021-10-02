@@ -147,16 +147,18 @@ class enShapefile:
       for vertexSeq in self.roadVertexSeqs[rvs]:
         for vertex in vertexSeq:
           lat, long = vertex
-          if latMin == None: latMin = latMax = lat; longMin = longMax = long
+          if self.latMin == None: 
+            self.latMin  = self.latMax  = lat; 
+            self.longMin = self.longMax = long; 
           else:
-            if lat < latMin: latMin = lat
-            if lat > latMax: latMax = lat
+            if lat < self.latMin: self.latMin = lat
+            if lat > self.latMax: self.latMax = lat
     
-            if long < longMin: longMin = long
-            if long > longMax: longMax = long
+            if long < self.longMin: self.longMin = long
+            if long > self.longMax: self.longMax = long
     
-    self.latRange  = abs(latMax - latMin)
-    self.longRange = abs(longMax - longMin)
+    self.latRange  = abs(self.latMax  - self.latMin)
+    self.longRange = abs(self.longMax - self.longMin)
   
 ############ main ############
 
