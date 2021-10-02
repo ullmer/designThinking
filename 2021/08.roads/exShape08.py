@@ -5,7 +5,10 @@
 import enShapefile
 
 es       = enShapefile()
-targetRoads    = [10,40,80,90] #Interstates
+es.targetRoads = [10, 40, 80, 90,  5, 15, 35, 55, 75, 85, 95]
+es.extractInterstateVerts()
+es.calcLatLongMinMaxRange()
+
 rvs      = es.roadVertexSeqs
 rvsNames = rvs.keys()
 

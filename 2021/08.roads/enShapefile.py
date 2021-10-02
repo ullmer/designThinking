@@ -56,8 +56,8 @@ class enShapefile:
    self.targetRoadStrs = []
    self.roadVertexSeqs = {}
 
-   self.extractInterstateVerts()
-   self.calcLatLongMinMaxRange()
+   #self.extractInterstateVerts()
+   #self.calcLatLongMinMaxRange()
 
   ################ calculate normalized lat and long ################ 
 
