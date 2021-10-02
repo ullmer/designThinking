@@ -85,10 +85,12 @@ class enShapefile:
           numPoints = len(shapes[i].points)
 
           if name not in self.roadVertexSeqs.keys(): 
-	    self.roadVertexSeqs[name] = []
+            self.roadVertexSeqs[name] = []
 
-          for coord in self.shapes[i].points: 
-	    self.roadVertexSeqs[name].append(coord)
+          vertSeq = [] # to support multiple independent segments of same road, as appears the case
+
+          for coord in self.shapes[i].points: vertSeq.append(coord)
+          self.roadVertexSeqs[name].append(vertSeq)
     
   ############ calculate latitude, longitude min, max, range ############
 
