@@ -12,8 +12,9 @@ import sys
 ################ Enodia Shapefile (TIGER GIS/Maps ################ 
 
 class enShapefile:
-  shapeFn = "shape/tl_2020_us_primaryroads.shp"
-  sf      = None #shapefile
+  shapeFn  = "shape/tl_2020_us_primaryroads.shp"
+  outPngFn = "ex08.png"
+  sf       = None #shapefile
 
   #llmm = [-122.406817, -71.024618, 29.39391499999999, 47.71432] 
   latMin    = None #maximum and minimum latitude and longitude
@@ -75,7 +76,7 @@ class enShapefile:
 
   ################ plotCaiVertSeq ################ 
 
-  method plotCaiCreateSurface (self): #use Cairo to create surface for plotting
+  method plotCaiCreateSurface(self): #use Cairo to create surface for plotting
 
     self.caiSurface = cairo.ImageSurface(cairo.FORMAT_RGB24,
                              self.normWidth * pixelScale,
@@ -87,7 +88,10 @@ class enShapefile:
     self.ctx.set_source_rgb(0.8, 0.8, 1)
     self.ctx.fill()
 
-    #surface.write_to_png('line.png')
+  ################ plotCaiVertSeq ################ 
+
+  method plotCaiWritePng(self): #use Cairo to create surface for plotting
+    self.surface.write_to_png(self.outPngFn)
   
   ################ plotCaiVertSeq ################ 
 
@@ -151,5 +155,21 @@ class enShapefile:
     
     self.latRange  = abs(latMax - latMin)
     self.longRange = abs(longMax - longMin)
+  
+############ main ############
+
+def main():
+  es       = enShapefile()
+  rvs      = es.roadVertexSeqs
+  rvsNames = rvs.keys()
+
+  es.plotCaiCreateSurface()
+
+  for rvsName in rvsNames:      #primary road names
+    for rvSeqs in rvs[rvsName]: #list of constituitive vertex sequences
+      for rvSeq in rvSeqs:
+        self.plotCaiVertSeq(rvSeq)
+
+  es.plotCaiWritePng()
     
 ### end ###
