@@ -33,7 +33,7 @@ class enShapefile:
   normWidth  = 4
   normHeight = 2
   pixelScale = 300
-  minDiff    = .05 # if new coord is less than this thresh offset, then ignore
+  minDiff    = .04 # if new coord is less than this thresh offset, then ignore
 
   targetRoads    = [10,40,80,90] #Interstates
   targetRoadStrs = None
@@ -135,9 +135,15 @@ class enShapefile:
 
     for vert in normVerts[1:]:
       # if distance from last point sufficient, then plot; otherwise, ignore
-      #if self.vertDist(vert, [lastX, lastY]) > self.minDiff: 
-      self.ctx.line_to(vert[0], vert[1])
-      lastX, lastY = vert
+      if self.vertDist(vert, [lastX, lastY]) > self.minDiff: 
+        self.ctx.line_to(vert[0], vert[1])
+        lastX, lastY = vert
+
+    lis = normVerts[-1] #last in sequence
+    if lastX != lis[0] or lastY != lis[1]: # in case last close, avoiding gaps
+        self.ctx.line_to(lis[0], lis[1])
+
+    self.ctx.line_to(vert[0], vert[1])
    
     c = self.lineColor
     self.ctx.set_source_rgb(c[0], c[1], c[2])
