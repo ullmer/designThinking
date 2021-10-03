@@ -21,7 +21,7 @@ for i in range(195, 895, 100): es.targetRoads.append(i)
 #manualList = [82,84,86,94, 17,29,24,43,77,79,81,87, 26, 44, 255, 270, 64]
 manualList = [82,84,86,94, 17,29,24,43,77,79,81,87,89,93, 26, 255, 270, 64, 57]
 manualList += [64,264,294,24,57, 505, 205, 880, 580, 475, 280, 69,96,496]
-manualList += [270, 71,69,74]
+manualList += [270, 71,69,74,72,335,470,44,69,269]
 
 def roadBus(roadNum, postfixes=['W', 'E', ' W', ' E']): #business roads
   result = []
@@ -55,6 +55,8 @@ for rvsName in rvsNames:      #primary road names
 #es.drawCircle([-81, 34], .02) #, Columbia, SC
 
 firstline = True; lineNum = 0
+
+es.plotLatLong()
 
 for capitolDS in dataReader: #state capitol data structure
   if firstline: firstline = False; continue
