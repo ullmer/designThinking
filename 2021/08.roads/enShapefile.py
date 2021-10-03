@@ -143,7 +143,7 @@ class enShapefile:
       self.ctx.set_line_width(0.002)
       self.ctx.stroke()
 
-    minLong = -70; maxLong = -125
+    minLong = -68; maxLong = -123
     for lat in self.latTick:
       v1 = self.calcNormLatLong(minLong, lat)
       v2 = self.calcNormLatLong(maxLong, lat)
