@@ -26,7 +26,7 @@ class enShapefile:
   longRange = None
 
   longTick = [-70,-80,-90,-100,-110,-120]
-  latTick  = [30,40,50]
+  latTick  = [30,40,48]
 
   shapes  = None
   fields  = None
@@ -132,11 +132,8 @@ class enShapefile:
     #latTick  = [30,40,50]
     print("plotLatLong")
 
-    minLat = 30; maxLat = 48
+    minLat = 27; maxLat = 49
     for long in self.longTick:
-      print("long:", long)
-      #self.ctx.save()
-
       v1 = self.calcNormLatLong(long, minLat)
       v2 = self.calcNormLatLong(long, maxLat)
       self.ctx.move_to(v1[0], v1[1])
@@ -144,8 +141,17 @@ class enShapefile:
    
       self.ctx.set_source_rgb(1,0,0)
       self.ctx.set_line_width(0.002)
-      #self.ctx.stroke_preserve()
-      #self.ctx.restore()
+      self.ctx.stroke()
+
+    minLong = -70; maxLong = -120
+    for lat in self.latTick:
+      v1 = self.calcNormLatLong(minLong, lat)
+      v2 = self.calcNormLatLong(maxLong, lat)
+      self.ctx.move_to(v1[0], v1[1])
+      self.ctx.line_to(v2[0], v2[1])
+
+      self.ctx.set_source_rgb(1,0,0)
+      self.ctx.set_line_width(0.002)
       self.ctx.stroke()
 
   ################ plotCaiVertSeq ################ 
