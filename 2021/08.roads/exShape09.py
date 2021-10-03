@@ -16,7 +16,7 @@ es.targetRoads = []
 
 for i in range(10, 91, 10): es.targetRoads.append(i)
 for i in range( 5, 96, 10): es.targetRoads.append(i)
-for i in range(195, 996, 100): es.targetRoads.append(i)
+for i in range(195, 895, 100): es.targetRoads.append(i)
 
 #manualList = [82,84,86,94, 17,29,24,43,77,79,81,87, 26, 44, 255, 270, 64]
 manualList = [82,84,86,94, 17,29,24,43,77,79,81,87,89,93, 26, 255, 270, 64]
@@ -29,6 +29,7 @@ def roadBus(roadNum, postfixes=['W', 'E', ' W', ' E']): #business roads
 
 postfixedRoads = [35, 20]
 for postfixedRoad in postfixedRoads: manualList += roadBus(postfixedRoad)
+manualList += roadBus(5, [' Expy', ' Scn'])
 
 for road in manualList: es.targetRoads.append(road)
 
