@@ -35,18 +35,14 @@ manualList += roadBus(5, [' Expy', ' Scn'])
 for road in manualList: es.targetRoads.append(road)
 
 print('targetRoads:', es.targetRoads)
-
-#es.targetRoads = [10, 90,  5, 95]
-
-
-
 es.extractInterstateVerts()
 es.calcLatLongMinMaxRange()
 
 rvs      = es.roadVertexSeqs
 rvsNames = rvs.keys()
 
-es.plotCaiCreateSurface()
+#es.cairoCreatePngSurface()
+es.cairoCreatePdfSurface("usMap10.pdf")
 
 for rvsName in rvsNames:      #primary road names
   for rvSeq in rvs[rvsName]: #list of constituitive vertex sequences
@@ -68,6 +64,7 @@ for capitolDS in dataReader: #state capitol data structure
 
 es.ctx.stroke()
 
-es.plotCaiWritePng("ex09.png")
+#es.cairoWritePng("ex09.png")
+es.cairoWritePdf()
     
 ### end ###

@@ -14,7 +14,7 @@ import sys, math
 
 class enShapefile:
   shapeFn  = "shape/tl_2020_us_primaryroads.shp"
-  outPngFn = "ex08.png"
+  outFn = "ex08.png"
   sf       = None            #shapefile
 
   #llmm = [-122.406817, -71.024618, 29.39391499999999, 47.71432] 
@@ -43,7 +43,7 @@ class enShapefile:
   roadVertexSeqs = None
     
   caiSurface = None #Cairo surface
-  ctx        = None
+  ctx        = None #Cairo context
   lineColor  = [0, .1, .4]
 
   ################ constructor ################ 
@@ -79,13 +79,13 @@ class enShapefile:
     #print('cnLL:', result)
     return result
 
-  ################ plotCaiVertSeq ################ 
+  ################ cairo create PNG surface ################ 
 
-  def plotCaiCreateSurface(self): #use Cairo to create surface for plotting
+  def cairoCreatePngSurface(self): #use Cairo to create surface for plotting
 
     self.caiSurface = cairo.ImageSurface(cairo.FORMAT_RGB24,
-                             self.normWidth * self.pixelScale,
-                             self.normHeight * self.pixelScale)
+                            self.normWidth * self.pixelScale,
+                            self.normHeight * self.pixelScale)
     self.ctx = cairo.Context(self.caiSurface)
     self.ctx.scale(self.pixelScale, self.pixelScale)
 
@@ -93,11 +93,27 @@ class enShapefile:
     self.ctx.set_source_rgb(0.9, 0.9, 1)
     self.ctx.fill()
 
-  ################ plotCaiVertSeq ################ 
+  ################ cairo create PNG surface ################ 
 
-  def plotCaiWritePng(self, pngFn=None): #use Cairo to create surface for plotting
-    if pngFn==None: pngFn= self.outPngFn
+  def cairoCreatePdfSurface(self, outFn = None): 
+
+    if outFn != None: self.outFn = outFn
+
+    self.cairoSurface = cairo.PDFSurface(self.outFn, 
+                              self.normWidth * self.pixelScale,
+                              self.normHeight * self.pixelScale)
+    self.ctx          = cairo.Context(self.cairoSurface)
+
+  ################ cairoWritePng ################ 
+
+  def cairoWritePng(self, pngFn=None): #use Cairo to create surface for plotting
+    if pngFn==None: pngFn=self.outFn
     self.caiSurface.write_to_png(pngFn)
+  
+  ################ cairoWritePdf ################ 
+
+  def cairoWritePdf(self): 
+    self.ctx.show_page()
   
   ################ vertDist ################ 
 
