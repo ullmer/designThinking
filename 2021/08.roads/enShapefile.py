@@ -112,11 +112,11 @@ class enShapefile:
 
     cr.save()
     cr.translate(vert[0], vert[1])
-    cr.arc(0, 0, diam, 0, 2*math.pi)
-    #cr.stroke_preserve()
-        
     cr.set_source_rgb(0.7, .2, .2)
-    cr.fill()
+    cr.arc(0, 0, diam, 0, 2*math.pi)
+    cr.stroke_preserve()
+        
+    #cr.fill()
     cr.restore()
     cr.stroke()
 

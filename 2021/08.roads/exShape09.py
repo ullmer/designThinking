@@ -16,14 +16,27 @@ es.targetRoads = []
 
 for i in range(10, 91, 10): es.targetRoads.append(i)
 for i in range( 5, 96, 10): es.targetRoads.append(i)
+for i in range(195, 996, 100): es.targetRoads.append(i)
 
-manualList = [82,84,86,94, 17,29,24,43,77,79,81,87, 26]
+#manualList = [82,84,86,94, 17,29,24,43,77,79,81,87, 26, 44, 255, 270, 64]
+manualList = [82,84,86,94, 17,29,24,43,77,79,81,87,89,93, 26, 255, 270, 64]
+manualList += [64,264,24,57, 505, 205, 880, 580]
+
+def roadBus(roadNum, postfixes=['W', 'E', ' W', ' E']): #business roads
+  result = []
+  for postfix in postfixes: result.append(str(roadNum) + postfix)
+  return result
+
+postfixedRoads = [35, 20]
+for postfixedRoad in postfixedRoads: manualList += roadBus(postfixedRoad)
 
 for road in manualList: es.targetRoads.append(road)
 
 print('targetRoads:', es.targetRoads)
 
 #es.targetRoads = [10, 90,  5, 95]
+
+
 
 es.extractInterstateVerts()
 es.calcLatLongMinMaxRange()
@@ -44,9 +57,8 @@ firstline = True; lineNum = 0
 for capitolDS in dataReader: #state capitol data structure
   if firstline: firstline = False; continue
   city, state, long, lat = capitolDS; lineNum += 1
-  #if lineNum == 31: es.drawCircle([float(lat), float(long)], .02) 
-
-  try:    es.drawCircle([float(lat), float(long)], .02) 
+  #try:    es.drawCircle([float(lat), float(long)], .02) 
+  try:    es.drawCircle([float(lat), float(long)], .03) 
   except: print(traceback.print_exc())
 
 es.ctx.stroke()
