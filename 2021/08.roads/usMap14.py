@@ -12,6 +12,7 @@ capitolsF  = open(capitolsFn, 'r+t')
 dataReader = csv.reader(capitolsF, delimiter=',');
 
 es       = enShapefile()
+es.minDiff = 10.
 es.targetRoads = []
 
 for i in range(10, 91, 10): es.targetRoads.append(i)
