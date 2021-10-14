@@ -27,8 +27,6 @@ cr = cairo.Context(ps)
 s = .38
 
 cr.scale(s,s)
-cr.select_font_face("Arial", cairo.FONT_SLANT_NORMAL,
-                             cairo.FONT_WEIGHT_BOLD)
 
 #http://www.mitsitamcafe.com/content/menus.asp
 
@@ -37,18 +35,20 @@ cr.move_to(10,200)
 cr.set_source_rgb(.6, .4, 0)
 cr.show_text('Mitsitam Native Foods Cafe Menu')
 
-yTxtOrig = yTxt  = 400; dyTxt = 325; dxTxt = 1500
-yImgOrig = yImg  = 680; dyImg = 325
+yTxtOrig = yTxt  = 400; dyTxt = 100; dxTxt = 1500
+yImgOrig = yImg  = 680; dyImg = 325; endY  = 2000
 
 for category in categories:
 
+  cr.select_font_face("Arial", cairo.FONT_SLANT_NORMAL,
+                               cairo.FONT_WEIGHT_BOLD)
   cr.set_font_size(80)
   cr.move_to(xTxt-300, yTxt-80)
   cr.set_source_rgb(.5, .3, 0)
   cr.show_text(category)       
   yTxt += dyTxt
   
-  if yTxt > 2000: yTxt = yTxtOrig; xTxt += dxTxt
+  if yTxt > endY: yTxt = yTxtOrig; xTxt += dxTxt
 
   categoryEntries = yd[category]
   lastMain = None
@@ -57,6 +57,17 @@ for category in categories:
     if mainDish != lastMain:
       print(mainDish); lastMain = mainDish #ignoring side subentries for present
 
+    cr.select_font_face("Arial", cairo.FONT_SLANT_NORMAL,
+                                 cairo.FONT_WEIGHT_NORMAL)
+
+    cr.set_font_size(50)
+    cr.move_to(xTxt-300, yTxt-80)
+    cr.set_source_rgb(.5, .3, 0)
+    cr.show_text(mainDish)
+    yTxt += dyTxt
+
+    if yTxt > endY: yTxt = yTxtOrig; xTxt += dxTxt
+  
 cr.show_page()
 
 ### end ###
