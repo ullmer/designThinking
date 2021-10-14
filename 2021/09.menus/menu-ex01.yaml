@@ -17,21 +17,19 @@ url: https://jsonld.com/restaurant-menu-json-ld-sample/
 servesCuisine: [American cuisine]
 
 hasMenu:
-  @type: Menu
-  name:  Dine-In Menu
-      "description":"Menu for in-restaurant dining only.",
-      "hasMenuSection":[
-         {
-            "@type":"MenuSection",
-            "name":"Dinner",
-            "description":"Dinner dishes",
-            "image":"https://thisisarestaurant.com/dinner_dishes.jpg",
-            "offers":{
-               "@type":"Offer",
-               "availabilityEnds":"T8:22:00",
-               "availabilityStarts":"T8:22:00"
-            },
-            "hasMenuSection":[
+  @type:       Menu
+  name:        Dine-In Menu
+  description: Menu for in-restaurant dining only.
+  hasMenuSection:
+    @type:       MenuSection
+    name:        Dinner
+    description: Dinner dishes
+    image:       https://thisisarestaurant.com/dinner_dishes.jpg
+    offers:
+      type: Offer
+      availabilityEnds:   T8:22:00
+      availabilityStarts: T8:22:00
+    hasMenuSection:
                {
                   "@type":"MenuSection",
                   "name":"Starters",
