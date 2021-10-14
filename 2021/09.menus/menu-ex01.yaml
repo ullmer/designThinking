@@ -7,19 +7,18 @@ url: https://jsonld.com/restaurant-menu-json-ld-sample/
   telephone:   5615551212
   priceRange:  $100 - $200
   description: a description of this business
-  address : {
-  @type : "PostalAddress",
-  streetAddress: "STREET ADDRESS",
-  addressLocality: "CITY",
-  addressRegion: "STATE ABBREVIATION",
-  postalCode     "ZIP CODE"
-
+  address:     
+    @type:           PostalAddress
+    streetAddress:   STREET ADDRESS
+    addressLocality: CITY
+    addressRegion:   STATE ABBREVIATION
+    postalCode:      ZIP CODE
 
 servesCuisine: [American cuisine]
 
 hasMenu:
-      "@type":"Menu",
-      "name":"Dine-In Menu",
+  @type: Menu
+  name:  Dine-In Menu
       "description":"Menu for in-restaurant dining only.",
       "hasMenuSection":[
          {
