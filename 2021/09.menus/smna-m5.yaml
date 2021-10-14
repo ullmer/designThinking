@@ -48,10 +48,10 @@ Main Dishes:
  - {main: Cedar Planked Wild Salmon, sides: with 2 sides}
  - {main: Grilled Bison Loin, sides: caramelized strawberries}
  - {main: Grilled Bison Loin, sides: with 2 sides}
-Hot Side Dishes $3.59:
+Hot Side Dishes:
  - {main: Sautéed Swiss Chard, sides: roasted garlic confit&comma; white onions}
  - {main: Roasted Wild Mushrooms, sides: smoked potatoes&comma; fresh herbs}
-Cold Side Dishes $3.59:
+Cold Side Dishes:
  - {main: Grilled Asparagus And Roasted Salsify, sides: }
  - {main: Wild Rice  &amp;  Watercress Salad, sides: apple cider vinaigrette}
 Value Meal:
@@ -72,7 +72,7 @@ Totopos:
  - {main: Blue, sides: red and yellow corn chips  &amp;  salsa}
  - {main: Blue, sides: red and yellow corn chips with guacamole}
  - {main: Blue&comma; Red And Yellow Corn Chips With Carne, sides: summer goat&comma; plantain  &amp;  poblano salsa chicken&comma; prickly pear mole}
-Side Dishes $3.59:
+Side Dishes:
  - {main: Grilled Nopales, sides: spiced green beans&comma; lime butter}
  - {main: Butter Bean, sides: grilled chayote squash}
 Salsa And Guacamole:
@@ -82,12 +82,12 @@ Salsa And Guacamole:
  - {main: Cotija Cheese, sides: }
  - {main: Sour Cream, sides: }
  - {main: Guacamole, sides: }
-Sweets $5.25:
+Sweets:
  - {main: Steamed Banana Cake Wrapped In Banana Leaves, sides: blackberry sauce}
  - {main: Orange Cake, sides: }
 Great Plains:
  - {main: Buffalo Chili, sides: }
-Main Dishes $12.50:
+Main Dishes:
  - {main: Indian Taco, sides: buffalo chili on fry bread with pickled chiles  &amp;  pinto beans&comma; lettuce&comma; tomato and shredded cheese}
  - {main: Chipotle Chicken Taco, sides: grilled chipotle chicken&comma; fry bread&comma; lettuce&comma; tomato and shredded cheese}
 Burgers And Sandwiches:
@@ -106,6 +106,6 @@ Hot Side Dishes:
  - {main: Fry Bread, sides: }
  - {main: Cinnamon And Honey, sides: }
  - {main: Blue Berry Wajapia, sides: }
-Cold Side Dishes $3.59:
+Cold Side Dishes:
  - {main: Heirloom Watermelon  &amp;  Tomato Salad, sides: roasted jalapenos&comma; charred onions}
  - {main: Grilled Asparagus And Roasted Salsify, sides: }

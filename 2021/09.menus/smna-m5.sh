@@ -6,4 +6,5 @@ cat tmp/m2 | sed 's/^<th><cite>/ - {main: /'                > tmp/m3
 cat tmp/m3 | sed 's/<\/cite>&nbsp;/, sides: /; s/<\/th>/}/' > tmp/m4
 cat tmp/m4 | sed 's/^<p>.*nbsp;/    - /; s/<\/p>//;'        > tmp/m5
 cat tmp/m5 | sed 's/\&amp\;/ & /g;'                         > tmp/m6
+cat tmp/m6 | sed 's/ \$.*$/:/g;'                            > tmp/m7
 
