@@ -30,15 +30,14 @@ hasMenu:
       availabilityEnds:   T8:22:00
       availabilityStarts: T8:22:00
     hasMenuSection:
-               {
-                  "@type":"MenuSection",
-                  "name":"Starters",
-                  "description":"Appetizers and such",
-                  "image":"https://thisisarestaurant.com/starter_dishes.jpg",
-                  "offers":{
-                     "@type":"Offer",
-                     "availabilityEnds":"T8:22:00",
-                     "availabilityStarts":"T8:22:00"
+      @type:       MenuSection
+      name:        Starters
+      description: Appetizers and such
+      image:       https://thisisarestaurant.com/starter_dishes.jpg
+      offers: 
+        @type: Offer
+	availabilityEnds:   T8:22:00
+	availabilityStarts: T8:22:00
                   },
                   "hasMenuItem":{
                      "@type":"MenuItem",
