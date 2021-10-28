@@ -24,15 +24,17 @@ y1 = cylinder(r=.02, h=.1)
 
 for row in scpcReader:
   city, popStr, lat, long = row
-  y2 = translate([float(lat), float(long), 0])(y1)
   cylRad = mapPop2Rad(popStr)
-  print(city, cylRad)
+  y2 = translate([float(lat), float(long), 0])(y1)
+  y3 = scale([1,1, cylRad/2.5])(y2)
+  #print(city, cylRad)
 
-  if outGeom == None: outGeom = y2
-  else:               outGeom += y2
+  if outGeom == None: outGeom = y3
+  elif city == "Clemson": outGeom = color([1,.5,0])(y3)
+  else:               outGeom += y3
 
 radialSegments = 25; hdr = '$fn = %s;' % radialSegments # create a header for the export
-scad_render_to_file(outGeom, 'scNodes1.scad', file_header=hdr) # write the .scad file
+scad_render_to_file(outGeom, 'scNodes3.scad', file_header=hdr) # write the .scad file
 
 ### end ###
 
