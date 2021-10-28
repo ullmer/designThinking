@@ -27,9 +27,9 @@ for barLength in barLengths:
   offset += barWidth + between
 
 y1 = cylinder()
-y2 = scale([.5,5,20])(y1)
+y2 = scale([.5,3,20])(y1)
 y3 = rotate([0,90,0])(y2)
-y4 = translate([-1,.75,-.25])(y3)
+y4 = translate([-1,3.2,-.1])(y3)
 y5 = color([1,0,0])(y4)
 outGeom += y5
 
