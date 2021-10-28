@@ -393,5 +393,27 @@ def synthQuarterPipe(od, id, pipeLen):
   result = cb1 - (cut1b + cut2b)
   return result
 
+################ convert fractional ################
+
+def convertFractional(fractional):
+  if isinstance(fractional, int):   return fractional
+  if isinstance(fractional, float): return fractional
+  if fractional.find('/') < 0:      return int(fractional)
+
+  if fractional.find(' ') < 0: fraction = fractional; whole=0
+  else:                        whole, fraction = fractional.split(' ')
+  num, denom      = fraction.split('/')
+
+  result = float(whole) + float(num)/float(denom)
+  return result
+
+################ convert fractional list ################
+
+def convertFractionalList(fractionalList):
+  result = []
+  for fractional in fractionalList:
+    result.append(convertFractional(fractional))
+  return result
+
 ### end ###
 

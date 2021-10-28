@@ -2,32 +2,9 @@
 # Brygg Ullmer, Clemson University
 # Written 2021-10-28
 
-from   solid import *        # load in SolidPython/SCAD support code
+from       solid import * # load in SolidPython/SCAD support code
+from synthShapes import *
 import yaml
-
-################ convert fractional ################
-
-def convertFractional(fractional):
-  if isinstance(fractional, int):   return fractional
-  if isinstance(fractional, float): return fractional
-  if fractional.find('/') < 0:      return int(fractional)
-
-  if fractional.find(' ') < 0: fraction = fractional; whole=0
-  else:                        whole, fraction = fractional.split(' ')
-  num, denom      = fraction.split('/')
-
-  result = float(whole) + float(num)/float(denom)
-  return result
-
-################ convert fractional list ################
-
-def convertFractionalList(fractionalList):
-  result = []
-  for fractional in fractionalList:
-    result.append(convertFractional(fractional))
-  return result
-
-################ main ################
 
 yfn = 'xylophone.yaml'
 yf  = open(yfn, 'r')
