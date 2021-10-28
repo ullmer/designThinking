@@ -1,8 +1,11 @@
 # SolidPython example code 
 # Brygg Ullmer, Clemson University
-# Written 2021-10-27
+# Written 2021-10-28
 
-from solid import *        # load in SolidPython/SCAD support code
+from   solid import *        # load in SolidPython/SCAD support code
+import yaml
+
+yfn = 'xylophone.yaml'
 
 c1 = cube()
 c2 = translate([1.5, 0, 0])(c1)
@@ -13,7 +16,7 @@ y2 = translate([.5, .5, .5])(y1)
 outGeom += y2
 
 radialSegments = 25; hdr = '$fn = %s;' % radialSegments # create a header for the export
-scad_render_to_file(outGeom, 'exSolid02.scad', file_header=hdr) # write the .scad file
+scad_render_to_file(outGeom, 'exXyl01.scad', file_header=hdr) # write the .scad file
 
 ### end ###
 
