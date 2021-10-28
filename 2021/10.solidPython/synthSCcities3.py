@@ -5,7 +5,7 @@
 import csv, traceback
 
 coordsFn = "sc_cities.csv";   coordsF = open(coordsFn, "r")
-pop1Fn   = "sc-urban-pop1.csv"; pop1F = open(pop1Fn, "r")
+pop1Fn   = "sc-urban-pop.csv"; pop1F = open(pop1Fn, "r")
 pop2Fn   = "sc-cities.csv";     pop2F = open(pop2Fn, "r")
 
 coordReader = csv.reader(coordsF, delimiter=",")
@@ -27,9 +27,11 @@ for row in pop1Reader:
 
 rowNum = 0
 for row in pop2Reader:
-  city = row[0]; pop2 = row[2]
-  pop2Hash[city] = pop2
-  #if rowNum<5: print(city, pop1); rowNum += 1
+  try:
+    city = row[0]; pop2 = row[4]; pop2b = pop2.replace(",", "")
+    pop2Hash[city] = pop2b
+    if rowNum<5: print(city, pop2b); rowNum += 1
+  except: pass #just ignore for present
 
 cities = coordHash.keys() # more city-coords than city-urban areas
 
