@@ -12,8 +12,10 @@ def convertFractional(fractional):
   if isinstance(fractional, float): return fractional
   if fractional.find('/') < 0:      return int(fractional)
 
-  whole, fraction = fractional.split(' ')
+  if fractional.find(' ') < 0: fraction = fractional; whole=0
+  else:                        whole, fraction = fractional.split(' ')
   num, denom      = fraction.split('/')
+
   result = float(whole) + float(num)/float(denom)
   return result
 
@@ -31,19 +33,19 @@ yfn = 'xylophone.yaml'
 yf  = open(yfn, 'r')
 yd  = yaml.safe_load(yf)
 
-barWidth   = yd['allBars']['wide']
-barThick   = yd['allBars']['thick']
+barWidth   = convertFractional(yd['allBars']['wide'])
+barThick   = convertFractional(yd['allBars']['thick'])
+between    = convertFractional(yd['allBars']['between'])
 barLengths = convertFractionalList(yd['lengths'])
 
-print(barWidth, barThick, barLengths)
+#print(barWidth, barThick, barLengths)
 
-c1 = cube()
-c2 = translate([1.5, 0, 0])(c1)
-outGeom = c1 + c2
+outGeom = None; offset = 0
+for barLength in barLengths:
+  c1 = cube([barWidth, barThick, barLength])
+  c2 = translate([offset,0,0])(c1)
 
-y1 = cylinder(r=.3, h=.6)
-y2 = translate([.5, .5, .5])(y1)
-outGeom += y2
+  outGeom += c2; offset += between
 
 radialSegments = 25; hdr = '$fn = %s;' % radialSegments # create a header for the export
 scad_render_to_file(outGeom, 'exXyl01.scad', file_header=hdr) # write the .scad file
