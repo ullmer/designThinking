@@ -22,8 +22,8 @@ print("="*10)
 
 rowNum = 0
 for row in popReader:
-  try: cityState = row[1]; pop = row[2]; city, state = ', '.split(cityState)
-  except: 
+  city = row[1]; pop = row[2]
+
   if rowNum<5: print(city, pop)
   rowNum += 1
 
