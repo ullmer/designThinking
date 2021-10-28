@@ -5,7 +5,37 @@
 from   solid import *        # load in SolidPython/SCAD support code
 import yaml
 
+################ convert fractional ################
+
+def convertFractional(fractional):
+  if isinstance(fractional, int):   return fractional
+  if isinstance(fractional, float): return fractional
+  if fractional.find('/') < 0:      return int(fractional)
+
+  whole, fraction = fractional.split(' ')
+  num, denom      = fraction.split('/')
+  result = float(whole) + float(num)/float(denom)
+  return result
+
+################ convert fractional list ################
+
+def convertFractionalList(fractionalList):
+  result = []
+  for fractional in fractionalList:
+    result.append(convertFractional(fractional))
+  return result
+
+################ main ################
+
 yfn = 'xylophone.yaml'
+yf  = open(yfn, 'r')
+yd  = yaml.safe_load(yf)
+
+barWidth   = yd['allBars']['wide']
+barThick   = yd['allBars']['thick']
+barLengths = convertFractionalList(yd['lengths'])
+
+print(barWidth, barThick, barLengths)
 
 c1 = cube()
 c2 = translate([1.5, 0, 0])(c1)
