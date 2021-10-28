@@ -12,19 +12,23 @@ coordReader = csv.reader(coordsF, delimiter=",")
 pop1Reader  = csv.reader(pop1F,   delimiter=",")
 pop2Reader  = csv.reader(pop2F,   delimiter=",")
 
-coordHash = {}; pop1Hash = {}
+coordHash = {}; pop1Hash = {}; pop2Hash = {}
 
 for row in coordReader:
   city = row[3]; lat, long = row[5:7]
   coordHash[city] = [lat, long]
   #if rowNum<5: print(city, lat, long); rowNum += 1
 
-print("="*10)
-
 rowNum = 0
 for row in pop1Reader:
   city = row[1]; pop1 = row[2]
   pop1Hash[city] = pop1
+  #if rowNum<5: print(city, pop1); rowNum += 1
+
+rowNum = 0
+for row in pop2Reader:
+  city = row[0]; pop2 = row[2]
+  pop2Hash[city] = pop2
   #if rowNum<5: print(city, pop1); rowNum += 1
 
 cities = coordHash.keys() # more city-coords than city-urban areas
