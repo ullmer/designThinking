@@ -19,10 +19,12 @@ barLengths = convertFractionalList(yd['lengths'])
 
 outGeom = None; offset = 0
 for barLength in barLengths:
-  c1 = cube([barWidth, barThick, barLength])
+  c1 = cube([barWidth, barLength, barThick])
   c2 = translate([offset,0,0])(c1)
 
-  outGeom += c2; offset += between
+  if outGeom == None: outGeom = c2
+  else:               outGeom += c2
+  offset += barWidth + between
 
 radialSegments = 25; hdr = '$fn = %s;' % radialSegments # create a header for the export
 scad_render_to_file(outGeom, 'exXyl01.scad', file_header=hdr) # write the .scad file
