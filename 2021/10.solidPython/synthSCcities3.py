@@ -28,18 +28,22 @@ for row in pop1Reader:
 rowNum = 0
 for row in pop2Reader:
   try:
-    city = row[0]; pop2 = row[4]; pop2b = pop2.replace(",", "")
+    #city = row[0]; pop2 = row[4]; pop2b = pop2.replace(",", "")
+    city = row[0]; pop2 = row[5]; pop2b = pop2.replace(",", "")
     pop2Hash[city] = pop2b
-    if rowNum<5: print(city, pop2b); rowNum += 1
+    #if rowNum<5: print(city, pop2b); rowNum += 1
   except: pass #just ignore for present
 
 cities = coordHash.keys() # more city-coords than city-urban areas
 
 for city in cities:
   coord = coordHash[city]; lat, long = coord
-  try:     pop1   = pop1Hash[city]
-  except:  pop1   = "-"   # we only have urban-area pop1ulation estimations for subset of cities
-  outStr = ",".join([city, pop1, lat, long])
+  try:   pop   = pop1Hash[city]
+  except:  
+    try: pop = pop2Hash[city]
+    except: pop = "-"
+
+  outStr = ",".join([city, pop, lat, long])
   print(outStr)
 
 ### end ###
