@@ -32,7 +32,7 @@ for row in scpcReader:
   #print(city, cylRad)
 
   if outGeom == None:    outGeom = y3
-  elif city in hlCities: outGeom = color([1,.5,0])(y3)
+  elif city in hlCities: outGeom += color([1,.5,0])(y3)
   else:                  outGeom += y3
 
 radialSegments = 25; hdr = '$fn = %s;' % radialSegments # create a header for the export
