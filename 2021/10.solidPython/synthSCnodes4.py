@@ -12,7 +12,7 @@ hlCities = ['Clemson', 'Greenville', 'Columbia', 'Charleston', 'Hartsville', 'Tr
 
 def mapPop2Rad(popStr):
   try:     pop = int(popStr)
-  except:  return 0
+  except:  return 1
 
   popThresh = [5000, 25000, 50000, 100000, 250000, 500000]
   result = 1
@@ -28,12 +28,12 @@ for row in scpcReader:
   city, popStr, lat, long = row
   cylRad = mapPop2Rad(popStr)
   y2 = translate([float(lat), float(long), 0])(y1)
-  y3 = scale([1,1, cylRad/2.5])(y2)
+  y3 = scale([1.,.1, cylRad/2.5])(y2)
   #print(city, cylRad)
 
   if outGeom == None:    outGeom = y3
-  elif city in hlCities: outGeom += color([1,.5,0])(y3)
   else:                  outGeom += y3
+  #elif city in hlCities: outGeom += color([1,.5,0])(y3)
 
 radialSegments = 25; hdr = '$fn = %s;' % radialSegments # create a header for the export
 scad_render_to_file(outGeom, 'scNodes4.scad', file_header=hdr) # write the .scad file
