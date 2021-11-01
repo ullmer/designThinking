@@ -32,8 +32,8 @@ class mcmBolts:
       for boltname in self.boltnames:
         stemHeight = self.yd[boltname]['stemHeight']
         headHeight = self.yd[boltname]['headHeight']
-	fullHeight = stemHeight + headHeight
-	self.fullheightHash[boltname] = fullHeight
+        fullHeight = stemHeight + headHeight
+        self.fullheightHash[boltname] = fullHeight
     except: print("mcmBolts::loadYaml"); traceback.print_exc()
   
   ############### constructor ###############
