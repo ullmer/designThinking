@@ -2,11 +2,18 @@
 # Brygg Ullmer, Clemson University
 # Begun 2021-10-31
 
-import mcmBolts
+from solid import *
+from mcmBolts import *
+
+outGeom = None
+
+cx, cy, cz = [0,0,0] #current xyz position
+xd, yd, zd = [1,0,0] #xyz diffs
 
 mb = mcmBolts()
 boltspecs = mb.getBoltspecs()
-print(boltspecs)
+for boltspec in boltspecs:
+  if outGeom == None: outGeom = mb.synthBolt(boltspec)
 
 ### end ###
 

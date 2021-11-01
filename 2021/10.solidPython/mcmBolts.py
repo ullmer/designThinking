@@ -13,17 +13,17 @@ class mcmBolts:
   yfn = 'bolts.yaml'
   yd  = None
 
-  ############### constructor ###############
-  
-  def __init__(self):
-    self.loadYaml()
-  
   ############### load YAML ###############
   
   def loadYaml(self):
     yf = open(self.yfn, 'r+t')
     self.yd = yaml.safe_load(yf)
     yf.close()
+  
+  ############### constructor ###############
+  
+  def __init__(self):
+    self.loadYaml()
   
   ############### mcmBolt ###############
   
