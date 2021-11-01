@@ -54,7 +54,7 @@ for row in scpcReader:
   else:                  outGeom += y2
 
 radialSegments = 25; hdr = '$fn = %s;' % radialSegments # create a header for the export
-scad_render_to_file(outGeom, 'scNodes4.scad', file_header=hdr) # write the .scad file
+scad_render_to_file(outGeom, 'scNodes5.scad', file_header=hdr) # write the .scad file
 
 ### end ###
 
