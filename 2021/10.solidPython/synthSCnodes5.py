@@ -24,9 +24,9 @@ def mapPop2Bolt(popStr, boltObj, boltPopHash):
   for testPop in popThresh:
     if pop > testPop: idx += 1
     else:             
-      key = int(popThresh[idx])
+      key = list(popThresh)[idx]
       return boltPopHash[key]
-  key = int(popThresh[idx])
+  key = list(popThresh)[idx]
   return boltPopHash[key]
 
 ############### main ###############
