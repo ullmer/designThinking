@@ -35,7 +35,7 @@ def buildGroundPlane(multiplier):
 
 ############### map pop 2 bolt ###############
 
-boltPopHash  = boltPopHashY = {0: 'n0', 25000: 'n0', 100000: 'n2', 500000: 'n1_4'}
+boltPopHash  = boltPopHashY = {0: 'n0', 25000: 'n0', 100000: 'n2', 300000: 'n1_4'}
 
 def mapPop2Bolt(popStr, boltObj, boltPopHash):
   global   boltSpec
@@ -51,6 +51,8 @@ def mapPop2Bolt(popStr, boltObj, boltPopHash):
       boltSpec = boltPopHash[key]
       #print("bs1:", boltSpec)
       return boltObj.synthBoltNeutral(boltSpec)
+  lpt = len(popThresh)
+  if idx >=lpt: idx = lpt-1
   try:
     key = list(popThresh)[idx]
     boltSpec = boltPopHash[key]
@@ -70,17 +72,19 @@ minlat, maxlat, minlong, maxlong = [None, None, None, None]
 for row in scpcReader:
   city, popStr, lat, long = row
   bolt1 = mapPop2Bolt(popStr, boltObj, boltPopHash)
+
+  if city=="Columbia": print(city, bolt1)
   if isinstance(bolt1, int): continue #ignore errors
 
 
   if boltSpec == 'n0': bolt2 = rotate([0,-90,0])(bolt1)
   else:                bolt2 = rotate([180,0,0])(bolt1)
 
-  if minlat == None or lat < minlat: minlat = lat
-  if maxlat == None or lat > maxlat: maxlat = lat
+  #if minlat == None or lat < minlat: minlat = lat
+  #if maxlat == None or lat > maxlat: maxlat = lat
 
-  if minlong == None or long < minlong: minlong = long
-  if maxlong == None or long > maxlong: maxlong = long
+  #if minlong == None or long < minlong: minlong = long
+  #if maxlong == None or long > maxlong: maxlong = long
 
   coord = [float(lat)*multiplier, float(long)*multiplier, 0]
   #print("coord:", coord, str(bolt))
@@ -93,7 +97,7 @@ for row in scpcReader:
 
 radialSegments = 25; hdr = '$fn = %s;' % radialSegments # create a header for the export
 
-print(minlat, maxlat, minlong, maxlong)
+#print(minlat, maxlat, minlong, maxlong)
 
 scad_render_to_file(outGeom, 'scNodes7.scad', file_header=hdr) # write the .scad file
 
