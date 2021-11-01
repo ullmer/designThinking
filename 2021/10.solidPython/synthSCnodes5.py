@@ -13,8 +13,7 @@ hlCities = ['Clemson', 'Greenville', 'Columbia', 'Charleston', 'Hartsville', 'Tr
 
 ############### map pop 2 bolt ###############
 
-boltPopHashY = '{0: n2, 50000: n4, 200000: n8, 500000: n1_4}'
-boltPopHash  = yaml.safe_load(boltPopHashY)
+boltPopHash  = boltPopHashY = {0: 'n2', 50000: 'n4', 200000: 'n8', 500000: 'n1_4'}
 
 def mapPop2Bolt(popStr, boltObj, boltPopHash):
   try:     pop = int(popStr)
