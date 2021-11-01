@@ -10,18 +10,20 @@ import yaml
 ############### mcmaster bolt ###############
 
 class mcmBolt: 
+  yfn = 'bolts.yaml'
+  yd  = None
 
-############### synthesize cylindrical bar ###############
+############### constructor ###############
 
-def synthCylBar(od, id, barThick):
-############### synthesize cylindrical bar ###############
+def __init__(self):
+  self.loadYaml()
 
-def synthCylBar(od, id, barThick):
-  outerCyl1 = cylinder(r=od/2., h=barThick)
-  innerCyl1 = cylinder(r=id/2., h=barThick*2)
-  innerCyl2 = translate([0,0,-barThick/2.])(innerCyl1)
-  cylBar    = outerCyl1 - innerCyl2
-  return cylBar
+############### load YAML ###############
+
+def loadYaml(self):
+  yf = open(self.yfn, 'r+t')
+  self.yd = yaml.safe_load(yf)
+  yf.close()
 
 ### end ###
 
