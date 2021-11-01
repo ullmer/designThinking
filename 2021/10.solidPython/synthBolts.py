@@ -4,7 +4,7 @@
 
 import mcmBolts
 
-mb = mcmBolt()
+mb = mcmBolts()
 boltspecs = mb.getBoltspecs()
 print(boltspecs)
 
