@@ -1,0 +1,47 @@
+# SolidPython example code 
+# Brygg Ullmer, Clemson University
+# Written 2021-10-27
+
+from solid import *        # load in SolidPython/SCAD support code
+import csv
+from mcmBolts import *
+
+scPopCoordFn = 'sc-pop-coord.csv'; scPCF = open(scPopCoordFn, "r")
+scpcReader   = csv.reader(scPCF, delimiter=",")
+
+hlCities = ['Clemson', 'Greenville', 'Columbia', 'Charleston', 'Hartsville', 'Travelers Rest'] #highlight cities
+
+############### map pop 2 bolt ###############
+
+boltPopHashY = '{0: n2, 50000: n4, 200000: n8, 500000: n1_4}'
+boltPopHash  = yaml.safe_load(boltPopHashY)
+
+def mapPop2Bolt(popStr, boltObj, boltPopHash):
+  try:     pop = int(popStr)
+  except:  return 1
+
+  popThresh = boltPopHash.keys()
+  idx = 0
+  for testPop in popThresh:
+    if pop > testPop: idx += 1
+    else:             return boltPopHash[popThresh[idx]]
+  return return boltPopHash[popThresh[idx]]
+
+outGeom = None
+y1 = cylinder(r=.02, h=.1)
+
+for row in scpcReader:
+  city, popStr, lat, long = row
+  bolt = mapPop2Rad(popStr)
+  y2 = translate([float(lat), float(long), 0])(bolt)
+  #print(city, cylRad)
+
+  if outGeom == None:    outGeom = y2
+  else:                  outGeom += y2
+  elif city in hlCities: outGeom += color([1,.5,0])(y2)
+
+radialSegments = 25; hdr = '$fn = %s;' % radialSegments # create a header for the export
+scad_render_to_file(outGeom, 'scNodes4.scad', file_header=hdr) # write the .scad file
+
+### end ###
+
