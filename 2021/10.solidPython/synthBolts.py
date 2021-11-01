@@ -25,5 +25,21 @@ def loadYaml(self):
   self.yd = yaml.safe_load(yf)
   yf.close()
 
+############### synthBolt ###############
+
+def synthBolt(self, boltspec):
+  try:    stlFn = self.yd[boltspec]['stl']
+  except: print("synthBolt:", boltspec); traceback.print_exc()
+
+  result = import_stl(stlFn)
+  return result 
+
+############### synthBolt ###############
+
+def synthBoltPos(self, boltspec, pos):
+  boltGeom = self.synthBolt(boltspec)
+  result   = translate(pos)(boltGeom)
+  return result
+
 ### end ###
 
