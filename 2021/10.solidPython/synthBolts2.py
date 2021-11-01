@@ -16,11 +16,14 @@ boltspecs = mb.getBoltspecs()
 
 for boltspec in boltspecs:
   boltHeight = mb.getFullHeight(boltspec)
-  if boltHeight != None: cz += boltHeight * 15
-  if outGeom == None: outGeom =  mb.synthBolt(boltspec)
+  cz += boltHeight * 10
+  #print(boltspec, boltHeight, cz)
+
+  if outGeom == None: 
+    outGeom =  mb.synthBoltNeutral(boltspec)
   else:               
     cx += xd; cy += yd; cz += zd
-    outGeom += mb.synthBoltPos(boltspec, [cx,cy,cz])
+    outGeom += mb.synthBoltNPos(boltspec, [cx,cy,cz])
 
 print(scad_render(outGeom))
 

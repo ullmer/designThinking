@@ -34,6 +34,7 @@ class mcmBolts:
         headHeight = self.yd[boltname]['headHeight']
         fullHeight = stemHeight + headHeight
         self.fullheightHash[boltname] = fullHeight
+
     except: print("mcmBolts::loadYaml"); traceback.print_exc()
   
   ############### constructor ###############
@@ -63,7 +64,7 @@ class mcmBolts:
     except: print("mcmBolts::getHeadHeight"); traceback.print_exc()
     return  headHeight
 
-  ############### mcmBolt ###############
+  ############### get bolt specs ###############
   
   def getBoltspecs(self):
     bolts = None
@@ -71,7 +72,7 @@ class mcmBolts:
     except: print("mcmBolt:getBoltspecs"); traceback.print_exc()
     return bolts
   
-  ############### mcmBolt ###############
+  ############### synth bolt ###############
   
   def synthBolt(self, boltspec):
     stlFn = None
@@ -83,10 +84,28 @@ class mcmBolts:
     result = import_stl(stlFn)
     return result 
   
-  ############### mcmBolt ###############
+  ############### synth bolt pos ###############
   
   def synthBoltPos(self, boltspec, pos):
     boltGeom = self.synthBolt(boltspec)
+    result   = translate(pos)(boltGeom)
+    return result
+  
+  ############### synth bolt "neutral" position ###############
+  
+  def synthBoltNeutral(self, boltspec):
+    boltHeight = float(self.getFullHeight(boltspec))
+    stemHeight = float(self.yd[boltspec]['stemHeight'])
+    #dz = boltHeight / 2 - stemHeight/2
+    dz = -10 * boltHeight/2
+    #dz = -1 * boltHeight
+    boltGeom = self.synthBoltPos(boltspec, [0,0,dz])
+    return boltGeom
+  
+  ############### synth bolt npos ###############
+  
+  def synthBoltNPos(self, boltspec, pos):
+    boltGeom = self.synthBoltNeutral(boltspec)
     result   = translate(pos)(boltGeom)
     return result
 
