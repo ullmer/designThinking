@@ -12,7 +12,10 @@ scpcReader   = csv.reader(scPCF, delimiter=",")
 hlCities = ['Clemson', 'Greenville', 'Columbia', 'Charleston', 'Hartsville', 'Travelers Rest'] #highlight cities
 
 #minMaxLatLong = [32.1632, 35.156486, -78.67792, -83.110782]
-minMaxLatLong = [32.0632, 35.256486, -78.77792, -83.010782]
+#minMaxLatLong = [32.0632, 35.256486, -78.77792, -83.010782]
+#minMaxLatLong = [31.5, 35.8, -79, -84]
+#minMaxLatLong = [31.5, 35.5, -79., -84.]
+minMaxLatLong = [31.9, 35.5, -78.5, -83.5]
 
 ############### buildGroundPlane ###############
 
@@ -31,7 +34,7 @@ def buildGroundPlane(multiplier):
 
   print(difflat2, difflong2, cx - difflat2/2, cy)
 
-  c1 = cube([difflat2, difflong2, 10])
+  c1 = cube([difflat2, difflong2, 7])
   c2 = translate([cy-difflong2/2.5, cx-difflat2/1.5, 0])(c1)
   c3 = color([.5,.5,.6])(c2)
   return c3
@@ -39,7 +42,7 @@ def buildGroundPlane(multiplier):
 ############### map pop 2 bolt ###############
 
 #boltPopHash  = boltPopHashY = {0: 'n0', 30000: 'n0', 75000: 'n4', 200000: 'n1_4'}
-boltPopHash  = boltPopHashY = {0: 'n0', 20000: 'n0', 40000: 'n2', 75000: 'n4', 200000: 'n1_4'}
+boltPopHash  = boltPopHashY = {0: 'n0', 20000: 'n0', 30000: 'n2', 75000: 'n4', 200000: 'n1_4'}
 
 def mapPop2Bolt(popStr, boltObj, boltPopHash):
   global   boltSpec
@@ -77,7 +80,7 @@ for row in scpcReader:
   city, popStr, lat, long = row
   bolt1 = mapPop2Bolt(popStr, boltObj, boltPopHash)
 
-  if city=="Columbia": print(city, bolt1)
+  #if city=="Columbia": print(city, bolt1)
   if isinstance(bolt1, int): continue #ignore errors
 
 
