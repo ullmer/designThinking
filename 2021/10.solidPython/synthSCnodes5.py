@@ -25,20 +25,22 @@ def mapPop2Bolt(popStr, boltObj, boltPopHash):
   for testPop in popThresh:
     if pop > testPop: idx += 1
     else:             return boltPopHash[popThresh[idx]]
-  return return boltPopHash[popThresh[idx]]
+  return boltPopHash[popThresh[idx]]
 
+############### main ###############
+
+boltObj = mcmBolts()
 outGeom = None
-y1 = cylinder(r=.02, h=.1)
 
 for row in scpcReader:
   city, popStr, lat, long = row
-  bolt = mapPop2Rad(popStr)
+  bolt = mapPop2Bolt(popStr, boltObj, boltPopHash)
   y2 = translate([float(lat), float(long), 0])(bolt)
   #print(city, cylRad)
 
   if outGeom == None:    outGeom = y2
-  else:                  outGeom += y2
   elif city in hlCities: outGeom += color([1,.5,0])(y2)
+  else:                  outGeom += y2
 
 radialSegments = 25; hdr = '$fn = %s;' % radialSegments # create a header for the export
 scad_render_to_file(outGeom, 'scNodes4.scad', file_header=hdr) # write the .scad file
