@@ -26,12 +26,15 @@ def buildGroundPlane(multiplier):
   difflat2  = difflat  * multiplier
   difflong2 = difflong * multiplier
 
-  cx = (minlong + maxlong)/2 * multiplier * -1
-  cy = (minlat + maxlat)/2 * multiplier * -1
+  cx = (minlong + maxlong)/2 * multiplier 
+  cy = (minlat + maxlat)/2 * multiplier 
+
+  print(difflat2, difflong2, cx - difflat2/2, cy)
 
   c1 = cube([difflat2, difflong2, 10])
-  c2 = translate([cx, cy, 0])
-  return c2
+  c2 = translate([cy-difflong2/2.5, cx-difflat2/1.5, 0])(c1)
+  c3 = color([.5,.5,.6])(c2)
+  return c3
 
 ############### map pop 2 bolt ###############
 
