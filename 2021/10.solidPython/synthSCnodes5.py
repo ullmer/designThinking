@@ -42,11 +42,13 @@ outGeom = None
 
 for row in scpcReader:
   city, popStr, lat, long = row
-  bolt = mapPop2Bolt(popStr, boltObj, boltPopHash)
-  coord = [float(lat)*10, float(long)*10, 0]
-  if isinstance(bolt, int): continue #not sure why, but could be throwing issues
+  bolt1 = mapPop2Bolt(popStr, boltObj, boltPopHash)
+  if isinstance(bolt1, int): continue #ignore errors
+
+  bolt2 = rotate([180,0,0])(bolt1)
+  coord = [float(lat)*30., float(long)*30., 0]
   #print("coord:", coord, str(bolt))
-  y2 = translate(coord)(bolt)
+  y2 = translate(coord)(bolt2)
   #print(city, y2)
 
   if outGeom == None:    outGeom = y2
