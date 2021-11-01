@@ -26,12 +26,14 @@ def mapPop2Bolt(popStr, boltObj, boltPopHash):
     else:             
       key = list(popThresh)[idx]
       boltSpec = boltPopHash[key]
-      print("bs1:", boltSpec)
-      return boltObj.synthBolt(boltSpec)
-  key = list(popThresh)[idx]
-  boltSpec = boltPopHash[key]
-  print("bs2:", boltSpec)
-  return boltObj.synthBolt(boltSpec)
+      #print("bs1:", boltSpec)
+      return boltObj.synthBoltNeutral(boltSpec)
+  try:
+    key = list(popThresh)[idx]
+    boltSpec = boltPopHash[key]
+    #print("bs2:", boltSpec)
+    return boltObj.synthBoltNeutral(boltSpec)
+  except: return -1
 
 ############### main ###############
 
@@ -41,7 +43,10 @@ outGeom = None
 for row in scpcReader:
   city, popStr, lat, long = row
   bolt = mapPop2Bolt(popStr, boltObj, boltPopHash)
-  y2 = translate([float(lat), float(long), 0])(bolt)
+  coord = [float(lat), float(long), 0]
+  if isinstance(bolt, int): continue #not sure why, but could be throwing issues
+  #print("coord:", coord, str(bolt))
+  y2 = translate(coord)(bolt)
   #print(city, y2)
 
   if outGeom == None:    outGeom = y2
