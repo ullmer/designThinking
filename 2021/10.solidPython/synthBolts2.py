@@ -16,7 +16,7 @@ boltspecs = mb.getBoltspecs()
 
 for boltspec in boltspecs:
   boltHeight = mb.getFullHeight(boltspec)
-  cz += boltHeight
+  if boltHeight != None: cz += boltHeight * 15
   if outGeom == None: outGeom =  mb.synthBolt(boltspec)
   else:               
     cx += xd; cy += yd; cz += zd

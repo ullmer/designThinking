@@ -45,7 +45,7 @@ class mcmBolts:
   
   def getFullHeight(self, boltname):
     fullHeight = None
-    try:    fullHeight = self.fullHeightHash[boltname]
+    try:    fullHeight = self.fullheightHash[boltname]
     except: print("mcmBolts::getFullHeight"); traceback.print_exc()
     return fullHeight
 
