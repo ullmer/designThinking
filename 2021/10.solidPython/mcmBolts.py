@@ -65,9 +65,10 @@ class mcmBolts:
   ############### mcmBolt ###############
   
   def getBoltspecs(self):
-    try:    keys = yd['boltnames']
+    bolts = None
+    try:    bolts = self.yd['boltnames']
     except: print("mcmBolt:getBoltspecs"); traceback.print_exc()
-    return keys
+    return bolts
   
   ############### mcmBolt ###############
   
