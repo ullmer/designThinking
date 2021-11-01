@@ -65,7 +65,7 @@ class mcmBolts:
   ############### mcmBolt ###############
   
   def getBoltspecs(self):
-    try:    keys = self.yd.keys()
+    try:    keys = yd['boltnames']
     except: print("mcmBolt:getBoltspecs"); traceback.print_exc()
     return keys
   
@@ -73,7 +73,9 @@ class mcmBolts:
   
   def synthBolt(self, boltspec):
     stlFn = None
-    try:    stlFn = self.yd[boltspec]['stl']
+    try:    
+      bolt  = self.yd[boltspec]
+      stlFn = bolt['stl']
     except: print("mcmBolt:", boltspec); traceback.print_exc()
   
     result = import_stl(stlFn)
