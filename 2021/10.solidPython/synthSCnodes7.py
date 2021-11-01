@@ -84,7 +84,7 @@ for row in scpcReader:
   if isinstance(bolt1, int): continue #ignore errors
 
 
-  if boltSpec == 'n0': bolt2 = rotate([0,-90,0])(bolt1)
+  if boltSpec == 'n0': bolt2 = translate([0,0,3])(rotate([0,-90,0])(bolt1))
   else:                bolt2 = rotate([180,0,0])(bolt1)
 
   #if minlat == None or lat < minlat: minlat = lat
