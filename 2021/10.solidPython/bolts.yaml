@@ -1,18 +1,38 @@
 n2:   
   src: https://www.mcmaster.com/97715A400/
   stl: bolts/97715A400_NO THREADS_Brass Button Head Hex Drive Screws.stl
+  stemHeight: .125
+  headHeight: .046
+  headWidth:  .164
 n4:   
   src: https://www.mcmaster.com/97715A423/
   stl: bolts/97715A423_NO THREADS_Brass Button Head Hex Drive Screws.stl
+  stemHeight: .125
+  headHeight:
+  headWidth:
 n6:   
   src: https://www.mcmaster.com/97715A451/
   stl: bolts/97715A451_NO THREADS_Brass Button Head Hex Drive Screws.stl
+  stemHeight: .125
+  headHeight:
+  headWidth:
 n8:   
   src: https://www.mcmaster.com/97715A464/
   stl: bolts/97715A464_NO THREADS_Brass Button Head Hex Drive Screws.stl
+  stemHeight: .125
+  headHeight:
+  headWidth:
 n1_4: 
   src: https://www.mcmaster.com/97715A516/
   stl: bolts/97715A176_NO THREADS_Brass Button Head Hex Drive Screws.stl
+  stemHeight: .125
+  headHeight:
+  headWidth:
 n10:  
   src: https://www.mcmaster.com/97715A176/
   stl: bolts/97715A516_NO THREADS_Brass Button Head Hex Drive Screws.stl
+  stemHeight: .125
+  headHeight:
+  headWidth:
+
+### end ###
