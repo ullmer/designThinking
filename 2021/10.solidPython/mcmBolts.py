@@ -59,10 +59,17 @@ class mcmBolts:
 
   ############### getHeadHeight ###############
   
-  def getHeadWidth(self, boltname):
+  def getHeadHeight(self, boltname):
     try:    headHeight = self.yd[boltname]['headHeight']
     except: print("mcmBolts::getHeadHeight"); traceback.print_exc()
     return  headHeight
+
+  ############### getHeadHeight ###############
+  
+  def getStemHeight(self, boltname):
+    try:    stemHeight = self.yd[boltname]['stemHeight']
+    except: print("mcmBolts::getStemHeight"); traceback.print_exc()
+    return  stemHeight
 
   ############### get bolt specs ###############
   

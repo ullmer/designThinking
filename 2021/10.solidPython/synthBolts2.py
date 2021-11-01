@@ -14,9 +14,10 @@ xd, yd, zd = [0,0,0] #xyz diffs
 mb = mcmBolts()
 boltspecs = mb.getBoltspecs()
 
+#for boltspec in boltspecs[5:]:
 for boltspec in boltspecs:
   boltHeight = mb.getFullHeight(boltspec)
-  cz += boltHeight * 10
+  stemHeight = mb.getStemHeight(boltspec)
   #print(boltspec, boltHeight, cz)
 
   if outGeom == None: 
@@ -24,6 +25,8 @@ for boltspec in boltspecs:
   else:               
     cx += xd; cy += yd; cz += zd
     outGeom += mb.synthBoltNPos(boltspec, [cx,cy,cz])
+
+  cz += (boltHeight+stemHeight) * 10
 
 print(scad_render(outGeom))
 
