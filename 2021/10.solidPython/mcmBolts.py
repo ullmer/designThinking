@@ -12,6 +12,8 @@ import yaml
 class mcmBolts: 
   yfn = 'bolts.yaml'
   yd  = None
+  fullheightHash = None 
+  boltnames      = None 
 
   ############### load YAML ###############
   
@@ -19,12 +21,47 @@ class mcmBolts:
     yf = open(self.yfn, 'r+t')
     self.yd = yaml.safe_load(yf)
     yf.close()
+
+    self.fullheightHash = {}
+    self.boltnames      = []
+
+    try:    self.boltnames = self.yd['boltnames']
+    except: print("mcmBolts::loadYaml"); traceback.print_exc()
+
+    try:
+      for boltname in self.boltnames:
+        stemHeight = self.yd[boltname]['stemHeight']
+        headHeight = self.yd[boltname]['headHeight']
+	fullHeight = stemHeight + headHeight
+	self.fullheightHash[boltname] = fullHeight
+    except: print("mcmBolts::loadYaml"); traceback.print_exc()
   
   ############### constructor ###############
   
   def __init__(self):
     self.loadYaml()
   
+  ############### getFullHeight ###############
+  
+  def getFullHeight(self, boltname):
+    try:    fullHeight = self.fullHeightHash[boltname]
+    except: print("mcmBolts::getFullHeight"); traceback.print_exc()
+    return fullHeight
+
+  ############### getHeadWidth ###############
+  
+  def getHeadWidth(self, boltname):
+    try:    headWidth = self.yd[boltname]['headWidth']
+    except: print("mcmBolts::getHeadWidth"); traceback.print_exc()
+    return  headWidth
+
+  ############### getHeadHeight ###############
+  
+  def getHeadWidth(self, boltname):
+    try:    headHeight = self.yd[boltname]['headHeight']
+    except: print("mcmBolts::getHeadHeight"); traceback.print_exc()
+    return  headHeight
+
   ############### mcmBolt ###############
   
   def getBoltspecs(self):
