@@ -12,8 +12,14 @@ xd, yd, zd = [1,0,0] #xyz diffs
 
 mb = mcmBolts()
 boltspecs = mb.getBoltspecs()
+
 for boltspec in boltspecs:
-  if outGeom == None: outGeom = mb.synthBolt(boltspec)
+  if outGeom == None: outGeom =  mb.synthBolt(boltspec)
+  else:               
+    cx += xd; cy += yd; cz += zd
+    outGeom += mb.synthBoltPos(boltspec, [cx,cy,cz])
+
+print(scad_render(outGeom))
 
 ### end ###
 
