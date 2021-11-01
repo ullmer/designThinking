@@ -9,7 +9,7 @@ n4:
   src: https://www.mcmaster.com/97715A423/
   stl: bolts/97715A423_NO THREADS_Brass Button Head Hex Drive Screws.stl
   stemHeight: .125
-  headHeight: .059	
+  headHeight: .059  
   headWidth:  .213
 n6:   
   src: https://www.mcmaster.com/97715A451/

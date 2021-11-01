@@ -4,7 +4,7 @@
 
 from solid import *
 from solid.utils import *
-import yaml
+import yaml, traceback
 
 #############################################
 ############### mcmaster bolt ###############
@@ -72,6 +72,7 @@ class mcmBolts:
   ############### mcmBolt ###############
   
   def synthBolt(self, boltspec):
+    stlFn = None
     try:    stlFn = self.yd[boltspec]['stl']
     except: print("mcmBolt:", boltspec); traceback.print_exc()
   

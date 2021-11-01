@@ -4,6 +4,7 @@
 
 from solid import *
 from mcmBolts import *
+import traceback
 
 outGeom = None
 
