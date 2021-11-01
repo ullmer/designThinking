@@ -13,7 +13,7 @@ hlCities = ['Clemson', 'Greenville', 'Columbia', 'Charleston', 'Hartsville', 'Tr
 
 ############### map pop 2 bolt ###############
 
-boltPopHash  = boltPopHashY = {0: 'n2', 50000: 'n4', 200000: 'n8', 500000: 'n1_4'}
+boltPopHash  = boltPopHashY = {0: 'n2', 25000: 'n4', 100000: 'n8', 500000: 'n1_4'}
 
 def mapPop2Bolt(popStr, boltObj, boltPopHash):
   try:     pop = int(popStr)
@@ -46,7 +46,7 @@ for row in scpcReader:
   if isinstance(bolt1, int): continue #ignore errors
 
   bolt2 = rotate([180,0,0])(bolt1)
-  coord = [float(lat)*30., float(long)*30., 0]
+  coord = [float(lat)*65., float(long)*65., 0]
   #print("coord:", coord, str(bolt))
   y2 = translate(coord)(bolt2)
   #print(city, y2)
