@@ -8,7 +8,7 @@ from mcmBolts import *
 outGeom = None
 
 cx, cy, cz = [0,0,0] #current xyz position
-xd, yd, zd = [1,0,0] #xyz diffs
+xd, yd, zd = [10,0,0] #xyz diffs
 
 mb = mcmBolts()
 boltspecs = mb.getBoltspecs()
