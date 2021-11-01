@@ -9,12 +9,14 @@ import traceback
 outGeom = None
 
 cx, cy, cz = [0,0,0] #current xyz position
-xd, yd, zd = [0,0,10] #xyz diffs
+xd, yd, zd = [0,0,0] #xyz diffs
 
 mb = mcmBolts()
 boltspecs = mb.getBoltspecs()
 
 for boltspec in boltspecs:
+  boltHeight = mb.getFullHeight(boltspec)
+  cz += boltHeight
   if outGeom == None: outGeom =  mb.synthBolt(boltspec)
   else:               
     cx += xd; cy += yd; cz += zd
