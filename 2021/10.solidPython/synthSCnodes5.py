@@ -25,9 +25,11 @@ def mapPop2Bolt(popStr, boltObj, boltPopHash):
     if pop > testPop: idx += 1
     else:             
       key = list(popThresh)[idx]
-      return boltPopHash[key]
+      boltSpec = boltPopHash[key]
+      return boltObj.synthBolt(boltSpec)
   key = list(popThresh)[idx]
-  return boltPopHash[key]
+  boltSpec = boltPopHash[key]
+  return boltObj.synthBolt(boltSpec)
 
 ############### main ###############
 
