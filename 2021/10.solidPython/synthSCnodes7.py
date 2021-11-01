@@ -35,7 +35,8 @@ def buildGroundPlane(multiplier):
 
 ############### map pop 2 bolt ###############
 
-boltPopHash  = boltPopHashY = {0: 'n0', 25000: 'n0', 100000: 'n2', 300000: 'n1_4'}
+#boltPopHash  = boltPopHashY = {0: 'n0', 30000: 'n0', 75000: 'n4', 200000: 'n1_4'}
+boltPopHash  = boltPopHashY = {0: 'n0', 20000: 'n0', 40000: 'n2', 75000: 'n4', 200000: 'n1_4'}
 
 def mapPop2Bolt(popStr, boltObj, boltPopHash):
   global   boltSpec
