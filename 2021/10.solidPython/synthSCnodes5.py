@@ -43,7 +43,7 @@ outGeom = None
 for row in scpcReader:
   city, popStr, lat, long = row
   bolt = mapPop2Bolt(popStr, boltObj, boltPopHash)
-  coord = [float(lat), float(long), 0]
+  coord = [float(lat)*10, float(long)*10, 0]
   if isinstance(bolt, int): continue #not sure why, but could be throwing issues
   #print("coord:", coord, str(bolt))
   y2 = translate(coord)(bolt)
