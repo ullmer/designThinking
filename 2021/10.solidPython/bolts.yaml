@@ -1,7 +1,18 @@
-#2  https://www.mcmaster.com/97715A400/
-#4  https://www.mcmaster.com/97715A423/
-#6  https://www.mcmaster.com/97715A451/
-#8  https://www.mcmaster.com/97715A464/
-#10 https://www.mcmaster.com/97715A176/
-#14 https://www.mcmaster.com/97715A516/
-
+n2:   
+  src: https://www.mcmaster.com/97715A400/
+  stl: bolts/97715A400_NO THREADS_Brass Button Head Hex Drive Screws.stl
+n4:   
+  src: https://www.mcmaster.com/97715A423/
+  stl: bolts/97715A423_NO THREADS_Brass Button Head Hex Drive Screws.stl
+n6:   
+  src: https://www.mcmaster.com/97715A451/
+  stl: bolts/97715A451_NO THREADS_Brass Button Head Hex Drive Screws.stl
+n8:   
+  src: https://www.mcmaster.com/97715A464/
+  stl: bolts/97715A464_NO THREADS_Brass Button Head Hex Drive Screws.stl
+n10:  
+  src: https://www.mcmaster.com/97715A176/
+  stl: bolts/97715A516_NO THREADS_Brass Button Head Hex Drive Screws.stl
+n1_4: 
+  src: https://www.mcmaster.com/97715A516/
+  stl: bolts/97715A176_NO THREADS_Brass Button Head Hex Drive Screws.stl
