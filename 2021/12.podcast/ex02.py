@@ -18,6 +18,6 @@ for entry in parsed['episodes']:
   title, date1, link = [entry['title'], entry['published'], entry['link']]
   date2 = datetime.datetime.fromtimestamp(date1).strftime('%Y-%m-%d')
 
-  print('%s | %s | %s...' % (title, date2, link[:15]))
+  print('%s | %s | %s...' % (title.ljust(40), date2, link[:15]))
 
 ### end ###
