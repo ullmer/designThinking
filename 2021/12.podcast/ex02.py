@@ -13,8 +13,6 @@ parsed = podcastparser.parse(feedurl, urllib.request.urlopen(feedurl))
 #pprint.pprint(parsed)
 
 for entry in parsed['episodes']:
-  #episode = entry[0]['episode']
-  #print(len(episode))
   title, date1, link = [entry['title'], entry['published'], entry['link']]
   date2 = datetime.datetime.fromtimestamp(date1).strftime('%Y-%m-%d')
 
