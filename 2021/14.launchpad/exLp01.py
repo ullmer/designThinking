@@ -31,6 +31,12 @@ def main():
       print("Launchpad Pro")
       mode = "Pro"
 
+  elif launchpad.Launchpad().Check( 0 ):
+     lp = launchpad.Launchpad()
+     if lp.Open( 0 ):
+       print("Launchpad Mk1/S/Mini")
+       mode = "Mk1"
+
   elif launchpad.LaunchpadProMk3().Check( 0 ):
     lp = launchpad.LaunchpadProMk3()
     if lp.Open( 0 ):
