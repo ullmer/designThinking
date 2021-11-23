@@ -10,8 +10,10 @@
 #
 
 import sys
-import time
-
+#import time
+import random
+import pygame
+from pygame import time
 
 try:
   import launchpad_py as launchpad
@@ -20,6 +22,13 @@ except ImportError:
     import launchpad
   except ImportError:
     sys.exit("error loading launchpad.py")
+
+def CountdownPrint( n ):
+  for i in range(n,0,-1):
+    sys.stdout.write( str(i) + " ")
+    sys.stdout.flush()
+    time.wait(500)
+
 
 def main():
 
@@ -37,68 +46,9 @@ def main():
 
   print("QUIT: Push a single button for longer than 3s and release it.")
 
-  lastBut = (-99,-99)
-  tStart = time.time()
-  while True:
-    if mode == 'Pro' or mode == 'ProMk3': buts = lp.ButtonStateXY( mode = 'pro')
-    else:                                 buts = lp.ButtonStateXY()
-
-    if buts != []:
-      print( buts[0], buts[1], buts[2] )
-
-      # quit?
-      if buts[2] > 0:
-        lastBut = ( buts[0], buts[1] )
-        tStart = time.time()
-      else:
-        if lastBut == ( buts[0], buts[1] ) and (time.time() - tStart) > 2:
-          break
 
 
-  print("bye ...")
 
-  lp.Reset() # turn all LEDs off
-  lp.Close() # close the Launchpad (will quit with an error due to a PyGame bug)
-
-  
-if __name__ == '__main__':
-  main()
-
-### end ###
-#!/usr/bin/env python
-#
-# Launchpad tests for RGB-style variants Mk2, Mini Mk3, Pro, X ...
-# 
-#
-# FMMT666(ASkr) 7/2013..8/2020
-# www.askrprojects.net
-#
-
-import sys
-
-try:
-  import launchpad_py as launchpad
-except ImportError:
-  try:
-    import launchpad
-  except ImportError:
-    sys.exit("ERROR: loading launchpad.py failed")
-
-import random
-import pygame
-from pygame import time
-
-
-def CountdownPrint( n ):
-  for i in range(n,0,-1):
-    sys.stdout.write( str(i) + " ")
-    sys.stdout.flush()
-    time.wait(500)
-
-
-def main():
-
-  # some basic info
   print( "\nRunning..." )
   print( " - Python " + str( sys.version.split()[0] ) )
   print( " - PyGame " + str( pygame.ver ) )
@@ -200,9 +150,31 @@ def main():
   lp.Reset()
 
   # close this instance
-  print( " - More to come, goodbye...\n" )
-  lp.Close()
+  #print( " - More to come, goodbye...\n" )
+  #lp.Close()
 
+  lastBut = (-99,-99)
+  tStart = time.time()
+  while True:
+    if mode == 'Pro' or mode == 'ProMk3': buts = lp.ButtonStateXY( mode = 'pro')
+    else:                                 buts = lp.ButtonStateXY()
+
+    if buts != []:
+      print( buts[0], buts[1], buts[2] )
+
+      # quit?
+      if buts[2] > 0:
+        lastBut = ( buts[0], buts[1] )
+        tStart = time.time()
+      else:
+        if lastBut == ( buts[0], buts[1] ) and (time.time() - tStart) > 2:
+          break
+
+
+  print("bye ...")
+
+  lp.Reset() # turn all LEDs off
+  lp.Close() # close the Launchpad (will quit with an error due to a PyGame bug)
   
 if __name__ == '__main__':
   main()
