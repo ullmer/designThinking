@@ -31,7 +31,7 @@ def main():
       print("Launchpad Pro")
       mode = "Pro"
 
-  elif launchpad.Launchpad().Check( 0 ):
+  elif launchpad.Launchpad().Check( 0 ):  #TangViz default small
      lp = launchpad.Launchpad()
      if lp.Open( 0 ):
        print("Launchpad Mk1/S/Mini")
