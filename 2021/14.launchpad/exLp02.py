@@ -10,8 +10,8 @@
 #
 
 import sys
-import time
-
+#import time
+from pygame import time
 
 try:
   import launchpad_py as launchpad
