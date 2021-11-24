@@ -29,7 +29,10 @@ def main():
   divisionMap = {'CS':'computer science','HCC':'human-centered computing',
                  'VC':'visual computing','FOI':'faculty of instruction'}
 
-  ps = cairo.PDFSurface("exSoCFaculty12.pdf", 2700, 800)
+  dimX = 72 * 8.5 
+  dimY = 72 * 11
+
+  ps = cairo.PDFSurface("exSoCFaculty12.pdf", dimX, dimY)
   cr = cairo.Context(ps)
   s = .38
   cr.scale(s,s)
