@@ -61,21 +61,6 @@ def main():
   # Clear the buffer because the Launchpad remembers everything
   lp.ButtonFlush()
 
-  # List the class's methods
-  print( " - Available methods:" )
-  for mName in sorted( dir( lp ) ):
-    if mName.find( "__") >= 0:
-      continue
-    if callable( getattr( lp, mName ) ):
-      print( "     " + str( mName ) + "()" )
-
-  # LedAllOn() test
-  print( " - Testing LedAllOn()" )
-  for i in [ 5, 21, 79, 3]:
-    lp.LedAllOn( i )
-    time.wait(500)
-  lp.LedAllOn( 0 )
-
   # LedCtrlXY() test
   # -> LedCtrlRaw()
   #    -> midi.RawWriteSysEx()
