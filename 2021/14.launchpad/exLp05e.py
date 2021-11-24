@@ -67,13 +67,16 @@ def main():
   #       -> devOut.write_sys_ex()
   print( " - Testing LedCtrlXY()" )
   #colors = [ [63,0,0],[0,63,0],[0,0,63],[63,63,0],[63,0,63],[0,63,63],[63,63,63] ]
+  c = [63,50,40,30,20,10,5,2,1]
   colors = []
-  for i in range(9): colors.append([0,0,int(63*(9-i)/9)])
+  #for i in range(9): colors.append([0,0,int(63*(9-i)/9)])
+  for i in range(9): colors.append([0,0,c[i]])
 
   for i in range(9):
     for j in range(9):
       lp.LedCtrlXY(i,j, colors[i][0], colors[i][1], colors[i][2])
     time.wait(500)
+  time.wait(2500)
 
   # turn all LEDs off
   print( " - Testing Reset()" )
