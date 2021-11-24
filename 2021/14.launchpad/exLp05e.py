@@ -67,10 +67,11 @@ def main():
   #       -> devOut.write_sys_ex()
   print( " - Testing LedCtrlXY()" )
   #colors = [ [63,0,0],[0,63,0],[0,0,63],[63,63,0],[63,0,63],[0,63,63],[63,63,63] ]
-  c = [63,50,40,30,20,10,5,2,1]
+  c = [63,45,30,20,10,5,3,2,2]
   colors = []
   #for i in range(9): colors.append([0,0,int(63*(9-i)/9)])
-  for i in range(9): colors.append([0,0,c[i]])
+  #for i in range(9): colors.append([0,0,c[i]])
+  for i in range(9): colors.append([c[i],0,0])
 
   for i in range(9):
     for j in range(9):
