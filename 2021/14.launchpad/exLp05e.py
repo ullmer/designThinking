@@ -25,7 +25,7 @@ from pygame import time
 def CountdownPrint( n ):
   for i in range(n,0,-1):
     sys.stdout.write( str(i) + " ")
-    sys.stdout.flush()
+    SYs.stdout.flush()
     time.wait(500)
 
 
@@ -68,9 +68,9 @@ def main():
   print( " - Testing LedCtrlXY()" )
   #colors = [ [63,0,0],[0,63,0],[0,0,63],[63,63,0],[63,0,63],[0,63,63],[63,63,63] ]
   colors = []
-  for i in range(8): colors.append([0,0,int(63*i/8)])
-  for i in range(8):
-    for j in range(8):
+  for i in range(9): colors.append([0,0,int(63*i/8)])
+  for i in range(9):
+    for j in range(9):
       lp.LedCtrlXY(i,j, colors[i][0], colors[i][1], colors[i][2])
     time.wait(500)
 
