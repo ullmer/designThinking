@@ -51,8 +51,9 @@ def main():
   
     yTxtOrig = yTxt  = 400; dyTxt = 325
     yImgOrig = yImg  = 680; dyImg = 325
+    xIncr = 350
 
-    cr.set_font_size(80)
+    cr.set_font_size(60)
     cr.move_to(xTxt-300, yTxt-80)
     cr.set_source_rgb(.5, .3, 0)
     divName = divisionMap[division]
@@ -63,9 +64,9 @@ def main():
   
     print("divFaculty:", str(division), str(divFaculty))
 
-    idx = 0; firstOne = True
+    idx = 0
     for faculty in divFaculty:
-      if idx != 0 and idx % 8 == 0:  yTxt = yTxtOrig; xTxt += 600
+      if idx != 0 and idx % 8 == 0:  yTxt = yTxtOrig; xTxt += xIncr
 
       name, rank, extraRole = faculty
 
@@ -73,17 +74,7 @@ def main():
       lastName  = name[lastNameSpace+1:]
       firstName = name[0:lastNameSpace]
   
-      if rank in rankMap:
-        cr.move_to(xTxt, yTxt+100)
-        g3 = .55; cr.set_source_rgb(g3,g3,g3)
-        cr.show_text(rankMap[rank])
-  
-      if extraRole != None:
-        cr.move_to(xTxt, yTxt+160)
-        cr.set_source_rgb(.4, .2, 0)
-        cr.show_text(extraRole)
-  
-      if idx != 0 and idx % 8 == 0: yImg = yImgOrig; xImg += 600
+      if idx != 0 and idx % 8 == 0: yImg = yImgOrig; xImg += xIncr
       name, rank, extra = faculty
       imageFn = name2image(name)
       try:
@@ -97,14 +88,17 @@ def main():
       cr.rectangle(xTxt-305, yTxt-45, 100, 300)
       cr.fill(); firstOne=False
 
-      cr.set_source_rgba(1, .5, 0, .5)
-      cr.rectangle(xTxt-100, yTxt-50, 100, 300)
+      #cr.set_source_rgba(1, .5, 0, .5)
+      cr.set_source_rgba(.05, 0, .05, .7)
+      if extraRole == None: cr.rectangle(xTxt-40, yTxt-45, 35, 300)
+      else:                 cr.rectangle(xTxt-70, yTxt-45, 70, 300)
       cr.fill()
 
       cr.set_source_rgba(1, 1, 1, .5)
-      cr.rectangle(xTxt-215, yTxt-50, 300, 300)
+      cr.rectangle(xTxt-215, yTxt-50, 300, 310)
       cr.fill()
 
+      cr.set_font_size(40)
       cr.move_to(xTxt-265, yTxt+250)
       cr.rotate(math.pi/-2.)
       g1 = 1.; cr.set_source_rgba(g1,g1,g1, .55)
@@ -117,9 +111,24 @@ def main():
       cr.show_text(lastName)       
       cr.rotate(math.pi/2.)
   
+      cr.set_font_size(30)
+      if rank in rankMap:
+        cr.move_to(xTxt-12, yTxt+250)
+        cr.rotate(math.pi/-2.)
+        g3 = 1; cr.set_source_rgba(g3,g3,g3, .8)
+        cr.show_text(rankMap[rank])
+        cr.rotate(math.pi/2.)
+  
+      if extraRole != None:
+        cr.move_to(xTxt-40, yTxt+250)
+        cr.rotate(math.pi/-2.)
+        cr.set_source_rgba(.9, .9, .9, .8)
+        cr.show_text(extraRole)
+        cr.rotate(math.pi/2.)
+  
       idx += 1; yImg += dyImg; yTxt += dyTxt
   
-    xImg += 600; xTxt +=  600
+    xImg += xIncr; xTxt += xIncr
   
   cr.show_page()
         
