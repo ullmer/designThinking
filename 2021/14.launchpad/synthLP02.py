@@ -13,6 +13,8 @@ import cairo, traceback, socDb, math
 
 class interactionMapRep:
  
+  outputFn = "cuSocLP02.pdf"
+
   rankMap = {'asst':'Asst. Prof.', 'assoc':'Assoc. Prof.', 'full':'Professor',
              'lecturer':'Lecturer', 'slecturer':'Senior Lecturer', 
              'pop':'Prof. of Practice'}
@@ -20,14 +22,14 @@ class interactionMapRep:
   divisionMap = {'CS':'computer science','HCC':'human-centered computing',
                  'VC':'visual computing','FOI':'faculty of instruction'}
 
-  dimX = 72 * 11
-  dimY = 72 * 8.5
-  xImg = 10
-  xTxt =  315
-  s    = .18  #.38
-  ps   = None
-  cr   = None
-  soc  = None
+  dimX  = 72 * 11
+  dimY  = 72 * 8.5
+  xImg  = 10
+  xTxt  =  315
+  scale = .18  #.38
+  ps    = None
+  cr    = None
+  soc   = None
   divisions = None
 
   yTxtOrig = yTxt  = 400; dyTxt = 325
@@ -38,9 +40,9 @@ class interactionMapRep:
 
   def __init__(self):
 
-    self.ps = cairo.PDFSurface("cuSocLP01.pdf", dimX, dimY)
-    self.cr = cairo.Context(ps)
-    self.cr.scale(s,s)
+    self.ps = cairo.PDFSurface(self.outputFn, self.dimX, self.dimY)
+    self.cr = cairo.Context(self.ps)
+    self.cr.scale(self.scale,self.scale)
 
     self.cr.select_font_face("Arial", cairo.FONT_SLANT_NORMAL,
                                       cairo.FONT_WEIGHT_BOLD)
@@ -50,7 +52,7 @@ class interactionMapRep:
     self.cr.show_text('clemson university :: school of computing')
 
     self.soc = socDb.socDb()
-    self.divisions = soc.getDivisions()
+    self.divisions = self.soc.getDivisions()
 
     for division in self.divisions: self.renderDivision(division)
   
@@ -66,7 +68,7 @@ class interactionMapRep:
    
   ###################### render division ######################
 
-  def renderDivision(self, divisionName): 
+  def renderDivision(self, division): 
   
     self.cr.set_font_size(60)
     self.cr.move_to(self.xTxt-300, self.yTxt-80)
@@ -81,7 +83,8 @@ class interactionMapRep:
   
     idx = 0
     for faculty in divFaculty:
-      if idx != 0 and idx % 4 == 0:  yTxt = yTxtOrig; xTxt += xIncr
+      if idx != 0 and idx % 4 == 0:  
+        self.yTxt = self.yTxtOrig; self.xTxt += self.xIncr
   
       name, rank, extraRole = faculty
   
@@ -89,61 +92,63 @@ class interactionMapRep:
       lastName  = name[lastNameSpace+1:]
       firstName = name[0:lastNameSpace]
     
-      if idx != 0 and idx % 4 == 0: yImg = yImgOrig; xImg += xIncr
+      if idx != 0 and idx % 4 == 0: 
+        self.yImg = self.yImgOrig; self.xImg += self.xIncr
+
       name, rank, extra = faculty
       imageFn = self.name2image(name)
       try:
         imgSurf  = cairo.ImageSurface.create_from_png(imageFn)
         self.cr.set_source_rgba(1, 1, 1, .5)
-        self.cr.set_source_surface(imgSurf, xImg, yImg - dyImg)
+        self.cr.set_source_surface(imgSurf, self.xImg, self.yImg - self.dyImg)
         self.cr.paint()
       except: print("ignoring image:", imageFn); traceback.print_exc()
   
       self.cr.set_source_rgba(1, .5, 0, .5)
-      self.cr.rectangle(xTxt-305, yTxt-45, 100, 300)
+      self.cr.rectangle(self.xTxt-305, self.yTxt-45, 100, 300)
       self.cr.fill(); firstOne=False
   
       #cr.set_source_rgba(1, .5, 0, .5)
       self.cr.set_source_rgba(.05, 0, .05, .7)
-      if extraRole == None: self.cr.rectangle(xTxt-40, yTxt-45, 35, 300)
-      else:                 self.cr.rectangle(xTxt-70, yTxt-45, 70, 300)
+      if extraRole == None: self.cr.rectangle(self.xTxt-40, self.yTxt-45, 35, 300)
+      else:                 self.cr.rectangle(self.xTxt-70, self.yTxt-45, 70, 300)
       self.cr.fill()
   
       self.cr.set_source_rgba(1, 1, 1, .5)
-      self.cr.rectangle(xTxt-215, yTxt-50, 300, 310)
+      self.cr.rectangle(self.xTxt-215, self.yTxt-50, 300, 310)
       self.cr.fill()
   
       self.cr.set_font_size(40)
-      self.cr.move_to(xTxt-265, yTxt+250)
+      self.cr.move_to(self.xTxt-265, self.yTxt+250)
       self.cr.rotate(math.pi/-2.)
       g1 = 1.; self.cr.set_source_rgba(g1,g1,g1, .55)
       self.cr.show_text(firstName)       
       self.cr.rotate(math.pi/2.)
 
-      self.cr.move_to(xTxt-230, yTxt+250)
+      self.cr.move_to(self.xTxt-230, self.yTxt+250)
       g1 = 1; self.cr.set_source_rgba(g1,g1,g1, .85)
       self.cr.rotate(math.pi/-2.)
       self.cr.show_text(lastName)       
       self.cr.rotate(math.pi/2.)
   
       self.cr.set_font_size(30)
-      if rank in rankMap:
-        self.cr.move_to(xTxt-12, yTxt+250)
+      if rank in self.rankMap:
+        self.cr.move_to(self.xTxt-12, self.yTxt+250)
         self.cr.rotate(math.pi/-2.)
         g3 = 1; self.cr.set_source_rgba(g3,g3,g3, .8)
-        self.cr.show_text(rankMap[rank])
+        self.cr.show_text(self.rankMap[rank])
         self.cr.rotate(math.pi/2.)
   
       if extraRole != None:
-        self.cr.move_to(xTxt-40, yTxt+250)
+        self.cr.move_to(self.xTxt-40, self.yTxt+250)
         self.cr.rotate(math.pi/-2.)
         self.cr.set_source_rgba(.9, .9, .9, .8)
         self.cr.show_text(extraRole)
         self.cr.rotate(math.pi/2.)
   
-      idx += 1; yImg += dyImg; yTxt += dyTxt
+      idx += 1; self.yImg += self.dyImg; self.yTxt += self.dyTxt
   
-    xImg += xIncr; xTxt += xIncr
+    self.xImg += self.xIncr; self.xTxt += self.xIncr
 
 def main():
   imr = interactionMapRep()
