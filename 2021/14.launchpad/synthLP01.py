@@ -91,10 +91,10 @@ def main():
         cr.set_source_rgb(.4, .2, 0)
         cr.show_text(extraRole)
   
-      yTxt += dyTxt;    idx += 1
+      #yTxt += dyTxt;    idx += 1
   
-    idx = 0
-    for faculty in divFaculty:
+    #idx = 0; yTxt = yOrig; xTxt = xOrig
+    #for faculty in divFaculty:
       #if idx != 0 and idx % 5 == 0: yImg = yImgOrig; xImg += 600
       if idx != 0 and idx % 8 == 0: yImg = yImgOrig; xImg += 600
       name, rank, extra = faculty
@@ -110,7 +110,7 @@ def main():
       cr.rectangle(xTxt-295, yTxt-50, xTxt+350, yTxt-50+dyImg)
       cr.fill()
 
-      idx += 1; yImg += dyImg
+      idx += 1; yImg += dyImg; yTxt += dyTxt
   
 
     xImg += 600; xTxt +=  600
