@@ -66,7 +66,7 @@ def main():
 
     idx = 0
     for faculty in divFaculty:
-      if idx != 0 and idx % 8 == 0:  yTxt = yTxtOrig; xTxt += xIncr
+      if idx != 0 and idx % 4 == 0:  yTxt = yTxtOrig; xTxt += xIncr
 
       name, rank, extraRole = faculty
 
@@ -74,7 +74,7 @@ def main():
       lastName  = name[lastNameSpace+1:]
       firstName = name[0:lastNameSpace]
   
-      if idx != 0 and idx % 8 == 0: yImg = yImgOrig; xImg += xIncr
+      if idx != 0 and idx % 4 == 0: yImg = yImgOrig; xImg += xIncr
       name, rank, extra = faculty
       imageFn = name2image(name)
       try:
