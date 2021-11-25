@@ -106,8 +106,12 @@ def main():
         cr.paint()
       except: print("ignoring image:", imageFn); traceback.print_exc()
   
+      cr.set_source_rgba(1, .5, 0, .5)
+      cr.rectangle(xTxt-285, yTxt-50, xTxt-215, yTxt-50+dyImg)
+      cr.fill()
+
       cr.set_source_rgba(1, 1, 1, .5)
-      cr.rectangle(xTxt-295, yTxt-50, xTxt+350, yTxt-50+dyImg)
+      cr.rectangle(xTxt-215, yTxt-50, xTxt+310, yTxt-50+dyImg)
       cr.fill()
 
       idx += 1; yImg += dyImg; yTxt += dyTxt
