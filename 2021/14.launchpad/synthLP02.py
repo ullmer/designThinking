@@ -99,17 +99,20 @@ class interactionMapRep:
       imageFn = self.name2image(name)
       try:
         imgSurf  = cairo.ImageSurface.create_from_png(imageFn)
-        self.cr.set_source_rgba(1, 1, 1, .5)
+        #self.cr.set_source_rgba(1, 1, 1, .5)
+        self.cr.set_source_rgba(1, 1, 1, .15)
         self.cr.set_source_surface(imgSurf, self.xImg, self.yImg - self.dyImg)
         self.cr.paint()
       except: print("ignoring image:", imageFn); traceback.print_exc()
   
-      self.cr.set_source_rgba(1, .5, 0, .5)
+      #self.cr.set_source_rgba(1, .5, 0, .5)
+      self.cr.set_source_rgba(1, .5, 0, .85)
       self.cr.rectangle(self.xTxt-305, self.yTxt-45, 100, 300)
       self.cr.fill(); firstOne=False
   
       #cr.set_source_rgba(1, .5, 0, .5)
-      self.cr.set_source_rgba(.05, 0, .05, .7)
+      #self.cr.set_source_rgba(.05, 0, .05, .7)
+      self.cr.set_source_rgba(.05, 0, .05, .85)
       if extraRole == None: self.cr.rectangle(self.xTxt-40, self.yTxt-45, 35, 300)
       else:                 self.cr.rectangle(self.xTxt-70, self.yTxt-45, 70, 300)
       self.cr.fill()
