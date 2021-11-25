@@ -47,7 +47,6 @@ def main():
   cr.set_source_rgb(.6, .4, 0)
   cr.show_text('clemson university :: school of computing')
 
-  firstOne = True
   for division in divisions:
   
     yTxtOrig = yTxt  = 400; dyTxt = 325
@@ -64,7 +63,7 @@ def main():
   
     print("divFaculty:", str(division), str(divFaculty))
 
-    idx = 0
+    idx = 0; firstOne = True
     for faculty in divFaculty:
       if idx != 0 and idx % 8 == 0:  yTxt = yTxtOrig; xTxt += 600
 
@@ -94,17 +93,16 @@ def main():
         cr.paint()
       except: print("ignoring image:", imageFn); traceback.print_exc()
 
-      if firstOne:
-        cr.set_source_rgba(1, .5, 0, .5)
-        cr.rectangle(xTxt-300, yTxt-50, xTxt-215, yTxt-50+dyImg)
-        cr.fill(); firstOne=False
+      cr.set_source_rgba(1, .5, 0, .5)
+      cr.rectangle(xTxt-305, yTxt-45, 100, 300)
+      cr.fill(); firstOne=False
 
-        cr.set_source_rgba(1, .5, 0, .5)
-        cr.rectangle(xTxt-85, yTxt-50, xTxt, yTxt-50+dyImg)
-        cr.fill()
+      cr.set_source_rgba(1, .5, 0, .5)
+      cr.rectangle(xTxt-100, yTxt-50, 100, 300)
+      cr.fill()
 
       cr.set_source_rgba(1, 1, 1, .5)
-      cr.rectangle(xTxt-215, yTxt-50, xTxt+310, yTxt-50+dyImg)
+      cr.rectangle(xTxt-215, yTxt-50, 300, 300)
       cr.fill()
 
       cr.move_to(xTxt-265, yTxt+250)
@@ -121,7 +119,6 @@ def main():
   
       idx += 1; yImg += dyImg; yTxt += dyTxt
   
-
     xImg += 600; xTxt +=  600
   
   cr.show_page()
