@@ -26,7 +26,8 @@ class interactionMapRep:
   dimY  = 72 * 8.5
   xImg  = 10
   xTxt  =  315
-  scale = .18  #.38
+  #scale = .18  #.38
+  scale = .2  #.38
   ps    = None
   cr    = None
   soc   = None
@@ -105,31 +106,33 @@ class interactionMapRep:
         self.cr.paint()
       except: print("ignoring image:", imageFn); traceback.print_exc()
   
+      #self.cr.set_source_rgba(1, 1, 1, .5)
+      self.cr.set_source_rgba(1, 1, 1, .3)
+      self.cr.rectangle(self.xTxt-215, self.yTxt-50, 300, 310)
+      self.cr.fill()
+  
       #self.cr.set_source_rgba(1, .5, 0, .5)
-      self.cr.set_source_rgba(1, .5, 0, .85)
+      self.cr.set_source_rgba(1, .7, 0, .8)
       self.cr.rectangle(self.xTxt-305, self.yTxt-45, 100, 300)
       self.cr.fill(); firstOne=False
   
       #cr.set_source_rgba(1, .5, 0, .5)
       #self.cr.set_source_rgba(.05, 0, .05, .7)
-      self.cr.set_source_rgba(.05, 0, .05, .85)
+      self.cr.set_source_rgba(.1, 0, .1, .8)
+      #self.cr.set_source_rgb(0, 0, 0)
       if extraRole == None: self.cr.rectangle(self.xTxt-40, self.yTxt-45, 35, 300)
       else:                 self.cr.rectangle(self.xTxt-70, self.yTxt-45, 70, 300)
-      self.cr.fill()
-  
-      self.cr.set_source_rgba(1, 1, 1, .5)
-      self.cr.rectangle(self.xTxt-215, self.yTxt-50, 300, 310)
       self.cr.fill()
   
       self.cr.set_font_size(40)
       self.cr.move_to(self.xTxt-265, self.yTxt+250)
       self.cr.rotate(math.pi/-2.)
-      g1 = 1.; self.cr.set_source_rgba(g1,g1,g1, .55)
+      g1 = .1; self.cr.set_source_rgba(g1,g1,g1, .55)
       self.cr.show_text(firstName)       
       self.cr.rotate(math.pi/2.)
 
       self.cr.move_to(self.xTxt-230, self.yTxt+250)
-      g1 = 1; self.cr.set_source_rgba(g1,g1,g1, .85)
+      g1 = .1; self.cr.set_source_rgba(g1,g1,g1, .85)
       self.cr.rotate(math.pi/-2.)
       self.cr.show_text(lastName)       
       self.cr.rotate(math.pi/2.)
