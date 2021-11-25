@@ -9,7 +9,7 @@
 # https://pycairo.readthedocs.io/en/latest/reference/surfaces.html
 
 from PIL import Image
-import cairo, traceback, socDb
+import cairo, traceback, socDb, math
 
 def name2image(name):
   lowerName = name.lower()
@@ -62,8 +62,8 @@ def main():
     divFaculty = soc.getFacultyRankExtraByDivision(division)
   
     print("divFaculty:", str(division), str(divFaculty))
-  
-    idx = 0; 
+
+    idx = 0; firstOne = True
     for faculty in divFaculty:
       if idx != 0 and idx % 8 == 0:  yTxt = yTxtOrig; xTxt += 600
 
@@ -72,14 +72,6 @@ def main():
       lastNameSpace = name.rfind(' ') #consider "Brian C. Dean"
       lastName  = name[lastNameSpace+1:]
       firstName = name[0:lastNameSpace]
-  
-      cr.move_to(xTxt, yTxt)
-      g1 = .3; cr.set_source_rgb(g1,g1,g1)
-      cr.show_text(firstName)       
-  
-      cr.move_to(xTxt, yTxt+40)
-      g1 = 0; cr.set_source_rgb(g1,g1,g1)
-      cr.show_text(lastName)       
   
       if rank in rankMap:
         cr.move_to(xTxt, yTxt+100)
@@ -91,11 +83,6 @@ def main():
         cr.set_source_rgb(.4, .2, 0)
         cr.show_text(extraRole)
   
-      #yTxt += dyTxt;    idx += 1
-  
-    #idx = 0; yTxt = yOrig; xTxt = xOrig
-    #for faculty in divFaculty:
-      #if idx != 0 and idx % 5 == 0: yImg = yImgOrig; xImg += 600
       if idx != 0 and idx % 8 == 0: yImg = yImgOrig; xImg += 600
       name, rank, extra = faculty
       imageFn = name2image(name)
@@ -105,14 +92,32 @@ def main():
         cr.set_source_surface(imgSurf, xImg, yImg - dyImg)
         cr.paint()
       except: print("ignoring image:", imageFn); traceback.print_exc()
-  
-      cr.set_source_rgba(1, .5, 0, .5)
-      cr.rectangle(xTxt-285, yTxt-50, xTxt-215, yTxt-50+dyImg)
-      cr.fill()
+
+      if firstOne:
+        cr.set_source_rgba(1, .5, 0, .5)
+        cr.rectangle(xTxt-300, yTxt-50, xTxt-215, yTxt-50+dyImg)
+        cr.fill(); firstOne=False
+
+        cr.set_source_rgba(1, .5, 0, .5)
+        cr.rectangle(xTxt-85, yTxt-50, xTxt, yTxt-50+dyImg)
+        cr.fill()
 
       cr.set_source_rgba(1, 1, 1, .5)
       cr.rectangle(xTxt-215, yTxt-50, xTxt+310, yTxt-50+dyImg)
       cr.fill()
+
+      cr.move_to(xTxt-265, yTxt+250)
+      cr.rotate(math.pi/-2.)
+      g1 = 1.; cr.set_source_rgba(g1,g1,g1, .55)
+      cr.show_text(firstName)       
+      cr.rotate(math.pi/2.)
+
+      cr.move_to(xTxt-230, yTxt+250)
+      g1 = 1; cr.set_source_rgba(g1,g1,g1, .85)
+      cr.rotate(math.pi/-2.)
+      cr.show_text(lastName)       
+      cr.rotate(math.pi/2.)
+  
 
       idx += 1; yImg += dyImg; yTxt += dyTxt
   
