@@ -29,13 +29,16 @@ def main():
   divisionMap = {'CS':'computer science','HCC':'human-centered computing',
                  'VC':'visual computing','FOI':'faculty of instruction'}
 
-  dimX = 72 * 8.5 
-  dimY = 72 * 11
+  dimX = 72 * 11
+  dimY = 72 * 8.5
 
-  ps = cairo.PDFSurface("exSoCFaculty12.pdf", dimX, dimY)
+  ps = cairo.PDFSurface("cuSocLP01.pdf", dimX, dimY)
   cr = cairo.Context(ps)
-  s = .38
+  #s = .38
+  s = .18
   cr.scale(s,s)
+
+
   #cr.select_font_face("Georgia", cairo.FONT_SLANT_NORMAL,
   cr.select_font_face("Arial", cairo.FONT_SLANT_NORMAL,
                                cairo.FONT_WEIGHT_BOLD)
@@ -62,13 +65,9 @@ def main():
   
     idx = 0; 
     for faculty in divFaculty:
-      if idx != 0 and idx % 5 == 0:  yTxt = yTxtOrig; xTxt += 600
+      if idx != 0 and idx % 8 == 0:  yTxt = yTxtOrig; xTxt += 600
 
       name, rank, extraRole = faculty
-      if idx % 1 == 0: cr.set_source_rgba(0.8, 0.6, 0, .1)
-      else:            cr.set_source_rgba(0.8, 0.6, 0, .95)
-      cr.rectangle(xTxt-295, yTxt-50, xTxt+350, yTxt-50+dyImg)
-      cr.fill()
 
       lastNameSpace = name.rfind(' ') #consider "Brian C. Dean"
       lastName  = name[lastNameSpace+1:]
@@ -96,15 +95,21 @@ def main():
   
     idx = 0
     for faculty in divFaculty:
-      if idx != 0 and idx % 5 == 0: yImg = yImgOrig; xImg += 600
+      #if idx != 0 and idx % 5 == 0: yImg = yImgOrig; xImg += 600
+      if idx != 0 and idx % 8 == 0: yImg = yImgOrig; xImg += 600
       name, rank, extra = faculty
       imageFn = name2image(name)
       try:
         imgSurf  = cairo.ImageSurface.create_from_png(imageFn)
+        cr.set_source_rgba(1, 1, 1, .5)
         cr.set_source_surface(imgSurf, xImg, yImg - dyImg)
         cr.paint()
       except: print("ignoring image:", imageFn); traceback.print_exc()
   
+      cr.set_source_rgba(1, 1, 1, .5)
+      cr.rectangle(xTxt-295, yTxt-50, xTxt+350, yTxt-50+dyImg)
+      cr.fill()
+
       idx += 1; yImg += dyImg
   
 
