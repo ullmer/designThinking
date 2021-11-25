@@ -27,7 +27,9 @@ class interactionMapRep:
   s    = .18  #.38
   ps   = None
   cr   = None
-
+  yTxtOrig = yTxt  = 400; dyTxt = 325
+  yImgOrig = yImg  = 680; dyImg = 325
+  xIncr = 350
 
   ###################### constructor ######################
 
@@ -48,87 +50,84 @@ class interactionMapRep:
   ###################### render division ######################
 
   def renderDivision(self, divisionName): 
-      yTxtOrig = yTxt  = 400; dyTxt = 325
-      yImgOrig = yImg  = 680; dyImg = 325
-      xIncr = 350
   
-      cr.set_font_size(60)
-      cr.move_to(xTxt-300, yTxt-80)
-      cr.set_source_rgb(.5, .3, 0)
-      divName = divisionMap[division]
-      cr.show_text(divName)       
+    self.cr.set_font_size(60)
+    self.cr.move_to(self.xTxt-300, self.yTxt-80)
+    self.cr.set_source_rgb(.5, .3, 0)
+    divName = self.divisionMap[division]
+    self.cr.show_text(divName)       
     
-      cr.set_font_size(40)
-      divFaculty = soc.getFacultyRankExtraByDivision(division)
+    self.cr.set_font_size(40)
+    divFaculty = soc.getFacultyRankExtraByDivision(division)
     
-      print("divFaculty:", str(division), str(divFaculty))
+    print("divFaculty:", str(division), str(divFaculty))
   
-      idx = 0
-      for faculty in divFaculty:
-        if idx != 0 and idx % 4 == 0:  yTxt = yTxtOrig; xTxt += xIncr
+    idx = 0
+    for faculty in divFaculty:
+      if idx != 0 and idx % 4 == 0:  yTxt = yTxtOrig; xTxt += xIncr
   
-        name, rank, extraRole = faculty
+      name, rank, extraRole = faculty
   
-        lastNameSpace = name.rfind(' ') #consider "Brian C. Dean"
-        lastName  = name[lastNameSpace+1:]
-        firstName = name[0:lastNameSpace]
+      lastNameSpace = name.rfind(' ') #consider "Brian C. Dean"
+      lastName  = name[lastNameSpace+1:]
+      firstName = name[0:lastNameSpace]
     
-        if idx != 0 and idx % 4 == 0: yImg = yImgOrig; xImg += xIncr
-        name, rank, extra = faculty
-        imageFn = name2image(name)
-        try:
-          imgSurf  = cairo.ImageSurface.create_from_png(imageFn)
-          cr.set_source_rgba(1, 1, 1, .5)
-          cr.set_source_surface(imgSurf, xImg, yImg - dyImg)
-          cr.paint()
-        except: print("ignoring image:", imageFn); traceback.print_exc()
-  
-        cr.set_source_rgba(1, .5, 0, .5)
-        cr.rectangle(xTxt-305, yTxt-45, 100, 300)
-        cr.fill(); firstOne=False
-  
-        #cr.set_source_rgba(1, .5, 0, .5)
-        cr.set_source_rgba(.05, 0, .05, .7)
-        if extraRole == None: cr.rectangle(xTxt-40, yTxt-45, 35, 300)
-        else:                 cr.rectangle(xTxt-70, yTxt-45, 70, 300)
-        cr.fill()
-  
+      if idx != 0 and idx % 4 == 0: yImg = yImgOrig; xImg += xIncr
+      name, rank, extra = faculty
+      imageFn = name2image(name)
+      try:
+        imgSurf  = cairo.ImageSurface.create_from_png(imageFn)
         cr.set_source_rgba(1, 1, 1, .5)
-        cr.rectangle(xTxt-215, yTxt-50, 300, 310)
-        cr.fill()
+        cr.set_source_surface(imgSurf, xImg, yImg - dyImg)
+        cr.paint()
+      except: print("ignoring image:", imageFn); traceback.print_exc()
   
-        cr.set_font_size(40)
-        cr.move_to(xTxt-265, yTxt+250)
+      cr.set_source_rgba(1, .5, 0, .5)
+      cr.rectangle(xTxt-305, yTxt-45, 100, 300)
+      cr.fill(); firstOne=False
+  
+      #cr.set_source_rgba(1, .5, 0, .5)
+      cr.set_source_rgba(.05, 0, .05, .7)
+      if extraRole == None: cr.rectangle(xTxt-40, yTxt-45, 35, 300)
+      else:                 cr.rectangle(xTxt-70, yTxt-45, 70, 300)
+      cr.fill()
+  
+      cr.set_source_rgba(1, 1, 1, .5)
+      cr.rectangle(xTxt-215, yTxt-50, 300, 310)
+      cr.fill()
+  
+      cr.set_font_size(40)
+      cr.move_to(xTxt-265, yTxt+250)
+      cr.rotate(math.pi/-2.)
+      g1 = 1.; cr.set_source_rgba(g1,g1,g1, .55)
+      cr.show_text(firstName)       
+      cr.rotate(math.pi/2.)
+
+      cr.move_to(xTxt-230, yTxt+250)
+      g1 = 1; cr.set_source_rgba(g1,g1,g1, .85)
+      cr.rotate(math.pi/-2.)
+      cr.show_text(lastName)       
+      cr.rotate(math.pi/2.)
+  
+      cr.set_font_size(30)
+      if rank in rankMap:
+        cr.move_to(xTxt-12, yTxt+250)
         cr.rotate(math.pi/-2.)
-        g1 = 1.; cr.set_source_rgba(g1,g1,g1, .55)
-        cr.show_text(firstName)       
+        g3 = 1; cr.set_source_rgba(g3,g3,g3, .8)
+        cr.show_text(rankMap[rank])
         cr.rotate(math.pi/2.)
   
-        cr.move_to(xTxt-230, yTxt+250)
-        g1 = 1; cr.set_source_rgba(g1,g1,g1, .85)
+      if extraRole != None:
+        cr.move_to(xTxt-40, yTxt+250)
         cr.rotate(math.pi/-2.)
-        cr.show_text(lastName)       
+        cr.set_source_rgba(.9, .9, .9, .8)
+        cr.show_text(extraRole)
         cr.rotate(math.pi/2.)
-    
-        cr.set_font_size(30)
-        if rank in rankMap:
-          cr.move_to(xTxt-12, yTxt+250)
-          cr.rotate(math.pi/-2.)
-          g3 = 1; cr.set_source_rgba(g3,g3,g3, .8)
-          cr.show_text(rankMap[rank])
-          cr.rotate(math.pi/2.)
-    
-        if extraRole != None:
-          cr.move_to(xTxt-40, yTxt+250)
-          cr.rotate(math.pi/-2.)
-          cr.set_source_rgba(.9, .9, .9, .8)
-          cr.show_text(extraRole)
-          cr.rotate(math.pi/2.)
-    
-        idx += 1; yImg += dyImg; yTxt += dyTxt
-    
-      xImg += xIncr; xTxt += xIncr
   
+      idx += 1; yImg += dyImg; yTxt += dyTxt
+  
+    xImg += xIncr; xTxt += xIncr
+
 def main():
   soc = socDb.socDb()
   divisions = soc.getDivisions()
