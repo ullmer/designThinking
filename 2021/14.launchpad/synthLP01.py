@@ -47,6 +47,7 @@ def main():
   cr.set_source_rgb(.6, .4, 0)
   cr.show_text('clemson university :: school of computing')
 
+  firstOne = True
   for division in divisions:
   
     yTxtOrig = yTxt  = 400; dyTxt = 325
@@ -63,7 +64,7 @@ def main():
   
     print("divFaculty:", str(division), str(divFaculty))
 
-    idx = 0; firstOne = True
+    idx = 0
     for faculty in divFaculty:
       if idx != 0 and idx % 8 == 0:  yTxt = yTxtOrig; xTxt += 600
 
@@ -118,7 +119,6 @@ def main():
       cr.show_text(lastName)       
       cr.rotate(math.pi/2.)
   
-
       idx += 1; yImg += dyImg; yTxt += dyTxt
   
 
