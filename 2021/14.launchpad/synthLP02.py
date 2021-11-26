@@ -22,20 +22,19 @@ class interactionMapRep:
   divisionMap = {'CS':'computer science','HCC':'human-centered computing',
                  'VC':'visual computing','FOI':'faculty of instruction'}
 
-  dimX  = 72 * 11
-  dimY  = 72 * 8.5
-  xImg  = 10
-  xTxt  =  315
-  #scale = .18  #.38
-  scale = .2  #.38
+  dimX  =  72 * 11
+  dimY  =  72 * 8.5
+  xImgOrig = xImg =  50
+  xTxtOrig = xTxt = 355
+  scale = .25  #.38
   ps    = None
   cr    = None
   soc   = None
   divisions = None
 
-  yTxtOrig = yTxt  = 400; dyTxt = 325
-  yImgOrig = yImg  = 680; dyImg = 325
-  xIncr = 350
+  yTxtOrig = yTxt  = 400; dyTxt = 305
+  yImgOrig = yImg  = 680; dyImg = 305
+  xIncr = 305
 
   ###################### constructor ######################
 
@@ -55,7 +54,9 @@ class interactionMapRep:
     self.soc = socDb.socDb()
     self.divisions = self.soc.getDivisions()
 
-    for division in self.divisions: self.renderDivision(division)
+    #for division in self.divisions: self.renderDivision(division)
+    self.renderDivision('CS')
+    self.renderDivisionXY('HCC', 0, self.dyImg*4)
   
     self.cr.show_page()
   
@@ -67,6 +68,16 @@ class interactionMapRep:
     result    = "images/soc/%s.png" % name2
     return result
    
+  ###################### render division ######################
+
+  def renderDivisionXY(self, division, xOffset, yOffset): 
+    self.xTxt = self.xTxtOrig + xOffset
+    self.xImg = self.xImgOrig + xOffset
+    self.yTxt = self.yTxtOrig + yOffset
+    self.yImg = self.yImgOrig + yOffset
+
+    self.renderDivision(division)
+
   ###################### render division ######################
 
   def renderDivision(self, division): 
@@ -124,16 +135,19 @@ class interactionMapRep:
       else:                 self.cr.rectangle(self.xTxt-70, self.yTxt-45, 70, 300)
       self.cr.fill()
   
-      self.cr.set_font_size(40)
+      #self.cr.set_font_size(40)
+      self.cr.set_font_size(45)
       self.cr.move_to(self.xTxt-265, self.yTxt+250)
       self.cr.rotate(math.pi/-2.)
       g1 = .1; self.cr.set_source_rgba(g1,g1,g1, .55)
       self.cr.show_text(firstName)       
       self.cr.rotate(math.pi/2.)
 
-      self.cr.move_to(self.xTxt-230, self.yTxt+250)
+      self.cr.move_to(self.xTxt-220, self.yTxt+250)
       g1 = .1; self.cr.set_source_rgba(g1,g1,g1, .85)
+
       self.cr.rotate(math.pi/-2.)
+      self.cr.set_font_size(45)
       self.cr.show_text(lastName)       
       self.cr.rotate(math.pi/2.)
   
