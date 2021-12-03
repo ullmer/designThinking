@@ -1,0 +1,30 @@
+divisions:
+  CS:  [Brian C. Dean, Nina Hubig, Kai Liu, Feng Luo, James Wang, Yin Yang, 
+        Wayne Goddard, Sandra Hedetniemi, Pradip Srimani, Mark Smotherman, 
+        Jim Martin, Jacob Sorber, Mike Westall, David Donar, Paige Rodeghero, 
+        Murali Sitaraman, Amy Apon, Rong Ge, Long Cheng, Abolfazl Razi,
+        Zhenkai Zhang, Nianyi Li]
+
+  HCC: [Kelly Caine, Bart Knijnenburg, Nathan McNeese, Sabarish Babu, 
+        Andrew Robb, Brygg Ullmer, Eileen Kraemer, Guo Freeman, Julian Brinkley]
+
+  VC:  [Shuangshuang Jin, Sophie Joerg, Ioannis Karamouzas, Eric Patterson, 
+        Federico Iuricich, Jerry Tessendorf, Victor Zordan, 
+        Daljit Singh Dhillon, Andrew Duchowski, Insun Kwon]
+
+  FOI: [Svetlana Drachova, Yvon Feaster, Alexander Herzog, 
+        Catherine Kittelstad, Christopher Plaue, Carrie Russell, Mitch Shue, 
+        Yu-Shan Sun, Connie Taylor, Roger Van Scoy, Nicolas Widman]
+
+rank:
+  asst:      [Brinkley, Cheng, Singh Dhillon, Freeman, Hubig, Iuricich,
+              Karamouzas, Li, Liu, McNeese, Robb, Rodeghero, Zhang]
+  assoc:     [Babu, Caine, Donar, Ge, Jin, Joerg, Knijnenburg, Patterson,
+              Razi, Smotherman, Sorber, Yang]
+  full:      [Apon, Dean, Duchowski, Goddard, Hedetniemi, Kraemer, Luo, Martin,
+              Sitaraman, Srimani, Tessendorf, Ullmer, Wang, Zordan]
+  lecturer:  [Drachova, Sun, Widman]
+  slecturer: [Feaster, Kittelstad, Plaue]
+  pop:       [Kwon, Russell, Shue, Taylor, Van Scoy]
+
+### end ###
