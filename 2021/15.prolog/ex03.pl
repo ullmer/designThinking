@@ -7,4 +7,8 @@ module(ex01, []).
 procYaml :-
     read_yaml(file('soc-faculty.yaml'), YAML),
     parse(YAML, PL),
-    forall(member(X, PL.'divisions'.'HCC'), assertz(faculty(X))).
+    forall(member(X, PL.'divisions'.'HCC'), writeln(X)).
+
+    %forall(member(X, PL.'divisions'.'HCC'), assertz(faculty(X))).
+
+
