@@ -5,11 +5,12 @@ module(ex01, []).
 :- use_module(library(yaml/serializer)).
 :- use_module(library(dicts)).
 
+printBarred(Str) :- Bar='===========', format('%s%s%s', [Bar, Str, Bar]).
+
 procDivisions(PL) :- dict_keys(PL.'divisions', Divisions),
     foreach(member(Division, Divisions), procDivision(PL, Division)).
 
-procDivision(PL, Division) :- 
-   Bar='===========', writeln(format('%s%s%s', [Bar, Division, Bar])),
+procDivision(PL, Division) :- printBarred(Division),
    forall(member(Faculty, PL.'divisions'.Division), writeln(Faculty)).
 
 procYaml :-
