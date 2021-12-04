@@ -1,11 +1,12 @@
-module(ex01, []).
+module(ex04, []).
 
 :- use_module(library(yaml/parser)).
 :- use_module(library(yaml/util)).
 :- use_module(library(yaml/serializer)).
 :- use_module(library(dicts)).
 
-printBarred(Str) :- Bar='===========', format('%s%s%s', [Bar, Str, Bar]).
+printBarred(Str) :- 
+  Bar='===========', format('\n~w ~w ~w\n', [Bar, Str, Bar]).
 
 procDivisions(PL) :- dict_keys(PL.'divisions', Divisions),
     foreach(member(Division, Divisions), procDivision(PL, Division)).
