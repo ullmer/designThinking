@@ -5,6 +5,9 @@ module(ex08, []).
 
 strToWords(Str, Words)    :- split_string(Str, " ", " ", Words).
 strFirstChar(Str, Letter) :- sub_atom(Str, 0, 1, _, Letter).
+strToAbbrev(Str, Abbrev)  :- atomicsToString( 
+                                foreach(member(Word, Words), strFirstChar(Word)), Abbrev).
+  % https://stackoverflow.com/questions/47744096/prolog-concatenate-all-elements-inside-a-list-to-make-a-string
 
 assertDivisions(YAML) :- dict_keys(YAML.'divisions', Divisions),
  foreach(member(Division, Divisions), assertDivision(YAML, Division)).
