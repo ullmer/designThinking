@@ -13,16 +13,15 @@ assertDivision(YAML, Division) :-
 addFaculty(Division, Faculty) :-
   assertz(faculty(Faculty)), assertz(divisionMember(Faculty, Division)).
 
-assertMajorAreas(YAML) :- dict_keys(YAML.'researchAreas', MajorAreas),
+assertMajorAreas(YAML) :- dict_keys(YAML, MajorAreas),
  forall(member(MajorArea, MajorAreas), assertSpecificAreas(YAML, MajorArea)).
 
 assertSpecificAreas(YAML, MajorArea) :- 
- dict_keys(YAML.'researchAreas'.MajorArea, SpecificAreas),
+ dict_keys(YAML.MajorArea, SpecificAreas),
  assertz(researchArea(MajorArea)),
- writeln('foo'),
  forall(member(SpecificArea, SpecificAreas), 
    assertSpecificArea(MajorArea, SpecificArea, 
-     YAML.'researchAreas'.MajorArea.SpecificArea)).
+     YAML.MajorArea.SpecificArea)).
    
 assertSpecificArea(MajorArea, SpecificArea, PersonList) :-
   assertz(researchArea(MajorArea, SpecificArea)),
