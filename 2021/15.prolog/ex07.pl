@@ -14,8 +14,12 @@ addFaculty(Division, Faculty) :-
   assertz(faculty(Faculty)), assertz(divisionMember(Faculty, Division)).
 
 assertMajorAreas(PL) :- dict_keys(PL.'researchAreas', MajorAreas),
- writeln(MajorAreas),
- forall(member(MajorArea, MajorAreas), writeln(MajorArea)).
+ forall(member(MajorArea, MajorAreas), assertSpecificAreas(PL, MajorArea)).
+
+assertSpecificAreas(PL, MajorArea) :- 
+ dict_keys(PL.'researchAreas'.MajorArea, SpecificAreas),
+ forall(member(SpecificArea, SpecificAreas), 
+   format('~w:~w\n', [MajorArea, SpecificArea])).
 
 procYaml1 :-
   read_yaml(file('soc-faculty.yaml'), YAML), 
