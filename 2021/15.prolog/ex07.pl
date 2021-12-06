@@ -19,6 +19,7 @@ assertMajorAreas(YAML) :- dict_keys(YAML.'researchAreas', MajorAreas),
 assertSpecificAreas(YAML, MajorArea) :- 
  dict_keys(YAML.'researchAreas'.MajorArea, SpecificAreas),
  assertz(researchArea(MajorArea)),
+ writeln('foo'),
  forall(member(SpecificArea, SpecificAreas), 
    assertSpecificArea(MajorArea, SpecificArea, 
      YAML.'researchAreas'.MajorArea.SpecificArea)).
