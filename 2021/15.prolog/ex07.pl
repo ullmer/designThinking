@@ -21,7 +21,7 @@ assertSpecificAreas(YAML, MajorArea) :-
  assertz(researchArea(MajorArea)),
  forall(member(SpecificArea, SpecificAreas), 
    assertSpecificArea(MajorArea, SpecificArea, 
-     YAML.'researchAreas'.MajorArea.SpecificArea]))).
+     YAML.'researchAreas'.MajorArea.SpecificArea)).
    
 assertSpecificArea(MajorArea, SpecificArea, PersonList) :-
   assertz(researchArea(MajorArea, SpecificArea)),
@@ -35,6 +35,5 @@ procYaml1 :-
 procYaml2 :-
   yaml_read('soc-research-categories.yaml', YAML), 
    assertMajorAreas(YAML).
-
 
 %%%% end %%%%
