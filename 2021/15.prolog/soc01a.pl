@@ -45,8 +45,26 @@ assertSpecificArea(MajorArea, SpecificArea, PersonList) :-
   forall(member(Person, PersonList), 
     assertz(researchFocus(Person, MajorArea, SpecificArea))).
 
+:- dynamic(areaAbbrev/2). % most instantiations may be expressed via assertz; 
+                          % but one must exist for findall
+areaAbbrev([], []).
+
+assertAreaAbbreviation(Area) :-
+  \+ areaAbbrev(Area, _), %no need to reassert if already present
+  strToAbbrev(Area, Abbrev),
+  assertz(areaAbbrev(Area, Abbrev)).
+
+assertAreaAbbreviations([]).
+assertAreaAbbreviations([H|T]) :- assertAreaAbbreviation(H), assertAreaAbbreviations(T).
+
+assertAreaAbbreviations() :-
+  findall(MajorArea, researchArea(MajorArea, _), L),
+  assertAreaAbbreviations(L). 
+
+  %findall(SpecificArea, researchArea(MajorArea, SpecificArea), L),
+  %assertAreaAbbreviations(L).
+
 %abbreviatedArea(WholeName, Abbrev) :- researchArea(
-%strToAbbrev(Str, Abbrev)  :- 
 
 procYaml :- procYaml1, procYaml2.
 
