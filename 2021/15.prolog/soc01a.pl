@@ -1,4 +1,4 @@
-module(cu-soc01a, []).
+module(soc01a, []).
 
 :- use_module(library(yaml)).
 :- use_module(library(dicts)).
