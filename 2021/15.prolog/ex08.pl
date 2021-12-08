@@ -10,12 +10,13 @@ strFirstChar(Str, Letter) :- sub_atom(Str, 0, 1, _, Letter).
 % to list of letters (extracted by strFirstChar).  
 
 abbrevSeq([],_). 
-abbrevSeq([H|T], Abbreviated) :- 
-  string(H), strFirstChar(H, Hfc), abbrevSeq(T, Abbrev2),
-  atomics_to_string([Hfc, Abbrev2], Abbreviated).
+abbrevSeq([H|T], Abbrev) :- 
+  strFirstChar(H, Hfc), abbrevSeq(T, Abbrev2), 
+  append(Hfc, Abbrev2, Abbrev).
 
-strToAbbrev(Str, Abbrev)  :- strToWords(Str, Words), abbrevSeq(Words, Abbrev).
-
+strToAbbrev(Str, Abbrev)  :- 
+  strToWords(Str, Words), abbrevSeq(Words, Chars), 
+  atomics_to_string(Chars, Abbrev).
 
 %https://www.swi-prolog.org/pldoc/man?predicate=maplist/2
 %https://stackoverflow.com/questions/8321457/zip-function-in-prolog
