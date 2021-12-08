@@ -28,8 +28,9 @@ assertDivision(YAML, Division) :-
 addFaculty(Division, Faculty) :-
   assertz(faculty(Faculty)), assertz(divisionMember(Faculty, Division)).
 
-asserMajorResearchAreas(YAML) :- dict_keys(YAML.'majorAreas', MajorAreas),
- forall(member(MajorArea, MajorAreas), assertSpecificAreas(YAML.'majorAreas', MajorArea)).
+assertMajorResearchAreas(YAMLwhole) :- YAML is YAMLwhole.'majorAreas', 
+ dict_keys(YAML, MajorAreas),
+ forall(member(MajorArea, MajorAreas), assertSpecificAreas(YAML, MajorArea)).
 
 assertSpecificAreas(YAML, MajorArea) :- 
  dict_keys(YAML.MajorArea, SpecificAreas),
@@ -51,6 +52,6 @@ procYaml1 :-
 
 procYaml2 :-
   yaml_read('soc-research1b.yaml', YAML), 
-   asserMajorResearchAreas(YAML).
+   assertMajorResearchAreas(YAML).
 
 %%%% end %%%%
