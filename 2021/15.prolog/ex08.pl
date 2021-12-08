@@ -9,19 +9,14 @@ strFirstChar(Str, Letter) :- sub_atom(Str, 0, 1, _, Letter).
 %abbrevSeq: recursively transform list of words (produced by strToWords)
 % to list of letters (extracted by strFirstChar).  
 
-abbrevSeq([],_). 
+abbrevSeq([],[]). 
 abbrevSeq([H|T], Abbrev) :- 
   strFirstChar(H, Hfc), abbrevSeq(T, Abbrev2), 
-  append(Hfc, Abbrev2, Abbrev).
+  append([Hfc], Abbrev2, Abbrev).
 
 strToAbbrev(Str, Abbrev)  :- 
   strToWords(Str, Words), abbrevSeq(Words, Chars), 
   atomics_to_string(Chars, Abbrev).
-
-%https://www.swi-prolog.org/pldoc/man?predicate=maplist/2
-%https://stackoverflow.com/questions/8321457/zip-function-in-prolog
-%http://www.cs.trincoll.edu/~ram/cpsc352/notes/prolog/search.html
-%https://stackoverflow.com/questions/47744096/prolog-concatenate-all-elements-inside-a-list-to-make-a-string
 
 assertDivisions(YAML) :- dict_keys(YAML.'divisions', Divisions),
  foreach(member(Division, Divisions), assertDivision(YAML, Division)).
