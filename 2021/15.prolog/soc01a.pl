@@ -58,7 +58,8 @@ assertAreaAbbreviations([]).
 assertAreaAbbreviations([H|T]) :- assertAreaAbbreviation(H), assertAreaAbbreviations(T).
 
 assertAreaAbbreviations() :-
-  findall(MajorArea, researchArea(MajorArea, _), L),
+  %findall(MajorArea, researchArea(MajorArea, _), L),
+  findall(MinorArea, researchArea(_, MinorArea), L),
   assertAreaAbbreviations(L). 
 
   %findall(SpecificArea, researchArea(MajorArea, SpecificArea), L),
