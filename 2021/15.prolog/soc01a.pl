@@ -3,7 +3,8 @@ module(cu-soc01a, []).
 :- use_module(library(yaml)).
 :- use_module(library(dicts)).
 
-strToWords(Str, Words)    :- split_string(Str, " ", " ", Words).
+strToWords(Str, Words)    :- split_string(Str, " -", " ", Words).
+strFirstChar("and", '&').
 strFirstChar(Str, Letter) :- sub_atom(Str, 0, 1, _, Letter).
 
 %abbrevSeq: recursively transform list of words (produced by strToWords)
@@ -28,7 +29,7 @@ assertDivision(YAML, Division) :-
 addFaculty(Division, Faculty) :-
   assertz(faculty(Faculty)), assertz(divisionMember(Faculty, Division)).
 
-assertMajorResearchAreas(YAMLwhole) :- YAML is YAMLwhole.'majorAreas', 
+assertMajorResearchAreas(YAMLwhole) :- YAML = YAMLwhole.'researchAreas', 
  dict_keys(YAML, MajorAreas),
  forall(member(MajorArea, MajorAreas), assertSpecificAreas(YAML, MajorArea)).
 
@@ -43,6 +44,9 @@ assertSpecificArea(MajorArea, SpecificArea, PersonList) :-
   assertz(researchArea(MajorArea, SpecificArea)),
   forall(member(Person, PersonList), 
     assertz(researchFocus(Person, MajorArea, SpecificArea))).
+
+%abbreviatedArea(WholeName, Abbrev) :- researchArea(
+%strToAbbrev(Str, Abbrev)  :- 
 
 procYaml :- procYaml1, procYaml2.
 
