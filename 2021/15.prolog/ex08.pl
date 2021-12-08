@@ -6,10 +6,11 @@ module(ex08, []).
 strToWords(Str, Words)    :- split_string(Str, " ", " ", Words).
 strFirstChar(Str, Letter) :- sub_atom(Str, 0, 1, _, Letter).
 strToAbbrev(Str, Abbrev)  :- strToWords(Str, Words), 
-                             atomics_to_string( 
+%                             atomics_to_string( 
                                 foreach(member(Word, Words), 
-                                        strFirstChar(Word)), Abbrev).
-%maplist to be used in above? https://www.swi-prolog.org/pldoc/man?predicate=maplist/2
+                                        strFirstChar(Word, FirstChar)).
+%                                        strFirstChar(Word)), Abbrev).
+%maplist to be used in above? https://www.swi-prolog.org/pldoc/man?predicate=maplist/2; https://stackoverflow.com/questions/8321457/zip-function-in-prolog
 
 % https://stackoverflow.com/questions/47744096/prolog-concatenate-all-elements-inside-a-list-to-make-a-string
 
