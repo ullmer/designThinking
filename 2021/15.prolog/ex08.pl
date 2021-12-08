@@ -11,8 +11,8 @@ strFirstChar(Str, Letter) :- sub_atom(Str, 0, 1, _, Letter).
 
 abbrevSeq([],[]). 
 abbrevSeq([H|T], Abbrev) :- 
-  strFirstChar(H, Hfc), abbrevSeq(T, Abbrev2), 
-  append([Hfc], Abbrev2, Abbrev).
+  strFirstChar(H, HfirstChar), abbrevSeq(T, TailAbbrev), 
+  append([HfirstChar], TailAbbrev, Abbrev).
 
 strToAbbrev(Str, Abbrev)  :- 
   strToWords(Str, Words), abbrevSeq(Words, Chars), 
