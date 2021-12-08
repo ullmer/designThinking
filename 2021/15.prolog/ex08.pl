@@ -11,9 +11,10 @@ strFirstChar(Str, Letter) :- sub_atom(Str, 0, 1, _, Letter).
 
 abbrevSeq([],_). 
 abbrevSeq([H|T], Abbreviated) :- 
-  string(H), atomics_to_string([strFirst(H), abbrevSeq(T)], Abbreviated).
+  string(H), strFirstChar(H, Hfc), abbrevSeq(T, Abbrev2),
+  atomics_to_string([Hfc, Abbrev2], Abbreviated).
 
-strToAbbrev(Str, Abbrev)  :- strToWords(Str, Words), abbrevSeq(Words).
+strToAbbrev(Str, Abbrev)  :- strToWords(Str, Words), abbrevSeq(Words, Abbrev).
 
 
 %https://www.swi-prolog.org/pldoc/man?predicate=maplist/2
