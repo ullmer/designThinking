@@ -19,6 +19,8 @@ strToAbbrev(Str, Abbrev)  :-
   strToWords(Str, Words), abbrevSeq(Words, Chars), 
   atomics_to_string(Chars, Abbrev).
 
+%%%%%%%%%%%%%%%%% auto-assertions passage %%%%%%%%%%%%%%%%%%%
+
 assertDivisions(YAML) :- dict_keys(YAML.'divisions', Divisions),
  foreach(member(Division, Divisions), assertDivision(YAML, Division)).
 
@@ -29,9 +31,16 @@ assertDivision(YAML, Division) :-
 addFaculty(Division, Faculty) :-
   assertz(faculty(Faculty)), assertz(divisionMember(Faculty, Division)).
 
-assertMajorResearchAreas(YAMLwhole) :- YAML = YAMLwhole.'researchAreas', 
- dict_keys(YAML, MajorAreas),
- forall(member(MajorArea, MajorAreas), assertSpecificAreas(YAML, MajorArea)).
+assertMajorResearchAreas(YAMLwhole) :- 
+ YAML = YAMLwhole.'researchAreas', dict_keys(YAML, MajorAreas),
+ forall(member(MajorArea, MajorAreas), 
+        assertSpecificAreas(YAML, MajorArea)).
+
+assertManualResearchAbbrevs(YAMLwhole) :-
+ YAML = YAMLwhole.'meta'.'manualAliases', 
+ dict_keys(YAML, ManualAliases),
+ forall(member(ManualAlias, ManualAliases),
+        assertManualResearchAbbrev(YAML, ManualAlias)).
 
 assertSpecificAreas(YAML, MajorArea) :- 
  dict_keys(YAML.MajorArea, SpecificAreas),
@@ -67,7 +76,7 @@ assertAreaAbbreviations() :-
 
 %abbreviatedArea(WholeName, Abbrev) :- researchArea(
 
-procYaml :- procYaml1, procYaml2.
+%%%%%%%%%%%%%%%%% process YAML passage %%%%%%%%%%%%%%%%%%%
 
 procYaml1 :-
   yaml_read('soc-faculty.yaml', YAML), 
@@ -76,5 +85,8 @@ procYaml1 :-
 procYaml2 :-
   yaml_read('soc-research1b.yaml', YAML), 
    assertMajorResearchAreas(YAML).
+   assertManualResearchAbbrevs(YAML).
+
+procYaml :- procYaml1, procYaml2.
 
 %%%% end %%%%
