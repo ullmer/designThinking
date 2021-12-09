@@ -42,6 +42,11 @@ assertManualResearchAbbrevs(YAMLwhole) :-
  forall(member(ManualAlias, ManualAliases),
         assertManualResearchAbbrev(YAML, ManualAlias)).
 
+assertManualResearchAbbrev(YAML, ManualAlias) :-
+  dict_keys(YAML.ManualAlias, SpecificAlias),
+  format('~w ~w\n', 
+    [SpecificAlias, YAML.ManualAlias.SpecificAlias]).
+
 assertSpecificAreas(YAML, MajorArea) :- 
  dict_keys(YAML.MajorArea, SpecificAreas),
  assertz(researchArea(MajorArea)),
@@ -84,7 +89,7 @@ procYaml1 :-
 
 procYaml2 :-
   yaml_read('soc-research1b.yaml', YAML), 
-   assertMajorResearchAreas(YAML).
+   assertMajorResearchAreas(YAML),
    assertManualResearchAbbrevs(YAML).
 
 procYaml :- procYaml1, procYaml2.
