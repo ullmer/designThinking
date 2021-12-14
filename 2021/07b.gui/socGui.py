@@ -258,7 +258,19 @@ class socGuiFaculty(socGuiBase):
   def divisionCb(self, whichDivision):
     print("division %s was selected" % whichDivision)
 
-  def facultyCb(self, whichFaculty):
+    #facultyRecs = self.soc.getFacultyResearchFields(whichRa)
+    facultyRecs = self.soc.getFacultyByDivision(whichDivision)
+    print(facultyRecs)
+
+    #highlight entangled faculty
+    self.facultyGui.clearHighlightedFaculty()
+    #self.rankGui.clearHighlightedRanks()
+
+    for faculty in facultyRecs:
+      self.facultyCb(faculty, True)
+
+
+  def facultyCb(self, whichFaculty, cumulative=False):
     print("faculty %s was selected" % whichFaculty)
 
 #####################################################################################
@@ -270,7 +282,7 @@ class socGuiResearchAreas(socGuiBase):
   area2but         = None #major research areas to button
   field2but        = None #research fields      to button
   field2rowNum     = None #research field to row number
-  socHighlightedFields = None
+  highlightedFields = None
 
   ##################### constructor ##################### 
 
@@ -345,13 +357,13 @@ class socGuiResearchAreas(socGuiBase):
 
   ##################### highlightFaculty ##################### 
 
-  def clearHighlightedFaculty(self): 
-    if self.socHighlightedFaculty == None or self.socHighlightedFaculty == []:
+  def clearHighlightedFields(self): 
+    if self.highlightedFields == None or self.highlightedFields == []:
       return
 
-    for faculty in self.socHighlightedFaculty:
-      button = self.faculty2but[faculty]
-      rowNum = self.faculty2rowNum[faculty]
+    for field in self.highlightedFields:
+      button = self.field2but[field]
+      rowNum = self.field2rowNum[field]
       if rowNum % 2 == 0: rbg = self.colRowBg1 # row background
       else:               rbg = self.colRowBg2
       button.configure(bg=rbg)

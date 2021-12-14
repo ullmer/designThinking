@@ -1,0 +1,111 @@
+Soup:
+ - {main: Chilled Cucumber, sides: spicy green apple relish}
+ - {main: Chilled Corn And Heirloom Tomatoes, sides: heirloom tomato salad}
+Main Dishes:
+ - {main: Maple Brined Turkey, sides: tomato and red onion jam}
+ - {main: Maple Brined Turkey, sides: with 2 sides}
+Sandwich:
+ - {main: New England Lobster Roll, sides: }
+ - {main: New England Lobster Roll, sides: with 2 sides}
+Hot Side Dishes:
+ - {main: Roasted Kohlrabi, sides: green apple&comma; cider reduction}
+ - {main: Stewed Black Eyed Peas, sides: wild bay leaves&comma; zucchini}
+Cold Side Dishes:
+ - {main: Wild Rice And Watercress Salad, sides: }
+ - {main: Pickled Peach, sides: charred red onions&comma; white wine vinaigrette}
+ - {main: Corn Bread, sides: }
+Sweets:
+ - {main: Strawberry, sides: rhubarb pudding&comma; vanilla cream}
+ - {main: Strawberry Tarts, sides: }
+ - {main: Blueberry Tarts, sides: }
+ - {main: Blackberry Tarts, sides: }
+ - {main: Apple Crumble, sides: with sweet nuts and grains}
+Sopa:
+ - {main: Smoked Turkey  &amp;  Kale, sides: turkey chicorons garnish}
+ - {main: Chilled Avocado  &amp;  Crab Soup, sides: }
+Plato Principales:
+ - {main: Bolivian Style Chili Braised Pork Shanks, sides: }
+ - {main: Bolivian Style Chili Braised Pork Shanks, sides: with 2 sides}
+ - {main: Phuti Chuno De Carne Picante, sides: freeze dried potatoes with spicy beef}
+ - {main: Phuti Chuno De Carne Picante, sides: with 2 sides}
+Platos Caliente Secundarios:
+ - {main: Phuti Chuno, sides: }
+ - {main: Roasted Green Papaya, sides: tamarillo}
+ - {main: Specialty Ceviche, sides: }
+ - {main: Octopus Salad, sides: }
+Platos Frios Secundarios:
+ - {main: Ensaladade Palmitos, sides: hearts of palm salad&comma; fresh mozzarella and tomatoes&comma; white wine vinaigrette}
+Platos Frios Secundarios:
+ - {main: Quesosy Embutidos, sides: cheese  &amp;  charcuterie. assorted spanish cheeses and cured meats&comma; served with quince paste&comma; tree honey and assorted breads}
+ - {main: Agua Fresca, sides: seasonal}
+Dulces:
+ - {main: Boniato, sides: candied bacon empanada&comma; pineapple puree}
+ - {main: Blue Corn Bread, sides: }
+Appetizer:
+ - {main: Hot Smoked White Fish, sides: wild onion confit&comma; corn relish}
+Main Dishes:
+ - {main: Cedar Planked Wild Salmon, sides: olive tapenade}
+ - {main: Cedar Planked Wild Salmon, sides: with 2 sides}
+ - {main: Grilled Bison Loin, sides: caramelized strawberries}
+ - {main: Grilled Bison Loin, sides: with 2 sides}
+Hot Side Dishes:
+ - {main: Sautéed Swiss Chard, sides: roasted garlic confit&comma; white onions}
+ - {main: Roasted Wild Mushrooms, sides: smoked potatoes&comma; fresh herbs}
+Cold Side Dishes:
+ - {main: Grilled Asparagus And Roasted Salsify, sides: }
+ - {main: Wild Rice  &amp;  Watercress Salad, sides: apple cider vinaigrette}
+Value Meal:
+ - {main: Five Region Sampler Platter, sides: grilled bison striploin&comma; cedar planked salmon&comma; 3 regional side dishes}
+Sweets:
+ - {main: Grilled Peach Shortcake, sides: port wine sauce&comma; vanilla cream&comma; cornmeal biscuits}
+ - {main: Dried Cherry, sides: mesquite cookies}
+ - {main: Dried Fruit Bread Pudding, sides: }
+Appetizer:
+ - {main: Fourmini Tacos, sides: crudito&comma; guacamole}
+Main Dishes:
+ - {main: Roasted Portobello Mushroom And Summer Squash Tostada, sides: }
+ - {main: Roasted Portobello Mushroom And Summer Squash Tostada, sides: with 2 sides}
+Tacos:
+ - {main: Yellow Corn Or Soft Flour Tortillas, sides: summer goat&comma; plantain  &amp;  poblano salsa chicken&comma; prickly pear mole}
+ - {main: Yellow Corn Or Soft Flour Tortillas, sides: with 2 sides}
+Totopos:
+ - {main: Blue, sides: red and yellow corn chips  &amp;  salsa}
+ - {main: Blue, sides: red and yellow corn chips with guacamole}
+ - {main: Blue&comma; Red And Yellow Corn Chips With Carne, sides: summer goat&comma; plantain  &amp;  poblano salsa chicken&comma; prickly pear mole}
+Side Dishes:
+ - {main: Grilled Nopales, sides: spiced green beans&comma; lime butter}
+ - {main: Butter Bean, sides: grilled chayote squash}
+Salsa And Guacamole:
+ - {main: Romesco Salsa, sides: }
+ - {main: Grilled Plum  &amp;  Ancho Chili, sides: }
+ - {main: Coconut  &amp;  Fresno Chili, sides: }
+ - {main: Cotija Cheese, sides: }
+ - {main: Sour Cream, sides: }
+ - {main: Guacamole, sides: }
+Sweets:
+ - {main: Steamed Banana Cake Wrapped In Banana Leaves, sides: blackberry sauce}
+ - {main: Orange Cake, sides: }
+Great Plains:
+ - {main: Buffalo Chili, sides: }
+Main Dishes:
+ - {main: Indian Taco, sides: buffalo chili on fry bread with pickled chiles  &amp;  pinto beans&comma; lettuce&comma; tomato and shredded cheese}
+ - {main: Chipotle Chicken Taco, sides: grilled chipotle chicken&comma; fry bread&comma; lettuce&comma; tomato and shredded cheese}
+Burgers And Sandwiches:
+ - {main: Campfire Buffalo Burger, sides: served with green chilies}
+ - {main: Campfire Buffalo Burger, sides: served with cheese}
+ - {main: House Ground Buffalo And Duck Burger, sides: (cooked a la carte with chili spiced fries) roasted pepper dijonaise&comma; smoked tomatoes&comma; aged cheddar cheese}
+ - {main: Pulled Buffalo Sandwich, sides: w/ chayote squash slaw on whole wheat kaiser roll}
+ - {main: Pulled Buffalo Sandwich, sides: with chile spiced fries}
+Sliders:
+ - {main: Free Range Elk Burger, sides: house ground turkey burger&comma; free range buffalo  &amp;  duck burger}
+ - {main: Free Range Elk Burger, sides: with chili spiced fries}
+ - {main: Chicken Tenders, sides: with fries}
+Hot Side Dishes:
+ - {main: Chile Spiced Fries, sides: }
+ - {main: Buffalo Chili  &amp;  Cheese Fries, sides: }
+ - {main: Fry Bread, sides: }
+ - {main: Cinnamon And Honey, sides: }
+ - {main: Blue Berry Wajapia, sides: }
+Cold Side Dishes:
+ - {main: Heirloom Watermelon  &amp;  Tomato Salad, sides: roasted jalapenos&comma; charred onions}
+ - {main: Grilled Asparagus And Roasted Salsify, sides: }
