@@ -3,6 +3,8 @@ module(soc01a, []).
 :- use_module(library(yaml)).
 :- use_module(library(dicts)).
 
+%%%%%%%%%%%%% string processing and auto-abbreviation helpers %%%%%%%%%%%%%%%
+
 strToWords(Str, Words)    :- split_string(Str, " -", " ", Words).
 strFirstChar("and", '&').
 strFirstChar(Str, Letter) :- sub_atom(Str, 0, 1, _, Letter).
@@ -19,7 +21,10 @@ strToAbbrev(Str, Abbrev)  :-
   strToWords(Str, Words), abbrevSeq(Words, Chars), 
   atomics_to_string(Chars, Abbrev).
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%% auto-assertions passage %%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%% assert divisions %%%%%%%%%%%%%%%%%%%
 
 assertDivisions(YAML) :- dict_keys(YAML.'divisions', Divisions),
  foreach(member(Division, Divisions), assertDivision(YAML, Division)).
@@ -28,6 +33,8 @@ assertDivision(YAML, Division) :-
  forall(member(Faculty, YAML.'divisions'.Division), 
    addFaculty(Division, Faculty)).
 
+%%%%%%%%%%%%%%%%% add faculty %%%%%%%%%%%%%%%%%%%
+
 addFaculty(Division, Faculty) :-
   assertz(faculty(Faculty)), assertz(divisionMember(Faculty, Division)).
 
@@ -35,6 +42,8 @@ assertMajorResearchAreas(YAMLwhole) :-
  YAML = YAMLwhole.'researchAreas', dict_keys(YAML, MajorAreas),
  forall(member(MajorArea, MajorAreas), 
         assertSpecificAreas(YAML, MajorArea)).
+
+%%%%%%%%%%%%%%%%% assert manual research abbreviations %%%%%%%%%%%%%%%%%%%
 
 assertManualResearchAbbrevs(YAMLwhole) :-
  YAML = YAMLwhole.'meta'.'manualAliases', 
@@ -46,6 +55,8 @@ assertManualResearchAbbrev(YAML, ManualAlias) :-
   dict_keys(YAML.ManualAlias, SpecificAlias),
   format('~w ~w\n', 
     [SpecificAlias, YAML.ManualAlias.SpecificAlias]).
+
+%%%%%%%%%%%%%%%%% assert specific research areas %%%%%%%%%%%%%%%%%%%
 
 assertSpecificAreas(YAML, MajorArea) :- 
  dict_keys(YAML.MajorArea, SpecificAreas),
