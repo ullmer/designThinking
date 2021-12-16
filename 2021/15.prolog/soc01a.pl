@@ -105,6 +105,12 @@ areaAbbrevRE(Area, AbbrevRE) :-
 areaAbbrevRE(Area, Abbrev, AbbrevRE) :-
   areaAbbrev(Area, Abbrev), wildcard_match(AbbrevRE, Abbrev).
 
+areaAbbrevsRE(AbbrevRE, L) :- 
+  findall([Area, Abbrev], areaAbbrevRE(Area, Abbrev, AbbrevRE), L).
+
+areaAbbrevRE(Area, Abbrev, AbbrevRE) :- 
+  areaAbbrev(Area, Abbrev), wildcard_match(AbbrevRE, Abbrev).
+
 assertAreaAbbreviations([]).
 assertAreaAbbreviations([H|T]) :- assertAreaAbbreviation(H), assertAreaAbbreviations(T).
 
@@ -132,6 +138,9 @@ personAbbrevsRE(FullName, AbbrevRE, L) :-
   findall(FullName, personAbbrevRE(FullName, AbbrevRE), L).
 
 personAbbrevsRE(FullName, Abbrev, AbbrevRE, L) :- 
+  findall([FullName, Abbrev], personAbbrevRE(FullName, Abbrev, AbbrevRE), L).
+
+personAbbrevsRE(AbbrevRE, L) :- 
   findall([FullName, Abbrev], personAbbrevRE(FullName, Abbrev, AbbrevRE), L).
 
 personAbbrevRE(FullName, Abbrev, AbbrevRE) :- 
