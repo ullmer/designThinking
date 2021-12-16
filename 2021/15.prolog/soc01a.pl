@@ -99,22 +99,11 @@ assertAreaAbbreviation(Area) :- %writeln(Area),
   strToAbbrev(Area, Abbrev),
   assertz(areaAbbrev(Area, Abbrev)).
 
-assertAreaAbbreviation(Area) :- areaAbbrev(Area, _).
+areaAbbrevRE(Area, AbbrevRE) :-
+  areaAbbrev(Area, Abbrev), wildcard_match(AbbrevRE, Abbrev).
 
-:- dynamic(personAbbrev/2).
-personAbbrev([], []).
-personAbbrev2(FullName, Abbrev2) :- 
-  personAbbrev(FullName, Abbrev),
-  wildcard_match(Abbrev2, Abbrev).
-
-assertPersonAbbreviation(Person) :- personAbbrev(Person, _).
-assertPersonAbbreviation(Person) :-
-  strToAbbrev(Person, Abbrev),
-  assertz(personAbbrev(Person, Abbrev)).
-
-assertPersonAbbreviations() :-
-  findall(Person, faculty(Person), People),
-  forall(member(P, People), assertPersonAbbreviation(P)).
+areaAbbrevRE(Area, Abbrev, AbbrevRE) :-
+  areaAbbrev(Area, Abbrev), wildcard_match(AbbrevRE, Abbrev).
 
 assertAreaAbbreviations([]).
 assertAreaAbbreviations([H|T]) :- assertAreaAbbreviation(H), assertAreaAbbreviations(T).
@@ -131,6 +120,25 @@ assertAreaAbbreviations() :-
 
 %abbreviatedArea(WholeName, Abbrev) :- researchArea(
 
+%%%%%%%%%%%%%%%%% person abbreviations%%%%%%%%%%%%%%%%%%%
+
+:- dynamic(personAbbrev/2).
+personAbbrev([], []).
+
+personAbbrevRE(FullName, AbbrevRE) :- 
+  personAbbrev(FullName, Abbrev), wildcard_match(AbbrevRE, Abbrev).
+
+personAbbrevRE(FullName, Abbrev, AbbrevRE) :- 
+  personAbbrev(FullName, Abbrev), wildcard_match(AbbrevRE, Abbrev).
+
+assertPersonAbbreviation(Person) :- personAbbrev(Person, _).
+assertPersonAbbreviation(Person) :-
+  strToAbbrev(Person, Abbrev),
+  assertz(personAbbrev(Person, Abbrev)).
+
+assertPersonAbbreviations() :-
+  findall(Person, faculty(Person), People),
+  forall(member(P, People), assertPersonAbbreviation(P)).
 
 %%%%%%%%%%%%%%%%% process YAML passage %%%%%%%%%%%%%%%%%%%
 
