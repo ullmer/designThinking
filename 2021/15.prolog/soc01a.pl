@@ -33,16 +33,6 @@ assertDivision(YAML, Division) :-
  forall(member(Faculty, YAML.'divisions'.Division), 
    addFaculty(Division, Faculty)).
 
-%%%%%%%%%%%%%%%%% add faculty %%%%%%%%%%%%%%%%%%%
-
-addFaculty(Division, Faculty) :-
-  assertz(faculty(Faculty)), assertz(divisionMember(Faculty, Division)).
-
-assertMajorResearchAreas(YAMLwhole) :- 
- YAML = YAMLwhole.'researchAreas', dict_keys(YAML, MajorAreas),
- forall(member(MajorArea, MajorAreas), 
-        assertSpecificAreas(YAML, MajorArea)).
-
 %%%%%%%%%%%%%%%%% assert manual research abbreviations %%%%%%%%%%%%%%%%%%%
 
 assertManualResearchAbbrevs(YAMLwhole) :-
@@ -66,6 +56,16 @@ assertManualResearchAbbrv(ManualAlias, SpecificAliases) :-
   is_list(SpecificAliases),
   forall(member(SpecificAlias, SpecificAliases),
     assertManualResearchAbbrv(ManualAlias, SpecificAlias)).
+
+%%%%%%%%%%%%%%%%% add faculty %%%%%%%%%%%%%%%%%%%
+
+addFaculty(Division, Faculty) :-
+  assertz(faculty(Faculty)), assertz(divisionMember(Faculty, Division)).
+
+assertMajorResearchAreas(YAMLwhole) :- 
+ YAML = YAMLwhole.'researchAreas', dict_keys(YAML, MajorAreas),
+ forall(member(MajorArea, MajorAreas), 
+        assertSpecificAreas(YAML, MajorArea)).
 
 %%%%%%%%%%%%%%%%% assert specific research areas %%%%%%%%%%%%%%%%%%%
 
@@ -105,11 +105,11 @@ areaAbbrevRE(Area, AbbrevRE) :-
 areaAbbrevRE(Area, Abbrev, AbbrevRE) :-
   areaAbbrev(Area, Abbrev), wildcard_match(AbbrevRE, Abbrev).
 
-areaAbbrevsRE(AbbrevRE, L) :- 
-  findall([Area, Abbrev], areaAbbrevRE(Area, Abbrev, AbbrevRE), L).
-
 areaAbbrevRE(Area, Abbrev, AbbrevRE) :- 
   areaAbbrev(Area, Abbrev), wildcard_match(AbbrevRE, Abbrev).
+
+areaAbbrevsRE(AbbrevRE, L) :- 
+  findall([Area, Abbrev], areaAbbrevRE(Area, Abbrev, AbbrevRE), L).
 
 assertAreaAbbreviations([]).
 assertAreaAbbreviations([H|T]) :- assertAreaAbbreviation(H), assertAreaAbbreviations(T).
@@ -154,6 +154,12 @@ assertPersonAbbreviation(Person) :-
 assertPersonAbbreviations() :-
   findall(Person, faculty(Person), People),
   forall(member(P, People), assertPersonAbbreviation(P)).
+
+%%%%%%%%%%%%%%%%% print table %%%%%%%%%%%%%%%%%%%
+
+printTable([]).
+printTable([H|T]) :-
+  format('~w\t~w\n', H), printTable(T).
 
 %%%%%%%%%%%%%%%%% process YAML passage %%%%%%%%%%%%%%%%%%%
 
