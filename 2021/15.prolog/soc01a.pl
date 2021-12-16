@@ -118,6 +118,11 @@ majorAreaAbbrev(Area, Abbrev) :- researchArea(Area), areaAbbrev(Area, Abbrev).
 listMajorAreas(L2) :- 
   findall([Abbrev, Area], majorAreaAbbrev(Area, Abbrev), L1), sort(L1, L2).
 
+
+
+listDivisions(L2) :- 
+  findall([Abbrev, Area], majorAreaAbbrev(Area, Abbrev), L1), sort(L1, L2).
+
 print(divions)               :- listDivisions(L),  printTable(L).
 print(majorArea)             :- listMajorAreas(L), printTable(L).
 printAreaRE(all, AbbrevRE)   :- areaAbbrevsRE(AbbrevRE, L), printTable(L).
@@ -180,16 +185,16 @@ printTable([H|T]) :-
 
 %%%%%%%%%%%%%%%%% process YAML passage %%%%%%%%%%%%%%%%%%%
 
-procYaml1 :-
+procYamlFaculty :-
   yaml_read('soc-faculty.yaml', YAML), 
   assertDivisions(YAML).
 
-procYaml2 :-
+procYamlResearch :-
   yaml_read('soc-research1b.yaml', YAML), 
    assertResearchAreas(YAML),
    assertManualResearchAbbrevs(YAML).
 
-procYaml :- procYaml1, procYaml2, 
+procYaml :- procYamlFaculty, procYamlResearch, 
   assertAreaAbbreviations,
   assertPersonAbbreviations.
 
