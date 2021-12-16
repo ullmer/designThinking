@@ -93,7 +93,7 @@ researchAreas:
  
 meta: 
   manualAliases:
-    Virtual and Extended Reality / Environments: [VR&XR, VR, XR]
-    Mobile and Pervasive Computing: [M&PC, Ubicomp]
+    "Virtual and Extended Reality / Environments": [VR, XR, "VR&XR"]
+    Mobile and Pervasive Computing:                [Ubicomp, "M&PC"]
     Databases: Db
   
