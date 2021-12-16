@@ -85,6 +85,14 @@ assertSpecificArea(MajorArea, SpecificArea, PersonList) :-
                           % but one must exist for findall
 areaAbbrev([], []).
 
+researchFocusByPersonAbbrev(PersonAbbrev, MajorArea, SpecificArea) :-
+  personAbbrev(Person, PersonAbbrev),
+  researchFocus(Person, MajorArea, SpecificArea).
+
+researchFocusByMajorAbbrev(Person, MajorAreaAbbrev, SpecificArea) :-
+  areaAbbrev(MajorArea, MajorAreaAbbrev),
+  researchFocus(Person, MajorArea, SpecificArea).
+
 assertAreaAbbreviation(Area) :- areaAbbrev(Area, _).
 
 assertAreaAbbreviation(Area) :- %writeln(Area),
@@ -119,6 +127,7 @@ assertAreaAbbreviations() :-
   %assertAreaAbbreviations(L).
 
 %abbreviatedArea(WholeName, Abbrev) :- researchArea(
+
 
 %%%%%%%%%%%%%%%%% process YAML passage %%%%%%%%%%%%%%%%%%%
 
