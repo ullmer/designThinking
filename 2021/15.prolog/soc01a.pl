@@ -108,8 +108,9 @@ areaAbbrevRE(Area, Abbrev, AbbrevRE) :-
 areaAbbrevRE(Area, Abbrev, AbbrevRE) :- 
   areaAbbrev(Area, Abbrev), wildcard_match(AbbrevRE, Abbrev).
 
-areaAbbrevsRE(AbbrevRE, L) :- 
-  findall([Area, Abbrev], areaAbbrevRE(Area, Abbrev, AbbrevRE), L).
+areaAbbrevsRE(AbbrevRE, L2) :- 
+  findall([Abbrev, Area], areaAbbrevRE(Area, Abbrev, AbbrevRE), L1),
+  sort(L1, L2).
 
 assertAreaAbbreviations([]).
 assertAreaAbbreviations([H|T]) :- assertAreaAbbreviation(H), assertAreaAbbreviations(T).
@@ -134,14 +135,19 @@ personAbbrev([], []).
 personAbbrevRE(FullName, AbbrevRE) :- 
   personAbbrev(FullName, Abbrev), wildcard_match(AbbrevRE, Abbrev).
 
-personAbbrevsRE(FullName, AbbrevRE, L) :- 
-  findall(FullName, personAbbrevRE(FullName, AbbrevRE), L).
+personAbbrevsRE(FullName, AbbrevRE, L2) :- 
+  findall(FullName, personAbbrevRE(FullName, AbbrevRE), L1),
+  sort(L1, L2).
 
-personAbbrevsRE(FullName, Abbrev, AbbrevRE, L) :- 
-  findall([FullName, Abbrev], personAbbrevRE(FullName, Abbrev, AbbrevRE), L).
+personAbbrevsRE(FullName, Abbrev, AbbrevRE, L2) :- 
+  findall([Abbrev, FullName], personAbbrevRE(FullName, Abbrev, AbbrevRE), L1),
+  sort(L1, L2).
 
-personAbbrevsRE(AbbrevRE, L) :- 
-  findall([FullName, Abbrev], personAbbrevRE(FullName, Abbrev, AbbrevRE), L).
+personAbbrevsRE(AbbrevRE, L2) :- 
+  findall([Abbrev, FullName], personAbbrevRE(FullName, Abbrev, AbbrevRE), L1),
+  sort(L1, L2).
+
+printPeopleRE(AbbrevRE) :- personAbbrevsRE(AbbrevRE, L), printTable(L).
 
 personAbbrevRE(FullName, Abbrev, AbbrevRE) :- 
   personAbbrev(FullName, Abbrev), wildcard_match(AbbrevRE, Abbrev).
