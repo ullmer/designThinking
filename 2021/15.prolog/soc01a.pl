@@ -46,15 +46,24 @@ assertMajorResearchAreas(YAMLwhole) :-
 %%%%%%%%%%%%%%%%% assert manual research abbreviations %%%%%%%%%%%%%%%%%%%
 
 assertManualResearchAbbrevs(YAMLwhole) :-
- YAML = YAMLwhole.'meta'.'manualAliases', 
- dict_keys(YAML, ManualAliases),
- forall(member(ManualAlias, ManualAliases),
+ YAMLmeta = YAMLwhole.'meta',               %writeln(YAMLmeta), 
+ YAML = YAMLmeta.'manualAliases',           %writeln(YAML),
+ dict_keys(YAML, ManualAliases),            %writeln(ManualAliases),
+ forall(member(ManualAlias, ManualAliases), %writeln(ManualAlias)).
         assertManualResearchAbbrev(YAML, ManualAlias)).
 
-assertManualResearchAbbrev(YAML, ManualAlias) :-
-  dict_keys(YAML.ManualAlias, SpecificAlias),
-  format('~w ~w\n', 
-    [SpecificAlias, YAML.ManualAlias.SpecificAlias]).
+assertManualResearchAbbrev(YAML, ManualAlias) :- %writeln(ManualAlias), 
+  SpecificAlias = YAML.ManualAlias,     %format('~w ~w\n', [SpecificAlias, ManualAlias]),
+  assertManualResearchAbbrev(ManualAlias, SpecificAlias).
+
+assertManualResearchAbbrv(ManualAlias, SpecificAlias) :-
+  is_atom(SpecificAlias),
+  assertz(manualResearchAbbrev(ManualAlias, SpecificAlias).
+
+assertManualResearchAbbrv(ManualAlias, SpecificAliases) :-
+  is_list(SpecificAliases),
+  forall(member(SpecificAlias, SpecificAliases),
+    assertManualResearchAbbrv(ManualAlias, SpecificAlias)).
 
 %%%%%%%%%%%%%%%%% assert specific research areas %%%%%%%%%%%%%%%%%%%
 
