@@ -129,7 +129,10 @@ personAbbrevRE(FullName, AbbrevRE) :-
   personAbbrev(FullName, Abbrev), wildcard_match(AbbrevRE, Abbrev).
 
 personAbbrevsRE(FullName, AbbrevRE, L) :- 
-  findall(FullName, personAbbrev(FullName, AbbrevRE), L).
+  findall(FullName, personAbbrevRE(FullName, AbbrevRE), L).
+
+personAbbrevsRE(FullName, Abbrev, AbbrevRE, L) :- 
+  findall([FullName, Abbrev], personAbbrevRE(FullName, Abbrev, AbbrevRE), L).
 
 personAbbrevRE(FullName, Abbrev, AbbrevRE) :- 
   personAbbrev(FullName, Abbrev), wildcard_match(AbbrevRE, Abbrev).
