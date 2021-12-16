@@ -81,7 +81,7 @@ assertSpecificArea(MajorArea, SpecificArea, PersonList) :-
   forall(member(Person, PersonList), 
     assertz(researchFocus(Person, MajorArea, SpecificArea))).
 
-:- dynamic(areaAbbrev/2). % most instantiations may be expressed via assertz; 
+:- dynamic(areaAbbrev/2). % most instantiations to be expressed via assertz; 
                           % but one must exist for findall
 areaAbbrev([], []).
 
@@ -90,6 +90,20 @@ assertAreaAbbreviation(Area) :- areaAbbrev(Area, _).
 assertAreaAbbreviation(Area) :- %writeln(Area),
   strToAbbrev(Area, Abbrev),
   assertz(areaAbbrev(Area, Abbrev)).
+
+assertAreaAbbreviation(Area) :- areaAbbrev(Area, _).
+
+:- dynamic(personAbbrev/2).
+personAbbrev([], []).
+
+assertPersonAbbreviation(Person) :- personAbbrev(Person, _).
+assertPersonAbbreviation(Person) :-
+  strToAbbrev(Person, Abbrev),
+  assertz(personAbbrev(Person, Abbrev)).
+
+assertPersonAbbreviations() :-
+  findall(Person, faculty(Person), People),
+  forall(member(P, People), assertPersonAbbreviation(P)).
 
 assertAreaAbbreviations([]).
 assertAreaAbbreviations([H|T]) :- assertAreaAbbreviation(H), assertAreaAbbreviations(T).
@@ -117,6 +131,8 @@ procYaml2 :-
    assertMajorResearchAreas(YAML),
    assertManualResearchAbbrevs(YAML).
 
-procYaml :- procYaml1, procYaml2, assertAreaAbbreviations.
+procYaml :- procYaml1, procYaml2, 
+  assertAreaAbbreviations,
+  assertPersonAbbreviations.
 
 %%%% end %%%%
