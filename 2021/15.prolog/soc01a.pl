@@ -54,13 +54,15 @@ assertManualResearchAbbrevs(YAMLwhole) :-
 
 assertManualResearchAbbrev(YAML, ManualAlias) :- %writeln(ManualAlias), 
   SpecificAlias = YAML.ManualAlias,     %format('~w ~w\n', [SpecificAlias, ManualAlias]),
-  assertManualResearchAbbrev(ManualAlias, SpecificAlias).
+  assertManualResearchAbbrv(ManualAlias, SpecificAlias).
 
-assertManualResearchAbbrv(ManualAlias, SpecificAlias) :-
-  is_atom(SpecificAlias),
-  assertz(manualResearchAbbrev(ManualAlias, SpecificAlias).
+assertManualResearchAbbrv(ManualAlias, SpecificAlias) :- 
+  %debug(['amra1', SpecificAlias]),
+  string(SpecificAlias), 
+  assertz(manualResearchAbbrev(ManualAlias, SpecificAlias)).
 
-assertManualResearchAbbrv(ManualAlias, SpecificAliases) :-
+assertManualResearchAbbrv(ManualAlias, SpecificAliases) :- 
+  %debug(['amra2', SpecificAliases]),
   is_list(SpecificAliases),
   forall(member(SpecificAlias, SpecificAliases),
     assertManualResearchAbbrv(ManualAlias, SpecificAlias)).
