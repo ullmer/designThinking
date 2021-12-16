@@ -30,6 +30,7 @@ assertDivisions(YAML) :- dict_keys(YAML.'divisions', Divisions),
  foreach(member(Division, Divisions), assertDivision(YAML, Division)).
 
 assertDivision(YAML, Division) :-
+ assertz(division(Division)),
  forall(member(Faculty, YAML.'divisions'.Division), 
    addFaculty(Division, Faculty)).
 
@@ -64,6 +65,7 @@ addFaculty(Division, Faculty) :-
 
 assertResearchAreas(YAMLwhole) :- 
  YAML = YAMLwhole.'researchAreas', dict_keys(YAML, MajorAreas),
+ writeln(MajorAreas),
  forall(member(MajorArea, MajorAreas), 
         assertSpecificAreas(YAML, MajorArea)).
 
@@ -116,9 +118,9 @@ majorAreaAbbrev(Area, Abbrev) :- researchArea(Area), areaAbbrev(Area, Abbrev).
 listMajorAreas(L2) :- 
   findall([Abbrev, Area], majorAreaAbbrev(Area, Abbrev), L1), sort(L1, L2).
 
-printArea(major)             :- listMajorAreas(L), printTable(L).
-printArea()                  :- printArea(major).
-printAreaRE('all', AbbrevRE)   :- areaAbbrevsRE(AbbrevRE, L), printTable(L).
+print(divions)               :- listDivisions(L),  printTable(L).
+print(majorArea)             :- listMajorAreas(L), printTable(L).
+printAreaRE(all, AbbrevRE)   :- areaAbbrevsRE(AbbrevRE, L), printTable(L).
 printAreaRE(AbbrevRE)          :- printAreaRE('all', AbbrevRE). % default
 
 assertAreaAbbreviations([]).
