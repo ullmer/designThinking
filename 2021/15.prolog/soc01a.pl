@@ -57,7 +57,7 @@ assertManualResearchAbbrev(YAML, ManualAlias) :- %writeln(ManualAlias),
   assertManualResearchAbbrv(ManualAlias, SpecificAlias).
 
 assertManualResearchAbbrv(ManualAlias, SpecificAlias) :- 
-  %debug(['amra1', SpecificAlias]),
+  %writeln(['amra1', SpecificAlias]),
   string(SpecificAlias), 
   assertz(manualResearchAbbrev(ManualAlias, SpecificAlias)).
 
