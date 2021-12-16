@@ -6,7 +6,7 @@ module(soc01a, []).
 %%%%%%%%%%%%% string processing and auto-abbreviation helpers %%%%%%%%%%%%%%%
 
 strToWords(Str, Words)    :- split_string(Str, " -", " ", Words).
-strFirstChar('and', '&').
+strFirstChar("and", "&").
 strFirstChar(Str, Letter) :- sub_atom(Str, 0, 1, _, Letter).
 
 %abbrevSeq: recursively transform list of words (produced by strToWords)
@@ -85,8 +85,10 @@ assertSpecificArea(MajorArea, SpecificArea, PersonList) :-
                           % but one must exist for findall
 areaAbbrev([], []).
 
-assertAreaAbbreviation(Area) :- writeln(Area),
-  \+ areaAbbrev(Area, _), %no need to reassert if already present
+assertAreaAbbreviation(Area) :- areaAbbrev(Area, _).
+assertAreaAbbreviation(Area) :- manualResearchAbbrev(Area, Abbrev),
+  assertz(areaAbbrev(Area, Abbrev)).
+assertAreaAbbreviation(Area) :- %writeln(Area),
   strToAbbrev(Area, Abbrev),
   assertz(areaAbbrev(Area, Abbrev)).
 
@@ -94,9 +96,11 @@ assertAreaAbbreviations([]).
 assertAreaAbbreviations([H|T]) :- assertAreaAbbreviation(H), assertAreaAbbreviations(T).
 
 assertAreaAbbreviations() :-
-  findall(MajorArea, researchArea(MajorArea, _), L),
-  %findall(MinorArea, researchArea(_, MinorArea), L),
-  assertAreaAbbreviations(L). 
+  findall(MinorArea, researchArea(_, MinorArea), L1),
+  assertAreaAbbreviations(L1),
+
+  findall(MajorArea, researchArea(MajorArea, _), L2),
+  assertAreaAbbreviations(L2).
 
   %findall(SpecificArea, researchArea(MajorArea, SpecificArea), L),
   %assertAreaAbbreviations(L).
