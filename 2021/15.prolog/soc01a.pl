@@ -59,7 +59,7 @@ assertManualResearchAbbrev(YAML, ManualAlias) :- %writeln(ManualAlias),
 assertManualResearchAbbrv(ManualAlias, SpecificAlias) :- 
   %writeln(['amra1', SpecificAlias]),
   string(SpecificAlias), 
-  assertz(manualResearchAbbrev(ManualAlias, SpecificAlias)).
+  assertz(areaAbbrev(ManualAlias, SpecificAlias)).
 
 assertManualResearchAbbrv(ManualAlias, SpecificAliases) :- 
   %debug(['amra2', SpecificAliases]),
@@ -86,8 +86,7 @@ assertSpecificArea(MajorArea, SpecificArea, PersonList) :-
 areaAbbrev([], []).
 
 assertAreaAbbreviation(Area) :- areaAbbrev(Area, _).
-assertAreaAbbreviation(Area) :- manualResearchAbbrev(Area, Abbrev),
-  assertz(areaAbbrev(Area, Abbrev)).
+
 assertAreaAbbreviation(Area) :- %writeln(Area),
   strToAbbrev(Area, Abbrev),
   assertz(areaAbbrev(Area, Abbrev)).
@@ -118,6 +117,6 @@ procYaml2 :-
    assertMajorResearchAreas(YAML),
    assertManualResearchAbbrevs(YAML).
 
-procYaml :- procYaml1, procYaml2.
+procYaml :- procYaml1, procYaml2, assertAreaAbbreviations.
 
 %%%% end %%%%
