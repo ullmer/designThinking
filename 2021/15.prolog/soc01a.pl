@@ -103,6 +103,9 @@ assertAreaAbbreviation(Area) :- areaAbbrev(Area, _).
 
 :- dynamic(personAbbrev/2).
 personAbbrev([], []).
+personAbbrev2(FullName, Abbrev2) :- 
+  personAbbrev(FullName, Abbrev),
+  wildcard_match(Abbrev2, Abbrev).
 
 assertPersonAbbreviation(Person) :- personAbbrev(Person, _).
 assertPersonAbbreviation(Person) :-
