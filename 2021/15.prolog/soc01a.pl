@@ -62,7 +62,7 @@ assertManualResearchAbbrv(ManualAlias, SpecificAliases) :-
 addFaculty(Division, Faculty) :-
   assertz(faculty(Faculty)), assertz(divisionMember(Faculty, Division)).
 
-assertMajorResearchAreas(YAMLwhole) :- 
+assertResearchAreas(YAMLwhole) :- 
  YAML = YAMLwhole.'researchAreas', dict_keys(YAML, MajorAreas),
  forall(member(MajorArea, MajorAreas), 
         assertSpecificAreas(YAML, MajorArea)).
@@ -70,11 +70,10 @@ assertMajorResearchAreas(YAMLwhole) :-
 %%%%%%%%%%%%%%%%% assert specific research areas %%%%%%%%%%%%%%%%%%%
 
 assertSpecificAreas(YAML, MajorArea) :- 
- dict_keys(YAML.MajorArea, SpecificAreas),
+ Area = YAML.MajorArea, dict_keys(Area, SpecificAreas),
  assertz(researchArea(MajorArea)),
  forall(member(SpecificArea, SpecificAreas), 
-   assertSpecificArea(MajorArea, SpecificArea, 
-     YAML.MajorArea.SpecificArea)).
+   assertSpecificArea(MajorArea, SpecificArea, Area.SpecificArea)).
    
 assertSpecificArea(MajorArea, SpecificArea, PersonList) :-
   assertz(researchArea(MajorArea, SpecificArea)),
@@ -111,6 +110,16 @@ areaAbbrevRE(Area, Abbrev, AbbrevRE) :-
 areaAbbrevsRE(AbbrevRE, L2) :- 
   findall([Abbrev, Area], areaAbbrevRE(Area, Abbrev, AbbrevRE), L1),
   sort(L1, L2).
+
+majorAreaAbbrev(Area, Abbrev) :- researchArea(Area), areaAbbrev(Area, Abbrev).
+
+listMajorAreas(L2) :- 
+  findall([Abbrev, Area], majorAreaAbbrev(Area, Abbrev), L1), sort(L1, L2).
+
+printArea(major)             :- listMajorAreas(L), printTable(L).
+printArea()                  :- printArea(major).
+printAreaRE('all', AbbrevRE)   :- areaAbbrevsRE(AbbrevRE, L), printTable(L).
+printAreaRE(AbbrevRE)          :- printAreaRE('all', AbbrevRE). % default
 
 assertAreaAbbreviations([]).
 assertAreaAbbreviations([H|T]) :- assertAreaAbbreviation(H), assertAreaAbbreviations(T).
@@ -175,7 +184,7 @@ procYaml1 :-
 
 procYaml2 :-
   yaml_read('soc-research1b.yaml', YAML), 
-   assertMajorResearchAreas(YAML),
+   assertResearchAreas(YAML),
    assertManualResearchAbbrevs(YAML).
 
 procYaml :- procYaml1, procYaml2, 
