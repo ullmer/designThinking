@@ -41,18 +41,16 @@ class enoIgridTk:
 
     if self.useImageLabels and whichButton in self.imageMapDs:
 
-      b1   = self.buttonMapIdx[whichButton]
-      imgN = self.imageMapNorm[whichButton]
-      b1.configure(image=imgN)
       self.dimUnselected(whichButton)
+      b1   = self.buttonMapIdx[whichButton-1]
+      imgN = self.imageMapNorm[whichButton-1]
+      b1.configure(image=imgN)
 
     self.lastIdxSelected = whichButton
 
   ################# dimUnselected #################
 
   def dimUnselected(self, selectedIdx):
-    lis = self.lastIdxSelected
-    if lis == None: return
     indices = self.buttonMapIdx.keys()
     for i in indices:
       if i == selectedIdx-1: continue
