@@ -9,12 +9,13 @@ import yaml
 #################### Enodia Visual : Chemical Elements #################### 
 
 class evElements(edElements):
-  root = None
-  cellWidth  = 5
-  cellHeight = 5
-  highlightDefaultThickness = 1
+  root       = None
+  cellWidth   = 3
+  cellHeight  = 5
+  elementFont = 'Helvetica 14 bold'
+  highlightDefaultThickness = 2 #1
   highlightDefaultColor     = "gray"
-  cellBgColorDefault        = "#333"
+  cellBgColorDefault        = "#555"
 
   blockColorYaml = '{s: RosyBrown2, p: LightSkyBlue1, d: khaki1, f: PaleGreen1}'
   blockColorHash = None
@@ -60,7 +61,7 @@ class evElements(edElements):
                  width=self.cellWidth, height=self.cellHeight)
 
     l1   = Label(cell, text=label1, width=self.cellWidth, bg=cellBg)
-    l2   = Label(cell, text=label2, width=self.cellWidth, bg=cellBg)
+    l2   = Label(cell, text=label2, width=self.cellWidth, bg=cellBg, font=self.elementFont)
 
     self.l1Hash[label2] = l1; self.l2Hash[label2] = l2; self.frameHash[label2] = cell
 
