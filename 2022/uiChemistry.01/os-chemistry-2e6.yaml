@@ -1,0 +1,89 @@
+# YAML representation of OpenStax Chemistry 2e textbook
+# Source for the below: https://github.com/openstax/osbooks-chemistry-bundle/blob/main/collections/chemistry-2e.collection.xml
+# Brygg Ullmer, Clemson University
+# Begun 2022-10-14
+
+collection:
+  metadata:
+    content-id: col26069
+    chapter:    Chemistry 2e
+    license:    Creative Commons Attribution License 4.0
+    language:   en
+    uuid:       7fccc9cf-9b71-44f6-800b-f9457fd64335
+    slug:       chemistry-2e
+
+  content:
+    - chapter: Preface
+      modules: [m68662]
+
+    - chapter: Essential Ideas
+      modules: [m68663, m68664, m68667, m68670, m68674, m68690, m68683]
+      image:   CNX_Chem_01_04_Kilogram
+
+    - chapter: Atoms, Molecules, and Ions
+      modules: [m68684, m68685, m68687, m68692, m68693, m68695, m68696, m68698]
+      image:   CNX_Chem_02_06_Sapphire
+
+    - chapter: Composition of Substances and Solutions
+      modules: [m68699, m68700, m68702, m68703, m68704]
+      image:   CNX_Chem_03_02_copper
+
+    - chapter: Stoichiometry of Chemical Reactions, 
+      modules: [m68730, m68709, m68710, m68713, m68714, m68716]
+      image:   CNX_Chem_04_05_filter
+
+    - chapter: Thermochemistry, 
+      modules: [m68723, m68724, m68726, m68727]
+
+    - chapter: Electronic Structure and Periodic Properties of Elements
+      modules: [m68728, m68729, m68732, m68733, m68734, m68735]
+
+    - chapter: Chemical Bonding and Molecular Geometry
+      modules: [m68736, m68737, m68738, m68739, m68740, m68741, m68742]
+
+    - chapter: Advanced Theories of Covalent Bonding
+      modules: [m68743, m68744, m68745, m68746, m68747]
+
+    - chapter: Gases
+      modules: [m68748, m68750, m68751, m68752, m68754, m68758, m68759]
+
+    - chapter: Liquids and Solids
+      modules: [m68760, m68761, m68764, m68768, m68769, m68770, m68773]
+
+    - chapter: Solutions and Colloids, 
+      modules: [m68776, m68778, m68781, m68782, m68783, m68784]
+
+    - chapter: Kinetics, 
+      modules: [m68785, m68786, m68787, m68789, m68791, m68793, m68794, m68795]
+
+    - chapter: Fundamental Equilibrium Concepts, 
+      modules: [m68796, m68797, m68798, m68799, m68801]
+
+    - chapter: Acid-Base Equilibria, 
+      modules: [m68802, m68803, m68804, m68805, m68806, m68807, m68808, m68809]
+
+    - chapter: Equilibria of Other Reaction Classes
+      modules: [m68810, m68811, m68813, m68814]
+
+    - chapter: Thermodynamics
+      modules: [m68815, m68816, m68817, m68818, m68819]
+
+    - chapter: Electrochemistry
+      modules: [m68820, m68821, m68822, m68823, m68824, m68825, m68826, m68827]
+
+    - chapter: Representative Metals, Metalloids, and Nonmetals
+      modules: [m68828, m68829, m68830, m68831, m68832, m68833, m68834, m68835, 
+                m68836, m68837, m68838, m68839, m68840]
+
+    - chapter: Transition Metals and Coordination Chemistry
+      modules: [m68841, m68842, m68843, m68844]
+
+    - chapter: Organic Chemistry
+      modules: [m68845, m68846, m68847, m68848, m68849]
+
+    - chapter: Nuclear Chemistry
+      modules: [m68850, m68851, m68852, m68854, m68856, m68857, m68858, m68859, 
+                m68860, m68861, m68862, m68863, m68864, m68865, m68866, m68867, 
+                m68868, m68869, m68870, m68871]
+
+### end ###
