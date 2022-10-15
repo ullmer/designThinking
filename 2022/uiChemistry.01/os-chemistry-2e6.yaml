@@ -28,11 +28,11 @@ collection:
       modules: [m68699, m68700, m68702, m68703, m68704]
       image:   CNX_Chem_03_02_copper
 
-    - chapter: Stoichiometry of Chemical Reactions, 
+    - chapter: Stoichiometry of Chemical Reactions
       modules: [m68730, m68709, m68710, m68713, m68714, m68716]
       image:   CNX_Chem_04_05_filter
 
-    - chapter: Thermochemistry, 
+    - chapter: Thermochemistry
       modules: [m68723, m68724, m68726, m68727]
 
     - chapter: Electronic Structure and Periodic Properties of Elements
@@ -50,16 +50,16 @@ collection:
     - chapter: Liquids and Solids
       modules: [m68760, m68761, m68764, m68768, m68769, m68770, m68773]
 
-    - chapter: Solutions and Colloids, 
+    - chapter: Solutions and Colloids
       modules: [m68776, m68778, m68781, m68782, m68783, m68784]
 
-    - chapter: Kinetics, 
+    - chapter: Kinetics
       modules: [m68785, m68786, m68787, m68789, m68791, m68793, m68794, m68795]
 
-    - chapter: Fundamental Equilibrium Concepts, 
+    - chapter: Fundamental Equilibrium Concepts
       modules: [m68796, m68797, m68798, m68799, m68801]
 
-    - chapter: Acid-Base Equilibria, 
+    - chapter: Acid-Base Equilibria
       modules: [m68802, m68803, m68804, m68805, m68806, m68807, m68808, m68809]
 
     - chapter: Equilibria of Other Reaction Classes
