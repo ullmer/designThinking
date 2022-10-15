@@ -35,7 +35,7 @@ for element in elements:
   for line in rawlines:
     cleanline = line.rstrip() #remove trailing newline
     module, count = cleanline.split(' ')
-    elementModuleCount[element][module] = count
+    elementModuleCount[element][module] = int(count)
 
 for chapter in yd: #iterate through chapters
   modules    = chapter['modules']
