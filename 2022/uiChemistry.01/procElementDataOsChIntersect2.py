@@ -17,19 +17,25 @@ print(yd)
 countFilesDir = 'os-chem2e-elements'
 
 # Create dictionaries for mappings
-element2lines    = {}
-chapter2modules  = {}
-element2chapters = {}
-chapter2elements = {}
+element2lines      = {}
+chapter2modules    = {}
+element2chapters   = {}
+chapter2elements   = {}
+elementModuleCount = {}
 
 for element in elements:
   fn = '%s/%s' % (countFilesDir, element)
   f  = open(fn, 'rt')
   rawlines = f.readlines()
   element2lines[element] = rawlines
+  elementModuleCount[element] = {}
+
+  for line in rawlines:
+    cleanline = line.rstrip() #remove trailing newline
+    module, count = cleanline.split(' ')
 
 for chapter in yd: #iterate through chapters
-  if number not in chapter: continue #ignore preface
+  print
 
 for element in elements: 
   #execStr = 'grep -ic %s %s > %s/%s' % (element, sourceFiles, targetFiles, element)
