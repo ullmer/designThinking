@@ -14,6 +14,7 @@ class evElements(edElements):
   cellHeight = 5
   highlightDefaultThickness = 1
   highlightDefaultColor     = "gray"
+  cellBgColorDefault        = "#333"
 
   blockColorYaml = '{s: RosyBrown2, p: LightSkyBlue1, d: khaki1, f: PaleGreen1}'
   blockColorHash = None
@@ -99,7 +100,7 @@ class evElements(edElements):
       elId       = self.getIdByFullname(elFullname)
 
       cellBlock  = self.getBlockByElName(elFullname)
-      if cellBlock == None: cellColor = 'white'
+      if cellBlock == None: cellColor = self.cellBgColorDefault
       else:                 cellColor  = self.blockColorHash[cellBlock]
 
       labels     = [elId, elSymbol, cellColor]
