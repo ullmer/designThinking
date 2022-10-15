@@ -24,15 +24,16 @@ chapter2elements   = {}
 elementModuleCount = {}
 
 for element in elements:
-  fn = '%s/%s' % (countFilesDir, element)
-  f  = open(fn, 'rt')
+  fn       = '%s/%s' % (countFilesDir, element)
+  f        = open(fn, 'rt')
   rawlines = f.readlines()
-  element2lines[element] = rawlines
+  element2lines[element]      = rawlines
   elementModuleCount[element] = {}
 
   for line in rawlines:
     cleanline = line.rstrip() #remove trailing newline
     module, count = cleanline.split(' ')
+    elementModuleCount[element][module] = count
 
 for chapter in yd: #iterate through chapters
   print
