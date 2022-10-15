@@ -22,6 +22,7 @@ chapter2modules    = {}
 element2chapters   = {}
 chapter2elements   = {}
 elementModuleCount = {}
+chapterElementCount = {}
 
 for element in elements:
   fn       = '%s/%s' % (countFilesDir, element)
@@ -36,7 +37,15 @@ for element in elements:
     elementModuleCount[element][module] = count
 
 for chapter in yd: #iterate through chapters
-  print
+  modules = chapter['modules']
+  number  = chapter['number']
+  chapterElementCount[chapter] = {}
+
+  for element in elements: 
+    chapterElementCount[chapter][element] = 0
+    for module in modules:
+      chapterElementCount[chapter][element] += 
+    
 
 for element in elements: 
   #execStr = 'grep -ic %s %s > %s/%s' % (element, sourceFiles, targetFiles, element)
