@@ -10,14 +10,16 @@ elements = ed.getElementList()
 
 yfn = 'os-chemistry-2e6.yaml'
 yf  = open(yfn, 'rt')
-y   = yaml.safe_load(y)
+y   = yaml.safe_load(yf)
+yd  = y['collection']['content']
+print(yd)
 
-sourceFiles = 'osbooks-chemistry-bundle/modules/*/*'
-targetFiles = 'os-chem2e-elements'
+countFilesDir = 'os-chem2e-elements'
 
 for element in elements: 
-  execStr = 'grep -ic %s %s > %s/%s' % (element, sourceFiles, targetFiles, element)
-  print(execStr)
+  #execStr = 'grep -ic %s %s > %s/%s' % (element, sourceFiles, targetFiles, element)
+  #print(execStr)
+  pass
 
 ### end ###
 
