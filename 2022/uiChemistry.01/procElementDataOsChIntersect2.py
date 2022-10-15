@@ -42,7 +42,7 @@ for chapter in yd: #iterate through chapters
   chapterNum = chapter['number']
 
   chapterElementCount[chapterNum] = {}
-  chapters.append(number)
+  chapters.append(chapterNum)
 
   for element in elements: 
     chapterElementCount[chapterNum][element] = 0
@@ -52,10 +52,11 @@ for chapter in yd: #iterate through chapters
       chapterElementCount[chapterNum][element] += moduleCount
 
 for element in elements: 
-  for chapter in chapters
-  #execStr = 'grep -ic %s %s > %s/%s' % (element, sourceFiles, targetFiles, element)
-  #print(execStr)
-  pass
+  counts = []
+  for chapterNum in chapters:
+    count = chapterElementCount[chapterNum][element]
+    counts.append(count)
+  print("%s: %s" % (element, counts))
 
 ### end ###
 
