@@ -14,6 +14,7 @@ collection:
 
   content:
     - chapter: Preface
+      number:  p            #unsure of this
       modules: [m68662]
 
     - chapter: Essential Ideas
