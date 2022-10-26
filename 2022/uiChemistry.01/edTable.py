@@ -58,7 +58,7 @@ class edPerTable:
     self.element2coord = {}
  
     rows = self.getVal('rows')
-    print("rows:", rows)
+    #print("rows:", rows)
 
     for row in rows:
       self.digestRowProperties(row)
@@ -69,9 +69,9 @@ class edPerTable:
     #print("procRow:", row)
     startRow, startColumn, elements = row
     x = startRow; y = startColumn
-    if x not in self.coord2element: self.coord2element[x] = {}
 
     for element in elements:
+      if x not in self.coord2element: self.coord2element[x] = {}
       self.coord2element[x][y] = element
       self.element2coord[element] = (x,y)
       x += 1
@@ -88,8 +88,8 @@ class edPerTable:
 
 def main():
   ed = edPerTable()
-  print("keys:", ed.getKeys())
-  print("hash:", ed.yamlHash)
+  #print("keys:", ed.getKeys())
+  #print("hash:", ed.yamlHash)
 
 if __name__ == "__main__":
   main()
