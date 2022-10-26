@@ -13,7 +13,9 @@ from PIL import Image
 if len(sys.argv) <= 4: #insufficient command line arguments passed
   print("four arguments required: imgSrc.png imgTarg xTiles yTiles"); sys.exit(-1)
 
-cmdName, imgSrcFn, imgTargFn, xTiles, yTiles = sys.argv # extract command-line arguments
+cmdName, imgSrcFn, imgTargFn, xTilesR, yTilesR = sys.argv # extract command-line arguments
+
+xTiles = int(xTilesR); yTiles = int(yTilesR) #convert "R" raw=text to number
 
 #print("y tiles:", yTiles)
 #sys.exit(1)
@@ -28,8 +30,8 @@ width, height = im.size
 widthTile  = width/xTiles
 heightTile = height/yTiles
 
-for i in xTiles:
-  for j in yTiles:
+for i in range(xTiles):
+  for j in range(yTiles):
     left = widthTile * i;  right = left + widthTile
     top  = heightTile * i; bottom = top + heightTile
 
