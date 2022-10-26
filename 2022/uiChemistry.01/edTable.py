@@ -16,6 +16,8 @@ class edPerTable:
   yamlHash      = None
   yamlKeys      = None
   yamlKeyfield  = 'periodicTable'
+  coord2element = None
+  element2coord = None
 
   dimensions, spdFPadding, tlBrPadding = [None]*3
 
@@ -47,6 +49,27 @@ class edPerTable:
       value = self.yamlD2[key]
       self.yamlHash[key] = value
       self.yamlKeys.append(key)
+
+    self.dimensions  = self.getVal('dimensions')
+    self.spdFPadding = self.getVal('spdFPadding')
+    self.tlBrPadding = self.getVal('tlBrPadding')
+
+    self.coord2element = {} #because sparse, will handle as hash instead of list or matrix
+    self.element2coord = {}
+ 
+    rows = self.getVal('rows')
+    for row in rows:
+      self.coord2element[row] = {}  #again because sparse, ditto
+      self.digestRowProperties(row)
+  
+  #################### digest row properties ####################
+
+  def digestRowProperties(self, row):
+    #print("procRow:", row)
+    startRow, startColumn, elements = row
+    x = startRow; y = startColumn
+    for element in elements:
+      x += 1
 
 #dimensions rows spdFPadding tlBrPadding imgPath tables
   
