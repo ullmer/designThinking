@@ -139,6 +139,8 @@ def main():
     size = ed.getTableImgSize(tn)
     print("%s : %s" % (tn, size))
 
+    croppedImg = ed.cropTableImg(tn)
+
 if __name__ == "__main__":
   main()
 
