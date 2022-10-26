@@ -15,7 +15,7 @@ class edPerTable:
   yamlD, yamlD2 = None, None
   yamlHash      = None
   yamlKeys      = None
-  yamlKeyfield  = 'periodictTable'
+  yamlKeyfield  = 'periodicTable'
 
   dimensions, spdFPadding, tlBrPadding = [None]*3
 
@@ -32,17 +32,19 @@ class edPerTable:
   #################### load data ####################
 
   def loadData(self):
-    yamlF         = open(yamlFn, 'rt')
+    yamlF         = open(self.yamlFn, 'rt')
     self.yamlD    = yaml.safe_load(yamlF)
     self.yamlKeys = []; self.yamlHash = {}
+
+    #print(self.yamlD)
 
     if self.yamlKeyfield not in self.yamlD: #partly to ascertain whether this is likely appropriate data
       print('edPerTable error: yaml keyfield not present in', self.yamlFn); return
  
-    self.yamlD2 = self.yMLD[self.yamlKeyfield] #simplify future references
+    self.yamlD2 = self.yamlD[self.yamlKeyfield] #simplify future references
     
-    for field in self.yamlD2:
-      value = self.yamlD2[field]
+    for key in self.yamlD2:
+      value = self.yamlD2[key]
       self.yamlHash[key] = value
       self.yamlKeys.append(key)
 
