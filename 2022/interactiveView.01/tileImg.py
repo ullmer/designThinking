@@ -33,7 +33,7 @@ heightTile = height/yTiles
 for i in range(xTiles):
   for j in range(yTiles):
     left = widthTile * i;  right = left + widthTile
-    top  = heightTile * i; bottom = top + heightTile
+    top  = heightTile * j; bottom = top + heightTile
 
     im1   = im.crop((left, top, right, bottom))
     outFn = "%s_%i_%i.png" % (imgTargFn, i+1, j+1)
