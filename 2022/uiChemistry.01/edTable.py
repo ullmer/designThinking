@@ -38,6 +38,8 @@ class edPerTable:
     tlist = list(tables.keys())
     return tlist
 
+  #################### get table image ####################
+
   def getTableImage(self, tableName): 
     if tableName in self.tableName2Img:
       return self.tableName2Img[tableName] 
@@ -52,9 +54,24 @@ class edPerTable:
     self.tableName2Img[tableName] = img
     return img
 
+  #################### get table image size ####################
+
   def getTableImgSize(self, tableName): 
     img = self.getTableImage(tableName)
     return img.size
+
+  #################### crop table image ####################
+
+  def cropTableImg(self, tableName)
+    img = self.getTableImage(tableName)
+    size = img.size
+
+    tlp, brp = self.tlBrPadding #top-left + bottom-right padding
+    tlx, tly = tlp
+    brx, bry = size[0] - brp[0], size[1] - brp[1]
+    result = img.crop((tlx, tly, brx, bry))
+
+    return result
 
   #################### load data ####################
 
