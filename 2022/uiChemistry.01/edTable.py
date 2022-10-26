@@ -69,6 +69,8 @@ class edPerTable:
     startRow, startColumn, elements = row
     x = startRow; y = startColumn
     for element in elements:
+      self.coord2element[x][y] = element
+      self.element2coord[element] = (x,y)
       x += 1
 
 #dimensions rows spdFPadding tlBrPadding imgPath tables
@@ -77,7 +79,6 @@ class edPerTable:
 
   def __init__(self):
     self.loadData()
-
 
 ############################################## 
 #################### main #################### 
