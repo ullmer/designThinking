@@ -11,9 +11,11 @@ import yaml
 #################### Enodia Data : Periodic Table #################### 
 
 class edPerTable:
-  yamlFn   = 'pubchemNcbiNlmNihElements.yaml'
-  yamlD    = None
-  yamlHash = None
+  yamlFn        = 'pubchemNcbiNlmNihElements.yaml'
+  yamlD, yamlD2 = None, None
+  yamlHash      = None
+  yamlKeys      = None
+  yamlKeyfield  = 'periodictTable'
 
 dimensions
 rows
@@ -27,18 +29,24 @@ tables
   #################### load data ####################
 
   def loadData(self):
-    yamlF      = open(yamlFn, 'rt')
-    self.yamlD = yaml.safe_load(yamlF)
+    yamlF         = open(yamlFn, 'rt')
+    self.yamlD    = yaml.safe_load(yamlF)
+    self.yamlKeys = []; self.yamlHash = {}
 
-    els = self.getElementList()
+    if self.yamlKeyfield not in self.yamlD: #partly to ascertain whether this is likely appropriate data
+      print('edPerTable error: yaml keyfield not present in', self.yamlFn); return
+ 
+    self.yamlD2 = self.yMLD[self.yamlKeyfield] #simplify future references
+    
+    for field in self.yamlD2:
+      value = self.yamlD2[field]
+      self.yamlHash[key] = value
+      self.yamlKeys.append(key)
   
   #################### constructor ####################
 
   def __init__(self):
-    self.elementFullnameHash = {}
     self.loadData()
-    self.buildSymbolCoordHash()
-    self.buildBlockHash()
 
   #################### getElementList ####################
 
