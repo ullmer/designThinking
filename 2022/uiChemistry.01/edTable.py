@@ -58,8 +58,9 @@ class edPerTable:
     self.element2coord = {}
  
     rows = self.getVal('rows')
+    print("rows:", rows)
+
     for row in rows:
-      self.coord2element[row] = {}  #again because sparse, ditto
       self.digestRowProperties(row)
   
   #################### digest row properties ####################
@@ -68,6 +69,8 @@ class edPerTable:
     #print("procRow:", row)
     startRow, startColumn, elements = row
     x = startRow; y = startColumn
+    if x not in self.coord2element: self.coord2element[x] = {}
+
     for element in elements:
       self.coord2element[x][y] = element
       self.element2coord[element] = (x,y)
