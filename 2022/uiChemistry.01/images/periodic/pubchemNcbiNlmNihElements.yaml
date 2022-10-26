@@ -1,19 +1,19 @@
 periodicTable:
   sourceUrl: "https://pubchem.ncbi.nlm.nih.gov/periodic-table/"
   tables: 
+    names:        Periodic_Table_of_Elements_w_Names_PubChem.png
     atomicMass:   Periodic_Table_of_Elements_w_Atomic_Mass_PubChem.png
     atomicRadius: Periodic_Table_of_Elements_w_Atomic_Radius_PubChem.png
     boilingPoint: Periodic_Table_of_Elements_w_Boiling_Point_PubChem.png
     groupBlock:   Periodic_Table_of_Elements_w_Chemical_Group_Block_PubChem.png
-Periodic_Table_of_Elements_w_Density_PubChem.png
-Periodic_Table_of_Elements_w_Electron_Affinity_PubChem.png
-Periodic_Table_of_Elements_w_Electron_Configuration_PubChem.png
-Periodic_Table_of_Elements_w_Electronegativity_PubChem.png
-Periodic_Table_of_Elements_w_Ionization_Energy_PubChem.png
-Periodic_Table_of_Elements_w_Melting_Point_PubChem.png
-Periodic_Table_of_Elements_w_Names_PubChem.png
-Periodic_Table_of_Elements_w_Oxidation_States_PubChem.png
-Periodic_Table_of_Elements_w_Standard_State_PubChem.png
-Periodic_Table_of_Elements_w_Year_Discovered_PubChem.png
+    density:      Periodic_Table_of_Elements_w_Density_PubChem.png
+    electronAffinity:  Periodic_Table_of_Elements_w_Electron_Affinity_PubChem.png
+    electronConfig:    Periodic_Table_of_Elements_w_Electron_Configuration_PubChem.png
+    electronegativity: Periodic_Table_of_Elements_w_Electronegativity_PubChem.png
+    ionizationEnergy:  Periodic_Table_of_Elements_w_Ionization_Energy_PubChem.png
+    meltingPoint:      Periodic_Table_of_Elements_w_Melting_Point_PubChem.png
+    oxidationState:    Periodic_Table_of_Elements_w_Oxidation_States_PubChem.png
+    standardState:     Periodic_Table_of_Elements_w_Standard_State_PubChem.png
+    yearsDiscovered:   Periodic_Table_of_Elements_w_Year_Discovered_PubChem.png
 
 ### end ###
