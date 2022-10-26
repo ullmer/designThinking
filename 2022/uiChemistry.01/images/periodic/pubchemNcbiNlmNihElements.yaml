@@ -1,5 +1,6 @@
 periodicTable:
   sourceUrl: "https://pubchem.ncbi.nlm.nih.gov/periodic-table/"
+  dimensions: [18, 9]
   rows:
     - [ 1, 1, [H]]
     - [18, 1, [He]]
@@ -16,19 +17,19 @@ periodicTable:
     - [ 4, 8, [La, Ce, Pr, Nd, Pm, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu]]
     - [ 4, 9, [Ac, Th, Pa, U, Np, Pu, Am, Cm, Bk, Cf, Es, Fm, Md, No, Lr]]
   tables: 
-    names:        "Element names",  Periodic_Table_of_Elements_w_Names_PubChem.png
-    atomicMass:   "Atomic mass",    Periodic_Table_of_Elements_w_Atomic_Mass_PubChem.png
-    atomicRadius: "Atomic radii",   Periodic_Table_of_Elements_w_Atomic_Radius_PubChem.png
-    boilingPoint: "Boiling point",  Periodic_Table_of_Elements_w_Boiling_Point_PubChem.png
-    groupBlock:   "Group block",    Periodic_Table_of_Elements_w_Chemical_Group_Block_PubChem.png
-    density:      "Atomic density", Periodic_Table_of_Elements_w_Density_PubChem.png
-    electronAffinity:  "Electron affinity",      Periodic_Table_of_Elements_w_Electron_Affinity_PubChem.png
-    electronConfig:    "Electron configuration", Periodic_Table_of_Elements_w_Electron_Configuration_PubChem.png
-    electronegativity: "Electronegativity",      Periodic_Table_of_Elements_w_Electronegativity_PubChem.png
-    ionizationEnergy:  "Ionization energy",      Periodic_Table_of_Elements_w_Ionization_Energy_PubChem.png
-    meltingPoint:      "Melting points",         Periodic_Table_of_Elements_w_Melting_Point_PubChem.png
-    oxidationState:    "Oxidation states",       Periodic_Table_of_Elements_w_Oxidation_States_PubChem.png
-    standardState:     "Standard states",        Periodic_Table_of_Elements_w_Standard_State_PubChem.png
-    yearsDiscovered:   "Years discovered",       Periodic_Table_of_Elements_w_Year_Discovered_PubChem.png
+    names:        ["Element names",  Periodic_Table_of_Elements_w_Names_PubChem.png]
+    atomicMass:   ["Atomic mass",    Periodic_Table_of_Elements_w_Atomic_Mass_PubChem.png]
+    atomicRadius: ["Atomic radii",   Periodic_Table_of_Elements_w_Atomic_Radius_PubChem.png]
+    boilingPoint: ["Boiling point",  Periodic_Table_of_Elements_w_Boiling_Point_PubChem.png]
+    groupBlock:   ["Group block",    Periodic_Table_of_Elements_w_Chemical_Group_Block_PubChem.png]
+    density:      ["Atomic density", Periodic_Table_of_Elements_w_Density_PubChem.png]
+    electronAffinity:  ["Electron affinity",      Periodic_Table_of_Elements_w_Electron_Affinity_PubChem.png]
+    electronConfig:    ["Electron configuration", Periodic_Table_of_Elements_w_Electron_Configuration_PubChem.png]
+    electronegativity: ["Electronegativity",      Periodic_Table_of_Elements_w_Electronegativity_PubChem.png]
+    ionizationEnergy:  ["Ionization energy",      Periodic_Table_of_Elements_w_Ionization_Energy_PubChem.png]
+    meltingPoint:      ["Melting points",         Periodic_Table_of_Elements_w_Melting_Point_PubChem.png]
+    oxidationState:    ["Oxidation states",       Periodic_Table_of_Elements_w_Oxidation_States_PubChem.png]
+    standardState:     ["Standard states",        Periodic_Table_of_Elements_w_Standard_State_PubChem.png]
+    yearsDiscovered:   ["Years discovered",       Periodic_Table_of_Elements_w_Year_Discovered_PubChem.png]
 
 ### end ###
