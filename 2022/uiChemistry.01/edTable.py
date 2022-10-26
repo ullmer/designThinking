@@ -45,7 +45,10 @@ class edPerTable:
     tables = self.getVal('tables')
     table = tables[tableName]
     imgFn = table[1]
-    img = Image.open(imgFn)
+    imgFnPath = self.getVal('imgPath')
+    fn = '%s/%s' % (imgFnPath, imgFn)
+
+    img = Image.open(fn)
     self.tableName2Img[tableName] = img
     return img
 
