@@ -31,6 +31,11 @@ class edPerTable:
     if key in self.yamlHash: return self.yamlHash[key]
     print("edPerTable getVal error: key %s not defined!" % key); return None
 
+  def getTableNames(self): 
+    tables = self.getVal('tables')
+    tlist = list(tables.keys())
+    return tlist
+
   #################### load data ####################
 
   def loadData(self):
@@ -90,6 +95,7 @@ def main():
   ed = edPerTable()
   #print("keys:", ed.getKeys())
   #print("hash:", ed.yamlHash)
+  print(ed.getTableNames())
 
 if __name__ == "__main__":
   main()
