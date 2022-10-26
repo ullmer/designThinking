@@ -11,30 +11,24 @@ import yaml
 #################### Enodia Data : Periodic Table #################### 
 
 class edPerTable:
-  yamlFn = 'pubchemNcbiNlmNihElements.yaml'
-  yamlD  = None
+  yamlFn   = 'pubchemNcbiNlmNihElements.yaml'
+  yamlD    = None
+  yamlHash = None
 
-  elementData           = None
-  elementFullnames      = None
-  elementFullnameHash   = None
-  elementSymbolHash     = None
-  elementNumIdHash      = None
-  elementRowHash        = None
-  elementColHash        = None
-  elementTable          = None
-  elementFullNumIdHash  = None
-  elementFullSymbolHash = None
-  elementBlockIdHash    = None
-  elementBlockNameHash  = None
+dimensions
+rows
+spdFPadding
+tlBrPadding
+imgPath
+tables
 
   verbose = False
 
   #################### load data ####################
 
   def loadData(self):
-    #elementF         = open(self.elementJson, 'r+t')
-    elementF         = open(self.elementJson, 'r+t', encoding="utf8")
-    self.elementData = json.load(elementF)
+    yamlF      = open(yamlFn, 'rt')
+    self.yamlD = yaml.safe_load(yamlF)
 
     els = self.getElementList()
   
