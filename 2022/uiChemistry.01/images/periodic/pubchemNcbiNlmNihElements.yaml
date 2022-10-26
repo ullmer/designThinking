@@ -1,3 +1,7 @@
+# Periodic Table of the elements metadata description for PubChem NCBI NLM NIH periodic table representations
+# Brygg Ullmer, Clemson University
+# Begun 10-26-2022
+
 periodicTable:
   sourceUrl: "https://pubchem.ncbi.nlm.nih.gov/periodic-table/"
   dimensions: [18, 9]
@@ -16,10 +20,11 @@ periodicTable:
     - [ 4, 7, [Rf, Db, Sg, Bh, Hs, Mt, Rg, Cn, Nh, Fl, Mc, Lv, Ts, Og]]
     - [ 4, 8, [La, Ce, Pr, Nd, Pm, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu]]
     - [ 4, 9, [Ac, Th, Pa, U, Np, Pu, Am, Cm, Bk, Cf, Es, Fm, Md, No, Lr]]
-  tables: 
+  spdFPadding: 36 #36 pixels vertical padding between SPD and F blocks
+  tables:  #numbers are top-left and bottom-right non-whitespace coordinates within images
     names:        ["Element names",  Periodic_Table_of_Elements_w_Names_PubChem.png]
     atomicMass:   ["Atomic mass",    Periodic_Table_of_Elements_w_Atomic_Mass_PubChem.png]
-    atomicRadius: ["Atomic radii",   Periodic_Table_of_Elements_w_Atomic_Radius_PubChem.png]
+    atomicRadius: ["Atomic radii",   Periodic_Table_of_Elements_w_Atomic_Radius_PubChem.png, [[156, 368], [3135, 2408]]]
     boilingPoint: ["Boiling point",  Periodic_Table_of_Elements_w_Boiling_Point_PubChem.png]
     groupBlock:   ["Group block",    Periodic_Table_of_Elements_w_Chemical_Group_Block_PubChem.png]
     density:      ["Atomic density", Periodic_Table_of_Elements_w_Density_PubChem.png]
