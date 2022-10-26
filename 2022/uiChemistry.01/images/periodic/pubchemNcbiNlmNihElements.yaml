@@ -1,5 +1,15 @@
 periodicTable:
   sourceUrl: "https://pubchem.ncbi.nlm.nih.gov/periodic-table/"
+  rows:
+    - [ 1, 1, [H]]
+    - [18, 1, [He]]
+    - [ 1, 2, [Li, Be]]
+    - [13, 2, [B, C, N, O, F, Ne]]
+    - [ 1, 3, [Na, Mg]]
+    - [13, 3, [Al, Si, P, S, Cl, Ar]]
+    - [ 1, 4, [K, Ca, Sc, Ti, V, Cr, Mn, Fe, Co, Ni, Cu, Zn, Ga, Ge, As, Se, Br, Kr]]
+    - [ 1, 5, [Rb, Sr, Y, Zr, Nb, Mo, Tc, Ru, Rh, Pd, Ag, Cd, In, Sn, Sb, Te, I, Xe]]
+    - [ 1, 6 
   tables: 
     names:        "Element names",  Periodic_Table_of_Elements_w_Names_PubChem.png
     atomicMass:   "Atomic mass",    Periodic_Table_of_Elements_w_Atomic_Mass_PubChem.png
