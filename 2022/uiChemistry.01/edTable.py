@@ -4,6 +4,7 @@
 # Begun 2022-10-26
 
 import yaml
+from PIL import Image
 
 #ed prefix = Enodia Data 
   
@@ -18,6 +19,7 @@ class edPerTable:
   yamlKeyfield  = 'periodicTable'
   coord2element = None
   element2coord = None
+  tableName2Img = None
 
   dimensions, spdFPadding, tlBrPadding = [None]*3
 
@@ -36,12 +38,28 @@ class edPerTable:
     tlist = list(tables.keys())
     return tlist
 
+  def getTableImage(self, tableName): 
+    if tableName in self.tableName2Img:
+      return self.tableName2Img[tableName] 
+
+    tables = self.getVal('tables')
+    table = tables[tableName]
+    imgFn = table[1]
+    img = Image.open(imgFn)
+    self.tableName2Img[tableName] = img
+    return img
+
+  def getTableImgSize(self, tableName): 
+    img = self.getTableImage(tableName)
+    return img.size
+
   #################### load data ####################
 
   def loadData(self):
     yamlF         = open(self.yamlFn, 'rt')
     self.yamlD    = yaml.safe_load(yamlF)
     self.yamlKeys = []; self.yamlHash = {}
+    self.tableName2Img = {}
 
     #print(self.yamlD)
 
@@ -95,7 +113,11 @@ def main():
   ed = edPerTable()
   #print("keys:", ed.getKeys())
   #print("hash:", ed.yamlHash)
-  print(ed.getTableNames())
+  tableNames = ed.getTableNames()
+
+  for tn in tableNames:
+    size = ed.getTableImgSize(tn)
+    print("%s : %s" % (tn, size))
 
 if __name__ == "__main__":
   main()
