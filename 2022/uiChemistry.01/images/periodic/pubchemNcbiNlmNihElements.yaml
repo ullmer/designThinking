@@ -9,7 +9,12 @@ periodicTable:
     - [13, 3, [Al, Si, P, S, Cl, Ar]]
     - [ 1, 4, [K, Ca, Sc, Ti, V, Cr, Mn, Fe, Co, Ni, Cu, Zn, Ga, Ge, As, Se, Br, Kr]]
     - [ 1, 5, [Rb, Sr, Y, Zr, Nb, Mo, Tc, Ru, Rh, Pd, Ag, Cd, In, Sn, Sb, Te, I, Xe]]
-    - [ 1, 6 
+    - [ 1, 6, [Cs, Ba]]
+    - [ 4, 6, [Hf, Ta, W, Re, Os, Ir, Pt, Au, Hg, Ti, Pb, Bi, Po, At, Rn]]
+    - [ 1, 7, [Fr, Ra]]
+    - [ 4, 7, [Rf, Db, Sg, Bh, Hs, Mt, Rg, Cn, Nh, Fl, Mc, Lv, Ts, Og]]
+    - [ 4, 8, [La, Ce, Pr, Nd, Pm, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu]]
+    - [ 4, 9, [Ac, Th, Pa, U, Np, Pu, Am, Cm, Bk, Cf, Es, Fm, Md, No, Lr]]
   tables: 
     names:        "Element names",  Periodic_Table_of_Elements_w_Names_PubChem.png
     atomicMass:   "Atomic mass",    Periodic_Table_of_Elements_w_Atomic_Mass_PubChem.png
