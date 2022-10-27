@@ -54,9 +54,11 @@ class edPerTable:
 
   #################### calculate element dimensions ####################
 
-  def calcCellsWide(self):
+  def getCellsWide(self):
     if self.cellsWide != None: return self.cellsWide
+    return self.calcCellsWide()
 
+  def calcCellsWide(self):
     if self.coord2element == None: 
       print("edPerTable calcCellsWide: coord2element not yet populated"); return -1
 
@@ -67,7 +69,10 @@ class edPerTable:
     return maxX
 
 
-  def calcCellsHigh(self):
+  def getCellsHigh(self):
+    if self.cellsHigh != None: return self.cellsHigh
+    return self.calcCellsHigh()
+
     if self.coord2element == None: 
       print("edPerTable calcCellsWide: coord2element not yet populated"); return -1
 
