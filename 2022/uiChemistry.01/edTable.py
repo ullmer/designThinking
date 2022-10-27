@@ -69,6 +69,9 @@ class edPerTable:
     pos1   = self.getElementPos1(element)
     tl     = self.tlBrPadding[0] #top-left
     eh, ew = self.getElHeight(), self.getElWidth()
+    x = tl[0] + pos1[0] * ew
+    y = tl[1] + pos1[1] * eh
+    return (x,y)
 
   #################### get table image ####################
 
