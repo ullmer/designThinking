@@ -22,8 +22,8 @@ class edPerTable:
   element2coord = None
   tableName2Img = None
 
-  elHeight, elWidth                    = None, None #element height and width
-  dimensions, spdFPadding, tlBrPadding = [None]*3
+  elHeight, elWidth, cellsWide, cellsHigh = [None]*4 #element height and width
+  dimensions, spdFPadding, tlBrPadding    = [None]*3
 
   verbose = False
 
@@ -54,9 +54,24 @@ class edPerTable:
 
   #################### calculate element dimensions ####################
 
-  def calcCellsWide():
+  def calcCellsWide(self):
+    if self.cellsWide != None: return self.cellsWide
 
-  def calcCellsHigh():
+    if self.coord2element == None: 
+      print("edPerTable calcCellsWide: coord2element not yet populated"); return -1
+
+    maxX = 0
+    for rowIdx in self.coord2element.keys()
+      if rowIdx > maxX: maxX = rowIdx
+    
+    return maxX
+
+
+  def calcCellsHigh(self):
+    if self.coord2element == None: 
+      print("edPerTable calcCellsWide: coord2element not yet populated"); return -1
+
+    self.coord2element[x][y] 
 
   #################### calculate element dimensions ####################
 
@@ -156,7 +171,6 @@ class edPerTable:
 
     for row in rows:
       self.digestRowProperties(row)
-  
 
   #################### digest row properties ####################
 
