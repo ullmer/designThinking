@@ -11,14 +11,14 @@ from enoIgridTk import *
 top  = tk.Tk()
 tkig = enoIgridTk(top, numButtons=17, imageLabelDir="sdg", useImageLabels=True)
 
-sdgIdx = Int()
+sdgIdx = 1
 
 def sdgSliderCb(event):
   global tkig, sdgIdx
   tkig.buttonCallback(sdgIdx)
 
-slider = tk.Scale(top, var=sdgIdx, from=1, to=18, command=sdgSliderCb)
-slider.pack()
+slider = tk.Scale(top, var=sdgIdx, from_=1, to=18, command=sdgSliderCb, orient=tk.HORIZONTAL)
+slider.pack(expand=1, fill=tk.X)
 
 top.mainloop()
 
