@@ -54,6 +54,12 @@ class edPerTable:
 
   #################### calculate element dimensions ####################
 
+  def calcCellsWide():
+
+  def calcCellsHigh():
+
+  #################### calculate element dimensions ####################
+
   def calcElDimensions(self):
     tl, br         = self.tlBrPadding[0], self.tlBrPadding[1]
     tableNames     = self.getTableNames()
@@ -62,7 +68,14 @@ class edPerTable:
 
     tableContentWidth  = tablePixSize[0] - tl[0] - br[0]
     tableContentHeight = tablePixSize[1] - tl[1] - br[1] - self.spdFPadding
-    result = (tableContentWidth, tableContentHeight)
+
+    cellsWide = self.calcCellsWide()
+    cellsHigh = self.calcCellsHigh()
+
+    self.elWidth  = tableContentWidth  / cellsWide
+    self.elHeight = tableContentHeight / cellsHigh
+
+    result = (self.elWidth, self.elHeight)
     return result
 
   #################### get element position (in pixels) ####################
