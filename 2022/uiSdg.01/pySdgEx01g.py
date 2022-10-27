@@ -4,6 +4,7 @@
 
 # https://docs.python.org/3/library/tkinter.html
 # https://www.geeksforgeeks.org/python-tkinter-scale-widget/
+# https://www.askpython.com/python-modules/tkinter/tkinter-intvar
 
 import tkinter as tk
 from enoIgridTk import *
