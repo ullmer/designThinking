@@ -26,7 +26,7 @@ for table in tableNames:
     x1, y1 = ed.getElementPos2(element)
     x2, y2 = (x1 + ed.getCellsWide(), y1 + ed.getCellsHigh())
     imgTarg = imgSrc.crop((x1,y1,x2,y2))
-    imgFn   = '%s/%s.png' % (imgSrc, element)
+    imgFn   = '%s/%s.png' % (dirname, element)
     print("writing", imgFn)
     imgTarg.save(imgFn)
 
