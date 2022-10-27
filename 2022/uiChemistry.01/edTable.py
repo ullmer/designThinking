@@ -58,10 +58,17 @@ class edPerTable:
     tl, br         = self.tlBrPadding[0], self.tlBrPadding[1]
     tableNames     = list(self.tableName2Img.keys())
     firstTableName = tableNames[0]
+    tablePixSize   = self.getTableImgSize(firstTableName)
+
+    tableContentWidth  = tablePixSize[0] - tl[0] - br[0]
+    tableContentHeight = tablePixSize[1] - tl[1] - br[1] - self.spdFPadding
+    result = (tableContentWidth, tableContentHeight)
+    return result
 
   def getElementPos2(self, element): 
-    pos1 = self.getElementPos1(element)
-    tl   = self.tlBrPadding[0] #top-left
+    pos1   = self.getElementPos1(element)
+    tl     = self.tlBrPadding[0] #top-left
+    eh, ew = self.getElHeight(), self.getElWidth()
 
   #################### get table image ####################
 
