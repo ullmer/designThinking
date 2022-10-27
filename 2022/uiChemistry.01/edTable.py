@@ -56,7 +56,7 @@ class edPerTable:
 
   def calcElDimensions(self):
     tl, br         = self.tlBrPadding[0], self.tlBrPadding[1]
-    tableNames     = list(self.tableName2Img.keys())
+    tableNames     = self.getTableNames()
     firstTableName = tableNames[0]
     tablePixSize   = self.getTableImgSize(firstTableName)
 
@@ -64,6 +64,8 @@ class edPerTable:
     tableContentHeight = tablePixSize[1] - tl[1] - br[1] - self.spdFPadding
     result = (tableContentWidth, tableContentHeight)
     return result
+
+  #################### get element position (in pixels) ####################
 
   def getElementPos2(self, element): 
     pos1   = self.getElementPos1(element)
@@ -182,8 +184,9 @@ def main():
   #  croppedImg = ed.cropTableImg(tn)
 
   for element in elements:
-    pos = ed.getElementPos(element)
-    print("%s\t%s" % (element, pos))
+    pos1 = ed.getElementPos1(element)
+    pos2 = ed.getElementPos2(element)
+    print("%s\t%s\t%s" % (element, pos1, pos2))
 
 if __name__ == "__main__":
   main()
