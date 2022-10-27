@@ -52,7 +52,7 @@ class edPerTable:
     if self.elWidth == None: self.calcElDimensions()
     return self.elWidth
 
-  #################### calculate element dimensions ####################
+  #################### get/calculate cells wide ####################
 
   def getCellsWide(self):
     if self.cellsWide != None: return self.cellsWide
@@ -63,20 +63,29 @@ class edPerTable:
       print("edPerTable calcCellsWide: coord2element not yet populated"); return -1
 
     maxX = 0
-    for rowIdx in self.coord2element.keys()
+    for rowIdx in self.coord2element.keys():
       if rowIdx > maxX: maxX = rowIdx
-    
+
+    self.cellsWide = maxX
     return maxX
 
+  #################### get/calculate cells high ####################
 
   def getCellsHigh(self):
     if self.cellsHigh != None: return self.cellsHigh
     return self.calcCellsHigh()
 
+  def calcCellsHigh(self):
     if self.coord2element == None: 
       print("edPerTable calcCellsWide: coord2element not yet populated"); return -1
 
-    self.coord2element[x][y] 
+    maxY = 0
+    for rowIdx in self.coord2element.keys():
+      for colIdx in self.coord2element[rowIdx].keys():
+        if colIdx > maxY: maxY = colIdx
+
+    self.cellsHigh = maxY
+    return maxY
 
   #################### calculate element dimensions ####################
 
@@ -104,8 +113,8 @@ class edPerTable:
     pos1   = self.getElementPos1(element)
     tl     = self.tlBrPadding[0] #top-left
     eh, ew = self.getElHeight(), self.getElWidth()
-    x = tl[0] + pos1[0] * ew
-    y = tl[1] + pos1[1] * eh
+    x = int(tl[0] + pos1[0] * ew)
+    y = int(tl[1] + pos1[1] * eh)
     return (x,y)
 
   #################### get table image ####################
