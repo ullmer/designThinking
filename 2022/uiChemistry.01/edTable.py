@@ -55,7 +55,9 @@ class edPerTable:
   #################### calculate element dimensions ####################
 
   def calcElDimensions(self):
-    tl, br = self.tlBrPadding[0], self.tlBrPadding[1]
+    tl, br         = self.tlBrPadding[0], self.tlBrPadding[1]
+    tableNames     = list(self.tableName2Img.keys())
+    firstTableName = tableNames[0]
 
   def getElementPos2(self, element): 
     pos1 = self.getElementPos1(element)
