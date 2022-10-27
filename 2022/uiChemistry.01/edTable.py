@@ -17,10 +17,12 @@ class edPerTable:
   yamlHash      = None
   yamlKeys      = None
   yamlKeyfield  = 'periodicTable'
+  elementList   = None
   coord2element = None
   element2coord = None
   tableName2Img = None
 
+  elHeight, elWidth                    = None, None #element height and width
   dimensions, spdFPadding, tlBrPadding = [None]*3
 
   verbose = False
@@ -37,6 +39,27 @@ class edPerTable:
     tables = self.getVal('tables')
     tlist = list(tables.keys())
     return tlist
+
+  def getElements(self):            return self.elementList
+
+  def getElementPos1(self, element): return self.element2coord[element] #indexical position
+
+  def getElHeight(self):
+    if self.elHeight == None: self.calcElDimensions()
+    return self.elHeight
+
+  def getElWidth(self):
+    if self.elWidth == None: self.calcElDimensions()
+    return self.elWidth
+
+  #################### calculate element dimensions ####################
+
+  def calcElDimensions(self):
+    tl, br = self.tlBrPadding[0], self.tlBrPadding[1]
+
+  def getElementPos2(self, element): 
+    pos1 = self.getElementPos1(element)
+    tl   = self.tlBrPadding[0] #top-left
 
   #################### get table image ####################
 
@@ -62,7 +85,7 @@ class edPerTable:
 
   #################### crop table image ####################
 
-  def cropTableImg(self, tableName)
+  def cropTableImg(self, tableName):
     img = self.getTableImage(tableName)
     size = img.size
 
@@ -80,6 +103,7 @@ class edPerTable:
     self.yamlD    = yaml.safe_load(yamlF)
     self.yamlKeys = []; self.yamlHash = {}
     self.tableName2Img = {}
+    self.elementList   = []
 
     #print(self.yamlD)
 
@@ -106,6 +130,7 @@ class edPerTable:
     for row in rows:
       self.digestRowProperties(row)
   
+
   #################### digest row properties ####################
 
   def digestRowProperties(self, row):
@@ -114,6 +139,7 @@ class edPerTable:
     x = startRow; y = startColumn
 
     for element in elements:
+      self.elementList.append(element)
       if x not in self.coord2element: self.coord2element[x] = {}
       self.coord2element[x][y] = element
       self.element2coord[element] = (x,y)
@@ -131,15 +157,21 @@ class edPerTable:
 
 def main():
   ed = edPerTable()
+
   #print("keys:", ed.getKeys())
   #print("hash:", ed.yamlHash)
+
   tableNames = ed.getTableNames()
+  elements   = ed.getElements()
 
-  for tn in tableNames:
-    size = ed.getTableImgSize(tn)
-    print("%s : %s" % (tn, size))
+  #for tn in tableNames:
+  #  size = ed.getTableImgSize(tn)
+  #  print("%s : %s" % (tn, size))
+  #  croppedImg = ed.cropTableImg(tn)
 
-    croppedImg = ed.cropTableImg(tn)
+  for element in elements:
+    pos = ed.getElementPos(element)
+    print("%s\t%s" % (element, pos))
 
 if __name__ == "__main__":
   main()
