@@ -36,18 +36,12 @@ class enoDomHomelessness:
 
     except: print("Problem in enoDomHomelessness:readYaml")
 
-  ####################### read YAML #######################
+  ####################### get description #######################
 
-    
-categories: [health, food, housing, employment, transit, goods]
-
-descriptions:
-  health:     {icon: dkdc_health1,     visuals: []}
-  food:       {icon: dkdc_food1,       visuals: []}
-  housing:    {icon: dkdc_housing1,    visuals: []}
-  employment: {icon: dkdc_employment1, visuals: []}
-  transit:    {icon: dkdc_transit1,    visuals: []}
-  goods:      {icon: dkdc_goods1,      visuals: []}
+  def getDescr(self, descr):
+    if descr in self.descriptions:
+      return self.descriptions[descr]
+    return None
 
 ### end ###
 
