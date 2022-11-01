@@ -2,14 +2,43 @@
 # Begun 2022-11-01
 # Content engaging https://github.com/DataKind-DC/homelessness-service-navigator
 
-paths:
-  origSrc: https://github.com/DataKind-DC/homelessness-service-navigator
-  images:  dkdc
+import yaml
 
-positions:
-  yOffset:  30 # y distance between icons
-  xOffset: 130 # x distance toward icon horizontal shift
+class enoDomHomelessness:
 
+  yamlFn = "homelessness/dkdc01.yaml"
+
+  yamlD        = None
+  imagePath    = None
+  yOffset      = None #placeholder assignments until read in or assigned
+  xOffset      = None
+  categories   = None
+  descriptions = None
+
+  ####################### constructor #######################
+
+  def __init__(self):
+    self.readYaml()
+
+  ####################### read YAML #######################
+
+  def readYaml(self):
+    try:
+      yf              = open(self.yamlFn)  #open yamlFn filename for reading
+      yd = self.yamlD = yaml.safe_load(yf) #load and parse YAML content
+
+      self.xOffset    = yd['positions']['xOffset']
+      self.yOffset    = yd['positions']['yOffset']
+      self.imagePath  = yd['paths']['images']
+
+      self.categories   = yd['categories']
+      self.descriptions = yd['descriptions']
+
+    except: print("Problem in enoDomHomelessness:readYaml")
+
+  ####################### read YAML #######################
+
+    
 categories: [health, food, housing, employment, transit, goods]
 
 descriptions:
