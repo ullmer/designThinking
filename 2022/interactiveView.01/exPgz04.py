@@ -35,6 +35,6 @@ def on_mouse_down(pos):
     print("figure touched")
     x, y = figurePosition
     figurePosition = (x+300, y)
-    animate(a2, pos=figurePosition)
+    animate(a2, pos=figurePosition, tween='accel_decel', duration=.75)
 
 ### end ###
