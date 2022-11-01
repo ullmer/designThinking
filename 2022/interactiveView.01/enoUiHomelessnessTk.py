@@ -27,8 +27,8 @@ class enoUiHomelessnessTk:
 
   def buildUI(self, tkParent):
     self.tkParent = tkParent 
-
-    except: print("Problem in enoDomHomelessness:readYaml")
+    categories = self.edh.getCategories()
+    for category in categories:
 
 ####################### main #######################
 if __name__ == '__main__':
