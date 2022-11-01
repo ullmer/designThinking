@@ -40,11 +40,17 @@ class enoDomHomelessness:
 
   def getCategories(self): return self.categories
 
+  ####################### get Image Filename #######################
+
+  def getImageFn(self, category): 
+    descr = self.getDescr(category)
+    
+
   ####################### get description #######################
 
-  def getDescr(self, descr):
-    if descr in self.descriptions:
-      return self.descriptions[descr]
+  def getDescr(self, category):
+    if category in self.descriptions:
+      return self.descriptions[category]
     return None
 
 ####################### main #######################

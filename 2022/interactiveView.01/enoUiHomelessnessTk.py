@@ -2,11 +2,12 @@
 # Begun 2022-11-01
 # Content engaging https://github.com/DataKind-DC/homelessness-service-navigator
 
-import yaml
+import enoDomHomelessness
 
-class enoDomHomelessness:
+class enoUiHomelessnessTk:
 
-  yamlFn = "homelessness/dkdc01.yaml"
+  edh      = None  #enoDomHomelessness
+  tkParent = None  #tk parent
 
   yamlD        = None
   imagePath    = None
@@ -17,22 +18,14 @@ class enoDomHomelessness:
 
   ####################### constructor #######################
 
-  def __init__(self):
-    self.readYaml()
+  def __init__(self, tkParent):
+    self.edh = enoDomHomelessness()
+    self.buildUI(tkParent)
 
-  ####################### read YAML #######################
+  ####################### build UI #######################
 
-  def readYaml(self):
-    try:
-      yf              = open(self.yamlFn)  #open yamlFn filename for reading
-      yd = self.yamlD = yaml.safe_load(yf) #load and parse YAML content
-
-      self.xOffset    = yd['positions']['xOffset']
-      self.yOffset    = yd['positions']['yOffset']
-      self.imagePath  = yd['paths']['images']
-
-      self.categories   = yd['categories']
-      self.descriptions = yd['descriptions']
+  def buildUI(self, tkParent):
+    self.tkParent = tkParent 
 
     except: print("Problem in enoDomHomelessness:readYaml")
 
