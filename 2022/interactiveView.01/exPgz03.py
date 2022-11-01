@@ -7,11 +7,20 @@
 WIDTH  = 1358
 HEIGHT = 1024
 
-a1 = Actor("midjourney/homelessness-wall-01b")
-a2 = Actor("midjourney/midjourney-figure-01b", pos=(100,100))
-a3 = Actor("as_unit/as_unit_01d")
+#magic for placing at 0,0
+import platform, pygame
+if platform.system() == "Windows":
+  from ctypes import windll
+  hwnd = pygame.display.get_wm_info()['window']
+  windll.user32.MoveWindow(hwnd, 0, 0, WIDTH, HEIGHT, False)
 
-actors = [a1, a2, a3]
+## Return to interesting content
+
+a1 = Actor("midjourney/homelessness-wall-01b")
+a2 = Actor("midjourney/midjourney-figure-01b", pos=(100,550))
+a3 = Actor("as_unit/as_unit_01d",              pos=(400,450))
+
+actors = [a1, a3, a2]
 
 def draw():
   for actor in actors: 
