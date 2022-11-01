@@ -25,7 +25,7 @@ class enoUiHomelessnessTk:
 
   def buildUI(self, tkParent):
     self.tkParent  = tkParent 
-    self.tkFrame   = tk.Frame(tkParent); self.tkFrame.pack()
+    self.tkFrame   = tk.Frame(tkParent)
     self.tkButtons = {}; imageHandles = {}
     
     categories = self.edh.getCategories()
@@ -37,6 +37,7 @@ class enoUiHomelessnessTk:
 
       b = tk.Button(self.tkFrame, image=img)
       b.pack()
+    self.tkFrame.pack()
 
 ####################### main #######################
 if __name__ == '__main__':
