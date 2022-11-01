@@ -2,6 +2,13 @@
 # Begun 2022-11-01
 # Content engaging https://github.com/DataKind-DC/homelessness-service-navigator
 
+urls:
+  origSrc: https://github.com/DataKind-DC/homelessness-service-navigator
+
+positions:
+  yOffset:  30 # y distance between icons
+  xOffset: 130 # x distance toward icon horizontal shift
+
 categories: [health, food, housing, employment, transit, goods]
 
 descriptions:
