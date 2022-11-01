@@ -44,7 +44,9 @@ class enoDomHomelessness:
 
   def getImageFn(self, category): 
     descr = self.getDescr(category)
-    
+    iconN = descr['icon']
+    result = "%s/%s" % (self.imagePath, iconN)
+    return result
 
   ####################### get description #######################
 
