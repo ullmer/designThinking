@@ -8,7 +8,7 @@ WIDTH  = 1358
 HEIGHT = 1024
 
 a1 = Actor("midjourney/homelessness-wall-01b")
-a2 = Actor("midjourney/midjourney-figure-01b")
+a2 = Actor("midjourney/midjourney-figure-01b", pos=(100,100))
 a3 = Actor("as_unit/as_unit_01d")
 
 actors = [a1, a2, a3]
