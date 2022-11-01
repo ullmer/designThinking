@@ -3,7 +3,7 @@
 # Content engaging https://github.com/DataKind-DC/homelessness-service-navigator
 
 import tkinter as tk
-import enoDomHomelessness
+from enoDomHomelessness import *
 
 class enoUiHomelessnessTk:
 
@@ -42,7 +42,7 @@ class enoUiHomelessnessTk:
 ####################### main #######################
 if __name__ == '__main__':
   top = tk.Tk()
-  enoUiH = enoUiHomelessness(top)
+  enoUiH = enoUiHomelessnessTk(top)
   top.mainloop()
 
 ### end ###
