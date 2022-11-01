@@ -41,7 +41,8 @@ class enoUiHomelessnessTk:
 
 ####################### main #######################
 if __name__ == '__main__':
-  enoUiH = enoUiHomelessness()
+  top = tk.Tk()
+  enoUiH = enoUiHomelessness(top)
+  top.mainloop()
 
 ### end ###
-
