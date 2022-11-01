@@ -3,21 +3,17 @@
 # Content engaging https://github.com/DataKind-DC/homelessness-service-navigator
 
 import tkinter as tk
+from PIL import Image, ImageTk
 from enoDomHomelessness import *
 
 class enoUiHomelessnessTk:
 
-  edh       = None  #enoDomHomelessness
-  tkParent  = None  #tk parent
-  tkFrame   = None
-  tkButtons = None 
+  edh          = None  #enoDomHomelessness
+  tkParent     = None  #tk parent
+  tkFrame      = None
+  tkButtons    = None 
 
-  yamlD        = None
-  imagePath    = None
-  yOffset      = None #placeholder assignments until read in or assigned
-  xOffset      = None
-  categories   = None
-  descriptions = None
+  imageHandles = None
 
   ####################### constructor #######################
 
@@ -30,13 +26,16 @@ class enoUiHomelessnessTk:
   def buildUI(self, tkParent):
     self.tkParent  = tkParent 
     self.tkFrame   = tk.Frame(tkParent); self.tkFrame.pack()
-    self.tkButtons = {}
+    self.tkButtons = {}; imageHandles = {}
     
     categories = self.edh.getCategories()
     for category in categories:
       imgFn1 = self.edh.getImageFn(category)
       imgFn2 = "images/%s.png" % imgFn1
-      b = tk.Button(self.tkFrame, image=imgFn2)
+      imgH   = Image.open(imgFn2)
+      img    = ImageTk.PhotoImage(imgH)
+
+      b = tk.Button(self.tkFrame, image=img)
       b.pack()
 
 ####################### main #######################
