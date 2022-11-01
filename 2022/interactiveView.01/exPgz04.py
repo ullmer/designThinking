@@ -16,8 +16,10 @@ if platform.system() == "Windows":
 
 ## Return to interesting content
 
+figurePosition=(100, 550)
+
 a1 = Actor("midjourney/homelessness-wall-01b")
-a2 = Actor("midjourney/midjourney-figure-01b", pos=(100,550))
+a2 = Actor("midjourney/midjourney-figure-01b", pos=figurePosition)
 a3 = Actor("as_unit/as_unit_01d",              pos=(400,450))
 
 actors = [a1, a3, a2]
@@ -25,5 +27,14 @@ actors = [a1, a3, a2]
 def draw():
   for actor in actors: 
     actor.draw()
+
+def on_mouse_down(pos):
+  global figurePosition, a2
+
+  if a2.collidepoint(pos): 
+    print("figure touched")
+    x, y = figurePosition
+    figurePosition = (x+300, y)
+    animate(a2, pos=figurePosition)
 
 ### end ###
