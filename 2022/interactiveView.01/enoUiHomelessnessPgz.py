@@ -22,14 +22,15 @@ class enoUiHomelessnessPgz:
   ####################### build UI #######################
 
   def buildUI(self):
-    self.actors = {}; self.actor2category = {}
+    self.actors = []; self.actor2category = {}
     
     categories = self.edh.getCategories()
+
     for category in categories:
-      print(category)
-      imgFn1 = self.edh.getImageFn(category)
-      a1   = Actor(imgFn1, pos=(self.currentX, self.currentY))
-      self.actors[category]   = a1
+      imgFn = self.edh.getImageFn(category)
+      a1    = Actor(imgFn, pos=(self.currentX, self.currentY))
+
+      self.actors.append(a1)
       self.actor2category[a1] = category
       self.currentY += self.edh.yOffset
 
