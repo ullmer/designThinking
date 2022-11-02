@@ -26,14 +26,15 @@ class enoUiHomelessnessTk:
   def buildUI(self, tkParent):
     self.tkParent  = tkParent 
     self.tkFrame   = tk.Frame(tkParent)
-    self.tkButtons = {}; imageHandles = {}
+    self.tkButtons = {}; self.imageHandles = {}
     
     categories = self.edh.getCategories()
     for category in categories:
       imgFn1 = self.edh.getImageFn(category)
       imgFn2 = "images/%s.png" % imgFn1
-      imgH   = Image.open(imgFn2)
-      img    = ImageTk.PhotoImage(imgH)
+      img    = ImageTk.PhotoImage(file=imgFn2)
+      self.imageHandles[category] = img #amazing; this line necessary, per atlasologist reference here
+      # https://stackoverflow.com/questions/22200003/tkinter-button-not-showing-image
 
       b = tk.Button(self.tkFrame, image=img)
       b.pack()
