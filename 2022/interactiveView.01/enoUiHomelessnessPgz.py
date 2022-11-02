@@ -15,7 +15,10 @@ class enoUiHomelessnessPgz:
 
   ####################### constructor #######################
 
-  def __init__(self):
+  def __init__(self, **kwargs):
+    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+    #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
+
     self.edh = enoDomHomelessness()
     self.buildUI()
 
@@ -28,7 +31,7 @@ class enoUiHomelessnessPgz:
 
     for category in categories:
       imgFn = self.edh.getImageFn(category)
-      a1    = Actor(imgFn, pos=(self.currentX, self.currentY))
+      a1    = Actor(imgFn, topleft=(self.currentX, self.currentY))
 
       self.actors.append(a1)
       self.actor2category[a1] = category
@@ -45,10 +48,12 @@ class enoUiHomelessnessPgz:
     for actor in self.actors: 
       if actor.collidepoint(pos): 
         category = self.actor2category[actor]
+        print("pushed:", category)
 
 ####################################################
 
 enoUiH = enoUiHomelessnessPgz()
+#enoUiH = enoUiHomelessnessPgz(currentX=200, currentY=75)
 
 ####################### draw #######################
 def draw():
