@@ -58,7 +58,15 @@ class enoUiHomelessnessPgz:
 
     if self.animateSelectedRight:
       d = self.animateDuration; t = self.animateTween
+
+      if self.selectedCategory is not None:
+        sc = self.selectedCategory
+        a2 = self.category2actor[sc]
+        x2, y2 = self.actor2homepos[sc]
+        animate(a2, topleft=(x2,y2), duration=d, tween=t)
+  
       animate(a1, topleft=(x, y), duration=d, tween=t)
+      self.selectedCategory = category
 
   ####################### draw #######################
 
