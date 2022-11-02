@@ -10,6 +10,9 @@ class enoUiHomelessnessPgz:
   actors = None 
   actor2category = None 
 
+  currentX = 0
+  currentY = 0
+
   ####################### constructor #######################
 
   def __init__(self, tkParent):
@@ -24,9 +27,10 @@ class enoUiHomelessnessPgz:
     categories = self.edh.getCategories()
     for category in categories:
       imgFn1 = self.edh.getImageFn(category)
-      a1   = Actor(imgFn1, pos=)
+      a1   = Actor(imgFn1, pos=(self.currentX, self.currentY))
       self.actors[category]   = a1
       self.actor2category[a1] = category
+      self.currentY += self.edh.yOffset
 
     self.tkFrame.pack()
 
@@ -42,17 +46,20 @@ class enoUiHomelessnessPgz:
       if actor.collidepoint(pos): 
         category = self.actor2category[actor]
 
+####################################################
 ####################### draw #######################
 
 def draw():
-  global enoUiH
-  enoUiH.draw()
+  if 'enoUiH' in globals():
+    global enoUiH
+    enoUiH.draw()
 
 ####################### draw #######################
 
-def onMouseDown(pos):
-  global enoUiH
-  enoUiH.onMouseDown(pos)
+def on_mouse_down(pos):
+  if 'enoUiH' in globals():
+    global enoUiH
+    enoUiH.onMouseDown(pos)
 
 ####################### main #######################
 if __name__ == '__main__':
@@ -60,3 +67,4 @@ if __name__ == '__main__':
   enoUiH = enoUiHomelessnessPgz(top)
 
 ### end ###
+
