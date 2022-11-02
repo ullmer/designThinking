@@ -52,9 +52,9 @@ class enoUiHomelessnessPgz:
   ####################### draw #######################
 
   def animateSelected(self, category):
-    a1      = self.category2actor[category]
-    x, y    = self.actor2homepos[category]
-    x += self.selectedXOffset      
+    a1  = self.category2actor[category]
+    x,y = self.actor2homepos[category]
+    x  += self.selectedXOffset      
 
     if self.animateSelectedRight:
       d = self.animateDuration; t = self.animateTween
