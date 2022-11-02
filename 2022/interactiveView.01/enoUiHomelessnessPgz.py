@@ -2,6 +2,9 @@
 # Begun 2022-11-01
 # Content engaging https://github.com/DataKind-DC/homelessness-service-navigator
 
+WIDTH  = 1024
+HEIGHT = 1024
+
 from enoDomHomelessness import *
 
 class enoUiHomelessnessPgz:
@@ -13,14 +16,14 @@ class enoUiHomelessnessPgz:
   category2actor   = None
   selectedCategory = None
 
-  animationId          = 1 #1, 2, perhaps more: different patterns of animation
+  animationId          = 2 #1, 2, perhaps more: different patterns of animation
   animateDuration      = .5
   animateTween         = 'accel_decel'
   selectedXOffset1     = 200
   selectedXOffset2     = 200
 
   basePos           = (0, 0)
-  basePosUnselected = (400, 400)
+  basePosUnselected = (500, 100)
   basePosSelected   = (0, 0)
 
   ####################### constructor #######################
@@ -83,15 +86,13 @@ class enoUiHomelessnessPgz:
   def animateSelectedRight2(self, category): # simpler animation, albeit less useful 
       d = self.animateDuration; t = self.animateTween
       categories = self.edh.getCategories()
-
       sx, sy = self.basePosUnselected #sx, sy: side x, y, for unselected
 
-      if self.selectedCategory is not None:
-        for c in categories:
-          if c == category: continue #bypass match for unselected sidebar
-          a2     = self.category2actor[category]
-          sy    += self.edh.yOffset
-          animate(a2, topleft=(sx,sy), duration=d, tween=t)
+      for c in categories:
+        if c == category: continue #bypass match for unselected sidebar
+        a2  = self.category2actor[c]
+        sy += self.edh.yOffset
+        animate(a2, topleft=(sx,sy), duration=d, tween=t)
   
       a1  = self.category2actor[category]
       x,y = self.basePosSelected
