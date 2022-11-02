@@ -25,7 +25,7 @@ class enoUiHomelessnessTk:
 
   def buildUI(self, tkParent):
     self.tkParent  = tkParent 
-    self.tkFrame   = tk.Frame(tkParent)
+    self.tkFrame   = tk.Frame(tkParent, bg="#44AB9D")
     self.tkButtons = {}; self.imageHandles = {}
     
     categories = self.edh.getCategories()
@@ -36,8 +36,9 @@ class enoUiHomelessnessTk:
       self.imageHandles[category] = img #amazing; this line necessary, per atlasologist reference here
       # https://stackoverflow.com/questions/22200003/tkinter-button-not-showing-image
 
-      b = tk.Button(self.tkFrame, image=img)
-      b.pack()
+      b = tk.Button(self.tkFrame, image=img, bg="#44AB9D", borderwidth=0) #no button border
+      #b.pack(expand=True, fill="x", anchor="w") #this centers the images, which isn't my preference
+      b.pack(expand=True, anchor="w")
     self.tkFrame.pack()
 
 ####################### main #######################
