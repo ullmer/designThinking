@@ -8,7 +8,9 @@ class enoUiHomelessnessPgz:
 
   edh    = None  #enoDomHomelessness
   actors = None 
-  actor2category = None 
+  actor2category   = None 
+  actor2homePos    = None 
+  selectedCategory = None
 
   currentX = 0
   currentY = 0
@@ -25,17 +27,19 @@ class enoUiHomelessnessPgz:
   ####################### build UI #######################
 
   def buildUI(self):
-    self.actors = []; self.actor2category = {}
+    self.actors = []; self.actor2category = {}; self.actor2homepos = {}
     
     categories = self.edh.getCategories()
 
     for category in categories:
       imgFn = self.edh.getImageFn(category)
-      a1    = Actor(imgFn, topleft=(self.currentX, self.currentY))
+      pos   = (self.currentX, self.currentY))
+      a1    = Actor(imgFn, topleft=pos)
 
       self.actors.append(a1)
-      self.actor2category[a1] = category
-      self.currentY += self.edh.yOffset
+      self.actor2category[a1]      = category
+      self.actor2homepos[category] = pos
+      self.currentY               += self.edh.yOffset
 
   ####################### draw #######################
 
@@ -49,6 +53,7 @@ class enoUiHomelessnessPgz:
       if actor.collidepoint(pos): 
         category = self.actor2category[actor]
         print("pushed:", category)
+        self.animateSelect(category)
 
 ####################################################
 
