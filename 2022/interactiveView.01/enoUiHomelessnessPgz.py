@@ -69,18 +69,18 @@ class enoUiHomelessnessPgz:
   def animateSelectedRight1(self, category): # simpler animation, albeit less useful 
       d = self.animateDuration; t = self.animateTween
 
-      if self.selectedCategory is not None:
-        sc = self.selectedCategory
-        a2 = self.category2actor[sc]
-        x2, y2 = self.actor2homepos[sc]
-        animate(a2, topleft=(x2,y2), duration=d, tween=t)
-  
       a1  = self.category2actor[category]
       x,y = self.actor2homepos[category]
       x  += self.selectedXOffset1
       animate(a1, topleft=(x, y), duration=d, tween=t)
       self.selectedCategory = category
 
+      if self.selectedCategory is not None:
+        sc = self.selectedCategory
+        a2 = self.category2actor[sc]
+        x2, y2 = self.actor2homepos[sc]
+        animate(a2, topleft=(x2,y2), duration=d, tween=t)
+  
 ####################### animate selected : more evolved right-animation #######################
 
   def animateSelectedRight2(self, category): # slightly more evolved, useful animation
