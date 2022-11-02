@@ -7,46 +7,41 @@ from enoDomHomelessness import *
 
 class enoUiHomelessnessPgz:
 
-  edh          = None  #enoDomHomelessness
-  tkParent     = None  #tk parent
-  tkFrame      = None
-  tkButtons    = None 
-
-  imageHandles = None
+  edh    = None  #enoDomHomelessness
+  actors = None 
+  actor2category = None 
 
   ####################### constructor #######################
 
   def __init__(self, tkParent):
     self.edh = enoDomHomelessness()
-    self.buildUI(tkParent)
+    self.buildUI()
 
   ####################### build UI #######################
 
   def buildUI(self, tkParent):
-    self.tkParent  = tkParent 
-    self.tkFrame   = tk.Frame(tkParent, bg="#44AB9D")
-    self.tkButtons = {}; self.imageHandles = {}
+    self.actors = {}; self.actor2category = {}
     
     categories = self.edh.getCategories()
     for category in categories:
       imgFn1 = self.edh.getImageFn(category)
-      imgFn2 = "images/%s.png" % imgFn1
-      img    = ImagePgz.PhotoImage(file=imgFn2)
-      self.imageHandles[category] = img #amazing; this line necessary, per atlasologist reference here
-      # https://stackoverflow.com/questions/22200003/tkinter-button-not-showing-image
+      a1   = Actor(imgFn1, pos=)
+      self.actors[category]   = a1
+      self.actor2category[a1] = category
 
-      b = tk.Button(self.tkFrame, image=img, bg="#44AB9D", borderwidth=0) #no button border
-      #b.pack(expand=True, fill="x", anchor="w") #this centers the images, which isn't my preference
-      b.pack(expand=True, anchor="w")
     self.tkFrame.pack()
 
   ####################### draw #######################
 
-  def buildUI(self, tkParent):
+  def draw(self):
+    for actor in self.actors: actor.draw()
 
   ####################### draw #######################
 
   def onMouseDown(self, pos):
+    for actor in self.actors: 
+      if actor.collidepoint(pos): 
+        category = self.actor2category[actor]
 
 ####################### main #######################
 if __name__ == '__main__':
