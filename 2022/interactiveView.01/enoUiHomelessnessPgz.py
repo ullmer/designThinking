@@ -83,7 +83,7 @@ class enoUiHomelessnessPgz:
 
 ####################### animate selected : more evolved right-animation #######################
 
-  def animateSelectedRight2(self, category): # simpler animation, albeit less useful 
+  def animateSelectedRight2(self, category): # slightly more evolved, useful animation
       d = self.animateDuration; t = self.animateTween
       categories = self.edh.getCategories()
       sx, sy = self.basePosUnselected #sx, sy: side x, y, for unselected
