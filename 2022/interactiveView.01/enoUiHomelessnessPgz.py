@@ -16,10 +16,11 @@ class enoUiHomelessnessPgz:
   animateSelectedRight = True # if true, animate selected objects to right
   animateDuration      = .5
   animateTween         = 'accel_decel'
-  selectedXOffset      = 200
+  selectedXOffset1     = 200
+  selectedXOffset2     = 200
 
-  currentX = 0
-  currentY = 0
+  basePos      = (0, 0)
+  anim2basePos = (400, 400)
 
   ####################### constructor #######################
 
@@ -38,16 +39,18 @@ class enoUiHomelessnessPgz:
     
     categories = self.edh.getCategories()
 
+    x, y = self.basePos
+
     for category in categories:
       imgFn = self.edh.getImageFn(category)
-      pos   = (self.currentX, self.currentY)
+      pos   = (x, y)
       a1    = Actor(imgFn, topleft=pos)
 
       self.actors.append(a1)
       self.actor2category[a1]       = category
       self.category2actor[category] = a1
       self.actor2homepos[category]  = pos
-      self.currentY                += self.edh.yOffset
+      y                            += self.edh.yOffset
 
   ####################### animate selected #######################
 
@@ -64,6 +67,25 @@ class enoUiHomelessnessPgz:
         sc = self.selectedCategory
         a2 = self.category2actor[sc]
         x2, y2 = self.actor2homepos[sc]
+        animate(a2, topleft=(x2,y2), duration=d, tween=t)
+  
+      a1  = self.category2actor[category]
+      x,y = self.actor2homepos[category]
+      x  += self.selectedXOffset1
+      animate(a1, topleft=(x, y), duration=d, tween=t)
+      self.selectedCategory = category
+
+####################### animate selected : more evolved right-animation #######################
+
+  def animateSelectedRight2(self, category): # simpler animation, albeit less useful 
+      d = self.animateDuration; t = self.animateTween
+      categories = self.edh.getCategories()
+
+      if self.selectedCategory is not None:
+        for c in categories:
+          if c == category: continue #bypass match initially
+          a2 = self.category2actor[category]
+          x2, y2 = self.actor2homepos[sc]
         animate(a2, topleft=(x2,y2), duration=d, tween=t)
   
       a1  = self.category2actor[category]
@@ -89,7 +111,6 @@ class enoUiHomelessnessPgz:
 ####################################################
 
 enoUiH = enoUiHomelessnessPgz()
-#enoUiH = enoUiHomelessnessPgz(currentX=200, currentY=75)
 
 ####################### draw #######################
 def draw():
