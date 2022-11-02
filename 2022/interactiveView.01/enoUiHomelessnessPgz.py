@@ -52,7 +52,12 @@ class enoUiHomelessnessPgz:
   ####################### animate selected #######################
 
   def animateSelected(self, category):
-    if self.animateSelectedRight:
+    if self.animateSelectedRight: self.animateSelectedRight1(category)
+    else:                         self.animateSelectedRight2(category)
+  
+####################### animate selected : simple right-animation #######################
+
+  def animateSelectedRight1(self, category): # simpler animation, albeit less useful 
       d = self.animateDuration; t = self.animateTween
 
       if self.selectedCategory is not None:
