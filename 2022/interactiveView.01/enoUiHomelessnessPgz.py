@@ -49,7 +49,7 @@ class enoUiHomelessnessPgz:
       self.actor2homepos[category]  = pos
       self.currentY                += self.edh.yOffset
 
-  ####################### draw #######################
+  ####################### animate selected #######################
 
   def animateSelected(self, category):
     a1  = self.category2actor[category]
