@@ -10,7 +10,11 @@ class enoUiHomelessnessPgz:
   actors = None 
   actor2category   = None 
   actor2homePos    = None 
+  category2actor   = None
   selectedCategory = None
+
+  animateSelectedRight = True # if true, animate selected objects to right
+  selectedXOffset      = 200
 
   currentX = 0
   currentY = 0
@@ -27,19 +31,31 @@ class enoUiHomelessnessPgz:
   ####################### build UI #######################
 
   def buildUI(self):
-    self.actors = []; self.actor2category = {}; self.actor2homepos = {}
+    self.actors = [];         self.actor2homepos = {}
+    self.actor2category = {}; self.category2actor = {}
     
     categories = self.edh.getCategories()
 
     for category in categories:
       imgFn = self.edh.getImageFn(category)
-      pos   = (self.currentX, self.currentY))
+      pos   = (self.currentX, self.currentY)
       a1    = Actor(imgFn, topleft=pos)
 
       self.actors.append(a1)
-      self.actor2category[a1]      = category
-      self.actor2homepos[category] = pos
-      self.currentY               += self.edh.yOffset
+      self.actor2category[a1]       = category
+      self.category2actor[category] = a1
+      self.actor2homepos[category]  = pos
+      self.currentY                += self.edh.yOffset
+
+  ####################### draw #######################
+
+  def animateSelected(self, category):
+    a1      = self.category2actor[category]
+    x, y    = self.actor2homepos[category]
+    x += self.selectedXOffset      
+
+    if self.animateSelectedRight:
+      animate(a1, topleft=(x, y))
 
   ####################### draw #######################
 
@@ -53,7 +69,7 @@ class enoUiHomelessnessPgz:
       if actor.collidepoint(pos): 
         category = self.actor2category[actor]
         print("pushed:", category)
-        self.animateSelect(category)
+        self.animateSelected(category)
 
 ####################################################
 
