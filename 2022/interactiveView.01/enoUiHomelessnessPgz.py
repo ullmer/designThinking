@@ -2,55 +2,49 @@
 # Begun 2022-11-01
 # Content engaging https://github.com/DataKind-DC/homelessness-service-navigator
 
-import yaml
+import tkinter as tk
+from PIL import Image, ImageTk
+from enoDomHomelessness import *
 
-class enoDomHomelessness:
+class enoUiHomelessnessTk:
 
-  yamlFn = "homelessness/dkdc01.yaml"
+  edh          = None  #enoDomHomelessness
+  tkParent     = None  #tk parent
+  tkFrame      = None
+  tkButtons    = None 
 
-  yamlD        = None
-  imagePath    = None
-  yOffset      = None #placeholder assignments until read in or assigned
-  xOffset      = None
-  categories   = None
-  descriptions = None
+  imageHandles = None
 
   ####################### constructor #######################
 
-  def __init__(self):
-    self.readYaml()
+  def __init__(self, tkParent):
+    self.edh = enoDomHomelessness()
+    self.buildUI(tkParent)
 
-  ####################### read YAML #######################
+  ####################### build UI #######################
 
-  def readYaml(self):
-    try:
-      yf              = open(self.yamlFn)  #open yamlFn filename for reading
-      yd = self.yamlD = yaml.safe_load(yf) #load and parse YAML content
+  def buildUI(self, tkParent):
+    self.tkParent  = tkParent 
+    self.tkFrame   = tk.Frame(tkParent, bg="#44AB9D")
+    self.tkButtons = {}; self.imageHandles = {}
+    
+    categories = self.edh.getCategories()
+    for category in categories:
+      imgFn1 = self.edh.getImageFn(category)
+      imgFn2 = "images/%s.png" % imgFn1
+      img    = ImageTk.PhotoImage(file=imgFn2)
+      self.imageHandles[category] = img #amazing; this line necessary, per atlasologist reference here
+      # https://stackoverflow.com/questions/22200003/tkinter-button-not-showing-image
 
-      self.xOffset    = yd['positions']['xOffset']
-      self.yOffset    = yd['positions']['yOffset']
-      self.imagePath  = yd['paths']['images']
-
-      self.categories   = yd['categories']
-      self.descriptions = yd['descriptions']
-
-    except: print("Problem in enoDomHomelessness:readYaml")
-
-  ####################### get categories #######################
-
-  def getCategories(self): return self.categories
-
-  ####################### get description #######################
-
-  def getDescr(self, descr):
-    if descr in self.descriptions:
-      return self.descriptions[descr]
-    return None
+      b = tk.Button(self.tkFrame, image=img, bg="#44AB9D", borderwidth=0) #no button border
+      #b.pack(expand=True, fill="x", anchor="w") #this centers the images, which isn't my preference
+      b.pack(expand=True, anchor="w")
+    self.tkFrame.pack()
 
 ####################### main #######################
 if __name__ == '__main__':
-  edh = enoDomHomelessness()
-  print(edh.getCategories())
+  top = tk.Tk()
+  enoUiH = enoUiHomelessnessTk(top)
+  top.mainloop()
 
 ### end ###
-
