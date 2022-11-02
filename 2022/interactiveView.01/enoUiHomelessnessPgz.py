@@ -15,24 +15,23 @@ class enoUiHomelessnessPgz:
 
   ####################### constructor #######################
 
-  def __init__(self, tkParent):
+  def __init__(self):
     self.edh = enoDomHomelessness()
     self.buildUI()
 
   ####################### build UI #######################
 
-  def buildUI(self, tkParent):
+  def buildUI(self):
     self.actors = {}; self.actor2category = {}
     
     categories = self.edh.getCategories()
     for category in categories:
+      print(category)
       imgFn1 = self.edh.getImageFn(category)
       a1   = Actor(imgFn1, pos=(self.currentX, self.currentY))
       self.actors[category]   = a1
       self.actor2category[a1] = category
       self.currentY += self.edh.yOffset
-
-    self.tkFrame.pack()
 
   ####################### draw #######################
 
@@ -47,24 +46,16 @@ class enoUiHomelessnessPgz:
         category = self.actor2category[actor]
 
 ####################################################
-####################### draw #######################
 
+enoUiH = enoUiHomelessnessPgz()
+
+####################### draw #######################
 def draw():
-  if 'enoUiH' in globals():
-    global enoUiH
-    enoUiH.draw()
+  enoUiH.draw()
 
 ####################### draw #######################
-
 def on_mouse_down(pos):
-  if 'enoUiH' in globals():
-    global enoUiH
-    enoUiH.onMouseDown(pos)
-
-####################### main #######################
-if __name__ == '__main__':
-  global enoUiH 
-  enoUiH = enoUiHomelessnessPgz(top)
+  enoUiH.onMouseDown(pos)
 
 ### end ###
 
