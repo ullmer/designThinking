@@ -2,7 +2,6 @@
 # Begun 2022-11-01
 # Content engaging https://github.com/DataKind-DC/homelessness-service-navigator
 
-from PIL import Image, ImagePgz
 from enoDomHomelessness import *
 
 class enoUiHomelessnessPgz:
@@ -43,10 +42,21 @@ class enoUiHomelessnessPgz:
       if actor.collidepoint(pos): 
         category = self.actor2category[actor]
 
+####################### draw #######################
+
+def draw():
+  global enoUiH
+  enoUiH.draw()
+
+####################### draw #######################
+
+def onMouseDown(pos):
+  global enoUiH
+  enoUiH.onMouseDown(pos)
+
 ####################### main #######################
 if __name__ == '__main__':
-  top = tk.Pgz()
+  global enoUiH 
   enoUiH = enoUiHomelessnessPgz(top)
-  top.mainloop()
 
 ### end ###
