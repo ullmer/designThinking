@@ -13,7 +13,7 @@ class enoUiHomelessnessPgz:
   category2actor   = None
   selectedCategory = None
 
-  animateSelectedRight = True # if true, animate selected objects to right
+  animationId          = 1 #1, 2, perhaps more: different patterns of animation
   animateDuration      = .5
   animateTween         = 'accel_decel'
   selectedXOffset1     = 200
@@ -56,8 +56,10 @@ class enoUiHomelessnessPgz:
   ####################### animate selected #######################
 
   def animateSelected(self, category):
-    if self.animateSelectedRight: self.animateSelectedRight1(category)
-    else:                         self.animateSelectedRight2(category)
+    aId = self.animationId
+
+    if aId == 1: self.animateSelectedRight1(category)
+    if aId == 2: self.animateSelectedRight2(category)
   
 ####################### animate selected : simple right-animation #######################
 
@@ -92,8 +94,7 @@ class enoUiHomelessnessPgz:
           animate(a2, topleft=(sx,sy), duration=d, tween=t)
   
       a1  = self.category2actor[category]
-      x,y = self.actor2homepos[category]
-      x  += self.selectedXOffset      
+      x,y = self.basePosSelected
       animate(a1, topleft=(x, y), duration=d, tween=t)
       self.selectedCategory = category
 
