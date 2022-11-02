@@ -92,7 +92,7 @@ def draw():
   screen.clear()
   enoUiH.draw()
 
-####################### draw #######################
+####################### on_mouse_down #######################
 def on_mouse_down(pos):
   enoUiH.onMouseDown(pos)
 
