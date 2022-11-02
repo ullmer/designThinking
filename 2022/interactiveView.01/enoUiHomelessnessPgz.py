@@ -14,6 +14,8 @@ class enoUiHomelessnessPgz:
   selectedCategory = None
 
   animateSelectedRight = True # if true, animate selected objects to right
+  animateDuration      = .5
+  animateTween         = 'accel_decel'
   selectedXOffset      = 200
 
   currentX = 0
@@ -55,7 +57,8 @@ class enoUiHomelessnessPgz:
     x += self.selectedXOffset      
 
     if self.animateSelectedRight:
-      animate(a1, topleft=(x, y))
+      d = self.animateDuration; t = self.animateTween
+      animate(a1, topleft=(x, y), duration=d, tween=t)
 
   ####################### draw #######################
 
@@ -78,6 +81,7 @@ enoUiH = enoUiHomelessnessPgz()
 
 ####################### draw #######################
 def draw():
+  screen.clear()
   enoUiH.draw()
 
 ####################### draw #######################
