@@ -90,9 +90,10 @@ researchAreas:
     Data Structures: [Sandra Hedetniemi, Federico Iuricich]
     Databases: [Nina Hubig, James Wang]
     Security and Privacy: [Kelly Caine, Long Cheng, Bart Knijnenburg]
-  
-  categoryManualAliases:
-    Virtual and Extended Reality / Environments: VR&XR, VR, XR
-    Mobile and Pervasive Computing: [M&PC, Ubicomp]
+ 
+meta: 
+  manualAliases:
+    "Virtual and Extended Reality / Environments": [VR, XR, "VR&XR"]
+    Mobile and Pervasive Computing:                [Ubicomp, "M&PC"]
     Databases: Db
   

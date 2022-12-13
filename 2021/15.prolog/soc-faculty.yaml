@@ -27,4 +27,11 @@ rank:
   slecturer: [Feaster, Kittelstad, Plaue]
   pop:       [Kwon, Russell, Shue, Taylor, Van Scoy]
 
+meta:
+  divisionAbbrevs: 
+    CS: Computer Science
+    VC: Visual Computing
+    HCC: Human-Centered Computing
+    FOI: Faculty of Instruction
+
 ### end ###
