@@ -2,7 +2,7 @@
 # Brygg Ullmer, Clemson University
 # Begun 2023-08-30
 
-import yaml
+WIDTH, HEIGHT = 1200, 939
 
 bgFn = 'clemson-elevate-strategic-plan-34b'
 bg   = Actor(bgFn)
