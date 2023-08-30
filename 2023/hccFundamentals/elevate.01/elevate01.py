@@ -7,6 +7,6 @@ import yaml
 bgFn = 'clemson-elevate-strategic-plan-34b'
 bg   = Actor(bgFn)
 
-
+def draw(): bg.draw()
 
 ### end ###
