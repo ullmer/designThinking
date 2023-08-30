@@ -4,10 +4,9 @@
 
 import yaml
 
-yfn = 'elevateMap01.yaml'
-yf  = open(yfn, 'rt')
-y   = yaml.safe_load(yfn)
+bgFn = 'clemson-elevate-strategic-plan-34b'
+bg   = Actor(bgFn)
 
-bgFn = y['backdropFn']
+
 
 ### end ###
