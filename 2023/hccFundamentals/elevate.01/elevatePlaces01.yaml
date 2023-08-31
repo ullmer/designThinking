@@ -12,8 +12,10 @@ placeTypes:
 
   ic:
     name:  Innovation Campuses
-    glyph: star
+    glyph:        star
     colorDefault: yellow
+    glyph100:     gl100_ic
+    glyph100g:    gl100_ic_g #grayscale
     loci:
       - [2962, 84449]
       - [70956, 64498]
@@ -27,8 +29,9 @@ placeTypes:
 
   eo:
     name:  Extension Offices
-    glyph: circle 
+    glyph:        circle 
     colorDefault: green
+    glyph100:     gl100_eo
     loci:
        - [4186, 62402]
        - [8313, 22051]
