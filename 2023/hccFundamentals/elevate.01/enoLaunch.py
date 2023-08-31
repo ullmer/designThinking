@@ -4,6 +4,9 @@
 
 import yaml
 
+from pgzero.builtins import Actor, animate, keyboard
+#https://stackoverflow.com/questions/55438239/name-actor-is-not-defined
+
 ##################### pygamezero button #####################
 
 class enoLaunch:
@@ -31,8 +34,8 @@ class enoLaunch:
     yf  = open(yamlFn, 'rt')
     self.yamlD  = yaml.safe_load(yf)
 
-    if bgFnTag in self.yamlD:
-      self.bgFn    = self.yamlD[bgFnTag]
+    if self.bgFnTag in self.yamlD:
+      self.bgFn    = self.yamlD[self.bgFnTag]
       self.bgActor = Actor(self.bgFn)
 
   ############# pgzero draw #############

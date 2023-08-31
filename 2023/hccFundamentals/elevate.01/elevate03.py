@@ -4,7 +4,7 @@
 
 WIDTH, HEIGHT = 1200, 939
 
-import enoLaunch
+from enoLaunch import *
 
 el = enoLaunch('elevateMap01.yaml')
 
