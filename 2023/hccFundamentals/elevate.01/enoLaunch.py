@@ -38,6 +38,6 @@ class enoLaunch:
   ############# pgzero draw #############
 
   def draw(self):
-    if self.bgActor not None: self.bgActor.draw()
+    if self.bgActor is not None: self.bgActor.draw()
 
 ### end ###
