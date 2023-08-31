@@ -7,21 +7,13 @@ import yaml
 ##################### pygamezero button #####################
 
 class enoLaunch:
-  = (0,0)
-  buttonDim  = (100, 30)
-  buttonRect = None
-  buttonText = "actor"
-  bgcolor1   = (0, 0, 130)
-  bgcolor2   = (50, 50, 250)
-  fgcolor    = "#bbbbbb"
-  alpha      = .8
   fontSize   = 36
-  imgFn      = None
-  actor      = None # for image/sprite
-  abbrev     = None # name/identity/handle
+  yamlFn      = None #YAML filename
+  yamlD       = None #YAML data import
 
-  toggleMode  = True
-  toggleState = False
+  bgFn        = None
+  bgFnTag     = 'bgFn'
+  bgActor     = None
 
   ############# constructor #############
 
@@ -30,13 +22,22 @@ class enoLaunch:
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
 
+    self.loadYaml(yamlFn)
+
   ############# loadYaml #############
 
   def loadYaml(self, yamlFn):
+    self.yamlFn = yamlFn
+    yf  = open(yamlFn, 'rt')
+    self.yamlD  = yaml.safe_load(yf)
+
+    if bgFnTag in self.yamlD:
+      self.bgFn    = self.yamlD[bgFnTag]
+      self.bgActor = Actor(self.bgFn)
 
   ############# pgzero draw #############
 
   def draw(self):
-    pass #return self.actor.draw()
+    if self.bgActor not None: self.bgActor.draw()
 
 ### end ###

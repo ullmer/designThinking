@@ -4,15 +4,10 @@
 
 WIDTH, HEIGHT = 1200, 939
 
-import yaml
+import enoLaunch
 
-yfn = 'elevateMap01.yaml'
-yf  = open(yfn, 'rt')
-y   = yaml.safe_load(yf)
+el = enoLaunch('elevateMap01.yaml')
 
-bgFn = y['backdropFn']
-bg   = Actor(bgFn)
-
-def draw(): bg.draw()
+def draw(): el.draw()
 
 ### end ###
