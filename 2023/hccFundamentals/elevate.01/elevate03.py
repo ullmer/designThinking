@@ -4,9 +4,10 @@
 
 WIDTH, HEIGHT = 1200, 940
 
-bgFn = 'clemson-elevate-strategic-plan-34b'
-bg   = Actor(bgFn)
+from enoLaunch import *
 
-def draw(): bg.draw()
+el = enoLaunch('elevateMap01.yaml')
+
+def draw(): el.draw()
 
 ### end ###
