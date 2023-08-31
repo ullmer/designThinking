@@ -4,11 +4,6 @@
 
 base: {x: -34.9, y: 18641.4, width: 120000, height: 120000}
 
-es
-mc
-rec
-rh
-
 ################# place types ################# 
 
 placeTypes:
@@ -83,7 +78,14 @@ placeTypes:
        - [43285, 56491]
        - [53233, 62472]
       
-      orangeDrop:
+  ################# REC: Research & Education Centers ################# 
+
+  rec:
+    name:  Research and Education Centers
+    glyph: drop 
+    colorDefault: orange
+    loci:
+       - [3384, 66810]
        - [55816, 35168]
        - [51198, 33994]
        - [12059, 16959]
@@ -91,16 +93,21 @@ placeTypes:
        - [90795, 49979]
        - [70375, 67919]
        - [46579, 53033]
-       - [3384, 66810]
       
-      purpleCross:
+  ################# RH: Rural Health ################# 
+
+  rh:
+    name:  Rural Health
+    glyph: cross
+    colorDefault: purple
+    loci:
+       - [3037, 72544]
+       - [9708, 23930]
        - [30949, 14135]
        - [40254, 13489]
        - [47603, 15368]
        - [38730, 19390]
        - [44521, 22215]
-       - [3037, 72544]
-       - [9708, 23930]
        - [19002, 19932]
        - [19327, 24723]
        - [22227, 13206]
