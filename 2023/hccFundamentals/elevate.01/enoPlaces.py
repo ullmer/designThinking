@@ -14,9 +14,8 @@ class Places:
   yamlFn      = None #YAML filename; e.g., elevatePlaces01.yaml
   yamlD       = None #YAML data import
 
-  bgFn        = None
-  bgFnTag     = 'bgFn'
-  bgActor     = None
+  workspace     = None
+  placeTypeList = None
 
   ############# constructor #############
 
@@ -30,13 +29,42 @@ class Places:
   ############# loadYaml #############
 
   def loadYaml(self, yamlFn):
-    self.yamlFn = yamlFn
-    yf          = open(yamlFn, 'rt')
-    self.yamlD  = yaml.safe_load(yf)
+    self.yamlFn     = yamlFn
+    yf              = open(yamlFn, 'rt')
+    y = self.yamlD  = yaml.safe_load(yf)
 
-    if self.bgFnTag in self.yamlD:
-      self.bgFn    = self.yamlD[self.bgFnTag]
-      self.bgActor = Actor(self.bgFn)
+    #base: 
+    #  workspace: {x: -34.9, y: 18641.4, width: 120000, height: 120000}
+
+    if 'base' in y:
+      base = y['base']
+      if 'workspace' in base:
+        self.workspace = base['workspace']
+
+    #placeTypes:
+    #  #list: [ic, eo, rec, rh, es]
+    #  typeList: [all]
+
+    if 'placeTypes' in y:
+      pt = self.placeTypes = y['placeTypes']
+      if 'typeList' in pt:
+         ptl = self.placeTypeList = pt['typeList']
+
+    #if  in self.yamlD:
+    #  self.bgFn    = self.yamlD[self.bgFnTag]
+    #  self.bgActor = Actor(self.bgFn)
+
+
+
+#  all:
+#    name:  All
+#    glyph: circle
+#    colorDefault: gray
+#    loci:
+#     - [ 16881,  45712]
+#     - [ 99478,  29738]
+#     - [ 51102,  40869]
+
 
   ############# pgzero draw #############
 
@@ -44,3 +72,8 @@ class Places:
     if self.bgActor is not None: self.bgActor.draw()
 
 ### end ###
+
+
+
+
+
