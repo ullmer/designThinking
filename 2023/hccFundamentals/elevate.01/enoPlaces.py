@@ -96,12 +96,12 @@ class enoPlaces:
         ptype = pts[ptypeName]
 
         if 'bboxDimension' in ptype:
-          bbox = ptype['bboxDimension']
-          self.bboxDimDict[ptypeName] = bbox
+          bboxDim = ptype['bboxDimension']
+          self.bboxDimDict[ptypeName] = bboxDim
 
         if 'bboxShift' in ptype:
           bboxShift = ptype['bboxShift']
-          self.bboxShiftDict[ptypeName] = bbox
+          self.bboxShiftDict[ptypeName] = bboxShift
 
         if 'loci' in ptype:
           loci = ptype['loci']
