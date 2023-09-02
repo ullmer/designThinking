@@ -37,7 +37,7 @@ placeTypes:
     glyph:        circle 
     colorDefault: green
     glyph100:     gl100_eo
-    #shift:        [150, -400] #initially, shift in screen coordinates
+    bboxShift:     [150, -400]      #initially, shift in screen coordinates
     bboxDimension: [102814, 102814]
     loci:
        - [4186, 62402]

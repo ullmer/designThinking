@@ -20,7 +20,8 @@ class enoPlaces:
   glyphNormDict  = None
   glyphDimDict   = None
   glyphBriteDict = None
-  bboxDict       = None # for bounding boxes specific to different place types, per SVG oddity
+  bboxDimDict    = None # for bounding boxes specific to different place types, per SVG oddity
+  bboxShiftDict  = None # for bounding boxes specific to different place types, per SVG oddity
   actorDict      = None
 
   workspace     = None
@@ -35,7 +36,7 @@ class enoPlaces:
     #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
 
     self.glyphNormDict, self.glyphDimDict, self.glyphBriteDict = {}, {}, {}
-    self.bboxDict = {}
+    self.bboxDimDict,   self.bboxShiftDict                     = {}, {}
     self.loadYaml(yamlFn)
 
   ############# report error #############
@@ -93,14 +94,19 @@ class enoPlaces:
 
       for ptypeName in ptl:
         ptype = pts[ptypeName]
+
+        if 'bboxDimension' in ptype:
+          bbox = ptype['bboxDimension']
+          self.bboxDimDict[ptypeName] = bbox
+
+        if 'bboxShift' in ptype:
+          bboxShift = ptype['bboxShift']
+          self.bboxShiftDict[ptypeName] = bbox
+
         if 'loci' in ptype:
           loci = ptype['loci']
           self.processLoci(ptypeName, loci)
 
-        if 'bboxDimension' in ptype:
-          bbox = ptype['bboxDimension']
-          self.bboxDict[ptypeName] = bbox
-          print("loadYaml: bbox detected for place type", ptypeName)
   
   ############# process workspace bounds #############
 
@@ -126,10 +132,14 @@ class enoPlaces:
       xscale, yscale = self.xscale, self.yscale
       x, y = locus
 
-      bbw, bbh = None, None
-      if ptypeName in self.bboxDict: 
-        print("processlocus bbox detected for", ptypeName)
-        bbw, bbh = self.bboxDict[ptypeName] # bounding boxes specific to specific place types
+      bbw, bbh, bbdx, bbdy = None, None, None, None
+
+      if ptypeName in self.bboxDimDict: 
+        bbw, bbh = self.bboxDimDict[ptypeName] # bounding boxes specific to specific place types
+
+      if ptypeName in self.bboxShiftDict: 
+        bbdx, bbdy = self.bboxShiftDict[ptypeName] # bounding boxes specific to specific place types
+        dx, dy = bbdx, bbdy #override default
 
       if bbw is not None: w, h = bbw, bbh
       else:               w, h = ww,  wh
