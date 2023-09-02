@@ -20,6 +20,10 @@ placeTypes:
     colorDefault: yellow
     glyph100:     gl100_ic
     glyph100g:    gl100_ic_g #grayscale
+    #bboxShift:     [-15, -125]      #initially, shift in screen coordinates
+    #bboxShift:     [0, -110]      #initially, shift in screen coordinates
+    bboxShift:     [5, -117]      #initially, shift in screen coordinates
+    bboxDimension: [102814, 102814]
     loci:
       - [2962, 84449]
       - [70956, 64498]
@@ -94,6 +98,10 @@ placeTypes:
     glyph: drop 
     colorDefault: orange
     glyph100:     gl100_rec
+    #bboxShift:     [0, -105]      #initially, shift in screen coordinates
+    #bboxShift:     [0, -118]      #initially, shift in screen coordinates
+    bboxShift:     [0, -110]      #initially, shift in screen coordinates
+    bboxDimension: [102814, 102814]
     loci:
        - [3384, 66810]
        - [55816, 35168]
@@ -111,6 +119,10 @@ placeTypes:
     glyph: cross
     colorDefault: purple
     glyph100:     gl100_rh
+    #bboxShift:     [-15, -125]      #initially, shift in screen coordinates
+    #bboxShift:     [0, -110]      #initially, shift in screen coordinates
+    bboxShift:     [5, -105]      #initially, shift in screen coordinates
+    bboxDimension: [102814, 102814]
     loci:
        - [3037, 72544]
        - [9708, 23930]
@@ -146,6 +158,9 @@ placeTypes:
     glyph: book
     colorDefault: purple
     glyph100:     gl100_es
+    #bboxShift:     [-15, -125]      #initially, shift in screen coordinates
+    bboxShift:     [0, -110]      #initially, shift in screen coordinates
+    bboxDimension: [102814, 102814]
     loci:
      - [3384, 78426]
      - [85456, 28331]
@@ -158,7 +173,8 @@ placeTypes:
     name:  All
     glyph: circle
     colorDefault: gray
-    glyph100:     gl100_circ
+    #glyph100:     gl100_circ
+    glyph100:     gl100_circ2
     loci:
      - [ 16881,  45712]
      - [ 99478,  29738]
