@@ -13,7 +13,7 @@ class enoPlaces:
   fontSize   = 36
   yamlFn      = None #YAML filename; e.g., elevatePlaces01.yaml
   yamlD       = None #YAML data import
-  dx, dy      = 0, 0
+  dx, dy      = 0, -200
   screenWidth, screenHeight = 1200, 940
 
   glyphNormDict  = None
@@ -113,10 +113,11 @@ class enoPlaces:
   def processLocus(self, ptypeName, locus):
     try:
       wx, wy, ww, wh = self.workspaceX, self.workspaceY, self.workspaceWidth, self.workspaceHeight
-      sw, sh         = self.screenWidth, self.screenHeight
+      sw, sh, dx, dy = self.screenWidth, self.screenHeight, self.dx, self.dy
       x, y = locus
-      sx = int((float(x) / float(ww) + wx) * sw)
-      sy = int((float(y) / float(wh) + wy) * sh)
+      sx = int(float(x) / float(ww) * sw) + dx
+      sy = int(float(y) / float(wh) * sh) + dy
+      print("processLocus %i %i" % (sx, sy))
       return [sx, sy]
 
     except: self.reportError("processLocus", "exception caught"); traceback.print_exc(); return None
@@ -138,9 +139,11 @@ class enoPlaces:
       self.glyphNormDict[ptypeName] = imgFn
 
       for locus in locii:
-        screenPos = self.processLocus(ptypeName, locii)
+        screenPos = self.processLocus(ptypeName, locus)
         a = Actor(imgFn, pos = screenPos)
         self.addActor(a, ptypeName)
+
+    except: self.reportError("processLoci", "exception caught"); traceback.print_exc(); return None
 
   ############# add actor #############
 
