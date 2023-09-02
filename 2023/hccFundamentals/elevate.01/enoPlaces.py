@@ -19,6 +19,7 @@ class enoPlaces:
   glyphNormDict  = None
   glyphDimDict   = None
   glyphBriteDict = None
+  actorDict      = None
 
   workspace     = None
   placeTypeList = None
@@ -33,7 +34,7 @@ class enoPlaces:
     self.glyphNormDict, self.glyphDimDict, self.glyphBriteDict = {}, {}, {}
     self.loadYaml(yamlFn)
 
-  ############# loadYaml #############
+  ############# report error #############
 
   def reportError(self, functionName, issue):
     try:
@@ -41,7 +42,7 @@ class enoPlaces:
       print(errorMsg)
     except: print("enoPlaces reportError error:"); traceback.print_exc(); return None
 
-  ############# loadYaml #############
+  ############# load yaml #############
 
   def loadYaml(self, yamlFn):
     self.yamlFn     = yamlFn
@@ -140,10 +141,21 @@ class enoPlaces:
     #  self.bgFn    = self.yamlD[self.bgFnTag]
     #  self.bgActor = Actor(self.bgFn)
 
+  ############# add actor #############
+
+  def addActor(self, actorHandle, ptypeName):
+    if self.actorDict == None: self.actorDict = {}
+
+    if ptypeName not in self.actorDict: self.actorDict[ptypeName] = []
+    self.actorDict[ptypeName].append(actorHandle) # one more argument probably important, but -- coming
+
   ############# pgzero draw #############
 
   def draw(self):
-    if self.bgActor is not None: self.bgActor.draw()
+    if self.actorDict == None: self.reportError("draw", "No actors found in actorDict!"); return None
+    for ptypeName in self.actorDict:
+      ptActorList = self.actorDict[ptypeName]
+      for a in ptActorList: a.draw()
 
 ### end ###
 
