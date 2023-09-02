@@ -125,13 +125,13 @@ class enoPlaces:
       
       if 'glyph100' not in pt:  self.reportError("processLoci", "glyph100 not in placeTypes " + ptypeName); return None
 
-      glyphImgFn
+      glyphImgFn = pt['glyph100']
 
-      gnd = self.glyphNormDict
-      ptypeImgFn = self.getPTypeImgFn(ptypeName)
+      self.glyphNormDict[ptypeName] = glyphImgFn
+
       for locus in locii:
         screenPos = self.processLocus(ptypeName, locii)
-        a = Actor(ptypeImgFn, pos = screenPos)
+        a = Actor(glyphImgFn, pos = screenPos)
         self.addActor(a, ptypeName)
 
         #, pos = screenPos)
