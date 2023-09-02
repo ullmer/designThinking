@@ -40,31 +40,37 @@ class Places:
       base = y['base']
       if 'workspace' in base:
         self.workspace = base['workspace']
+        self.processWorkspaceBounds()
 
     #placeTypes:
     #  #list: [ic, eo, rec, rh, es]
     #  typeList: [all]
 
     if 'placeTypes' in y:
-      pt = self.placeTypes = y['placeTypes']
-      if 'typeList' in pt:
-         ptl = self.placeTypeList = pt['typeList']
+      pts = self.placeTypes = y['placeTypes']
+      if 'typeList' in pts:
+        ptl = self.placeTypeList = pts['typeList']
+
+      #  all:
+      #    name:  All
+      #    glyph: circle
+      #    colorDefault: gray
+      #    loci:
+      #     - [ 16881,  45712]
+      #     - [ 99478,  29738]
+      #     - [ 51102,  40869]
+
+      for ptypeName in ptl:
+        ptype = pts[ptypeName]
+        if 'loci' in ptype:
+          loci = ptype['loci']
+          self.processLoci(ptypeName, loci)
+
+  ############# pgzero draw #############
 
     #if  in self.yamlD:
     #  self.bgFn    = self.yamlD[self.bgFnTag]
     #  self.bgActor = Actor(self.bgFn)
-
-
-
-#  all:
-#    name:  All
-#    glyph: circle
-#    colorDefault: gray
-#    loci:
-#     - [ 16881,  45712]
-#     - [ 99478,  29738]
-#     - [ 51102,  40869]
-
 
   ############# pgzero draw #############
 
