@@ -16,6 +16,10 @@ class enoPlaces:
   dx, dy      = 0, 0
   screenWidth, screenHeight = 1200, 940
 
+  glyphNormDict  = None
+  glyphDimDict   = None
+  glyphBriteDict = None
+
   workspace     = None
   placeTypeList = None
 
@@ -26,7 +30,16 @@ class enoPlaces:
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
 
+    self.glyphNormDict, self.glyphDimDict, self.glyphBriteDict = {}, {}, {}
     self.loadYaml(yamlFn)
+
+  ############# loadYaml #############
+
+  def reportError(self, functionName, issue):
+    try:
+      errorMsg = "enoPlaces %s error: %s" % (functionName, issue)
+      print(errorMsg)
+    except: print("enoPlaces reportError error:"); traceback.print_exc(); return None
 
   ############# loadYaml #############
 
@@ -74,13 +87,13 @@ class enoPlaces:
     #  workspace: {x: -34.9, y: 18641.4, width: 120000, height: 120000}
 
     w = self.workspace
-    if w is None: print("enoPlaces processWorkspaceBounds error: self.workspace unassigned"); return None
+    if w is None: self.reportError("processWorkspaceBounds", "self.workspace unassigned"); return None
 
     try:
       self.workspaceX,     self.workspaceY      = w['x'],     w['y']
       self.workspaceWidth, self.workspaceHeight = w['width'], w['height']
 
-    except: print("enoPlaces processWorkspaceBounds xywh extraction error:"); traceback.print_exc(); return None
+    except: self.reportError("processWorkspaceBounds," "xywh extraction error"); traceback.print_exc(); return None
     return True
 
   ############# process locus (single) #############
@@ -94,13 +107,27 @@ class enoPlaces:
       sy = int((float(y) / float(wh) + wy) * sh)
       return [sx, sy]
 
-    except: print("enoPlaces processLocus error:"); traceback.print_exc(); return None
+    except: self.reportError("processLocus", "exception caught"); traceback.print_exc(); return None
 
   ############# process loci (multiple) #############
 
   def processLoci(self, ptypeName, locii):
 
     try:
+      y = self.yamlD  
+      if y is None:             self.reportError("processLoci", "yaml data not yet loaded"); return None
+
+      if 'placeTypes' not in y: self.reportError("processLoci", "placeTypes section not in yaml data!"); return None
+      pts = y['placeTypes']
+
+      if ptypeName not in pt:   self.reportError("processLoci", "ptypeName %s not in placeTypes" % ptypeName); return None
+      pt = pts[ptypeName]
+      
+      if 'glyph100' not in pt:  self.reportError("processLoci", "glyph100 not in placeTypes " + ptypeName); return None
+
+      glyphImgFn
+
+      gnd = self.glyphNormDict
       ptypeImgFn = self.getPTypeImgFn(ptypeName)
       for locus in locii:
         screenPos = self.processLocus(ptypeName, locii)

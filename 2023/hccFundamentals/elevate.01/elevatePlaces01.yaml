@@ -152,6 +152,7 @@ placeTypes:
     name:  All
     glyph: circle
     colorDefault: gray
+    glyph100:     gl100_ic
     loci:
      - [ 16881,  45712]
      - [ 99478,  29738]
