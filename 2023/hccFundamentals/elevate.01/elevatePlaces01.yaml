@@ -5,7 +5,6 @@
 base: 
   workspace: {x: -34.9, y: 18641.4, width: 120000, height: 120000}
 
-
 ################# place types ################# 
 
 placeTypes:
@@ -33,11 +32,11 @@ placeTypes:
   ################# eo: Extension Offices ################# 
 
   eo:
-    name:  Extension Offices
-    glyph:        circle 
-    colorDefault: green
-    glyph100:     gl100_eo
-    bboxShift:     [150, -400]      #initially, shift in screen coordinates
+    name:          Extension Offices
+    glyph:         circle 
+    colorDefault:  green
+    glyph100:      gl100_eo
+    bboxShift:     [-10, -400]      #initially, shift in screen coordinates
     bboxDimension: [102814, 102814]
     loci:
        - [4186, 62402]
