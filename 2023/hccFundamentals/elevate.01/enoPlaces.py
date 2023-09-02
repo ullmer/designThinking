@@ -42,6 +42,17 @@ class enoPlaces:
       print(errorMsg)
     except: print("enoPlaces reportError error:"); traceback.print_exc(); return None
 
+  ############# get field #############
+
+  def getField(self, function, dictionary, key):
+
+    if key not in dictionary:
+      self.reportError(function, "getField error: key %s not in dictionary %s!" % (key, dictionary))
+      return None
+
+    result = dictionary[key]
+    return result
+
   ############# load yaml #############
 
   def loadYaml(self, yamlFn):
@@ -110,24 +121,13 @@ class enoPlaces:
 
     except: self.reportError("processLocus", "exception caught"); traceback.print_exc(); return None
 
-  ############# get field #############
-
-  def getField(self, function, dictionary, key):
-
-    if key not in dictionary:
-      self.reportError(function, "getField error: key %s not in dictionary %s!" % (key, dictionary))
-      return None
-
-    result = dictionary[key]
-    return result
-
   ############# process loci (multiple) #############
 
   def processLoci(self, ptypeName, locii):
 
     try:
-      y = self.yamlD  
-      if y is None:             self.reportError("processLoci", "yaml data not yet loaded"); return None
+      y = self.yamlD  #yaml data shortcut
+      if y is None:   self.reportError("processLoci", "yaml data not yet loaded"); return None
 
       pts   = self.getField('processLoci', y, 'placeTypes'); if pts   is None: return
       pt    = self.getField('processLoci', pts, ptypeName);  if pt    is None: return
@@ -139,10 +139,6 @@ class enoPlaces:
         screenPos = self.processLocus(ptypeName, locii)
         a = Actor(imgFn, pos = screenPos)
         self.addActor(a, ptypeName)
-
-    #if  in self.yamlD:
-    #  self.bgFn    = self.yamlD[self.bgFnTag]
-    #  self.bgActor = Actor(self.bgFn)
 
   ############# add actor #############
 
