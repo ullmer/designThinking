@@ -9,7 +9,7 @@ from pgzero.builtins import Actor, animate, keyboard
 
 ##################### pygamezero button #####################
 
-class Places:
+class enoPlaces:
   fontSize   = 36
   yamlFn      = None #YAML filename; e.g., elevatePlaces01.yaml
   yamlD       = None #YAML data import
