@@ -20,6 +20,7 @@ class enoPlaces:
   glyphNormDict  = None
   glyphDimDict   = None
   glyphBriteDict = None
+  bboxDict       = None # for bounding boxes specific to different place types, per SVG oddity
   actorDict      = None
 
   workspace     = None
@@ -34,6 +35,7 @@ class enoPlaces:
     #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
 
     self.glyphNormDict, self.glyphDimDict, self.glyphBriteDict = {}, {}, {}
+    self.bboxDict = {}
     self.loadYaml(yamlFn)
 
   ############# report error #############
@@ -95,6 +97,11 @@ class enoPlaces:
           loci = ptype['loci']
           self.processLoci(ptypeName, loci)
 
+        if 'bboxDimension' in ptype:
+          bbox = ptype['bboxDimension']
+          self.bboxDict[ptypeName] = bbox
+          print("loadYaml: bbox detected for place type", ptypeName)
+  
   ############# process workspace bounds #############
 
   def processWorkspaceBounds(self):
@@ -119,8 +126,16 @@ class enoPlaces:
       xscale, yscale = self.xscale, self.yscale
       x, y = locus
 
-      sx = int(float(x) / float(ww) * sw * xscale) + dx
-      sy = int(float(y) / float(wh) * sh * yscale) + dy
+      bbw, bbh = None, None
+      if ptypeName in self.bboxDict: 
+        print("processlocus bbox detected for", ptypeName)
+        bbw, bbh = self.bboxDict[ptypeName] # bounding boxes specific to specific place types
+
+      if bbw is not None: w, h = bbw, bbh
+      else:               w, h = ww,  wh
+
+      sx = int(float(x) / float(w) * sw * xscale) + dx
+      sy = int(float(y) / float(h) * sh * yscale) + dy
 
       if self.verbose: print("processLocus %i %i" % (sx, sy))
       return [sx, sy]
