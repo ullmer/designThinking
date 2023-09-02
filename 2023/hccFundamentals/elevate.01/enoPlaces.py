@@ -2,7 +2,7 @@
 # Brygg Ullmer, Clemson University
 # Begun 2023-08-30
 
-import yaml
+import yaml, traceback
 
 from pgzero.builtins import Actor, animate, keyboard
 #https://stackoverflow.com/questions/55438239/name-actor-is-not-defined
@@ -66,7 +66,24 @@ class Places:
           loci = ptype['loci']
           self.processLoci(ptypeName, loci)
 
-  ############# pgzero draw #############
+  ############# process workspace bounds #############
+
+  def processWorkspaceBounds(self):
+    #  workspace: {x: -34.9, y: 18641.4, width: 120000, height: 120000}
+
+    w = self.workspace
+    if w is None: print("enoPlaces processWorkspaceBounds error: self.workspace unassigned"); return None
+
+    try:
+      self.workspaceX,     self.workspaceY      = w['x'],     w['y']
+      self.workspaceWidth, self.workspaceHeight = w['width'], w['height']
+
+    except: print("enoPlaces processWorkspaceBounds xywh extraction error:"); traceback.print_exc(); return None
+    return True
+
+  ############# process loci #############
+
+  def processLoci(self, ptypeName, locii):
 
     #if  in self.yamlD:
     #  self.bgFn    = self.yamlD[self.bgFnTag]
@@ -78,8 +95,4 @@ class Places:
     if self.bgActor is not None: self.bgActor.draw()
 
 ### end ###
-
-
-
-
 
