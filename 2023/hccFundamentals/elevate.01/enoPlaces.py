@@ -14,6 +14,7 @@ class enoPlaces:
   yamlFn      = None #YAML filename; e.g., elevatePlaces01.yaml
   yamlD       = None #YAML data import
   dx, dy      = 0, 0
+  screenWidth, screenHeight = 1200, 940
 
   workspace     = None
   placeTypeList = None
@@ -87,16 +88,26 @@ class enoPlaces:
   def processLocus(self, ptypeName, locus):
     try:
       wx, wy, ww, wh = self.workspaceX, self.workspaceY, self.workspaceWidth, self.workspaceHeight
+      sw, sh         = self.screenWidth, self.screenHeight
       x, y = locus
-      nx = float(x) / float(ww) + wx
-      ny = float(y) / float(wh) + wy
-      return [nx, ny]
+      sx = int((float(x) / float(ww) + wx) * sw)
+      sy = int((float(y) / float(wh) + wy) * sh)
+      return [sx, sy]
 
     except: print("enoPlaces processLocus error:"); traceback.print_exc(); return None
 
   ############# process loci (multiple) #############
 
   def processLoci(self, ptypeName, locii):
+
+    try:
+      ptypeImgFn = self.getPTypeImgFn(ptypeName)
+      for locus in locii:
+        screenPos = self.processLocus(ptypeName, locii)
+        a = Actor(ptypeImgFn, pos = screenPos)
+        self.addActor(a, ptypeName)
+
+        #, pos = screenPos)
 
     #if  in self.yamlD:
     #  self.bgFn    = self.yamlD[self.bgFnTag]
