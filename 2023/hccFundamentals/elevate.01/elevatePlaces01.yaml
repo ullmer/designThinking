@@ -8,8 +8,9 @@ base:
 ################# place types ################# 
 
 placeTypes:
-  #list: [ic, eo, rec, rh, es]
-  typeList: [all]
+  #typeList: [ic, eo, rec, rh, es]
+  typeList: [ic, eo, rec, rh, es, all]
+  #typeList: [all]
 
   ################# IC: Innovation Campuses ################# 
 
@@ -90,6 +91,7 @@ placeTypes:
     name:  Research and Education Centers
     glyph: drop 
     colorDefault: orange
+    glyph100:     gl100_rec
     loci:
        - [3384, 66810]
        - [55816, 35168]
@@ -106,6 +108,7 @@ placeTypes:
     name:  Rural Health
     glyph: cross
     colorDefault: purple
+    glyph100:     gl100_rh
     loci:
        - [3037, 72544]
        - [9708, 23930]
@@ -140,6 +143,7 @@ placeTypes:
     name:  Emerging Scholars
     glyph: book
     colorDefault: purple
+    glyph100:     gl100_es
     loci:
      - [3384, 78426]
      - [85456, 28331]
@@ -152,7 +156,7 @@ placeTypes:
     name:  All
     glyph: circle
     colorDefault: gray
-    glyph100:     gl100_ic
+    glyph100:     gl100_circ
     loci:
      - [ 16881,  45712]
      - [ 99478,  29738]

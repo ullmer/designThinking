@@ -162,6 +162,7 @@ class enoPlaces:
 
   def draw(self):
     if self.actorDict == None: self.reportError("draw", "No actors found in actorDict!"); return None
+
     for ptypeName in self.actorDict:
       ptActorList = self.actorDict[ptypeName]
       for a in ptActorList: a.draw()
