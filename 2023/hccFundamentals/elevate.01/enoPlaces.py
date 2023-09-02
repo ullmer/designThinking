@@ -13,6 +13,7 @@ class enoPlaces:
   fontSize   = 36
   yamlFn      = None #YAML filename; e.g., elevatePlaces01.yaml
   yamlD       = None #YAML data import
+  dx, dy      = 0, 0
 
   workspace     = None
   placeTypeList = None
@@ -81,7 +82,19 @@ class enoPlaces:
     except: print("enoPlaces processWorkspaceBounds xywh extraction error:"); traceback.print_exc(); return None
     return True
 
-  ############# process loci #############
+  ############# process locus (single) #############
+
+  def processLocus(self, ptypeName, locus):
+    try:
+      wx, wy, ww, wh = self.workspaceX, self.workspaceY, self.workspaceWidth, self.workspaceHeight
+      x, y = locus
+      nx = float(x) / float(ww) + wx
+      ny = float(y) / float(wh) + wy
+      return [nx, ny]
+
+    except: print("enoPlaces processLocus error:"); traceback.print_exc(); return None
+
+  ############# process loci (multiple) #############
 
   def processLoci(self, ptypeName, locii):
 
