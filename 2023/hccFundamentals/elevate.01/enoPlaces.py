@@ -23,6 +23,7 @@ class enoPlaces:
 
   workspace     = None
   placeTypeList = None
+  verbose       = False
 
   ############# constructor #############
 
@@ -117,7 +118,8 @@ class enoPlaces:
       x, y = locus
       sx = int(float(x) / float(ww) * sw) + dx
       sy = int(float(y) / float(wh) * sh) + dy
-      print("processLocus %i %i" % (sx, sy))
+
+      if self.verbose: print("processLocus %i %i" % (sx, sy))
       return [sx, sy]
 
     except: self.reportError("processLocus", "exception caught"); traceback.print_exc(); return None
