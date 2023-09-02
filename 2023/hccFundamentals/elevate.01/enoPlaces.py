@@ -10,10 +10,11 @@ from pgzero.builtins import Actor, animate, keyboard
 ##################### pygamezero button #####################
 
 class enoPlaces:
-  fontSize   = 36
-  yamlFn      = None #YAML filename; e.g., elevatePlaces01.yaml
-  yamlD       = None #YAML data import
-  dx, dy      = 0, -200
+  fontSize       = 36
+  yamlFn         = None #YAML filename; e.g., elevatePlaces01.yaml
+  yamlD          = None #YAML data import
+  dx, dy         = 0, -315
+  xscale, yscale = 1, 1.3
   screenWidth, screenHeight = 1200, 940
 
   glyphNormDict  = None
@@ -115,9 +116,11 @@ class enoPlaces:
     try:
       wx, wy, ww, wh = self.workspaceX, self.workspaceY, self.workspaceWidth, self.workspaceHeight
       sw, sh, dx, dy = self.screenWidth, self.screenHeight, self.dx, self.dy
+      xscale, yscale = self.xscale, self.yscale
       x, y = locus
-      sx = int(float(x) / float(ww) * sw) + dx
-      sy = int(float(y) / float(wh) * sh) + dy
+
+      sx = int(float(x) / float(ww) * sw * xscale) + dx
+      sy = int(float(y) / float(wh) * sh * yscale) + dy
 
       if self.verbose: print("processLocus %i %i" % (sx, sy))
       return [sx, sy]
