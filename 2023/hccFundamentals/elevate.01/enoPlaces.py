@@ -47,8 +47,8 @@ class enoPlaces:
   def getField(self, function, dictionary, key):
 
     if key not in dictionary:
-      self.reportError(function, "getField error: key %s not in dictionary %s!" % (key, dictionary))
-      return None
+      errorStr = "function %s: getField error: key %s not in dictionary %s!" % (function, key, dictionary)
+      raise Exception(errorStr)
 
     result = dictionary[key]
     return result
@@ -129,9 +129,11 @@ class enoPlaces:
       y = self.yamlD  #yaml data shortcut
       if y is None:   self.reportError("processLoci", "yaml data not yet loaded"); return None
 
-      pts   = self.getField('processLoci', y, 'placeTypes'); if pts   is None: return
-      pt    = self.getField('processLoci', pts, ptypeName);  if pt    is None: return
-      imgFn = self.getField('processLoci', pt,  'glyph100'); if imgFn is None: return
+      try: 
+        pts   = self.getField('processLoci', y, 'placeTypes')
+        pt    = self.getField('processLoci', pts, ptypeName)  
+        imgFn = self.getField('processLoci', pt,  'glyph100')
+      except: self.reportError("processLoci", "exception caught"); traceback.print_exc(); return None
 
       self.glyphNormDict[ptypeName] = imgFn
 
