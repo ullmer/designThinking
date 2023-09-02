@@ -110,6 +110,17 @@ class enoPlaces:
 
     except: self.reportError("processLocus", "exception caught"); traceback.print_exc(); return None
 
+  ############# get field #############
+
+  def getField(self, function, dictionary, key):
+
+    if key not in dictionary:
+      self.reportError(function, "getField error: key %s not in dictionary %s!" % (key, dictionary))
+      return None
+
+    result = dictionary[key]
+    return result
+
   ############# process loci (multiple) #############
 
   def processLoci(self, ptypeName, locii):
@@ -118,24 +129,16 @@ class enoPlaces:
       y = self.yamlD  
       if y is None:             self.reportError("processLoci", "yaml data not yet loaded"); return None
 
-      if 'placeTypes' not in y: self.reportError("processLoci", "placeTypes section not in yaml data!"); return None
-      pts = y['placeTypes']
+      pts   = self.getField('processLoci', y, 'placeTypes'); if pts   is None: return
+      pt    = self.getField('processLoci', pts, ptypeName);  if pt    is None: return
+      imgFn = self.getField('processLoci', pt,  'glyph100'); if imgFn is None: return
 
-      if ptypeName not in pt:   self.reportError("processLoci", "ptypeName %s not in placeTypes" % ptypeName); return None
-      pt = pts[ptypeName]
-      
-      if 'glyph100' not in pt:  self.reportError("processLoci", "glyph100 not in placeTypes " + ptypeName); return None
-
-      glyphImgFn = pt['glyph100']
-
-      self.glyphNormDict[ptypeName] = glyphImgFn
+      self.glyphNormDict[ptypeName] = imgFn
 
       for locus in locii:
         screenPos = self.processLocus(ptypeName, locii)
-        a = Actor(glyphImgFn, pos = screenPos)
+        a = Actor(imgFn, pos = screenPos)
         self.addActor(a, ptypeName)
-
-        #, pos = screenPos)
 
     #if  in self.yamlD:
     #  self.bgFn    = self.yamlD[self.bgFnTag]
