@@ -1,0 +1,103 @@
+mmpController:
+#MixxxControllerPreset:
+  info:
+    name: Novation Launchpad MK2
+    author: Midiparse, mod by Ullmer
+    description: Novation Launchpad mapping for Mixxx
+    forums: https://github.com/dszakallas/mixxx-launchpad
+  controller:
+    scriptfiles: {file: ''}
+    controls:
+      control:
+        - {group: '[Master]', key: m1, status: 176, midino: 104, options: {script-binding: ''}} #top margin
+        - {group: '[Master]', key: m2, status: 176, midino: 105, options: {script-binding: ''}}
+        - {group: '[Master]', key: m3, status: 176, midino: 106, options: {script-binding: ''}}
+        - {group: '[Master]', key: m4, status: 176, midino: 107, options: {script-binding: ''}}
+        - {group: '[Master]', key: m5, status: 176, midino: 108, options: {script-binding: ''}}
+        - {group: '[Master]', key: m6, status: 176, midino: 109, options: {script-binding: ''}}
+        - {group: '[Master]', key: m7, status: 176, midino: 110, options: {script-binding: ''}}
+        - {group: '[Master]', key: m8, status: 176, midino: 111, options: {script-binding: ''}}
+
+        - {group: '[Master]', key: ma, status: 144, midino:  89, options: {script-binding: ''}} #right margin
+        - {group: '[Master]', key: mb, status: 144, midino:  79, options: {script-binding: ''}}
+        - {group: '[Master]', key: mc, status: 144, midino:  69, options: {script-binding: ''}}
+        - {group: '[Master]', key: md, status: 144, midino:  59, options: {script-binding: ''}}
+        - {group: '[Master]', key: me, status: 144, midino:  49, options: {script-binding: ''}}
+        - {group: '[Master]', key: mf, status: 144, midino:  39, options: {script-binding: ''}}
+        - {group: '[Master]', key: mg, status: 144, midino:  29, options: {script-binding: ''}}
+        - {group: '[Master]', key: mh, status: 144, midino:  19, options: {script-binding: ''}}
+
+        - {group: '[Master]', key: a1, status: 144, midino:  81, options: {script-binding: ''}}
+        - {group: '[Master]', key: a2, status: 144, midino:  82, options: {script-binding: ''}}
+        - {group: '[Master]', key: a3, status: 144, midino:  83, options: {script-binding: ''}}
+        - {group: '[Master]', key: a4, status: 144, midino:  84, options: {script-binding: ''}}
+        - {group: '[Master]', key: a5, status: 144, midino:  85, options: {script-binding: ''}}
+        - {group: '[Master]', key: a6, status: 144, midino:  86, options: {script-binding: ''}}
+        - {group: '[Master]', key: a7, status: 144, midino:  87, options: {script-binding: ''}}
+        - {group: '[Master]', key: a8, status: 144, midino:  88, options: {script-binding: ''}}
+
+        - {group: '[Master]', key: b1, status: 144, midino:  71, options: {script-binding: ''}}
+        - {group: '[Master]', key: b2, status: 144, midino:  72, options: {script-binding: ''}}
+        - {group: '[Master]', key: b3, status: 144, midino:  73, options: {script-binding: ''}}
+        - {group: '[Master]', key: b4, status: 144, midino:  74, options: {script-binding: ''}}
+        - {group: '[Master]', key: b5, status: 144, midino:  75, options: {script-binding: ''}}
+        - {group: '[Master]', key: b6, status: 144, midino:  76, options: {script-binding: ''}}
+        - {group: '[Master]', key: b7, status: 144, midino:  77, options: {script-binding: ''}}
+        - {group: '[Master]', key: b8, status: 144, midino:  78, options: {script-binding: ''}}
+
+        - {group: '[Master]', key: c1, status: 144, midino:  61, options: {script-binding: ''}}
+        - {group: '[Master]', key: c2, status: 144, midino:  62, options: {script-binding: ''}}
+        - {group: '[Master]', key: c3, status: 144, midino:  63, options: {script-binding: ''}}
+        - {group: '[Master]', key: c4, status: 144, midino:  64, options: {script-binding: ''}}
+        - {group: '[Master]', key: c5, status: 144, midino:  65, options: {script-binding: ''}}
+        - {group: '[Master]', key: c6, status: 144, midino:  66, options: {script-binding: ''}}
+        - {group: '[Master]', key: c7, status: 144, midino:  67, options: {script-binding: ''}}
+        - {group: '[Master]', key: c8, status: 144, midino:  68, options: {script-binding: ''}}
+
+        - {group: '[Master]', key: d1, status: 144, midino:  51, options: {script-binding: ''}}
+        - {group: '[Master]', key: d2, status: 144, midino:  52, options: {script-binding: ''}}
+        - {group: '[Master]', key: d3, status: 144, midino:  53, options: {script-binding: ''}}
+        - {group: '[Master]', key: d4, status: 144, midino:  54, options: {script-binding: ''}}
+        - {group: '[Master]', key: d5, status: 144, midino:  55, options: {script-binding: ''}}
+        - {group: '[Master]', key: d6, status: 144, midino:  56, options: {script-binding: ''}}
+        - {group: '[Master]', key: d7, status: 144, midino:  57, options: {script-binding: ''}}
+        - {group: '[Master]', key: d8, status: 144, midino:  58, options: {script-binding: ''}}
+
+        - {group: '[Master]', key: e1, status: 144, midino:  41, options: {script-binding: ''}}
+        - {group: '[Master]', key: e2, status: 144, midino:  42, options: {script-binding: ''}}
+        - {group: '[Master]', key: e3, status: 144, midino:  43, options: {script-binding: ''}}
+        - {group: '[Master]', key: e4, status: 144, midino:  44, options: {script-binding: ''}}
+        - {group: '[Master]', key: e5, status: 144, midino:  45, options: {script-binding: ''}}
+        - {group: '[Master]', key: e6, status: 144, midino:  46, options: {script-binding: ''}}
+        - {group: '[Master]', key: e7, status: 144, midino:  47, options: {script-binding: ''}}
+        - {group: '[Master]', key: e8, status: 144, midino:  48, options: {script-binding: ''}}
+
+        - {group: '[Master]', key: f1, status: 144, midino:  31, options: {script-binding: ''}}
+        - {group: '[Master]', key: f2, status: 144, midino:  32, options: {script-binding: ''}}
+        - {group: '[Master]', key: f3, status: 144, midino:  33, options: {script-binding: ''}}
+        - {group: '[Master]', key: f4, status: 144, midino:  34, options: {script-binding: ''}}
+        - {group: '[Master]', key: f5, status: 144, midino:  35, options: {script-binding: ''}}
+        - {group: '[Master]', key: f6, status: 144, midino:  36, options: {script-binding: ''}}
+        - {group: '[Master]', key: f7, status: 144, midino:  37, options: {script-binding: ''}}
+        - {group: '[Master]', key: f8, status: 144, midino:  38, options: {script-binding: ''}}
+
+        - {group: '[Master]', key: g1, status: 144, midino:  21, options: {script-binding: ''}}
+        - {group: '[Master]', key: g2, status: 144, midino:  22, options: {script-binding: ''}}
+        - {group: '[Master]', key: g3, status: 144, midino:  23, options: {script-binding: ''}}
+        - {group: '[Master]', key: g4, status: 144, midino:  24, options: {script-binding: ''}}
+        - {group: '[Master]', key: g5, status: 144, midino:  25, options: {script-binding: ''}}
+        - {group: '[Master]', key: g6, status: 144, midino:  26, options: {script-binding: ''}}
+        - {group: '[Master]', key: g7, status: 144, midino:  27, options: {script-binding: ''}}
+        - {group: '[Master]', key: g8, status: 144, midino:  28, options: {script-binding: ''}}
+
+        - {group: '[Master]', key: h1, status: 144, midino:  11, options: {script-binding: ''}}
+        - {group: '[Master]', key: h2, status: 144, midino:  12, options: {script-binding: ''}}
+        - {group: '[Master]', key: h3, status: 144, midino:  13, options: {script-binding: ''}}
+        - {group: '[Master]', key: h4, status: 144, midino:  14, options: {script-binding: ''}}
+        - {group: '[Master]', key: h5, status: 144, midino:  15, options: {script-binding: ''}}
+        - {group: '[Master]', key: h6, status: 144, midino:  16, options: {script-binding: ''}}
+        - {group: '[Master]', key: h7, status: 144, midino:  17, options: {script-binding: ''}}
+        - {group: '[Master]', key: h8, status: 144, midino:  18, options: {script-binding: ''}}
+    outputs: ''
+
+### end ###

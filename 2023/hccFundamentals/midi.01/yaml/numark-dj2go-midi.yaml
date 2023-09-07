@@ -1,0 +1,55 @@
+#MixxxMIDIPreset:
+mmpController:
+  info:
+    name:   Numark DJ2Go
+    author: Alimantado, mod by Coval, mod by Ullmer
+    description: 11-Sep-2012. Made to be close as possible to how DJ2Go works with VDJ.
+    forums: >-
+      http://www.mixxx.org/forums/viewtopic.php?f=7&amp;t=2732&amp;start=140&amp;sid=da4226f3f9a11932881d0e609ee7f2cc
+    manual: numark_dj2go
+    source: https://github.com/mixxxdj/mixxx/blob/main/res/controllers/Numark%20DJ2Go.midi.xml
+  controller:
+    scriptfiles:
+      file: ''
+    controls:
+      control:
+        - {group: '[Master]',   key: volume,                 status: 176, midino: 23,  options: {soft-takeover:  ''}}
+        - {group: '[Master]',   key: headVolume,             status: 176, midino: 11,  options: {soft-takeover:  ''}}
+        - {group: '[Master]',   key: crossfader,             status: 176, midino: 10,  options: {soft-takeover:  ''}}
+
+        - {group: '[Playlist]', key: NumarkDJ2Go.backBut,    status: 128, midino: 89,  options: {script-binding: ''}}
+        - {group: '[Playlist]', key: NumarkDJ2Go.enterBut,   status: 128, midino: 90,  options: {script-binding: ''}}
+        - {group: '[Playlist]', key: NumarkDJ2Go.shiftBck,   status: 144, midino: 89,  options: {script-binding: ''}}
+        - {group: '[Playlist]', key: NumarkDJ2Go.shiftEnt,   status: 144, midino: 90,  options: {script-binding: ''}}
+        - {group: '[Playlist]', key: NumarkDJ2Go.selectKnob, status: 176, midino: 26,  options: {script-binding: ''}}
+
+        - {group: '[Channel1]', key: NumarkDJ2Go.shiftA,     status: 144, midino: 75,  options: {script-binding: ''}}
+        - {group: '[Channel1]', key: NumarkDJ2Go.load,       status: 128, midino: 75,  options: {script-binding: ''}}
+        - {group: '[Channel1]', key: volume,                 status: 176, midino: 8,   options: {soft-takeover:  ''}}
+        - {group: '[Channel1]', key: NumarkDJ2Go.loopOut,    status: 144, midino: 67,  options: {script-binding: ''}}
+        - {group: '[Channel1]', key: NumarkDJ2Go.loopIn,     status: 144, midino: 68,  options: {script-binding: ''}}
+        - {group: '[Channel1]', key: rate,                   status: 176, midino: 13,  options: {soft-takeover:  ''}}
+        - {group: '[Channel1]', key: NumarkDJ2Go.sync,       status: 144, midino: 64,  options: {script-binding: ''}}
+        - {group: '[Channel1]', key: NumarkDJ2Go.pfl,        status: 144, midino: 101, options: {script-binding: ''}}
+        - {group: '[Channel1]', key: NumarkDJ2Go.cue,        status: 144, midino: 51,  options: {script-binding: ''}}
+        - {group: '[Channel1]', key: NumarkDJ2Go.cue,        status: 128, midino: 51,  options: {script-binding: ''}}
+        - {group: '[Channel1]', key: NumarkDJ2Go.play,       status: 144, midino: 59,  options: {script-binding: ''}}
+        - {group: '[Channel1]', key: NumarkDJ2Go.play,       status: 128, midino: 59,  options: {script-binding: ''}}
+        - {group: '[Channel1]', key: NumarkDJ2Go.wheel,      status: 176, midino: 25,  options: {script-binding: ''}}
+
+        - {group: '[Channel2]', key: NumarkDJ2Go.shiftB,     status: 144, midino: 52,  options: {script-binding: ''}}
+        - {group: '[Channel2]', key: NumarkDJ2Go.load,       status: 128, midino: 52,  options: {script-binding: ''}}
+        - {group: '[Channel2]', key: volume,                 status: 176, midino: 9,   options: {soft-takeover:  ''}}
+        - {group: '[Channel2]', key: NumarkDJ2Go.loopOut,    status: 144, midino: 69,  options: {script-binding: ''}}
+        - {group: '[Channel2]', key: NumarkDJ2Go.loopIn,     status: 144, midino: 70,  options: {script-binding: ''}}
+        - {group: '[Channel2]', key: rate,                   status: 176, midino: 14,  options: {soft-takeover:  ''}}
+        - {group: '[Channel2]', key: NumarkDJ2Go.sync,       status: 144, midino: 71,  options: {script-binding: ''}}
+        - {group: '[Channel2]', key: NumarkDJ2Go.pfl,        status: 144, midino: 102, options: {script-binding: ''}}
+        - {group: '[Channel2]', key: NumarkDJ2Go.cue,        status: 144, midino: 60,  options: {script-binding: ''}}
+        - {group: '[Channel2]', key: NumarkDJ2Go.cue,        status: 128, midino: 60,  options: {script-binding: ''}} 
+        - {group: '[Channel2]', key: NumarkDJ2Go.play,       status: 144, midino: 66,  options: {script-binding: ''}}
+        - {group: '[Channel2]', key: NumarkDJ2Go.play,       status: 128, midino: 66,  options: {script-binding: ''}}
+        - {group: '[Channel2]', key: NumarkDJ2Go.wheel,      status: 176, midino: 24,  options: {script-binding: ''}}
+    outputs: ''
+
+### end ###
