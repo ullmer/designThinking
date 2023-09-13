@@ -55,27 +55,15 @@ mmpController:
 
         - {group: '[Channel2]', key: nMT3.FXButton, status: 146, midino: 9,  description: Channel 2 FX 3 button, 
                                 options: {script-binding: ''}}
-        - {group: '[Channel1]'
-          , key: nMT3.PFLButton
-          , description: Channel 1 PFL button
-          , status: 144
-          , midino: 14
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel2]'
-          , key: nMT3.PFLButton
-          , description: Channel 2 PFL button
-          , status: 144
-          , midino: 15
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel1]'
-          , key: nMT3.PlayButton
-          , description: Channel 1 play/pause button
-          , status: 145
-          , midino: 1
-          , options: {
-            script-binding: ''}}
+
+        - {group: '[Channel1]', key: nMT3.PFLButton, status: 144, midino: 14, description: Channel 1 PFL button, 
+                                options: {script-binding: ''}} 
+
+        - {group: '[Channel2]', key: nMT3.PFLButton, status: 144, midino: 15, description: Channel 2 PFL button, 
+                                options: {script-binding: ''}}
+
+        - {group: '[Channel1]', key: nMT3.PlayButton, status: 145, midino: 1, description: Channel 1 play/pause button, 
+                                options: {script-binding: ''}}
         - {group: '[Channel2]'
           , key: nMT3.PlayButton
           , description: Channel 2 play/pause button
