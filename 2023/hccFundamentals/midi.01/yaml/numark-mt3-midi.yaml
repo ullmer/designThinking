@@ -66,29 +66,9 @@ mmpController:
         - {group: '[Channel1]',        key: nMT3.PADLoopButton,   status: 145, midino: 23, description: Channel 1 PAD loop button 1}
         - {group: '[Channel2]',        key: nMT3.PADLoopButton,   status: 146, midino: 23, description: Channel 2 PAD loop button 1}
         - {group: '[Channel1]',        key: nMT3.PADLoopButton,   status: 145, midino: 24, description: Channel 1 PAD loop button 2}
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel2]'
-          , key: nMT3.PADLoopButton
-          , description: Channel 2 PAD loop button 2
-          , status: 146
-          , midino: 24
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel1]'
-          , key: nMT3.PADLoopButton
-          , description: Channel 1 PAD loop button 3
-          , status: 145
-          , midino: 25
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel2]'
-          , key: nMT3.PADLoopButton
-          , description: Channel 2 PAD loop button 3
-          , status: 146
-          , midino: 25
-          , options: {
-            script-binding: ''}}
+        - {group: '[Channel2]',        key: nMT3.PADLoopButton,   status: 146, midino: 24, description: Channel 2 PAD loop button 2}
+        - {group: '[Channel1]',        key: nMT3.PADLoopButton,   status: 145, midino: 25, description: Channel 1 PAD loop button 3}
+        - {group: '[Channel2]',        key: nMT3.PADLoopButton,   status: 146, midino: 25, description: Channel 2 PAD loop button 3}
         - {group: '[Channel1]'
           , key: nMT3.PADLoopButton
           , description: Channel 1 PAD loop button 4
