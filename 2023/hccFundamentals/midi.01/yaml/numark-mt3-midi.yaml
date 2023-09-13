@@ -54,69 +54,34 @@ mmpController:
         - {group: '[Channel1]', key: nMT3.loop_in,       status: 145, midino: 19, description: Channel 1 loop in button}
         - {group: '[Channel2]', key: nMT3.loop_in,       status: 146, midino: 19, description: Channel 1 loop in button}
 
-        - {group: '[QER1_[Channel1]]', key: nMT3.FilterKnob,  status: 177, midino: 4,  description: Channel 1 filter knob}
-        - {group: '[QER1_[Channel2]]', key: nMT3.FilterKnob,  status: 178, midino: 4,  description: Channel 2 filter knob}
-        - {group: '[Channel1]',        key: nMT3.loop_out,    status: 145, midino: 20, description: Channel 1 loop out button}
-        - {group: '[Channel2]',        key: nMT3.loop_out,    status: 146, midino: 20, description: Channel 2 loop out button}
-        - {group: '[Channel1]',        key: nMT3.reloop_exit, status: 145, midino: 21, description: Channel 1 loop on/off button}
-        - {group: '[Channel2]',        key: nMT3.reloop_exit, status: 146, midino: 21, description: Channel 2 loop on/off button}
+        - {group: '[Channel1]', key: nMT3.loop_out,    status: 145, midino: 20, description: Channel 1 loop out button}
+        - {group: '[Channel2]', key: nMT3.loop_out,    status: 146, midino: 20, description: Channel 2 loop out button}
+        - {group: '[Channel1]', key: nMT3.reloop_exit, status: 145, midino: 21, description: Channel 1 loop on/off button}
+        - {group: '[Channel2]', key: nMT3.reloop_exit, status: 146, midino: 21, description: Channel 2 loop on/off button}
 
-        - {group: '[Channel1]',        key: nMT3.LoopHalveButton, status: 145, midino: 22, description: Channel 1 halve loop button}
-        - {group: '[Channel2]',        key: nMT3.LoopHalveButton, status: 146, midino: 22, description: Channel 2 halve loop button}
-        - {group: '[Channel1]',        key: nMT3.PADLoopButton,   status: 145, midino: 23, description: Channel 1 PAD loop button 1}
-        - {group: '[Channel2]',        key: nMT3.PADLoopButton,   status: 146, midino: 23, description: Channel 2 PAD loop button 1}
-        - {group: '[Channel1]',        key: nMT3.PADLoopButton,   status: 145, midino: 24, description: Channel 1 PAD loop button 2}
-        - {group: '[Channel2]',        key: nMT3.PADLoopButton,   status: 146, midino: 24, description: Channel 2 PAD loop button 2}
-        - {group: '[Channel1]',        key: nMT3.PADLoopButton,   status: 145, midino: 25, description: Channel 1 PAD loop button 3}
-        - {group: '[Channel2]',        key: nMT3.PADLoopButton,   status: 146, midino: 25, description: Channel 2 PAD loop button 3}
-        - {group: '[Channel1]',        key: nMT3.PADLoopButton,   status: 145, midino: 26, description: Channel 1 PAD loop button 4}
-        - {group: '[Channel2]',        key: nMT3.PADLoopButton,   status: 146, midino: 26, description: Channel 2 PAD loop button 4}
-        - {group: '[Channel1]',        key: nMT3.HotCueButton,    status: 145, midino: 27, description: Channel 1 hotcue 1 button}
-        - {group: '[Channel2]',        key: nMT3.HotCueButton,    status: 146, midino: 27, description: Channel 2 hotcue 1 button}
-        - {group: '[Channel1]',        key: nMT3.HotCueButton,    status: 145, midino: 28, description: Channel 1 hotcue 2 button}
-        - {group: '[Channel2]',        key: nMT3.HotCueButton,    status: 146, midino: 28, description: Channel 2 hotcue 2 button}
-        - {group: '[Channel1]',        key: nMT3.HotCueButton,    status: 145, midino: 29, description: Channel 1 hotcue 3 button}
-        - {group: '[Channel2]',        key: nMT3.HotCueButton,    status: 146, midino: 29, description: Channel 2 hotcue 3 button}
-        - {group: '[Channel1]'
-          , key: nMT3.HotCueButton
-          , description: Channel 1 hotcue 4 button
-          , status: 145
-          , midino: 30
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel2]'
-          , key: nMT3.HotCueButton
-          , description: Channel 2 hotcue 4 button
-          , status: 146
-          , midino: 30
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel1]'
-          , key: nMT3.WheelMove
-          , description: Channel 1 jogwheel
-          , status: 177
-          , midino: 17
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel2]'
-          , key: nMT3.WheelMove
-          , description: Channel 2 jogwheel
-          , status: 178
-          , midino: 17
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel1]'
-          , key: nMT3.WheelTouch
-          , description: Channel 1 jogwheel capacitive sensor
-          , status: 145
-          , midino: 12
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel2]'
-          , key: nMT3.WheelTouch
-          , description: Channel 2 jogwheel capacitive sensor
-          , status: 146
-          , midino: 12
+        - {group: '[Channel1]', key: nMT3.WheelMove,   status: 177, midino: 17, description: Channel 1 jogwheel}
+        - {group: '[Channel2]', key: nMT3.WheelMove,   status: 178, midino: 17, description: Channel 2 jogwheel}
+        - {group: '[Channel1]', key: nMT3.WheelTouch,  status: 145, midino: 12, description: Channel 1 jogwheel capacitive sensor}
+        - {group: '[Channel2]', key: nMT3.WheelTouch,  status: 146, midino: 12, description: Channel 2 jogwheel capacitive sensor}
+
+        - {group: '[Channel1]', key: nMT3.LoopHalveButton, status: 145, midino: 22, description: Channel 1 halve loop button}
+        - {group: '[Channel2]', key: nMT3.LoopHalveButton, status: 146, midino: 22, description: Channel 2 halve loop button}
+        - {group: '[Channel1]', key: nMT3.PADLoopButton,   status: 145, midino: 23, description: Channel 1 PAD loop button 1}
+        - {group: '[Channel2]', key: nMT3.PADLoopButton,   status: 146, midino: 23, description: Channel 2 PAD loop button 1}
+        - {group: '[Channel1]', key: nMT3.PADLoopButton,   status: 145, midino: 24, description: Channel 1 PAD loop button 2}
+        - {group: '[Channel2]', key: nMT3.PADLoopButton,   status: 146, midino: 24, description: Channel 2 PAD loop button 2}
+        - {group: '[Channel1]', key: nMT3.PADLoopButton,   status: 145, midino: 25, description: Channel 1 PAD loop button 3}
+        - {group: '[Channel2]', key: nMT3.PADLoopButton,   status: 146, midino: 25, description: Channel 2 PAD loop button 3}
+        - {group: '[Channel1]', key: nMT3.PADLoopButton,   status: 145, midino: 26, description: Channel 1 PAD loop button 4}
+        - {group: '[Channel2]', key: nMT3.PADLoopButton,   status: 146, midino: 26, description: Channel 2 PAD loop button 4}
+        - {group: '[Channel1]', key: nMT3.HotCueButton,    status: 145, midino: 27, description: Channel 1 hotcue 1 button}
+        - {group: '[Channel2]', key: nMT3.HotCueButton,    status: 146, midino: 27, description: Channel 2 hotcue 1 button}
+        - {group: '[Channel1]', key: nMT3.HotCueButton,    status: 145, midino: 28, description: Channel 1 hotcue 2 button}
+        - {group: '[Channel2]', key: nMT3.HotCueButton,    status: 146, midino: 28, description: Channel 2 hotcue 2 button}
+        - {group: '[Channel1]', key: nMT3.HotCueButton,    status: 145, midino: 29, description: Channel 1 hotcue 3 button}
+        - {group: '[Channel2]', key: nMT3.HotCueButton,    status: 146, midino: 29, description: Channel 2 hotcue 3 button}
+        - {group: '[Channel1]', key: nMT3.HotCueButton,    status: 145, midino: 30, description: Channel 1 hotcue 4 button}
+        - {group: '[Channel2]', key: nMT3.HotCueButton,    status: 146, midino: 30, description: Channel 2 hotcue 4 button}
           , options: {
             script-binding: ''}}
         - {group: '[Channel1]'
@@ -301,6 +266,9 @@ mmpController:
           , midino: 19
           , options: {
             script-binding: ''}}
+        - {group: '[QER1_[Channel1]]', key: nMT3.FilterKnob,  status: 177, midino: 4,  description: Channel 1 filter knob}
+        - {group: '[QER1_[Channel2]]', key: nMT3.FilterKnob,  status: 178, midino: 4,  description: Channel 2 filter knob}
+
     outputs: ''}}
 
 
