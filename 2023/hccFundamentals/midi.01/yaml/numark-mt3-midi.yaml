@@ -3,7 +3,7 @@
 mmpController:
   info:
     name: Numark Mixtrack (Pro) 3
-    author: St├⌐phane Morin
+    author: St├⌐phane Morin, reformatting by Brygg Ullmer
     description: >-
       The Numark Mixtrack 3 and Numark Mixtrack Pro 3 are the same controller
       except that the Pro version has an integrated sound card.
@@ -18,118 +18,43 @@ mmpController:
         - {group: '[Channel1]', key: nMT3.volume, status: 177, midino: 5,  description: Channel 1 line fader, options: {script-binding: ''}}
         - {group: '[Channel2]', key: nMT3.volume, status: 178, midino: 5,  description: Channel 2 line fader, options: {script-binding: ''}}
         - {group: '[Master]',   key: gain,        status: 176, midino: 10, description: Master gain knob,     options: {normal: ''}}
-        - {group: '[Master]'
-          , key: headMix
-          , description: Cue mix knob
-          , status: 176
-          , midino: 9
-          , options: {
-            normal: ''}}
-        - {group: '[Master]'
-          , key: headGain
-          , description: Cue gain knob
-          , status: 176
-          , midino: 8
-          , options: {
-            normal: ''}}
-        - {group: '[Playlist]'
-          , key: nMT3.BrowseButton
-          , description: Browse button
-          , status: 144
-          , midino: 18
-          , options: {
-            script-binding: ''}}
-        - {group: '[Playlist]'
-          , key: nMT3.BrowseKnob
-          , description: Browse knob
-          , status: 176
-          , midino: 23
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel1]'
-          , key: nMT3.LoadButton
-          , description: Channel 1 load button
-          , status: 144
-          , midino: 16
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel2]'
-          , key: nMT3.LoadButton
-          , description: Channel 2 load button
-          , status: 144
-          , midino: 17
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel1]'
-          , key: nMT3.PadModeButton
-          , description: Channel 1 Pad Mode button
-          , status: 145
-          , midino: 13
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel2]'
-          , key: nMT3.PadModeButton
-          , description: Channel 2 Pad Mode button
-          , status: 146
-          , midino: 13
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel1]'
-          , key: nMT3.bpmTap
-          , description: bpm_tap
-          , status: 145
-          , midino: 10
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel2]'
-          , key: nMT3.bpmTap
-          , description: bpm_tap
-          , status: 146
-          , midino: 10
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel1]'
-          , key: nMT3.FXButton
-          , description: Channel 1 FX 1 button
-          , status: 145
-          , midino: 7
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel2]'
-          , key: nMT3.FXButton
-          , description: Channel 2 FX 1 button
-          , status: 146
-          , midino: 7
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel1]'
-          , key: nMT3.FXButton
-          , description: Channel 1 FX 2 button
-          , status: 145
-          , midino: 8
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel2]'
-          , key: nMT3.FXButton
-          , description: Channel 2 FX 2 button
-          , status: 146
-          , midino: 8
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel1]'
-          , key: nMT3.FXButton
-          , description: Channel 1 FX 3 button
-          , status: 145
-          , midino: 9
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel2]'
-          , key: nMT3.FXButton
-          , description: Channel 2 FX 3 button
-          , status: 146
-          , midino: 9
-          , options: {
-            script-binding: ''}}
+        - {group: '[Master]',   key: headMix,     status: 176, midino: 9,  description: Cue mix knob,         options: {normal: ''}}
+        - {group: '[Master]',   key: headGain,    status: 176, midino: 8,  description: Cue gain knob,        options: {normal: ''}}
+        - {group: '[Channel1]', key: nMT3.bpmTap, status: 145, midino: 10, description: bpm_tap, options: {script-binding: ''}}
+        - {group: '[Channel2]', key: nMT3.bpmTap, status: 146, midino: 10, description: bpm_tap, options: {script-binding: ''}}
+
+        - {group: '[Playlist]', key: nMT3.BrowseButton, status: 144, midino: 18, description: Browse button,  options: {script-binding: ''}}
+        - {group: '[Playlist]', key: nMT3.BrowseKnob,   status: 176, midino: 23, description: Browse knob,    options: {script-binding: ''}}
+
+        - {group: '[Channel1]', key: nMT3.LoadButton,   status: 144, midino: 16, description: Channel 1 load button, 
+                                options: {script-binding: ''}}
+
+        - {group: '[Channel2]', key: nMT3.LoadButton,   status: 144, midino: 17, description: Channel 2 load button, 
+                                options: {script-binding: ''}}
+
+        - {group: '[Channel1]', key: nMT3.PadModeButton, status: 145, midino: 13, description: Channel 1 Pad Mode button, 
+                                options: {script-binding: ''}}
+
+        - {group: '[Channel2]', key: nMT3.PadModeButton, status: 146, midino: 13, description: Channel 2 Pad Mode button, 
+                                options: {script-binding: ''}}
+
+        - {group: '[Channel1]', key: nMT3.FXButton, status: 145, midino: 7,  description: Channel 1 FX 1 button, 
+                                options: {script-binding: ''}}
+
+        - {group: '[Channel2]', key: nMT3.FXButton, status: 146, midino: 7,  description: Channel 2 FX 1 button, 
+                                options: {script-binding: ''}}
+
+        - {group: '[Channel1]', key: nMT3.FXButton, status: 145, midino: 8,  description: Channel 1 FX 2 button, 
+                                options: {script-binding: ''}}
+
+        - {group: '[Channel2]', key: nMT3.FXButton, status: 146, midino: 8,  description: Channel 2 FX 2 button, 
+                                options: {script-binding: ''}}
+
+        - {group: '[Channel1]', key: nMT3.FXButton, status: 145, midino: 9,  description: Channel 1 FX 3 button, 
+                                options: {script-binding: ''}}
+
+        - {group: '[Channel2]', key: nMT3.FXButton, status: 146, midino: 9,  description: Channel 2 FX 3 button, 
+                                options: {script-binding: ''}}
         - {group: '[Channel1]'
           , key: nMT3.PFLButton
           , description: Channel 1 PFL button
