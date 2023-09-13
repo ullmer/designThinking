@@ -49,50 +49,13 @@ mmpController:
         - {group: '[Channel2]', key: nMT3.EQKnob,        status: 178, midino: 3,  description: Channel 2 low EQ knob}
         - {group: '[Channel1]', key: nMT3.EQKnob,        status: 177, midino: 2,  description: Channel 1 mid EQ knob}
         - {group: '[Channel2]', key: nMT3.EQKnob,        status: 178, midino: 2,  description: Channel 2 mid EQ knob}
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel1]'
-          , key: nMT3.EQKnob
-          , description: Channel 1 high EQ knob
-          , status: 177
-          , midino: 1
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel2]'
-          , key: nMT3.EQKnob
-          , description: Channel 2 high EQ knob
-          , status: 178
-          , midino: 1
-          , options: {
-            script-binding: ''}}
-        - {group: '[QuickEffectRack1_[Channel1]]'
-          , key: nMT3.FilterKnob
-          , description: Channel 1 filter knob
-          , status: 177
-          , midino: 4
-          , options: {
-            script-binding: ''}}
-        - {group: '[QuickEffectRack1_[Channel2]]'
-          , key: nMT3.FilterKnob
-          , description: Channel 2 filter knob
-          , status: 178
-          , midino: 4
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel1]'
-          , key: nMT3.loop_in
-          , description: Channel 1 loop in button
-          , status: 145
-          , midino: 19
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel2]'
-          , key: nMT3.loop_in
-          , description: Channel 1 loop in button
-          , status: 146
-          , midino: 19
-          , options: {
-            script-binding: ''}}
+        - {group: '[Channel1]', key: nMT3.EQKnob,        status: 177, midino: 1,  description: Channel 1 high EQ knob}
+        - {group: '[Channel2]', key: nMT3.EQKnob,        status: 178, midino: 1 , description: Channel 2 high EQ knob}
+        - {group: '[Channel1]', key: nMT3.loop_in,       status: 145, midino: 19, description: Channel 1 loop in button}
+        - {group: '[Channel2]', key: nMT3.loop_in,       status: 146, midino: 19, description: Channel 1 loop in button}
+
+        - {group: '[QER1_[Channel1]]', key: nMT3.FilterKnob, status: 177, midino: 4, description: Channel 1 filter knob}
+        - {group: '[QER1_[Channel2]]', key: nMT3.FilterKnob, status: 178, midino: 4, description: Channel 2 filter knob}
         - {group: '[Channel1]'
           , key: nMT3.loop_out
           , description: Channel 1 loop out button
