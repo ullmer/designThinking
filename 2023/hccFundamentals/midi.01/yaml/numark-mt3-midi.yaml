@@ -14,16 +14,10 @@ mmpController:
       file: ''
     controls:
       control:
-        - {group: '[Master]',   key: crossfader,  status: 176, midino: 7, description: Crossfader, options: {Soft-takeover: ''}}
-        - {group: '[Channel1]', key: nMT3.volume, status: 177, midino: 5, description: Channel 1 line fader, options: {script-binding: ''}}
-        - {group: '[Channel2]', key: nMT3.volume, status: 178, midino: 5, description: Channel 2 line fader, options: {script-binding: ''}}
-        - {group: '[Master]'
-          , key: gain
-          , description: Master gain knob
-          , status: 176
-          , midino: 10
-          , options: {
-            normal: ''}}
+        - {group: '[Master]',   key: crossfader,  status: 176, midino: 7,  description: Crossfader,           options: {Soft-takeover: ''}}
+        - {group: '[Channel1]', key: nMT3.volume, status: 177, midino: 5,  description: Channel 1 line fader, options: {script-binding: ''}}
+        - {group: '[Channel2]', key: nMT3.volume, status: 178, midino: 5,  description: Channel 2 line fader, options: {script-binding: ''}}
+        - {group: '[Master]',   key: gain,        status: 176, midino: 10, description: Master gain knob,     options: {normal: ''}}
         - {group: '[Master]'
           , key: headMix
           , description: Cue mix knob
