@@ -88,6 +88,11 @@ mmpController:
         - {group: '[Sampler1]', key: nMT3.SamplerButton,   status: 145, midino: 32, description: Channel 1 sampler 1 button}
         - {group: '[Sampler5]', key: nMT3.SamplerButton,   status: 146, midino: 32, description: Channel 2 sampler 1 button}
         - {group: '[Sampler2]', key: nMT3.SamplerButton,   status: 145, midino: 33, description: Channel 1 sampler 2 button
+        - {group: '[Sampler6]', key: nMT3.SamplerButton,   status: 146, midino: 33, description: Channel 2 sampler 2 button}
+        - {group: '[Sampler3]', key: nMT3.SamplerButton,   status: 145, midino: 34, description: Channel 1 sampler 3 button}
+        - {group: '[Sampler7]', key: nMT3.SamplerButton,   status: 146, midino: 34, description: Channel 2 sampler 3 button}
+        - {group: '[Sampler4]', key: nMT3.SamplerButton,   status: 145, midino: 35, description: Channel 1 sampler 4 button}
+        - {group: '[Sampler8]', key: nMT3.SamplerButton,   status: 146, midino: 35, description: Channel 2 sampler 4 button}
 
         - {group: '[Channel1]', key: nMT3.PitchFaderHighValue,  status: 177, midino: 24, description: Channel 1 pitch fader main bits}
         - {group: '[Channel2]', key: nMT3.PitchFaderHighValue,  status: 178, midino: 24, description: Channel 2 pitch fader main bits}
@@ -97,99 +102,17 @@ mmpController:
         - {group: '[Channel2]', key: nMT3.PitchBendPlusButton,  status: 146, midino: 5,  description: Channel 2 pitch bend up button}
         - {group: '[Channel1]', key: nMT3.PitchBendMinusButton, status: 145, midino: 4,  description: Channel 1 pitch bend down button}
         - {group: '[Channel2]', key: nMT3.PitchBendMinusButton, status: 146, midino: 4, description: Channel 2 pitch bend down button}
-          , options: {
-            script-binding: ''}}
-        - {group: '[Sampler6]'
-          , key: nMT3.SamplerButton
-          , description: Channel 2 sampler 2 button
-          , status: 146
-          , midino: 33
-          , options: {
-            script-binding: ''}}
-        - {group: '[Sampler3]'
-          , key: nMT3.SamplerButton
-          , description: Channel 1 sampler 3 button
-          , status: 145
-          , midino: 34
-          , options: {
-            script-binding: ''}}
-        - {group: '[Sampler7]'
-          , key: nMT3.SamplerButton
-          , description: Channel 2 sampler 3 button
-          , status: 146
-          , midino: 34
-          , options: {
-            script-binding: ''}}
-        - {group: '[Sampler4]'
-          , key: nMT3.SamplerButton
-          , description: Channel 1 sampler 4 button
-          , status: 145
-          , midino: 35
-          , options: {
-            script-binding: ''}}
-        - {group: '[Sampler8]'
-          , key: nMT3.SamplerButton
-          , description: Channel 2 sampler 4 button
-          , status: 146
-          , midino: 35
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel1]'
-          , key: nMT3.StripTouchEffect
-          , description: Channel 1 strip
-          , status: 177
-          , midino: 26
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel2]'
-          , key: nMT3.StripTouchEffect
-          , description: Channel 2 strip
-          , status: 178
-          , midino: 26
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel1]'
-          , key: nMT3.StripTouchEffect
-          , description: Channel 1 SHIFT+strip
-          , status: 177
-          , midino: 27
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel2]'
-          , key: nMT3.StripTouchEffect
-          , description: Channel 2 SHIFT+strip
-          , status: 178
-          , midino: 27
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel1]'
-          , key: nMT3.InstantFXOff
-          , description: Channel 1 strip Instant FX Off
-          , status: 145
-          , midino: 31
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel2]'
-          , key: nMT3.InstantFXOff
-          , description: Channel 2 strip Instant FX Off
-          , status: 146
-          , midino: 31
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel1]'
-          , key: nMT3.BeatKnob
-          , description: Channel 1 FX 3 Knob
-          , status: 177
-          , midino: 19
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel2]'
-          , key: nMT3.BeatKnob
-          , description: Channel 2 Beat Knob
-          , status: 178
-          , midino: 19
-          , options: {
-            script-binding: ''}}
+
+        - {group: '[Channel1]', key: nMT3.StripTouchEffect, status: 177, midino: 26, description: Channel 1 strip}
+        - {group: '[Channel2]', key: nMT3.StripTouchEffect, status: 178, midino: 26, description: Channel 2 strip}
+        - {group: '[Channel1]', key: nMT3.StripTouchEffect, status: 177, midino: 27, description: Channel 1 SHIFT+strip}
+        - {group: '[Channel2]', key: nMT3.StripTouchEffect, status: 178, midino: 27, description: Channel 2 SHIFT+strip}
+        - {group: '[Channel1]', key: nMT3.InstantFXOff,     status: 145, midino: 31, description: Channel 1 strip Instant FX Off}
+        - {group: '[Channel2]', key: nMT3.InstantFXOff,     status: 146, midino: 31, description: Channel 2 strip Instant FX Off}
+
+        - {group: '[Channel1]', key: nMT3.BeatKnob, status: 177, midino: 19, description: Channel 1 FX 3 Knob}
+        - {group: '[Channel2]', key: nMT3.BeatKnob, status: 178, midino: 19, description: Channel 2 Beat Knob}
+
         - {group: '[QER1_[Channel1]]', key: nMT3.FilterKnob,  status: 177, midino: 4,  description: Channel 1 filter knob}
         - {group: '[QER1_[Channel2]]', key: nMT3.FilterKnob,  status: 178, midino: 4,  description: Channel 2 filter knob}
 
