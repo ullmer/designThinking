@@ -83,34 +83,11 @@ mmpController:
         - {group: '[Channel2]', key: nMT3.HotCueButton,    status: 146, midino: 29, description: Channel 2 hotcue 3 button}
         - {group: '[Channel1]', key: nMT3.HotCueButton,    status: 145, midino: 30, description: Channel 1 hotcue 4 button}
         - {group: '[Channel2]', key: nMT3.HotCueButton,    status: 146, midino: 30, description: Channel 2 hotcue 4 button}
-        - {group: '[Channel1]'
-          , key: nMT3.toggleJogMode
-          , description: Channel 1 wheel button
-          , status: 145
-          , midino: 6
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel2]'
-          , key: nMT3.toggleJogMode
-          , description: Channel 2 wheel button
-          , status: 146
-          , midino: 6
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel1]'
-          , key: nMT3.PitchFaderHighValue
-          , description: Channel 1 pitch fader main bits
-          , status: 177
-          , midino: 24
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel2]'
-          , key: nMT3.PitchFaderHighValue
-          , description: Channel 2 pitch fader main bits
-          , status: 178
-          , midino: 24
-          , options: {
-            script-binding: ''}}
+        - {group: '[Channel1]', key: nMT3.toggleJogMode,   status: 145, midino: 6,  description: Channel 1 wheel button}
+        - {group: '[Channel2]', key: nMT3.toggleJogMode,   status: 146, midino: 6,  description: Channel 2 wheel button}
+
+        - {group: '[Channel1]', key: nMT3.PitchFaderHighValue, status: 177, midino: 24, description: Channel 1 pitch fader main bits}
+        - {group: '[Channel2]', key: nMT3.PitchFaderHighValue, status: 178, midino: 24, description: Channel 2 pitch fader main bits}
         - {group: '[Channel1]'
           , key: nMT3.PitchFaderLowValue
           , description: Channel 1 pitch fader precision bits
