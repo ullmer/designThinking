@@ -86,41 +86,13 @@ mmpController:
         - {group: '[Channel1]', key: nMT3.toggleJogMode,   status: 145, midino: 6,  description: Channel 1 wheel button}
         - {group: '[Channel2]', key: nMT3.toggleJogMode,   status: 146, midino: 6,  description: Channel 2 wheel button}
 
-        - {group: '[Channel1]', key: nMT3.PitchFaderHighValue, status: 177, midino: 24, description: Channel 1 pitch fader main bits}
-        - {group: '[Channel2]', key: nMT3.PitchFaderHighValue, status: 178, midino: 24, description: Channel 2 pitch fader main bits}
-        - {group: '[Channel1]'
-          , key: nMT3.PitchFaderLowValue
-          , description: Channel 1 pitch fader precision bits
-          , status: 177
-          , midino: 56
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel2]'
-          , key: nMT3.PitchFaderLowValue
-          , description: Channel 2 pitch fader precision bits
-          , status: 178
-          , midino: 56
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel1]'
-          , key: nMT3.PitchBendPlusButton
-          , description: Channel 1 pitch bend up button
-          , status: 145
-          , midino: 5
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel2]'
-          , key: nMT3.PitchBendPlusButton
-          , description: Channel 2 pitch bend up button
-          , status: 146
-          , midino: 5
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel1]'
-          , key: nMT3.PitchBendMinusButton
-          , description: Channel 1 pitch bend down button
-          , status: 145
-          , midino: 4
+        - {group: '[Channel1]', key: nMT3.PitchFaderHighValue,  status: 177, midino: 24, description: Channel 1 pitch fader main bits}
+        - {group: '[Channel2]', key: nMT3.PitchFaderHighValue,  status: 178, midino: 24, description: Channel 2 pitch fader main bits}
+        - {group: '[Channel1]', key: nMT3.PitchFaderLowValue,   status: 177, midino: 56, description: Channel 1 pitch fader precision bits}
+        - {group: '[Channel2]', key: nMT3.PitchFaderLowValue,   status: 178, midino: 56, description: Channel 2 pitch fader precision bits}
+        - {group: '[Channel1]', key: nMT3.PitchBendPlusButton,  status: 145, midino: 5,  description: Channel 1 pitch bend up button}
+        - {group: '[Channel2]', key: nMT3.PitchBendPlusButton,  status: 146, midino: 5,  description: Channel 2 pitch bend up button}
+        - {group: '[Channel1]', key: nMT3.PitchBendMinusButton, status: 145, midino: 4,  description: Channel 1 pitch bend down button}
           , options: {
             script-binding: ''}}
         - {group: '[Channel2]'
