@@ -116,7 +116,7 @@ mmpController:
         - {group: '[QER1_[Channel1]]', key: nMT3.FilterKnob,  status: 177, midino: 4,  description: Channel 1 filter knob}
         - {group: '[QER1_[Channel2]]', key: nMT3.FilterKnob,  status: 178, midino: 4,  description: Channel 2 filter knob}
 
-    outputs: ''}}
+    outputs: ''
 
 
 ### end ###
