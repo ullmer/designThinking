@@ -69,32 +69,10 @@ mmpController:
         - {group: '[Channel2]',        key: nMT3.PADLoopButton,   status: 146, midino: 24, description: Channel 2 PAD loop button 2}
         - {group: '[Channel1]',        key: nMT3.PADLoopButton,   status: 145, midino: 25, description: Channel 1 PAD loop button 3}
         - {group: '[Channel2]',        key: nMT3.PADLoopButton,   status: 146, midino: 25, description: Channel 2 PAD loop button 3}
-        - {group: '[Channel1]'
-          , key: nMT3.PADLoopButton
-          , description: Channel 1 PAD loop button 4
-          , status: 145
-          , midino: 26
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel2]'
-          , key: nMT3.PADLoopButton
-          , description: Channel 2 PAD loop button 4
-          , status: 146
-          , midino: 26
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel1]'
-          , key: nMT3.HotCueButton
-          , description: Channel 1 hotcue 1 button
-          , status: 145
-          , midino: 27
-          , options: {
-            script-binding: ''}}
-        - {group: '[Channel2]'
-          , key: nMT3.HotCueButton
-          , description: Channel 2 hotcue 1 button
-          , status: 146
-          , midino: 27
+        - {group: '[Channel1]',        key: nMT3.PADLoopButton,   status: 145, midino: 26, description: Channel 1 PAD loop button 4}
+        - {group: '[Channel2]',        key: nMT3.PADLoopButton,   status: 146, midino: 26, description: Channel 2 PAD loop button 4}
+        - {group: '[Channel1]',        key: nMT3.HotCueButton,    status: 145, midino: 27, description: Channel 1 hotcue 1 button}
+        - {group: '[Channel2]',        key: nMT3.HotCueButton,    status: 146, midino: 27, description: Channel 2 hotcue 1 button}
           , options: {
             script-binding: ''}}
         - {group: '[Channel1]'
