@@ -14,643 +14,633 @@ mmpController:
       file: ''
     controls:
       control:
-        - {group: '[Master]',   key: crossfader, status: 176, midino: 7,   description: Crossfader, options: {Soft-takeover: ''}}
-        - {group: '[Channel1]', key: NumarkMixtrack3.volume , description: Channel 1 line fader
-          , status: 177
-          , midino: 5
-          , options: {
-            script-binding: ''}
-        - {group: '[Channel2]'
-          , key: NumarkMixtrack3.volume
-          , description: Channel 2 line fader
-          , status: 178
-          , midino: 5
-          , options: {
-            script-binding: ''}
+        - {group: '[Master]',   key: crossfader,  status: 176, midino: 7, description: Crossfader, options: {Soft-takeover: ''}}
+        - {group: '[Channel1]', key: nMT3.volume, status: 177, midino: 5, description: Channel 1 line fader, options: {script-binding: ''}}
+        - {group: '[Channel2]', key: nMT3.volume, status: 178, midino: 5, description: Channel 2 line fader, options: {script-binding: ''}}
         - {group: '[Master]'
           , key: gain
           , description: Master gain knob
           , status: 176
           , midino: 10
           , options: {
-            normal: ''}
+            normal: ''}}
         - {group: '[Master]'
           , key: headMix
           , description: Cue mix knob
           , status: 176
           , midino: 9
           , options: {
-            normal: ''}
+            normal: ''}}
         - {group: '[Master]'
           , key: headGain
           , description: Cue gain knob
           , status: 176
           , midino: 8
           , options: {
-            normal: ''}
+            normal: ''}}
         - {group: '[Playlist]'
-          , key: NumarkMixtrack3.BrowseButton
+          , key: nMT3.BrowseButton
           , description: Browse button
           , status: 144
           , midino: 18
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Playlist]'
-          , key: NumarkMixtrack3.BrowseKnob
+          , key: nMT3.BrowseKnob
           , description: Browse knob
           , status: 176
           , midino: 23
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel1]'
-          , key: NumarkMixtrack3.LoadButton
+          , key: nMT3.LoadButton
           , description: Channel 1 load button
           , status: 144
           , midino: 16
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel2]'
-          , key: NumarkMixtrack3.LoadButton
+          , key: nMT3.LoadButton
           , description: Channel 2 load button
           , status: 144
           , midino: 17
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel1]'
-          , key: NumarkMixtrack3.PadModeButton
+          , key: nMT3.PadModeButton
           , description: Channel 1 Pad Mode button
           , status: 145
           , midino: 13
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel2]'
-          , key: NumarkMixtrack3.PadModeButton
+          , key: nMT3.PadModeButton
           , description: Channel 2 Pad Mode button
           , status: 146
           , midino: 13
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel1]'
-          , key: NumarkMixtrack3.bpmTap
+          , key: nMT3.bpmTap
           , description: bpm_tap
           , status: 145
           , midino: 10
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel2]'
-          , key: NumarkMixtrack3.bpmTap
+          , key: nMT3.bpmTap
           , description: bpm_tap
           , status: 146
           , midino: 10
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel1]'
-          , key: NumarkMixtrack3.FXButton
+          , key: nMT3.FXButton
           , description: Channel 1 FX 1 button
           , status: 145
           , midino: 7
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel2]'
-          , key: NumarkMixtrack3.FXButton
+          , key: nMT3.FXButton
           , description: Channel 2 FX 1 button
           , status: 146
           , midino: 7
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel1]'
-          , key: NumarkMixtrack3.FXButton
+          , key: nMT3.FXButton
           , description: Channel 1 FX 2 button
           , status: 145
           , midino: 8
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel2]'
-          , key: NumarkMixtrack3.FXButton
+          , key: nMT3.FXButton
           , description: Channel 2 FX 2 button
           , status: 146
           , midino: 8
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel1]'
-          , key: NumarkMixtrack3.FXButton
+          , key: nMT3.FXButton
           , description: Channel 1 FX 3 button
           , status: 145
           , midino: 9
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel2]'
-          , key: NumarkMixtrack3.FXButton
+          , key: nMT3.FXButton
           , description: Channel 2 FX 3 button
           , status: 146
           , midino: 9
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel1]'
-          , key: NumarkMixtrack3.PFLButton
+          , key: nMT3.PFLButton
           , description: Channel 1 PFL button
           , status: 144
           , midino: 14
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel2]'
-          , key: NumarkMixtrack3.PFLButton
+          , key: nMT3.PFLButton
           , description: Channel 2 PFL button
           , status: 144
           , midino: 15
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel1]'
-          , key: NumarkMixtrack3.PlayButton
+          , key: nMT3.PlayButton
           , description: Channel 1 play/pause button
           , status: 145
           , midino: 1
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel2]'
-          , key: NumarkMixtrack3.PlayButton
+          , key: nMT3.PlayButton
           , description: Channel 2 play/pause button
           , status: 146
           , midino: 1
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel1]'
-          , key: NumarkMixtrack3.CueButton
+          , key: nMT3.CueButton
           , description: Channel 1 cue button
           , status: 145
           , midino: 3
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel2]'
-          , key: NumarkMixtrack3.CueButton
+          , key: nMT3.CueButton
           , description: Channel 2 cue button
           , status: 146
           , midino: 3
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel1]'
-          , key: NumarkMixtrack3.SyncButton
+          , key: nMT3.SyncButton
           , description: Channel 1 sync button
           , status: 145
           , midino: 2
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel2]'
-          , key: NumarkMixtrack3.SyncButton
+          , key: nMT3.SyncButton
           , description: Channel 2 sync button
           , status: 146
           , midino: 2
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel1]'
-          , key: NumarkMixtrack3.ShiftButton
+          , key: nMT3.ShiftButton
           , description: Channel 1 shift button
           , status: 145
           , midino: 11
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel2]'
-          , key: NumarkMixtrack3.ShiftButton
+          , key: nMT3.ShiftButton
           , description: Channel 2 shift button
           , status: 146
           , midino: 11
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel1]'
-          , key: NumarkMixtrack3.EQKnob
+          , key: nMT3.EQKnob
           , description: Channel 1 low EQ knob
           , status: 177
           , midino: 3
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel2]'
-          , key: NumarkMixtrack3.EQKnob
+          , key: nMT3.EQKnob
           , description: Channel 2 low EQ knob
           , status: 178
           , midino: 3
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel1]'
-          , key: NumarkMixtrack3.EQKnob
+          , key: nMT3.EQKnob
           , description: Channel 1 mid EQ knob
           , status: 177
           , midino: 2
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel2]'
-          , key: NumarkMixtrack3.EQKnob
+          , key: nMT3.EQKnob
           , description: Channel 2 mid EQ knob
           , status: 178
           , midino: 2
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel1]'
-          , key: NumarkMixtrack3.EQKnob
+          , key: nMT3.EQKnob
           , description: Channel 1 high EQ knob
           , status: 177
           , midino: 1
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel2]'
-          , key: NumarkMixtrack3.EQKnob
+          , key: nMT3.EQKnob
           , description: Channel 2 high EQ knob
           , status: 178
           , midino: 1
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[QuickEffectRack1_[Channel1]]'
-          , key: NumarkMixtrack3.FilterKnob
+          , key: nMT3.FilterKnob
           , description: Channel 1 filter knob
           , status: 177
           , midino: 4
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[QuickEffectRack1_[Channel2]]'
-          , key: NumarkMixtrack3.FilterKnob
+          , key: nMT3.FilterKnob
           , description: Channel 2 filter knob
           , status: 178
           , midino: 4
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel1]'
-          , key: NumarkMixtrack3.loop_in
+          , key: nMT3.loop_in
           , description: Channel 1 loop in button
           , status: 145
           , midino: 19
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel2]'
-          , key: NumarkMixtrack3.loop_in
+          , key: nMT3.loop_in
           , description: Channel 1 loop in button
           , status: 146
           , midino: 19
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel1]'
-          , key: NumarkMixtrack3.loop_out
+          , key: nMT3.loop_out
           , description: Channel 1 loop out button
           , status: 145
           , midino: 20
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel2]'
-          , key: NumarkMixtrack3.loop_out
+          , key: nMT3.loop_out
           , description: Channel 2 loop out button
           , status: 146
           , midino: 20
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel1]'
-          , key: NumarkMixtrack3.reloop_exit
+          , key: nMT3.reloop_exit
           , description: Channel 1 loop on/off button
           , status: 145
           , midino: 21
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel2]'
-          , key: NumarkMixtrack3.reloop_exit
+          , key: nMT3.reloop_exit
           , description: Channel 2 loop on/off button
           , status: 146
           , midino: 21
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel1]'
-          , key: NumarkMixtrack3.LoopHalveButton
+          , key: nMT3.LoopHalveButton
           , description: Channel 1 halve loop button
           , status: 145
           , midino: 22
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel2]'
-          , key: NumarkMixtrack3.LoopHalveButton
+          , key: nMT3.LoopHalveButton
           , description: Channel 2 halve loop button
           , status: 146
           , midino: 22
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel1]'
-          , key: NumarkMixtrack3.PADLoopButton
+          , key: nMT3.PADLoopButton
           , description: Channel 1 PAD loop button 1
           , status: 145
           , midino: 23
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel2]'
-          , key: NumarkMixtrack3.PADLoopButton
+          , key: nMT3.PADLoopButton
           , description: Channel 2 PAD loop button 1
           , status: 146
           , midino: 23
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel1]'
-          , key: NumarkMixtrack3.PADLoopButton
+          , key: nMT3.PADLoopButton
           , description: Channel 1 PAD loop button 2
           , status: 145
           , midino: 24
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel2]'
-          , key: NumarkMixtrack3.PADLoopButton
+          , key: nMT3.PADLoopButton
           , description: Channel 2 PAD loop button 2
           , status: 146
           , midino: 24
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel1]'
-          , key: NumarkMixtrack3.PADLoopButton
+          , key: nMT3.PADLoopButton
           , description: Channel 1 PAD loop button 3
           , status: 145
           , midino: 25
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel2]'
-          , key: NumarkMixtrack3.PADLoopButton
+          , key: nMT3.PADLoopButton
           , description: Channel 2 PAD loop button 3
           , status: 146
           , midino: 25
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel1]'
-          , key: NumarkMixtrack3.PADLoopButton
+          , key: nMT3.PADLoopButton
           , description: Channel 1 PAD loop button 4
           , status: 145
           , midino: 26
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel2]'
-          , key: NumarkMixtrack3.PADLoopButton
+          , key: nMT3.PADLoopButton
           , description: Channel 2 PAD loop button 4
           , status: 146
           , midino: 26
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel1]'
-          , key: NumarkMixtrack3.HotCueButton
+          , key: nMT3.HotCueButton
           , description: Channel 1 hotcue 1 button
           , status: 145
           , midino: 27
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel2]'
-          , key: NumarkMixtrack3.HotCueButton
+          , key: nMT3.HotCueButton
           , description: Channel 2 hotcue 1 button
           , status: 146
           , midino: 27
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel1]'
-          , key: NumarkMixtrack3.HotCueButton
+          , key: nMT3.HotCueButton
           , description: Channel 1 hotcue 2 button
           , status: 145
           , midino: 28
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel2]'
-          , key: NumarkMixtrack3.HotCueButton
+          , key: nMT3.HotCueButton
           , description: Channel 2 hotcue 2 button
           , status: 146
           , midino: 28
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel1]'
-          , key: NumarkMixtrack3.HotCueButton
+          , key: nMT3.HotCueButton
           , description: Channel 1 hotcue 3 button
           , status: 145
           , midino: 29
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel2]'
-          , key: NumarkMixtrack3.HotCueButton
+          , key: nMT3.HotCueButton
           , description: Channel 2 hotcue 3 button
           , status: 146
           , midino: 29
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel1]'
-          , key: NumarkMixtrack3.HotCueButton
+          , key: nMT3.HotCueButton
           , description: Channel 1 hotcue 4 button
           , status: 145
           , midino: 30
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel2]'
-          , key: NumarkMixtrack3.HotCueButton
+          , key: nMT3.HotCueButton
           , description: Channel 2 hotcue 4 button
           , status: 146
           , midino: 30
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel1]'
-          , key: NumarkMixtrack3.WheelMove
+          , key: nMT3.WheelMove
           , description: Channel 1 jogwheel
           , status: 177
           , midino: 17
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel2]'
-          , key: NumarkMixtrack3.WheelMove
+          , key: nMT3.WheelMove
           , description: Channel 2 jogwheel
           , status: 178
           , midino: 17
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel1]'
-          , key: NumarkMixtrack3.WheelTouch
+          , key: nMT3.WheelTouch
           , description: Channel 1 jogwheel capacitive sensor
           , status: 145
           , midino: 12
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel2]'
-          , key: NumarkMixtrack3.WheelTouch
+          , key: nMT3.WheelTouch
           , description: Channel 2 jogwheel capacitive sensor
           , status: 146
           , midino: 12
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel1]'
-          , key: NumarkMixtrack3.toggleJogMode
+          , key: nMT3.toggleJogMode
           , description: Channel 1 wheel button
           , status: 145
           , midino: 6
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel2]'
-          , key: NumarkMixtrack3.toggleJogMode
+          , key: nMT3.toggleJogMode
           , description: Channel 2 wheel button
           , status: 146
           , midino: 6
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel1]'
-          , key: NumarkMixtrack3.PitchFaderHighValue
+          , key: nMT3.PitchFaderHighValue
           , description: Channel 1 pitch fader main bits
           , status: 177
           , midino: 24
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel2]'
-          , key: NumarkMixtrack3.PitchFaderHighValue
+          , key: nMT3.PitchFaderHighValue
           , description: Channel 2 pitch fader main bits
           , status: 178
           , midino: 24
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel1]'
-          , key: NumarkMixtrack3.PitchFaderLowValue
+          , key: nMT3.PitchFaderLowValue
           , description: Channel 1 pitch fader precision bits
           , status: 177
           , midino: 56
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel2]'
-          , key: NumarkMixtrack3.PitchFaderLowValue
+          , key: nMT3.PitchFaderLowValue
           , description: Channel 2 pitch fader precision bits
           , status: 178
           , midino: 56
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel1]'
-          , key: NumarkMixtrack3.PitchBendPlusButton
+          , key: nMT3.PitchBendPlusButton
           , description: Channel 1 pitch bend up button
           , status: 145
           , midino: 5
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel2]'
-          , key: NumarkMixtrack3.PitchBendPlusButton
+          , key: nMT3.PitchBendPlusButton
           , description: Channel 2 pitch bend up button
           , status: 146
           , midino: 5
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel1]'
-          , key: NumarkMixtrack3.PitchBendMinusButton
+          , key: nMT3.PitchBendMinusButton
           , description: Channel 1 pitch bend down button
           , status: 145
           , midino: 4
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel2]'
-          , key: NumarkMixtrack3.PitchBendMinusButton
+          , key: nMT3.PitchBendMinusButton
           , description: Channel 2 pitch bend down button
           , status: 146
           , midino: 4
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Sampler1]'
-          , key: NumarkMixtrack3.SamplerButton
+          , key: nMT3.SamplerButton
           , description: Channel 1 sampler 1 button
           , status: 145
           , midino: 32
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Sampler5]'
-          , key: NumarkMixtrack3.SamplerButton
+          , key: nMT3.SamplerButton
           , description: Channel 2 sampler 1 button
           , status: 146
           , midino: 32
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Sampler2]'
-          , key: NumarkMixtrack3.SamplerButton
+          , key: nMT3.SamplerButton
           , description: Channel 1 sampler 2 button
           , status: 145
           , midino: 33
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Sampler6]'
-          , key: NumarkMixtrack3.SamplerButton
+          , key: nMT3.SamplerButton
           , description: Channel 2 sampler 2 button
           , status: 146
           , midino: 33
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Sampler3]'
-          , key: NumarkMixtrack3.SamplerButton
+          , key: nMT3.SamplerButton
           , description: Channel 1 sampler 3 button
           , status: 145
           , midino: 34
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Sampler7]'
-          , key: NumarkMixtrack3.SamplerButton
+          , key: nMT3.SamplerButton
           , description: Channel 2 sampler 3 button
           , status: 146
           , midino: 34
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Sampler4]'
-          , key: NumarkMixtrack3.SamplerButton
+          , key: nMT3.SamplerButton
           , description: Channel 1 sampler 4 button
           , status: 145
           , midino: 35
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Sampler8]'
-          , key: NumarkMixtrack3.SamplerButton
+          , key: nMT3.SamplerButton
           , description: Channel 2 sampler 4 button
           , status: 146
           , midino: 35
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel1]'
-          , key: NumarkMixtrack3.StripTouchEffect
+          , key: nMT3.StripTouchEffect
           , description: Channel 1 strip
           , status: 177
           , midino: 26
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel2]'
-          , key: NumarkMixtrack3.StripTouchEffect
+          , key: nMT3.StripTouchEffect
           , description: Channel 2 strip
           , status: 178
           , midino: 26
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel1]'
-          , key: NumarkMixtrack3.StripTouchEffect
+          , key: nMT3.StripTouchEffect
           , description: Channel 1 SHIFT+strip
           , status: 177
           , midino: 27
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel2]'
-          , key: NumarkMixtrack3.StripTouchEffect
+          , key: nMT3.StripTouchEffect
           , description: Channel 2 SHIFT+strip
           , status: 178
           , midino: 27
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel1]'
-          , key: NumarkMixtrack3.InstantFXOff
+          , key: nMT3.InstantFXOff
           , description: Channel 1 strip Instant FX Off
           , status: 145
           , midino: 31
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel2]'
-          , key: NumarkMixtrack3.InstantFXOff
+          , key: nMT3.InstantFXOff
           , description: Channel 2 strip Instant FX Off
           , status: 146
           , midino: 31
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel1]'
-          , key: NumarkMixtrack3.BeatKnob
+          , key: nMT3.BeatKnob
           , description: Channel 1 FX 3 Knob
           , status: 177
           , midino: 19
           , options: {
-            script-binding: ''}
+            script-binding: ''}}
         - {group: '[Channel2]'
-          , key: NumarkMixtrack3.BeatKnob
+          , key: nMT3.BeatKnob
           , description: Channel 2 Beat Knob
           , status: 178
           , midino: 19
           , options: {
-            script-binding: ''}
-    outputs: ''}
+            script-binding: ''}}
+    outputs: ''}}
 
 
 ### end ###
