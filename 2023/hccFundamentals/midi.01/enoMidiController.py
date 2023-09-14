@@ -307,7 +307,7 @@ class enoMidiController:
 
   ############# process midi update #############
 
-  def processMidiUpdate(self, midiNum, val):
+  def processMidiUpdate(self, midiStatus, midiNum):
     if self.controllerNumDict == None: 
       print("enoMidiController: processMidiUpdate called, but no registered data")
       return None
@@ -316,8 +316,9 @@ class enoMidiController:
 
     if midiNum in self.controllerNumDict:
       control = self.controllerNumDict[midiNum]
-      print("FOOBAR")
-      self.invokeCallback(control, val)
+      #print("FOOBAR")
+      #self.invokeCallback(control, val)
+      self.invokeCallback(control, 1)
     else:
       print("midiNum %s not in scnd %s" % (str(midiNum), str(self.controllerNumDict)))
 
