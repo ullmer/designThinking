@@ -32,9 +32,10 @@ class enoMidiController:
   midiIn    = None
   midiOut   = None
   lp        = None #launchpad handle
-
-  controllerNameDict = {'launchpad': 'novation-launchpad-mk2c-midi',
-                        'dj2go2':    'numark-dj2go2b-midi'}
+                                                                     #actIn  actOut actLaunch
+  controllerNameDict = {'launchpad': ['novation-launchpad-mk2c-midi', False, False, True],
+                        'dj2go2':    ['numark-dj2go2b-midi',          True,  True,  False],
+                        'mt3:'       ['numark-mt3-midi',              True,  True,  False]}
 
   controllerStatusNumDict  = None
   controllerNumDict        = None
@@ -55,9 +56,9 @@ class enoMidiController:
     #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
 
     self.controllerName = controllerName
-    yamlFn = self.controller2yamlFn(controllerName)
+    yamlFn = self.controller2yamlFnActivations(controllerName)
     self.loadYaml(yamlFn)
-    self.startMidi()
+    self.startMidi() # shaped partly by activations assigned within controller2yamlFnActivations; may benefit from refactoring
 
   ############# set/get active color #############
 
@@ -107,20 +108,28 @@ class enoMidiController:
 
   ############# map controller to yaml filename #############
 
-  def controller2yamlFn(self, controllerName):
+  def controller2yamlFnActivations(self, controllerName):
 
     if controllerName not in self.controllerNameDict:
-      print("enoMidiController controller2yamlFn: controllerName %s " + \
+      print("enoMidiController controller2yamlFnActivations: controllerName %s " + \
             "not in known list!" % controllerName)
       return None
 
-    fn1 = self.controllerNameDict[controllerName]
-    fn2 = "%s/%s.yaml" % (self.yamlDir, fn1)
+    try:
+      cns = self.controllerNameDict[controllerName] #controller name struct
+      fn1 = cns[0]
+      fn2 = "%s/%s.yaml" % (self.yamlDir, fn1)
 
-    if os.path.exists(fn2): return fn2
-    else: 
-      print("enoMidiController controller2yamlFn: filename %s does not exist!" % fn2)
-      return None
+      if os.path.exists(fn2): return fn2
+      else: 
+        print("enoMidiController controller2yamlFnActivations: filename %s does not exist!" % fn2)
+        return None
+
+      self.activateInput, self.activateOutput, self.activateLaunchpad = cns[1:] # map three boolean fields to activation 
+
+    except:
+      print("enoMidiController controller2yamlFnActivations error:")
+      traceback.print_exc(); return None
 
   ############# load yaml #############
 
