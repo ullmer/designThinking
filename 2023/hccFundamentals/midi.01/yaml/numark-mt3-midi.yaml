@@ -25,40 +25,41 @@ mmpController:
 
         - {group: '[Playlist]', key: nMT3.BrowseButton,  status: 144, midino: 18, description: Browse button}
         - {group: '[Playlist]', key: nMT3.BrowseKnob,    status: 176, midino: 23, description: Browse knob}
-        - {group: '[Channel1]', key: nMT3.LoadButton,    status: 144, midino: 16, description: Channel 1 load button}
-        - {group: '[Channel2]', key: nMT3.LoadButton,    status: 144, midino: 17, description: Channel 2 load button}
-        - {group: '[Channel1]', key: nMT3.PadModeButton, status: 145, midino: 13, description: Channel 1 Pad Mode button}
-        - {group: '[Channel2]', key: nMT3.PadModeButton, status: 146, midino: 13, description: Channel 2 Pad Mode button}
-        - {group: '[Channel1]', key: nMT3.FXButton,      status: 145, midino: 7,  description: Channel 1 FX 1 button}
-        - {group: '[Channel2]', key: nMT3.FXButton,      status: 146, midino: 7,  description: Channel 2 FX 1 button}
-        - {group: '[Channel1]', key: nMT3.FXButton,      status: 145, midino: 8,  description: Channel 1 FX 2 button}
-        - {group: '[Channel2]', key: nMT3.FXButton,      status: 146, midino: 8,  description: Channel 2 FX 2 button}
-        - {group: '[Channel1]', key: nMT3.FXButton,      status: 145, midino: 9,  description: Channel 1 FX 3 button}
-        - {group: '[Channel2]', key: nMT3.FXButton,      status: 146, midino: 9,  description: Channel 2 FX 3 button}
-        - {group: '[Channel1]', key: nMT3.PFLButton,     status: 144, midino: 14, description: Channel 1 PFL button}
-        - {group: '[Channel2]', key: nMT3.PFLButton,     status: 144, midino: 15, description: Channel 2 PFL button}
-        - {group: '[Channel1]', key: nMT3.PlayButton,    status: 145, midino: 1,  description: Channel 1 play/pause button}
-        - {group: '[Channel2]', key: nMT3.PlayButton,    status: 146, midino: 1,  description: Channel 2 play/pause button}
-        - {group: '[Channel1]', key: nMT3.CueButton,     status: 145, midino: 3,  description: Channel 1 cue button}
-        - {group: '[Channel2]', key: nMT3.CueButton,     status: 146, midino: 3,  description: Channel 2 cue button}
-        - {group: '[Channel1]', key: nMT3.SyncButton,    status: 145, midino: 2,  description: Channel 1 sync button}
-        - {group: '[Channel2]', key: nMT3.SyncButton,    status: 146, midino: 2,  description: Channel 2 sync button}
-        - {group: '[Channel1]', key: nMT3.ShiftButton,   status: 145, midino: 11, description: Channel 1 shift button}
-        - {group: '[Channel2]', key: nMT3.ShiftButton,   status: 146, midino: 11, description: Channel 2 shift button}
+        - {group: '[Channel1]', key: nMT3.LoadButton1,   status: 144, midino: 16, description: Channel 1 load button}
+        - {group: '[Channel2]', key: nMT3.LoadButton2,   status: 144, midino: 17, description: Channel 2 load button}
+        - {group: '[Channel1]', key: nMT3.FXButton1a,    status: 145, midino: 7,  description: Channel 1 FX 1 button}
+        - {group: '[Channel2]', key: nMT3.FXButton2a,    status: 146, midino: 7,  description: Channel 2 FX 1 button}
+        - {group: '[Channel1]', key: nMT3.FXButton1b,    status: 145, midino: 8,  description: Channel 1 FX 2 button}
+        - {group: '[Channel2]', key: nMT3.FXButton2b,    status: 146, midino: 8,  description: Channel 2 FX 2 button}
+        - {group: '[Channel1]', key: nMT3.FXButton3a,    status: 145, midino: 9,  description: Channel 1 FX 3 button}
+        - {group: '[Channel2]', key: nMT3.FXButton3b,    status: 146, midino: 9,  description: Channel 2 FX 3 button}
+        - {group: '[Channel1]', key: nMT3.PFLButton1,    status: 144, midino: 14, description: Channel 1 PFL button}
+        - {group: '[Channel2]', key: nMT3.PFLButton2,    status: 144, midino: 15, description: Channel 2 PFL button}
+        - {group: '[Channel1]', key: nMT3.PlayButton1,   status: 145, midino: 1,  description: Channel 1 play/pause button}
+        - {group: '[Channel2]', key: nMT3.PlayButton2,   status: 146, midino: 1,  description: Channel 2 play/pause button}
+        - {group: '[Channel1]', key: nMT3.CueButton1,    status: 145, midino: 3,  description: Channel 1 cue button}
+        - {group: '[Channel2]', key: nMT3.CueButton2,    status: 146, midino: 3,  description: Channel 2 cue button}
+        - {group: '[Channel1]', key: nMT3.SyncButton1,   status: 145, midino: 2,  description: Channel 1 sync button}
+        - {group: '[Channel2]', key: nMT3.SyncButton2,   status: 146, midino: 2,  description: Channel 2 sync button}
+        - {group: '[Channel1]', key: nMT3.ShiftButton1,  status: 145, midino: 11, description: Channel 1 shift button}
+        - {group: '[Channel2]', key: nMT3.ShiftButton2,  status: 146, midino: 11, description: Channel 2 shift button}
 
-        - {group: '[Channel1]', key: nMT3.EQKnob,      status: 177, midino: 3,  description: Channel 1 low EQ knob}
-        - {group: '[Channel2]', key: nMT3.EQKnob,      status: 178, midino: 3,  description: Channel 2 low EQ knob}
-        - {group: '[Channel1]', key: nMT3.EQKnob,      status: 177, midino: 2,  description: Channel 1 mid EQ knob}
-        - {group: '[Channel2]', key: nMT3.EQKnob,      status: 178, midino: 2,  description: Channel 2 mid EQ knob}
-        - {group: '[Channel1]', key: nMT3.EQKnob,      status: 177, midino: 1,  description: Channel 1 high EQ knob}
-        - {group: '[Channel2]', key: nMT3.EQKnob,      status: 178, midino: 1 , description: Channel 2 high EQ knob}
-        - {group: '[Channel1]', key: nMT3.loop_in,     status: 145, midino: 19, description: Channel 1 loop in button}
-        - {group: '[Channel2]', key: nMT3.loop_in,     status: 146, midino: 19, description: Channel 1 loop in button}
+        - {group: '[Channel1]', key: nMT3.EQKnob1a,    status: 177, midino: 3,  description: Channel 1 low EQ knob}
+        - {group: '[Channel2]', key: nMT3.EQKnob2a,    status: 178, midino: 3,  description: Channel 2 low EQ knob}
+        - {group: '[Channel1]', key: nMT3.EQKnob1b,    status: 177, midino: 2,  description: Channel 1 mid EQ knob}
+        - {group: '[Channel2]', key: nMT3.EQKnob2b,    status: 178, midino: 2,  description: Channel 2 mid EQ knob}
+        - {group: '[Channel1]', key: nMT3.EQKnob1c,    status: 177, midino: 1,  description: Channel 1 high EQ knob}
+        - {group: '[Channel2]', key: nMT3.EQKnob2c,    status: 178, midino: 1 , description: Channel 2 high EQ knob}
+        - {group: '[Channel1]', key: nMT3.loop_in1,    status: 145, midino: 19, description: Channel 1 loop in button}
+        - {group: '[Channel2]', key: nMT3.loop_in2,    status: 146, midino: 19, description: Channel 2 loop in button}
 
-        - {group: '[Channel1]', key: nMT3.loop_out,    status: 145, midino: 20, description: Channel 1 loop out button}
-        - {group: '[Channel2]', key: nMT3.loop_out,    status: 146, midino: 20, description: Channel 2 loop out button}
-        - {group: '[Channel1]', key: nMT3.reloop_exit, status: 145, midino: 21, description: Channel 1 loop on/off button}
-        - {group: '[Channel2]', key: nMT3.reloop_exit, status: 146, midino: 21, description: Channel 2 loop on/off button}
+        - {group: '[Channel1]', key: nMT3.loop_out1,   status: 145, midino: 20, description: Channel 1 loop out button}
+        - {group: '[Channel2]', key: nMT3.loop_out2,   status: 146, midino: 20, description: Channel 2 loop out button}
+
+        - {group: '[Channel1]', key: nMT3.reloop_exit1,   status: 145, midino: 21, description: Channel 1 loop on/off button}
+        - {group: '[Channel2]', key: nMT3.reloop_exit2,   status: 146, midino: 21, description: Channel 2 loop on/off button}
+        - {group: '[Channel1]', key: nMT3.PadModeButton1, status: 145, midino: 13, description: Channel 1 Pad Mode button}
+        - {group: '[Channel2]', key: nMT3.PadModeButton2, status: 146, midino: 13, description: Channel 2 Pad Mode button}
 
         - {group: '[Channel1]', key: nMT3.WheelMove,   status: 177, midino: 17, description: Channel 1 jogwheel}
         - {group: '[Channel2]', key: nMT3.WheelMove,   status: 178, midino: 17, description: Channel 2 jogwheel}
