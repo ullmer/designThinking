@@ -25,9 +25,9 @@ class enoMidiController:
   midiCtrlOutputId    = 3
   numMidiReadsPerPoll = 50
 
-  activateInput     = False
-  activateOutput    = False
-  activateLaunchpad = True # integrates input and output
+  activateInput     = None
+  activateOutput    = None
+  activateLaunchpad = None # integrates input and output
 
   midiIn    = None
   midiOut   = None
@@ -35,7 +35,7 @@ class enoMidiController:
                                                                      #actIn  actOut actLaunch
   controllerNameDict = {'launchpad': ['novation-launchpad-mk2c-midi', False, False, True ],
                         'nu_dj2go2': ['numark-dj2go2b-midi',          True,  True,  False],
-                        'nu_mt3:'    ['numark-mt3-midi',              True,  True,  False]}
+                        'nu_mt3':    ['numark-mt3-midi',              True,  True,  False]}
 
   controllerStatusNumDict  = None
   controllerNumDict        = None
@@ -226,6 +226,7 @@ class enoMidiController:
   ############# initLaunchpad #############
 
   def initLaunchpad(self):
+    print("enoMidiController initLaunchpad called")
     try:
       import launchpad_py as launchpad
     except ImportError:
