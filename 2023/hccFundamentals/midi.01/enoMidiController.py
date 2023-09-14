@@ -291,19 +291,19 @@ class enoMidiController:
       self.setLaunchpadXYColor(x, y, r2, g2, b2)
       self.topMarginColors.append([r2, g2, b2])
 
-  ############# process midi update #############
+#  ############# process midi update #############
+#
+#  def processMidiUpdate(self, midiStatus, midiNum, val):
+#    #print("pmu", midiStatus, midiNum, val)
+#    msn = self.midiStatusNumKey(midiStatus, midiNum)
 
-  def processMidiUpdate(self, midiStatus, midiNum, val):
-    #print("pmu", midiStatus, midiNum, val)
-    msn = self.midiStatusNumKey(midiStatus, midiNum)
-
-    if self.controllerStatusNumDict == None: 
-      print("enoMidiController: processMidiUpdate called, but no registered data")
-      return None
-
-    if msn in self.controllerStatusNumDict:
-      control = self.controllerStatusNumDict[msn]
-      self.invokeCallback(control, val)
+#    if self.controllerStatusNumDict == None: 
+#      print("enoMidiController: processMidiUpdate called, but no registered data")
+#      return None
+#
+#    if msn in self.controllerStatusNumDict:
+#      control = self.controllerStatusNumDict[msn]
+#      self.invokeCallback(control, val)
 
   ############# process midi update #############
 
@@ -311,10 +311,15 @@ class enoMidiController:
     if self.controllerNumDict == None: 
       print("enoMidiController: processMidiUpdate called, but no registered data")
       return None
+    
+    #print("FOOFOO")
 
     if midiNum in self.controllerNumDict:
       control = self.controllerNumDict[midiNum]
+      print("FOOBAR")
       self.invokeCallback(control, val)
+    else:
+      print("midiNum %s not in scnd %s" % (str(midiNum), str(self.controllerNumDict)))
 
   ############# pollMidi #############
 
@@ -332,7 +337,7 @@ class enoMidiController:
         payload, timestamp = el
         midiStatus, midiNum, val1, val2 = payload
 
-        print("FOO:", midiStatus, midiNum, val1, val2)
+        #print("FOO:", midiStatus, midiNum, val1, val2)
         #self.processMidiUpdate(midiStatus, midiNum, val1)
         self.processMidiUpdate(midiStatus, midiNum)
   
