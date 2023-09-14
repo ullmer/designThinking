@@ -58,6 +58,7 @@ class enoMidiController:
 
     self.controllerName = controllerName
     yamlFn = self.controller2yamlFnActivations(controllerName)
+    print("activateInput:", self.activateInput)
     self.loadYaml(yamlFn)
     self.startMidi() # shaped partly by activations assigned within controller2yamlFnActivations; may benefit from refactoring
 
@@ -125,12 +126,13 @@ class enoMidiController:
       fn1 = cns[0]
       fn2 = "%s/%s.yaml" % (self.yamlDir, fn1)
 
+      self.activateInput, self.activateOutput, self.activateLaunchpad = cns[1], cns[2], cns[3]
+      print("aI:", self.activateInput)
+
       if os.path.exists(fn2): return fn2
       else: 
         print("enoMidiController controller2yamlFnActivations: filename %s does not exist!" % fn2)
         return None
-
-      self.activateInput, self.activateOutput, self.activateLaunchpad = cns[1:] # map three boolean fields to activation 
 
     except:
       print("enoMidiController controller2yamlFnActivations error:")
