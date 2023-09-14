@@ -41,7 +41,8 @@ class enoMidiController:
   controllerNumDict        = None
   controlCbDict            = None # control callback dictionary
 
-  rainbow8 = [[63, 0, 0], [63, 21, 0], [63, 63, 0], [0, 63, 0], [0, 0, 63], [30, 0, 50], [50, 0, 30], [63, 63, 63]]
+  rainbow8 = [[63, 0, 0], [63, 21, 0], [63, 63, 0], [0,  63,  0], 
+              [0, 0, 63], [30, 0, 50], [50, 0, 30], [63, 63, 63]]
   colorDivisors = [63, 40, 30, 20, 8, 5, 2, 1]
   activeColor = [63, 63, 63]
 
@@ -102,8 +103,12 @@ class enoMidiController:
 
     #if self.activateLaunchpad: self.initLaunchpad()
 
-    if self.activateInput:     self.midiIn  = pygame.midi.Input(inId)
-    if self.activateOutput:    self.midiOut = pygame.midi.Input(outId)
+    if self.activateInput:     
+      self.midiIn  = pygame.midi.Input(inId);  print("enoMidiController: launching midi input")
+
+    if self.activateOutput:    
+      self.midiOut = pygame.midi.Input(outId); print("enoMidiController: launching midi output")
+
     if self.activateLaunchpad: self.initLaunchpad()
 
   ############# map controller to yaml filename #############
@@ -319,7 +324,7 @@ class enoMidiController:
         midiNum, val1 = bstate
         self.processMidiUpdate(midiNum, val1)
 
-    elif self.midiIn is not None:
+    if self.midiIn is not None:
       events = self.midiIn.read(self.numMidiReadsPerPoll)
       for el in events: 
         #print(".", end=""); sys.stdout.flush()
