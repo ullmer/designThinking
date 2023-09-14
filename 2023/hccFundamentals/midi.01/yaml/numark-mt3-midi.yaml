@@ -3,7 +3,7 @@
 mmpController:
   info:
     name: Numark Mixtrack (Pro) 3
-    author: St├⌐phane Morin, reformatting by Brygg Ullmer
+    author: Stephane Morin, reformatting by Brygg Ullmer
     description: >-
       The Numark Mixtrack 3 and Numark Mixtrack Pro 3 are the same controller
       except that the Pro version has an integrated sound card.
@@ -87,7 +87,7 @@ mmpController:
         - {group: '[Channel2]', key: nMT3.toggleJogMode,   status: 146, midino: 6,  description: Channel 2 wheel button}
         - {group: '[Sampler1]', key: nMT3.SamplerButton,   status: 145, midino: 32, description: Channel 1 sampler 1 button}
         - {group: '[Sampler5]', key: nMT3.SamplerButton,   status: 146, midino: 32, description: Channel 2 sampler 1 button}
-        - {group: '[Sampler2]', key: nMT3.SamplerButton,   status: 145, midino: 33, description: Channel 1 sampler 2 button
+        - {group: '[Sampler2]', key: nMT3.SamplerButton,   status: 145, midino: 33, description: Channel 1 sampler 2 button}
         - {group: '[Sampler6]', key: nMT3.SamplerButton,   status: 146, midino: 33, description: Channel 2 sampler 2 button}
         - {group: '[Sampler3]', key: nMT3.SamplerButton,   status: 145, midino: 34, description: Channel 1 sampler 3 button}
         - {group: '[Sampler7]', key: nMT3.SamplerButton,   status: 146, midino: 34, description: Channel 2 sampler 3 button}
