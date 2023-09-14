@@ -33,9 +33,9 @@ class enoMidiController:
   midiOut   = None
   lp        = None #launchpad handle
                                                                      #actIn  actOut actLaunch
-  controllerNameDict = {'launchpad': ['novation-launchpad-mk2c-midi', False, False, True],
-                        'dj2go2':    ['numark-dj2go2b-midi',          True,  True,  False],
-                        'mt3:'       ['numark-mt3-midi',              True,  True,  False]}
+  controllerNameDict = {'launchpad': ['novation-launchpad-mk2c-midi', False, False, True ],
+                        'nu_dj2go2': ['numark-dj2go2b-midi',          True,  True,  False],
+                        'nu_mt3:'    ['numark-mt3-midi',              True,  True,  False]}
 
   controllerStatusNumDict  = None
   controllerNumDict        = None
