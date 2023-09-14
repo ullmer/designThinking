@@ -61,39 +61,39 @@ mmpController:
         - {group: '[Channel1]', key: nMT3.PadModeButton1, status: 145, midino: 13, description: Channel 1 Pad Mode button}
         - {group: '[Channel2]', key: nMT3.PadModeButton2, status: 146, midino: 13, description: Channel 2 Pad Mode button}
 
-        - {group: '[Channel1]', key: nMT3.WheelMove,   status: 177, midino: 17, description: Channel 1 jogwheel}
-        - {group: '[Channel2]', key: nMT3.WheelMove,   status: 178, midino: 17, description: Channel 2 jogwheel}
-        - {group: '[Channel1]', key: nMT3.WheelTouch,  status: 145, midino: 12, description: Channel 1 jogwheel capacitive sensor}
-        - {group: '[Channel2]', key: nMT3.WheelTouch,  status: 146, midino: 12, description: Channel 2 jogwheel capacitive sensor}
+        - {group: '[Channel1]', key: nMT3.WheelMove1,   status: 177, midino: 17, description: Channel 1 jogwheel}
+        - {group: '[Channel2]', key: nMT3.WheelMove2,   status: 178, midino: 17, description: Channel 2 jogwheel}
+        - {group: '[Channel1]', key: nMT3.WheelTouch1,  status: 145, midino: 12, description: Channel 1 jogwheel capacitive sensor}
+        - {group: '[Channel2]', key: nMT3.WheelTouch2,  status: 146, midino: 12, description: Channel 2 jogwheel capacitive sensor}
 
-        - {group: '[Channel1]', key: nMT3.LoopHalveButton, status: 145, midino: 22, description: Channel 1 halve loop button}
-        - {group: '[Channel2]', key: nMT3.LoopHalveButton, status: 146, midino: 22, description: Channel 2 halve loop button}
-        - {group: '[Channel1]', key: nMT3.PADLoopButton,   status: 145, midino: 23, description: Channel 1 PAD loop button 1}
-        - {group: '[Channel2]', key: nMT3.PADLoopButton,   status: 146, midino: 23, description: Channel 2 PAD loop button 1}
-        - {group: '[Channel1]', key: nMT3.PADLoopButton,   status: 145, midino: 24, description: Channel 1 PAD loop button 2}
-        - {group: '[Channel2]', key: nMT3.PADLoopButton,   status: 146, midino: 24, description: Channel 2 PAD loop button 2}
-        - {group: '[Channel1]', key: nMT3.PADLoopButton,   status: 145, midino: 25, description: Channel 1 PAD loop button 3}
-        - {group: '[Channel2]', key: nMT3.PADLoopButton,   status: 146, midino: 25, description: Channel 2 PAD loop button 3}
-        - {group: '[Channel1]', key: nMT3.PADLoopButton,   status: 145, midino: 26, description: Channel 1 PAD loop button 4}
-        - {group: '[Channel2]', key: nMT3.PADLoopButton,   status: 146, midino: 26, description: Channel 2 PAD loop button 4}
-        - {group: '[Channel1]', key: nMT3.HotCueButton,    status: 145, midino: 27, description: Channel 1 hotcue 1 button}
-        - {group: '[Channel2]', key: nMT3.HotCueButton,    status: 146, midino: 27, description: Channel 2 hotcue 1 button}
-        - {group: '[Channel1]', key: nMT3.HotCueButton,    status: 145, midino: 28, description: Channel 1 hotcue 2 button}
-        - {group: '[Channel2]', key: nMT3.HotCueButton,    status: 146, midino: 28, description: Channel 2 hotcue 2 button}
-        - {group: '[Channel1]', key: nMT3.HotCueButton,    status: 145, midino: 29, description: Channel 1 hotcue 3 button}
-        - {group: '[Channel2]', key: nMT3.HotCueButton,    status: 146, midino: 29, description: Channel 2 hotcue 3 button}
-        - {group: '[Channel1]', key: nMT3.HotCueButton,    status: 145, midino: 30, description: Channel 1 hotcue 4 button}
-        - {group: '[Channel2]', key: nMT3.HotCueButton,    status: 146, midino: 30, description: Channel 2 hotcue 4 button}
-        - {group: '[Channel1]', key: nMT3.toggleJogMode,   status: 145, midino: 6,  description: Channel 1 wheel button}
-        - {group: '[Channel2]', key: nMT3.toggleJogMode,   status: 146, midino: 6,  description: Channel 2 wheel button}
-        - {group: '[Sampler1]', key: nMT3.SamplerButton,   status: 145, midino: 32, description: Channel 1 sampler 1 button}
-        - {group: '[Sampler5]', key: nMT3.SamplerButton,   status: 146, midino: 32, description: Channel 2 sampler 1 button}
-        - {group: '[Sampler2]', key: nMT3.SamplerButton,   status: 145, midino: 33, description: Channel 1 sampler 2 button}
-        - {group: '[Sampler6]', key: nMT3.SamplerButton,   status: 146, midino: 33, description: Channel 2 sampler 2 button}
-        - {group: '[Sampler3]', key: nMT3.SamplerButton,   status: 145, midino: 34, description: Channel 1 sampler 3 button}
-        - {group: '[Sampler7]', key: nMT3.SamplerButton,   status: 146, midino: 34, description: Channel 2 sampler 3 button}
-        - {group: '[Sampler4]', key: nMT3.SamplerButton,   status: 145, midino: 35, description: Channel 1 sampler 4 button}
-        - {group: '[Sampler8]', key: nMT3.SamplerButton,   status: 146, midino: 35, description: Channel 2 sampler 4 button}
+        - {group: '[Channel1]', key: nMT3.LoopHalveButton1, status: 145, midino: 22, description: Channel 1 halve loop button}
+        - {group: '[Channel2]', key: nMT3.LoopHalveButton2, status: 146, midino: 22, description: Channel 2 halve loop button}
+        - {group: '[Channel1]', key: nMT3.PADLoopButton1a, status: 145, midino: 23, description: Channel 1 PAD loop button 1}
+        - {group: '[Channel2]', key: nMT3.PADLoopButton2a, status: 146, midino: 23, description: Channel 2 PAD loop button 1}
+        - {group: '[Channel1]', key: nMT3.PADLoopButton1b, status: 145, midino: 24, description: Channel 1 PAD loop button 2}
+        - {group: '[Channel2]', key: nMT3.PADLoopButton2b, status: 146, midino: 24, description: Channel 2 PAD loop button 2}
+        - {group: '[Channel1]', key: nMT3.PADLoopButton1c, status: 145, midino: 25, description: Channel 1 PAD loop button 3}
+        - {group: '[Channel2]', key: nMT3.PADLoopButton2c, status: 146, midino: 25, description: Channel 2 PAD loop button 3}
+        - {group: '[Channel1]', key: nMT3.PADLoopButton1d, status: 145, midino: 26, description: Channel 1 PAD loop button 4}
+        - {group: '[Channel2]', key: nMT3.PADLoopButton2d, status: 146, midino: 26, description: Channel 2 PAD loop button 4}
+        - {group: '[Channel1]', key: nMT3.HotCueButton1a,  status: 145, midino: 27, description: Channel 1 hotcue 1 button}
+        - {group: '[Channel2]', key: nMT3.HotCueButton2a,  status: 146, midino: 27, description: Channel 2 hotcue 1 button}
+        - {group: '[Channel1]', key: nMT3.HotCueButton1b,  status: 145, midino: 28, description: Channel 1 hotcue 2 button}
+        - {group: '[Channel2]', key: nMT3.HotCueButton2b,  status: 146, midino: 28, description: Channel 2 hotcue 2 button}
+        - {group: '[Channel1]', key: nMT3.HotCueButton1c,  status: 145, midino: 29, description: Channel 1 hotcue 3 button}
+        - {group: '[Channel2]', key: nMT3.HotCueButton2c,  status: 146, midino: 29, description: Channel 2 hotcue 3 button}
+        - {group: '[Channel1]', key: nMT3.HotCueButton1d,  status: 145, midino: 30, description: Channel 1 hotcue 4 button}
+        - {group: '[Channel2]', key: nMT3.HotCueButton2d,  status: 146, midino: 30, description: Channel 2 hotcue 4 button}
+        - {group: '[Channel1]', key: nMT3.toggleJogMode1,  status: 145, midino: 6,  description: Channel 1 wheel button}
+        - {group: '[Channel2]', key: nMT3.toggleJogMode2,  status: 146, midino: 6,  description: Channel 2 wheel button}
+        - {group: '[Sampler1]', key: nMT3.SamplerButton1a, status: 145, midino: 32, description: Channel 1 sampler 1 button}
+        - {group: '[Sampler5]', key: nMT3.SamplerButton2a, status: 146, midino: 32, description: Channel 2 sampler 1 button}
+        - {group: '[Sampler2]', key: nMT3.SamplerButton1b, status: 145, midino: 33, description: Channel 1 sampler 2 button}
+        - {group: '[Sampler6]', key: nMT3.SamplerButton2b, status: 146, midino: 33, description: Channel 2 sampler 2 button}
+        - {group: '[Sampler3]', key: nMT3.SamplerButton1c, status: 145, midino: 34, description: Channel 1 sampler 3 button}
+        - {group: '[Sampler7]', key: nMT3.SamplerButton2c, status: 146, midino: 34, description: Channel 2 sampler 3 button}
+        - {group: '[Sampler4]', key: nMT3.SamplerButton1d, status: 145, midino: 35, description: Channel 1 sampler 4 button}
+        - {group: '[Sampler8]', key: nMT3.SamplerButton2d, status: 146, midino: 35, description: Channel 2 sampler 4 button}
 
         - {group: '[Channel1]', key: nMT3.PitchFaderHighValue,  status: 177, midino: 24, description: Channel 1 pitch fader main bits}
         - {group: '[Channel2]', key: nMT3.PitchFaderHighValue,  status: 178, midino: 24, description: Channel 2 pitch fader main bits}
