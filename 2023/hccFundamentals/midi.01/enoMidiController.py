@@ -58,7 +58,6 @@ class enoMidiController:
 
     self.controllerName = controllerName
     yamlFn = self.controller2yamlFnActivations(controllerName)
-    print("activateInput:", self.activateInput)
     self.loadYaml(yamlFn)
     self.startMidi() # shaped partly by activations assigned within controller2yamlFnActivations; may benefit from refactoring
 
@@ -105,10 +104,10 @@ class enoMidiController:
     #if self.activateLaunchpad: self.initLaunchpad()
 
     if self.activateInput:     
-      self.midiIn  = pygame.midi.Input(inId);  print("enoMidiController: launching midi input")
+      self.midiIn  = pygame.midi.Input(inId);   print("enoMidiController: launching midi input")
 
     if self.activateOutput:    
-      self.midiOut = pygame.midi.Input(outId); print("enoMidiController: launching midi output")
+      self.midiOut = pygame.midi.Output(outId); print("enoMidiController: launching midi output")
 
     if self.activateLaunchpad: self.initLaunchpad()
 
