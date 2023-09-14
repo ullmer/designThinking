@@ -331,6 +331,9 @@ class enoMidiController:
         #print(".", end=""); sys.stdout.flush()
         payload, timestamp = el
         midiStatus, midiNum, val1, val2 = payload
-        self.processMidiUpdate(midiStatus, midiNum, val1)
+
+        print("FOO:", midiStatus, midiNum, val1, val2)
+        #self.processMidiUpdate(midiStatus, midiNum, val1)
+        self.processMidiUpdate(midiStatus, midiNum)
   
 ### end ###
