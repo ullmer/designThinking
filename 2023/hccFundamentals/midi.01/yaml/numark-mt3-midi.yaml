@@ -95,27 +95,27 @@ mmpController:
         - {group: '[Sampler4]', key: nMT3.SamplerButton1d, status: 145, midino: 35, description: Channel 1 sampler 4 button}
         - {group: '[Sampler8]', key: nMT3.SamplerButton2d, status: 146, midino: 35, description: Channel 2 sampler 4 button}
 
-        - {group: '[Channel1]', key: nMT3.PitchFaderHighValue,  status: 177, midino: 24, description: Channel 1 pitch fader main bits}
-        - {group: '[Channel2]', key: nMT3.PitchFaderHighValue,  status: 178, midino: 24, description: Channel 2 pitch fader main bits}
-        - {group: '[Channel1]', key: nMT3.PitchFaderLowValue,   status: 177, midino: 56, description: Channel 1 pitch fader precision bits}
-        - {group: '[Channel2]', key: nMT3.PitchFaderLowValue,   status: 178, midino: 56, description: Channel 2 pitch fader precision bits}
-        - {group: '[Channel1]', key: nMT3.PitchBendPlusButton,  status: 145, midino: 5,  description: Channel 1 pitch bend up button}
-        - {group: '[Channel2]', key: nMT3.PitchBendPlusButton,  status: 146, midino: 5,  description: Channel 2 pitch bend up button}
-        - {group: '[Channel1]', key: nMT3.PitchBendMinusButton, status: 145, midino: 4,  description: Channel 1 pitch bend down button}
-        - {group: '[Channel2]', key: nMT3.PitchBendMinusButton, status: 146, midino: 4, description: Channel 2 pitch bend down button}
+        - {group: '[Channel1]', key: nMT3.PitchFaderHighValue1, status: 177, midino: 24, description: Channel 1 pitch fader main bits}
+        - {group: '[Channel2]', key: nMT3.PitchFaderHighValue2, status: 178, midino: 24, description: Channel 2 pitch fader main bits}
+        - {group: '[Channel1]', key: nMT3.PitchFaderLowValue1,  status: 177, midino: 56, description: Channel 1 pitch fader precision bits}
+        - {group: '[Channel2]', key: nMT3.PitchFaderLowValue2,  status: 178, midino: 56, description: Channel 2 pitch fader precision bits}
+        - {group: '[Channel1]', key: nMT3.PitchBendPlusButton1, status: 145, midino: 5,  description: Channel 1 pitch bend up button}
+        - {group: '[Channel2]', key: nMT3.PitchBendPlusButton2, status: 146, midino: 5,  description: Channel 2 pitch bend up button}
+        - {group: '[Channel1]', key: nMT3.PitchBendMinusButton1, status: 145, midino: 4,  description: Channel 1 pitch bend down button}
+        - {group: '[Channel2]', key: nMT3.PitchBendMinusButton2, status: 146, midino: 4, description: Channel 2 pitch bend down button}
 
-        - {group: '[Channel1]', key: nMT3.StripTouchEffect, status: 177, midino: 26, description: Channel 1 strip}
-        - {group: '[Channel2]', key: nMT3.StripTouchEffect, status: 178, midino: 26, description: Channel 2 strip}
-        - {group: '[Channel1]', key: nMT3.StripTouchEffect, status: 177, midino: 27, description: Channel 1 SHIFT+strip}
-        - {group: '[Channel2]', key: nMT3.StripTouchEffect, status: 178, midino: 27, description: Channel 2 SHIFT+strip}
-        - {group: '[Channel1]', key: nMT3.InstantFXOff,     status: 145, midino: 31, description: Channel 1 strip Instant FX Off}
-        - {group: '[Channel2]', key: nMT3.InstantFXOff,     status: 146, midino: 31, description: Channel 2 strip Instant FX Off}
+        - {group: '[Channel1]', key: nMT3.StripTouchEffect1a, status: 177, midino: 26, description: Channel 1 strip}
+        - {group: '[Channel2]', key: nMT3.StripTouchEffect2a, status: 178, midino: 26, description: Channel 2 strip}
+        - {group: '[Channel1]', key: nMT3.StripTouchEffect1b, status: 177, midino: 27, description: Channel 1 SHIFT+strip}
+        - {group: '[Channel2]', key: nMT3.StripTouchEffect2b, status: 178, midino: 27, description: Channel 2 SHIFT+strip}
+        - {group: '[Channel1]', key: nMT3.InstantFXOff1,     status: 145, midino: 31, description: Channel 1 strip Instant FX Off}
+        - {group: '[Channel2]', key: nMT3.InstantFXOff2,     status: 146, midino: 31, description: Channel 2 strip Instant FX Off}
 
-        - {group: '[Channel1]', key: nMT3.BeatKnob, status: 177, midino: 19, description: Channel 1 FX 3 Knob}
-        - {group: '[Channel2]', key: nMT3.BeatKnob, status: 178, midino: 19, description: Channel 2 Beat Knob}
+        - {group: '[Channel1]', key: nMT3.BeatKnob1, status: 177, midino: 19, description: Channel 1 FX 3 Knob}
+        - {group: '[Channel2]', key: nMT3.BeatKnob2, status: 178, midino: 19, description: Channel 2 Beat Knob}
 
-        - {group: '[QER1_[Channel1]]', key: nMT3.FilterKnob,  status: 177, midino: 4,  description: Channel 1 filter knob}
-        - {group: '[QER1_[Channel2]]', key: nMT3.FilterKnob,  status: 178, midino: 4,  description: Channel 2 filter knob}
+        - {group: '[QER1_[Channel1]]', key: nMT3.FilterKnob1,  status: 177, midino: 4,  description: Channel 1 filter knob}
+        - {group: '[QER1_[Channel2]]', key: nMT3.FilterKnob2,  status: 178, midino: 4,  description: Channel 2 filter knob}
 
     outputs: ''
 
