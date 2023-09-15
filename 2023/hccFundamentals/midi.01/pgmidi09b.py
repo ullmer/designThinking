@@ -9,7 +9,7 @@ from functools   import partial
 
 #### callback function ####
 
-def simpleCB(emc, control, arg):
+def painterCB(emc, control, arg):
   if control[0] == 'm': #margin button
     whichMarginKey = control[1]
 
@@ -32,7 +32,7 @@ def simpleCB(emc, control, arg):
 emc = enoMidiController('launchpad')
 emc.clearLights()
 emc.rightMarginRainbow()
-emc.registerExternalCB(simpleCB)
+emc.registerExternalCB(painterCB)
 
 while True:
   emc.pollMidi()
