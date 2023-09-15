@@ -160,6 +160,13 @@ class enoMidiController:
     #print("enoMidiController loadYaml: controlCbDict", self.controlCbDict)
     #print("enoMidiController loadYaml: controllerStatusNumDict", self.controllerStatusNumDict)
 
+  ############# get yaml#############
+
+  def getYaml(self, targetField):
+    if targetField in self.yamlD:  return self.yamlD[targetField]
+    print("enoMidiController getYaml: targetField", targetField, "unknown!")
+    return None
+
   ############# midi status num key generator #############
 
   def midiStatusNumKey(self, midiStatus, midiNum):
