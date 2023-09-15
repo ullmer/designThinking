@@ -117,6 +117,12 @@ mmpController:
         - {group: '[QER1_[Channel1]]', key: nMT3.FilterKnob1,  status: 177, midino: 4,  description: Channel 1 filter knob}
         - {group: '[QER1_[Channel2]]', key: nMT3.FilterKnob2,  status: 178, midino: 4,  description: Channel 2 filter knob}
 
+    interactors:
+      aliased: [bTL1, bTL2, bBL1, bBL_A1, bBL_A2, bBL_A3, bBL_A4, bBL_B1, bBL_B2, bBL_B3, bBL_B4, bML1, bML2, bML3, bML4, bML5,
+                bTR1, bTR2, bBR1, bBR_A1, bBR_A2, bBR_A3, bBR_A4, bBR_B1, bBR_B2, bBR_B3, bBR_B4, bMR1, bMR2, bMR3, bMR4, bMR5,
+                
+
+
     outputs: ''
 
 
