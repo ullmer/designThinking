@@ -12,12 +12,16 @@ interactors = controller['interactors']
 #print("interactors:", interactors)
 
 aliased     = interactors['aliased']
+aliases     = interactors['aliases']
+numAliases = len(aliases)
+print("numAliases:", numAliases)
 
 #### support function ####
 
 interactorsList    = []
 interactorsListIdx = -1
 lastController     = None
+previouslyObserved = {}
 
 def nextBinding():
   global emc, interactorsList, interactorsListIdx
@@ -29,10 +33,10 @@ def nextBinding():
 #### callback function ####
 
 def midiLabelCB(emc, control, arg):
-  global lastController
+  global lastController, previouslyObserved
 
-  if control != lastController:
-    lastController = control
+  if control != lastController and control not in previouslyObserved:
+    lastController = control; previouslyObserved[control] = True
     #print(control, arg)
     print(control + ", ")
     nextBinding()
