@@ -164,9 +164,13 @@ mmpController:
                 gTL: [nMT3.InstantFXOff2, nMT3.BrowseButton, nMT3.PADLoopButton2c, nMT3.StripTouchEffect2a],
                 gTR: [nMT3.InstantFXOff2, nMT3.BrowseButton, nMT3.PADLoopButton2c, nMT3.StripTouchEffect2a],
 
+
+                kR1: nMT3.FilterKnob2,
+
+                kR3: nMT3.EQKnob2b,
+                kR4: nMT3.EQKnob2c,
                }
 
     outputs: ''
-
 
 ### end ###
