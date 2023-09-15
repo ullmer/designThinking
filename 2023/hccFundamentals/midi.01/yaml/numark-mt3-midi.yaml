@@ -127,35 +127,43 @@ mmpController:
         sliders: [sL1, sML1, sM1,
                   sR1, sMR1]
    
-        wheels:     [wL,  wR, wM]
+        wheels:     [wL,  wR, wM, wTL, wTR]
         wheelTouch: [twL, twR] 
         grooves:    [gTL, gTR]
-        knobs:      [kTL, kTR, 
-                     kL1, KL2, kL3, kL4,
+        knobs:      [kL1, KL2, kL3, kL4,
                      kR1, kR2, kR3, kR4,
                      kR]
-      aliases: {bTL1: nMT3.FilterKnob2, bTL2: nMT3.PitchBendPlusButton2, bTL3: nMT3.FXButton2a, 
-                bTL4: nMT3.FXButton2b,  bTL5: nMT3.FXButton3b,           bTL6: nMT3.bpmTap,
-                bBL1: nMT3.PadModeButton2, bBL_A1: nMT3.BeatKnob2,    bBL_A2: nMT3.loop_out2,
-                                           bBL_A3: nMT3.reloop_exit2, bBL_A4: nMT3.LoopHalveButton2,
-                bTR1: nMT3.PitchBendPlusButton2, bTR2: nMT3.FilterKnob2, bTR3: nMT3.bpmTap,
-                bTR4: nMT3.FXButton3b,           bTR5: nMT3.FXButton2b,  bTR6: nMT3.FXButton2a,
+      aliases: {bTL1: nMT3.FilterKnob2,          bTL2: nMT3.PitchBendPlusButton2, bTL3: nMT3.FXButton2a, 
+                bTL4: nMT3.FXButton2b,           bTL5: nMT3.FXButton3b,           bTL6: nMT3.bpmTap,
+                bTR1: nMT3.PitchBendPlusButton2, bTR2: nMT3.FilterKnob2,          bTR3: nMT3.bpmTap,
+                bTR4: nMT3.FXButton3b,           bTR5: nMT3.FXButton2b,           bTR6: nMT3.FXButton2a,
+
                 bBR1: nMT3.PadModeButton2,
-                bBR_A1: nMT3.BeatKnob2,    bBR_A2: nMT3.loop_out2, 
-                bBR_A3: nMT3.reloop_exit2, bBR_A4: nMT3.LoopHalveButton2, 
+
+                bBR_A1: nMT3.BeatKnob2,          bBR_A2: nMT3.loop_out2, 
+                bBR_A3: nMT3.reloop_exit2,       bBR_A4: nMT3.LoopHalveButton2, 
                 bBL_B1: nMT3.StripTouchEffect2b, bBL_B2: nMT3.HotCueButton2b, 
                 bBL_B3: nMT3.HotCueButton2c,     bBL_B4: nMT3.HotCueButton2d,
-                bML1: nMT3.EQKnob2c,     bML2: nMT3.EQKnob2a,       bML3: nMT3.EQKnob2b,
-                bML4: nMT3.ShiftButton2, bML5: nMT3.toggleJogMode2, bML6: nMT3.PFLButton1,
                 bBR_B1: nMT3.StripTouchEffect2b, bBR_B2: nMT3.HotCueButton2b,
                 bBR_B3: nMT3.HotCueButton2c,     bBR_B4: nMT3.HotCueButton2d,
-                bMR1: nMT3.EQKnob2c,     bMR2: nMT3.EQKnob2a, bMR3: nMT3.EQKnob2b,
-                bMR4: nMT3.ShiftButton2, bMR5: nMT3.toggleJogMode2, bMR6: nMT3.WheelMove2,
-                sL1: nMT3.PitchFaderHighValue2, # and nMT3.PitchFaderLowValue2 : 14 bit
-                wL:   nMT3.WheelMove2, twL: nMT3.WheelTouch2,
-                sML1: nMT3.PitchBendPlusButton2,
-                sM1: nMT3.FXButton2a,
-                sR1: nMT3.StripTouchEffect2b,
+
+                bBL1: nMT3.PadModeButton2, bBL_A1: nMT3.BeatKnob2,    bBL_A2: nMT3.loop_out2,
+                                           bBL_A3: nMT3.reloop_exit2, bBL_A4: nMT3.LoopHalveButton2,
+                bML1: nMT3.EQKnob2c,       bML2: nMT3.EQKnob2a,       bML3: nMT3.EQKnob2b,
+                bML4: nMT3.ShiftButton2,   bML5: nMT3.toggleJogMode2, bML6: nMT3.PFLButton1,
+                bMR1: nMT3.EQKnob2c,       bMR2: nMT3.EQKnob2a, bMR3: nMT3.EQKnob2b,
+                bMR4: nMT3.ShiftButton2,   bMR5: nMT3.toggleJogMode2, bMR6: nMT3.WheelMove2,
+
+                sL1: [nMT3.PitchFaderHighValue2, nMT3.PitchFaderLowValue2], # 14 bit
+                wL: nMT3.WheelMove2, twL: nMT3.WheelTouch2, #something must again differentiate
+                wR: nMT3.WheelMove2, twR: nMT3.WheelTouch2,
+
+                wM: nMT3.PADLoopButton2a, sML1: nMT3.PitchBendPlusButton2, sM1: nMT3.FXButton2a,
+                sR1: nMT3.StripTouchEffect2b, wTL: nMT3.BeatKnob2, #and wTR
+
+                gTL: [nMT3.InstantFXOff2, nMT3.BrowseButton, nMT3.PADLoopButton2c, nMT3.StripTouchEffect2a],
+                gTR: [nMT3.InstantFXOff2, nMT3.BrowseButton, nMT3.PADLoopButton2c, nMT3.StripTouchEffect2a],
+
                }
 
     outputs: ''
