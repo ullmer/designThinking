@@ -13,43 +13,63 @@ mmpController:
       file: ''
     controls:
       control:
-        - {group: '[Master]',   key: volume,                 status: 176, midino: 23,  options: {soft-takeover:  ''}}
-        - {group: '[Master]',   key: headVolume,             status: 176, midino: 11,  options: {soft-takeover:  ''}}
-        - {group: '[Master]',   key: crossfader,             status: 176, midino: 10,  options: {soft-takeover:  ''}}
+        - {group: '[]',  key: volume0, status: 191, midino: 10}
+        - {group: '[]',  key: shift1,  status: 176, midino:  9}
+        - {group: '[]',  key: volume1, status: 176, midino: 22}
+        - {group: '[]',  key: 
+sync1Press: 144: 2
+sync1Release: 128: 2
+cue1Press: 144: 1
+cue1Release: 128: 1
+play1Press: 144: 0
+play1Release: 128: 0
+wheel1: 176: 6
+wheel1Touch: 144: 6
+shift2: 177: 9
+volume2: 177: 22
+volume4: 191: 12
+sync2Press: 145: 2
+sync2Release: 129: 2
+cue2Press: 145: 1
+cue2Release: 129: 1
+play2Press: 145: 0
+play2Release: 129: 0
+wheel2: 177: 6
+wheel2Touch: 145: 6
+fade: 191: 8
+: : 
+padLA1Press: 148: 1
+padLA1Release: 132: 1
+padLA2Press: 148: 2
+padLA2Release: 132: 2
+padLA3Press: 148: 3
+padLA3Release: 132: 3
+padLA4Press: 148: 4
+padLA4Release: 132: 4
+: : 
+padRA1Press: 149: 1
+padRA1Release: 133: 1
+padRA2Press: 149: 2
+padRA2Release: 133: 2
+padRA3Press: 149: 3
+padRA3Release: 133: 3
+padRA4Press: 149: 4
+padRA4Release: 133: 4
+: : 
+padmodePress: 148: 0
+padmodeRelease: 149: 0
+: : 
+load1Press: 159: 2
+load1Release: 143: 2
+load2Press: 159: 3
+load2Release: 143: 3
+: : 
+headphLToggleOn: 144: 27
+headphLToggleOff: 128: 27
+headphRToggleOn: 145: 27
+headphRToggleOff: 129: 27
 
-        - {group: '[Playlist]', key: NumarkDJ2Go.backBut,    status: 128, midino: 89,  options: {script-binding: ''}}
-        - {group: '[Playlist]', key: NumarkDJ2Go.enterBut,   status: 128, midino: 90,  options: {script-binding: ''}}
-        - {group: '[Playlist]', key: NumarkDJ2Go.shiftBck,   status: 144, midino: 89,  options: {script-binding: ''}}
-        - {group: '[Playlist]', key: NumarkDJ2Go.shiftEnt,   status: 144, midino: 90,  options: {script-binding: ''}}
-        - {group: '[Playlist]', key: NumarkDJ2Go.selectKnob, status: 176, midino: 26,  options: {script-binding: ''}}
 
-        - {group: '[Channel1]', key: NumarkDJ2Go.shiftA,     status: 144, midino: 75,  options: {script-binding: ''}}
-        - {group: '[Channel1]', key: NumarkDJ2Go.load,       status: 128, midino: 75,  options: {script-binding: ''}}
-        - {group: '[Channel1]', key: volume,                 status: 176, midino: 8,   options: {soft-takeover:  ''}}
-        - {group: '[Channel1]', key: NumarkDJ2Go.loopOut,    status: 144, midino: 67,  options: {script-binding: ''}}
-        - {group: '[Channel1]', key: NumarkDJ2Go.loopIn,     status: 144, midino: 68,  options: {script-binding: ''}}
-        - {group: '[Channel1]', key: rate,                   status: 176, midino: 13,  options: {soft-takeover:  ''}}
-        - {group: '[Channel1]', key: NumarkDJ2Go.sync,       status: 144, midino: 64,  options: {script-binding: ''}}
-        - {group: '[Channel1]', key: NumarkDJ2Go.pfl,        status: 144, midino: 101, options: {script-binding: ''}}
-        - {group: '[Channel1]', key: NumarkDJ2Go.cue,        status: 144, midino: 51,  options: {script-binding: ''}}
-        - {group: '[Channel1]', key: NumarkDJ2Go.cue,        status: 128, midino: 51,  options: {script-binding: ''}}
-        - {group: '[Channel1]', key: NumarkDJ2Go.play,       status: 144, midino: 59,  options: {script-binding: ''}}
-        - {group: '[Channel1]', key: NumarkDJ2Go.play,       status: 128, midino: 59,  options: {script-binding: ''}}
-        - {group: '[Channel1]', key: NumarkDJ2Go.wheel,      status: 176, midino: 25,  options: {script-binding: ''}}
-
-        - {group: '[Channel2]', key: NumarkDJ2Go.shiftB,     status: 144, midino: 52,  options: {script-binding: ''}}
-        - {group: '[Channel2]', key: NumarkDJ2Go.load,       status: 128, midino: 52,  options: {script-binding: ''}}
-        - {group: '[Channel2]', key: volume,                 status: 176, midino: 9,   options: {soft-takeover:  ''}}
-        - {group: '[Channel2]', key: NumarkDJ2Go.loopOut,    status: 144, midino: 69,  options: {script-binding: ''}}
-        - {group: '[Channel2]', key: NumarkDJ2Go.loopIn,     status: 144, midino: 70,  options: {script-binding: ''}}
-        - {group: '[Channel2]', key: rate,                   status: 176, midino: 14,  options: {soft-takeover:  ''}}
-        - {group: '[Channel2]', key: NumarkDJ2Go.sync,       status: 144, midino: 71,  options: {script-binding: ''}}
-        - {group: '[Channel2]', key: NumarkDJ2Go.pfl,        status: 144, midino: 102, options: {script-binding: ''}}
-        - {group: '[Channel2]', key: NumarkDJ2Go.cue,        status: 144, midino: 60,  options: {script-binding: ''}}
-        - {group: '[Channel2]', key: NumarkDJ2Go.cue,        status: 128, midino: 60,  options: {script-binding: ''}} 
-        - {group: '[Channel2]', key: NumarkDJ2Go.play,       status: 144, midino: 66,  options: {script-binding: ''}}
-        - {group: '[Channel2]', key: NumarkDJ2Go.play,       status: 128, midino: 66,  options: {script-binding: ''}}
-        - {group: '[Channel2]', key: NumarkDJ2Go.wheel,      status: 176, midino: 24,  options: {script-binding: ''}}
     interactors:
       aliased: 
         buttons: [bBL1, bBL2, bBL3,    bL1, bL2,
