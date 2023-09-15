@@ -126,7 +126,7 @@ class enoMidiController:
       fn2 = "%s/%s.yaml" % (self.yamlDir, fn1)
 
       self.activateInput, self.activateOutput, self.activateLaunchpad = cns[1], cns[2], cns[3]
-      print("aI:", self.activateInput)
+      #print("aI:", self.activateInput)
 
       if os.path.exists(fn2): return fn2
       else: 

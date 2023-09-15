@@ -9,7 +9,7 @@ emc = enoMidiController('nu_mt3')
 mc = emc.getYaml('mmpController')
 controller  = mc['controller']
 interactors = controller['interactors']
-print("interactors:", interactors)
+#print("interactors:", interactors)
 
 aliased     = interactors['aliased']
 
@@ -32,7 +32,7 @@ def midiLabelCB(emc, control, arg):
 
   if control != lastController:
     lastController = control
-    print(controller, arg)
+    print(control, arg)
     nextBinding()
 
 #### main ####
