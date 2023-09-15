@@ -13,17 +13,41 @@ print("interactors:", interactors)
 
 aliased     = interactors['aliased']
 
-#emc.registerControls(emc.debugCallback)
+#### support function ####
 
-eq = "=" * 10
+interactorsList    = []
+interactorsListIdx = -1
+lastController     = None
+
+def nextBinding():
+  global emc, interactorsList, interactorsListIdx
+  interactorsListIdx += 1
+  interactor          = interactorsList[interactorsListIdx]
+  print("!", interactor)
+
+#### callback function ####
+
+def midiLabelCB(emc, control, arg):
+  global lastController
+
+  if control != lastController:
+    lastController = control
+    print(controller, arg)
+    nextBinding()
+
+#### main ####
+
+emc.registerExternalCB(midiLabelCB)
+
 for interactorType in aliased:
-  print(eq + interactorType + eq)
   interactors = aliased[interactorType]
   for interactor in interactors:
-    print(interactor)
+    interactorsList.append(interactor)
 
-#while True:
-#  emc.pollMidi()
-#  time.wait(100)
+nextBinding()
+
+while True:
+  emc.pollMidi()
+  time.wait(100)
 
 ### end ###
