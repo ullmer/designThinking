@@ -119,9 +119,10 @@ mmpController:
 
     interactors:
       aliased: 
-        buttons: [
-       bTL1,bTL2,bTL3,bTL4,bTL5,bTL6, bBL1, bBL_A1, bBL_A2, bBL_A3, bBL_A4, bBL_B1, bBL_B2, bBL_B3, bBL_B4, bML1, bML2, bML3, bML4, bML5,
-       bTR1,bTR2,bTR3,bTR4,bTR5,bTR6, bBR1, bBR_A1, bBR_A2, bBR_A3, bBR_A4, bBR_B1, bBR_B2, bBR_B3, bBR_B4, bMR1, bMR2, bMR3, bMR4, bMR5]
+        buttons: [bTL1, bTL2, bTL3, bTL4, bTL5, bTL6, bBL1, bBL_A1, bBL_A2, bBL_A3, bBL_A4, 
+                  bTR1, bTR2, bTR3, bTR4, bTR5, bTR6, bBR1, bBR_A1, bBR_A2, bBR_A3, bBR_A4, 
+                  bBL_B1, bBL_B2, bBL_B3, bBL_B4, bML1, bML2, bML3, bML4, bML5, bML6,
+                  bBR_B1, bBR_B2, bBR_B3, bBR_B4, bMR1, bMR2, bMR3, bMR4, bMR5, bMR6]
 
         sliders: [sL1, sML1, sM1,
                   sR1, sMR1]
@@ -129,8 +130,10 @@ mmpController:
         wheels:     [wL,  wR, wM]
         wheelTouch: [twL, twR] 
         grooves:    [gTL, gTR]
-        knobs:      []
-
+        knobs:      [kTL, kTR, 
+                     kL1, KL2, kL3, kL4,
+                     kR1, kR2, kR3, kR4,
+                     kR]
 
     outputs: ''
 
