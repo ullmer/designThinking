@@ -23,7 +23,8 @@ def nextBinding():
   global emc, interactorsList, interactorsListIdx
   interactorsListIdx += 1
   interactor          = interactorsList[interactorsListIdx]
-  print("!", interactor)
+  print(interactor, ': ', end='')
+  sys.stdout.flush()
 
 #### callback function ####
 
@@ -32,7 +33,8 @@ def midiLabelCB(emc, control, arg):
 
   if control != lastController:
     lastController = control
-    print(control, arg)
+    #print(control, arg)
+    print(control + ", ")
     nextBinding()
 
 #### main ####
