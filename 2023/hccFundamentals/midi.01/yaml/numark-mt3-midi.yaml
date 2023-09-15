@@ -118,12 +118,18 @@ mmpController:
         - {group: '[QER1_[Channel2]]', key: nMT3.FilterKnob2,  status: 178, midino: 4,  description: Channel 2 filter knob}
 
     interactors:
-      aliased: [
+      aliased: 
+        buttons: [
        bTL1,bTL2,bTL3,bTL4,bTL5,bTL6, bBL1, bBL_A1, bBL_A2, bBL_A3, bBL_A4, bBL_B1, bBL_B2, bBL_B3, bBL_B4, bML1, bML2, bML3, bML4, bML5,
-       bTR1,bTR2,bTR3,bTR4,bTR5,bTR6, bBR1, bBR_A1, bBR_A2, bBR_A3, bBR_A4, bBR_B1, bBR_B2, bBR_B3, bBR_B4, bMR1, bMR2, bMR3, bMR4, bMR5,
-       sL1, sTL1, sML1, sM1,
-       sR1, sTR1, sMR1,
-       wL,  wR,
+       bTR1,bTR2,bTR3,bTR4,bTR5,bTR6, bBR1, bBR_A1, bBR_A2, bBR_A3, bBR_A4, bBR_B1, bBR_B2, bBR_B3, bBR_B4, bMR1, bMR2, bMR3, bMR4, bMR5]
+
+        sliders: [sL1, sML1, sM1,
+                  sR1, sMR1]
+   
+        wheels:     [wL,  wR, wM]
+        wheelTouch: [twL, twR] 
+        grooves:    [gTL, gTR]
+        knobs:      []
 
 
     outputs: ''
