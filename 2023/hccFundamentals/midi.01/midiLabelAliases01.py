@@ -19,7 +19,8 @@ print("numAliases:", numAliases)
 #### support function ####
 
 interactorsList    = []
-interactorsListIdx = -1
+#interactorsListIdx = -1
+interactorsListIdx = 40
 lastController     = None
 previouslyObserved = {}
 

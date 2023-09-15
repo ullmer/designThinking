@@ -151,7 +151,12 @@ mmpController:
                 bBR_B3: nMT3.HotCueButton2c,     bBR_B4: nMT3.HotCueButton2d,
                 bMR1: nMT3.EQKnob2c,     bMR2: nMT3.EQKnob2a, bMR3: nMT3.EQKnob2b,
                 bMR4: nMT3.ShiftButton2, bMR5: nMT3.toggleJogMode2, bMR6: nMT3.WheelMove2,
-                sL1: nMT3.PitchFaderHighValue2}
+                sL1: nMT3.PitchFaderHighValue2, # and nMT3.PitchFaderLowValue2 : 14 bit
+                wL:   nMT3.WheelMove2, twL: nMT3.WheelTouch2,
+                sML1: nMT3.PitchBendPlusButton2,
+                sM1: nMT3.FXButton2a,
+                sR1: nMT3.StripTouchEffect2b,
+               }
 
     outputs: ''
 
