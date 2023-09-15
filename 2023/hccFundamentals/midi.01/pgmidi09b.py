@@ -34,9 +34,6 @@ emc.clearLights()
 emc.rightMarginRainbow()
 emc.registerExternalCB(simpleCB)
 
-#ecb = partial(simpleCB, emc)        #avoids use of globals
-#emc.registerControls(ecb)
-
 while True:
   emc.pollMidi()
   time.wait(100)

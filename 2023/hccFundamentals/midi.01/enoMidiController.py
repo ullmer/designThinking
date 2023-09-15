@@ -229,6 +229,12 @@ class enoMidiController:
       print("enoMidiController registerControls exception:")
       traceback.print_exc(); return None
 
+  ############# register external callback #############
+
+  def registerExternalCB(self, externalCallbackFunc):
+    ecb = partial(externalCallbackFunc, self)
+    self.registerControls(ecb)
+
   ############# initLaunchpad #############
 
   def initLaunchpad(self):
