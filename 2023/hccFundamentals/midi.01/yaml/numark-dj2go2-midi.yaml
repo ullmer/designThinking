@@ -52,21 +52,19 @@ mmpController:
         - {group: '[Channel2]', key: NumarkDJ2Go.wheel,      status: 176, midino: 24,  options: {script-binding: ''}}
     interactors:
       aliased: 
-        buttons: [bTL1, bTL2, bTL3, 
+        buttons: [bBL1, bBL2, bBL3,    bL1, bL2,
                   bL_A1, bL_A2, bL_A3, bL_A4, 
-                  bTR1, bTR2, bTR3, bTR4, bTR5, bTR6, bBR1, bBR_A1, bBR_A2, bBR_A3, bBR_A4, 
-                  bBL_B1, bBL_B2, bBL_B3, bBL_B4, bML1, bML2, bML3, bML4, bML5, bML6,
-                  bBR_B1, bBR_B2, bBR_B3, bBR_B4, bMR1, bMR2, bMR3, bMR4, bMR5, bMR6]
 
-        sliders: [sL1, sML1, sM1,
-                  sR1, sMR1]
-   
-        wheels:     [wL,  wR, wM, wTL, wTR]
+                  bBR1, bBR2, bBR3,    bR1, bR2,
+                  bR_A1, bR_A2, bR_A3, bR_A4, 
+                  bC]
+
+        sliders:    [sL, sR, sM]
+        wheels:     [wL,  wR, wM]
         wheelTouch: [twL, twR] 
-        grooves:    [gTL, gTR]
-        knobs:      [kL1, KL2, kL3, kL4,
-                     kR1, kR2, kR3, kR4,
-                     kR]
+        knobs:      [kL1, KL2, 
+                     kR1, kR2]
+
       aliases: {bTL1: nMT3.FilterKnob2,          bTL2: nMT3.PitchBendPlusButton2, bTL3: nMT3.FXButton2a}
 
     outputs: ''
