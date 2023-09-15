@@ -4,7 +4,8 @@ import sys, os
 from pygame import time
 from enoMidiController import *
 
-emc = enoMidiController('nu_mt3')
+#emc = enoMidiController('nu_mt3')
+emc = enoMidiController('nu_dj2go2')
 
 mc = emc.getYaml('mmpController')
 controller  = mc['controller']
@@ -19,8 +20,8 @@ print("numAliases:", numAliases)
 #### support function ####
 
 interactorsList    = []
-#interactorsListIdx = -1
-interactorsListIdx = 50
+interactorsListIdx = -1
+#interactorsListIdx = 50
 lastController     = None
 previouslyObserved = {}
 
