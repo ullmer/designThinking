@@ -6,7 +6,7 @@ from enoMidiController import *
 
 emc = enoMidiController('nu_mt3')
 
-interactors = emc.get('interactors')
+interactors = emc.getYaml('interactors')
 aliased     = interactors['aliased']
 
 
