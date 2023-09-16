@@ -2,7 +2,7 @@
 mmpController:
   info:
     name:   Numark DJ2Go
-    author: Alimantado, mod by Coval, mod by Ullmer
+    author: initial by Alimantado, mod by Coval, reinterp for dj2go2 by Ullmer
     description: 11-Sep-2012. Made to be close as possible to how DJ2Go works with VDJ.
     forums: >-
       http://www.mixxx.org/forums/viewtopic.php?f=7&amp;t=2732&amp;start=140&amp;sid=da4226f3f9a11932881d0e609ee7f2cc
@@ -13,27 +13,40 @@ mmpController:
       file: ''
     controls:
       control:
-        - {group: '[]',  key: volume0, status: 191, midino: 10}
-        - {group: '[]',  key: shift1,  status: 176, midino:  9}
-        - {group: '[]',  key: volume1, status: 176, midino: 22}
-        - {group: '[]',  key: 
-sync1Press: 144: 2
-sync1Release: 128: 2
-cue1Press: 144: 1
-cue1Release: 128: 1
+        - {group: '[]',  key: volume0,      status: 191, midino: 10}
+        - {group: '[]',  key: shift1,       status: 176, midino:  9}
+        - {group: '[]',  key: volume1,      status: 176, midino: 22}
+        - {group: '[]',  key: sync1Press,   status: 144, midino:  2}
+        - {group: '[]',  key: sync1Release, status: 128, midino:  2}
+        - {group: '[]',  key: cue1Press,    status: 144, midino:  1}
+        - {group: '[]',  key: cue1Release,  status: 128, midino:  1} 
+        - {group: '[]',  key: play1Press,   status: 144, midino:  0}
 play1Press: 144: 0
+        - {group: '[]',  key: , status: , midino: 
 play1Release: 128: 0
+        - {group: '[]',  key: , status: , midino: 
 wheel1: 176: 6
+        - {group: '[]',  key: , status: , midino: 
 wheel1Touch: 144: 6
+        - {group: '[]',  key: , status: , midino: 
 shift2: 177: 9
+        - {group: '[]',  key: , status: , midino: 
 volume2: 177: 22
+        - {group: '[]',  key: , status: , midino: 
 volume4: 191: 12
+        - {group: '[]',  key: , status: , midino: 
 sync2Press: 145: 2
+        - {group: '[]',  key: , status: , midino: 
 sync2Release: 129: 2
+        - {group: '[]',  key: , status: , midino: 
 cue2Press: 145: 1
+        - {group: '[]',  key: , status: , midino: 
 cue2Release: 129: 1
+        - {group: '[]',  key: , status: , midino: 
 play2Press: 145: 0
+        - {group: '[]',  key: , status: , midino: 
 play2Release: 129: 0
+        - {group: '[]',  key: , status: , midino: 
 wheel2: 177: 6
 wheel2Touch: 145: 6
 fade: 191: 8
