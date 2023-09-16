@@ -33,12 +33,9 @@ mmpController:
         - {group: '[]',  key: cue2Release,  status: 129, midino:  1}
         - {group: '[]',  key: play2Press,   status: 145, midino:  0}
         - {group: '[]',  key: play2Release, status: 129, midino:  0}
-        - {group: '[]',  key: , status: , midino: 
-wheel2: 177: 6
-        - {group: '[]',  key: , status: , midino: 
-wheel2Touch: 145: 6
-        - {group: '[]',  key: , status: , midino: 
-fade: 191: 8
+        - {group: '[]',  key: wheel2,       status: 177, midino:  6}
+        - {group: '[]',  key: wheel2Touch,  status: 145, midino:  6}
+        - {group: '[]',  key: fade,         status: 191, midino:  8}
 
         - {group: '[]',  key: , status: , midino: 
 padLA1Press: 148: 1
