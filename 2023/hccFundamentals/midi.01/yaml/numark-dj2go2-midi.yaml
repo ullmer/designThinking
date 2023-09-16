@@ -84,8 +84,8 @@ mmpController:
         knobs:      [kL1, KL2, 
                      kR1, kR2]
 
-      aliases: {bBL1: [sync1Press, sync1Release], bBL2: [cue1Press,  cue1Release], bBL3: [play1Press, play1Release],
-                bBR1: [sync2Press, sync1Release], bBR2: [cue2Press,  cue2Release], bBR3: [play2Press, play2Release],
+      aliases: {bBL1: [sync1Press, sync1Release],        bBL2: [cue1Press,   cue1Release], bBL3: [play1Press, play1Release],
+                bBR1: [sync2Press, sync1Release],        bBR2: [cue2Press,   cue2Release], bBR3: [play2Press, play2Release],
                 bL1: [headphLToggleOn, headphLToggleOff], bL2: [load1Press, load1Release],
                 bR1: [headphRToggleOn, headphRToggleOff], bR2: [load2Press, load2Release],
 
