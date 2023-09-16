@@ -10,25 +10,15 @@ mmpController:
     scriptfiles: {file: ''}
     controls:
       control:
-        - {group: '[]',  key: a1_press,   status: 144, midino:  56}
-        - {group: '[]',  key: a2_press,   status: 144, midino:  57}
-        - {group: '[]',  key: a3_press,   status: 144, midino:  58}
-        - {group: '[]',  key: a4_press,   status: 144, midino:  59}
-        - {group: '[]',  key: a5_press,   status: 144, midino:  60}
-        - {group: '[]',  key: a6_press,   status: 144, midino:  61}
-        - {group: '[]',  key: a7_press,   status: 144, midino:  62}
-        - {group: '[]',  key: a8_press,   status: 144, midino:  63}
-        - {group: '[]',  key: a9_press,   status: 144, midino: 112}
-
-        - {group: '[]',  key: a1_release, status: 128, midino:  56}
-        - {group: '[]',  key: a2_release, status: 128, midino:  57}
-        - {group: '[]',  key: a3_release, status: 128, midino:  58}
-        - {group: '[]',  key: a4_release, status: 128, midino:  59}
-        - {group: '[]',  key: a5_release, status: 128, midino:  60}
-        - {group: '[]',  key: a6_release, status: 128, midino:  61}
-        - {group: '[]',  key: a7_release, status: 128, midino:  62}
-        - {group: '[]',  key: a8_release, status: 128, midino:  63}
-        - {group: '[]',  key: a9_release, status: 128, midino:  56}
+        - {group: '[]',  key: a1, status_press: 144, status_release: 128, midino:  56}
+        - {group: '[]',  key: a2, status_press: 144, status_release: 128, midino:  57}
+        - {group: '[]',  key: a3, status_press: 144, status_release: 128, midino:  58}
+        - {group: '[]',  key: a4, status_press: 144, status_release: 128, midino:  59}
+        - {group: '[]',  key: a5, status_press: 144, status_release: 128, midino:  60}
+        - {group: '[]',  key: a6, status_press: 144, status_release: 128, midino:  61}
+        - {group: '[]',  key: a7, status_press: 144, status_release: 128, midino:  62}
+        - {group: '[]',  key: a8, status_press: 144, status_release: 128, midino:  63}
+        - {group: '[]',  key: a9, status_press: 144, status_release: 128, midino: 112}
 
     interactors:
       aliased: 
