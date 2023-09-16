@@ -34,7 +34,7 @@ class enoMidiController:
   lp        = None #launchpad handle
                                                                      #actIn  actOut actLaunch
   controllerNameDict = {'launchpad': ['novation-launchpad-mk2c-midi', False, False, True ],
-                        'nu_dj2go2': ['numark-dj2go2b-midi',          True,  True,  False],
+                        'nu_dj2go2': ['numark-dj2go2-midi',           True,  True,  False],
                         'nu_mt3':    ['numark-mt3-midi',              True,  True,  False]}
 
   controllerStatusNumDict  = None
@@ -116,8 +116,8 @@ class enoMidiController:
   def controller2yamlFnActivations(self, controllerName):
 
     if controllerName not in self.controllerNameDict:
-      print("enoMidiController controller2yamlFnActivations: controllerName %s " + \
-            "not in known list!" % controllerName)
+      print("enoMidiController controller2yamlFnActivations: controllerName", controllerName, 
+            "not in known list!")
       return None
 
     try:
@@ -311,13 +311,16 @@ class enoMidiController:
       print("enoMidiController: processMidiUpdate called, but no registered data")
       return None
 
-    if midiNum in self.controllerNumDict:
-      control = self.controllerNumDict[midiNum]
+    midiStatNumKey = self.midiStatusNumKey(midiStatus, midiNum)
+
+    if midiStatNumKey in self.controllerStatusNumDict:
+      control = self.controllerStatusNumDict[midiStatNumKey]
       #print("FOOBAR")
       #self.invokeCallback(control, val)
       self.invokeCallback(control, val)
     else:
-      print("midiNum %s not in scnd %s" % (str(midiNum), str(self.controllerNumDict)))
+      #print("midiNum %s not in scnd %s" % (str(midiNum), str(self.controllerNumDict)))
+      print("midiNum %s not in scnd list" % str(midiNum))
     
     #print("pmu", midiStatus, midiNum, val)
     #msn = self.midiStatusNumKey(midiStatus, midiNum)
