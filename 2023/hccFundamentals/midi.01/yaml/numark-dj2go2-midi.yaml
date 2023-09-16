@@ -22,6 +22,7 @@ mmpController:
         - {group: '[]',  key: play1Release, status: 128, midino:  0}
         - {group: '[]',  key: wheel1,       status: 176, midino:  6}
         - {group: '[]',  key: wheel1Touch,  status: 144, midino:  6}
+        - {group: '[]',  key: wheel2Release,status: 128, midino:  6}
         - {group: '[]',  key: shift2,       status: 177, midino:  9} 
         - {group: '[]',  key: volume0,      status: 191, midino: 10}
         - {group: '[]',  key: volume1,      status: 176, midino: 22}
@@ -35,7 +36,9 @@ mmpController:
         - {group: '[]',  key: play2Release, status: 129, midino:  0}
         - {group: '[]',  key: wheel2,       status: 177, midino:  6}
         - {group: '[]',  key: wheel2Touch,  status: 145, midino:  6}
+        - {group: '[]',  key: wheel2Release,status: 129, midino:  6}
         - {group: '[]',  key: fade,         status: 191, midino:  8}
+        - {group: '[]',  key: browseWheel,  status: 191, midino:  0}
 
         - {group: '[]',  key: padLA1Press,   status: 148, midino:  1}
         - {group: '[]',  key: padLA1Release, status: 132, midino:  1}
@@ -91,7 +94,8 @@ mmpController:
                 bR_A3: [padRA3Press, padRA3Release], bR_A2: [padRA4Press, padRA4Release],
 
                 sL: shift1, sR, shift2, sM: fade,
-                wL: wheel1, wR: wheel2, wM: foo}
+                wL: wheel1, wR: wheel2, wM: browseWheel,
+                twL: [wheel1Touch, wheel1Release], twR: [wheel2Touch, wheel2Release]}
 
 
     outputs: ''
