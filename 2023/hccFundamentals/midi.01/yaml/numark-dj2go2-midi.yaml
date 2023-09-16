@@ -60,6 +60,8 @@ mmpController:
 
         - {group: '[]',  key: padmodePress,   status: 148, midino:  0}
         - {group: '[]',  key: padmodeRelease, status: 149, midino:  0}
+        - {group: '[]',  key: padmode0Press,  status: 132, midino:  0}
+        - {group: '[]',  key: padmode0Release,status: 133, midino:  0}
 
         - {group: '[]',  key: load1Press,   status: 159, midino:  2}
         - {group: '[]',  key: load1Release, status: 143, midino:  2}
