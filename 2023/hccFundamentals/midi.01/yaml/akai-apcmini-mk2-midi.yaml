@@ -60,14 +60,14 @@ mmpController:
         - {group: '[]',  key: e8, status_press: 144, status_release: 128, midino:  31}
         - {group: '[]',  key: e9, status_press: 144, status_release: 128, midino: 116}
 
-        - {group: '[]',  key: f1, status_press: 144, status_release: 128, midino:  24}
-        - {group: '[]',  key: f2, status_press: 144, status_release: 128, midino:  25}
-        - {group: '[]',  key: f3, status_press: 144, status_release: 128, midino:  26}
-        - {group: '[]',  key: f4, status_press: 144, status_release: 128, midino:  27}
-        - {group: '[]',  key: f5, status_press: 144, status_release: 128, midino:  28}
-        - {group: '[]',  key: f6, status_press: 144, status_release: 128, midino:  29}
-        - {group: '[]',  key: f7, status_press: 144, status_release: 128, midino:  30}
-        - {group: '[]',  key: f8, status_press: 144, status_release: 128, midino:  31}
+        - {group: '[]',  key: f1, status_press: 144, status_release: 128, midino:  16}
+        - {group: '[]',  key: f2, status_press: 144, status_release: 128, midino:  17}
+        - {group: '[]',  key: f3, status_press: 144, status_release: 128, midino:  18}
+        - {group: '[]',  key: f4, status_press: 144, status_release: 128, midino:  19}
+        - {group: '[]',  key: f5, status_press: 144, status_release: 128, midino:  20}
+        - {group: '[]',  key: f6, status_press: 144, status_release: 128, midino:  21}
+        - {group: '[]',  key: f7, status_press: 144, status_release: 128, midino:  22}
+        - {group: '[]',  key: f8, status_press: 144, status_release: 128, midino:  22}
         - {group: '[]',  key: f9, status_press: 144, status_release: 128, midino: 117}
 
     interactors:
