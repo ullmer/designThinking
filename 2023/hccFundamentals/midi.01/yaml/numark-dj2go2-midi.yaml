@@ -70,15 +70,12 @@ mmpController:
 
     interactors:
       aliased: 
-        buttons: [bBL1, bBL2, bBL3,    bL1, bL2,
-                  bL_A1, bL_A2, bL_A3, bL_A4, 
-
-                  bBR1, bBR2, bBR3,    bR1, bR2,
-                  bR_A1, bR_A2, bR_A3, bR_A4, 
+        buttons: [bBL1, bBL2, bBL3,  bL1, bL2, bL_A1, bL_A2, bL_A3, bL_A4, 
+                  bBR1, bBR2, bBR3,  bR1, bR2, bR_A1, bR_A2, bR_A3, bR_A4, 
                   bC]
 
-        sliders:    [sL, sR, sM]
-        wheels:     [wL,  wR, wM]
+        sliders:    [ sL,  sR, sM]
+        wheels:     [ wL,  wR, wM]
         wheelTouch: [twL, twR] 
         knobs:      [kL1, KL2, 
                      kR1, kR2]
