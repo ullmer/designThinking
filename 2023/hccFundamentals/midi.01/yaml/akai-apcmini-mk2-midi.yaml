@@ -26,29 +26,10 @@ mmpController:
 
     interactors:
       aliased: 
-        buttons: [bBL1, bBL2, bBL3,  bL1, bL2, bL_A1, bL_A2, bL_A3, bL_A4, 
-                  bBR1, bBR2, bBR3,  bR1, bR2, bR_A1, bR_A2, bR_A3, bR_A4, 
-                  bC]
+        buttons: []
+        sliders: []
 
-        sliders:    [ sL,  sR, sM]
-        wheels:     [ wL,  wR, wM]
-        wheelTouch: [twL, twR] 
-        knobs:      [kL1, KL2, 
-                     kR1, kR2]
-
-      aliases: {bBL1: [sync1Press, sync1Release],        bBL2: [cue1Press,   cue1Release], bBL3: [play1Press, play1Release],
-                bBR1: [sync2Press, sync1Release],        bBR2: [cue2Press,   cue2Release], bBR3: [play2Press, play2Release],
-                bL1: [headphLToggleOn, headphLToggleOff], bL2: [load1Press, load1Release],
-                bR1: [headphRToggleOn, headphRToggleOff], bR2: [load2Press, load2Release],
-
-                bL_A1: [padLA1Press, padLA1Release], bL_A2: [padLA2Press, padLA2Release],
-                bL_A3: [padLA3Press, padLA3Release], bL_A2: [padLA4Press, padLA4Release],
-                bR_A1: [padRA1Press, padRA1Release], bR_A2: [padRA2Press, padRA2Release],
-                bR_A3: [padRA3Press, padRA3Release], bR_A2: [padRA4Press, padRA4Release],
-
-                sL: shift1, sR, shift2, sM: fade,
-                wL: wheel1, wR: wheel2, wM: browseWheel,
-                twL: [wheel1Touch, wheel1Release], twR: [wheel2Touch, wheel2Release]}
+      aliases: {}
 
     outputs: ''
 
