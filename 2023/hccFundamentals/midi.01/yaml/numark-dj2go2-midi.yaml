@@ -12,32 +12,32 @@ mmpController:
     scriptfiles: {file: ''}
     controls:
       control:
-        - {group: '[]',  key: shift1,       status: 176, midino:  9}
-        - {group: '[]',  key: sync1Press,   status: 144, midino:  2}
-        - {group: '[]',  key: sync1Release, status: 128, midino:  2}
-        - {group: '[]',  key: cue1Press,    status: 144, midino:  1}
-        - {group: '[]',  key: cue1Release,  status: 128, midino:  1} 
-        - {group: '[]',  key: play1Press,   status: 144, midino:  0}
-        - {group: '[]',  key: play1Release, status: 128, midino:  0}
-        - {group: '[]',  key: wheel1,       status: 176, midino:  6}
-        - {group: '[]',  key: wheel1Touch,  status: 144, midino:  6}
-        - {group: '[]',  key: wheel2Release,status: 128, midino:  6}
-        - {group: '[]',  key: shift2,       status: 177, midino:  9} 
-        - {group: '[]',  key: volume0,      status: 191, midino: 10}
-        - {group: '[]',  key: volume1,      status: 176, midino: 22}
-        - {group: '[]',  key: volume2,      status: 177, midino: 22}
-        - {group: '[]',  key: volume4,      status: 191, midino: 12}
-        - {group: '[]',  key: sync2Press,   status: 145, midino:  2}
-        - {group: '[]',  key: sync2Release, status: 129, midino:  2}
-        - {group: '[]',  key: cue2Press,    status: 145, midino:  1}
-        - {group: '[]',  key: cue2Release,  status: 129, midino:  1}
-        - {group: '[]',  key: play2Press,   status: 145, midino:  0}
-        - {group: '[]',  key: play2Release, status: 129, midino:  0}
-        - {group: '[]',  key: wheel2,       status: 177, midino:  6}
-        - {group: '[]',  key: wheel2Touch,  status: 145, midino:  6}
-        - {group: '[]',  key: wheel2Release,status: 129, midino:  6}
-        - {group: '[]',  key: fade,         status: 191, midino:  8}
-        - {group: '[]',  key: browseWheel,  status: 191, midino:  0}
+        - {group: '[]',  key: shift1,        status: 176, midino:  9}
+        - {group: '[]',  key: sync1Press,    status: 144, midino:  2}
+        - {group: '[]',  key: sync1Release,  status: 128, midino:  2}
+        - {group: '[]',  key: cue1Press,     status: 144, midino:  1}
+        - {group: '[]',  key: cue1Release,   status: 128, midino:  1} 
+        - {group: '[]',  key: play1Press,    status: 144, midino:  0}
+        - {group: '[]',  key: play1Release,  status: 128, midino:  0}
+        - {group: '[]',  key: wheel1,        status: 176, midino:  6}
+        - {group: '[]',  key: wheel1Touch,   status: 144, midino:  6}
+        - {group: '[]',  key: wheel2Release, status: 128, midino:  6}
+        - {group: '[]',  key: shift2,        status: 177, midino:  9} 
+        - {group: '[]',  key: volume0,       status: 191, midino: 10}
+        - {group: '[]',  key: volume1,       status: 176, midino: 22}
+        - {group: '[]',  key: volume2,       status: 177, midino: 22}
+        - {group: '[]',  key: volume4,       status: 191, midino: 12}
+        - {group: '[]',  key: sync2Press,    status: 145, midino:  2}
+        - {group: '[]',  key: sync2Release,  status: 129, midino:  2}
+        - {group: '[]',  key: cue2Press,     status: 145, midino:  1}
+        - {group: '[]',  key: cue2Release,   status: 129, midino:  1}
+        - {group: '[]',  key: play2Press,    status: 145, midino:  0}
+        - {group: '[]',  key: play2Release,  status: 129, midino:  0}
+        - {group: '[]',  key: wheel2,        status: 177, midino:  6}
+        - {group: '[]',  key: wheel2Touch,   status: 145, midino:  6}
+        - {group: '[]',  key: wheel2Release, status: 129, midino:  6}
+        - {group: '[]',  key: fade,          status: 191, midino:  8}
+        - {group: '[]',  key: browseWheel,   status: 191, midino:  0}
 
         - {group: '[]',  key: padLA1Press,   status: 148, midino:  1}
         - {group: '[]',  key: padLA1Release, status: 132, midino:  1}
@@ -57,20 +57,20 @@ mmpController:
         - {group: '[]',  key: padRA4Press,   status: 149, midino:  4}
         - {group: '[]',  key: padRA4Release, status: 133, midino:  4}
 
-        - {group: '[]',  key: padmodePress,   status: 148, midino:  0}
-        - {group: '[]',  key: padmodeRelease, status: 149, midino:  0}
-        - {group: '[]',  key: padmode0Press,  status: 132, midino:  0}
-        - {group: '[]',  key: padmode0Release,status: 133, midino:  0}
+        - {group: '[]',  key: load1Press,    status: 159, midino:  2}
+        - {group: '[]',  key: load1Release,  status: 143, midino:  2}
+        - {group: '[]',  key: load2Press,    status: 159, midino:  3}
+        - {group: '[]',  key: load2Release,  status: 143, midino:  3}
 
-        - {group: '[]',  key: load1Press,   status: 159, midino:  2}
-        - {group: '[]',  key: load1Release, status: 143, midino:  2}
-        - {group: '[]',  key: load2Press,   status: 159, midino:  3}
-        - {group: '[]',  key: load2Release, status: 143, midino:  3}
+        - {group: '[]',  key: padmodePress,     status: 148, midino:  0}
+        - {group: '[]',  key: padmodeRelease,   status: 149, midino:  0}
+        - {group: '[]',  key: padmode0Press,    status: 132, midino:  0}
+        - {group: '[]',  key: padmode0Release,  status: 133, midino:  0}
 
-        - {group: '[]',  key: headphLToggleOn,  status: 144, midino:  27}
-        - {group: '[]',  key: headphLToggleOff, status: 128, midino:  27}
-        - {group: '[]',  key: headphRToggleOn,  status: 145, midino:  27}
-        - {group: '[]',  key: headphRToggleOff, status: 129, midino:  27}
+        - {group: '[]',  key: headphLToggleOn,  status: 144, midino: 27}
+        - {group: '[]',  key: headphLToggleOff, status: 128, midino: 27}
+        - {group: '[]',  key: headphRToggleOn,  status: 145, midino: 27}
+        - {group: '[]',  key: headphRToggleOff, status: 129, midino: 27}
 
     interactors:
       aliased: 
