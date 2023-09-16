@@ -37,53 +37,31 @@ mmpController:
         - {group: '[]',  key: wheel2Touch,  status: 145, midino:  6}
         - {group: '[]',  key: fade,         status: 191, midino:  8}
 
-        - {group: '[]',  key: , status: , midino: 
-padLA1Press: 148: 1
-        - {group: '[]',  key: , status: , midino: 
-padLA1Release: 132: 1
-        - {group: '[]',  key: , status: , midino: 
-padLA2Press: 148: 2
-        - {group: '[]',  key: , status: , midino: 
-padLA2Release: 132: 2
-        - {group: '[]',  key: , status: , midino: 
-padLA3Press: 148: 3
-        - {group: '[]',  key: , status: , midino: 
-padLA3Release: 132: 3
-        - {group: '[]',  key: , status: , midino: 
-padLA4Press: 148: 4
-        - {group: '[]',  key: , status: , midino: 
-padLA4Release: 132: 4
+        - {group: '[]',  key: padLA1Press,   status: 148, midino:  1}
+        - {group: '[]',  key: padLA1Release, status: 132, midino:  1}
+        - {group: '[]',  key: padLA2Press,   status: 148, midino:  2}
+        - {group: '[]',  key: padLA2Release, status: 132, midino:  2}
+        - {group: '[]',  key: padLA3Press,   status: 148, midino:  3}
+        - {group: '[]',  key: padLA3Release, status: 132, midino:  3}
+        - {group: '[]',  key: padLA4Press,   status: 148, midino:  4}
+        - {group: '[]',  key: padLA4Release, status: 132, midino:  4}
 
-        - {group: '[]',  key: , status: , midino: 
-padRA1Press: 149: 1
-        - {group: '[]',  key: , status: , midino: 
-padRA1Release: 133: 1
-        - {group: '[]',  key: , status: , midino: 
-padRA2Press: 149: 2
-        - {group: '[]',  key: , status: , midino: 
-padRA2Release: 133: 2
-        - {group: '[]',  key: , status: , midino: 
-padRA3Press: 149: 3
-        - {group: '[]',  key: , status: , midino: 
-padRA3Release: 133: 3
-        - {group: '[]',  key: , status: , midino: 
-padRA4Press: 149: 4
-        - {group: '[]',  key: , status: , midino: 
-padRA4Release: 133: 4
+        - {group: '[]',  key: padRA1Press,   status: 149, midino:  1}
+        - {group: '[]',  key: padRA1Release, status: 133, midino:  1}
+        - {group: '[]',  key: padRA2Press,   status: 149, midino:  2}
+        - {group: '[]',  key: padRA2Release, status: 133, midino:  2}
+        - {group: '[]',  key: padRA3Press,   status: 149, midino:  3}
+        - {group: '[]',  key: padRA3Release, status: 133, midino:  3}
+        - {group: '[]',  key: padRA4Press,   status: 149, midino:  4}
+        - {group: '[]',  key: padRA4Release, status: 133, midino:  4}
 
-        - {group: '[]',  key: , status: , midino: 
-padmodePress: 148: 0
-        - {group: '[]',  key: , status: , midino: 
-padmodeRelease: 149: 0
+        - {group: '[]',  key: padmodePress,   status: 148, midino:  0}
+        - {group: '[]',  key: padmodeRelease, status: 149, midino:  0}
 
-        - {group: '[]',  key: , status: , midino: 
-load1Press: 159: 2
-        - {group: '[]',  key: , status: , midino: 
-load1Release: 143: 2
-        - {group: '[]',  key: , status: , midino: 
-load2Press: 159: 3
-        - {group: '[]',  key: , status: , midino: 
-load2Release: 143: 3
+        - {group: '[]',  key: load1Press,   status: 159, midino:  2}
+        - {group: '[]',  key: load1Release, status: 143, midino:  2}
+        - {group: '[]',  key: load2Press,   status: 159, midino:  3}
+        - {group: '[]',  key: load2Release, status: 143, midino:  3}
 
         - {group: '[]',  key: , status: , midino: 
 headphLToggleOn: 144: 27
