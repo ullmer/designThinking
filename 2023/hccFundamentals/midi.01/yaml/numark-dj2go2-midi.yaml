@@ -63,15 +63,10 @@ mmpController:
         - {group: '[]',  key: load2Press,   status: 159, midino:  3}
         - {group: '[]',  key: load2Release, status: 143, midino:  3}
 
-        - {group: '[]',  key: , status: , midino: 
-headphLToggleOn: 144: 27
-        - {group: '[]',  key: , status: , midino: 
-headphLToggleOff: 128: 27
-        - {group: '[]',  key: , status: , midino: 
-headphRToggleOn: 145: 27
-        - {group: '[]',  key: , status: , midino: 
-headphRToggleOff: 129: 27
-
+        - {group: '[]',  key: headphLToggleOn,  status: 144, midino:  27}
+        - {group: '[]',  key: headphLToggleOff, status: 128, midino:  27}
+        - {group: '[]',  key: headphRToggleOn,  status: 145, midino:  27}
+        - {group: '[]',  key: headphRToggleOff, status: 129, midino:  27}
 
     interactors:
       aliased: 
