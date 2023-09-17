@@ -283,6 +283,11 @@ class enoMidiController:
 
     self.lp.LedAllOn( 0 )
 
+  ############# set xy color #############
+
+  def setXYColorRGB(self, x, y, r, g, b):
+    if self.isActiveDevice('nov_launchpad'):  self.setLaunchpadXYColor(x,y,r,g,b)
+
   ############# set launchpad xy color #############
 
   def setLaunchpadXYColor(self, x, y, r, g, b):
