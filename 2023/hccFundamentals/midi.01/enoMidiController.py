@@ -32,10 +32,11 @@ class enoMidiController:
   midiIn    = None
   midiOut   = None
   lp        = None #launchpad handle
-                                                                     #actIn  actOut actLaunch
-  controllerNameDict = {'launchpad': ['novation-launchpad-mk2c-midi', False, False, True ],
-                        'nu_dj2go2': ['numark-dj2go2-midi',           True,  True,  False],
-                        'nu_mt3':    ['numark-mt3-midi',              True,  True,  False]}
+                                                                        #actIn  actOut actLaunch
+  controllerNameDict = {'nov_launchpad': ['novation-launchpad-mk2c-midi', False, False, True ],
+                        'num_dj2go2':    ['numark-dj2go2-midi',           True,  True,  False],
+                        'num_mt3':       ['numark-mt3-midi',              True,  True,  False],
+                        'aka_apcmini2':  ['akai-apcmini-mk2-midi',        True,  True,  False]}
 
   controllerStatusNumDict  = None
   controllerNumDict        = None
@@ -68,6 +69,12 @@ class enoMidiController:
   
   def getActiveColor(self):
     return self.activeColor 
+
+  ############# is active device #############
+
+  def isActiveDevice(self, deviceName): 
+    if deviceName == self.controllerName: return True
+    return False
 
   ############# margin functions #############
 
@@ -336,7 +343,8 @@ class enoMidiController:
   ############# pollMidi #############
 
   def pollMidi(self):
-    if self.lp is not None:
+    # controllerNameDict = {'nov_launchpad': ['novation-launchpad-mk2c-midi', False, False, True ],
+    if self.isActiveDevice('nov_launchpad'): 
       bstate = self.lp.ButtonStateRaw()
       if bstate != []:
         midiNum, val1 = bstate
