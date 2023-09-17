@@ -100,6 +100,16 @@ mmpController:
         - {group: '[]',  key: i8, status_press: 144, status_release: 128, midino: 107}
         - {group: '[]',  key: i9, status_press: 144, status_release: 128, midino: 122}
 
+        - {group: '[]',  key: s1, status: 144, midino: 100}
+        - {group: '[]',  key: s2, status: 144, midino: 101}
+        - {group: '[]',  key: s3, status: 144, midino: 102}
+        - {group: '[]',  key: s4, status: 144, midino: 103}
+        - {group: '[]',  key: s5, status: 144, midino: 104}
+        - {group: '[]',  key: s6, status: 144, midino: 105}
+        - {group: '[]',  key: s7, status: 144, midino: 106}
+        - {group: '[]',  key: s8, status: 144, midino: 107}
+        - {group: '[]',  key: s9, status: 144, midino: 122}
+
     interactors:
       aliased: 
         buttons: []
