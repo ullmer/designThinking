@@ -113,6 +113,18 @@ mmpController:
     interactors:
       types: [button, slider]
 
-    outputs: ''
+    outputs: 
+      first_row_note: 100
+      first_col_note: 112
+      colors:
+        red:    []
+        orange: []
+        yellow: []
+        green:  []
+        blue:   []
+        violet: []
+        pink:   []
+        purple: []
+        white:  []
 
 ### end ###
