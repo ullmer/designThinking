@@ -70,6 +70,26 @@ mmpController:
         - {group: '[]',  key: f8, status_press: 144, status_release: 128, midino:  22}
         - {group: '[]',  key: f9, status_press: 144, status_release: 128, midino: 117}
 
+        - {group: '[]',  key: g1, status_press: 144, status_release: 128, midino:  8}
+        - {group: '[]',  key: g2, status_press: 144, status_release: 128, midino:  9}
+        - {group: '[]',  key: g3, status_press: 144, status_release: 128, midino:  10}
+        - {group: '[]',  key: g4, status_press: 144, status_release: 128, midino:  11}
+        - {group: '[]',  key: g5, status_press: 144, status_release: 128, midino:  12}
+        - {group: '[]',  key: g6, status_press: 144, status_release: 128, midino:  13}
+        - {group: '[]',  key: g7, status_press: 144, status_release: 128, midino:  14}
+        - {group: '[]',  key: g8, status_press: 144, status_release: 128, midino:  15}
+        - {group: '[]',  key: g9, status_press: 144, status_release: 128, midino: 118}
+
+        - {group: '[]',  key: h1, status_press: 144, status_release: 128, midino:  0}
+        - {group: '[]',  key: h2, status_press: 144, status_release: 128, midino:  1}
+        - {group: '[]',  key: h3, status_press: 144, status_release: 128, midino:  2}
+        - {group: '[]',  key: h4, status_press: 144, status_release: 128, midino:  3}
+        - {group: '[]',  key: h5, status_press: 144, status_release: 128, midino:  4}
+        - {group: '[]',  key: h6, status_press: 144, status_release: 128, midino:  5}
+        - {group: '[]',  key: h7, status_press: 144, status_release: 128, midino:  6}
+        - {group: '[]',  key: h8, status_press: 144, status_release: 128, midino:  7}
+        - {group: '[]',  key: h9, status_press: 144, status_release: 128, midino: 119}
+
     interactors:
       aliased: 
         buttons: []
