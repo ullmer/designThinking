@@ -111,11 +111,7 @@ mmpController:
         - {group: slider, key: s9, status: 176, midino: 56, val_min: 0, val_max: 127}
 
     interactors:
-      aliased: 
-        buttons: []
-        sliders: []
-
-      aliases: {}
+      type: [button, slider]
 
     outputs: ''
 
