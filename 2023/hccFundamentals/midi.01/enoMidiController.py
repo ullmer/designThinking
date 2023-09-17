@@ -44,8 +44,9 @@ class enoMidiController:
 
   rainbow8 = [[63, 0, 0], [63, 21, 0], [63, 63, 0], [0,  63,  0], 
               [0, 0, 63], [30, 0, 50], [50, 0, 30], [63, 63, 63]]
+
   colorDivisors = [63, 40, 30, 20, 8, 5, 2, 1]
-  activeColor = [63, 63, 63]
+  activeColor   = [63, 63, 63]
 
   topMarginColors   = None
   rightMarginColors = None
@@ -114,8 +115,8 @@ class enoMidiController:
     if self.activateOutput:    
       self.midiOut = pygame.midi.Output(outId); print("enoMidiController: launching midi output")
 
-    if self.isActiveDevice(nov_launchpad): self.initLaunchpad()
-    if self.isActiveDevice('aka_apcmini2): self.initAkaiApcMiniMk2()
+    if self.isActiveDevice('nov_launchpad'): self.initLaunchpad()
+    if self.isActiveDevice('aka_apcmini2'):  self.initAkaiApcMiniMk2()
 
   ############# map controller to yaml filename #############
 
@@ -248,13 +249,10 @@ class enoMidiController:
 
   def initLaunchpad(self):
     print("enoMidiController initLaunchpad called")
-    try:
-      import launchpad_py as launchpad
+    try:   import launchpad_py as launchpad
     except ImportError:
-      try:
-        import launchpad
-      except ImportError:
-        sys.exit("ERROR: loading launchpad.py failed")
+      try:                 import launchpad
+      except ImportError:  sys.exit("ERROR: loading launchpad.py failed")
 
     self.lp = launchpad.Launchpad()
 
@@ -268,6 +266,10 @@ class enoMidiController:
 
     # Clear the buffer because the Launchpad remembers everything
     self.lp.ButtonFlush()
+
+  ############# initiate Akai APC Mini Mk2 #############
+
+  def initAkaiApcMiniMk2(self): pass
 
   ############# clearlights #############
 
