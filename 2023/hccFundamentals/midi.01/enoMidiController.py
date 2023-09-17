@@ -108,15 +108,14 @@ class enoMidiController:
  
     inId, outId = self.midiCtrlInputId, self.midiCtrlOutputId
 
-    #if self.activateLaunchpad: self.initLaunchpad()
-
     if self.activateInput:     
       self.midiIn  = pygame.midi.Input(inId);   print("enoMidiController: launching midi input")
 
     if self.activateOutput:    
       self.midiOut = pygame.midi.Output(outId); print("enoMidiController: launching midi output")
 
-    if self.activateLaunchpad: self.initLaunchpad()
+    if self.isActiveDevice(nov_launchpad): self.initLaunchpad()
+    if self.isActiveDevice('aka_apcmini2): self.initAkaiApcMiniMk2()
 
   ############# map controller to yaml filename #############
 
@@ -161,11 +160,7 @@ class enoMidiController:
       print("enoMidiController loadYaml controlList parsing error")
       traceback.print_exc(); return None
 
-    print("enoMidiController loadYaml: controlsList length:", len(self.controlsList))
-    #self.registerControls(self.simpleLightCallback)
-
-    #print("enoMidiController loadYaml: controlCbDict", self.controlCbDict)
-    #print("enoMidiController loadYaml: controllerStatusNumDict", self.controllerStatusNumDict)
+    #print("enoMidiController loadYaml: controlsList length:", len(self.controlsList))
 
   ############# get yaml#############
 
