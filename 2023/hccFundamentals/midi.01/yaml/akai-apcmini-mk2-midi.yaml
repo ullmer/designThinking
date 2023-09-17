@@ -10,105 +10,105 @@ mmpController:
     scriptfiles: {file: ''}
     controls:
       control:
-        - {group: '[]',  key: a1, status_press: 144, status_release: 128, midino:  56}
-        - {group: '[]',  key: a2, status_press: 144, status_release: 128, midino:  57}
-        - {group: '[]',  key: a3, status_press: 144, status_release: 128, midino:  58}
-        - {group: '[]',  key: a4, status_press: 144, status_release: 128, midino:  59}
-        - {group: '[]',  key: a5, status_press: 144, status_release: 128, midino:  60}
-        - {group: '[]',  key: a6, status_press: 144, status_release: 128, midino:  61}
-        - {group: '[]',  key: a7, status_press: 144, status_release: 128, midino:  62}
-        - {group: '[]',  key: a8, status_press: 144, status_release: 128, midino:  63}
-        - {group: '[]',  key: a9, status_press: 144, status_release: 128, midino: 112}
+        - {group: button, key: a1, status_press: 144, status_release: 128, midino:  56}
+        - {group: button, key: a2, status_press: 144, status_release: 128, midino:  57}
+        - {group: button, key: a3, status_press: 144, status_release: 128, midino:  58}
+        - {group: button, key: a4, status_press: 144, status_release: 128, midino:  59}
+        - {group: button, key: a5, status_press: 144, status_release: 128, midino:  60}
+        - {group: button, key: a6, status_press: 144, status_release: 128, midino:  61}
+        - {group: button, key: a7, status_press: 144, status_release: 128, midino:  62}
+        - {group: button, key: a8, status_press: 144, status_release: 128, midino:  63}
+        - {group: button, key: a9, status_press: 144, status_release: 128, midino: 112}
 
-        - {group: '[]',  key: b1, status_press: 144, status_release: 128, midino:  48}
-        - {group: '[]',  key: b2, status_press: 144, status_release: 128, midino:  49}
-        - {group: '[]',  key: b3, status_press: 144, status_release: 128, midino:  50}
-        - {group: '[]',  key: b4, status_press: 144, status_release: 128, midino:  51}
-        - {group: '[]',  key: b5, status_press: 144, status_release: 128, midino:  52}
-        - {group: '[]',  key: b6, status_press: 144, status_release: 128, midino:  53}
-        - {group: '[]',  key: b7, status_press: 144, status_release: 128, midino:  54}
-        - {group: '[]',  key: b8, status_press: 144, status_release: 128, midino:  55}
-        - {group: '[]',  key: b9, status_press: 144, status_release: 128, midino: 113}
+        - {group: button, key: b1, status_press: 144, status_release: 128, midino:  48}
+        - {group: button, key: b2, status_press: 144, status_release: 128, midino:  49}
+        - {group: button, key: b3, status_press: 144, status_release: 128, midino:  50}
+        - {group: button, key: b4, status_press: 144, status_release: 128, midino:  51}
+        - {group: button, key: b5, status_press: 144, status_release: 128, midino:  52}
+        - {group: button, key: b6, status_press: 144, status_release: 128, midino:  53}
+        - {group: button, key: b7, status_press: 144, status_release: 128, midino:  54}
+        - {group: button, key: b8, status_press: 144, status_release: 128, midino:  55}
+        - {group: button, key: b9, status_press: 144, status_release: 128, midino: 113}
 
-        - {group: '[]',  key: c1, status_press: 144, status_release: 128, midino:  40}
-        - {group: '[]',  key: c2, status_press: 144, status_release: 128, midino:  41}
-        - {group: '[]',  key: c3, status_press: 144, status_release: 128, midino:  42}
-        - {group: '[]',  key: c4, status_press: 144, status_release: 128, midino:  43}
-        - {group: '[]',  key: c5, status_press: 144, status_release: 128, midino:  44}
-        - {group: '[]',  key: c6, status_press: 144, status_release: 128, midino:  45}
-        - {group: '[]',  key: c7, status_press: 144, status_release: 128, midino:  46}
-        - {group: '[]',  key: c8, status_press: 144, status_release: 128, midino:  47}
-        - {group: '[]',  key: c9, status_press: 144, status_release: 128, midino: 114}
+        - {group: button, key: c1, status_press: 144, status_release: 128, midino:  40}
+        - {group: button, key: c2, status_press: 144, status_release: 128, midino:  41}
+        - {group: button, key: c3, status_press: 144, status_release: 128, midino:  42}
+        - {group: button, key: c4, status_press: 144, status_release: 128, midino:  43}
+        - {group: button, key: c5, status_press: 144, status_release: 128, midino:  44}
+        - {group: button, key: c6, status_press: 144, status_release: 128, midino:  45}
+        - {group: button, key: c7, status_press: 144, status_release: 128, midino:  46}
+        - {group: button, key: c8, status_press: 144, status_release: 128, midino:  47}
+        - {group: button, key: c9, status_press: 144, status_release: 128, midino: 114}
 
-        - {group: '[]',  key: d1, status_press: 144, status_release: 128, midino:  32}
-        - {group: '[]',  key: d2, status_press: 144, status_release: 128, midino:  33}
-        - {group: '[]',  key: d3, status_press: 144, status_release: 128, midino:  34}
-        - {group: '[]',  key: d4, status_press: 144, status_release: 128, midino:  35}
-        - {group: '[]',  key: d5, status_press: 144, status_release: 128, midino:  36}
-        - {group: '[]',  key: d6, status_press: 144, status_release: 128, midino:  37}
-        - {group: '[]',  key: d7, status_press: 144, status_release: 128, midino:  38}
-        - {group: '[]',  key: d8, status_press: 144, status_release: 128, midino:  39}
-        - {group: '[]',  key: d9, status_press: 144, status_release: 128, midino: 115}
+        - {group: button, key: d1, status_press: 144, status_release: 128, midino:  32}
+        - {group: button, key: d2, status_press: 144, status_release: 128, midino:  33}
+        - {group: button, key: d3, status_press: 144, status_release: 128, midino:  34}
+        - {group: button, key: d4, status_press: 144, status_release: 128, midino:  35}
+        - {group: button, key: d5, status_press: 144, status_release: 128, midino:  36}
+        - {group: button, key: d6, status_press: 144, status_release: 128, midino:  37}
+        - {group: button, key: d7, status_press: 144, status_release: 128, midino:  38}
+        - {group: button, key: d8, status_press: 144, status_release: 128, midino:  39}
+        - {group: button, key: d9, status_press: 144, status_release: 128, midino: 115}
 
-        - {group: '[]',  key: e1, status_press: 144, status_release: 128, midino:  24}
-        - {group: '[]',  key: e2, status_press: 144, status_release: 128, midino:  25}
-        - {group: '[]',  key: e3, status_press: 144, status_release: 128, midino:  26}
-        - {group: '[]',  key: e4, status_press: 144, status_release: 128, midino:  27}
-        - {group: '[]',  key: e5, status_press: 144, status_release: 128, midino:  28}
-        - {group: '[]',  key: e6, status_press: 144, status_release: 128, midino:  29}
-        - {group: '[]',  key: e7, status_press: 144, status_release: 128, midino:  30}
-        - {group: '[]',  key: e8, status_press: 144, status_release: 128, midino:  31}
-        - {group: '[]',  key: e9, status_press: 144, status_release: 128, midino: 116}
+        - {group: button, key: e1, status_press: 144, status_release: 128, midino:  24}
+        - {group: button, key: e2, status_press: 144, status_release: 128, midino:  25}
+        - {group: button, key: e3, status_press: 144, status_release: 128, midino:  26}
+        - {group: button, key: e4, status_press: 144, status_release: 128, midino:  27}
+        - {group: button, key: e5, status_press: 144, status_release: 128, midino:  28}
+        - {group: button, key: e6, status_press: 144, status_release: 128, midino:  29}
+        - {group: button, key: e7, status_press: 144, status_release: 128, midino:  30}
+        - {group: button, key: e8, status_press: 144, status_release: 128, midino:  31}
+        - {group: button, key: e9, status_press: 144, status_release: 128, midino: 116}
 
-        - {group: '[]',  key: f1, status_press: 144, status_release: 128, midino:  16}
-        - {group: '[]',  key: f2, status_press: 144, status_release: 128, midino:  17}
-        - {group: '[]',  key: f3, status_press: 144, status_release: 128, midino:  18}
-        - {group: '[]',  key: f4, status_press: 144, status_release: 128, midino:  19}
-        - {group: '[]',  key: f5, status_press: 144, status_release: 128, midino:  20}
-        - {group: '[]',  key: f6, status_press: 144, status_release: 128, midino:  21}
-        - {group: '[]',  key: f7, status_press: 144, status_release: 128, midino:  22}
-        - {group: '[]',  key: f8, status_press: 144, status_release: 128, midino:  22}
-        - {group: '[]',  key: f9, status_press: 144, status_release: 128, midino: 117}
+        - {group: button, key: f1, status_press: 144, status_release: 128, midino:  16}
+        - {group: button, key: f2, status_press: 144, status_release: 128, midino:  17}
+        - {group: button, key: f3, status_press: 144, status_release: 128, midino:  18}
+        - {group: button, key: f4, status_press: 144, status_release: 128, midino:  19}
+        - {group: button, key: f5, status_press: 144, status_release: 128, midino:  20}
+        - {group: button, key: f6, status_press: 144, status_release: 128, midino:  21}
+        - {group: button, key: f7, status_press: 144, status_release: 128, midino:  22}
+        - {group: button, key: f8, status_press: 144, status_release: 128, midino:  22}
+        - {group: button, key: f9, status_press: 144, status_release: 128, midino: 117}
 
-        - {group: '[]',  key: g1, status_press: 144, status_release: 128, midino:   8}
-        - {group: '[]',  key: g2, status_press: 144, status_release: 128, midino:   9}
-        - {group: '[]',  key: g3, status_press: 144, status_release: 128, midino:  10}
-        - {group: '[]',  key: g4, status_press: 144, status_release: 128, midino:  11}
-        - {group: '[]',  key: g5, status_press: 144, status_release: 128, midino:  12}
-        - {group: '[]',  key: g6, status_press: 144, status_release: 128, midino:  13}
-        - {group: '[]',  key: g7, status_press: 144, status_release: 128, midino:  14}
-        - {group: '[]',  key: g8, status_press: 144, status_release: 128, midino:  15}
-        - {group: '[]',  key: g9, status_press: 144, status_release: 128, midino: 118}
+        - {group: button, key: g1, status_press: 144, status_release: 128, midino:   8}
+        - {group: button, key: g2, status_press: 144, status_release: 128, midino:   9}
+        - {group: button, key: g3, status_press: 144, status_release: 128, midino:  10}
+        - {group: button, key: g4, status_press: 144, status_release: 128, midino:  11}
+        - {group: button, key: g5, status_press: 144, status_release: 128, midino:  12}
+        - {group: button, key: g6, status_press: 144, status_release: 128, midino:  13}
+        - {group: button, key: g7, status_press: 144, status_release: 128, midino:  14}
+        - {group: button, key: g8, status_press: 144, status_release: 128, midino:  15}
+        - {group: button, key: g9, status_press: 144, status_release: 128, midino: 118}
 
-        - {group: '[]',  key: h1, status_press: 144, status_release: 128, midino:   0}
-        - {group: '[]',  key: h2, status_press: 144, status_release: 128, midino:   1}
-        - {group: '[]',  key: h3, status_press: 144, status_release: 128, midino:   2}
-        - {group: '[]',  key: h4, status_press: 144, status_release: 128, midino:   3}
-        - {group: '[]',  key: h5, status_press: 144, status_release: 128, midino:   4}
-        - {group: '[]',  key: h6, status_press: 144, status_release: 128, midino:   5}
-        - {group: '[]',  key: h7, status_press: 144, status_release: 128, midino:   6}
-        - {group: '[]',  key: h8, status_press: 144, status_release: 128, midino:   7}
-        - {group: '[]',  key: h9, status_press: 144, status_release: 128, midino: 119}
+        - {group: button, key: h1, status_press: 144, status_release: 128, midino:   0}
+        - {group: button, key: h2, status_press: 144, status_release: 128, midino:   1}
+        - {group: button, key: h3, status_press: 144, status_release: 128, midino:   2}
+        - {group: button, key: h4, status_press: 144, status_release: 128, midino:   3}
+        - {group: button, key: h5, status_press: 144, status_release: 128, midino:   4}
+        - {group: button, key: h6, status_press: 144, status_release: 128, midino:   5}
+        - {group: button, key: h7, status_press: 144, status_release: 128, midino:   6}
+        - {group: button, key: h8, status_press: 144, status_release: 128, midino:   7}
+        - {group: button, key: h9, status_press: 144, status_release: 128, midino: 119}
 
-        - {group: '[]',  key: i1, status_press: 144, status_release: 100, midino: 100}
-        - {group: '[]',  key: i2, status_press: 144, status_release: 101, midino: 101}
-        - {group: '[]',  key: i3, status_press: 144, status_release: 128, midino: 102}
-        - {group: '[]',  key: i4, status_press: 144, status_release: 128, midino: 103}
-        - {group: '[]',  key: i5, status_press: 144, status_release: 128, midino: 104}
-        - {group: '[]',  key: i6, status_press: 144, status_release: 128, midino: 105}
-        - {group: '[]',  key: i7, status_press: 144, status_release: 128, midino: 106}
-        - {group: '[]',  key: i8, status_press: 144, status_release: 128, midino: 107}
-        - {group: '[]',  key: i9, status_press: 144, status_release: 128, midino: 122}
+        - {group: button, key: i1, status_press: 144, status_release: 100, midino: 100}
+        - {group: button, key: i2, status_press: 144, status_release: 101, midino: 101}
+        - {group: button, key: i3, status_press: 144, status_release: 128, midino: 102}
+        - {group: button, key: i4, status_press: 144, status_release: 128, midino: 103}
+        - {group: button, key: i5, status_press: 144, status_release: 128, midino: 104}
+        - {group: button, key: i6, status_press: 144, status_release: 128, midino: 105}
+        - {group: button, key: i7, status_press: 144, status_release: 128, midino: 106}
+        - {group: button, key: i8, status_press: 144, status_release: 128, midino: 107}
+        - {group: button, key: i9, status_press: 144, status_release: 128, midino: 122}
 
-        - {group: '[]',  key: s1, status: 176, midino: 48, val_min: 0, val_max: 127}
-        - {group: '[]',  key: s2, status: 176, midino: 49, val_min: 0, val_max: 127}
-        - {group: '[]',  key: s3, status: 176, midino: 50, val_min: 0, val_max: 127}
-        - {group: '[]',  key: s4, status: 176, midino: 51, val_min: 0, val_max: 127}
-        - {group: '[]',  key: s5, status: 176, midino: 52, val_min: 0, val_max: 127}
-        - {group: '[]',  key: s6, status: 176, midino: 53, val_min: 0, val_max: 127}
-        - {group: '[]',  key: s7, status: 176, midino: 54, val_min: 0, val_max: 127}
-        - {group: '[]',  key: s8, status: 176, midino: 55, val_min: 0, val_max: 127}
-        - {group: '[]',  key: s9, status: 176, midino: 56, val_min: 0, val_max: 127}
+        - {group: slider, key: s1, status: 176, midino: 48, val_min: 0, val_max: 127}
+        - {group: slider, key: s2, status: 176, midino: 49, val_min: 0, val_max: 127}
+        - {group: slider, key: s3, status: 176, midino: 50, val_min: 0, val_max: 127}
+        - {group: slider, key: s4, status: 176, midino: 51, val_min: 0, val_max: 127}
+        - {group: slider, key: s5, status: 176, midino: 52, val_min: 0, val_max: 127}
+        - {group: slider, key: s6, status: 176, midino: 53, val_min: 0, val_max: 127}
+        - {group: slider, key: s7, status: 176, midino: 54, val_min: 0, val_max: 127}
+        - {group: slider, key: s8, status: 176, midino: 55, val_min: 0, val_max: 127}
+        - {group: slider, key: s9, status: 176, midino: 56, val_min: 0, val_max: 127}
 
     interactors:
       aliased: 
