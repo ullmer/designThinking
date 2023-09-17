@@ -322,28 +322,13 @@ class enoMidiController:
 
     if midiStatNumKey in self.controllerStatusNumDict:
       control = self.controllerStatusNumDict[midiStatNumKey]
-      #print("FOOBAR")
-      #self.invokeCallback(control, val)
       self.invokeCallback(control, val)
     else:
-      #print("midiNum %s not in scnd %s" % (str(midiNum), str(self.controllerNumDict)))
       print("midiNum %s not in scnd list" % str(midiNum))
     
-    #print("pmu", midiStatus, midiNum, val)
-    #msn = self.midiStatusNumKey(midiStatus, midiNum)
-
-    #if self.controllerStatusNumDict == None: 
-    #  print("enoMidiController: processMidiUpdate called, but no registered data")
-    #  return None
-
-    #if msn in self.controllerStatusNumDict:
-    # control = self.controllerStatusNumDict[msn]
-    #  self.invokeCallback(control, val)
-
   ############# pollMidi #############
 
   def pollMidi(self):
-    # controllerNameDict = {'nov_launchpad': ['novation-launchpad-mk2c-midi', False, False, True ],
     if self.isActiveDevice('nov_launchpad'): 
       bstate = self.lp.ButtonStateRaw()
       if bstate != []:
@@ -357,8 +342,6 @@ class enoMidiController:
         payload, timestamp = el
         midiStatus, midiNum, val1, val2 = payload
 
-        #print("FOO:", midiStatus, midiNum, val1, val2)
         self.processMidiUpdate(midiStatus, midiNum, val1)
-        #self.processMidiUpdate(midiStatus, midiNum)
   
 ### end ###
