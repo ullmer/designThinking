@@ -21,10 +21,7 @@ mf.title("Interactive grid example")
 mf.geometry("800x800")
 
 buttonState = {}
-
-def toggleCB(x, y):
- 
- 
+buttonTk    = {}
 
 imP1  = PIL.Image.new(mode="RGB", size=(w,h), color=color1)
 imTk1 = PIL.ImageTk.PhotoImage(imP1)
@@ -32,10 +29,24 @@ imTk1 = PIL.ImageTk.PhotoImage(imP1)
 imP2  = PIL.Image.new(mode="RGB", size=(w,h), color=color2)
 imTk2 = PIL.ImageTk.PhotoImage(imP2)
 
+def toggleCB(coord):
+  global buttonState, buttonCb, imTk1, imTk2
+
+  if buttonState[coord]: 
+    buttonState[coord] = False
+    buttonTk[coord].configure(image=imTk1)
+  else:
+    buttonState[coord] = True
+    buttonTk[coord].configure(image=imTk2)
+
 for i in range(rows):
   for j in range(columns):
-    cb = partial(toggleCB, i, j)
-    button = tk.Button(mf, image=imPTk, callback=cb) 
+    coord = (i, j)
+    cb = partial(toggleCB, coord)
+    button = tk.Button(mf, image=imTk1, command=cb) 
+
+    buttonState[coord] = False
+    buttonTk[coord]    = button
     button.grid(row=i, column=j)
 
 mf.mainloop()
