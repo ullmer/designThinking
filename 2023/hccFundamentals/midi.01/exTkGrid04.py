@@ -29,6 +29,8 @@ imTk1 = PIL.ImageTk.PhotoImage(imP1)
 imP2  = PIL.Image.new(mode="RGB", size=(w,h), color=color2)
 imTk2 = PIL.ImageTk.PhotoImage(imP2)
 
+############### button toggle callback ############### 
+
 def toggleCB(coord):
   global buttonState, buttonCb, imTk1, imTk2
 
@@ -39,10 +41,12 @@ def toggleCB(coord):
     buttonState[coord] = True
     buttonTk[coord].configure(image=imTk2)
 
+############### create widgets ############### 
+
 for i in range(rows):
   for j in range(columns):
-    coord = (i, j)
-    cb = partial(toggleCB, coord)
+    coord  = (i, j)
+    cb     = partial(toggleCB, coord) #e.g., https://www.blog.pythonlibrary.org/2016/02/11/python-partials/
     button = tk.Button(mf, image=imTk1, command=cb) 
 
     buttonState[coord] = False
