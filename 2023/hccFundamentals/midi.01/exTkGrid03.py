@@ -8,22 +8,23 @@
 # https://www.tutorialspoint.com/python/tk_button.htm
 
 import tkinter as tk  #Tkinter graphical interface
-import PIL.Image      #image manipulation package
+import PIL.Image, PIL.ImageTk      #image manipulation package
 
 rows, columns = 8, 8
 w, h          = 93, 93
-color1        = (100, 100, 0)
+color1        = (200, 100, 0)
 
 mf = mainFrame = tk.Tk()
 mf.title("Interactive grid example")
 mf.geometry("800x800")
 
 imPil = PIL.Image.new(mode="RGB", size=(w,h), color=color1)
-imTk  = tk.PhotoImage(imPil)
+imPTk = PIL.ImageTk.PhotoImage(imPil)
+#imPTk = PIL.ImageTk.PhotoImage(file="im_or.png")
 
 for i in range(rows):
   for j in range(columns):
-    button = tk.Button(mf, image=imTk, width=w, height=h) #see reddit link for image & dimensions
+    button = tk.Button(mf, image=imPTk) 
     button.grid(row=i, column=j)
 
 mf.mainloop()
