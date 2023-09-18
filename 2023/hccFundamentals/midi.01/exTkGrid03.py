@@ -7,29 +7,23 @@
 # https://www.tutorialspoint.com/python/tk_grid.htm
 # https://www.tutorialspoint.com/python/tk_button.htm
 
-import tkinter as tk
+import tkinter as tk  #Tkinter graphical interface
+import PIL.Image      #image manipulation package
 
 rows, columns = 8, 8
-w, h = 93, 93
+w, h          = 93, 93
+color1        = (100, 100, 0)
 
 mf = mainFrame = tk.Tk()
 mf.title("Interactive grid example")
 mf.geometry("800x800")
 
-# https://www.reddit.com/r/learnpython/comments/th4c6g/how_do_i_make_the_buttons_be_square_in_tkinter/
-#im = tk.PhotoImage(width=1, height=1) # hack introduced here:
-#x,y,r,g,b = 0, 0, 200, 00, 0
-#im.put("#%02x%02x%02x" % (r,g,b), (x, y))
-
-im = tk.PhotoImage(width=2, height=2) # hack introduced here:
-r,g,b = 200, 00, 0
-for i in range(2):
-  for j in range(2):
-    im.put("#%02x%02x%02x" % (r,g,b), (i, j))
+imPil = PIL.Image.new(mode="RGB", size=(w,h), color=color1)
+imTk  = tk.PhotoImage(imPil)
 
 for i in range(rows):
   for j in range(columns):
-    button = tk.Button(mf, image=im, width=w, height=h) #see reddit link for image & dimensions
+    button = tk.Button(mf, image=imTk, width=w, height=h) #see reddit link for image & dimensions
     button.grid(row=i, column=j)
 
 mf.mainloop()
