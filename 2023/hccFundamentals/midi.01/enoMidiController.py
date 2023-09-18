@@ -115,7 +115,7 @@ class enoMidiController:
     if self.activateOutput:    
       self.midiOut = pygame.midi.Output(outId); print("enoMidiController: launching midi output")
 
-    if self.isActiveDevice('nov_launchpad'): self.initLaunchpad()
+    if self.isActiveDevice('nov_launchpad'): self.initLaunchpad() # migrate to some form of reflection
     if self.isActiveDevice('aka_apcmini2'):  self.initAkaiApcMiniMk2()
 
   ############# map controller to yaml filename #############
