@@ -16,13 +16,14 @@ mf = mainFrame = tk.Tk()
 mf.title("Interactive grid example")
 mf.geometry("800x800")
 
-im = tk.PhotoImage(width=1, height=1) # hack introduced here:
 # https://www.reddit.com/r/learnpython/comments/th4c6g/how_do_i_make_the_buttons_be_square_in_tkinter/
+im = tk.PhotoImage(width=1, height=1) # hack introduced here:
+x,y,r,g,b = 0, 0, 200, 00, 0
+im.put("#%02x%02x%02x" % (r,g,b), (x, y))
 
 for i in range(rows):
   for j in range(columns):
-    str = "%ix%i" % (i, j)
-    button = tk.Button(mf, text=str, image=im, width=w, height=h) #see reddit link for image & dimensions
+    button = tk.Button(mf, image=im, width=w, height=h) #see reddit link for image & dimensions
     button.grid(row=i, column=j)
 
 mf.mainloop()
