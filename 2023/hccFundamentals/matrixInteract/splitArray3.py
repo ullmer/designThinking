@@ -16,8 +16,8 @@ class tiledPanel:
   panelWidth  = None
   panelHeight = None
 
-  def __init__(self, imgSrc):
-    self.imgSrc = imgSrc
+  def __init__(self, imgSrcFn):
+    self.imgSrcFn = imgSrcFn
     self.imgSrc = Image.open(self.imgSrcFn)
     #self.imgSrc.show()
     self.panelWidth, self.panelHeight = self.imgSrc.size
@@ -44,8 +44,8 @@ srcImg = "images/clemson-colleges-77g2-core.png"
 tp = tiledPanel(srcImg)
 
 tfnPre = "images/cc77g-"
-for i in tp.getTilesWide():
-  for j in tp.getTilesHigh():
+for i in range(tp.getTilesWide()):
+  for j in range(tp.getTilesHigh()):
     targPane = tp.extractPane(i,j)
     rowId    = chr(ord('A') + j)
     coordStr = "%s%i" % (rowId, i)
