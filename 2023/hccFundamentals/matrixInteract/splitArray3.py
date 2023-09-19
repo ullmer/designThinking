@@ -10,9 +10,10 @@ class tiledPanel:
   imgSrc   = None
   targPane = None
   #arrayDim = [6, 3]
-  arrayDim = [8, 9]
-  blockDim = 228  # initially assume square
-  padDim   = 76   # between blocks 
+  arrayDim = [9, 8]
+  #blockDim = 228  # initially assume square
+  blockDim = 226  # initially assume square
+  padDim   = 74   # between blocks 
   panelWidth  = None
   panelHeight = None
 
