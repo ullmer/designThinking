@@ -6,7 +6,7 @@
 from PIL import Image
 
 class tiledPanel:
-  imgSrcFn = 'enodiaAbout20d.png'
+  imgSrcFn = None
   imgSrc   = None
   targPane = None
   #arrayDim = [6, 3]
@@ -16,12 +16,16 @@ class tiledPanel:
   panelWidth  = None
   panelHeight = None
 
-  def __init__(self):
+  def __init__(self, imgSrc):
+    self.imgSrc = imgSrc
     self.imgSrc = Image.open(self.imgSrcFn)
     #self.imgSrc.show()
     self.panelWidth, self.panelHeight = self.imgSrc.size
     self.tileWidth  = self.panelWidth /self.arrayDim[0]
     self.tileHeight = self.panelHeight/self.arrayDim[1]
+
+  def getTilesWide(self): return self.arrayDim[0]
+  def getTilesHigh(self): return self.arrayDim[1]
 
   def extractPane(self, tileCol, tileRow):
     x1 = self.tileWidth  * tileCol
@@ -33,12 +37,17 @@ class tiledPanel:
     return self.targPane
     #self.targPane.show()
 
-tp = tiledPanel()
+srcImg = "images/clemson-colleges-77g2-core.png"
+tp = tiledPanel(srcImg)
 
-tfnPre = "enodiaAbout20dT"
-for i in range(tp.arrayDim[0]):
-  targPane = tp.extractPane(i,0)
-  fn = tp.imgSrcFn; tfn = tfnPre + str(i) + ".png"
-  targPane.save(tfn)
+tfnPre = "images/cc77g-"
+for i in tp.getTilesWide():
+  for j in tp.getTilesHigh():
+    targPane = tp.extractPane(i,j)
+    rowId    = chr(ord('A') + j)
+    coordStr = "%s%i" % (rowId, i)
+
+    tfn = tfnPre + coordStr + ".png"
+    targPane.save(tfn)
 
 ### end ###
