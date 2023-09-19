@@ -24,14 +24,17 @@ class tiledPanel:
     self.tileWidth  = self.panelWidth /self.arrayDim[0]
     self.tileHeight = self.panelHeight/self.arrayDim[1]
 
+    self.tileWidth  = self.blockDim + self.padDim
+    self.tileHeight = self.blockDim + self.padDim
+
   def getTilesWide(self): return self.arrayDim[0]
   def getTilesHigh(self): return self.arrayDim[1]
 
   def extractPane(self, tileCol, tileRow):
     x1 = self.tileWidth  * tileCol
     y1 = self.tileHeight * tileRow
-    x2 = self.tileWidth  * (tileCol+1)
-    y2 = self.tileHeight * (tileRow+1)
+    x2 = x1 + self.blockDim
+    y2 = y1 + self.blockDim
 
     self.targPane = self.imgSrc.crop((x1, y1, x2, y2))
     return self.targPane
