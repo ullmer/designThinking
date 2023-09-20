@@ -12,13 +12,15 @@ import PIL.Image, PIL.ImageTk #image manipulation package
 from functools    import partial
 
 rows, columns = 8, 8
-w, h          = 93, 93
+#w, h          = 93, 93
+w, h          = 113, 113
 color1        = (200, 100,   0)
 color2        = (200,   0, 200)
 
 mf = mainFrame = tk.Tk()
 mf.title("Interactive grid example")
-mf.geometry("800x800")
+#mf.geometry("800x800")
+mf.geometry("1035x920")
 
 buttonState = {}
 buttonTk    = {}
@@ -54,12 +56,15 @@ def toggleCB(coord):
 
 # images need to be held an a data structure, or else they will be garbage collected
 imagesDict = {}
+    
+
+imPrefix = "images/cc77g/150/cc77g"
 
 for i in range(rows):
   for j in range(columns):
     coord  = (i, j)
     cb     = partial(toggleCB, coord) #e.g., https://www.blog.pythonlibrary.org/2016/02/11/python-partials/
-    im = imagesDict[coord] = loadImage("images/cc77g", i, j)
+    im = imagesDict[coord] = loadImage(imPrefix, i, j)
     
     button = tk.Button(mf, image=im, command=cb) 
 
