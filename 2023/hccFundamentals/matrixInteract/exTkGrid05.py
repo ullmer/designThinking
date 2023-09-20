@@ -20,7 +20,8 @@ color2        = (200,   0, 200)
 root = tk.Tk()
 root.title("Interactive grid example")
 #root.geometry("800x800")
-root.geometry("1000x800-0-0")
+root.geometry("900x800-0-0")
+root.overrideredirect(1) #hide window decorations ~= titlebar
 #root.geometry("+200+400")
 
 buttonState = {}
