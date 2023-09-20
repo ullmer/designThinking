@@ -11,16 +11,17 @@ import tkinter as tk           #Tkinter graphical interface
 import PIL.Image, PIL.ImageTk #image manipulation package
 from functools    import partial
 
-rows, columns = 8, 8
-#w, h          = 93, 93
-w, h          = 113, 113
+rows, columns = 8, 9
+w, h          = 94, 94
+#w, h          = 113, 113
 color1        = (200, 100,   0)
 color2        = (200,   0, 200)
 
-mf = mainFrame = tk.Tk()
-mf.title("Interactive grid example")
-#mf.geometry("800x800")
-mf.geometry("1035x920")
+root = tk.Tk()
+root.title("Interactive grid example")
+#root.geometry("800x800")
+root.geometry("1000x800-0-0")
+#root.geometry("+200+400")
 
 buttonState = {}
 buttonTk    = {}
@@ -57,8 +58,7 @@ def toggleCB(coord):
 # images need to be held an a data structure, or else they will be garbage collected
 imagesDict = {}
     
-
-imPrefix = "images/cc77g/150/cc77g"
+imPrefix = "images/cc77g/125/cc77g"
 
 for i in range(rows):
   for j in range(columns):
@@ -66,13 +66,13 @@ for i in range(rows):
     cb     = partial(toggleCB, coord) #e.g., https://www.blog.pythonlibrary.org/2016/02/11/python-partials/
     im = imagesDict[coord] = loadImage(imPrefix, i, j)
     
-    button = tk.Button(mf, image=im, command=cb) 
+    button = tk.Button(root, image=im, command=cb) 
 
     buttonState[coord] = False
     buttonTk[coord]    = button
     button.grid(row=i, column=j)
 
-mf.mainloop()
+root.mainloop()
 
 ### end ###
 
