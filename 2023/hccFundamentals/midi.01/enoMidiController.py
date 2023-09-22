@@ -33,10 +33,11 @@ class enoMidiController:
   midiOut   = None
   lp        = None #launchpad handle
                                                                         #actIn  actOut actLaunch
-  controllerNameDict = {'nov_launchpad': ['novation-launchpad-mk2c-midi', False, False, True ],
-                        'num_dj2go2':    ['numark-dj2go2-midi',           True,  True,  False],
-                        'num_mt3':       ['numark-mt3-midi',              True,  True,  False],
-                        'aka_apcmini2':  ['akai-apcmini-mk2-midi',        True,  True,  False]}
+  controllerNameDict = {'nov_launchpad_mk2': ['novation-launchpad-mk2c-midi', False, False, True ],
+                        'nov_launchpad_x':   ['novation-launchpad-x-midi',    False, False, True ],
+                        'num_dj2go2':        ['numark-dj2go2-midi',           True,  True,  False],
+                        'num_mt3':           ['numark-mt3-midi',              True,  True,  False],
+                        'aka_apcmini2':      ['akai-apcmini-mk2-midi',        True,  True,  False]}
 
   controllerStatusNumDict  = None
   controllerNumDict        = None
@@ -74,7 +75,13 @@ class enoMidiController:
   ############# is active device #############
 
   def isActiveDevice(self, deviceName): 
-    if deviceName == self.controllerName: return True
+    if deviceName == self.controllerName:         return True #direct match
+
+    try:
+      if self.controllerName.find(deviceName) > -1: return True #partial match, as w/ different Launchpads
+    except: 
+      print("isActiveDevice fails on", deviceName, self.controllerName)
+
     return False
 
   ############# margin functions #############
@@ -147,6 +154,7 @@ class enoMidiController:
   ############# load yaml #############
 
   def loadYaml(self, yamlFn):
+    print("loadYaml:", yamlFn)
     if os.path.exists(yamlFn) is False: 
       print("enoMidiController loadYaml: filename %s does not exist!" % yamlFn)
       return None
@@ -262,7 +270,16 @@ class enoMidiController:
 
       if self.lp.Open( 0, "mk2" ): print( " - Launchpad Mk2: OK" )
       else:                        print( " - Launchpad Mk2: ERROR"); return
-    else: print( " - No Launchpad Mk2 available" ); return
+    elif self.lp.Check( 1, "Launchpad X") or self.lp.Check( 1, "LPX" ):
+      self.lp = launchpad.LaunchpadLPX()
+      # Open() includes looking for "LPX" and "Launchpad X"
+      if self.lp.Open(1):
+        print( " - Launchpad X: OK" )
+      else:
+        print( " - Launchpad X: ERROR")
+        return
+
+    else: print( " - No Launchpad Mk2 or X available" ); return
 
     # Clear the buffer because the Launchpad remembers everything
     self.lp.ButtonFlush()

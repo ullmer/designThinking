@@ -29,7 +29,7 @@ def painterCB(emc, control, arg):
 
 #### main ####
 
-emc = enoMidiController('launchpad')
+emc = enoMidiController('nov_launchpad_x')
 emc.clearLights()
 emc.rightMarginRainbow()
 emc.registerExternalCB(painterCB)
