@@ -7,10 +7,10 @@
 3: {abbrev: "Good health and well-being",  RGB: 2D9A47,
     title: "Ensure healthy lives and promote well-being for all at all ages"}
 
-4: {abbrev: "Quality education",           RGB
+4: {abbrev: "Quality education",           RGB: C12032,
     title: "Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all"}
 
-5: {abbrev: "Gender equality",   
+5: {abbrev: "Gender equality",             RGB: ED4129,
     title: "Achieve gender equality and empower all women and girls"}
 
 6: {abbrev: "Clean water and sanitation", 
