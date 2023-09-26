@@ -78,14 +78,14 @@ class enoTkImgGrid:
         coord  = (i, j)
         cb     = partial(self.toggleCB, coord) #e.g., https://www.blog.pythonlibrary.org/2016/02/11/python-partials/
         im     = self.imagesDict[coord] = self.loadImage(self.imgPrefix, i, j)
-        button = tk.Button(root, image=im, command=cb) 
+        button = tk.Button(self.root, image=im, command=cb) 
         self.buttonState[coord] = False
         self.buttonTk[coord]    = button
-        button.grid(row=i, column=j, padx=self.padx, pady=self.pady)
+        button.grid(row=i, column=j, padx=self.padX, pady=self.padY)
   
   ############### loadImage ############### 
   
-  def loadImage(baseFn, x, y, ext='.png'):
+  def loadImage(self, baseFn, x, y, ext='.png'):
     rowId  = chr(ord('A') + x)
     fn     = "%s-%s%i%s" % (baseFn, rowId, y, ext)
     img    = PIL.Image.open(fn)
@@ -94,7 +94,7 @@ class enoTkImgGrid:
   
   ############### button toggle callback ############### 
   
-  def toggleCB(coord):
+  def toggleCB(self, coord):
     if self.buttonState[coord]: 
       self.buttonState[coord] = False
       self.buttonTk[coord].configure(image=imTk1)
