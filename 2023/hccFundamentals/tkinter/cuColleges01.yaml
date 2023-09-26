@@ -4,6 +4,7 @@
 
 imageMatrix: 
   name:      "Clemson University : Colleges" #quoted because of colon within 
+  addr:      https://enodia.computing.clemson.edu/spreads/edu.clemson/colleges/
   imgPrefix: images/cc77g/125/                 
   bgImg:     images/clemson-colleges-77g2-core125.png
   matrixMap:  
@@ -56,14 +57,14 @@ imageMatrix:
              EEES: ["Environmental Engineering & Earth Sciences", 
                                                            https://clemson.edu/cecas/departments/eees/]}
 
-     CAAC: {CAAC: ["College of Architecture, Art, & Construction", https://clemson.edu/caac/],
+    CAAC:  {CAAC: ["College of Architecture, Art, & Construction", https://clemson.edu/caac/],
              SoA: ["School of Architecture",                       https://clemson.edu/caac/academics/architecture/],
             Arch: ["Architecture",          https://clemson.edu/caac/academics/architecture/programs/architecture/],
               HP: ["Historic Preservation", https://clemson.edu/caac/academics/architecture/programs/historic-preservation/],
               LA: ["Landscape Architecture",https://clemson.edu/caac/academics/architecture/programs/landscape-architecture/],
-            PDBE: ["Planning, Design, & Built Environment",   https://clemson.edu/caac/academics/architecture/programs/pdbe/],
              RUD: ["Resilient Urban Design",https://clemson.edu/caac/academics/architecture/programs/resilient-urban-design/],
-             Art: ["Art",                                  https://clemson.edu/caac/academics/art/]}
+            PDBE: ["Planning, Design, & Built Environment",h ttps://clemson.edu/caac/academics/architecture/programs/pdbe/],
+             Art: ["Art",                                  https://clemson.edu/caac/academics/art/],
              CDP: ["Construction, Development & Planning", https://clemson.edu/caac/academics/ncdp/]}
 
 ### end ###
