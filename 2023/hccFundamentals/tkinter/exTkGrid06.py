@@ -59,7 +59,7 @@ def toggleCB(coord):
 # images need to be held an a data structure, or else they will be garbage collected
 imagesDict = {}
     
-imPrefix = "images/cc77g/125/cc77g"
+imPrefix = "images/cc77g/125/"
 px = py = 15
 
 #background image, per https://stackoverflow.com/questions/62430477/how-to-set-a-background-image-in-tkinter-using-grid-only
