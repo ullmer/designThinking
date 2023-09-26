@@ -9,7 +9,7 @@
 
 from enoTkImgGrid import *
 
-etig = enoTkImgGrid("images/cc77g/125/cc77g")
+etig = enoTkImgGrid("images/cc77g/125/")
 
 #bgimg = "images/clemson-colleges-77g2-core125.png"
 
