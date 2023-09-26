@@ -9,13 +9,13 @@ imageMatrix:
   mapping:  
     A: [CAAC, Art, CDP, Arch, LA, HP, RUD, SoA]
     a: [CAH,  E, H, L, PA, PR]  
-    B: [Business, 
-    b: [CBSHS, 
-    F: [CAFLS, AS, AVPS, ESPS, FNPS, FEC, PES]
-    E: [CECAS, AE, BE, CBE, CE, ECE, ESE, EEES, 
+    B: [Business, A, AS, E, FM, GC, Man, Mar, ML, BA]
+    b: [CBSHS, C,  N,    PRTM, PS, P, PHS, SACJ]
+    F: [CAFLS, AS, AVPS, ESPS, FNPS,  FEC, PES]
+    E: [CECAS, AE, BE, CBE, CE, ECE,  ESE, EEES, 
         CS, HCC, VC, FoI, SoC, GE, ES, ESE, ES]
     e: [EDU, EHD, EOLD, TL]
-    S: [SCIENCE, 
+    S: [SCIENCE, BS, C, GB, MSS, PA]
 
   matrix: |-
     FFFFeeee
