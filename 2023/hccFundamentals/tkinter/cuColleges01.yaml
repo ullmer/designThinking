@@ -33,27 +33,37 @@ imageMatrix:
     BBSSEEEE
 
   mapExpansion:  
-    CECAS: {CECAS: ["College of Engineering, Computing, & Applied Sciences", https://www.clemson.edu/cecas/],
-               AE: ["Automotive Engineering", https://www.clemson.edu/cecas/departments/automotive-engineering/],
-             BioE: ["Bioengineering",                      https://www.clemson.edu/cecas/departments/bioe/],
-             ChBE: ["Chemical & Biomolecular Engineering", https://www.clemson.edu/cecas/departments/chbe/],
-               CE: ["Civil Engineering",                   https://www.clemson.edu/cecas/departments/ce/],
-              ECE: ["Electrical & Computer Engineering",   https://www.clemson.edu/cecas/departments/ece/],
-              ESE: ["Engineering Science Education",       https://www.clemson.edu/cecas/departments/ese/],
+    CECAS: {CECAS: ["College of Engineering, Computing, & Applied Sciences", https://clemson.edu/cecas/],
+               AE: ["Automotive Engineering",              https://clemson.edu/cecas/departments/automotive-engineering/],
+             BioE: ["Bioengineering",                      https://clemson.edu/cecas/departments/bioe/],
+             ChBE: ["Chemical & Biomolecular Engineering", https://clemson.edu/cecas/departments/chbe/],
+               CE: ["Civil Engineering",                   https://clemson.edu/cecas/departments/ce/],
+              ECE: ["Electrical & Computer Engineering",   https://clemson.edu/cecas/departments/ece/],
+              ESE: ["Engineering Science Education",       https://clemson.edu/cecas/departments/ese/],
                CS: ["Computer Science",                    
-                           https://www.clemson.edu/cecas/departments/computing/people/faculty/cs_faculty.html],
+                           https://clemson.edu/cecas/departments/computing/people/faculty/cs_faculty.html],
               HCC: ["Human-Centered Computing", 
-                           https://www.clemson.edu/cecas/departments/computing/people/faculty/hcc_faculty.html],
+                           https://clemson.edu/cecas/departments/computing/people/faculty/hcc_faculty.html],
                VC: ["Visual Computing",
-                           https://www.clemson.edu/cecas/departments/computing/people/faculty/hcc_faculty.html],
+                           https://clemson.edu/cecas/departments/computing/people/faculty/vc_faculty.html],
               FoI: ["Faculty of Instruction", 
-                           https://www.clemson.edu/cecas/departments/computing/people/faculty/faculty_instruction.html],
+                           https://clemson.edu/cecas/departments/computing/people/faculty/faculty_instruction.html],
               SoC: ["School of Computing",                 https://computing.clemson.edu],
-               GE: ["General Engineering",                 https://www.clemson.edu/cecas/departments/ge/],
-               IE: ["Industrial Engineering",              https://www.clemson.edu/cecas/departments/ie/],
-               ME: ["Mechanical Engineering",              https://www.clemson.edu/cecas/departments/me/],
-              MSE: ["Material Science & Engineering",      https://www.clemson.edu/cecas/departments/mse/],
+               GE: ["General Engineering",                 https://clemson.edu/cecas/departments/ge/],
+               IE: ["Industrial Engineering",              https://clemson.edu/cecas/departments/ie/],
+               ME: ["Mechanical Engineering",              https://clemson.edu/cecas/departments/me/],
+              MSE: ["Material Science & Engineering",      https://clemson.edu/cecas/departments/mse/],
              EEES: ["Environmental Engineering & Earth Sciences", 
-                                                           https://www.clemson.edu/cecas/departments/eees/]}
+                                                           https://clemson.edu/cecas/departments/eees/]}
+
+     CAAC: {CAAC: ["College of Architecture, Art, & Construction", https://clemson.edu/caac/],
+             SoA: ["School of Architecture",                       https://clemson.edu/caac/academics/architecture/],
+            Arch: ["Architecture",          https://clemson.edu/caac/academics/architecture/programs/architecture/],
+              HP: ["Historic Preservation", https://clemson.edu/caac/academics/architecture/programs/historic-preservation/],
+              LA: ["Landscape Architecture",https://clemson.edu/caac/academics/architecture/programs/landscape-architecture/],
+            PDBE: ["Planning, Design, & Built Environment",   https://clemson.edu/caac/academics/architecture/programs/pdbe/],
+             RUD: ["Resilient Urban Design",https://clemson.edu/caac/academics/architecture/programs/resilient-urban-design/],
+             Art: ["Art",                                  https://clemson.edu/caac/academics/art/]}
+             CDP: ["Construction, Development & Planning", https://clemson.edu/caac/academics/ncdp/]}
 
 ### end ###
