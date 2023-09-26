@@ -1,21 +1,21 @@
-# Example interaction panel descriptor for Clemson University Colleges
-# By Brygg Ullmer, Clemson University
-# Begn 2023-09-25
-
-imageMatrix:
-  name:      "Clemson University : Colleges" #quoted because of colon within
+# Example interaction panel descriptor for Clemson University Colleges # By Brygg Ullmer, Clemson University
+# Begn 2023-09-25 imageMatrix: name:      "Clemson University : Colleges" #quoted because of colon within 
   imgPrefix: images/cc77g/125/                 
   bgImg:     images/clemson-colleges-77g2-core125.png
   matrixMap:  
     A: [CAAC, Art, CDP, Arch, LA, HP, RUD, SoA]
-    a: [CAH,  E, H, L, PA, PR]  
-    B: [Business, A, AS, E, FM, GC, Man, Mar, ML, BA]
-    b: [CBSHS, C,  N,    PRTM, PS, P, PHS, SACJ]
+    a: [CAH,  E, H, L, PA, PR]  B: [Business, A, AS, E, FM, GC, Man, Mar, ML, BA] b: [CBSHS, C,  N,    PRTM, PS, P, PHS, SACJ]
     F: [CAFLS, AS, AVPS, ESPS, FNPS,  FEC, PES]
-    E: [CECAS, AE, BE, CBE, CE, ECE,  ESE, EEES, 
-        CS, HCC, VC, FoI, SoC, GE, ES, ESE, ES]
+    E: [CECAS, AE, BE, CBE, CE, ECE,  ESE, EEES, ME, IE,
+               CS, HCC, VC, FoI, SoC, GE,  ES,  ESE, ES]
     e: [EDU, EHD, EOLD, TL]
     S: [SCIENCE, BS, C, GB, MSS, PA]
+
+  colorMap: {A: [#562E19, #AA968C], a: [#685C53, #B3ADA9], 
+             B: [#373435, #FBB39A], b: [#53307F, ],
+             F: [#57612B, #ABB095], S: [],
+             E: [], e: []}
+    
 
   matrix: |-
     FFFFeeee
