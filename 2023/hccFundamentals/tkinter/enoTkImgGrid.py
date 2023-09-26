@@ -23,13 +23,14 @@ class enoTkImgGrid:
   color1         = (200, 100,   0)
   color2         = (200,   0, 200)
   root           = None
-  hideTitlebar   = True
+  hideTitlebar   = False
   buttonState    = None
   buttonTk       = None
   imagesDict     = None
   imgPrefix      = None
   padX           = 15
   padY           = 15
+  bgImgFn        = None
 
   ############# constructor #############
 
@@ -38,6 +39,7 @@ class enoTkImgGrid:
     #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
 
+    self.imgPrefix = imgPrefix 
     self.buildUI()
 
   #################### build user interface ####################
@@ -47,7 +49,7 @@ class enoTkImgGrid:
     self.root = tk.Tk()
     self.root.title("Interactive grid example")
     self.root.geometry(self.windowGeometry)
-    if self.hideTitlebar: root.overrideredirect(1) #hide window decorations ~= titlebar
+    if self.hideTitlebar: self.root.overrideredirect(1) #hide window decorations ~= titlebar
   
     self.buttonState = {}
     self.buttonTk    = {}
@@ -75,7 +77,7 @@ class enoTkImgGrid:
       for j in range(self.columns):
         coord  = (i, j)
         cb     = partial(self.toggleCB, coord) #e.g., https://www.blog.pythonlibrary.org/2016/02/11/python-partials/
-        im     = self.imagesDict[coord] = loadImage(imPrefix, i, j)
+        im     = self.imagesDict[coord] = self.loadImage(self.imgPrefix, i, j)
         button = tk.Button(root, image=im, command=cb) 
         self.buttonState[coord] = False
         self.buttonTk[coord]    = button
