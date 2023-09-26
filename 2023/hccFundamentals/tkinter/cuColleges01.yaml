@@ -12,9 +12,10 @@ imageMatrix:
     B: [Business, 
     b: [CBSHS, 
     F: [CAFLS, AS, AVPS, ESPS, FNPS, FEC, PES]
-    E: [CECAS
-    e: [EDU
-    S: [SCIENCE
+    E: [CECAS, AE, BE, CBE, CE, ECE, ESE, EEES, 
+        CS, HCC, VC, FoI, SoC, GE, ES, ESE, ES]
+    e: [EDU, EHD, EOLD, TL]
+    S: [SCIENCE, 
 
   matrix: |-
     FFFFeeee
