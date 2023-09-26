@@ -12,7 +12,7 @@ imageMatrix:
     B: [Business, A, AS, E, FM, GC,  Man,  Mar, ML, BA] 
     b: [CBSHS,    C, N,  PRTM,  PS,  P,    PHS, SACJ]
     F: [CAFLS,    AS, AVPS, ESPS,    FNPS, FEC, PES]
-    E: [CECAS,    AE, BioE, CBE, CE,  ECE, ESE, EEES, ME, IE,
+    E: [CECAS,    AE, BioE, ChBE, CE,  ECE, ESE, EEES, ME, IE,
                   CS, HCC,  VC,  FoI, SoC, GE,  ES,  ESE, ES]
     e: [EDU,      EHD, EOLD, TL]
     S: [SCIENCE,  BS,  C,    GB, MSS, PA]
@@ -35,12 +35,21 @@ imageMatrix:
   mapExpansion:  
     CECAS: {CECAS: ["College of Engineering, Computing, & Applied Sciences", https://www.clemson.edu/cecas/],
                AE: ["Automotive Engineering", https://www.clemson.edu/cecas/departments/automotive-engineering/],
-             BioE: ["Bioengineering",         https://www.clemson.edu/cecas/departments/bioe/],
-            CBE: Chemical & Biomolecular Engineering, CE: Civil Engineering,
-            ECE: Electrical & Computer Engineering, 
-            ESE: Engineering Science Education,       CS: Computer Science,
-            HCC: Human-Centered Computing,            VC: Visual Computing,
-            FoI: Faculty of Instruction,             SoC: School of Computing,
+             BioE: ["Bioengineering",                      https://www.clemson.edu/cecas/departments/bioe/],
+             ChBE: ["Chemical & Biomolecular Engineering", https://www.clemson.edu/cecas/departments/chbe/],
+               CE: ["Civil Engineering",                   https://www.clemson.edu/cecas/departments/ce/],
+              ECE: ["Electrical & Computer Engineering",   https://www.clemson.edu/cecas/departments/ece/],
+              ESE: ["Engineering Science Education",       https://www.clemson.edu/cecas/departments/ese/],
+               CS: ["Computer Science",                    
+                           https://www.clemson.edu/cecas/departments/computing/people/faculty/cs_faculty.html],
+              HCC: ["Human-Centered Computing", 
+                           https://www.clemson.edu/cecas/departments/computing/people/faculty/hcc_faculty.html],
+               VC: ["Visual Computing",
+                           https://www.clemson.edu/cecas/departments/computing/people/faculty/hcc_faculty.html],
+              FoI: ["Faculty of Instruction", 
+                           https://www.clemson.edu/cecas/departments/computing/people/faculty/faculty_instruction.html],
+              SoC: ["School of Computing",                 https://computing.clemson.edu],
+
              GE: General Engineering,                 ES: Earth Science,
             ESE: Engineering & Science Education,     IE: Industrial Engineering,
             MSE: Material Science & Engineering,      ME: Mechanical Engineering}
