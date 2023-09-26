@@ -27,10 +27,13 @@ class enoTkImgGrid:
   buttonState    = None
   buttonTk       = None
   imagesDict     = None
+  imgPrefix      = None
+  padX           = 15
+  padY           = 15
 
   ############# constructor #############
 
-  def __init__(self, imgFn, **kwargs):
+  def __init__(self, imgPrefix, **kwargs):
 
     #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
@@ -48,7 +51,16 @@ class enoTkImgGrid:
   
     self.buttonState = {}
     self.buttonTk    = {}
+
+    self.buildImageGrid()
     self.root.mainloop()   # this needs revisiting later
+
+  #################### build image grid ####################
+
+  def buildImageGrid(self):
+
+    # images need to be held an a data structure, or else they will be garbage collected
+    self.imagesDict = {}
   
   ############### loadImage ############### 
   
@@ -71,11 +83,8 @@ class enoTkImgGrid:
   
   ############### create widgets ############### 
   
-  # images need to be held an a data structure, or else they will be garbage collected
-  imagesDict = {}
       
-  imPrefix = "images/cc77g/125/cc77g"
-  px = py = 15
+  #imgPrefix = "images/cc77g/125/cc77g"
   
   #background image, per https://stackoverflow.com/questions/62430477/how-to-set-a-background-image-in-tkinter-using-grid-only
   bgimg = PIL.Image.open("images/clemson-colleges-77g2-core125.png")
@@ -94,8 +103,6 @@ class enoTkImgGrid:
       buttonState[coord] = False
       buttonTk[coord]    = button
       button.grid(row=i, column=j, padx=px, pady=py)
-  
-  
   
 ### end ###
   
