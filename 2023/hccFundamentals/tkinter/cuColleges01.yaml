@@ -7,11 +7,11 @@ imageMatrix:
   imgPrefix: images/cc77g/125/                 
   bgImg:     images/clemson-colleges-77g2-core125.png
   mapping:  
-    A: [CAAC, AS, AVPS, ESPS, FNPS, FEC, PES]
-    a: [CAH
-    B: [Business
-    b: [CBSHS
-    F: [CAFLS
+    A: [CAAC, Art, CDP, Arch, LA, HP, RUD, SoA]
+    a: [CAH,  E, H, L, PA, PR]  
+    B: [Business, 
+    b: [CBSHS, 
+    F: [CAFLS, AS, AVPS, ESPS, FNPS, FEC, PES]
     E: [CECAS
     e: [EDU
     S: [SCIENCE
@@ -19,10 +19,10 @@ imageMatrix:
   matrix: |-
     FFFFeeee
     FFF aaaaa
-    bbbb
-    BBbb
-    BBbb
-    BBSS
+    bbbbAAAa
+    BBbbAAAAA
+    BBbbEEEE
+    BBSSEEEE
     BBSSEEEEE
     BBSSEEEE
 
