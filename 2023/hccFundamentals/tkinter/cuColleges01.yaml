@@ -12,7 +12,7 @@ imageMatrix:
     B: [Business, A, AS, E, FM, GC,  Man,  Mar, ML, BA] 
     b: [CBSHS,    C, N,  PRTM,  PS,  P,    PHS, SACJ]
     F: [CAFLS,    AS, AVPS, ESPS,    FNPS, FEC, PES]
-    E: [CECAS,    AE, Be,   CBE, CE,  ECE, ESE, EEES, ME, IE,
+    E: [CECAS,    AE, BioE, CBE, CE,  ECE, ESE, EEES, ME, IE,
                   CS, HCC,  VC,  FoI, SoC, GE,  ES,  ESE, ES]
     e: [EDU,      EHD, EOLD, TL]
     S: [SCIENCE,  BS,  C,    GB, MSS, PA]
@@ -33,7 +33,9 @@ imageMatrix:
     BBSSEEEE
 
   mapExpansion:  
-    CECAS: {AE:  Automotive Engineering,              Be: Bioengineering,
+    CECAS: {CECAS: ["College of Engineering, Computing, & Applied Sciences", https://www.clemson.edu/cecas/],
+               AE: ["Automotive Engineering", https://www.clemson.edu/cecas/departments/automotive-engineering/],
+             BioE: ["Bioengineering",         https://www.clemson.edu/cecas/departments/bioe/],
             CBE: Chemical & Biomolecular Engineering, CE: Civil Engineering,
             ECE: Electrical & Computer Engineering, 
             ESE: Engineering Science Education,       CS: Computer Science,
