@@ -61,6 +61,24 @@ class enoTkImgGrid:
 
     # images need to be held an a data structure, or else they will be garbage collected
     self.imagesDict = {}
+
+    #background image, per https://stackoverflow.com/questions/62430477/how-to-set-a-background-image-in-tkinter-using-grid-only
+  bgimg = PIL.Image.open("images/clemson-colleges-77g2-core125.png")
+  bgi   = PIL.ImageTk.PhotoImage(bgimg)
+  bgl   = tk.Label(root, image=bgi)
+  bgl.place(x=0, y=0, relwidth=1, relheight=1)
+  
+  for i in range(rows):
+    for j in range(columns):
+      coord  = (i, j)
+      cb     = partial(toggleCB, coord) #e.g., https://www.blog.pythonlibrary.org/2016/02/11/python-partials/
+      im = imagesDict[coord] = loadImage(imPrefix, i, j)
+      
+      button = tk.Button(root, image=im, command=cb) 
+  
+      buttonState[coord] = False
+      buttonTk[coord]    = button
+      button.grid(row=i, column=j, padx=px, pady=py)
   
   ############### loadImage ############### 
   
@@ -81,28 +99,8 @@ class enoTkImgGrid:
       self.buttonState[coord] = True
       self.buttonTk[coord].configure(image=imTk2)
   
-  ############### create widgets ############### 
-  
-      
   #imgPrefix = "images/cc77g/125/cc77g"
-  
-  #background image, per https://stackoverflow.com/questions/62430477/how-to-set-a-background-image-in-tkinter-using-grid-only
-  bgimg = PIL.Image.open("images/clemson-colleges-77g2-core125.png")
-  bgi   = PIL.ImageTk.PhotoImage(bgimg)
-  bgl   = tk.Label(root, image=bgi)
-  bgl.place(x=0, y=0, relwidth=1, relheight=1)
-  
-  for i in range(rows):
-    for j in range(columns):
-      coord  = (i, j)
-      cb     = partial(toggleCB, coord) #e.g., https://www.blog.pythonlibrary.org/2016/02/11/python-partials/
-      im = imagesDict[coord] = loadImage(imPrefix, i, j)
-      
-      button = tk.Button(root, image=im, command=cb) 
-  
-      buttonState[coord] = False
-      buttonTk[coord]    = button
-      button.grid(row=i, column=j, padx=px, pady=py)
+  #bgimg = PIL.Image.open("images/clemson-colleges-77g2-core125.png")
   
 ### end ###
   
