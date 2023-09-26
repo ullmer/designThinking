@@ -10,8 +10,12 @@
 import tkinter as tk           #Tkinter graphical interface
 import PIL.Image, PIL.ImageTk #image manipulation package
 from functools    import partial
+  
+##################################################### 
+############# enodia Tkinter image grid #############
+##################################################### 
 
-class enoTkGrid:
+class enoTkImgGrid:
 
   rows, columns  = 8, 9    #initially, hardcode a series of defaults
   w, h           = 94, 94
@@ -20,8 +24,9 @@ class enoTkGrid:
   color2         = (200,   0, 200)
   root           = None
   hideTitlebar   = True
-  buttonState    = {}
-  buttonTk       = {}
+  buttonState    = None
+  buttonTk       = None
+  imagesDict     = None
 
   ############# constructor #############
 
@@ -43,6 +48,7 @@ class enoTkGrid:
   
     self.buttonState = {}
     self.buttonTk    = {}
+    self.root.mainloop()   # this needs revisiting later
   
   ############### loadImage ############### 
   
@@ -56,14 +62,12 @@ class enoTkGrid:
   ############### button toggle callback ############### 
   
   def toggleCB(coord):
-    global buttonState, buttonCb, imTk1, imTk2
-  
-    if buttonState[coord]: 
-      buttonState[coord] = False
-      buttonTk[coord].configure(image=imTk1)
+    if self.buttonState[coord]: 
+      self.buttonState[coord] = False
+      self.buttonTk[coord].configure(image=imTk1)
     else:
-      buttonState[coord] = True
-      buttonTk[coord].configure(image=imTk2)
+      self.buttonState[coord] = True
+      self.buttonTk[coord].configure(image=imTk2)
   
   ############### create widgets ############### 
   
@@ -92,7 +96,6 @@ class enoTkGrid:
       button.grid(row=i, column=j, padx=px, pady=py)
   
   
-  root.mainloop()
   
 ### end ###
   
