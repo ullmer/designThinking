@@ -1,0 +1,29 @@
+# Example interaction panel descriptor for Clemson University Colleges
+# By Brygg Ullmer, Clemson University
+# Begn 2023-09-25
+
+imageMatrix:
+  name:      "Clemson University : Colleges" #quoted because of colon within
+  imgPrefix: images/cc77g/125/                 
+  bgImg:     images/clemson-colleges-77g2-core125.png
+  mapping:  
+    A: [CAAC, AS, AVPS, ESPS, FNPS, FEC, PES]
+    a: [CAH
+    B: [Business
+    b: [CBSHS
+    F: [CAFLS
+    E: [CECAS
+    e: [EDU
+    S: [SCIENCE
+
+  matrix: |-
+    FFFFeeee
+    FFF aaaaa
+    bbbb
+    BBbb
+    BBbb
+    BBSS
+    BBSSEEEEE
+    BBSSEEEE
+
+### end ###
