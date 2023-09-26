@@ -97,10 +97,12 @@ class enoTkImgGrid:
   def toggleCB(self, coord):
     if self.buttonState[coord]: 
       self.buttonState[coord] = False
-      self.buttonTk[coord].configure(image=imTk1)
+      print("toggleCB on %s: off" % str(coord))
+      #self.buttonTk[coord].configure(image=imTk1)
     else:
       self.buttonState[coord] = True
-      self.buttonTk[coord].configure(image=imTk2)
+      print("toggleCB on %s: on" % str(coord))
+      #self.buttonTk[coord].configure(image=imTk2)
   
   #imgPrefix = "images/cc77g/125/cc77g"
   #bgimg = PIL.Image.open("images/clemson-colleges-77g2-core125.png")
