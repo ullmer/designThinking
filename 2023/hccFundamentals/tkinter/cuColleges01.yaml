@@ -13,7 +13,7 @@ imageMatrix:
     b: [CBSHS,    C, N,  PRTM,  PS,  P,    PHS, SACJ]
     F: [CAFLS,    AS, AVPS, ESPS,    FNPS, FEC, PES]
     E: [CECAS,    AE, BioE, ChBE, CE,  ECE, ESE, EEES, ME, IE,
-                  CS, HCC,  VC,  FoI, SoC, GE,  ES,  ESE, ES]
+                  CS, HCC,  VC,  FoI, SoC, GE,  ES,  ESE]
     e: [EDU,      EHD, EOLD, TL]
     S: [SCIENCE,  BS,  C,    GB, MSS, PA]
 
@@ -49,9 +49,11 @@ imageMatrix:
               FoI: ["Faculty of Instruction", 
                            https://www.clemson.edu/cecas/departments/computing/people/faculty/faculty_instruction.html],
               SoC: ["School of Computing",                 https://computing.clemson.edu],
-
-             GE: General Engineering,                 ES: Earth Science,
-            ESE: Engineering & Science Education,     IE: Industrial Engineering,
-            MSE: Material Science & Engineering,      ME: Mechanical Engineering}
+               GE: ["General Engineering",                 https://www.clemson.edu/cecas/departments/ge/],
+               IE: ["Industrial Engineering",              https://www.clemson.edu/cecas/departments/ie/],
+               ME: ["Mechanical Engineering",              https://www.clemson.edu/cecas/departments/me/],
+              MSE: ["Material Science & Engineering",      https://www.clemson.edu/cecas/departments/mse/],
+             EEES: ["Environmental Engineering & Earth Sciences", 
+                                                           https://www.clemson.edu/cecas/departments/eees/]}
 
 ### end ###
