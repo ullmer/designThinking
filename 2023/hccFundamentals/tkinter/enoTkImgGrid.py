@@ -87,7 +87,7 @@ class enoTkImgGrid:
   
   def loadImage(self, baseFn, x, y, ext='.png'):
     rowId  = chr(ord('A') + x)
-    fn     = "%s-%s%i%s" % (baseFn, rowId, y, ext)
+    fn     = "%s%s%i%s" % (baseFn, rowId, y, ext)
     img    = PIL.Image.open(fn)
     result = PIL.ImageTk.PhotoImage(img)
     return result
