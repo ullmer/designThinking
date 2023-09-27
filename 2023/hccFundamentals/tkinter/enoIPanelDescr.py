@@ -31,6 +31,12 @@ class enoIPanelDescr:
      result = self.yamlD[fieldName]
      return result
 
+
+  ################ get matrix expansion ####################
+
+  def getMatrixExpansion(self):
+     return self.matrixExpansion
+
   ################ loadYaml ####################
 
   def loadYaml(self, yamlFn):
@@ -42,7 +48,7 @@ class enoIPanelDescr:
   ################ parse matrix ####################
 
   def parseMatrix(self):
-   is self.yamlD is None: return None
+   if self.yamlD is None: return None
 
    m  = self.getField('matrix')  
    mm = self.getField('matrixMap')  
@@ -83,6 +89,7 @@ class enoIPanelDescr:
 
 def main():
   eipd = enoIPanelDescr("cuColleges01.yaml")
+  print(eipd.getMatrixExpansion())
 
 if __name__ == "__main__":
    main()
