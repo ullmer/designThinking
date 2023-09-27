@@ -106,6 +106,7 @@ class enoIPanelDescr:
 
        self.matrixExpansion[row][col] = mlCharExpansion 
        self.matrixIdxCount[mlChar] += 1
+     row += 1
 
 ####################################
 ############### main ###############
