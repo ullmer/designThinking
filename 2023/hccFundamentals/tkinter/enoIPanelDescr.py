@@ -37,10 +37,15 @@ class enoIPanelDescr:
      if self.yamlD == None:          
        self.reportError("getField", "yamlD is None"); return None
 
-     if fieldName not in self.yamlD: 
+     if 'imageMatrix' not in self.yamlD:
+       self.reportError("getField", "imageMatrix not in yamlD"); return None
+
+     im = self.yamlD['imageMatrix']
+
+     if fieldName not in im:
        self.reportError("getField", "fieldName not in yamlD"); return None
 
-     result = self.yamlD[fieldName]
+     result = im[fieldName]
      return result
 
   ################ get matrix expansion ####################
@@ -80,7 +85,7 @@ class enoIPanelDescr:
 
    self.matrixIdxCount  = {}
    self.matrixExpansion = {} #2D dictionary
-   matrixLines = matrix.split("\n")
+   matrixLines = m.split("\n")
 
    row = 0 
 
@@ -92,12 +97,12 @@ class enoIPanelDescr:
        if mlChar not in self.matrixIdxCount:
          self.matrixIdxCount[mlChar] = 0
 
-       if mlChar not in self.matrixMap: 
+       if mlChar not in mm:
          self.reportError("parseMatrix", "mlChar not in matrixMap")
          mlCharExpansion = None
        else:
          miCount = self.matrixIdxCount[mlChar]
-         mlCharExpansion = self.matrixMap[mlChar][miCount]
+         mlCharExpansion = mm[mlChar][miCount]
 
        self.matrixExpansion[row][col] = mlCharExpansion 
        self.matrixIdxCount[mlChar] += 1
