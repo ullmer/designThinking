@@ -78,4 +78,13 @@ class enoIPanelDescr:
        self.matrixExpansion[row][col] = mlCharExpansion 
        self.matrixIdxCount[mlChar] += 1
 
+####################################
+############### main ###############
+
+def main():
+  eipd = enoIPanelDescr("cuColleges01.yaml")
+
+if __name__ == "__main__":
+   main()
+
 ### end ###
