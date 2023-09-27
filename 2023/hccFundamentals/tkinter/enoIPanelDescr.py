@@ -4,7 +4,7 @@
 
 #cuColleges01.yaml
 
-import yaml
+import yaml, traceback
 
 ############################################################################## 
 #################### Enodia Interaction Panel Description ####################
@@ -23,14 +23,25 @@ class enoIPanelDescr:
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     self.loadYaml(yamlFn)
 
+  ############# report error #############
+
+  def reportError(self, functionName, issue):
+    try: 
+      errorMsg = "enoIPanelDescr %s error: %s" % (functionName, issue)
+      print(errorMsg)
+    except: print("enoIPanelDescr reportError error:"); traceback.print_exc(); return None
+
   ################ Enodia Interaction Panel Description ####################
 
   def getField(self, fieldName):
-     if self.yamlD == None:          return None
-     if fieldName not in self.yamlD: return None
+     if self.yamlD == None:          
+       self.reportError("getField", "yamlD is None"); return None
+
+     if fieldName not in self.yamlD: 
+       self.reportError("getField", "fieldName not in yamlD"); return None
+
      result = self.yamlD[fieldName]
      return result
-
 
   ################ get matrix expansion ####################
 
@@ -48,11 +59,16 @@ class enoIPanelDescr:
   ################ parse matrix ####################
 
   def parseMatrix(self):
-   if self.yamlD is None: return None
+   if self.yamlD is None: 
+     self.reportError("parseMatrix", "yamlD is None"); return None
 
    m  = self.getField('matrix')  
    mm = self.getField('matrixMap')  
-   if m is None or mm is None: return None #warning messages should come
+   if m is None: 
+     self.reportError("parseMatrix", "matrix is None"); return None
+
+   if mm is None: 
+     self.reportError("parseMatrix", "matrixMap is None"); return None
 
    # matrixMap:
    #   A: [CAAC,     Art, CDP, Arch, LA, HP, RUD, SoA]
@@ -76,7 +92,9 @@ class enoIPanelDescr:
        if mlChar not in self.matrixIdxCount:
          self.matrixIdxCount[mlChar] = 0
 
-       if mlChar not in self.matrixMap: mlCharExpansion = None
+       if mlChar not in self.matrixMap: 
+         self.reportError("parseMatrix", "mlChar not in matrixMap")
+         mlCharExpansion = None
        else:
          miCount = self.matrixIdxCount[mlChar]
          mlCharExpansion = self.matrixMap[mlChar][miCount]
