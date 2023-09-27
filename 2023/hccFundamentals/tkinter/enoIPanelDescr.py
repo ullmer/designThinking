@@ -84,16 +84,14 @@ class enoIPanelDescr:
    #   FFF aaaaa
 
    self.matrixIdxCount  = {}
-   self.matrixExpansion = {} #2D dictionary
+   self.matrixExpansion = [] #2D dictionary
    matrixLines = m.split("\n")
-
-   row = 0 
 
    for mline in matrixLines:
      mlLen = len(mline)
-     self.matrixExpansion[row] = {}
-     for col in range(mlLen):
-       mlChar = mline[col]
+     row = []
+     for i in range(mlLen):
+       mlChar = mline[i]
        if mlChar not in self.matrixIdxCount:
          self.matrixIdxCount[mlChar] = 0
 
@@ -104,9 +102,9 @@ class enoIPanelDescr:
          miCount = self.matrixIdxCount[mlChar]
          mlCharExpansion = mm[mlChar][miCount]
 
-       self.matrixExpansion[row][col] = mlCharExpansion 
+       row.append(mlCharExpansion)
        self.matrixIdxCount[mlChar] += 1
-     row += 1
+     self.matrixExpansion.append(row)
 
 ####################################
 ############### main ###############
