@@ -96,7 +96,7 @@ class enoIPanelDescr:
          self.matrixIdxCount[mlChar] = 0
 
        if mlChar not in mm:
-         self.reportError("parseMatrix", "mlChar not in matrixMap")
+         if mlChar != ' ': self.reportError("parseMatrix", "mlChar not in matrixMap")
          mlCharExpansion = None
        else:
          miCount = self.matrixIdxCount[mlChar]
