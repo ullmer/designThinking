@@ -2,12 +2,12 @@
 # By Brygg Ullmer, Clemson University
 # Begun 2023-10-05
 
-from   functools import partial
 import tkinter as tk
 import sys
+from   functools       import partial
+from   pgzero.builtins import Actor, animate, keyboard
 
 winDim    = '400x400'
-
 
 winController = '300x50-0-0'
 
@@ -50,8 +50,18 @@ def constructWindowAnimators():
 def winShift(winId):
   global winState, winActors, winCoords, winCoordBase, winShift 
 
-   
-  
+  prevWinState    = winState[winId]
+
+  if winId == "w1": dx = winShift
+  else:             dx = -1 * winShift
+
+  if prevWinState == 1: winState[winId] = 0
+  else:                 winState[winId] = 1; dx *= -1
+
+  x, y = winCoords[winId]
+  newCoord         = (x+dx, y)
+  winCoords[winId] = newCoord
+  animate(
 
 ####### main ####### 
 
