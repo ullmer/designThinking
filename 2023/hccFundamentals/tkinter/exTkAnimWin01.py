@@ -15,10 +15,24 @@ root = tk.Tk()
 root.title('example controller')
 root.geometry(winController)
 
+####### support functions ####### 
+
 def quitCb(): sys.exit(-1)
 
-b1 = tk.Button(root, text='quit')
-b1.pack
+def genWinGeom(winDim, winCoord): 
+  result = "%s+%i+%i" % (winDim, winCoord[0], winCoord[1])
+  return result
+
+####### main ####### 
+
+b1 = tk.Button(root, text='quit', command=quitCb)
+b1.pack()
+
+w1Geom = genWinGeom(winDim, win1Coord)
+w2Geom = genWinGeom(winDim, win2Coord)
+
+w1 = tk.Toplevel(); w1.geometry(w1Geom)
+w2 = tk.Toplevel(); w2.geometry(w2Geom)
 
 root.mainloop()
 
