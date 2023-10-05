@@ -30,6 +30,12 @@ def genWinGeom(winDim, winCoord):
   result = "%s+%i+%i" % (winDim, winCoord[0], winCoord[1])
   return result
 
+winState  = {}
+winActors = {} #using PyGame Zero Actor animation mechanism to tween-animate Tkinter windows
+
+winState["w1"] = 1
+winState["w2"] = 1
+
 def winShift(whichWin):
 
 ####### main ####### 
