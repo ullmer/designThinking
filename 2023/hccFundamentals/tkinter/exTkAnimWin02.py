@@ -7,12 +7,7 @@ import tkinter as tk
 import sys
 
 winDim    = '400x400'
-win1CoordBase = (0, 0)
-win2CoordBase = (800, 0)
-winShift      = 200
 
-win1Coord = win1CoordBase
-win2Coord = win2CoordBase
 
 winController = '300x50-0-0'
 
@@ -30,11 +25,25 @@ def genWinGeom(winDim, winCoord):
   result = "%s+%i+%i" % (winDim, winCoord[0], winCoord[1])
   return result
 
-winState  = {}
-winActors = {} #using PyGame Zero Actor animation mechanism to tween-animate Tkinter windows
+####### construct window animation state ####### 
 
-winState["w1"] = 1
-winState["w2"] = 1
+def constructWindowAnimators():
+  global winState, winActors, winCoords, winCoordBase, winShift 
+
+  winState  = {}
+  winActors = {} #using PyGame Zero Actor animation mechanism to tween-animate Tkinter windows
+  winCoords    = {}
+  winCoordBase = {}
+
+  winCoordBase["w1"] = (0,   0)
+  winCoordBase["w2"] = (800, 0)
+  winShift           = 200
+
+  for winId in ["w1", "w2"]:
+    winState[winId] = 1
+    winCoord[winId] = winCoordBase[winId]
+
+####### construct window animation state ####### 
 
 def winShift(whichWin):
 
