@@ -21,8 +21,14 @@ def quitCb():
   print("contemplating quitting")
   sys.exit(-1)
 
-def genWinGeom(winDim, winCoord): 
-  result = "%s+%i+%i" % (winDim, winCoord[0], winCoord[1])
+####### generate window geometry ####### 
+
+def genWinGeom(winId): 
+  global winDim, winCoords
+
+  x, y   = winCoords[winId]
+  result = "%s+%i+%i" % (winDim, x, y)
+
   return result
 
 ####### construct window animation state ####### 
@@ -45,7 +51,7 @@ def constructWindowAnimators():
     winCoord[winId]  = winCoord
     winActors[winId] = Actor(pos=winCoord)
 
-####### construct window animation state ####### 
+####### shift windows ####### 
 
 def winShift(winId):
   global winState, winActors, winCoords, winCoordBase, winShift 
@@ -61,7 +67,15 @@ def winShift(winId):
   x, y = winCoords[winId]
   newCoord         = (x+dx, y)
   winCoords[winId] = newCoord
-  animate(
+  a = winActors[winId]
+  animate(a, pos=newCoord, tween='accel_decel', duration=.7)
+
+####### pygame zero update loop ####### 
+
+def update(): 
+  root.update() #keeps TkInter alive
+
+#root.mainloop()
 
 ####### main ####### 
 
@@ -71,15 +85,13 @@ w2b = tk.Button(root, text="w2 shift", command=partial(winShift, "w2"))
 b1 = tk.Button(root, text='quit', command=quitCb)
 b1.pack()
 
-w1Geom = genWinGeom(winDim, win1Coord)
-w2Geom = genWinGeom(winDim, win2Coord)
+constructWindowAnimators()
+
+w1Geom = genWinGeom("w1")
+w2Geom = genWinGeom("w2")
 
 w1 = tk.Toplevel(); w1.geometry(w1Geom)
 w2 = tk.Toplevel(); w2.geometry(w2Geom)
 
-def update(): 
-  root.update() #keeps TkInter alive
-
-#root.mainloop()
 
 ### end ###
