@@ -7,8 +7,7 @@ import sys
 from   functools       import partial
 from   pgzero.builtins import Actor, animate, keyboard
 
-winDim    = '400x400'
-
+winDim        = '400x400'
 winController = '300x50-0-0'
 
 root = tk.Tk()
