@@ -3,9 +3,13 @@
 # Begun 2023-10-05
 
 import tkinter as tk
+import pygame  as pg
 import sys
 from   functools       import partial
 from   pgzero.builtins import Actor, animate, keyboard
+
+WIDTH  = 100
+HEIGHT = 100
 
 winDim        = '400x400'
 winController = '300x50-0-0'
@@ -18,7 +22,8 @@ root.geometry(winController)
 
 def quitCb(): 
   print("contemplating quitting")
-  sys.exit(-1)
+  pg.quit()
+  sys.exit()
 
 ####### generate window geometry ####### 
 
@@ -48,7 +53,7 @@ def constructWindowAnimators():
     winState[winId]  = 1
     winCoord         = winCoordsBase[winId]
     winCoords[winId] = winCoord
-    winActors[winId] = Actor(pos=winCoord, image=None)
+    winActors[winId] = Actor(pos=winCoord, image="single_pix")
 
 ####### shift windows ####### 
 
@@ -92,6 +97,5 @@ w2Geom = genWinGeom("w2")
 
 w1 = tk.Toplevel(); w1.geometry(w1Geom)
 w2 = tk.Toplevel(); w2.geometry(w2Geom)
-
 
 ### end ###
