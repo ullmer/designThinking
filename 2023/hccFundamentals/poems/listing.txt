@@ -1,0 +1,355 @@
+.:
+total 50152
+drwxrwxr-x   7 brygg brygg     4096 Jun 30 13:21 .
+drwxrwxr-x 548 brygg brygg    20480 Jun 30 13:17 ..
+lrwxrwxrwx   1 brygg brygg       16 Nov 11  2001 3wish -> ../3wish.3/3wish
+-rw-r--r--   1 brygg brygg     1150 Apr 30  1996 base.tcl
+-rw-r--r--   1 brygg brygg     1763 Apr 30  1996 behavior.tcl
+-rw-r--r--   1 brygg brygg     1824 May  1  1996 bird.tcl
+drwxr-xr-x   2 brygg brygg     4096 Sep 26  2001 bkup
+lrwxrwxrwx   1 brygg brygg       11 Nov 11  2001 collab.1 -> ../collab.1
+drwxr-xr-x   2 brygg brygg     4096 Sep 26  2001 data
+-rw-r--r--   1 brygg brygg     1331 May  5  1996 editobj.tcl
+-rw-r--r--   1 brygg brygg     5769 May  5  1996 editor
+-rwxr-xr-x   1 brygg brygg     2381 Apr 30  1996 libiv.tcl
+-rw-rw-r--   1 brygg brygg        0 Jun 30 13:21 listing.txt
+-rw-r--r--   1 brygg brygg     4542 May  5  1996 objstore.tcl
+-rwxr-xr-x   1 brygg brygg  2413284 May  1  1996 pc-test.rgb
+-rw-r--r--   1 brygg brygg     1587 Apr 30  1996 plane.tcl
+-rw-rw-r--   1 brygg brygg 23821757 Jun 30 13:20 poems-1996-04-30.zip
+-rw-r--r--   1 brygg brygg 23811494 Jan  3  2003 poems.tar.gz
+drwxr-xr-x   2 brygg brygg     4096 Sep 26  2001 RCS
+lrwxrwxrwx   1 brygg brygg       30 Nov 11  2001 rgb -> /u/ullmer/mac/scans/photos/rgb
+-rw-r--r--   1 brygg brygg     1002 May  5  1996 room.conf
+-rwxr-xr-x   1 brygg brygg   602100 May  2  1996 sc-p278.m.SGI
+-rwxr-xr-x   1 brygg brygg   584292 May  2  1996 sc-p279.m.SGI
+-rw-r--r--   1 brygg brygg     3276 May  2  1996 sc-tst.tcl
+drwxr-xr-x   5 brygg brygg     4096 Sep 26  2001 seashell
+drwxr-xr-x   7 brygg brygg     4096 Sep 26  2001 snowcrash
+-rw-r--r--   1 brygg brygg     3544 May  1  1996 stack.tcl
+-rw-r--r--   1 brygg brygg     1058 Apr 30  1996 texture.tcl
+-rw-r--r--   1 brygg brygg     1721 May  2  1996 tst.iv
+-rw-r--r--   1 brygg brygg      276 Apr 30  1996 tst.tcl
+
+./bkup:
+total 88
+drwxr-xr-x 2 brygg brygg  4096 Sep 26  2001 .
+drwxrwxr-x 7 brygg brygg  4096 Jun 30 13:21 ..
+-rw-r--r-- 1 brygg brygg 40960 May  1  1996 collab.2.tar
+-rw-r--r-- 1 brygg brygg 40960 May  5  1996 collab.3.tar
+
+./data:
+total 8564
+drwxr-xr-x 2 brygg brygg   4096 Sep 26  2001 .
+drwxrwxr-x 7 brygg brygg   4096 Jun 30 13:21 ..
+-rwxr-xr-x 1 brygg brygg     84 Apr 30  1996 gen-size
+-rw-r--r-- 1 brygg brygg  99015 Apr 30  1996 room1.h.ppm
+-rw-r--r-- 1 brygg brygg 106762 Apr 30  1996 room1.h.rgb
+-rw-r--r-- 1 brygg brygg     45 Apr 30  1996 room1.h.size
+-rw-r--r-- 1 brygg brygg 393827 Apr 30  1996 room1.ppm
+-rwxr-xr-x 1 brygg brygg 394295 Apr 30  1996 room1.rgb
+-rw-r--r-- 1 brygg brygg     43 Apr 30  1996 room1.size
+-rw-r--r-- 1 brygg brygg  99249 Apr 30  1996 room2.h.ppm
+-rw-r--r-- 1 brygg brygg 106951 Apr 30  1996 room2.h.rgb
+-rw-r--r-- 1 brygg brygg     45 Apr 30  1996 room2.h.size
+-rw-r--r-- 1 brygg brygg 396980 Apr 30  1996 room2.ppm
+-rwxr-xr-x 1 brygg brygg 397448 Apr 30  1996 room2.rgb
+-rw-r--r-- 1 brygg brygg     43 Apr 30  1996 room2.size
+-rw-r--r-- 1 brygg brygg  97695 Apr 30  1996 room3.h.ppm
+-rw-r--r-- 1 brygg brygg 105256 Apr 30  1996 room3.h.rgb
+-rw-r--r-- 1 brygg brygg     45 Apr 30  1996 room3.h.size
+-rw-r--r-- 1 brygg brygg 390764 Apr 30  1996 room3.ppm
+-rwxr-xr-x 1 brygg brygg 391232 Apr 30  1996 room3.rgb
+-rw-r--r-- 1 brygg brygg     43 Apr 30  1996 room3.size
+-rw-r--r-- 1 brygg brygg  97695 Apr 30  1996 room4.h.ppm
+-rw-r--r-- 1 brygg brygg 101935 Apr 30  1996 room4.h.rgb
+-rw-r--r-- 1 brygg brygg     45 Apr 30  1996 room4.h.size
+-rw-r--r-- 1 brygg brygg 390764 Apr 30  1996 room4.ppm
+-rwxr-xr-x 1 brygg brygg 391232 Apr 30  1996 room4.rgb
+-rw-r--r-- 1 brygg brygg     43 Apr 30  1996 room4.size
+-rw-r--r-- 1 brygg brygg  97917 Apr 30  1996 room5.h.ppm
+-rw-r--r-- 1 brygg brygg 106436 Apr 30  1996 room5.h.rgb
+-rw-r--r-- 1 brygg brygg     45 Apr 30  1996 room5.h.size
+-rw-r--r-- 1 brygg brygg 389441 Apr 30  1996 room5.ppm
+-rwxr-xr-x 1 brygg brygg 389909 Apr 30  1996 room5.rgb
+-rw-r--r-- 1 brygg brygg     43 Apr 30  1996 room5.size
+-rw-r--r-- 1 brygg brygg  97695 Apr 30  1996 room6.h.ppm
+-rw-r--r-- 1 brygg brygg 105410 Apr 30  1996 room6.h.rgb
+-rw-r--r-- 1 brygg brygg     45 Apr 30  1996 room6.h.size
+-rw-r--r-- 1 brygg brygg 389876 Apr 30  1996 room6.ppm
+-rwxr-xr-x 1 brygg brygg 390344 Apr 30  1996 room6.rgb
+-rw-r--r-- 1 brygg brygg     43 Apr 30  1996 room6.size
+-rw-r--r-- 1 brygg brygg  70362 Apr 30  1996 room7.h.ppm
+-rw-r--r-- 1 brygg brygg  73984 Apr 30  1996 room7.h.rgb
+-rw-r--r-- 1 brygg brygg     45 Apr 30  1996 room7.h.size
+-rw-r--r-- 1 brygg brygg 280646 Apr 30  1996 room7.ppm
+-rwxr-xr-x 1 brygg brygg 281114 Apr 30  1996 room7.rgb
+-rw-r--r-- 1 brygg brygg     43 Apr 30  1996 room7.size
+-rw-r--r-- 1 brygg brygg  97695 Apr 30  1996 room8.h.ppm
+-rw-r--r-- 1 brygg brygg 102792 Apr 30  1996 room8.h.rgb
+-rw-r--r-- 1 brygg brygg     45 Apr 30  1996 room8.h.size
+-rw-r--r-- 1 brygg brygg 389444 Apr 30  1996 room8.ppm
+-rwxr-xr-x 1 brygg brygg 389912 Apr 30  1996 room8.rgb
+-rw-r--r-- 1 brygg brygg     43 Apr 30  1996 room8.size
+-rw-r--r-- 1 brygg brygg  98396 Apr 30  1996 room-me.h.ppm
+-rw-r--r-- 1 brygg brygg 103099 Apr 30  1996 room-me.h.rgb
+-rw-r--r-- 1 brygg brygg     47 Apr 30  1996 room-me.h.size
+-rw-r--r-- 1 brygg brygg 391193 Apr 30  1996 room-me.ppm
+-rwxr-xr-x 1 brygg brygg 391661 Apr 30  1996 room-me.rgb
+-rw-r--r-- 1 brygg brygg     45 Apr 30  1996 room-me.size
+
+./RCS:
+total 32
+drwxr-xr-x 2 brygg brygg 4096 Sep 26  2001 .
+drwxrwxr-x 7 brygg brygg 4096 Jun 30 13:21 ..
+-r--r--r-- 1 brygg brygg 1625 May  1  1996 bird.tcl,v
+-r--r--r-- 1 brygg brygg 1902 May  5  1996 editobj.tcl,v
+-r--r--r-- 1 brygg brygg 7690 May  5  1996 editor,v
+-r--r--r-- 1 brygg brygg 5324 May  5  1996 objstore.tcl,v
+
+./seashell:
+total 140
+drwxr-xr-x 5 brygg brygg 4096 Sep 26  2001 .
+drwxrwxr-x 7 brygg brygg 4096 Jun 30 13:21 ..
+lrwxrwxrwx 1 brygg brygg    8 Nov 11  2001 3wish -> ../3wish
+-rw-r--r-- 1 brygg brygg 1231 Jul 31  1997 base.tcl
+-rw-r--r-- 1 brygg brygg 1769 Jul 31  1997 behavior.tcl
+-rw-r--r-- 1 brygg brygg 1861 Jul 31  1997 bird.tcl
+drwxr-xr-x 2 brygg brygg 4096 Sep 26  2001 bkup
+drwxr-xr-x 2 brygg brygg 4096 Sep 26  2001 data
+-rw-r--r-- 1 brygg brygg 1331 May  6  1996 editobj.tcl
+-rw-r--r-- 1 brygg brygg 7061 Jul 31  1997 editor
+-rw-r--r-- 1 brygg brygg 5535 May  7  1996 emerg
+-rwxr-xr-x 1 brygg brygg 2384 Jul 31  1997 libiv.tcl
+-rw-r--r-- 1 brygg brygg 4683 Jul 31  1997 objstore.tcl
+-rw-r--r-- 1 brygg brygg 1593 Jul 31  1997 plane.tcl
+drwxr-xr-x 2 brygg brygg 4096 Sep 26  2001 RCS
+-rw-r--r-- 1 brygg brygg 6192 May  7  1996 room.bk3
+-rw-r--r-- 1 brygg brygg 6262 May  7  1996 room.bk5
+-rw-r--r-- 1 brygg brygg 6353 May  7  1996 room.bk6-j
+-rw-r--r-- 1 brygg brygg    0 Jul 31  1997 room.conf
+-rw-r--r-- 1 brygg brygg 5535 May  7  1996 room.conf.bk
+-rw-r--r-- 1 brygg brygg 5534 May  7  1996 room.conf.bk2
+-rw-r--r-- 1 brygg brygg 6355 Jul 31  1997 room.conf.LAST
+-rw-r--r-- 1 brygg brygg 6352 May  9  1996 room.nearfin
+-rw-r--r-- 1 brygg brygg 3279 Jul 31  1997 sc-tst.tcl
+-rw-r--r-- 1 brygg brygg 3805 Jul 31  1997 stack.tcl
+-rw-r--r-- 1 brygg brygg 1058 May  6  1996 texture.tcl
+-rw-r--r-- 1 brygg brygg  276 May  6  1996 tst.tcl
+
+./seashell/bkup:
+total 60
+drwxr-xr-x 2 brygg brygg  4096 Sep 26  2001 .
+drwxr-xr-x 5 brygg brygg  4096 Sep 26  2001 ..
+-rw-r--r-- 1 brygg brygg 51200 May  7  1996 seashell.tar
+
+./seashell/data:
+total 5856
+drwxr-xr-x 2 brygg brygg   4096 Sep 26  2001 .
+drwxr-xr-x 5 brygg brygg   4096 Sep 26  2001 ..
+-rw-r--r-- 1 brygg brygg  22452 May  6  1996 all_car.ppm
+-rw-r--r-- 1 brygg brygg  22922 May  6  1996 all_car.rgb
+-rw-r--r-- 1 brygg brygg     43 May  6  1996 all_car.size
+-rw-r--r-- 1 brygg brygg  38222 May  6  1996 anfer_me2.ppm
+-rw-r--r-- 1 brygg brygg  38690 May  6  1996 anfer_me2.rgb
+-rw-r--r-- 1 brygg brygg     47 May  6  1996 anfer_me2.size
+-rw-r--r-- 1 brygg brygg  92060 May  6  1996 anfer_me.ppm
+-rw-r--r-- 1 brygg brygg  92528 May  6  1996 anfer_me.rgb
+-rw-r--r-- 1 brygg brygg     46 May  6  1996 anfer_me.size
+-rw-r--r-- 1 brygg brygg  80837 May  6  1996 anthony_cooking.ppm
+-rw-r--r-- 1 brygg brygg  81305 May  6  1996 anthony_cooking.rgb
+-rw-r--r-- 1 brygg brygg     53 May  6  1996 anthony_cooking.size
+-rw-r--r-- 1 brygg brygg  85184 May  6  1996 apt1.ppm
+-rw-r--r-- 1 brygg brygg  85652 May  6  1996 apt1.rgb
+-rw-r--r-- 1 brygg brygg     42 May  6  1996 apt1.size
+-rw-r--r-- 1 brygg brygg  94652 May  6  1996 beach.ppm
+-rw-r--r-- 1 brygg brygg  95120 May  6  1996 beach.rgb
+-rw-r--r-- 1 brygg brygg     43 May  6  1996 beach.size
+-rw-r--r-- 1 brygg brygg  76862 May  6  1996 dinner.ppm
+-rw-r--r-- 1 brygg brygg  77330 May  6  1996 dinner.rgb
+-rw-r--r-- 1 brygg brygg     44 May  6  1996 dinner.size
+-rw-r--r-- 1 brygg brygg  80747 May  6  1996 gals_car2.ppm
+-rw-r--r-- 1 brygg brygg  81215 May  6  1996 gals_car2.rgb
+-rw-r--r-- 1 brygg brygg     47 May  6  1996 gals_car2.size
+-rw-r--r-- 1 brygg brygg  65708 May  6  1996 gals_car.ppm
+-rw-r--r-- 1 brygg brygg  66176 May  6  1996 gals_car.rgb
+-rw-r--r-- 1 brygg brygg     46 May  6  1996 gals_car.size
+-rw-r--r-- 1 brygg brygg     84 May  6  1996 gen-size
+-rw-r--r-- 1 brygg brygg  70829 May  6  1996 guys_car.ppm
+-rw-r--r-- 1 brygg brygg  71297 May  6  1996 guys_car.rgb
+-rw-r--r-- 1 brygg brygg     46 May  6  1996 guys_car.size
+-rw-r--r-- 1 brygg brygg    336 May  6  1996 list
+lrwxrwxrwx 1 brygg brygg     24 Nov 11  2001 mac -> /u/ullmer/mac/traces/rgb
+-rw-r--r-- 1 brygg brygg 498641 May  6  1996 map.ppm
+-rw-r--r-- 1 brygg brygg 499109 May  6  1996 map.rgb
+-rw-r--r-- 1 brygg brygg     41 May  6  1996 map.size
+-rw-r--r-- 1 brygg brygg 101222 May  6  1996 postcard1.ppm
+-rw-r--r-- 1 brygg brygg 101690 May  6  1996 postcard1.rgb
+-rw-r--r-- 1 brygg brygg     47 May  6  1996 postcard1.size
+-rw-r--r-- 1 brygg brygg  98144 May  6  1996 postcard_back.ppm
+-rw-r--r-- 1 brygg brygg  98612 May  6  1996 postcard_back.rgb
+-rw-r--r-- 1 brygg brygg     51 May  6  1996 postcard_back.size
+-rw-r--r-- 1 brygg brygg 289646 May  6  1996 receipt.ppm
+-rw-r--r-- 1 brygg brygg  97046 May  6  1996 receipt.rgb
+-rw-r--r-- 1 brygg brygg     45 May  6  1996 receipt.size
+-rw-r--r-- 1 brygg brygg 119240 May  6  1996 ronjon.ppm
+-rw-r--r-- 1 brygg brygg 159440 May  6  1996 ronjon.rgb
+-rw-r--r-- 1 brygg brygg     44 May  6  1996 ronjon.size
+-rw-r--r-- 1 brygg brygg  95528 May  6  1996 sand_castle1.ppm
+-rw-r--r-- 1 brygg brygg  95996 May  6  1996 sand_castle1.rgb
+-rw-r--r-- 1 brygg brygg     50 May  6  1996 sand_castle1.size
+-rw-r--r-- 1 brygg brygg  92279 May  6  1996 sand_castle2.ppm
+-rw-r--r-- 1 brygg brygg  92747 May  6  1996 sand_castle2.rgb
+-rw-r--r-- 1 brygg brygg     50 May  6  1996 sand_castle2.size
+-rw-r--r-- 1 brygg brygg  95528 May  6  1996 sand_face.ppm
+-rw-r--r-- 1 brygg brygg  95996 May  6  1996 sand_face.rgb
+-rw-r--r-- 1 brygg brygg     47 May  6  1996 sand_face.size
+-rw-r--r-- 1 brygg brygg  93137 May  6  1996 seagulls1.ppm
+-rw-r--r-- 1 brygg brygg  93605 May  6  1996 seagulls1.rgb
+-rw-r--r-- 1 brygg brygg     47 May  6  1996 seagulls1.size
+-rw-r--r-- 1 brygg brygg  93338 May  6  1996 seagulls2.ppm
+-rw-r--r-- 1 brygg brygg  93806 May  6  1996 seagulls2.rgb
+-rw-r--r-- 1 brygg brygg     47 May  6  1996 seagulls2.size
+-rw-r--r-- 1 brygg brygg 199406 May  6  1996 seashell.ppm
+-rw-r--r-- 1 brygg brygg 199874 May  6  1996 seashell.rgb
+-rw-r--r-- 1 brygg brygg     46 May  6  1996 seashell.size
+-rw-r--r-- 1 brygg brygg 183806 May  6  1996 sprint.ppm
+-rw-r--r-- 1 brygg brygg 245528 May  6  1996 sprint.rgb
+-rw-r--r-- 1 brygg brygg     44 May  6  1996 sprint.size
+-rw-r--r-- 1 brygg brygg  90008 May  6  1996 steve_cooking.ppm
+-rw-r--r-- 1 brygg brygg  90476 May  6  1996 steve_cooking.rgb
+-rw-r--r-- 1 brygg brygg     51 May  6  1996 steve_cooking.size
+-rw-r--r-- 1 brygg brygg  85184 May  6  1996 sunning1.ppm
+-rw-r--r-- 1 brygg brygg  85652 May  6  1996 sunning1.rgb
+-rw-r--r-- 1 brygg brygg     46 May  6  1996 sunning1.size
+-rw-r--r-- 1 brygg brygg  95309 May  6  1996 sunning2.ppm
+-rw-r--r-- 1 brygg brygg  95777 May  6  1996 sunning2.rgb
+-rw-r--r-- 1 brygg brygg     46 May  6  1996 sunning2.size
+
+./seashell/RCS:
+total 2292
+drwxr-xr-x 2 brygg brygg    4096 Sep 26  2001 .
+drwxr-xr-x 5 brygg brygg    4096 Sep 26  2001 ..
+-r-xr-xr-x 1 brygg brygg 2275225 Jul 31  1997 3wish,v
+-r--r--r-- 1 brygg brygg    1443 Jul 31  1997 base.tcl,v
+-r--r--r-- 1 brygg brygg    1953 Jul 31  1997 behavior.tcl,v
+-r--r--r-- 1 brygg brygg    1529 May  6  1996 editobj.tcl,v
+-r--r--r-- 1 brygg brygg    9571 May  7  1996 editor,v
+-r-xr-xr-x 1 brygg brygg    2570 Jul 31  1997 libiv.tcl,v
+-r--r--r-- 1 brygg brygg    5046 May  7  1996 objstore.tcl,v
+-r--r--r-- 1 brygg brygg    1777 Jul 31  1997 plane.tcl,v
+-r--r--r-- 1 brygg brygg    6470 May  7  1996 room.conf,v
+-r--r--r-- 1 brygg brygg    3466 Jul 31  1997 sc-tst.tcl,v
+-r--r--r-- 1 brygg brygg    4539 May  6  1996 stack.tcl,v
+
+./snowcrash:
+total 124
+drwxr-xr-x 7 brygg brygg 4096 Sep 26  2001 .
+drwxrwxr-x 7 brygg brygg 4096 Jun 30 13:21 ..
+lrwxrwxrwx 1 brygg brygg   19 Nov 11  2001 3wish -> ../../3wish.3/3wish
+-rw-r--r-- 1 brygg brygg 1150 May  7  1996 base.tcl
+-rw-r--r-- 1 brygg brygg 1763 May  7  1996 behavior.tcl
+drwxr-xr-x 2 brygg brygg 4096 Sep 26  2001 bkup
+-rw-r--r-- 1 brygg brygg 7808 May  8  1996 book.bk
+-rw-r--r-- 1 brygg brygg 8549 May  9  1996 book.tcl
+drwxr-xr-x 2 brygg brygg 4096 Sep 26  2001 data
+drwxr-xr-x 2 brygg brygg 4096 Sep 26  2001 data2
+-rw-r--r-- 1 brygg brygg 1331 May  7  1996 editobj.tcl
+-rw-r--r-- 1 brygg brygg 6976 May  8  1996 editor
+-rwxr-xr-x 1 brygg brygg 2381 Mar 19  1998 libiv.tcl
+drwxr-xr-x 2 brygg brygg 4096 Sep 26  2001 misc
+-rw-r--r-- 1 brygg brygg 4680 May  7  1996 objstore.tcl
+-rw-r--r-- 1 brygg brygg 1587 May  7  1996 plane.tcl
+drwxr-xr-x 2 brygg brygg 4096 Sep 26  2001 RCS
+-rw-r--r-- 1 brygg brygg 3276 May  7  1996 sc-tst.tcl
+-rw-r--r-- 1 brygg brygg  701 May  8  1996 snow1.tcl
+-rw-r--r-- 1 brygg brygg  391 May  8  1996 snow2.tcl
+-rw-r--r-- 1 brygg brygg  686 May  8  1996 snow3.tcl
+-rw-r--r-- 1 brygg brygg 1509 May  9  1996 snow4.tcl
+-rw-r--r-- 1 brygg brygg  636 May  7  1996 snow.tcl
+-rw-r--r-- 1 brygg brygg 5671 May  7  1996 stack.tcl
+-rw-r--r-- 1 brygg brygg 1058 May  7  1996 texture.tcl
+-rw-r--r-- 1 brygg brygg  276 May  7  1996 tst.tcl
+
+./snowcrash/bkup:
+total 60
+drwxr-xr-x 2 brygg brygg  4096 Sep 26  2001 .
+drwxr-xr-x 7 brygg brygg  4096 Sep 26  2001 ..
+-rw-r--r-- 1 brygg brygg 51200 May  8  1996 snow2.tar
+
+./snowcrash/data:
+total 7552
+drwxr-xr-x 2 brygg brygg   4096 Sep 26  2001 .
+drwxr-xr-x 7 brygg brygg   4096 Sep 26  2001 ..
+-rw-r--r-- 1 brygg brygg 156143 May  8  1996 back.rgb
+-rw-r--r-- 1 brygg brygg 164661 May  8  1996 cover.rgb
+lrwxrwxrwx 1 brygg brygg     33 Nov 11  2001 mac -> /u/ullmer/mac/scans/snowcrash/rgb
+-rw-r--r-- 1 brygg brygg 254301 May  7  1996 sc-p0.m.rgb.gz
+-rw-r--r-- 1 brygg brygg 358292 May  7  1996 sc-p123.m.rgb.gz
+-rw-r--r-- 1 brygg brygg 371391 May  7  1996 sc-p124.m.rgb.gz
+-rw-r--r-- 1 brygg brygg 372288 May  7  1996 sc-p212.m.rgb.gz
+-rw-r--r-- 1 brygg brygg 395432 May  7  1996 sc-p214.m.rgb.gz
+-rw-r--r-- 1 brygg brygg 353969 May  7  1996 sc-p278.m.rgb.gz
+-rw-r--r-- 1 brygg brygg 350485 May  7  1996 sc-p279.m.rgb.gz
+-rw-r--r-- 1 brygg brygg 351268 May  7  1996 sc-p2.m.rgb.gz
+-rw-r--r-- 1 brygg brygg 360651 May  7  1996 sc-p353.m.rgb.gz
+-rw-r--r-- 1 brygg brygg 375145 May  7  1996 sc-p37.m.rgb.gz
+-rw-r--r-- 1 brygg brygg 357283 May  7  1996 sc-p400.m.rgb.gz
+-rw-r--r-- 1 brygg brygg 338516 May  7  1996 sc-p434.m.rgb.gz
+-rw-r--r-- 1 brygg brygg 347812 May  7  1996 sc-p439.m.rgb.gz
+-rw-r--r-- 1 brygg brygg 390265 May  7  1996 sc-p64.m.rgb.gz
+-rw-r--r-- 1 brygg brygg 335436 May  7  1996 sc-p69.m.rgb.gz
+-rw-r--r-- 1 brygg brygg 156143 May  8  1996 snowcrash-back.dsk.rgb
+-rw-r--r-- 1 brygg brygg 669309 May  8  1996 snowcrash-back.rgb.gz
+-rw-r--r-- 1 brygg brygg 164661 May  8  1996 snowcrash-cover.dsk.rgb
+-rw-r--r-- 1 brygg brygg 822563 May  8  1996 snowcrash-cover.rgb.gz
+-rw-r--r-- 1 brygg brygg  39683 May  8  1996 snowcrash-spine.dsk.rgb.gz
+-rw-r--r-- 1 brygg brygg 189964 May  8  1996 snowcrash-spine.rgb.gz
+
+./snowcrash/data2:
+total 2672
+drwxr-xr-x 2 brygg brygg   4096 Sep 26  2001 .
+drwxr-xr-x 7 brygg brygg   4096 Sep 26  2001 ..
+-rw-r--r-- 1 brygg brygg 156143 May  8  1996 back.rgb
+-rw-r--r-- 1 brygg brygg 164661 May  8  1996 cover.rgb
+lrwxrwxrwx 1 brygg brygg     34 Nov 11  2001 mac -> /u/ullmer/mac/scans/snowcrash/rgb2
+-rw-r--r-- 1 brygg brygg 159020 May  7  1996 sc-p0.m.rgb
+-rw-r--r-- 1 brygg brygg 161908 May  7  1996 sc-p123.m.rgb
+-rw-r--r-- 1 brygg brygg 159852 May  7  1996 sc-p124.m.rgb
+-rw-r--r-- 1 brygg brygg 162128 May  7  1996 sc-p212.m.rgb
+-rw-r--r-- 1 brygg brygg 162752 May  7  1996 sc-p214.m.rgb
+-rw-r--r-- 1 brygg brygg 151712 May  7  1996 sc-p278.m.rgb
+-rw-r--r-- 1 brygg brygg 147252 May  7  1996 sc-p279.m.rgb
+-rw-r--r-- 1 brygg brygg 163376 May  7  1996 sc-p2.m.rgb
+-rw-r--r-- 1 brygg brygg 153684 May  7  1996 sc-p353.m.rgb
+-rw-r--r-- 1 brygg brygg 158208 May  7  1996 sc-p37.m.rgb
+-rw-r--r-- 1 brygg brygg 151472 May  7  1996 sc-p400.m.rgb
+-rw-r--r-- 1 brygg brygg 156512 May  7  1996 sc-p434.m.rgb
+-rw-r--r-- 1 brygg brygg 162128 May  7  1996 sc-p439.m.rgb
+-rw-r--r-- 1 brygg brygg 166508 May  7  1996 sc-p64.m.rgb
+-rw-r--r-- 1 brygg brygg 159632 May  7  1996 sc-p69.m.rgb
+
+./snowcrash/misc:
+total 68
+drwxr-xr-x 2 brygg brygg 4096 Sep 26  2001 .
+drwxr-xr-x 7 brygg brygg 4096 Sep 26  2001 ..
+-rw-r--r-- 1 brygg brygg 1824 May  7  1996 bird.tcl
+-rw-r--r-- 1 brygg brygg 5535 May  7  1996 emerg
+-rw-r--r-- 1 brygg brygg 6192 May  7  1996 room.bk3
+-rw-r--r-- 1 brygg brygg 6262 May  7  1996 room.bk5
+-rw-r--r-- 1 brygg brygg 6353 May  7  1996 room.bk6-j
+-rw-r--r-- 1 brygg brygg 6353 May  7  1996 room.conf
+-rw-r--r-- 1 brygg brygg 5535 May  7  1996 room.conf.bk
+-rw-r--r-- 1 brygg brygg 5534 May  7  1996 room.conf.bk2
+
+./snowcrash/RCS:
+total 56
+drwxr-xr-x 2 brygg brygg  4096 Sep 26  2001 .
+drwxr-xr-x 7 brygg brygg  4096 Sep 26  2001 ..
+-r--r--r-- 1 brygg brygg 16395 May  8  1996 book.tcl,v
+-r--r--r-- 1 brygg brygg  1450 May  8  1996 snow1.tcl,v
+-r--r--r-- 1 brygg brygg   477 May  8  1996 snow2.tcl,v
+-r--r--r-- 1 brygg brygg   912 May  8  1996 snow3.tcl,v
+-r--r--r-- 1 brygg brygg  1843 May  9  1996 snow4.tcl,v
+-r--r--r-- 1 brygg brygg   949 May  7  1996 snow.tcl,v
+-r--r--r-- 1 brygg brygg  6382 May  7  1996 stack.tcl,v
