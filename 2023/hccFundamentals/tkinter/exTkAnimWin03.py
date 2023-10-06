@@ -28,9 +28,9 @@ def quitCb():
 ####### generate window geometry ####### 
 
 def genWinGeom(winId): 
-  global winDim, winCoords
+  global winDim, winCoords, winActors    
 
-  x, y   = winCoords[winId]
+  x, y   = winActors[winId].pos
   result = "%s+%i+%i" % (winDim, x, y)
 
   return result
@@ -75,7 +75,7 @@ def winShift(winId):
   a                = winActors[winId]
   print(str((x,y)), str(newCoord))
 
-  animate(a, pos=newCoord, tween='accel_decel', duration=1.7)
+  animate(a, pos=newCoord, tween='accel_decel', duration=.7)
 
 ####### pygame zero update loop ####### 
 
