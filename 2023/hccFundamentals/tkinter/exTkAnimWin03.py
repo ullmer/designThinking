@@ -12,11 +12,11 @@ WIDTH  = 100
 HEIGHT = 100
 
 winDim        = '400x400'
-winController = '300x50-0-0'
+#winController = '300x50-0-0'
 
 root = tk.Tk()
 root.title('example controller')
-root.geometry(winController)
+#root.geometry(winController)
 
 ####### support functions ####### 
 
@@ -59,6 +59,7 @@ def constructWindowAnimators():
 
 def winShift(winId):
   global winState, winActors, winCoords, winCoordsBase, winShift 
+  print("shifting window", winId)
 
   prevWinState    = winState[winId]
 
@@ -73,12 +74,12 @@ def winShift(winId):
   winCoords[winId] = newCoord
   a                = winActors[winId]
 
-  animate(a, pos=newCoord, tween='accel_decel', duration=.7)
+  animate(a, pos=newCoord, tween='accel_decel', duration=0.7)
 
 ####### pygame zero update loop ####### 
 
-def update(): 
-  root.update() #keeps TkInter alive
+def draw():   root.update() #keeps TkInter alive
+def update(): root.update() #keeps TkInter alive
 
 #root.mainloop()
 
@@ -88,7 +89,9 @@ w1b = tk.Button(root, text="w1 shift", command=partial(winShift, "w1"))
 w2b = tk.Button(root, text="w2 shift", command=partial(winShift, "w2"))
 
 b1 = tk.Button(root, text='quit', command=quitCb)
-b1.pack()
+
+for widget in [w1b, w2b, b1]:
+  widget.pack(side='left')
 
 constructWindowAnimators()
 
