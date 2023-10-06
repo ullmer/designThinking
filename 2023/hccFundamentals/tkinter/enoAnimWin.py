@@ -13,10 +13,14 @@ from   pgzero.builtins import Actor, animate, keyboard
 
 class enoAnimWindow:
 
-  winDim    = '400x400'
-  winCoords = None
-  winActors = None
-
+  winDim        = '400x400'
+  winCoords     = None
+  winActors     = None
+  winState      = None
+  winCoordsBase = None
+  winShift      = 200
+  tween         = 'accel_decel'
+  duration      = 0.7
 
   ####### support functions ####### 
 
@@ -34,76 +38,53 @@ class enoAnimWindow:
 
     return result
 
-####### construct window animation state ####### 
+  ####### construct window animation state ####### 
 
-def constructWindowAnimators():
-  global winState, winActors, winCoords, winCoordsBase, winShift 
+  def constructWindowAnimators(self):
 
-  winState     = {}
-  winActors    = {} #using PyGame Zero Actor animation mechanism to tween-animate Tkinter windows
-  winCoords    = {}
-  winCoordsBase = {}
+    self.winState      = {}
+    self.winActors     = {} #using PyGame Zero Actor animation mechanism to tween-animate Tkinter windows
+    self.winCoords     = {}
+    self.winCoordsBase = {}
 
-  winCoordsBase["w1"] = (0,   0)
-  winCoordsBase["w2"] = (800, 0)
-  winShift           = 200
+    self.winCoordsBase["w1"] = (0,   0)
+    self.winCoordsBase["w2"] = (800, 0)
 
-  for winId in ["w1", "w2"]:
-    winState[winId]  = 1
-    winCoord         = winCoordsBase[winId]
-    winCoords[winId] = winCoord
-    winActors[winId] = Actor(pos=winCoord, image="single_pix")
+    for winId in ["w1", "w2"]:
+      self.winState[winId]  = 1
+      self.winCoord         = winCoordsBase[winId]
+      self.winCoords[winId] = winCoord
+      self.winActors[winId] = Actor(pos=winCoord, image="single_pix")
 
-####### shift windows ####### 
+  ####### shift windows ####### 
 
-def winShift(winId):
-  global winState, winActors, winCoords, winCoordsBase, winShift 
-  print("shifting window", winId)
+  def winShift(self, winId):
+    #print("shifting window", winId)
 
-  prevWinState    = winState[winId]
+    prevWinState    = self.winState[winId]
 
-  if winId == "w1": dx = winShift
-  else:             dx = -1 * winShift
+    if winId == "w1": dx = self.winShift
+    else:             dx = self.winShift * -1
 
-  if prevWinState == 1: winState[winId] = 0
-  else:                 winState[winId] = 1; dx *= -1
+    if prevWinState == 1: self.winState[winId] = 0
+    else:                 self.winState[winId] = 1; dx *= -1
 
-  x, y             = winCoords[winId]
-  newCoord         = (x+dx, y)
-  winCoords[winId] = newCoord
-  a                = winActors[winId]
-  print(str((x,y)), str(newCoord))
+    x, y             = self.winCoords[winId]
+    newCoord         = (x+dx, y)
+    self.winCoords[winId] = newCoord
+    a                = self.winActors[winId]
+    #print(str((x,y)), str(newCoord))
 
-  animate(a, pos=newCoord, tween='accel_decel', duration=.7)
+    animate(a, pos=newCoord, tween=self.tween, duration=self.duration)
 
-####### pygame zero update loop ####### 
+  ####### pygame zero update loop ####### 
 
-def update(): 
-  global w1, w2
-  w1Geom = genWinGeom("w1")
-  w2Geom = genWinGeom("w2")
-  w1.geometry(w1Geom)
-  w2.geometry(w2Geom)
-  root.update() #keeps TkInter alive
-
-#root.mainloop()
-
-####### main ####### 
-
-w1b = tk.Button(root, text="w1 shift", command=partial(winShift, "w1"))
-w2b = tk.Button(root, text="w2 shift", command=partial(winShift, "w2"))
-
-b1 = tk.Button(root, text='quit', command=quitCb)
-
-for widget in [w1b, w2b, b1]:
-  widget.pack(side='left')
-
-constructWindowAnimators()
-
-w1Geom = genWinGeom("w1")
-w2Geom = genWinGeom("w2")
-
-w1 = tk.Toplevel(); w1.geometry(w1Geom)
-w2 = tk.Toplevel(); w2.geometry(w2Geom)
+  def update(): 
+    global w1, w2
+    w1Geom = genWinGeom("w1")
+    w2Geom = genWinGeom("w2")
+    w1.geometry(w1Geom)
+    w2.geometry(w2Geom)
+    root.update() #keeps TkInter alive
 
 ### end ###
