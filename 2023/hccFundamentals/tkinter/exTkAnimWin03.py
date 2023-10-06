@@ -73,13 +73,19 @@ def winShift(winId):
   newCoord         = (x+dx, y)
   winCoords[winId] = newCoord
   a                = winActors[winId]
+  print(str((x,y)), str(newCoord))
 
-  animate(a, pos=newCoord, tween='accel_decel', duration=0.7)
+  animate(a, pos=newCoord, tween='accel_decel', duration=1.7)
 
 ####### pygame zero update loop ####### 
 
-def draw():   root.update() #keeps TkInter alive
-def update(): root.update() #keeps TkInter alive
+def update(): 
+  global w1, w2
+  w1Geom = genWinGeom("w1")
+  w2Geom = genWinGeom("w2")
+  w1.geometry(w1Geom)
+  w2.geometry(w2Geom)
+  root.update() #keeps TkInter alive
 
 #root.mainloop()
 
