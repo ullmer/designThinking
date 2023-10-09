@@ -5,6 +5,7 @@ import tksheet
 top = tk.Tk()
 sheet = tksheet.Sheet(top, theme='dark blue')
 sheet.grid()
+sheet.default_column_width(50)
 sheet.set_sheet_data([[f"{ri+cj}" for cj in range(9)] for ri in range(9)])
 # table enable choices listed below:
 sheet.enable_bindings(("single_select",
