@@ -40,8 +40,12 @@ def updateCube(val, whichCube):
   nt = time.time()
   dt = nt-lastTime
   lastTime = nt
-  try:    anima.update(dt)
+  try:    
+    anima.update(dt)
+    idleSensor = coin.SoIdleSensor(updateCube, 0)
+    idleSensor.schedule()
   except: pass
+
   x, y = cubeActor[0].pos
   t1.translation.setValue([x, y, 0])
 
