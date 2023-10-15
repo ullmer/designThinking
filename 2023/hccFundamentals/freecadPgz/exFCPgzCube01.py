@@ -31,7 +31,7 @@ pgzero.loaders.set_root('c:/git/designThinking/2023/hccFundamentals/freecadPgz/'
 a = Actor(pos=(0,0), image='single_pix')
 cubeActor[0] = a
 
-anima = animate(a, pos=(10,0), tween='accel_decel', duration=5)
+anima = animate(a, pos=(20,0), tween='accel_decel', duration=1)
 lastTime  = time.time()
 
 def updateCube(val, whichCube):
@@ -43,15 +43,15 @@ def updateCube(val, whichCube):
   try:    
     anima.update(dt)
     x, y = cubeActor[0].pos
-    print("x, y:", x, y)
+    #print("x, y:", x, y)
     t1.translation.setValue([x, y, 0])
     #Gui.updateGui()
-    idleSensor = coin.SoIdleSensor(updateCube, 0)
-    idleSensor.schedule()
+    #idleSensor = coin.SoIdleSensor(updateCube, 0)
+    #idleSensor.schedule()
     view.redraw()
-  except: 
-    print("updateCube exception:")
-    print(traceback.print_exc());
+  except: pass
+    #print("updateCube exception:")
+    #print(traceback.print_exc());
 
 #def update(): updateCube()
 
@@ -78,8 +78,11 @@ view.redraw()
 Gui.runCommand('Std_ViewZoomOut',0)
 Gui.SendMsgToActiveView("ViewFit")
 
-idleSensor = coin.SoIdleSensor(updateCube, 0)
-idleSensor.schedule()
+#idleSensor = coin.SoIdleSensor(updateCube, 0)
+#idleSensor.schedule()
+
+ts = coin.SoTimerSensor(updateCube, 0)
+ts.schedule()
 
 #idlecallback to drive animation updates
 
