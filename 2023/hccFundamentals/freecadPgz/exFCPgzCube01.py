@@ -4,6 +4,7 @@
 
 import pygame as pg
 import sys
+import time
 from   functools       import partial
 from   pgzero.builtins import Actor, animate, keyboard
 import pgzero
@@ -19,7 +20,6 @@ cubeActor = {}
 t1 = coin.SoTranslation()
 t1.translation.setValue([5,5,5])
 
-global cubeActor, t1
 
 #pgzero.loaders.set_root('/home/bullmer/git/designThinking/2023/hccFundamentals/freecadPgz')
 
@@ -27,10 +27,17 @@ pgzero.loaders.set_root('c:/git/designThinking/2023/hccFundamentals/freecadPgz/'
 a = Actor(pos=(0,0), image='single_pix')
 cubeActor[0] = a
 
-animate(a, pos=(10,0), tween='accel_decel', duration=5)
+animation = animate(a, pos=(10,0), tween='accel_decel', duration=5)
+lastTime  = time.time()
+
+global cubeActor, t1, animation, lastTime
 
 def updateCube():
-  global cubeActor, t1
+  global cubeActor, t1, lastTime
+  nt = time.time()
+  dt = nt-lastTime
+  lastTime = nt
+  animation.update(dt)
   x, y = cubeActor[0].pos
   t1.translation.setValue([x, y, 0])
 
