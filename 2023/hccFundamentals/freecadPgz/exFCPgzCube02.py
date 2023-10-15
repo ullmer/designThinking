@@ -111,7 +111,7 @@ C1.diffuseColor.setValue([1,0,0])
 
 for child in [c1, t1, C1, c2]: root.addChild(child)
 
-view.redraw()
+#view.redraw()
 Gui.runCommand('Std_ViewZoomOut',0)
 Gui.SendMsgToActiveView("ViewFit")
 
