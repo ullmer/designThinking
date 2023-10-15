@@ -36,7 +36,7 @@ lastTime  = time.time()
 
 ############ update cube ############ 
 
-def updateCube(val, whichCube):
+def updateCube(unsureArg, whichCube):
   global cubeActor, t1, lastTime, anima
   nt = time.time()
   dt = nt-lastTime
@@ -52,6 +52,21 @@ def updateCube(val, whichCube):
     #print(traceback.print_exc());
 
 ############ mouse callback ############ 
+
+def myMousePressCB(userData, eventCB): 
+  root  = userData
+  event = eventCB.getEvent()
+
+  if coin.SoMouseButtonEvent.isButtonPressEvent(event, coin.SoMouseButtonEvent.ANY):
+    print("mouse pressed") 
+    myRegion = eventCB.getAction().getViewportRegion()
+    writePickedPath(root, myRegion, event.getPosition(myRegion))
+    eventCB.setHandled()
+
+############ write picked path ############ 
+
+def writePickedPath(root, viewport, cursorPosition): 
+  
 
 ############ main ############ 
 
