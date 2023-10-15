@@ -20,7 +20,6 @@ cubeActor = {}
 t1 = coin.SoTranslation()
 t1.translation.setValue([5,5,5])
 
-
 #pgzero.loaders.set_root('/home/bullmer/git/designThinking/2023/hccFundamentals/freecadPgz')
 
 pgzero.loaders.set_root('c:/git/designThinking/2023/hccFundamentals/freecadPgz/')
@@ -32,7 +31,7 @@ lastTime  = time.time()
 
 global cubeActor, t1, animation, lastTime
 
-def updateCube():
+def updateCube(val, whichCube):
   global cubeActor, t1, lastTime
   nt = time.time()
   dt = nt-lastTime
@@ -41,7 +40,7 @@ def updateCube():
   x, y = cubeActor[0].pos
   t1.translation.setValue([x, y, 0])
 
-def update(): updateCube()
+#def update(): updateCube()
 
 ####### pygame zero update loop ####### 
 #def update(): 
@@ -54,7 +53,6 @@ sg = view.getSceneGraph()
 root = coin.SoSeparator()
 sg.addChild(root)
 
-
 c1 = coin.SoCube()
 c2 = coin.SoCube()
 
@@ -66,6 +64,9 @@ for child in [c1, t1, C1, c2]: root.addChild(child)
 DISPLAY_FLAGS = pygame.SHOWN
 pygame.display.set_mode((100,100), flags=(DISPLAY_FLAGS & ~pygame.SHOWN) | pygame.HIDDEN,)
 pygame.display.init()
+
+idleSensor = coin.SoIdleSensor(updateCube, 0)
+idleSensor.schedule()
 
 #idlecallback to drive animation updates
 
