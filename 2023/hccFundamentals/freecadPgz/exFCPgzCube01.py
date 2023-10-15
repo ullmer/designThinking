@@ -3,8 +3,7 @@
 # Begun 2023-10-05
 
 import pygame as pg
-import sys
-import time
+import sys, time, traceback
 from   functools       import partial
 from   pgzero.builtins import Actor, animate, keyboard
 import pgzero
@@ -40,14 +39,19 @@ def updateCube(val, whichCube):
   nt = time.time()
   dt = nt-lastTime
   lastTime = nt
+
   try:    
     anima.update(dt)
+    x, y = cubeActor[0].pos
+    print("x, y:", x, y)
+    t1.translation.setValue([x, y, 0])
+    #Gui.updateGui()
     idleSensor = coin.SoIdleSensor(updateCube, 0)
     idleSensor.schedule()
-  except: pass
-
-  x, y = cubeActor[0].pos
-  t1.translation.setValue([x, y, 0])
+    view.redraw()
+  except: 
+    print("updateCube exception:")
+    print(traceback.print_exc());
 
 #def update(): updateCube()
 
@@ -70,6 +74,9 @@ C1.diffuseColor.setValue([1,0,0])
 
 for child in [c1, t1, C1, c2]: root.addChild(child)
 
+view.redraw()
+Gui.runCommand('Std_ViewZoomOut',0)
+Gui.SendMsgToActiveView("ViewFit")
 
 idleSensor = coin.SoIdleSensor(updateCube, 0)
 idleSensor.schedule()
