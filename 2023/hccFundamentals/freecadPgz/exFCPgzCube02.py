@@ -34,6 +34,8 @@ cubeActor[0] = a
 anima = animate(a, pos=(20,0), tween='accel_decel', duration=1)
 lastTime  = time.time()
 
+############ update cube ############ 
+
 def updateCube(val, whichCube):
   global cubeActor, t1, lastTime, anima
   nt = time.time()
@@ -43,21 +45,29 @@ def updateCube(val, whichCube):
   try:    
     anima.update(dt)
     x, y = cubeActor[0].pos
-    #print("x, y:", x, y)
     t1.translation.setValue([x, y, 0])
-    #Gui.updateGui()
-    #idleSensor = coin.SoIdleSensor(updateCube, 0)
-    #idleSensor.schedule()
-    view.redraw()
+    #view.redraw()
   except: pass
     #print("updateCube exception:")
     #print(traceback.print_exc());
+
+############ mouse callback ############ 
+
+############ main ############ 
 
 view = Gui.ActiveDocument.ActiveView
 sg = view.getSceneGraph()
 
 root = coin.SoSeparator()
 sg.addChild(root)
+
+# see https://github.com/coin3d/pivy/blob/master/examples/Mentor/09.4.PickAction.py
+
+myEventCB = coin.SoEventCallback()
+root.addChild(myEventCB)
+
+mbe = coin.SoMouseButtonEvent.getClassTypeId()
+myEventCB.addEventCallback(mbe, myMousePressCB, sg)
 
 c1 = coin.SoCube()
 c2 = coin.SoCube()
