@@ -83,7 +83,14 @@ def writePickedPath(root, viewport, cursorPosition):
 
 ############ main ############ 
 
-view = Gui.ActiveDocument.ActiveView
+if Gui.ActiveDocument is None:
+  doc  = App.newDocument()
+  doc.recompute()
+  viewer = Gui.createViewer()
+  view   = viewer.getViewer()
+else:
+  view = Gui.ActiveDocument.ActiveView
+
 sg = view.getSceneGraph()
 
 root = coin.SoSeparator()
@@ -95,7 +102,6 @@ myEventCB = coin.SoEventCallback()
 root.addChild(myEventCB)
 
 mbe = coin.SoMouseButtonEvent.getClassTypeId()
-myEventCB.addEventCallback(mbe, myMousePressCB, sg)
 
 c1 = coin.SoCube()
 c2 = coin.SoCube()
@@ -114,5 +120,7 @@ Gui.SendMsgToActiveView("ViewFit")
 
 ts = coin.SoTimerSensor(updateCube, 0)
 ts.schedule()
+
+myEventCB.addEventCallback(mbe, myMousePressCB, sg)
 
 ### end ###
