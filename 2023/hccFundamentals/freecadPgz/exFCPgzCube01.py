@@ -5,9 +5,7 @@
 import pygame as pg
 import sys
 from   functools       import partial
-#from   pgzero.builtins import Actor, animate, keyboard
-from   pgzero.builtins import Actor
-import pgzero.builtins.animate as pgzAnimate
+from   pgzero.builtins import Actor, animate, keyboard
 
 import FreeCAD as App
 import FreeCADGui as Gui
@@ -24,7 +22,7 @@ global cubeActor, t1
 
 a = cubeActor[0] = Actor(pos=winCoord, image='single_pix')
 
-pgzAnimate(a, pos=(10,0), tween='accel_decel', duration=5)
+animate(a, pos=(10,0), tween='accel_decel', duration=5)
 
 def updateCube():
   global cubeActor, t1
