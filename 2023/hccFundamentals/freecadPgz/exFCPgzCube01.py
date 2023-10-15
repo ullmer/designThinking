@@ -20,7 +20,8 @@ t1.translation.setValue([5,5,5])
 
 global cubeActor, t1
 
-a = cubeActor[0] = Actor(pos=winCoord, image='single_pix')
+a = Actor(pos=(0,0), image='single_pix')
+cubeActor[0] = a
 
 animate(a, pos=(10,0), tween='accel_decel', duration=5)
 
