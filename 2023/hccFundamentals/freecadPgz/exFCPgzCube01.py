@@ -40,7 +40,8 @@ def updateCube(val, whichCube):
   nt = time.time()
   dt = nt-lastTime
   lastTime = nt
-  anima.update(dt)
+  try:    anima.update(dt)
+  except: pass
   x, y = cubeActor[0].pos
   t1.translation.setValue([x, y, 0])
 
