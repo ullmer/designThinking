@@ -15,8 +15,21 @@ import pivy.coin as coin
 
 cubeActor = {}
 
-#cubeActor[0] Actor(pos=winCoord, image='single_pix'
-#animate(a, pos=newCoord, tween='accel_decel', duration=.7)
+t1 = coin.SoTranslation()
+t1.translation.setValue([5,5,5])
+
+global cubeActor, t1
+
+a = cubeActor[0] = Actor(pos=winCoord, image='single_pix'
+
+animate(a, pos=(10,0), tween='accel_decel', duration=5)
+
+def updateCube():
+  global cubeActor, t1
+  x, y = cubeActor[0].pos
+  t1.translation.setValue([x, y, 0])
+
+def update(): updateCube()
 
 ####### pygame zero update loop ####### 
 #def update(): 
@@ -29,8 +42,6 @@ sg = view.getSceneGraph()
 root = coin.SoSeparator()
 sg.addChild(root)
 
-t1 = coin.SoTranslation()
-t1.translation.setValue([5,5,5])
 
 c1 = coin.SoCube()
 c2 = coin.SoCube()
