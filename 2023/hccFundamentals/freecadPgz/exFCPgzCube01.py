@@ -6,6 +6,7 @@ import pygame as pg
 import sys
 from   functools       import partial
 from   pgzero.builtins import Actor, animate, keyboard
+import pgzero
 
 import FreeCAD as App
 import FreeCADGui as Gui
@@ -20,6 +21,9 @@ t1.translation.setValue([5,5,5])
 
 global cubeActor, t1
 
+#pgzero.loaders.set_root('/home/bullmer/git/designThinking/2023/hccFundamentals/freecadPgz')
+
+pgzero.loaders.set_root('c:/git/designThinking/2023/hccFundamentals/freecadPgz/')
 a = Actor(pos=(0,0), image='single_pix')
 cubeActor[0] = a
 
@@ -51,6 +55,10 @@ C1 = coin.SoMaterial()
 C1.diffuseColor.setValue([1,0,0])
 
 for child in [c1, t1, C1, c2]: root.addChild(child)
+
+DISPLAY_FLAGS = pygame.SHOWN
+pygame.display.set_mode((100,100), flags=(DISPLAY_FLAGS & ~pygame.SHOWN) | pygame.HIDDEN,)
+pygame.display.init()
 
 #idlecallback to drive animation updates
 
