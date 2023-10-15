@@ -30,10 +30,15 @@ root = coin.SoSeparator()
 sg.addChild(root)
 
 t1 = coin.SoTranslation()
-c1 = coin.SoCube()
+t1.translation.setValue([5,5,5])
 
-root.addChild(t1)
-root.addChild(c1)
+c1 = coin.SoCube()
+c2 = coin.SoCube()
+
+C1 = coin.SoMaterial()
+C1.diffuseColor.setValue([1,0,0])
+
+for child in [c1, t1, C1, c2]: root.addChild(child)
 
 #idlecallback to drive animation updates
 
