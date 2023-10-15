@@ -51,7 +51,9 @@ def updateCube(unsureArg, whichCube):
     #print("updateCube exception:")
     #print(traceback.print_exc());
 
+
 ############ mouse callback ############ 
+# see https://github.com/coin3d/pivy/blob/master/examples/Mentor/09.4.PickAction.py
 
 def myMousePressCB(userData, eventCB): 
   root  = userData
@@ -64,9 +66,20 @@ def myMousePressCB(userData, eventCB):
     eventCB.setHandled()
 
 ############ write picked path ############ 
+# see https://github.com/coin3d/pivy/blob/master/examples/Mentor/09.4.PickAction.py
 
 def writePickedPath(root, viewport, cursorPosition): 
-  
+  myPickAction = coin.SoRayPickAction(viewport)
+  myPickAction.setPoint(cursorPosition)
+  myPickAction.setRadius(8.0) #8 pixel radius around selected pixel
+
+  myPickAction.apply(root)
+  myPickedPoint = myPickAction.getPickedPoint()
+  if myPickedPoint is None: return False
+
+  myWriteAction = coin.SoWriteAction()
+  myWriteAction.apply(myPickedPoint.getPath())
+  return True
 
 ############ main ############ 
 
