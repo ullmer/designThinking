@@ -15,50 +15,24 @@ import pivy.coin as coin
 
 cubeActor = {}
 
-cubeActor[0] Actor(pos=winCoord, image=None)
+cubeActor[0] Actor(pos=winCoord, image='single_pix'
 
-####### shift cube ####### 
-
-def winShift(winId):
-  global winState, winActors, winCoords, winCoordsBase, winShift 
-
-  prevWinState    = winState[winId]
-
-  if winId == "w1": dx = winShift
-  else:             dx = -1 * winShift
-
-  if prevWinState == 1: winState[winId] = 0
-  else:                 winState[winId] = 1; dx *= -1
-
-  x, y             = winCoords[winId]
-  newCoord         = (x+dx, y)
-  winCoords[winId] = newCoord
-  a                = winActors[winId]
-
-  animate(a, pos=newCoord, tween='accel_decel', duration=.7)
+animate(a, pos=newCoord, tween='accel_decel', duration=.7)
 
 ####### pygame zero update loop ####### 
-
-def update(): 
-  root.update() #keeps TkInter alive
-
+#def update(): 
+#  root.update() #keeps TkInter alive
 #root.mainloop()
 
-####### main ####### 
+view = Gui.ActiveDocument.ActiveView
+sg = view.getSceneGraph()
 
-w1b = tk.Button(root, text="w1 shift", command=partial(winShift, "w1"))
-w2b = tk.Button(root, text="w2 shift", command=partial(winShift, "w2"))
+root = coin.SoSeparator()
+sg.addChild(root)
 
-b1 = tk.Button(root, text='quit', command=quitCb)
-b1.pack()
+c1 = coin.SoCube()
+root.addChild(c1)
 
-constructWindowAnimators()
-
-w1Geom = genWinGeom("w1")
-w2Geom = genWinGeom("w2")
-
-w1 = tk.Toplevel(); w1.geometry(w1Geom)
-w2 = tk.Toplevel(); w2.geometry(w2Geom)
-
+#idlecallback to drive animation updates
 
 ### end ###
