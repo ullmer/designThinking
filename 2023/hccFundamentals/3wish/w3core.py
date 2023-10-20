@@ -179,39 +179,35 @@ int TclAddNFrame(ClientData , Tcl_Interp *interp,
    return TCL_OK;
 }
 
-//////////////////////////  Delete Named Obj   //////////////////////////
-/// Simply push passed text Iv Obj onto space
+################ Deleted Named Obj ################ 
 
-int TclDelNObj(ClientData , Tcl_Interp *interp,
-  int argc, char *argv[]) 
-{
-   if (argc != 2) {
-     interp->result = "bad # args";
-     return TCL_ERROR;
-   }
+def delNObj(root, name):
+   try:
+     search = coin.SoSearchAction()
+     search.setName(name)
+     search.apply(root)
+     path = search.getPath();
 
-   char *name = argv[1];
-
-   SoSearchAction search;
-   search.setName(name);
-   search.apply(root);
-   SoPath *path = search.getPath();
-
-   if (path == NULL) {
-     sprintf(interp->result, "delNObj error: can't find \"%s\"!", name);
-     return TCL_ERROR;
-   }
+     if path is None:
+       print("delNObj error: can't find \"%s\"!" % name);
+       return False
  
-   SoNode *parent = path->getNodeFromTail(1);
-   if (parent != NULL &&
-      parent->isOfType(SoSeparator::getClassTypeId())) {
+     parent = path.getNodeFromTail(1);
+     if parent is None:
+       print("delNObj error: issue extracting \"%s\"!" % name);
+       return False
 
-    //OK, we've got a valid parent
-    ((SoSeparator *)parent)->removeChild(path->getTail());
-   }
-   
-   return TCL_OK;
-}
+     if parent.isOfType(coin.SoSeparator.getClassTypeId)):
+        #we've got a valid parent
+        parent.removeChild(path.getTail())
+        return True
+     else: 
+        print("delNObj: problem with removing child %s!" % name);
+        return False
+
+   except:
+     print("addObj exception:"); traceback.print_exc()
+     return False
 
 //////////////////////////  Tweak Named Obj   //////////////////////////
 /// Get Inventor scene graph contents associated with a name
