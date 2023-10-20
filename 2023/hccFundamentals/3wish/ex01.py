@@ -13,7 +13,9 @@ def addObj(sdb, parent, ivObj):
      input = coin.SoInput()
      input.setBuffer(ivObj)        #https://www.coin3d.org/Coin/html/classSoInput.html
      newNode = sdb.readAll(input)  #https://www.coin3d.org/Coin/html/classSoDB.html
+     print("f3")
      parent.addChild(newNode)
+     print("f4")
    except:
      print("addObj exception:"); traceback.print_exc()
      return False
@@ -34,7 +36,8 @@ sdb    = coin.SoDB()
 sdb.init()
 sg      = view.getSceneGraph()
 root    = coin.SoSeparator()
-testObj = "Cube"
+
+testObj = "Box {size 1 1 1}"
 addObj(sdb, root, testObj)
 
 ### end ###
