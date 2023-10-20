@@ -12,7 +12,7 @@ def addObj(parent, ivObj):
    try:
      iolen = len(ivObj)
      input = coin.SoInput()
-     sdb   = coin.SoDb()
+     sdb   = coin.SoDB()
 
      input.setBuffer(ivObj, iolen)   #https://www.coin3d.org/Coin/html/classSoInput.html
      newNode = sdb.readAll(input)    #https://www.coin3d.org/Coin/html/classSoDB.html
@@ -25,7 +25,14 @@ def addObj(parent, ivObj):
 
 ##################### main #####################
 
-view = Gui.ActiveDocument.ActiveView
+if Gui.ActiveDocument is None:
+  doc  = App.newDocument()
+  doc.recompute()
+  viewer = Gui.createViewer()
+  view   = viewer.getViewer()
+else:
+  view = Gui.ActiveDocument.ActiveView
+
 sg = view.getSceneGraph()
 
 root = coin.SoSeparator()
