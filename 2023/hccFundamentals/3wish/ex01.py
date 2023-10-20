@@ -8,7 +8,7 @@ import pivy.coin as coin
 
 ##################### add object #####################
 
-def addObj(sdb, parent, obj):
+def addObj(parent, obj):
    try:
      #input = coin.SoInput()
      #input.setBuffer(ivObj)        #https://www.coin3d.org/Coin/html/classSoInput.html
@@ -34,18 +34,13 @@ if Gui.ActiveDocument is None:
 else:
   view = Gui.ActiveDocument.ActiveView
 
-sdb    = coin.SoDB()
-sdb.init()
 sg      = view.getSceneGraph()
 root    = coin.SoSeparator()
 
-obj  = coin.SoSeparator()
-mat1 = coin.SoMaterial(); mat1.diffuseColor.setValue([1,0,0])
 cub1 = coin.SoCube()
-obj.addChild(mat1); obj.addChild(cub1)
-addObj(sdb, root, obj)
+addObj(root, cub1)
 
-view.redraw()
+#view.redraw()
 Gui.runCommand('Std_ViewZoomOut',0)
 Gui.SendMsgToActiveView("ViewFit")
 
