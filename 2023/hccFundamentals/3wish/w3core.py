@@ -2,29 +2,24 @@
 # Originally disaggregated from tcl_examp3 11/24/95
 # Python port begun 2023-10-20
 
-extern SoSelection *root;
-extern SoXtViewer *myViewer;
+import traceback
 
-//////////////////////////  Add Obj   //////////////////////////
-/// Simply push passed text Iv Obj onto space
+################ Add Obj ################ 
+# Initially, push passed text Iv Obj onto space
 
-int TclAddObj(ClientData , Tcl_Interp *interp,
-  int argc, char *argv[]) 
-{
-   if (argc != 2) {
-     interp->result = "bad # args";
-     return TCL_ERROR;
-   }
+def addObj(parent, ivObj):
+   try:
+     iolen = len(ivObj)
+     SoInput input; SoDb sdb
+     input.setBuffer(ivObj, iolen)   #https://www.coin3d.org/Coin/html/classSoInput.html
+     newNode = sdb.readAll(input)    #https://www.coin3d.org/Coin/html/classSoDB.html
+     parent.addChild(newNode)
+   except:
+     print("addObj exception:"); traceback.print_exc()
+     return False
 
-   SoInput input;
-   input.setBuffer(argv[1], strlen(argv[1]));
-
-   SoSeparator *newNode = SoDB::readAll(&input);
-
-   root->addChild(newNode);
-   return TCL_OK;
+   return True
 }
-
 
 ///////////////////////// Get Named  Node /////////////////////////////
 //
