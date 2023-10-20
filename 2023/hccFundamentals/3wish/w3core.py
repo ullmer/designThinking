@@ -52,7 +52,7 @@ def getNamedNodePath (parent, name):
 ################ Get Parent Node ################ 
 # Used by addNFrame and addNObj to get parent node
 
-def getParentFrame(parent, name): 
+def getObjSeparator(parent, name): 
 {  
    char *ptr=strrchr(name, HIERSEP_CHAR);
    if (ptr == NULL) { // we have a root frame
@@ -73,7 +73,7 @@ def getParentFrame(parent, name):
    // Deal with node that was returned
 
    if (node == NULL) {
-     w3_error("getParentFrame", "getParentFrame error: can't find \"%s\"!", name);
+     w3_error("getObjSeparator", "getObjSeparator error: can't find \"%s\"!", name);
      return NULL;
    }
 
@@ -83,7 +83,7 @@ def getParentFrame(parent, name):
    if (!(node->isOfType(SoGroup::getClassTypeId()))) { 
       //"parent" is not a Separator
 
-     w3_error("getParentFrame","addNFrame error: parent frame \"%s\" is not a Separator!\n", 
+     w3_error("getObjSeparator","addNFrame error: parent frame \"%s\" is not a Separator!\n", 
        parentname);
      return NULL;
    }
@@ -108,7 +108,7 @@ int TclAddNInlineObj(ClientData , Tcl_Interp *interp,
    if (argc > 3 && (strcmp(argv[3], "pre")==0)) {pre=1;} //prepend
 
    char *name = argv[1];
-   SoSeparator *parent = getParentFrame(name);
+   SoSeparator *parent = getObjSeparator(name);
 
    if (parent==NULL) {
      sprintf(interp->result, 
@@ -133,45 +133,21 @@ int TclAddNInlineObj(ClientData , Tcl_Interp *interp,
    return TCL_OK;
 }
 
-//////////////////////////  Add Named Obj   //////////////////////////
-/// Push passed text Iv Obj onto space as a named object
-// addNObj name iv
+################ Add Named Obj ################ 
+# Push passed text Iv Obj onto space as a named object
+# addNObj name iv
 
-int TclAddNObj(ClientData , Tcl_Interp *interp,
-  int argc, char *argv[]) 
-{
-   if (argc < 3) {
-     interp->result = "bad # args";
-     return TCL_ERROR;
-   }
+def addNObj(parent, obj, name, prepend=False): #default is to append
+  parent = getObjSeparator(parent, name);
 
-   int pre=0; //append, don't prepend
+  if parent is None:
+    print("addNFrame error: %s does not have a valid parent frame!" % name)
+    return False
 
-   if (argc > 3 && strcmp(argv[3], "pre")) {pre=1;} //prepend
+  if prepend: parent.insertChild(newNode, 0)
+  else:       parent.addChild(newNode)
 
-   char *name = argv[1];
-   SoSeparator *parent = getParentFrame(name);
-
-   if (parent==NULL) {
-     sprintf(interp->result, 
-       "addNFrame error: \"%s\" does not have a valid parent frame!", name);
-     return TCL_ERROR;
-   }
-
-   SoInput input;
-   input.setBuffer(argv[2], strlen(argv[2]));
-
-   SoSeparator *newNode = SoDB::readAll(&input);
-   newNode->setName(name);
-
-   if (!pre) {
-     parent->addChild(newNode);
-   } else {
-     parent->insertChild(newNode, 0);
-   }
-
-   return TCL_OK;
-}
+  return True
 
 //////////////////////////  Add Named Frame //////////////////////////
 /// Adds a named separator.  Introduces support for hierarchy
@@ -187,7 +163,7 @@ int TclAddNFrame(ClientData , Tcl_Interp *interp,
    }
 
    char *name = argv[1], *ptr;
-   SoSeparator *parent = getParentFrame(name);
+   SoSeparator *parent = getObjSeparator(name);
 
    if (parent==NULL) {
      sprintf(interp->result, 
