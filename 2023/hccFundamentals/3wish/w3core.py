@@ -2,6 +2,7 @@
 # Originally disaggregated from tcl_examp3 11/24/95
 # Python port begun 2023-10-20
 
+import pivy.coin as coin
 import traceback
 
 ################ Add Obj ################ 
@@ -10,7 +11,9 @@ import traceback
 def addObj(parent, ivObj):
    try:
      iolen = len(ivObj)
-     SoInput input; SoDb sdb
+     input = coin.SoInput()
+     sdb   = coin.SoDb()
+
      input.setBuffer(ivObj, iolen)   #https://www.coin3d.org/Coin/html/classSoInput.html
      newNode = sdb.readAll(input)    #https://www.coin3d.org/Coin/html/classSoDB.html
      parent.addChild(newNode)
@@ -21,19 +24,18 @@ def addObj(parent, ivObj):
    return True
 }
 
-///////////////////////// Get Named  Node /////////////////////////////
-//
+################ Get Named  Node ################ 
 
-SoNode *getNamedNode(char *name)
-{
-   SoSearchAction search;
-   search.setName(name);
-   search.apply(root);
-   SoPath *path = search.getPath();
+def getNamedNode(parent, name):
 
-   if (path == NULL) {return NULL;}
-   return path->getTail();
-}
+   search = coin.SoSearchAction()
+   search.setName(name)
+   search.apply(parent)
+   path = search.getPath()
+  
+   if path is None: return None
+
+   return path.getTail()
 
 ///////////////////////// Get Named Node Path /////////////////////////
 //
