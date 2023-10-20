@@ -8,16 +8,15 @@ import pivy.coin as coin
 
 ##################### add object #####################
 
-def addObj(sdb, parent, ivObj):
+def addObj(sdb, parent, obj):
    try:
-     input = coin.SoInput()
-     input.setBuffer(ivObj)        #https://www.coin3d.org/Coin/html/classSoInput.html
-     newNode = sdb.readAll(input)  #https://www.coin3d.org/Coin/html/classSoDB.html
-     print("f3")
-     cube  = coin.SoCube()
-     parent.addChild(cube)
+     #input = coin.SoInput()
+     #input.setBuffer(ivObj)        #https://www.coin3d.org/Coin/html/classSoInput.html
+     #newNode = sdb.readAll(input)  #https://www.coin3d.org/Coin/html/classSoDB.html
+     #cube  = coin.SoCube()
      #parent.addChild(newNode)
-     print("f4")
+
+     parent.addChild(obj)           #uninteresting, for simplest version
    except:
      print("addObj exception:"); traceback.print_exc()
      return False
@@ -39,7 +38,7 @@ sdb.init()
 sg      = view.getSceneGraph()
 root    = coin.SoSeparator()
 
-testObj = "Cube {size 1 1 1}"
-addObj(sdb, root, testObj)
+obj = coin.SoCube()
+addObj(sdb, root, obj)
 
 ### end ###
