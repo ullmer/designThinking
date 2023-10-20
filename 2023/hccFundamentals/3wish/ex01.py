@@ -13,8 +13,9 @@ def addObj(sdb, parent, obj):
      #input = coin.SoInput()
      #input.setBuffer(ivObj)        #https://www.coin3d.org/Coin/html/classSoInput.html
      #newNode = sdb.readAll(input)  #https://www.coin3d.org/Coin/html/classSoDB.html
-     #cube  = coin.SoCube()
      #parent.addChild(newNode)
+     #Swig hadn't yet had a release when above original was written, and given Tcl dynamics, 
+     #   had made different choices at the time https://www.swig.org/history.html
 
      parent.addChild(obj)           #uninteresting, for simplest version
    except:
