@@ -1,5 +1,6 @@
 # 3Wish Python port
-# Originally disaggregated from tcl_examp3 11/24/95
+# By Brygg Ullmer (orig version @MIT Media Lab, port @Clemson University)
+# Originally disaggregated from tcl_examp3 1995-11-24
 # Python port begun 2023-10-20
 
 import pivy.coin as coin
