@@ -222,37 +222,13 @@ def tweakNObj(root, name, params):
    
    result = setParams(node, params)
    return result
-}
 
 ################ Get Named Obj ################ 
 # Get Inventor scene graph contents associated with a name
 
 def getNObj(root, name):
-   node = getNamedNode(root, name)
+  node = getNamedNode(root, name)
+  return node
 
-   if node is None:
-     print("getNObj error: can't find \"%s\"!" % name)
-     return False
-
-   int buffsize = 5000;
-   char *buffer = (char *)malloc(buffsize);
-
-   if (node != NULL) {
-     SoOutput output;
-     output.setBuffer(buffer, buffsize, realloc);
-
-     SoWriteAction wa(&output);
-     wa.apply(node);
-   }
-
-   char *result = new char[strlen(buffer)+1];
-   strcpy(result, buffer);
-   free(buffer);
-
-   interp->result = result;
-
-   return TCL_OK;
-}
-
-/////// END ////////
+### end ###
 
