@@ -39,7 +39,14 @@ sdb.init()
 sg      = view.getSceneGraph()
 root    = coin.SoSeparator()
 
-obj = coin.SoCube()
+obj  = coin.SoSeparator()
+mat1 = coin.SoMaterial(); mat1.diffuseColor.setValue([1,0,0])
+cub1 = coin.SoCube()
+obj.addChild(mat1); obj.addChild(cub1)
 addObj(sdb, root, obj)
+
+view.redraw()
+Gui.runCommand('Std_ViewZoomOut',0)
+Gui.SendMsgToActiveView("ViewFit")
 
 ### end ###
