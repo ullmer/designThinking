@@ -23,7 +23,6 @@ def addObj(parent, ivObj):
      return False
 
    return True
-}
 
 ################ Get Named  Node ################ 
 
@@ -38,19 +37,17 @@ def getNamedNode(parent, name):
 
    return path.getTail()
 
-///////////////////////// Get Named Node Path /////////////////////////
-//
+################ Get Named Node Path ################ 
 
-SoPath *getNamedNodePath (char *name)
-{
-   SoSearchAction search;
-   search.setName(name);
-   search.apply(root);
-   SoPath *path = search.getPath();
+def getNamedNodePath (parent, name):
 
-   if (path == NULL) {return NULL;}
-   return path;
-}
+   search = coin.SoSearchAction()
+   search.setName(name)
+   search.apply(parent)
+   path = search.getPath()
+
+   if path is None: return None
+   return path
 
 ///////////////////////// Get Parent Node /////////////////////////////
 // Used by addNFrame and addNObj to get parent node
