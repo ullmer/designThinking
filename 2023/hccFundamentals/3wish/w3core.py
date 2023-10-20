@@ -209,51 +209,30 @@ def delNObj(root, name):
      print("addObj exception:"); traceback.print_exc()
      return False
 
-//////////////////////////  Tweak Named Obj   //////////////////////////
-/// Get Inventor scene graph contents associated with a name
+################ Tweak Named Obj ################ 
+### Get Inventor scene graph contents associated with a name
 
-int TclTweakNObj(ClientData , Tcl_Interp *interp,
-  int argc, char *argv[]) 
-{
-   if (argc != 3) {
-     interp->result = "bad # args; tweakNObj name params";
-     return TCL_ERROR;
-   }
+def tweakNObj(root, name, params):
 
-   char *name   = argv[1];
-   char *params = argv[2];
+   node = getNamedNode(root, name)
 
-   SoNode *node = getNamedNode(name);
-
-   if (node == NULL) {
-     sprintf(interp->result, "tweakNObj error: can't find \"%s\"!", name);
-     return TCL_ERROR;
-   }
-
-   node->set(params);
-
-   return TCL_OK;
+   if node is None:
+     print("tweakNObj error: can't find \"%s\"!" % name)
+     return False
+   
+   result = setParams(node, params)
+   return result
 }
 
-//////////////////////////  Get Named Obj   //////////////////////////
-/// Get Inventor scene graph contents associated with a name
+################ Get Named Obj ################ 
+# Get Inventor scene graph contents associated with a name
 
-int TclGetNObj(ClientData , Tcl_Interp *interp,
-  int argc, char *argv[]) 
-{
-   if (argc != 2) {
-     interp->result = "bad # args";
-     return TCL_ERROR;
-   }
+def getNObj(root, name):
+   node = getNamedNode(root, name)
 
-   char *name = argv[1];
-
-   SoNode *node = getNamedNode(name);
-
-   if (node == NULL) {
-     sprintf(interp->result, "getNObj error: can't find \"%s\"!", name);
-     return TCL_ERROR;
-   }
+   if node is None:
+     print("getNObj error: can't find \"%s\"!" % name)
+     return False
 
    int buffsize = 5000;
    char *buffer = (char *)malloc(buffsize);
