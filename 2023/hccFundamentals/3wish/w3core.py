@@ -95,43 +95,22 @@ def getObjSeparator(parent, name):
 /// Push single text Iv Obj inline into parent (instead of inside own sep)
 // addNInlineObj name iv
 
-int TclAddNInlineObj(ClientData , Tcl_Interp *interp,
-  int argc, char *argv[]) 
-{
-   if (argc < 3) {
-     interp->result = "bad # args";
-     return TCL_ERROR;
-   }
+def addNInlineObj(parent, name, obj, prepend=True)
 
-   int pre=0; //append, don't prepend
+  try:
+    sep = getObjSeparator(parent, name)
 
-   if (argc > 3 && (strcmp(argv[3], "pre")==0)) {pre=1;} //prepend
+    if sep is None:
+      print("addNInlineObj error: \"%s\" does not have a valid parent frame!" % name)
+      return False
 
-   char *name = argv[1];
-   SoSeparator *parent = getObjSeparator(name);
+    if prepend: sep.insertChild(obj, 0)
+    else:       sep.addChild(obj)
 
-   if (parent==NULL) {
-     sprintf(interp->result, 
-       "addNFrame error: \"%s\" does not have a valid parent frame!", name);
-     return TCL_ERROR;
-   }
-
-   SoInput input;
-   input.setBuffer(argv[2], strlen(argv[2]));
-
-   SoSeparator *sepNode = SoDB::readAll(&input);
-   SoNode *newNode = sepNode->getChild(0); //get first child
-
-   newNode->setName(name);
-
-   if (!pre) {
-     parent->addChild(newNode);
-   } else {
-     parent->insertChild(newNode, 0);
-   }
-
-   return TCL_OK;
-}
+    return True
+  except:
+    print("addNFrame exception:"); traceback.print_exc()
+    return False
 
 ################ Add Named Obj ################ 
 # Push passed text Iv Obj onto space as a named object
