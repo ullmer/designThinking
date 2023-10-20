@@ -49,10 +49,10 @@ def getNamedNodePath (parent, name):
    if path is None: return None
    return path
 
-///////////////////////// Get Parent Node /////////////////////////////
-// Used by addNFrame and addNObj to get parent node
+################ Get Parent Node ################ 
+# Used by addNFrame and addNObj to get parent node
 
-SoSeparator *getParentFrame(char *name) 
+def getParentFrame(parent, name): 
 {  
    char *ptr=strrchr(name, HIERSEP_CHAR);
    if (ptr == NULL) { // we have a root frame
