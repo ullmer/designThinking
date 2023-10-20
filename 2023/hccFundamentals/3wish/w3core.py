@@ -149,35 +149,22 @@ def addNObj(parent, obj, name, prepend=False): #default is to append
 
   return True
 
-//////////////////////////  Add Named Frame //////////////////////////
-/// Adds a named separator.  Introduces support for hierarchy
-// addNFrame name 
+################ Add Named Frame ################ 
+# Adds a named separator.  Introduces support for hierarchy
+# addNFrame name 
 
+def addNFrame(parent, name):
+  try:
+    sep = new SoSeparator()
+    sep.ref()
+    sep.setName(name)
+    parent.addChild(sep)
+    sep.unref()
 
-int TclAddNFrame(ClientData , Tcl_Interp *interp,
-  int argc, char *argv[]) 
-{
-   if (argc != 2) {
-     interp->result = "bad # args";
-     return TCL_ERROR;
-   }
-
-   char *name = argv[1], *ptr;
-   SoSeparator *parent = getObjSeparator(name);
-
-   if (parent==NULL) {
-     sprintf(interp->result, 
-       "addNFrame error: \"%s\" does not have a valid parent frame!", name);
-     return TCL_ERROR;
-   }
-
-   SoSeparator *sep = new SoSeparator; sep->ref();
-   sep->setName(name);
-   parent->addChild(sep);
-   sep->unref();
-
-   return TCL_OK;
-}
+    return True
+  except:
+    print("addNFrame exception:"); traceback.print_exc()
+    return False
 
 ################ Deleted Named Obj ################ 
 
