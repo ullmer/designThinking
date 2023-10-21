@@ -161,7 +161,6 @@ def getObjSeparator(root, name):
      return root
 
    #Find node handle to parent node  
-
    parentname = name[:idx]
    parentNode = getNamedNode(root, parentname)
 
@@ -169,9 +168,7 @@ def getObjSeparator(root, name):
      print("getObjSeparator error: can't find \"%s\"!" % name)
      return None
 
-   if not node.isOfType(coin.SoGroup.getClassTypeId()): 
-     #"parent" is not a Separator
-
+   if not node.isOfType(coin.SoGroup.getClassTypeId()): #"parent" is not a Separator
      print("getObjSeparator error: parent frame \"%s\" is not a Separator!" % parentname);
      return None
 
