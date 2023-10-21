@@ -84,16 +84,17 @@ def shiftNObj(root, objName, pointA, pointB, duration = 3., step=10):
 
 ################# shift object ################# 
 
-def shiftObj(transNode, pointA3f, pointB3f, duration=3., steps=10):
+def shiftObj(transNode, pointA, pointB, duration=3., steps=10, tween='linear'):
 
-// Calculate movement increment
+  try:
+    #Calculate movement increment
+    #printf("ShiftObj invoked (%i/%f)\n", steps, duration);
 
-//printf("ShiftObj invoked (%i/%f)\n", steps, duration);
+    pointA3f = convertDest3f(pointA)
+    pointB3f = convertDest3f(pointB)
 
-  SbVec3f *currentPosition = basevec;
-
-  SbVec3f *increment = new SbVec3f;
-  *increment = ((*targetvec - *basevec)/(float)steps);
+    currentPosition = pointA3f
+    increment3f     = (pointB3f - pointA3f)/(float)steps
 
 // Set up callback info record
 
