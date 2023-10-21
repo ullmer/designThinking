@@ -59,7 +59,7 @@ def moveNObj(root, objName, dest):
 
     targetTrans.translation.setValue(dest3f)
   except:
-    print("noveNObj exception:"); traceback.print_exc()
+    print("moveNObj exception:"); traceback.print_exc()
     return False
 
   return True
@@ -67,7 +67,7 @@ def moveNObj(root, objName, dest):
 ################# Shift Named Obj ################# 
 # syntax:  shiftNObj named-obj {point1} {point2} duration steps
 
-def shiftNObj(root, name, pointA, pointB, defaultDuration = 3., defaultSteps=10):
+def shiftNObj(root, name, pointA, pointB, duration = 3., step=10):
   try:
     pointA3f = convertDest3f(pointA)
     pointB3f = convertDest3f(pointB)
@@ -87,15 +87,15 @@ def shiftNObj(root, name, pointA, pointB, defaultDuration = 3., defaultSteps=10)
     parent->insertChild(targettrans, 0); //prepend
   }
 
-  ShiftObj(targettrans, point1, point2, steps, duration);
+    shiftObj(targetTrans, pointA3f, pointB3f, steps, duration)
+    return True
+  except:
+    print("moveNObj exception:"); traceback.print_exc()
+    return False
 
-  return TCL_OK;
-}
+################# shift object ################# 
 
-
-void ShiftObj(SoTranslation *trans, 
-  SbVec3f *basevec, SbVec3f *targetvec, int steps, float duration)
-{
+def shiftObj(transNode, pointA3f, pointB3f, duration=3., steps=10):
 
 // Calculate movement increment
 
