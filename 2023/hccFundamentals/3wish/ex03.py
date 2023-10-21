@@ -27,6 +27,10 @@ sg.addChild(root)
 cube1 = coin.SoCube()
 addNObj(root, "cube1", cube1)
 
+c1 = getNObj(root, "cube1")
+
+print(cube1, c1)
+
 Gui.runCommand('Std_ViewZoomOut',0)
 Gui.SendMsgToActiveView("ViewFit")
 
