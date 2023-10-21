@@ -29,7 +29,14 @@ def genTransName(objName):
 ################# moveNObj ################# 
 # syntax:  moveNObj named-obj point1
 
-def moveNObj(root, objName, dest3f):
+def moveNObj(root, objName, dest):
+
+  # initially, accept two versions of destination: list of floats or SbVec3f
+
+  if dest.isOfType(coin.SbVec3f.getClassTypeId()):
+    dest3f = dest
+  elif isinstance(dest, list):
+    dest3f = coin.SbVec3f(dest)
 
   try:
     #Look for existing trans.  If present, use; if not, create.
