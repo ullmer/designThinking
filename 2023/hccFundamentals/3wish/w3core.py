@@ -71,15 +71,16 @@ def addNInlineObj(parent, name, obj, prepend=True):
 # Push passed text Iv Obj onto space as a named object
 # addNObj name iv
 
-def addNObj(parent, obj, name, prepend=False): #default is to append
-  parent = getObjSeparator(parent, name);
+def addNObj(root, name, obj, prepend=False): #default is to append
+  obj.setName(name)
+  parent = getObjSeparator(root, name);
 
   if parent is None:
     print("addNFrame error: %s does not have a valid parent frame!" % name)
     return False
 
   if prepend: parent.insertChild(newNode, 0)
-  else:       parent.addChild(newNode)
+  else:       parent.addChild(obj)
 
   return True
 
@@ -156,23 +157,29 @@ def getNObj(root, name):
 def getObjSeparator(root, name): 
   global HIERSEP_CHAR 
 
-   idx=name.rfind(HIERSEP_CHAR)
-   if idx == -1: # we have a root frame
-     return root
+  try:
 
-   #Find node handle to parent node  
-   parentname = name[:idx]
-   parentNode = getNamedNode(root, parentname)
+    idx=name.rfind(HIERSEP_CHAR)
+    if idx == -1: # we have a root frame
+      return root
 
-   if parentNode is None:
-     print("getObjSeparator error: can't find \"%s\"!" % name)
-     return None
+    #Find node handle to parent node  
+    parentname = name[:idx]
+    parentNode = getNamedNode(root, parentname)
 
-   if not node.isOfType(coin.SoGroup.getClassTypeId()): #"parent" is not a Separator
-     print("getObjSeparator error: parent frame \"%s\" is not a Separator!" % parentname);
-     return None
+    if parentNode is None:
+      print("getObjSeparator error: can't find \"%s\"!" % name)
+      return None
 
-   return parentNode
+    if not node.isOfType(coin.SoGroup.getClassTypeId()): #"parent" is not a Separator
+      print("getObjSeparator error: parent frame \"%s\" is not a Separator!" % parentname);
+      return None
+
+    return parentNode
+
+  except:
+    print("getObjSeparator exception:"); traceback.print_exc()
+    return False
 
 ### end ###
 
