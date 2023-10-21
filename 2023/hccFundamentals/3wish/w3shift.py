@@ -1,27 +1,24 @@
-//// Wish3 Tcl Code ////
-//// Brygg Ullmer, MIT Media Lab VLW 
-//// ullmer@media.mit.edu / http://www.media.mit.edu/~ullmer
-//// Disaggregated from tcl_examp3 11/24/95
+# 3Wish Python port
+# By Brygg Ullmer (orig version @MIT Media Lab, port @Clemson University)
+# Originally disaggregated from tcl_examp3 1995-11-24
+# Python port begun 2023-10-20
 
-#include "w3shift.h"
+import pivy.coin as coin
+import traceback
 
-extern SoSelection *root;
-extern SoXtViewer *myViewer;
-extern Tcl_Interp *interp;
+class w3Shift:
 
-typedef struct {
-  SbVec3f *dest;
-  SbVec3f *currentLoc;
-  SbVec3f *moveIncrement;
-  SoTranslation *trans;
-  float interval;
-  int callbacksRemaining;
-  SoTimerSensor *timerSensor;
-} shifttoRecord;
+  dest          = None # SbVec3f *dest;
+  currentLoc    = None # SbVec3f *currentLoc;
+  moveIncrement = None # SbVec3f *moveIncrement;
+  trans         = None # SoTranslation *trans;
+  interval      = None # float interval;
+  timerSensor   = None  #SoTimerSensor *timerSensor;
+  callbacksRemaining = None #int callbacksRemaining;
 
 
-////////////////////////// Tcl MoveNObj //////////////////////////
-// syntax:  moveNObj named-obj {point 1} 
+################# moveNObj ################# 
+# syntax:  moveNObj named-obj {point 1} 
 
 int TclMoveNObj(ClientData , Tcl_Interp *interp,
   int argc, char *argv[]) 
