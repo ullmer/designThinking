@@ -19,27 +19,37 @@ class w3Shift:
   timerSensor   = None  #SoTimerSensor *timerSensor;
   callbacksRemaining = None #int callbacksRemaining;
 
+################# generate translation node name ################# 
+
+def genTransName(objName):
+  global HIERSEP_CHAR
+  transName = objName + HIERSEP_CHAR + 'trans'
+  return transName
+
 ################# moveNObj ################# 
-# syntax:  moveNObj named-obj {point 1} 
+# syntax:  moveNObj named-obj point1
 
-def moveNObj(root, name, dest3f):
+def moveNObj(root, objName, dest3f):
 
-#Look for existing trans.  If present, use; if not, create.
-  targetnode = getNamedNode(transname)
+  try:
+    #Look for existing trans.  If present, use; if not, create.
+    transName  = genTransName(objName)
+    targetNode = getNamedNode(transName)
 
-  SoTranslation *targettrans;
-  if (targetnode != NULL) {targettrans = (SoTranslation *)targetnode;}
-  else { //create node
-    SoSeparator *parent = getParentFrame(transname);
-    targettrans = new SoTranslation;
-    targettrans->setName(transname);
-    parent->insertChild(targettrans, 0); //prepend
-  }
+    if targetNode is not None:
+      targetTrans = targetNode
+    else:
+      parent = getParentFrame(root, objName)
+      targetTrans = coin.SoTranslation()
+      targettrans.setName(transName)
+      parent.insertChild(targetTrans, 0) #prepend
 
-  targettrans->translation.setValue(*point1);
+    targetTrans.translation.setValue(dest3f)
+  except:
+    print("noveNObj exception:"); traceback.print_exc()
+    return False
 
-  return TCL_OK;
-}
+  return True
 
 ////////////////////////// Tcl Shift NObj //////////////////////////
 // syntax:  shiftNObj named-obj {point 1} {point 2} duration steps
