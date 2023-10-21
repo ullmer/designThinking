@@ -9,15 +9,9 @@ import traceback
 ################ Add Obj ################ 
 # Initially, push passed text Iv Obj onto space
 
-def addObj(parent, ivObj):
+def addObj(parent, obj):
    try:
-     iolen = len(ivObj)
-     input = coin.SoInput()
-     sdb   = coin.SoDb()
-
-     input.setBuffer(ivObj, iolen)   #https://www.coin3d.org/Coin/html/classSoInput.html
-     newNode = sdb.readAll(input)    #https://www.coin3d.org/Coin/html/classSoDB.html
-     parent.addChild(newNode)
+     parent.addChild(obj)
    except:
      print("addObj exception:"); traceback.print_exc()
      return False
@@ -92,7 +86,7 @@ def addNObj(parent, obj, name, prepend=False): #default is to append
 
 def addNFrame(parent, name):
   try:
-    sep = new SoSeparator()
+    sep = coin.SoSeparator()
     sep.ref()
     sep.setName(name)
     parent.addChild(sep)
@@ -121,7 +115,7 @@ def delNObj(root, name):
        print("delNObj error: issue extracting \"%s\"!" % name);
        return False
 
-     if parent.isOfType(coin.SoSeparator.getClassTypeId)):
+     if parent.isOfType(coin.SoSeparator.getClassTypeId()):
         #we've got a valid parent
         parent.removeChild(path.getTail())
         return True
