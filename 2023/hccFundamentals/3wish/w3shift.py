@@ -5,6 +5,9 @@
 
 import pivy.coin as coin
 import traceback
+from   w3core import *
+
+################# shift data ################# 
 
 class w3Shift:
 
@@ -16,27 +19,14 @@ class w3Shift:
   timerSensor   = None  #SoTimerSensor *timerSensor;
   callbacksRemaining = None #int callbacksRemaining;
 
-
 ################# moveNObj ################# 
 # syntax:  moveNObj named-obj {point 1} 
 
-int TclMoveNObj(ClientData , Tcl_Interp *interp,
-  int argc, char *argv[]) 
-{
+def moveNObj(root, name, dest3f):
 
-  if (argc != 3) {
-    interp->result = 
-      "bad # args; moveNObj objtrans point";
-    return TCL_ERROR;
-  }
+#Look for existing trans.  If present, use; if not, create.
+  targetnode = getNamedNode(transname)
 
-  char *transname = argv[1];
-  char *Cpoint1 = argv[2];
-
-  SbVec3f *point1 = convTcl2Iv_vert(Cpoint1);
-
-//Look for existing trans.  If present, use; if not, create.
-  SoNode *targetnode = getNamedNode(transname);
   SoTranslation *targettrans;
   if (targetnode != NULL) {targettrans = (SoTranslation *)targetnode;}
   else { //create node
