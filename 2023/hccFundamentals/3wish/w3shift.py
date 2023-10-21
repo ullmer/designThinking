@@ -67,25 +67,14 @@ def moveNObj(root, objName, dest):
 ################# Shift Named Obj ################# 
 # syntax:  shiftNObj named-obj {point1} {point2} duration steps
 
-def shiftNObj(root, name, pointA, pointB, duration = 3., step=10):
+def shiftNObj(root, objName, pointA, pointB, duration = 3., step=10):
   try:
     pointA3f = convertDest3f(pointA)
     pointB3f = convertDest3f(pointB)
 
-  char *transname = argv[1];
-  char *Cpoint1 = argv[2], *Cpoint2 = argv[3];
-
-
-//Look for existing trans.  If present, use; if not, create.
-  SoNode *targetnode = getNamedNode(transname);
-  SoTranslation *targettrans;
-  if (targetnode != NULL) {targettrans = (SoTranslation *)targetnode;}
-  else { //create node
-    SoSeparator *parent = getParentFrame(transname);
-    targettrans = new SoTranslation;
-    targettrans->setName(transname);
-    parent->insertChild(targettrans, 0); //prepend
-  }
+    moveNObj(root, objName, pointA3f)
+    transName   = genTransName(objName)
+    targetTrans = getNObj(transName)
 
     shiftObj(targetTrans, pointA3f, pointB3f, steps, duration)
     return True
