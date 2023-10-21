@@ -21,7 +21,6 @@ sg.addChild(root)
 cub1 = coin.SoCube()
 root.addChild(cub1)
 
-#view.redraw()
 Gui.runCommand('Std_ViewZoomOut',0)
 Gui.SendMsgToActiveView("ViewFit")
 
