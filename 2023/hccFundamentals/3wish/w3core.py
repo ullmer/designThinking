@@ -6,6 +6,9 @@
 import pivy.coin as coin
 import traceback
 
+global HIERSEP_CHAR 
+HIERSEP_CHAR = ':'
+
 ################ Add Obj ################ 
 # Initially, push passed text Iv Obj onto space
 
@@ -149,45 +152,44 @@ def getNObj(root, name):
 
 ################# Get Parent Node ################ 
 ## Used by addNFrame and addNObj to get parent node
-#
-#def getObjSeparator(parent, name): 
-#{  
-#   char *ptr=strrchr(name, HIERSEP_CHAR);
-#   if (ptr == NULL) { // we have a root frame
-#
-#     return root;
-#   }
-#
-#   //Find node handle to parent node  
-#
-#   char *parentname;
-#   int  parentlen = (int)(ptr-name);
-#   parentname = new char[parentlen+1];
-#   strncpy(parentname, name, parentlen);
-#   parentname[parentlen] = NULL;
-#
-#   SoNode *node = getNamedNode(parentname);
-#
-#   // Deal with node that was returned
-#
-#   if (node == NULL) {
-#     w3_error("getObjSeparator", "getObjSeparator error: can't find \"%s\"!", name);
-#     return NULL;
-#   }
-#
-#   //Problems with SoArray.  Tweaking following line to..
-#   //if (!(node->isOfType(SoSeparator::getClassTypeId()))) { 
-#
-#   if (!(node->isOfType(SoGroup::getClassTypeId()))) { 
-#      //"parent" is not a Separator
-#
-#     w3_error("getObjSeparator","addNFrame error: parent frame \"%s\" is not a Separator!\n", 
-#      parentname);
-#     return NULL;
-#   }
-#
-#   return (SoSeparator *)node;
-#}
+
+def getObjSeparator(root, name): 
+  global HIERSEP_CHAR 
+
+   idx=name.rfind(HIERSEP_CHAR)
+   if idx == -1: # we have a root frame
+     return root
+
+   #Find node handle to parent node  
+
+   char *parentname;
+   int  parentlen = (int)(ptr-name);
+   parentname = new char[parentlen+1];
+   strncpy(parentname, name, parentlen);
+   parentname[parentlen] = NULL;
+
+   SoNode *node = getNamedNode(parentname);
+
+   // Deal with node that was returned
+
+   if (node == NULL) {
+     w3_error("getObjSeparator", "getObjSeparator error: can't find \"%s\"!", name);
+     return NULL;
+   }
+
+   //Problems with SoArray.  Tweaking following line to..
+   //if (!(node->isOfType(SoSeparator::getClassTypeId()))) { 
+
+   if (!(node->isOfType(SoGroup::getClassTypeId()))) { 
+      //"parent" is not a Separator
+
+     w3_error("getObjSeparator","addNFrame error: parent frame \"%s\" is not a Separator!\n", 
+      parentname);
+     return NULL;
+   }
+
+   return (SoSeparator *)node;
+
 
 ### end ###
 
