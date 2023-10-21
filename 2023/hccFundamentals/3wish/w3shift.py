@@ -144,31 +144,18 @@ void shiftobjCallback(void *data, SoSensor *)
   }
 }
 
-////////////////////////// Tcl MoveTo//////////////////////////
-// moveTo {x y z} -- moves camera
+######## move Camera ######## 
 
-int TclMoveTo(ClientData , Tcl_Interp *interp,
-  int argc, char *argv[]) 
-{ 
-//defaults
-   const int defaultSteps = 10;
-   const float defaultDuration = 3.;
+// moveCamera {pointA} -- moves camera
 
-//Convert arguments
-
-   if (argc != 2) {
-     interp->result = "bad # args; moveTo point";
-     return TCL_ERROR;
-   }
-
-  char *Spoint = argv[1];
-  SbVec3f *point = convTcl2Iv_vert(Spoint);
-
-  myViewer->getCamera()->position.setValue(*point);
-  //delete point;
-
-  return TCL_OK;
-}
+def moveCamera(root, pointA, duration=3., steps=10):
+  try:
+    pointA3f = convertDest3f(pointA)
+    root.getCamera().position.setValue(pointA3f)
+    return True
+  except:
+    print("moveCamera exception:"); traceback.print_exc()
+    return False
 
 ////////////////////////// Tcl ShiftTo//////////////////////////
 // shiftTo {x y z} duration steps -- shifts camera
