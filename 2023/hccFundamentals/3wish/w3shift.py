@@ -37,6 +37,9 @@ def moveNObj(root, objName, dest):
     dest3f = dest
   elif isinstance(dest, list):
     dest3f = coin.SbVec3f(dest)
+  else:
+    print("moveNObj error: destination does not appear to be of type list or SbVec3f");
+    return False
 
   try:
     #Look for existing trans.  If present, use; if not, create.
