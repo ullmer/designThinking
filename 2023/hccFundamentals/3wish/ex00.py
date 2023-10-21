@@ -16,6 +16,7 @@ else:
 
 sg      = view.getSceneGraph()
 root    = coin.SoSeparator()
+sg.addChild(root)
 
 cub1 = coin.SoCube()
 root.addChild(cub1)
