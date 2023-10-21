@@ -25,23 +25,26 @@ def genTransName(objName):
   global HIERSEP_CHAR
   transName = objName + HIERSEP_CHAR + 'trans'
   return transName
-
-################# moveNObj ################# 
-# syntax:  moveNObj named-obj point1
-
-def moveNObj(root, objName, dest):
-
+  
+def convertDest3f(dest):
   # initially, accept two versions of destination: list of floats or SbVec3f
-
   if dest.isOfType(coin.SbVec3f.getClassTypeId()):
     dest3f = dest
   elif isinstance(dest, list):
     dest3f = coin.SbVec3f(dest)
   else:
-    print("moveNObj error: destination does not appear to be of type list or SbVec3f");
-    return False
+    print("convertDest3f error: destination does not appear to be of type list or SbVec3f");
+    return None
 
+  return dest3f
+
+################# moveNObj ################# 
+# syntax:  moveNObj named-obj point1
+
+def moveNObj(root, objName, dest):
   try:
+    dest3f = convertDest3f(dest)
+
     #Look for existing trans.  If present, use; if not, create.
     transName  = genTransName(objName)
     targetNode = getNamedNode(transName)
@@ -61,35 +64,17 @@ def moveNObj(root, objName, dest):
 
   return True
 
-////////////////////////// Tcl Shift NObj //////////////////////////
-// syntax:  shiftNObj named-obj {point 1} {point 2} duration steps
+################# Shift Named Obj ################# 
+# syntax:  shiftNObj named-obj {point1} {point2} duration steps
 
-int TclShiftNObj(ClientData , Tcl_Interp *interp,
-  int argc, char *argv[]) 
-{
-//defaults
-   const int defaultSteps = 10;
-   const float defaultDuration = 3.;
-
-  if (argc > 6 || argc < 4) {
-    interp->result = 
-      "bad # args; shiftNObj objtrans point1 point2 [duration] [steps]";
-    return TCL_ERROR;
-  }
+def shiftNObj(root, name, pointA, pointB, defaultDuration = 3., defaultSteps=10):
+  try:
+    pointA3f = convertDest3f(pointA)
+    pointB3f = convertDest3f(pointB)
 
   char *transname = argv[1];
   char *Cpoint1 = argv[2], *Cpoint2 = argv[3];
 
-  SbVec3f *point1 = convTcl2Iv_vert(Cpoint1);
-  SbVec3f *point2 = convTcl2Iv_vert(Cpoint2);
-
-  float duration;
-  if (argc > 4) {duration = atof(argv[4]);}
-  else {duration = defaultDuration;}
-
-  int steps;
-  if (argc > 5) {steps = atoi(argv[5]);}
-  else {steps = defaultSteps;}
 
 //Look for existing trans.  If present, use; if not, create.
   SoNode *targetnode = getNamedNode(transname);
@@ -285,3 +270,4 @@ void shiftcamCallback(void *data, SoSensor *)
   }
 }
 
+### end ###
