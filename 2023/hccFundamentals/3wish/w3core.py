@@ -53,7 +53,7 @@ def getNamedNodePath (parent, name):
 # Push single text Iv Obj inline into parent (instead of inside own sep)
 # addNInlineObj name iv
 
-def addNInlineObj(parent, name, obj, prepend=True)
+def addNInlineObj(parent, name, obj, prepend=True):
 
   try:
     sep = getObjSeparator(parent, name)
@@ -137,14 +137,13 @@ def delNObj(root, name):
 ### Get Inventor scene graph contents associated with a name
 
 def tweakNObj(root, name, params):
-
    node = getNamedNode(root, name)
 
    if node is None:
      print("tweakNObj error: can't find \"%s\"!" % name)
      return False
    
-   result = setParams(node, params)
+   result = setParams(node, params) #needs iteration
    return result
 
 ################ Get Named Obj ################ 
@@ -189,7 +188,7 @@ def getNObj(root, name):
 #      //"parent" is not a Separator
 #
 #     w3_error("getObjSeparator","addNFrame error: parent frame \"%s\" is not a Separator!\n", 
-#       parentname);
+#      parentname);
 #     return NULL;
 #   }
 #
