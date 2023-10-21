@@ -144,9 +144,8 @@ void shiftobjCallback(void *data, SoSensor *)
   }
 }
 
-######## move Camera ######## 
-
-// moveCamera {pointA} -- moves camera
+############## move Camera ############## 
+# moveCamera {pointA} -- moves camera
 
 def moveCamera(root, pointA, duration=3., steps=10):
   try:
@@ -157,37 +156,20 @@ def moveCamera(root, pointA, duration=3., steps=10):
     print("moveCamera exception:"); traceback.print_exc()
     return False
 
-////////////////////////// Tcl ShiftTo//////////////////////////
-// shiftTo {x y z} duration steps -- shifts camera
+############## shift camera ############## 
+# shiftTo {x y z} duration steps -- shifts camera
 
-int TclShiftTo(ClientData , Tcl_Interp *interp,
-  int argc, char *argv[]) 
-{ 
-//defaults
-   const int defaultSteps = 10;
-   const float defaultDuration = 3.;
+def shiftCamera(root, pointA, pointB, duration=3., steps=10):
+  try:
+    pointA3f = convertDest3f(pointA)
+    pointB3f = convertDest3f(pointB)
+    moveCamera(root, pointA, duration, steps)
 
-//Convert arguments
-
-   if (argc > 4 || argc < 2) {
-     interp->result = "bad # args; shiftTo point {duration 3} {steps 10}";
-     return TCL_ERROR;
-   }
-
-  char *Spoint = argv[1];
-  SbVec3f *point = convTcl2Iv_vert(Spoint);
-
-  float duration;
-  if (argc > 2) {duration = atof(argv[2]);}
-  else {duration = defaultDuration;}
-
-  int steps;
-  if (argc > 3) {steps = atoi(argv[3]);}
-  else {steps = defaultSteps;}
-
-  ShiftCamTo(point, steps, duration);
-  return TCL_OK;
-}
+    shiftCamTo(point, steps, duration);
+    return True
+  except:
+    print("shiftCamera exception:"); traceback.print_exc()
+    return False
 
 
 void ShiftCamTo(SbVec3f *destination, int steps, float duration)
