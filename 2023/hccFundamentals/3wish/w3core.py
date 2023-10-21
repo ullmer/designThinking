@@ -162,34 +162,20 @@ def getObjSeparator(root, name):
 
    #Find node handle to parent node  
 
-   char *parentname;
-   int  parentlen = (int)(ptr-name);
-   parentname = new char[parentlen+1];
-   strncpy(parentname, name, parentlen);
-   parentname[parentlen] = NULL;
+   parentname = name[:idx]
+   parentNode = getNamedNode(root, parentname)
 
-   SoNode *node = getNamedNode(parentname);
+   if parentNode is None:
+     print("getObjSeparator error: can't find \"%s\"!" % name)
+     return None
 
-   // Deal with node that was returned
+   if not node.isOfType(coin.SoGroup.getClassTypeId()): 
+     #"parent" is not a Separator
 
-   if (node == NULL) {
-     w3_error("getObjSeparator", "getObjSeparator error: can't find \"%s\"!", name);
-     return NULL;
-   }
+     print("getObjSeparator error: parent frame \"%s\" is not a Separator!" % parentname);
+     return None
 
-   //Problems with SoArray.  Tweaking following line to..
-   //if (!(node->isOfType(SoSeparator::getClassTypeId()))) { 
-
-   if (!(node->isOfType(SoGroup::getClassTypeId()))) { 
-      //"parent" is not a Separator
-
-     w3_error("getObjSeparator","addNFrame error: parent frame \"%s\" is not a Separator!\n", 
-      parentname);
-     return NULL;
-   }
-
-   return (SoSeparator *)node;
-
+   return parentNode
 
 ### end ###
 
