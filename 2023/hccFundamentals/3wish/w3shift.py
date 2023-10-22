@@ -111,7 +111,7 @@ def shiftObj(transNode, pointA, pointB, duration=3., steps=10, tween='linear'):
     #Set up Inventor timer callback
     timer.setInterval(interval)
     timer.setFunction(shiftobjCallback)
-    timer.setData(shitToRec)
+    timer.setData(shiftToRec)
     timer.schedule()
 
     #print("shiftObj scheduled")
@@ -153,35 +153,36 @@ def moveCamera(root, pointA, duration=3., steps=10):
 ############## shift camera ############## 
 # shiftTo {x y z} duration steps -- shifts camera
 
-def shiftCamera(root, pointA, pointB, duration=3., steps=10):
+def shiftCamera(viewer, root, pointA, pointB, duration=3., steps=10):
   try:
     pointA3f = convertDest3f(pointA)
     pointB3f = convertDest3f(pointB)
     moveCamera(root, pointA, duration, steps)
 
-    shiftCamTo(point, steps, duration);
+    shiftCamTo(viewer, point, steps, duration);
     return True
   except:
     print("shiftCamera exception:"); traceback.print_exc()
     return False
 
+############## shift camera to... ############## 
 
-void ShiftCamTo(SbVec3f *destination, int steps, float duration)
-{
+def shiftCamTo(viewer, destination, steps, duration):
+  #printf("shiftto setup (%f %f %f) %i %f\n",
+  #  (*destination)[0], (*destination)[1], (*destination)[2],
+  #  steps, duration);
 
-/*   printf("shiftto setup (%f %f %f) %i %f\n",
-     (*destination)[0], (*destination)[1], (*destination)[2],
-     steps, duration);
-*/
-// Calculate movement increment
+  try:
+    #Calculate movement increment
+    camera     = viewer.getCamera()
+    currentPos = camera.position.getValue()
+    increment  = (destination-currentPos) / (float) steps
 
-  SoCamera *camera = myViewer->getCamera();
-  SbVec3f currentPosition = camera->position.getValue();
+    #Set up callback info record
+    timer    = coin.SoTimerSensor()
+    shifttoRec = w3Shift(trans=transNode, pointA=pointA, pointB=pointB, timerSensor=timer,
+                         moveIncr=increment3f, callbacksRemaining=steps, interval=interval)
 
-  SbVec3f *increment = new SbVec3f;
-  *increment = ((*destination - currentPosition)/(float)steps);
-
-// Set up callback info record
 
   shifttoRecord *record = new shifttoRecord;
   record->dest = destination;
@@ -193,10 +194,11 @@ void ShiftCamTo(SbVec3f *destination, int steps, float duration)
   SoTimerSensor *timer = new SoTimerSensor;
   record->timerSensor = timer;
 
-  timer->setInterval(record->interval); 
-  timer->setFunction(shiftcamCallback);
-  timer->setData(record);
-  timer->schedule();
+    timer.setInterval(interval)
+    timer.setFunction(shiftobjCallback)
+    timer.setData(shiftToRec)
+    timer.schedule()
+
   
 }
 
