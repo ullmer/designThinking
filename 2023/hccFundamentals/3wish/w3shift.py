@@ -63,7 +63,7 @@ def moveNObj(root, objName, dest):
     else:
       parent = getParentFrame(root, objName)
       targetTrans = coin.SoTranslation()
-      targettrans.setName(transName)
+      targetTrans.setName(transName)
       parent.insertChild(targetTrans, 0) #prepend
 
     targetTrans.translation.setValue(dest3f)

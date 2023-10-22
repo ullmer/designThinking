@@ -70,7 +70,7 @@ def addNInlineObj(parent, name, obj, prepend=True):
 
 def addNObj(root, name, obj, prepend=False): #default is to append
   obj.setName(name)
-  parent = getObjSeparator(root, name);
+  parent = getParentFrame(root, name);
 
   if parent is None:
     print("addNFrame error: %s does not have a valid parent frame!" % name)
