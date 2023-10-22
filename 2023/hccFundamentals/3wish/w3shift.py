@@ -115,22 +115,29 @@ def shiftObj(transNode, pointA, pointB, duration=3., steps=10, tween='linear'):
     timer.schedule()
 
     #print("shiftObj scheduled")
+  except:
+    print("shiftObj exception:"); traceback.print_exc()
+    return False
 
 ################# shift object callback ################# 
 
 def shiftobjCallback(data, sensor):
-  shiftToRecord = (w3Shift) data
+  try:
+    shiftToRecord = (w3Shift) data
 
-  #Calculate new position
-  shiftToRecord.currentLoc += shiftToRecord.moveIncrement
+    #Calculate new position
+    shiftToRecord.currentLoc += shiftToRecord.moveIncrement
 
-  shiftToRecord.trans.setValue(shiftToRecord.currentLoc)
-  shiftToRecord.callbacksRemaining -= 1
+    shiftToRecord.trans.setValue(shiftToRecord.currentLoc)
+    shiftToRecord.callbacksRemaining -= 1
 
-  #Clean up if we've reached where we're headed.
-  if shiftToRecord.callbacksRemaining == 0:
-    shiftToRecord.timerSensor.unschedule()
-
+    #Clean up if we've reached where we're headed.
+    if shiftToRecord.callbacksRemaining == 0:
+      shiftToRecord.timerSensor.unschedule()
+  except:
+    print("shiftObjCallback exception:"); traceback.print_exc()
+    return False
+  
 ############## move Camera ############## 
 # moveCamera {pointA} -- moves camera
 
