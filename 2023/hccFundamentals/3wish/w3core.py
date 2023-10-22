@@ -24,34 +24,31 @@ def addObj(parent, obj):
 ################ Get Named  Node ################ 
 
 def getNamedNode(parent, name):
+  search = coin.SoSearchAction()
+  search.setName(name)
+  search.apply(parent)
+  path = search.getPath()
+ 
+  if path is None: return None
 
-   search = coin.SoSearchAction()
-   search.setName(name)
-   search.apply(parent)
-   path = search.getPath()
-  
-   if path is None: return None
-
-   return path.getTail()
+  return path.getTail()
 
 ################ Get Named Node Path ################ 
 
 def getNamedNodePath (parent, name):
+  search = coin.SoSearchAction()
+  search.setName(name)
+  search.apply(parent)
+  path = search.getPath()
 
-   search = coin.SoSearchAction()
-   search.setName(name)
-   search.apply(parent)
-   path = search.getPath()
-
-   if path is None: return None
-   return path
+  if path is None: return None
+  return path
 
 ################ Add Named Inline Obj   ################ 
 # Push single text Iv Obj inline into parent (instead of inside own sep)
 # addNInlineObj name iv
 
 def addNInlineObj(parent, name, obj, prepend=True):
-
   try:
     sep = getObjSeparator(parent, name)
 
