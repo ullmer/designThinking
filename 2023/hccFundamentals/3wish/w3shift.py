@@ -19,6 +19,10 @@ class w3Shift:
   timerSensor   = None  #SoTimerSensor *timerSensor;
   callbacksRemaining = None #int callbacksRemaining;
 
+  def __init__(self, **kwargs):
+    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+    #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
+
 ################# generate translation node name ################# 
 
 def genTransName(objName):
@@ -97,6 +101,12 @@ def shiftObj(transNode, pointA, pointB, duration=3., steps=10, tween='linear'):
     increment3f     = (pointB3f - pointA3f)/(float)steps
 
 // Set up callback info record
+
+    shifttoRec = w3Shift(trans=transNode, pointA=pointA, pointB=pointB, 
+                         moveIncr=imcrement3f, callbacksRemaining=steps, interval=duration/steps)
+
+
+class w3Shift:
 
   shifttoRecord *record = new shifttoRecord;
   record->trans = trans;
