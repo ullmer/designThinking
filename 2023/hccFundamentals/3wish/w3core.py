@@ -148,14 +148,13 @@ def getNObj(root, name):
   node = getNamedNode(root, name)
   return node
 
-################# Get Parent Node ################ 
+################# Get Parent Frame ################ 
 ## Used by addNFrame and addNObj to get parent node
 
-def getObjSeparator(root, name): 
+def getParentFrame(root, name): 
   global HIERSEP_CHAR 
 
   try:
-
     idx=name.rfind(HIERSEP_CHAR)
     if idx == -1: # we have a root frame
       return root
@@ -169,7 +168,7 @@ def getObjSeparator(root, name):
       return None
 
     if not node.isOfType(coin.SoGroup.getClassTypeId()): #"parent" is not a Separator
-      print("getObjSeparator error: parent frame \"%s\" is not a Separator!" % parentname);
+      print("getParentFrame error: parent frame \"%s\" is not a Separator!" % parentname);
       return None
 
     return parentNode
