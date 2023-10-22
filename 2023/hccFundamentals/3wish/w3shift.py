@@ -56,7 +56,7 @@ def moveNObj(root, objName, dest):
 
     #Look for existing trans.  If present, use; if not, create.
     transName  = genTransName(objName)
-    targetNode = getNamedNode(transName)
+    targetNode = getNamedNode(root, transName)
 
     if targetNode is not None:
       targetTrans = targetNode
