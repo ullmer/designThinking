@@ -32,16 +32,20 @@ def genTransName(objName):
   return transName
   
 def convertDest3f(dest):
-  # initially, accept two versions of destination: list of floats or SbVec3f
-  if dest.isOfType(coin.SbVec3f.getClassTypeId()):
-    dest3f = dest
-  elif isinstance(dest, list):
-    dest3f = coin.SbVec3f(dest)
-  else:
-    print("convertDest3f error: destination does not appear to be of type list or SbVec3f");
-    return None
+  try:
+    # initially, accept two versions of destination: list of floats or SbVec3f
+    if isinstance(dest, list):
+      dest3f = coin.SbVec3f(dest)
+    elif dest.isOfType(coin.SbVec3f.getClassTypeId()):
+      dest3f = dest
+    else:
+      print("convertDest3f error: destination does not appear to be of type list or SbVec3f");
+      return None
 
-  return dest3f
+    return dest3f
+  except:
+    print("convertDest3f exception:"); traceback.print_exc()
+    return None
 
 ################# moveNObj ################# 
 # syntax:  moveNObj named-obj point1
