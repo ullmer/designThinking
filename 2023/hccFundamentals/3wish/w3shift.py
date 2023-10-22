@@ -115,35 +115,21 @@ def shiftObj(transNode, pointA, pointB, duration=3., steps=10, tween='linear'):
     timer.schedule()
 
     #print("shiftObj scheduled")
-}
 
 ################# shift object callback ################# 
 
-void shiftobjCallback(void *data, SoSensor *)
-{ 
-  shifttoRecord *record = (shifttoRecord *)data;
+def shiftobjCallback(data, sensor):
+  shiftToRecord = (w3Shift) data
 
-//Calculate new position
-  SbVec3f *currentPosition = record->currentLoc;
-  *currentPosition += *(record->moveIncrement);
+  #Calculate new position
+  shiftToRecord.currentLoc += shiftToRecord.moveIncrement
 
-  SoTranslation *trans = record->trans;
-  trans->translation.setValue(*currentPosition);
-  
-/*  printf("shiftto setup (%f %f %f)\n",
-    (*currentPosition)[0], (*currentPosition)[1], (*currentPosition)[2]);
-     
-*/
-  (record->callbacksRemaining)--;
+  shiftToRecord.trans.setValue(shiftToRecord.currentLoc)
+  shiftToRecord.callbacksRemaining -= 1
 
-//Clean up if we've reached where we're headed.
-  if (record->callbacksRemaining == 0) {
-
-    record->timerSensor->unschedule();
-    delete record->dest;
-    delete record;
-  }
-}
+  #Clean up if we've reached where we're headed.
+  if shiftToRecord.callbacksRemaining == 0:
+    shiftToRecord.timerSensor.unschedule()
 
 ############## move Camera ############## 
 # moveCamera {pointA} -- moves camera
