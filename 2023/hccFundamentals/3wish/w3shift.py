@@ -100,33 +100,24 @@ def shiftObj(transNode, pointA, pointB, duration=3., steps=10, tween='linear'):
     currentPosition = pointA3f
     increment3f     = (pointB3f - pointA3f)/(float)steps
 
-// Set up callback info record
+    #Set up callback info record
 
-    shifttoRec = w3Shift(trans=transNode, pointA=pointA, pointB=pointB, 
-                         moveIncr=imcrement3f, callbacksRemaining=steps, interval=duration/steps)
+    timer    = coin.SoTimerSensor()
+    interval = duration/steps
 
+    shifttoRec = w3Shift(trans=transNode, pointA=pointA, pointB=pointB, timerSensor=timer,
+                         moveIncr=increment3f, callbacksRemaining=steps, interval=interval)
 
-class w3Shift:
+    #Set up Inventor timer callback
+    timer.setInterval(interval)
+    timer.setFunction(shiftobjCallback)
+    timer.setData(shitToRec)
+    timer.schedule()
 
-  shifttoRecord *record = new shifttoRecord;
-  record->trans = trans;
-  record->currentLoc = currentPosition;
-  record->dest = targetvec;
-  record->moveIncrement = increment;
-  record->interval = duration / steps;
-  record->callbacksRemaining = steps;
-
-// Set up Inventor timer callback
-  SoTimerSensor *timer = new SoTimerSensor;
-  record->timerSensor = timer;
-
-  timer->setInterval(record->interval); 
-  timer->setFunction(shiftobjCallback);
-  timer->setData(record);
-  timer->schedule();
-  
-//  printf("ShiftObj scheduled\n");
+    #print("shiftObj scheduled")
 }
+
+################# shift object callback ################# 
 
 void shiftobjCallback(void *data, SoSensor *)
 { 
