@@ -184,7 +184,7 @@ def shiftCamTo(viewer, destination, steps, duration):
                          moveIncr=increment3f, callbacksRemaining=steps, interval=interval)
 
     timer.setInterval(interval)
-    timer.setFunction(shiftobjCallback)
+    timer.setFunction(shiftCamCallback)
     timer.setData(shiftToRec)
     timer.schedule()
   except:
@@ -193,27 +193,39 @@ def shiftCamTo(viewer, destination, steps, duration):
 
 ############## shift camera callback ############## 
 
-void shiftcamCallback(void *data, SoSensor *)
+def shiftCamCallback(void *data, SoSensor *)
 { 
-  shifttoRecord *record = (shifttoRecord *)data;
+  try:
+    shiftToRecord = (w3Shift) data
+    shiftToRecord.currentLoc += shiftToRecord.moveIncrement
+    viewer.getCamera().position.setValue(shiftToRecord.currentLoc)
 
-//Calculate new position
-  SbVec3f currentPosition = myViewer->getCamera()->position.getValue();
-  currentPosition += *(record->moveIncrement);
+    #print("shiftto callback");
+    shiftToRecord.callbacksRemaining -= 1
 
-  myViewer->getCamera()->position.setValue(currentPosition);
+    #Clean up if we've reached where we're headed.
+    if shiftToRecord.callbacksRemaining == 0:
+      shiftToRecord.timerSensor.unschedule()
 
-//  printf("shiftto callback\n");
+  except:
+    print("shiftCamCallback exception:"); traceback.print_exc()
+    return False
 
-  (record->callbacksRemaining)--;
+################# shift object callback ################# 
 
-//Clean up if we've reached where we're headed.
-  if (record->callbacksRemaining == 0) {
+def shiftobjCallback(data, sensor):
 
-    record->timerSensor->unschedule();
-    delete record->dest;
-    delete record;
-  }
-}
+    #Calculate new position
+
+    shiftToRecord.trans.setValue(shiftToRecord.currentLoc)
+    shiftToRecord.callbacksRemaining -= 1
+
+    #Clean up if we've reached where we're headed.
+    if shiftToRecord.callbacksRemaining == 0:
+      shiftToRecord.timerSensor.unschedule()
+  except:
+    print("shiftObjCallback exception:"); traceback.print_exc()
+    return False
+  
 
 ### end ###
