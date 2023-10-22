@@ -180,27 +180,18 @@ def shiftCamTo(viewer, destination, steps, duration):
 
     #Set up callback info record
     timer    = coin.SoTimerSensor()
-    shifttoRec = w3Shift(trans=transNode, pointA=pointA, pointB=pointB, timerSensor=timer,
+    shifttoRec = w3Shift(trans=transNode, pointB=destination, timerSensor=timer,
                          moveIncr=increment3f, callbacksRemaining=steps, interval=interval)
-
-
-  shifttoRecord *record = new shifttoRecord;
-  record->dest = destination;
-  record->moveIncrement = increment;
-  record->interval = duration / steps;
-  record->callbacksRemaining = steps;
-
-// Set up Inventor timer callback
-  SoTimerSensor *timer = new SoTimerSensor;
-  record->timerSensor = timer;
 
     timer.setInterval(interval)
     timer.setFunction(shiftobjCallback)
     timer.setData(shiftToRec)
     timer.schedule()
+  except:
+    print("shiftCamTo exception:"); traceback.print_exc()
+    return False
 
-  
-}
+############## shift camera callback ############## 
 
 void shiftcamCallback(void *data, SoSensor *)
 { 
