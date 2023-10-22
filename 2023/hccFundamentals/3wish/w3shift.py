@@ -90,7 +90,6 @@ def shiftNObj(root, objName, pointA, pointB, duration = 3., step=10):
 ################# shift object ################# 
 
 def shiftObj(transNode, pointA, pointB, duration=3., steps=10, tween='linear'):
-
   try:
     #Calculate movement increment
     #printf("ShiftObj invoked (%i/%f)\n", steps, duration);
@@ -98,16 +97,16 @@ def shiftObj(transNode, pointA, pointB, duration=3., steps=10, tween='linear'):
     pointA3f = convertDest3f(pointA)
     pointB3f = convertDest3f(pointB)
 
-    currentPosition = pointA3f
-    increment3f     = (pointB3f - pointA3f)/(float)steps
+    print(pointA3f.type(), pointB3f.type())
+
+    incr3f     = (pointB3f - pointA3f)/steps
 
     #Set up callback info record
-
     timer    = coin.SoTimerSensor()
     interval = duration/steps
 
     shifttoRec = w3Shift(trans=transNode, pointA=pointA, pointB=pointB, timerSensor=timer,
-                         moveIncr=increment3f, callbacksRemaining=steps, interval=interval)
+                         moveIncr=incr3f, callbacksRemaining=steps, interval=interval)
 
     #Set up Inventor timer callback
     timer.setInterval(interval)
@@ -124,7 +123,7 @@ def shiftObj(transNode, pointA, pointB, duration=3., steps=10, tween='linear'):
 
 def shiftobjCallback(data, sensor):
   try:
-    shiftToRecord = (w3Shift) data
+    shiftToRecord = data
 
     #Calculate new position
     shiftToRecord.currentLoc += shiftToRecord.moveIncrement
@@ -177,7 +176,7 @@ def shiftCamTo(viewer, destination, steps, duration):
     #Calculate movement increment
     camera     = viewer.getCamera()
     currentPos = camera.position.getValue()
-    increment  = (destination-currentPos) / (float) steps
+    increment  = (destination-currentPos) / steps
 
     #Set up callback info record
     timer    = coin.SoTimerSensor()
@@ -194,9 +193,9 @@ def shiftCamTo(viewer, destination, steps, duration):
 
 ############## shift camera callback ############## 
 
-def shiftCamCallback(void *data, SoSensor *)
+def shiftCamCallback(data, sensor):
   try:
-    shiftToRecord = (w3Shift) data
+    shiftToRecord = data
     shiftToRecord.currentLoc += shiftToRecord.moveIncrement
     viewer.getCamera().position.setValue(shiftToRecord.currentLoc)
 
