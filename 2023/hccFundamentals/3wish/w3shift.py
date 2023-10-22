@@ -17,6 +17,7 @@ class w3Shift:
   trans         = None # SoTranslation *trans;
   interval      = None # float interval;
   timerSensor   = None  #SoTimerSensor *timerSensor;
+  viewer        = None
   callbacksRemaining = None #int callbacksRemaining;
 
   def __init__(self, **kwargs):
@@ -180,7 +181,7 @@ def shiftCamTo(viewer, destination, steps, duration):
 
     #Set up callback info record
     timer    = coin.SoTimerSensor()
-    shifttoRec = w3Shift(trans=transNode, pointB=destination, timerSensor=timer,
+    shifttoRec = w3Shift(trans=transNode, pointB=destination, timerSensor=timer, viewer=viewer,
                          moveIncr=increment3f, callbacksRemaining=steps, interval=interval)
 
     timer.setInterval(interval)
@@ -194,7 +195,6 @@ def shiftCamTo(viewer, destination, steps, duration):
 ############## shift camera callback ############## 
 
 def shiftCamCallback(void *data, SoSensor *)
-{ 
   try:
     shiftToRecord = (w3Shift) data
     shiftToRecord.currentLoc += shiftToRecord.moveIncrement
@@ -214,9 +214,8 @@ def shiftCamCallback(void *data, SoSensor *)
 ################# shift object callback ################# 
 
 def shiftobjCallback(data, sensor):
-
+  try:
     #Calculate new position
-
     shiftToRecord.trans.setValue(shiftToRecord.currentLoc)
     shiftToRecord.callbacksRemaining -= 1
 
@@ -227,5 +226,4 @@ def shiftobjCallback(data, sensor):
     print("shiftObjCallback exception:"); traceback.print_exc()
     return False
   
-
 ### end ###
