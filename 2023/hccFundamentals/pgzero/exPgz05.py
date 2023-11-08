@@ -3,16 +3,17 @@ import sys
 WIDTH=1024
 
 a1 = Actor('red-hl-1in-200dpi')
-a2 = Actor('red-hl-1in-200dpi', pos=(180, 180))
-s1 = Actor('unsdg2',            pos=(550, 100))
-s2 = Actor('unsdg4',            pos=(550, 100))
+a2 = Actor('red-hl-1in-200dpi',  pos=(180, 180))
+s1 = Actor('unsdg2',             pos=(550, 100))
+s2 = Actor('unsdg4',             pos=(550, 100))
+b1 = Actor('person-add-iconic1', pos=( 80, 500))
 
 successiveScreens = [s1, s2]
 
 moveableActors = [a1, a2] #chara #could be reversed
-stableActors   = [s1]     #achara
+stableActors   = [s1, b1]     #achara
 
-actorNames           = {a1: "John", a2: "Jane", s1: "screen"}
+actorNames           = {a1: "John", a2: "Jane", s1: "screen", b1: "addUser"}
 actorOriginalPos     = {}
 selectedActor        = None
 selectedActorName    = None
@@ -27,6 +28,12 @@ def draw():
 
 ###################### on mouse down/press ######################
 
+def addUser():
+  newActor = Actor('red-hl-1in-200dpi',  pos=(200, 200))
+  moveableActors.append(newActor)
+
+###################### on mouse down/press ######################
+
 def on_mouse_down(pos):
   global selectedActor, selectedActorName, selectedActorOrigPos, stableActors
   for actor in (stableActors + moveableActors):
@@ -36,7 +43,9 @@ def on_mouse_down(pos):
 
       if name == "screen": 
         print("update the virtual screen images")
-        stableActors = [s2]
+        stableActors = [s2, b1]
+      elif name == "addUser":
+        addUser()
       else:
         actorOriginalPos[actor] = pos     
         selectedActor           = actor
