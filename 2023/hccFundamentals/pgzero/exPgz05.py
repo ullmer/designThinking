@@ -19,7 +19,7 @@ def on_mouse_down(pos):
   for actor in actors: 
     if actor.collidepoint(pos): 
       name = actorNames[actor]
-      print("actor selected:", name)
+      print("\nactor selected:", name)
       actorOriginalPos[actor] = pos     
       selectedActor           = actor
       selectedActorName       = name
@@ -40,7 +40,11 @@ def on_mouse_move(pos):
     x3, y3 = x0 + dx, y0 + dy
     selectedActor.pos = (x3, y3)
 
-    print("on_mouse_mov:", selectedActorName, originalPos, pos, dx, dy)
+    #print("on_mouse_mov:", selectedActorName, originalPos, pos, dx, dy)
+
+def on_mouse_up():
+  global selectedActor, selectedActorName, selectedActorOrigPos
+  selectedActor = selectedActorName = selectedActorOrigPos = None
 
 ### end ###
 
