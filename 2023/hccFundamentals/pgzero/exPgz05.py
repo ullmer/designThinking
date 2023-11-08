@@ -1,5 +1,9 @@
 a1 = Actor('red-hl-1in-200dpi')
+a2 = Actor('red-hl-1in-200dpi', pos=(180, 180))
 
-def draw(): a1.draw()
+actors = [a1, a2]
+
+def draw(): 
+  for actor in actors: actor.draw()
 
 ### end ###
