@@ -1,0 +1,25 @@
+metadata:
+  audiotype:   aiff
+  origDate:    1995-12-08
+  origAuthor: [Freedom Baird, Brygg Ullmer]
+  revDate:     2023-10-25
+
+loci:
+  - {locus: line01, coord: [-45.5969, -30.8,  54.6316], audio: c1street, dur:  81, stRad: 29, klRad: 34}
+  - {locus: line02, coord: [  0.1333, -30.8,  69.5583], audio: c1street, dur:  81, stRad: 29, klRad: 34}
+  - {locus: line03, coord: [  5.8432, -30.8,  52.2316], audio: c1street, dur:  81, stRad: 29, klRad: 34}
+  - {locus: line04, coord: [  1.3532, -30.8,   4.5315], audio: j1street, dur:  60, stRad: 29, klRad: 34}
+  - {locus: line05, coord: [  9.5252, -30.8, -39.6367], audio: j1street, dur:  60, stRad: 29, klRad: 34}
+  - {locus: line06, coord: [  6.4861, -30.8, -66.9001], audio: j1street, dur:  60, stRad: 29, klRad: 34}
+  - {locus: line07, coord: [ 26.9839, -30.8, -66.6001], audio: m1weddng, dur: 161, stRad: 29, klRad: 34}
+  - {locus: line08, coord: [ 59.9961, -30.8, -39.3317], audio: m1weddng, dur: 161, stRad: 29, klRad: 34}
+  - {locus: line09, coord: [ 72.591,  -30.8,   6.3682], audio: m1weddng, dur: 161, stRad: 29, klRad: 34}
+  - {locus: line10, coord: [  0.1026, -13.0,  38.4949], audio: c2songtp, dur: 173, stRad: 20, klRad: 25}
+  - {locus: line11, coord: [  3.3974, -13.4, -21.7051], audio: j2kolnid, dur: 112, stRad: 20, klRad: 25}
+  - {locus: line12, coord: [ 33.3556, -13.4, -21.3734], audio: m2yasahs, dur: 135, stRad: 20, klRad: 25}
+  - {locus: line13, coord: [  0.0881, -13.2,  17.6366], audio: c3whlsng, dur: 199, stRad: 14, klRad: 19}
+  - {locus: line14, coord: [  5.6619, -13.0,  -8.1634], audio: j3kolnid, dur: 108, stRad: 14, klRad: 19}
+  - {locus: line15, coord: [ 16.8694, -13.0, -10.7015], audio: m3prayer, dur: 234, stRad: 14, klRad: 19}
+  - {locus: line16, coord: [  0.0939, -13.2,   0.6998], audio: a1confes, dur: 197, stRad: 12, klRad: 17}
+
+### end ###
