@@ -18,8 +18,8 @@ actorOriginalPos     = {}
 selectedActor        = None
 selectedActorName    = None
 selectedActorOrigPos = None
-defaultEllipseColor    = (0, 1, 1)
-defaultEllipseLocation = Rect((800, 800), (850, 850))
+defaultEllipseColor    = (0, 200, 200)
+defaultEllipseLocation = Rect((800, 800), (50, 50))
 
 ###################### draw ######################
 
