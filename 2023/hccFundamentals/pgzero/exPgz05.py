@@ -2,13 +2,14 @@ import sys
 
 WIDTH=1024
 
-screenStates = ['unsdg2', 'unsdg4']
-
 a1 = Actor('red-hl-1in-200dpi')
 a2 = Actor('red-hl-1in-200dpi', pos=(180, 180))
 s1 = Actor('unsdg2',            pos=(550, 100))
+s2 = Actor('unsdg4',            pos=(550, 100))
 
-actors               = [s1, a1, a2]
+moveableActors = [a1, a2] #chara #could be reversed
+stableActors   = [s1]     #achara
+
 actorNames           = {a1: "John", a2: "Jane", s1: "screen"}
 actorOriginalPos     = {}
 selectedActor        = None
@@ -17,17 +18,19 @@ selectedActorOrigPos = None
 
 def draw(): 
   screen.clear()
-  for actor in actors: actor.draw()
+  for actor in stableActors:   actor.draw()
+  for actor in moveableActors: actor.draw()
 
 def on_mouse_down(pos):
-  global selectedActor, selectedActorName, selectedActorOrigPos
-  for actor in actors: 
+  global selectedActor, selectedActorName, selectedActorOrigPos, stableActors
+  for actor in (stableActors + moveableActors):
     if actor.collidepoint(pos): 
       name = actorNames[actor]
       print("\nactor selected:", name)
 
       if name == "screen": 
         print("update the virtual screen images")
+        stableActors = [s2]
       else:
         actorOriginalPos[actor] = pos     
         selectedActor           = actor
