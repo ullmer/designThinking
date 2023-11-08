@@ -1,10 +1,13 @@
 import sys
 
+WIDTH=1024
+
 a1 = Actor('red-hl-1in-200dpi')
 a2 = Actor('red-hl-1in-200dpi', pos=(180, 180))
+s1 = Actor('unsdg2',            pos=(550, 100))
 
-actors               = [a1, a2]
-actorNames           = {a1: "John", a2: "Jane"}
+actors               = [s1, a1, a2]
+actorNames           = {a1: "John", a2: "Jane", s1: "screen 1"}
 actorOriginalPos     = {}
 selectedActor        = None
 selectedActorName    = None
@@ -31,16 +34,16 @@ def on_mouse_move(pos):
   print(".", end=''); sys.stdout.flush() # print "." as update, with no newline -- and update
   
   if selectedActor != None: #make sure *something* is selected
-    originalPos  = actorOriginalPos[selectedActor]
+    originalMousePos  = actorOriginalPos[selectedActor]
 
     x0, y0 = selectedActorOrigPos
-    x1, y1 = originalPos
+    x1, y1 = originalMousePos
     x2, y2 = pos
     dx, dy = x2-x1, y2-y1
     x3, y3 = x0 + dx, y0 + dy
     selectedActor.pos = (x3, y3)
 
-    #print("on_mouse_mov:", selectedActorName, originalPos, pos, dx, dy)
+    #print("on_mouse_mov:", selectedActorName, originalMousePos, pos, dx, dy)
 
 def on_mouse_up():
   global selectedActor, selectedActorName, selectedActorOrigPos
