@@ -6,30 +6,41 @@ a2 = Actor('red-hl-1in-200dpi', pos=(180, 180))
 actors               = [a1, a2]
 actorNames           = {a1: "John", a2: "Jane"}
 actorOriginalPos     = {}
-selectedObjectHandle = None
-selectedObjectName   = None
+selectedActor        = None
+selectedActorName    = None
+selectedActorOrigPos = None
 
 def draw(): 
   screen.clear()
   for actor in actors: actor.draw()
 
 def on_mouse_down(pos):
-  global selectedObjectName, selectedObjectHandle 
+  global selectedActor, selectedActorName, selectedActorOrigPos
   for actor in actors: 
     if actor.collidepoint(pos): 
       name = actorNames[actor]
       print("actor selected:", name)
       actorOriginalPos[actor] = pos     
-      selectedObjectHandle    = actor
-      selectedObjectName      = name
+      selectedActor           = actor
+      selectedActorName       = name
+      selectedActorOrigPos    = selectedActor.pos
 
   print("=" * 25)
 
 def on_mouse_move(pos):
   print(".", end=''); sys.stdout.flush() # print "." as update, with no newline -- and update
   
-  if selectedObjectHandle != None: #make sure *something* is selected
-    originalPos  = actorOriginalPos[selectedObjectHandle]
-    print("on_mouse_mov:", selectedObjectName, originalPos, pos)
+  if selectedActor != None: #make sure *something* is selected
+    originalPos  = actorOriginalPos[selectedActor]
+
+    x0, y0 = selectedActorOrigPos
+    x1, y1 = originalPos
+    x2, y2 = pos
+    dx, dy = x2-x1, y2-y1
+    x3, y3 = x0 + dx, y0 + dy
+    selectedActor.pos = (x3, y3)
+
+    print("on_mouse_mov:", selectedActorName, originalPos, pos, dx, dy)
 
 ### end ###
+
