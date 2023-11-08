@@ -31,6 +31,7 @@ def draw():
 def addUser():
   newActor = Actor('red-hl-1in-200dpi',  pos=(200, 200))
   moveableActors.append(newActor)
+  actorNames[newActor] = 'new actor'
 
 ###################### on mouse down/press ######################
 
@@ -44,8 +45,10 @@ def on_mouse_down(pos):
       if name == "screen": 
         print("update the virtual screen images")
         stableActors = [s2, b1]
+
       elif name == "addUser":
         addUser()
+
       else:
         actorOriginalPos[actor] = pos     
         selectedActor           = actor
