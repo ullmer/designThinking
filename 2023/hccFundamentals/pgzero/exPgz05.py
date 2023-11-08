@@ -5,7 +5,7 @@ a2 = Actor('red-hl-1in-200dpi', pos=(180, 180))
 
 actors         = [a1, a2]
 actorNames     = {a1: "John", a2: "Jane"}
-actorLastPos   = {}
+actorOriginalPos   = {}
 selectedObjectHandle = None
 selectedObjectName   = None
 
@@ -18,7 +18,7 @@ def on_mouse_down(pos):
     if actor.collidepoint(pos): 
       name = actorNames[actor]
       print("actor selected:", name)
-      actorLastPos[actor] = pos     
+      actorOriginalPos[actor] = pos     
 
       selectedObjectHandle = actor
       selectedObjectName   = name
@@ -30,8 +30,8 @@ def on_mouse_move(pos):
   objectName = selectedObjectName
   
   if objectName is not None: #make sure *something* is selected
-    lastPos    = actorLastPos[selectObj]
-    print("on_mouse_mov:", objectName, lastPos, pos)
+    originalPos    = actorOriginalPos[selectObj]
+    print("on_mouse_mov:", objectName, originalPos, pos)
 
 ### end ###
 
