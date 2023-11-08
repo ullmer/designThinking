@@ -2,12 +2,14 @@ import sys
 
 WIDTH=1024
 
+screenStates = ['unsdg2', 'unsdg4']
+
 a1 = Actor('red-hl-1in-200dpi')
 a2 = Actor('red-hl-1in-200dpi', pos=(180, 180))
 s1 = Actor('unsdg2',            pos=(550, 100))
 
 actors               = [s1, a1, a2]
-actorNames           = {a1: "John", a2: "Jane", s1: "screen 1"}
+actorNames           = {a1: "John", a2: "Jane", s1: "screen"}
 actorOriginalPos     = {}
 selectedActor        = None
 selectedActorName    = None
@@ -23,10 +25,14 @@ def on_mouse_down(pos):
     if actor.collidepoint(pos): 
       name = actorNames[actor]
       print("\nactor selected:", name)
-      actorOriginalPos[actor] = pos     
-      selectedActor           = actor
-      selectedActorName       = name
-      selectedActorOrigPos    = selectedActor.pos
+
+      if name == "screen": 
+        print("update the virtual screen images")
+      else:
+        actorOriginalPos[actor] = pos     
+        selectedActor           = actor
+        selectedActorName       = name
+        selectedActorOrigPos    = selectedActor.pos
 
   print("=" * 25)
 
