@@ -1,4 +1,4 @@
-import sys
+import sys, pygame
 
 WIDTH=1024
 
@@ -18,6 +18,8 @@ actorOriginalPos     = {}
 selectedActor        = None
 selectedActorName    = None
 selectedActorOrigPos = None
+defaultEllipseColor    = (0, 1, 1)
+defaultEllipseLocation = Rect((800, 800), (850, 850))
 
 ###################### draw ######################
 
@@ -25,6 +27,9 @@ def draw():
   screen.clear()
   for actor in stableActors:   actor.draw()
   for actor in moveableActors: actor.draw()
+
+  #placeholder per idea from Yang
+  pygame.draw.ellipse(screen.surface, defaultEllipseColor, defaultEllipseLocation)
 
 ###################### on mouse down/press ######################
 
