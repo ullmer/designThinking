@@ -25,8 +25,11 @@ def on_mouse_down(pos):
 
 def on_mouse_move(pos):
   objectName = selectedObjectName
-  lastPos    = actorLastPos[selectObj]
-
-  print("on_mouse_mov:", objectName, lastPos, pos)
+  
+  if objectName is not None: #make sure *something* is selected
+    lastPos    = actorLastPos[selectObj]
+    print("on_mouse_mov:", objectName, lastPos, pos)
 
 ### end ###
+
+
