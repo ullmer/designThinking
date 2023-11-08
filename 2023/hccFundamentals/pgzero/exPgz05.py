@@ -73,14 +73,20 @@ def on_mouse_up():
 numTimesSpaceHit = 0
 
 def on_key_down(key):
-  if key == keys.SPACE:  # keys.RIGHT, keys.H, keys.C, etc.
-    match numTimesSpaceHit:
-      switch 0:
-        animate(a2, pos=(500, 500), tween='accel_decel', duration=.75)
-      switch 1:
-        animate(a1, pos=(400, 500), tween='accel_decel', duration=.75)
+  global numTimesSpaceHit
 
-      numTimesSpaceHit += 1
+  if key == keys.SPACE:  # keys.RIGHT, keys.H, keys.C, etc.
+    print("space pressed")
+
+    #match numTimesSpaceHit:
+    #  case 0:
+
+    if numTimesSpaceHit == 0:
+      animate(a1, pos=(400, 500), tween='accel_decel', duration=.75)
+    else:
+      animate(a2, pos=(500, 500), tween='accel_decel', duration=.75)
+
+    numTimesSpaceHit += 1
 
 ### end ###
 
