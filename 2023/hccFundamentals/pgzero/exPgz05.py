@@ -1,3 +1,7 @@
+# Example code relating to interactive storyboarding
+# By Brygg Ullmer, Clemson University
+# Begun 2023-11-08
+
 import sys, pygame
 
 WIDTH=1024
@@ -19,7 +23,7 @@ selectedActor        = None
 selectedActorName    = None
 selectedActorOrigPos = None
 defaultEllipseColor    = (0, 200, 200)
-defaultEllipseLocation = Rect((800, 800), (50, 50))
+defaultEllipseLocation = Rect((800, 600), (850, 650))
 
 ###################### draw ######################
 
@@ -29,7 +33,8 @@ def draw():
   for actor in moveableActors: actor.draw()
 
   #placeholder per idea from Yang
-  pygame.draw.ellipse(screen.surface, defaultEllipseColor, defaultEllipseLocation)
+  #pygame.draw.ellipse(screen.surface, defaultEllipseColor, defaultEllipseLocation)
+  screen.draw.circle((800, 500), 50, defaultEllipseColor)
 
 ###################### on mouse down/press ######################
 
