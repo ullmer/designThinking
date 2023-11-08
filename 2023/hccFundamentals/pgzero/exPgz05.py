@@ -7,6 +7,8 @@ a2 = Actor('red-hl-1in-200dpi', pos=(180, 180))
 s1 = Actor('unsdg2',            pos=(550, 100))
 s2 = Actor('unsdg4',            pos=(550, 100))
 
+successiveScreens = [s1, s2]
+
 moveableActors = [a1, a2] #chara #could be reversed
 stableActors   = [s1]     #achara
 
@@ -16,10 +18,14 @@ selectedActor        = None
 selectedActorName    = None
 selectedActorOrigPos = None
 
+###################### draw ######################
+
 def draw(): 
   screen.clear()
   for actor in stableActors:   actor.draw()
   for actor in moveableActors: actor.draw()
+
+###################### on mouse down/press ######################
 
 def on_mouse_down(pos):
   global selectedActor, selectedActorName, selectedActorOrigPos, stableActors
@@ -39,6 +45,8 @@ def on_mouse_down(pos):
 
   print("=" * 25)
 
+###################### on mouse move ######################
+
 def on_mouse_move(pos):
   print(".", end=''); sys.stdout.flush() # print "." as update, with no newline -- and update
   
@@ -54,9 +62,25 @@ def on_mouse_move(pos):
 
     #print("on_mouse_mov:", selectedActorName, originalMousePos, pos, dx, dy)
 
+###################### on mouse up ######################
+
 def on_mouse_up():
   global selectedActor, selectedActorName, selectedActorOrigPos
   selectedActor = selectedActorName = selectedActorOrigPos = None
+
+###################### on key down ######################
+
+numTimesSpaceHit = 0
+
+def on_key_down(key):
+  if key == keys.SPACE:  # keys.RIGHT, keys.H, keys.C, etc.
+    match numTimesSpaceHit:
+      switch 0:
+        animate(a2, pos=(500, 500), tween='accel_decel', duration=.75)
+      switch 1:
+        animate(a1, pos=(400, 500), tween='accel_decel', duration=.75)
+
+      numTimesSpaceHit += 1
 
 ### end ###
 
