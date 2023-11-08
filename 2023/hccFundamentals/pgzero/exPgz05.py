@@ -1,3 +1,5 @@
+import sys
+
 a1 = Actor('red-hl-1in-200dpi')
 a2 = Actor('red-hl-1in-200dpi', pos=(180, 180))
 
@@ -24,6 +26,7 @@ def on_mouse_down(pos):
   print("=" * 25)
 
 def on_mouse_move(pos):
+  print(".", end=''); sys.stdout.flush() # print "." as update, with no newline -- and update
   objectName = selectedObjectName
   
   if objectName is not None: #make sure *something* is selected
