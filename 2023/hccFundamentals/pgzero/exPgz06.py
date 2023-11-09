@@ -73,18 +73,14 @@ def on_mouse_down(pos): # on_press_down
 ###################### on mouse move ######################
 
 
-def on_mouse_move(pos):
+def on_mouse_move(rel):
   print(".", end=''); sys.stdout.flush() # print "." as update, with no newline -- and update
   
   if selectedActor != None: #make sure *something* is selected
-    originalMousePos  = actorOriginalPos[selectedActor]
-
-    x0, y0 = selectedActorOrigPos
-    x1, y1 = originalMousePos
-    x2, y2 = pos
-    dx, dy = x2-x1, y2-y1
-    x3, y3 = x0 + dx, y0 + dy
-    selectedActor.pos = (x3, y3)
+    origX, origY = selectedActor.pos
+    dx, dy       = rel #relative position; thanks to pg0 magic, we cannot rename that
+    newX,  newY  = origX+dx, origY+dy
+    selectedActor.pos = (newX, newY)
 
     #print("on_mouse_mov:", selectedActorName, originalMousePos, pos, dx, dy)
 
