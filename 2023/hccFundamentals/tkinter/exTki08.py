@@ -125,7 +125,7 @@ def buildUI(f1Screens, f2Spatial, f3Controls):
   r2 = c.create_rectangle(r2Coords, fill="orange")
 
   #print("canvas rectangle ids:", r1, r2)
-  c.move(r1, 50, 50)
+  #c.move(r1, 50, 50)
 
   c.bind("<Button-1>",  on_click)
   c.bind("<B1-Motion>", on_drag)
@@ -153,7 +153,14 @@ def on_click(event):
 ################### mouse drag callback ##################
 
 def on_drag(event):
+  global c, selectedCanvasObj, startDragXY
   print("drag event:", event)
+
+  x0, y0 = startDragXY
+  x1, y1 = event.x, event.y
+  dx, dy = x1-x0, y1-y0
+
+  c.move(selectedCanvasObj, dx, dy)
 
 ####################### main ######################
 
