@@ -122,8 +122,6 @@ def on_key_down(key):
 
   if key == keys.RIGHT: lastSelectedActor.angle += 45
   if key == keys.LEFT:  lastSelectedActor.angle -= 45
-  if key == keys.UP:    lastSelectedActor.angle += 15
-  if key == keys.DOWN:  lastSelectedActor.angle -= 15
 
 ### end ###
 
