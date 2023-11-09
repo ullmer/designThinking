@@ -104,7 +104,7 @@ def buildUI(f1Screens, f2Spatial, f3Controls):
   imTk1 = PIL.ImageTk.PhotoImage(imP1)
 
   #b = Button(f3Controls, text="add actor", command=helloCB) # Create a label with words
-  b  = Button(f3Controls, image=imTk1, command=helloCB)
+  b  = Button(f3Controls, image=imTk1, command=addCanvasItem)
   b.pack(side=LEFT, expand=True, fill=BOTH) 
 
   screenFilenames = ['unsdg2.png', 'unsdg4.png']
@@ -162,6 +162,13 @@ def on_drag(event):
   lastDragXY = (x1,y1) 
 
   c.move(selectedCanvasObj, dx, dy)
+  
+################### add Canvas Item ##################
+
+def addCanvasItem():
+  global c
+  rCoords = (100, 100, 150, 150)
+  r = c.create_rectangle(rCoords, fill="purple")
 
 ####################### main ######################
 
