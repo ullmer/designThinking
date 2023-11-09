@@ -17,6 +17,7 @@ b1 = Actor('person-add-iconic1', pos=( 80, 500))
 m1 = Actor('campus-map8',        pos=(348, 202))
 
 successiveScreens = [s1, s2]
+lastSelectedActor = a1
 
 moveableActors = [m1, a1, a2, b1] # chalraha
 stableActors   = [s1] #achalraha / rukha
@@ -52,7 +53,9 @@ def addUser():
 ###################### on mouse down/press ######################
 
 def on_mouse_down(pos): # on_press_down
-  global selectedActor, selectedActorName, selectedActorOrigPos, stableActors
+  global selectedActor, selectedActorName, selectedActorOrigPos
+  global stableActors, lastSelectedActor
+
   for actor in (stableActors + moveableActors):
     if actor.collidepoint(pos): 
       name = actorNames[actor]
@@ -67,7 +70,7 @@ def on_mouse_down(pos): # on_press_down
 
       else:
         actorOriginalPos[actor] = pos     
-        selectedActor           = actor
+        lastSelectedActor = selectedActor = actor
         selectedActorName       = name
         selectedActorOrigPos    = selectedActor.pos
 
@@ -90,14 +93,15 @@ def on_mouse_move(rel):
 
 def on_mouse_up(): #on_press_up
   global selectedActor, selectedActorName, selectedActorOrigPos
-  selectedActor = selectedActorName = selectedActorOrigPos = None
+  lastSelectedActor = selectedActor 
+  selectedActor     = selectedActorName = selectedActorOrigPos = None
 
 ###################### on key down ######################
 
 numTimesSpaceHit = 0
 
 def on_key_down(key):
-  global numTimesSpaceHit
+  global numTimesSpaceHit, lastSelectedActor
 
   if key == keys.SPACE:  # keys.RIGHT, keys.H, keys.C, etc.
     print("space pressed")
@@ -111,6 +115,9 @@ def on_key_down(key):
       animate(a2, pos=(500, 500), tween='accel_decel', duration=.75)
 
     numTimesSpaceHit += 1
+
+  if key == keys.RIGHT: lastSelectedActor.angle += 45
+  if key == keys.LEFT:  lastSelectedActor.angle -= 45
 
 ### end ###
 
