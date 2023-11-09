@@ -91,7 +91,8 @@ def rgb2tk(r, g, b):
   return "#%02x%02x%02x" % (r,g,b)
 
 c                    = None #canvas handle, sigh; should be moved into a class
-selectedCanvasObject = None #canvas handle, sigh; should be moved into a class
+selectedCanvasObject = None #ID (1,2,3...) of a selected object within canvas c
+startDragXY          = None #coordinates of where a mouse-drag sequence began
 
 ####################### build user interface ######################
 
@@ -129,12 +130,12 @@ def buildUI(f1Screens, f2Spatial, f3Controls):
   c.bind("<Button-1>",  on_click)
   c.bind("<B1-Motion>", on_drag)
 
-################### interaction callbacks ##################
+################### mouse click callback ##################
 
 #next pulls from https://stackoverflow.com/questions/65189412/python-canvas-move-items-with-mouse-tkinter
 
 def on_click(event):
-  global c, selectedCanvasObj
+  global c, selectedCanvasObj, startDragXY
 
   x, y = event.x, event.y
   csr  = 10 #click search radius
@@ -145,7 +146,11 @@ def on_click(event):
   if selected: selectedCanvasObj = selected[-1]
   else:        selectedCanvasObj = None
 
+  startDragXY = (x,y) #for calculating dx, dy movement changes with drag
+
   print("selected:", selectedCanvasObj)
+
+################### mouse drag callback ##################
 
 def on_drag(event):
   print("drag event:", event)
