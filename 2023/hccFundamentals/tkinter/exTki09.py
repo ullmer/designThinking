@@ -167,6 +167,7 @@ def on_drag(event):
   lastDragXY = (x1,y1) 
 
   c.move(selectedCanvasObj, dx, dy)
+  print(">>", selectedCanvasObj, x1, y1)
   
 ################### add Canvas Item ##################
 
