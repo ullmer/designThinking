@@ -7,25 +7,23 @@ import sys
 WIDTH=1024
 
 knownActorFilenames = ['red-hl-1in-200dpi', 'person-iconic1']
-defaultActorFn      = knownActorFilenames[0]
+defaultActorFn      = knownActorFilenames[1]
 
 a1 = Actor(defaultActorFn) #previously: a1 = Actor('red-hl-1in-200dpi')
 a2 = Actor(defaultActorFn,  pos=(180, 180))
 s1 = Actor('unsdg2',             pos=(550, 100)) #H20
 s2 = Actor('unsdg4',             pos=(550, 100)) #NaCl
 b1 = Actor('person-add-iconic1', pos=( 80, 500))
-#m1 = Actor('campus-map8',        pos=(348, 202))
+m1 = Actor('campus-map8',        pos=(348, 202))
 
 successiveScreens = [s1, s2]
 lastSelectedActor = a1
 
-#moveableActors = [m1, a1, a2, b1] # chalraha
-moveableActors = [a1, a2, b1] # chalraha
+moveableActors = [m1, a1, a2, b1] # chalraha
 stableActors   = [s1] #achalraha / rukha
 
 actorNames           = {a1: "John", a2: "Jane", s1: "screen", 
-                        b1: "addUser"}
-#                        b1: "addUser", m1: "map"}
+                        b1: "addUser", m1: "map"}
 actorOriginalPos     = {}
 selectedActor        = None
 selectedActorName    = None
@@ -47,7 +45,7 @@ def draw():
 ###################### on mouse down/press ######################
 
 def addUser():
-  #print("map position:", m1.pos)
+  print("map position:", m1.pos)
   newActor = Actor('red-hl-1in-200dpi',  pos=(200, 200))
   moveableActors.append(newActor)
   actorNames[newActor] = 'new actor'
