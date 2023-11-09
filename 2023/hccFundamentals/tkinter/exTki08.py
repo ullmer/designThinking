@@ -82,6 +82,10 @@ def on_key_down(key):
 
     numTimesSpaceHit += 1
 
+###################### build UI ######################
+
+buildUI(f1Screens, f2Spatial, f3Controls):
+
 ###################### main ######################
 
 root = Tk()                                                 # Create the root (base) window
@@ -90,6 +94,7 @@ root = Tk()                                                 # Create the root (b
 f1Screens  = Frame(root)
 f2Spatial  = Frame(root)
 f3Controls = Frame(root)
+buildUI(f1Screens, f2Spatial, f3Controls)
 
 for frame in [f1Screens, f2Spatial, f3Controls]: frame.pack(side=TOP)
 
