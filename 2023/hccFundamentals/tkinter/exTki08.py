@@ -19,16 +19,6 @@ selectedActorOrigPos = None
 def helloCB():
   print("hello was pushed")
 
-###################### main ######################
-
-root = Tk()                                                # Create the root (base) window
-#b    = Button(root, text="Hello, world!", command=helloCB) # Create a label with words
-#b.pack()                                                   # Put the label into the window
-f1Screens  = Frame(root)
-f2Spatial  = Frame(root)
-f3Controls = Frame(root)
-
-root.mainloop()                                            # Start the event loop
 
 
 screen.draw.circle((800, 500), 50, defaultEllipseColor)
@@ -91,6 +81,19 @@ def on_key_down(key):
       animate(a2, pos=(500, 500), tween='accel_decel', duration=.75)
 
     numTimesSpaceHit += 1
+
+###################### main ######################
+
+root = Tk()                                                 # Create the root (base) window
+#b    = Button(root, text="Hello, world!", command=helloCB) # Create a label with words
+#b.pack()                                                   # Put the label into the window
+f1Screens  = Frame(root)
+f2Spatial  = Frame(root)
+f3Controls = Frame(root)
+
+for frame in [f1Screens, f2Spatial, f3Controls]: frame.pack(side=TOP)
+
+root.mainloop()                                            # Start the event loop
 
 ### end ###
 
