@@ -85,6 +85,13 @@ def helloCB():
 imP1 = imTk1 = None
 imP2 = imTk2 = None
 
+#https://stackoverflow.com/questions/51591456/can-i-use-rgb-in-tkinter
+#translates rgb values of type int to a tkinter friendly color code
+def rgb2tk(r, g, b):
+  return "#%02x%02x%02x" % (r,g,b)
+
+####################### build user interface ######################
+
 def buildUI(f1Screens, f2Spatial, f3Controls):
   global imP1, imTk1, imP2, imTk2
 
@@ -94,13 +101,18 @@ def buildUI(f1Screens, f2Spatial, f3Controls):
 
   #b = Button(f3Controls, text="add actor", command=helloCB) # Create a label with words
   b  = Button(f3Controls, image=imTk1, command=helloCB)
-  b.pack()                                                   # Put the label into the window
+  b.pack(side=LEFT, expand=True, fill=BOTH) 
 
   screenFilenames = ['unsdg2.png', 'unsdg4.png']
   imP2   = PIL.Image.open(screenFilenames[0])
   imTk2  = PIL.ImageTk.PhotoImage(imP2)
   label1 = Label(f1Screens, image=imTk2)
   label1.pack()
+
+  bgColor = rgb2tk(10, 10, 10)
+  #c = Canvas(f2Spatial, bg="orange", height=200, width=1024)
+  c = Canvas(f2Spatial,  bg=bgColor,  height=400, width=1024)
+  c.pack()
 
 ####################### main ######################
 
@@ -111,9 +123,9 @@ f2Spatial  = Frame(root)
 f3Controls = Frame(root)
 buildUI(f1Screens, f2Spatial, f3Controls)
 
-for frame in [f1Screens, f2Spatial, f3Controls]: frame.pack(side=TOP)
+for frame in [f1Screens, f2Spatial, f3Controls]: 
+  frame.pack(side=TOP, expand=True, fill=BOTH)
 
 root.mainloop()                                            # Start the event loop
 
 ### end ###
-
