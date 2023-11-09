@@ -3,6 +3,7 @@
 # Begun 2023-11-08
 
 from tkinter import *
+import PIL.Image, PIL.ImageTk #image manipulation package
 
 #WIDTH=1024
 
@@ -88,13 +89,18 @@ def helloCB():
 
 root = Tk() # Create the root (base) window
 
-#b    = Button(root, text="Hello, world!", command=helloCB) # Create a label with words
-#b.pack()                                                   # Put the label into the window
-
 f1Screens  = Frame(root)
 f2Spatial  = Frame(root)
 f3Controls = Frame(root)
 #buildUI(f1Screens, f2Spatial, f3Controls)
+
+imgAddUserFn   = 'person-add-iconic1.png'
+imP1  = PIL.Image.open(imgAddUserFn)
+imTk1 = PIL.ImageTk.PhotoImage(imP1)
+
+#b = Button(f3Controls, text="add actor", command=helloCB) # Create a label with words
+b = Button(f3Controls, image=imTk1, command=helloCB)
+b.pack()                                                   # Put the label into the window
 
 for frame in [f1Screens, f2Spatial, f3Controls]: frame.pack(side=TOP)
 
