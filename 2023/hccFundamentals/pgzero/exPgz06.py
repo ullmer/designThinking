@@ -2,7 +2,7 @@
 # By Brygg Ullmer, Clemson University
 # Begun 2023-11-08
 
-import sys, pygame
+import sys
 
 WIDTH=1024
 
@@ -11,13 +11,15 @@ a2 = Actor('red-hl-1in-200dpi',  pos=(180, 180))
 s1 = Actor('unsdg2',             pos=(550, 100))
 s2 = Actor('unsdg4',             pos=(550, 100))
 b1 = Actor('person-add-iconic1', pos=( 80, 500))
+m1 = Actor('campus-map8')
 
 successiveScreens = [s1, s2]
 
-moveableActors = [a1, a2] #chara #could be reversed
-stableActors   = [s1, b1]     #achara
+moveableActors = [m1, a1, a2] # chalraha
+stableActors   = [s1, b1] #achalraha / rukha
 
-actorNames           = {a1: "John", a2: "Jane", s1: "screen", b1: "addUser"}
+actorNames           = {a1: "John", a2: "Jane", s1: "screen", 
+                        b1: "addUser", m1: "map"}
 actorOriginalPos     = {}
 selectedActor        = None
 selectedActorName    = None
@@ -45,7 +47,7 @@ def addUser():
 
 ###################### on mouse down/press ######################
 
-def on_mouse_down(pos):
+def on_mouse_down(pos): # on_press_down
   global selectedActor, selectedActorName, selectedActorOrigPos, stableActors
   for actor in (stableActors + moveableActors):
     if actor.collidepoint(pos): 
@@ -69,6 +71,7 @@ def on_mouse_down(pos):
 
 ###################### on mouse move ######################
 
+
 def on_mouse_move(pos):
   print(".", end=''); sys.stdout.flush() # print "." as update, with no newline -- and update
   
@@ -86,7 +89,7 @@ def on_mouse_move(pos):
 
 ###################### on mouse up ######################
 
-def on_mouse_up():
+def on_mouse_up(): #on_press_up
   global selectedActor, selectedActorName, selectedActorOrigPos
   selectedActor = selectedActorName = selectedActorOrigPos = None
 
