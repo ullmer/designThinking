@@ -83,9 +83,10 @@ def helloCB():
 ####################### build UI ######################
 
 imP1 = imTk1 = None
+imP2 = imTk2 = None
 
 def buildUI(f1Screens, f2Spatial, f3Controls):
-  global imP1, imTk1
+  global imP1, imTk1, imP2, imTk2
 
   imgAddUserFn   = 'person-add-iconic1.png'
   imP1  = PIL.Image.open(imgAddUserFn)
@@ -94,6 +95,12 @@ def buildUI(f1Screens, f2Spatial, f3Controls):
   #b = Button(f3Controls, text="add actor", command=helloCB) # Create a label with words
   b  = Button(f3Controls, image=imTk1, command=helloCB)
   b.pack()                                                   # Put the label into the window
+
+  screenFilenames = ['unsdg2.png', 'unsdg4.png']
+  imP2   = PIL.Image.open(screenFilenames[0])
+  imTk2  = PIL.ImageTk.PhotoImage(imP2)
+  label1 = Label(f1Screens, image=imTk2)
+  label1.pack()
 
 ####################### main ######################
 
