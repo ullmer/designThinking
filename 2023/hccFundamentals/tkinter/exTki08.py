@@ -90,6 +90,7 @@ imP2 = imTk2 = None
 def rgb2tk(r, g, b):
   return "#%02x%02x%02x" % (r,g,b)
 
+
 ####################### build user interface ######################
 
 def buildUI(f1Screens, f2Spatial, f3Controls):
@@ -115,10 +116,24 @@ def buildUI(f1Screens, f2Spatial, f3Controls):
   c.pack()
 
   r1Coords = (10, 10, 60, 60)
-  c.create_rectangle(r1Coords, fill="white")
+  r1 = c.create_rectangle(r1Coords, fill="white")
 
   r2Coords = (70, 10, 120, 60)
-  c.create_rectangle(r2Coords, fill="orange")
+  r2 = c.create_rectangle(r2Coords, fill="orange")
+
+  #print("canvas rectangle ids:", r1, r2)
+  c.move(r1, 50, 50)
+
+  c.bind("<Button-1>",  on_click)
+  c.bind("<B1-Motion>", on_drag)
+
+################### interaction callbacks ##################
+
+def on_click(event):
+  print("click event:", event)
+
+def on_drag(event):
+  print("drag event:", event)
 
 ####################### main ######################
 
