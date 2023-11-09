@@ -90,11 +90,13 @@ imP2 = imTk2 = None
 def rgb2tk(r, g, b):
   return "#%02x%02x%02x" % (r,g,b)
 
+c                    = None #canvas handle, sigh; should be moved into a class
+selectedCanvasObject = None #canvas handle, sigh; should be moved into a class
 
 ####################### build user interface ######################
 
 def buildUI(f1Screens, f2Spatial, f3Controls):
-  global imP1, imTk1, imP2, imTk2
+  global imP1, imTk1, imP2, imTk2, c
 
   imgAddUserFn   = 'person-add-iconic1.png'
   imP1  = PIL.Image.open(imgAddUserFn)
@@ -129,8 +131,21 @@ def buildUI(f1Screens, f2Spatial, f3Controls):
 
 ################### interaction callbacks ##################
 
+#next pulls from https://stackoverflow.com/questions/65189412/python-canvas-move-items-with-mouse-tkinter
+
 def on_click(event):
+  global c, selectedCanvasObj
+
+  x, y = event.x, event.y
+  csr  = 10 #click search radius
+  x1, y1, x2, y2 = x-csr, y-csr, x+csr, y+csr
   print("click event:", event)
+
+  selected = c.find_overlapping(x1, y1, x2, y2)
+  if selected: selectedCanvasObj = selected[-1]
+  else:        selectedCanvasObj = None
+
+  print("selected:", selectedCanvasObj)
 
 def on_drag(event):
   print("drag event:", event)
