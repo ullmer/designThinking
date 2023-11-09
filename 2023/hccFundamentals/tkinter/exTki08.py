@@ -81,10 +81,20 @@ def helloCB():
 #    numTimesSpaceHit += 1
 #
 ####################### build UI ######################
-#
-#buildUI(f1Screens, f2Spatial, f3Controls):
-#  
-#
+
+imP1 = imTk1 = None
+
+def buildUI(f1Screens, f2Spatial, f3Controls):
+  global imP1, imTk1
+
+  imgAddUserFn   = 'person-add-iconic1.png'
+  imP1  = PIL.Image.open(imgAddUserFn)
+  imTk1 = PIL.ImageTk.PhotoImage(imP1)
+
+  #b = Button(f3Controls, text="add actor", command=helloCB) # Create a label with words
+  b  = Button(f3Controls, image=imTk1, command=helloCB)
+  b.pack()                                                   # Put the label into the window
+
 ####################### main ######################
 
 root = Tk() # Create the root (base) window
@@ -92,15 +102,7 @@ root = Tk() # Create the root (base) window
 f1Screens  = Frame(root)
 f2Spatial  = Frame(root)
 f3Controls = Frame(root)
-#buildUI(f1Screens, f2Spatial, f3Controls)
-
-imgAddUserFn   = 'person-add-iconic1.png'
-imP1  = PIL.Image.open(imgAddUserFn)
-imTk1 = PIL.ImageTk.PhotoImage(imP1)
-
-#b = Button(f3Controls, text="add actor", command=helloCB) # Create a label with words
-b = Button(f3Controls, image=imTk1, command=helloCB)
-b.pack()                                                   # Put the label into the window
+buildUI(f1Screens, f2Spatial, f3Controls)
 
 for frame in [f1Screens, f2Spatial, f3Controls]: frame.pack(side=TOP)
 
