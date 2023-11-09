@@ -11,12 +11,12 @@ a2 = Actor('red-hl-1in-200dpi',  pos=(180, 180))
 s1 = Actor('unsdg2',             pos=(550, 100))
 s2 = Actor('unsdg4',             pos=(550, 100))
 b1 = Actor('person-add-iconic1', pos=( 80, 500))
-m1 = Actor('campus-map8')
+m1 = Actor('campus-map8',        pos=(348, 202))
 
 successiveScreens = [s1, s2]
 
-moveableActors = [m1, a1, a2] # chalraha
-stableActors   = [s1, b1] #achalraha / rukha
+moveableActors = [m1, a1, a2, b1] # chalraha
+stableActors   = [s1] #achalraha / rukha
 
 actorNames           = {a1: "John", a2: "Jane", s1: "screen", 
                         b1: "addUser", m1: "map"}
@@ -41,6 +41,7 @@ def draw():
 ###################### on mouse down/press ######################
 
 def addUser():
+  print("map position:", m1.pos)
   newActor = Actor('red-hl-1in-200dpi',  pos=(200, 200))
   moveableActors.append(newActor)
   actorNames[newActor] = 'new actor'
