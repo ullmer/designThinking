@@ -140,7 +140,7 @@ def on_click(event):
   x, y = event.x, event.y
   csr  = 10 #click search radius
   x1, y1, x2, y2 = x-csr, y-csr, x+csr, y+csr
-  print("click event:", event)
+  #print("click event:", event)
 
   selected = c.find_overlapping(x1, y1, x2, y2)
   if selected: selectedCanvasObj = selected[-1]
@@ -148,13 +148,13 @@ def on_click(event):
 
   lastDragXY = (x,y) #for calculating dx, dy movement changes with drag
 
-  print("selected:", selectedCanvasObj)
+  #print("selected:", selectedCanvasObj)
 
 ################### mouse drag callback ##################
 
 def on_drag(event):
   global c, selectedCanvasObj, lastDragXY
-  print("drag event:", event)
+  #print("drag event:", event)
 
   x0, y0 = lastDragXY
   x1, y1 = event.x, event.y
