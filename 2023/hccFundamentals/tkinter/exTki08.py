@@ -2,7 +2,7 @@
 # By Brygg Ullmer, Clemson University
 # Begun 2023-11-08
 
-import tkinter
+from tkinter import *
 
 WIDTH=1024
 
@@ -14,6 +14,21 @@ actorOriginalPos     = {}
 selectedActor        = None
 selectedActorName    = None
 selectedActorOrigPos = None
+
+
+def helloCB():
+  print("hello was pushed")
+
+###################### main ######################
+
+root = Tk()                                                # Create the root (base) window
+#b    = Button(root, text="Hello, world!", command=helloCB) # Create a label with words
+#b.pack()                                                   # Put the label into the window
+f1Screens  = Frame(root)
+f2Spatial  = Frame(root)
+f3Controls = Frame(root)
+
+root.mainloop()                                            # Start the event loop
 
 
 screen.draw.circle((800, 500), 50, defaultEllipseColor)
@@ -49,22 +64,7 @@ def on_mouse_down(pos):
 
   print("=" * 25)
 
-###################### on mouse move ######################
-
-def on_mouse_move(pos):
-  print(".", end=''); sys.stdout.flush() # print "." as update, with no newline -- and update
-  
-  if selectedActor != None: #make sure *something* is selected
-    originalMousePos  = actorOriginalPos[selectedActor]
-
-    x0, y0 = selectedActorOrigPos
-    x1, y1 = originalMousePos
-    x2, y2 = pos
-    dx, dy = x2-x1, y2-y1
-    x3, y3 = x0 + dx, y0 + dy
-    selectedActor.pos = (x3, y3)
-
-    #print("on_mouse_mov:", selectedActorName, originalMousePos, pos, dx, dy)
+def on_mouse_move()
 
 ###################### on mouse up ######################
 
