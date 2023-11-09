@@ -6,8 +6,11 @@ import sys
 
 WIDTH=1024
 
-a1 = Actor('red-hl-1in-200dpi')
-a2 = Actor('red-hl-1in-200dpi',  pos=(180, 180))
+knownActorFilenames = ['red-hl-1in-200dpi', 'person-iconic1']
+defaultActorFn      = knownActorFilenames[1]
+
+a1 = Actor(defaultActorFn) #previously: a1 = Actor('red-hl-1in-200dpi')
+a2 = Actor(defaultActorFn,  pos=(180, 180))
 s1 = Actor('unsdg2',             pos=(550, 100))
 s2 = Actor('unsdg4',             pos=(550, 100))
 b1 = Actor('person-add-iconic1', pos=( 80, 500))
