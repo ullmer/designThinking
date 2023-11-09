@@ -92,12 +92,13 @@ def rgb2tk(r, g, b):
 
 c                    = None #canvas handle, sigh; should be moved into a class
 selectedCanvasObject = None #ID (1,2,3...) of a selected object within canvas c
-lastDragXY          = None #coordinates of where a mouse-drag sequence began
+lastDragXY           = None #coordinates of where a mouse-drag sequence began
+img1                 = None
 
 ####################### build user interface ######################
 
 def buildUI(f1Screens, f2Spatial, f3Controls):
-  global imP1, imTk1, imP2, imTk2, c
+  global imP1, imTk1, imP2, imTk2, c, img1
 
   imgAddUserFn   = 'person-add-iconic1.png'
   imP1  = PIL.Image.open(imgAddUserFn)
@@ -117,6 +118,10 @@ def buildUI(f1Screens, f2Spatial, f3Controls):
   #c = Canvas(f2Spatial, bg="orange", height=200, width=1024)
   c = Canvas(f2Spatial,  bg=bgColor,  height=400, width=1024)
   c.pack()
+
+  img1Fn = 'clemson12d2.png'
+  img1   = PhotoImage(file=img1Fn) #transparent image
+  c.create_image(100, 100, image=img1,anchor='ne') 
 
   r1Coords = (10, 10, 60, 60)
   r1 = c.create_rectangle(r1Coords, fill="white")
