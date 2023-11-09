@@ -15,8 +15,8 @@ a2 = Actor(defaultActorFn,  pos=(180, 180))
 s1 = Actor('unsdg2',             pos=(550, 100)) #H20
 s2 = Actor('unsdg4',             pos=(550, 100)) #NaCl
 b1 = Actor('person-add-iconic1', pos=( 80, 500))
-#m1 = Actor('campus-map8',        pos=(348, 202))
-m1 = Actor('clemson12d2',        pos=(348, 202))
+m1 = Actor('campus-map8',        pos=(348, 202))
+#m1 = Actor('clemson12d2',        pos=(348, 202))
 
 successiveScreens = [s1, s2]
 lastSelectedActor = a1
