@@ -114,6 +114,12 @@ def buildUI(f1Screens, f2Spatial, f3Controls):
   c = Canvas(f2Spatial,  bg=bgColor,  height=400, width=1024)
   c.pack()
 
+  r1Coords = (10, 10, 60, 60)
+  c.create_rectangle(r1Coords, fill="white")
+
+  r2Coords = (70, 10, 120, 60)
+  c.create_rectangle(r2Coords, fill="orange")
+
 ####################### main ######################
 
 root = Tk() # Create the root (base) window
