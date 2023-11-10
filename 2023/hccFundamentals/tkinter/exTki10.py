@@ -2,7 +2,9 @@
 # By Brygg Ullmer, Clemson University
 # Begun 2023-11-09
 
-from tkinter import *
+from tkinter   import *
+from functools import partial
+
 import PIL.Image, PIL.ImageTk #image manipulation package
 
 #WIDTH=1024
@@ -77,8 +79,11 @@ def buildUI(gs, f1Screens, f2Spatial, f3Controls):
   #print("canvas rectangle ids:", r1, r2)
   #c.move(r1, 50, 50)
 
-  gs.canvas.bind("<Button-1>",  on_click)
-  gs.canvas.bind("<B1-Motion>", on_drag)
+  b1ClickCb = partial(on_click, gs)
+  b1MoveCb  = partial(on_drag,  gs)
+
+  gs.canvas.bind("<Button-1>",  b1ClickCb)
+  gs.canvas.bind("<B1-Motion>", b1MoveCb)
 
 ################### mouse click callback ##################
 
