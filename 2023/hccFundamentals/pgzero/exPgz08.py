@@ -8,16 +8,15 @@ WIDTH=1024
 
 class globalState:
   numTimesSpaceHit  = 0
-  lastSelectedActor = selectedActor        = None
+  lastSelectedActor = selectedActor = None
   selectedActorName = None
-  actorOriginalPos       = {}
+  actorOriginalPos  = {}
   stableActors = moveableActors = actorNames = None
 
   defaultEllipseColor    = (0, 200, 200)
   defaultEllipseLocation = Rect((800, 600), (850, 650))
 
 gs = globalState()
-#partial
   
 knownActorFilenames = ['red-hl-1in-200dpi', 'person-iconic1',
                        'ipanel-cell-selection1']
@@ -106,13 +105,9 @@ def on_key_down(key):
   if key == keys.SPACE:  # keys.RIGHT, keys.H, keys.C, etc.
     print("space pressed")
 
-    #match numTimesSpaceHit:
-    #  case 0:
-
     if numTimesSpaceHit == 0:
-      animate(a1, pos=(400, 500), tween='accel_decel', duration=.75)
-    else:
-      animate(a2, pos=(500, 500), tween='accel_decel', duration=.75)
+          animate(a1, pos=(400, 500), tween='accel_decel', duration=.75)
+    else: animate(a2, pos=(500, 500), tween='accel_decel', duration=.75)
 
     gs.numTimesSpaceHit += 1
 
