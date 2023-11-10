@@ -18,7 +18,7 @@ class globalState:
   actorOriginalPos  = {}
   stableActors = moveableActors = actorNames = None
 
-  defaultEllipseColor    = (0, 200, 200)
+  exitColor              = (255, 0, 0)
   defaultEllipseLocation = Rect((800, 600), (850, 650))
 
 gs = globalState()
@@ -27,14 +27,14 @@ knownActorFilenames = ['red-hl-1in-200dpi', 'person-iconic1',
                        'ipanel-cell-selection1']
 defaultActorFn      = knownActorFilenames[1]
 
-b1 = Actor('person-add-iconic1', pos=( 80, 500))
-m1 = Actor('campus-map8',        pos=(348, 202))
-s1 = Actor('login_screen',       pos=(350, 210))
+b1 = Actor('exit',         pos=(200, 200))
+m1 = Actor('campus-map8',  pos=(348, 202))
+s1 = Actor('login_screen', pos=(350, 210))
 a3 = Actor('canvas_touch')
 
 gs.lastSelectedActor = a3
 gs.moveableActors    = [a3]
-gs.stableActors      = [s1]
+gs.stableActors      = [s1, b1]
 gs.actorNames        = {a3: "canvas touch", a1: "login screen"}
 
 ###################### draw ######################
@@ -43,10 +43,6 @@ def draw():
   screen.clear()
   for actor in gs.stableActors:   actor.draw()
   for actor in gs.moveableActors: actor.draw()
-
-  #placeholder per idea from Yang
-  #pygame.draw.ellipse(screen.surface, defaultEllipseColor, defaultEllipseLocation)
-  screen.draw.circle((800, 500), 50, gs.defaultEllipseColor)
 
 ###################### on mouse down/press ######################
 
