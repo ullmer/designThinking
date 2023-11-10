@@ -14,7 +14,8 @@ class globalState:
   imTk1  = imTk2 = None #image handles, 
   canvas            = None
   img1              = None
-  selectedCanvasObj = None
+  selectedCanvasObj = None #ID (1,2,3...) of a selected object within canvas c
+  lastDragXY        = None #coordinates of where a mouse-drag sequence began
 
 gs = globalState()
 
@@ -25,13 +26,10 @@ imP2 = imTk2 = None
 
 #https://stackoverflow.com/questions/51591456/can-i-use-rgb-in-tkinter
 #translates rgb values of type int to a tkinter friendly color code
+
 def rgb2tk(r, g, b):
   return "#%02x%02x%02x" % (r,g,b)
 
-c                    = None #canvas handle, sigh; should be moved into a class
-selectedCanvasObject = None #ID (1,2,3...) of a selected object within canvas c
-lastDragXY           = None #coordinates of where a mouse-drag sequence began
-img1                 = None
 
 ####################### build user interface ######################
 
