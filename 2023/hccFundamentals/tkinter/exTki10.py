@@ -62,9 +62,8 @@ def buildUI(gs, f1Screens, f2Spatial, f3Controls):
   label1.pack()
 
   bgColor  = rgb2tk(10, 10, 10)
-  #c = Canvas(f2Spatial, bg="orange", height=200, width=1024)
-  c = Canvas(f2Spatial,  bg=bgColor,  height=400, width=1024)
-  c.pack()
+  gs.canvas = Canvas(f2Spatial,  bg=bgColor,  height=400, width=1024)
+  gs.canvas.pack()
 
   img1Fn  = 'clemson12d2.png'
   gs.img1 = PhotoImage(file=img1Fn) #transparent image
