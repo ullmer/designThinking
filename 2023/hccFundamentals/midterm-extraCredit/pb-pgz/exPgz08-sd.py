@@ -28,14 +28,15 @@ knownActorFilenames = ['red-hl-1in-200dpi', 'person-iconic1',
 defaultActorFn      = knownActorFilenames[1]
 
 b1 = Actor('exit',         pos=(200, 200))
-m1 = Actor('campus-map8',  pos=(348, 202))
-s1 = Actor('login_screen', pos=(350, 210))
+s1 = Actor('sample_screen')
 a3 = Actor('canvas_touch')
+
+#s1 = Actor('login_screen', pos=(350, 210))
 
 gs.lastSelectedActor = a3
 gs.moveableActors    = [a3]
 gs.stableActors      = [s1, b1]
-gs.actorNames        = {a3: "canvas touch", a1: "login screen"}
+gs.actorNames        = {a3: "canvas touch", s1: "login screen", b1: "exit"}
 
 ###################### draw ######################
 
