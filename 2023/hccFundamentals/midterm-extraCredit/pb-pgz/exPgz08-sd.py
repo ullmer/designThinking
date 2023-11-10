@@ -65,8 +65,8 @@ def on_mouse_down(pos): # on_press_down
         print("update the virtual screen images")
         gs.stableActors = [s2, b1]
 
-      elif name == "addUser":
-        addUser()
+      elif name == "exit":
+        sys.exit(-1)
 
       else:
         gs.actorOriginalPos[actor] = pos     
@@ -110,6 +110,7 @@ def on_key_down(key):
 
   if key == keys.RIGHT: gs.lastSelectedActor.angle += 45
   if key == keys.LEFT:  gs.lastSelectedActor.angle -= 45
+  if key == keys.ESCAPE: sys.exit(1)
 
 ### end ###
 
