@@ -18,12 +18,6 @@ class globalState:
 
 gs = globalState()
 
-screenStates = ['unsdg2', 'unsdg4']
-imgAddUser   = 'person-add-iconic1'
-
-def helloCB():
-  print("hello was pushed")
-
 ####################### build UI ######################
 
 imP1 = imTk1 = None
