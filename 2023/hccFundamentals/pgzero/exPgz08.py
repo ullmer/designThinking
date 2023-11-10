@@ -6,6 +6,15 @@ import sys
 
 WIDTH=1024
 
+class globalState:
+  numTimesSpaceHit = 0
+  lastSelectedActor = selectedActor        = None
+  selectedActorName = selectedActorOrigPos = None
+
+gs = globalState()
+
+#partial
+  
 knownActorFilenames = ['red-hl-1in-200dpi', 'person-iconic1',
                        'ipanel-cell-selection1']
 defaultActorFn      = knownActorFilenames[1]
