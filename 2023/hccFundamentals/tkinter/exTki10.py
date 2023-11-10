@@ -30,18 +30,17 @@ imP2 = imTk2 = None
 def rgb2tk(r, g, b):
   return "#%02x%02x%02x" % (r,g,b)
 
-
 ####################### build user interface ######################
 
 def buildUI(gs, f1Screens, f2Spatial, f3Controls):
-  imgAddUserFn   = 'person-add-iconic1.png'
-  gs.imP1  = PIL.Image.open(imgAddUserFn)
-  gs.imTk1 = PIL.ImageTk.PhotoImage(gs.imP1)
+  imgAddUserFn = 'person-add-iconic1.png'
+  gs.imP1      = PIL.Image.open(imgAddUserFn)
+  gs.imTk1     = PIL.ImageTk.PhotoImage(gs.imP1)
 
   #b = Button(f3Controls, text="add actor", command=helloCB) # Create a label with words
 
   addCanvasItemCb = partial(addCanvasItem, gs)
-  b  = Button(f3Controls, image=gs.imTk1, command=addCanvasItemCb)
+  b               = Button(f3Controls, image=gs.imTk1, command=addCanvasItemCb)
   b.pack(side=LEFT, expand=True, fill=BOTH) 
 
   screenFilenames = ['unsdg2.png', 'unsdg4.png']
@@ -50,7 +49,7 @@ def buildUI(gs, f1Screens, f2Spatial, f3Controls):
   label1   = Label(f1Screens, image=gs.imTk2)
   label1.pack()
 
-  bgColor  = rgb2tk(10, 10, 10)
+  bgColor   = rgb2tk(10, 10, 10)
   gs.canvas = Canvas(f2Spatial,  bg=bgColor,  height=400, width=1024)
   gs.canvas.pack()
 
@@ -63,9 +62,6 @@ def buildUI(gs, f1Screens, f2Spatial, f3Controls):
 
   r2Coords = (70, 10, 120, 60)
   r2 = gs.canvas.create_rectangle(r2Coords, fill="orange")
-
-  #print("canvas rectangle ids:", r1, r2)
-  #c.move(r1, 50, 50)
 
   b1ClickCb = partial(on_click, gs)
   b1MoveCb  = partial(on_drag,  gs)
