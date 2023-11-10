@@ -2,6 +2,11 @@
 # By Brygg Ullmer, Clemson University
 # Begun 2023-11-08
 
+# Extra credit modification, SSV (opted for public):
+# For our medi-link project, I will use the Pygame Zero to bend some of the code
+# below.  For instance, in our project I have patients instead of actors in the code. 
+# I would like to add more patients with their IDs.
+
 import sys
 
 WIDTH=1024
@@ -18,24 +23,22 @@ class globalState:
 
 gs = globalState()
   
-knownActorFilenames = ['red-hl-1in-200dpi', 'person-iconic1',
-                       'ipanel-cell-selection1']
+knownActorFilenames = ['person-iconic1']
 defaultActorFn      = knownActorFilenames[1]
 
-a1 = Actor(defaultActorFn) #previously: a1 = Actor('red-hl-1in-200dpi')
-a2 = Actor(defaultActorFn,  pos=(180, 180))
-s1 = Actor('unsdg2',             pos=(550, 100)) #H20
-s2 = Actor('unsdg4',             pos=(550, 100)) #NaCl
 b1 = Actor('person-add-iconic1', pos=( 80, 500))
-m1 = Actor('campus-map8',        pos=(348, 202))
-#m1 = Actor('clemson12d2',        pos=(348, 202))
+s1 = Actor('sample_screen')
 
-successiveScreens    = [s1, s2]
+gs.moveableActors   = []
+gs.actorNames        = {b1: "addUser", s1: "screen image"}
+
+for i in range(10):
+  a = Actor('person-iconic1', pos=(20, 50+i*50)
+  gs.moveableActors.append(a)
+  gs.actorNames[a] = "Patient " + str(i)
+
 gs.lastSelectedActor = a1
-gs.moveableActors    = [m1, a1, a2, b1] # chalraha
 gs.stableActors      = [s1] #achalraha / rukha
-gs.actorNames        = {a1: "John", a2: "Jane", s1: "screen", 
-                        b1: "addUser", m1: "map"}
 
 ###################### draw ######################
 
