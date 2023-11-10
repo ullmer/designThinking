@@ -41,8 +41,8 @@ gs.actorNames        = {a1: "John", a2: "Jane", s1: "screen",
 
 def draw(): 
   screen.clear()
-  for actor in stableActors:   actor.draw()
-  for actor in moveableActors: actor.draw()
+  for actor in gs.stableActors:   actor.draw()
+  for actor in gs.moveableActors: actor.draw()
 
   #placeholder per idea from Yang
   #pygame.draw.ellipse(screen.surface, defaultEllipseColor, defaultEllipseLocation)
@@ -59,26 +59,23 @@ def addUser():
 ###################### on mouse down/press ######################
 
 def on_mouse_down(pos): # on_press_down
-  global selectedActor, selectedActorName, selectedActorOrigPos
-  global stableActors, lastSelectedActor
-
-  for actor in (stableActors + moveableActors):
+  for actor in (gs.stableActors + gs.moveableActors):
     if actor.collidepoint(pos): 
-      name = actorNames[actor]
+      name = gs.actorNames[actor]
       print("\nactor selected:", name)
 
       if name == "screen": 
         print("update the virtual screen images")
-        stableActors = [s2, b1]
+        gs.stableActors = [s2, b1]
 
       elif name == "addUser":
         addUser()
 
       else:
-        actorOriginalPos[actor] = pos     
-        lastSelectedActor = selectedActor = actor
-        selectedActorName       = name
-        selectedActorOrigPos    = selectedActor.pos
+        gs.actorOriginalPos[actor] = pos     
+        gs.lastSelectedActor = gs.selectedActor = actor
+        gs.selectedActorName       = name
+        gs.selectedActorOrigPos    = selectedActor.pos
 
   print("=" * 25)
 
@@ -87,28 +84,25 @@ def on_mouse_down(pos): # on_press_down
 def on_mouse_move(rel):
   print(".", end=''); sys.stdout.flush() # print "." as update, with no newline -- and update
   
-  if selectedActor != None: #make sure *something* is selected
-    origX, origY = selectedActor.pos
+  if gs.selectedActor != None: #make sure *something* is selected
+    origX, origY = gs.selectedActor.pos
     dx,       dy = rel #relative position; thanks to pg0 magic, we cannot rename that
     newX,   newY = origX+dx, origY+dy
-    selectedActor.pos = (newX, newY)
+    gs.selectedActor.pos = (newX, newY)
 
     #print("on_mouse_mov:", selectedActorName, originalMousePos, pos, dx, dy)
 
 ###################### on mouse up ######################
 
 def on_mouse_up(): #on_press_up
-  global selectedActor, selectedActorName, selectedActorOrigPos
-  lastSelectedActor = selectedActor 
-  selectedActor     = selectedActorName = selectedActorOrigPos = None
+  gs.lastSelectedActor = gs.selectedActor 
+  gs.selectedActor     = gs.selectedActorName = gs.selectedActorOrigPos = None
 
 ###################### on key down ######################
 
 numTimesSpaceHit = 0
 
 def on_key_down(key):
-  global numTimesSpaceHit, lastSelectedActor
-
   if key == keys.SPACE:  # keys.RIGHT, keys.H, keys.C, etc.
     print("space pressed")
 
@@ -120,10 +114,10 @@ def on_key_down(key):
     else:
       animate(a2, pos=(500, 500), tween='accel_decel', duration=.75)
 
-    numTimesSpaceHit += 1
+    gs.numTimesSpaceHit += 1
 
-  if key == keys.RIGHT: lastSelectedActor.angle += 45
-  if key == keys.LEFT:  lastSelectedActor.angle -= 45
+  if key == keys.RIGHT: gs.lastSelectedActor.angle += 45
+  if key == keys.LEFT:  gs.lastSelectedActor.angle -= 45
 
 ### end ###
 
