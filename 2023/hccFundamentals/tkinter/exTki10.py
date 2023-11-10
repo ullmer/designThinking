@@ -12,8 +12,9 @@ import PIL.Image, PIL.ImageTk #image manipulation package
 class globalState:
   imP1   = imP2  = None #image handles, so auto-garbage collection doesn't destroy
   imTk1  = imTk2 = None #image handles, 
-  canvas = None
-  img1   = None
+  canvas            = None
+  img1              = None
+  selectedCanvasObj = None
 
 gs = globalState()
 
@@ -52,7 +53,9 @@ def buildUI(gs, f1Screens, f2Spatial, f3Controls):
   gs.imTk1 = PIL.ImageTk.PhotoImage(gs.imP1)
 
   #b = Button(f3Controls, text="add actor", command=helloCB) # Create a label with words
-  b  = Button(f3Controls, image=gs.imTk1, command=addCanvasItem)
+
+  addCanvasItemCb = partial(addCanvasItem, gs)
+  b  = Button(f3Controls, image=gs.imTk1, command=addCanvasItemCb)
   b.pack(side=LEFT, expand=True, fill=BOTH) 
 
   screenFilenames = ['unsdg2.png', 'unsdg4.png']
@@ -67,7 +70,7 @@ def buildUI(gs, f1Screens, f2Spatial, f3Controls):
 
   img1Fn  = 'clemson12d2.png'
   gs.img1 = PhotoImage(file=img1Fn) #transparent image
-  c.create_image(100, 100, image=gs.img1,anchor='ne') 
+  gs.canvas.create_image(100, 100, image=gs.img1,anchor='ne') 
 
   r1Coords = (10, 10, 60, 60)
   r1 = gs.canvas.create_rectangle(r1Coords, fill="white")
@@ -95,8 +98,8 @@ def on_click(gs, event):
   #print("click event:", event)
 
   selected = gs.canvas.find_overlapping(x1, y1, x2, y2)
-  if selected: selectedCanvasObj = selected[-1]
-  else:        selectedCanvasObj = None
+  if selected: gs.selectedCanvasObj = selected[-1]
+  else:        gs.selectedCanvasObj = None
 
   gs.lastDragXY = (x,y) #for calculating dx, dy movement changes with drag
 
