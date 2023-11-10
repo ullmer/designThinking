@@ -7,6 +7,14 @@ import PIL.Image, PIL.ImageTk #image manipulation package
 
 #WIDTH=1024
 
+class globalState:
+  imP1   = imP2  = None #image handles, so auto-garbage collection doesn't destroy
+  imTk1  = imTk2 = None #image handles, 
+  canvas = None
+  img1   = None
+
+gs = globalState()
+
 screenStates = ['unsdg2', 'unsdg4']
 imgAddUser   = 'person-add-iconic1'
 
@@ -37,7 +45,6 @@ img1                 = None
 ####################### build user interface ######################
 
 def buildUI(f1Screens, f2Spatial, f3Controls):
-  global imP1, imTk1, imP2, imTk2, c, img1
 
   imgAddUserFn   = 'person-add-iconic1.png'
   imP1  = PIL.Image.open(imgAddUserFn)
@@ -96,24 +103,22 @@ def on_click(event):
 
 ################### mouse drag callback ##################
 
-def on_drag(event):
-  global c, selectedCanvasObj, lastDragXY
+def on_drag(gs, event):
   #print("drag event:", event)
 
-  x0, y0 = lastDragXY
+  x0, y0 = gs.lastDragXY
   x1, y1 = event.x, event.y
   dx, dy = x1-x0, y1-y0
-  lastDragXY = (x1,y1) 
+  gs.lastDragXY = (x1,y1) 
 
-  c.move(selectedCanvasObj, dx, dy)
-  print(">>", selectedCanvasObj, x1, y1)
+  gs.canvas.move(gs.selectedCanvasObj, dx, dy)
+  print(">>",    gs.selectedCanvasObj, x1, y1)
   
 ################### add Canvas Item ##################
 
-def addCanvasItem():
-  global c
+def addCanvasItem(gs):
   rCoords = (100, 100, 150, 150)
-  r = c.create_rectangle(rCoords, fill="purple")
+  r = gs.canvas.create_rectangle(rCoords, fill="purple")
 
 ####################### main ######################
 
