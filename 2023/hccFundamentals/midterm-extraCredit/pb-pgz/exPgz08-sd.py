@@ -2,6 +2,11 @@
 # By Brygg Ullmer, Clemson University
 # Begun 2023-11-08
 
+# Extra credit modification, SD (opted for public):
+# For this activity, I would like to use the Pgz along with my final project.  
+# For now, I will add an image (ascreenshot) from the application prototype,
+# and use the Actors as the input(fingerTouch) by the user
+
 import sys
 
 WIDTH=1024
