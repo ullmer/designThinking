@@ -21,12 +21,6 @@ gs = globalState()
 screenStates = ['unsdg2', 'unsdg4']
 imgAddUser   = 'person-add-iconic1'
 
-#actorNames          = {a1: "John", a2: "Jane", s1: "screen", b1: "addUser"}
-actorOriginalPos     = {}
-selectedActor        = None
-selectedActorName    = None
-selectedActorOrigPos = None
-
 def helloCB():
   print("hello was pushed")
 
