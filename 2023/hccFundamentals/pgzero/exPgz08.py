@@ -9,7 +9,7 @@ WIDTH=1024
 class globalState:
   numTimesSpaceHit  = 0
   lastSelectedActor = selectedActor        = None
-  selectedActorName = selectedActorOrigPos = None
+  selectedActorName = None
   actorOriginalPos       = {}
   stableActors = moveableActors = actorNames = None
 
@@ -76,7 +76,6 @@ def on_mouse_down(pos): # on_press_down
         gs.actorOriginalPos[actor] = pos     
         gs.lastSelectedActor       = gs.selectedActor = actor
         gs.selectedActorName       = name
-        gs.selectedActorOrigPos    = gs.selectedActor.pos
 
   print("=" * 25)
 
@@ -97,7 +96,7 @@ def on_mouse_move(rel):
 
 def on_mouse_up(): #on_press_up
   gs.lastSelectedActor = gs.selectedActor 
-  gs.selectedActor     = gs.selectedActorName = gs.selectedActorOrigPos = None
+  gs.selectedActor     = gs.selectedActorName = None
 
 ###################### on key down ######################
 
