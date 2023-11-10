@@ -44,7 +44,7 @@ img1                 = None
 
 ####################### build user interface ######################
 
-def buildUI(f1Screens, f2Spatial, f3Controls):
+def buildUI(gs, f1Screens, f2Spatial, f3Controls):
   imgAddUserFn   = 'person-add-iconic1.png'
   gs.imP1  = PIL.Image.open(imgAddUserFn)
   gs.imTk1 = PIL.ImageTk.PhotoImage(gs.imP1)
@@ -124,7 +124,7 @@ root = Tk() # Create the root (base) window
 f1Screens  = Frame(root)
 f2Spatial  = Frame(root)
 f3Controls = Frame(root)
-buildUI(f1Screens, f2Spatial, f3Controls)
+buildUI(gs, f1Screens, f2Spatial, f3Controls)
 
 for frame in [f1Screens, f2Spatial, f3Controls]: 
   frame.pack(side=TOP, expand=True, fill=BOTH)
