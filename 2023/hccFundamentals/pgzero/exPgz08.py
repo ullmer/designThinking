@@ -11,9 +11,10 @@ class globalState:
   lastSelectedActor = selectedActor        = None
   selectedActorName = selectedActorOrigPos = None
   actorOriginalPos       = {}
+  stableActors = moveableActors = actorNames = None
+
   defaultEllipseColor    = (0, 200, 200)
   defaultEllipseLocation = Rect((800, 600), (850, 650))
-  stableActors = moveableActors = actorNames = None
 
 gs = globalState()
 #partial
@@ -46,7 +47,7 @@ def draw():
 
   #placeholder per idea from Yang
   #pygame.draw.ellipse(screen.surface, defaultEllipseColor, defaultEllipseLocation)
-  screen.draw.circle((800, 500), 50, defaultEllipseColor)
+  screen.draw.circle((800, 500), 50, gs.defaultEllipseColor)
 
 ###################### on mouse down/press ######################
 
@@ -73,9 +74,9 @@ def on_mouse_down(pos): # on_press_down
 
       else:
         gs.actorOriginalPos[actor] = pos     
-        gs.lastSelectedActor = gs.selectedActor = actor
+        gs.lastSelectedActor       = gs.selectedActor = actor
         gs.selectedActorName       = name
-        gs.selectedActorOrigPos    = selectedActor.pos
+        gs.selectedActorOrigPos    = gs.selectedActor.pos
 
   print("=" * 25)
 
