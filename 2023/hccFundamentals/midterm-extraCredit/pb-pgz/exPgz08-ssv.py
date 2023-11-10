@@ -9,7 +9,7 @@
 
 import sys
 
-WIDTH=1024
+WIDTH=1000
 
 class globalState:
   numTimesSpaceHit  = 0
@@ -24,21 +24,21 @@ class globalState:
 gs = globalState()
   
 knownActorFilenames = ['person-iconic1']
-defaultActorFn      = knownActorFilenames[1]
 
 b1 = Actor('person-add-iconic1', pos=( 80, 500))
-s1 = Actor('sample_screen')
+s1 = Actor('sample_screen1')
+b2 = Actor('exit',         pos=(925, 75))
 
 gs.moveableActors   = []
-gs.actorNames        = {b1: "addUser", s1: "screen image"}
+gs.actorNames        = {b1: "addUser", s1: "screen image", b2: "exit"}
 
 for i in range(10):
-  a = Actor('person-iconic1', pos=(20, 50+i*50)
+  a = Actor('person-iconic1', pos=(42, 150+i*50))
   gs.moveableActors.append(a)
-  gs.actorNames[a] = "Patient " + str(i)
+  gs.actorNames[a] = "Patient " + str(i+1)
 
-gs.lastSelectedActor = a1
-gs.stableActors      = [s1] #achalraha / rukha
+gs.lastSelectedActor = None
+gs.stableActors      = [s1, b1, b2] #achalraha / rukha
 
 ###################### draw ######################
 
@@ -55,7 +55,7 @@ def draw():
 
 def addUser():
   #print("map position:", m1.pos)
-  newActor = Actor('red-hl-1in-200dpi', pos=(200, 200))
+  newActor = Actor('person-iconic1', pos=(200, 200))
   gs.moveableActors.append(newActor)
   gs.actorNames[newActor] = 'new actor'
 
@@ -71,9 +71,8 @@ def on_mouse_down(pos): # on_press_down
         print("update the virtual screen images")
         gs.stableActors = [s2, b1]
 
-      elif name == "addUser":
-        addUser()
-
+      elif name == "exit":    sys.exit(1)
+      elif name == "addUser": addUser()
       else:
         gs.actorOriginalPos[actor] = pos     
         gs.lastSelectedActor       = gs.selectedActor = actor
