@@ -29,16 +29,14 @@ defaultActorFn      = knownActorFilenames[1]
 
 a1 = Actor(defaultActorFn) #previously: a1 = Actor('red-hl-1in-200dpi')
 a2 = Actor(defaultActorFn,  pos=(180, 180))
-s1 = Actor('unsdg2',             pos=(550, 100)) #H20
-s2 = Actor('unsdg4',             pos=(550, 100)) #NaCl
 b1 = Actor('person-add-iconic1', pos=( 80, 500))
 m1 = Actor('campus-map8',        pos=(348, 202))
-#m1 = Actor('clemson12d2',        pos=(348, 202))
+s1 = Actor('login_screen',       pos=(350, 210))
+a3 = Actor('canvas_touch')
 
-successiveScreens    = [s1, s2]
 gs.lastSelectedActor = a1
 gs.moveableActors    = [m1, a1, a2, b1] # chalraha
-gs.stableActors      = [s1] #achalraha / rukha
+gs.stableActors      = [s1]
 gs.actorNames        = {a1: "John", a2: "Jane", s1: "screen", 
                         b1: "addUser", m1: "map"}
 
