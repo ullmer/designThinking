@@ -7,12 +7,15 @@ import sys
 WIDTH=1024
 
 class globalState:
-  numTimesSpaceHit = 0
+  numTimesSpaceHit  = 0
   lastSelectedActor = selectedActor        = None
   selectedActorName = selectedActorOrigPos = None
+  actorOriginalPos       = {}
+  defaultEllipseColor    = (0, 200, 200)
+  defaultEllipseLocation = Rect((800, 600), (850, 650))
+  stableActors = moveableActors = actorNames = None
 
 gs = globalState()
-
 #partial
   
 knownActorFilenames = ['red-hl-1in-200dpi', 'person-iconic1',
@@ -27,22 +30,12 @@ b1 = Actor('person-add-iconic1', pos=( 80, 500))
 m1 = Actor('campus-map8',        pos=(348, 202))
 #m1 = Actor('clemson12d2',        pos=(348, 202))
 
-successiveScreens = [s1, s2]
-lastSelectedActor = a1
-
-moveableActors = [m1, a1, a2, b1] # chalraha
-#moveableActors = [a1, a2, b1] # chalraha
-stableActors   = [s1] #achalraha / rukha
-
-actorNames           = {a1: "John", a2: "Jane", s1: "screen", 
+successiveScreens    = [s1, s2]
+gs.lastSelectedActor = a1
+gs.moveableActors    = [m1, a1, a2, b1] # chalraha
+gs.stableActors      = [s1] #achalraha / rukha
+gs.actorNames        = {a1: "John", a2: "Jane", s1: "screen", 
                         b1: "addUser", m1: "map"}
-#                        b1: "addUser"}
-actorOriginalPos     = {}
-selectedActor        = None
-selectedActorName    = None
-selectedActorOrigPos = None
-defaultEllipseColor    = (0, 200, 200)
-defaultEllipseLocation = Rect((800, 600), (850, 650))
 
 ###################### draw ######################
 
@@ -59,9 +52,9 @@ def draw():
 
 def addUser():
   #print("map position:", m1.pos)
-  newActor = Actor('red-hl-1in-200dpi',  pos=(200, 200))
-  moveableActors.append(newActor)
-  actorNames[newActor] = 'new actor'
+  newActor = Actor('red-hl-1in-200dpi', pos=(200, 200))
+  gs.moveableActors.append(newActor)
+  gs.actorNames[newActor] = 'new actor'
 
 ###################### on mouse down/press ######################
 
