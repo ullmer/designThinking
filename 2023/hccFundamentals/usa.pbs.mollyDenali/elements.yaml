@@ -1,0 +1,23 @@
+# Image resources
+# Brygg Ullmer, Clemson University
+# Begun 2022-01-24
+
+s1: {img: bs01,   x: 0}
+s2: {img: cj01,   x: 300}
+s3: {img: elgj01, x: 600}
+s4: {img: fd01,   x: 900}
+s5: {img: sba01,  x: 1100}
+
+t1: {img: 1860a, x: 0}
+t2: {img: 1880a, x: 600}
+
+Auntie_Midge
+Grandpa_Nat
+Layla_Mabray
+Molly_Mabray
+Suki
+Tooey_Ookami
+Trini_Mumford
+Walter_Mabray
+
+### end ###
