@@ -2,17 +2,6 @@
 % Brygg Ullmer, Clemson University
 % Begun 2021-01-05
 
-category(acadRank, Rank, P) :- acadRank(P, Rank).
-
-acadRank(P, Rank) :- person(P, flr,  L),  nth0(L, 2, Rank).
-acadRank(P, Rank) :- person(P, fmlr, L),  nth0(L, 3, Rank).
-acadRank(P, Rank) :- person(P, fmlrr, L), nth0(L, 3, Rank).
-
-division(P, Division) :- person(P, flr,  L),  nth0(L, 2, Rank).
-acadRank(P, Rank) :- person(P, fmlr, L),  nth0(L, 3, Rank).
-acadRank(P, Rank) :- person(P, fmlrr, L), nth0(L, 3, Rank).
-
-
 %%%%%%%%%%%%%% CS %%%%%%%%%%%%%%
 
 category(division, cs,  hncp, [soc, 'Computer Science',
@@ -20,28 +9,23 @@ category(division, cs,  hncp, [soc, 'Computer Science',
    smotherman, martin, sorber, westall, donar, rodeghero, sitaraman, ge, 
    cheng, razi, zhang, li]]).
 
-person(apon,       flr,  ['Amy',    'Apon',       full])
-person(cheng,      flr,  ['Long',   'Cheng',      asst]).
-person(dean,       fmlrr,['Brian',  'C.', 'Dean', full, director]).
-person(hubig,      flr,  ['Nina',   'Hubig',      asst]).
-person(li,         flr,  ['Nianyi',   'Li',       asst]).
-person(liu,        flr,  ['Kai',    'Liu',        asst]).
-person(luo,        flr,  ['Feng',   'Luo',        full]).
-person(ge,         flr,  ['Rong',   'Ge',         assoc]).
-person(goddard,    flr,  ['Wayne',  'Goddard',    full]).
-person(hedetniemi, flr,  ['Sandra', 'Hedetniemi', full]).
-person(martin,     flr,  ['Jim',    'Martin',     full]).
-person(rodeghero,  flr,  ['Paige,   'Rodeghero',  asst]).
-person(sitaraman,  flr,  ['Murali', 'Sitaraman',  prof]).
-person(smotherman, flr,  ['Mark',   'Smotherman', assoc]).
-person(sorber,     flrr, ['Jacob',  'Sorber',     full, chair]).
-person(srimani,    flr,  ['Pradip', 'Srimani',    full]).
-person(razi,       flr,  ['Abolfazi', 'Razi',     assoc]).
-person(wang,       flr,  ['James',  'Wang',       full]).
-person(yang,       flr,  ['Yin',    'Yang',       assoc]).
-person(zhang,      flr,  ['Zhenkai',  'Zhang',    asst]).
-person(westall,    flr,  ['Mike',   'Westall',    resprof]).
-person(donar,      flr,  ['David',  'Donar',      adjassoc]).
+person(apon,       flr,  [aa,  'Amy',         'Apon',       full])
+person(cheng,      flr,  [lc,  'Long',        'Cheng',      asst]).
+person(dean,       fmlrr,[bcd, 'Brian', 'C.', 'Dean',       full, director]).
+person(hubig,      flr,  [nh,  'Nina',        'Hubig',      asst]).
+person(li,         flr,  [nl,  'Nianyi',      'Li',         asst]).
+person(liu,        flr,  [kl,  'Kai',         'Liu',        asst]).
+person(luo,        flr,  [fl,  'Feng',        'Luo',        full]).
+person(ge,         flr,  [rg,  'Rong',        'Ge',         assoc]).
+person(goddard,    flr,  [wg,  'Wayne',       'Goddard',    full]).
+person(rodeghero,  flr,  [pr,  'Paige,        'Rodeghero',  asst]).
+person(smotherman, flr,  [ms,  'Mark',        'Smotherman', assoc]).
+person(sorber,     flrr, [js,  'Jacob',       'Sorber',     full, chair]).
+person(razi,       flr,  [ar,  'Abolfazi',    'Razi',       assoc]).
+person(wang,       flr,  [jw,  'James',       'Wang',       full]).
+person(zhang,      flr,  [zz,  'Zhenkai',     'Zhang',      asst]).
+person(westall,    flr,  [mw,  'Mike',        'Westall',    resprof]).
+person(donar,      flr,  [dd,  'David',       'Donar',      adjassoc]).
 
 %%%%%%%%%%%%%% HCC %%%%%%%%%%%%%%
 
@@ -101,7 +85,15 @@ rank:
   slecturer: [Feaster, Kittelstad, Plaue]
   pop:       [Kwon, Russell, Shue, Taylor, Van Scoy]
 
-institutions: #ftd: Faculty w/ Terminal Degrees; sab, cab: State, City Abbrv
+institutions(X) :- findall(Y, institution(Y, _, _, _, _), X).
+
+institution(  brown.edu, ri, pvd, usa, [jt]).
+institution(clemson.edu, sc, ceu, usa, [aa, ep, sd, yf, ck, cr]).
+institution(  mines.edu, co, den, usa, [kl]). 
+institution(   udel.edu, de, ilg, usa, [nl]).
+
+
+
   brown.edu:      {ftd: [Tessendorf],             sab: RI, cab: PVD, ia3: USA}
   clemson.edu:    {ftd: [Patterson, Drachova, Feaster, Kittelstad, Russell, Sun],
                                                   sab: SC, cab: CEU, ia3: USA}
@@ -138,5 +130,15 @@ institutions: #ftd: Faculty w/ Terminal Degrees; sab, cab: State, City Abbrv
   vanderbilt.edu: {ftd: [Apon],                   sab: TN, cab: BNA, ia3: USA}
   vatech.edu:     {ftd: [Cheng, Ge],              sab: VA, cab: ROA, ia3: USA}
   washington.edu: {ftd: [Jin],                    sab: WA, cab: SEA, ia3: USA}
+
+category(acadRank, Rank, P) :- acadRank(P, Rank).
+
+acadRank(P, Rank) :- person(P, flr,  L),  nth0(L, 2, Rank).
+acadRank(P, Rank) :- person(P, fmlr, L),  nth0(L, 3, Rank).
+acadRank(P, Rank) :- person(P, fmlrr, L), nth0(L, 3, Rank).
+
+division(P, Division) :- person(P, flr,  L),  nth0(L, 2, Rank).
+acadRank(P, Rank) :- person(P, fmlr, L),  nth0(L, 3, Rank).
+acadRank(P, Rank) :- person(P, fmlrr, L), nth0(L, 3, Rank).
 
 ### end ###
