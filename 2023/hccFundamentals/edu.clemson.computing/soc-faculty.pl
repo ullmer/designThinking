@@ -20,9 +20,9 @@ category(division, cs,  hncp, [soc, 'Computer Science',
    smotherman, martin, sorber, westall, donar, rodeghero, sitaraman, ge, 
    cheng, razi, zhang, li]]).
 
-person(apon,       flrr, ['Amy',    'Apon',       full, director]).
+person(apon,       flr,  ['Amy',    'Apon',       full])
 person(cheng,      flr,  ['Long',   'Cheng',      asst]).
-person(dean,       fmlrr,['Brian',  'C.', 'Dean', full, chair]).
+person(dean,       fmlrr,['Brian',  'C.', 'Dean', full, director]).
 person(hubig,      flr,  ['Nina',   'Hubig',      asst]).
 person(li,         flr,  ['Nianyi',   'Li',       asst]).
 person(liu,        flr,  ['Kai',    'Liu',        asst]).
@@ -34,7 +34,7 @@ person(martin,     flr,  ['Jim',    'Martin',     full]).
 person(rodeghero,  flr,  ['Paige,   'Rodeghero',  asst]).
 person(sitaraman,  flr,  ['Murali', 'Sitaraman',  prof]).
 person(smotherman, flr,  ['Mark',   'Smotherman', assoc]).
-person(sorber,     flr,  ['Jacob',  'Sorber',     assoc]).
+person(sorber,     flrr, ['Jacob',  'Sorber',     full, chair]).
 person(srimani,    flr,  ['Pradip', 'Srimani',    full]).
 person(razi,       flr,  ['Abolfazi', 'Razi',     assoc]).
 person(wang,       flr,  ['James',  'Wang',       full]).
@@ -50,14 +50,16 @@ category(division, hcc,  hncp, [soc, 'Human-Centered Computing',
    mcneese, robb, ullmer]]).
 
 person(babu,        flr,  ['Sabarish', 'Babu',        assoc]).
-person(brinkley,    flr,  ['Julian',   'Brinkley',    asst]).
-person(caine,       flr,  ['Kelly',    'Caine',       assoc]).
-person(freeman,     flr,  ['Guo',      'Freeman',     asst]).
+person(brinkley,    flr,  ['Julian',   'Brinkley',    asst ]).
+person(caine,       flr,  ['Kelly',    'Caine',       full ]).
+person(dixon,       flr,  ['Emma',     'Dixon',       asst ]).
+person(freeman,     flr,  ['Guo',      'Freeman',     assoc]).
+person(hernandez,   flr,  ['Carlos',   'Hernandez',   asst ]).
 person(knijnenburg, flr,  ['Bart',     'Knijnenburg', assoc]).
-person(kraemer,     flr,  ['Eileen',   'Kraemer',     full]).
-person(mcneese,     flr,  ['Nathan',   'McNeese',     asst]).
-person(robb,        flr,  ['Andrew',   'Robb',        asst]).
-person(ullmer,      flr,  ['Brygg',    'Ullmer',      full]).
+person(kraemer,     flr,  ['Eileen',   'Kraemer',     full ]).
+person(mcneese,     flr,  ['Nathan',   'McNeese',     assoc]).
+person(robb,        flr,  ['Andrew',   'Robb',        assoc]).
+person(ullmer,      flr,  ['Brygg',    'Ullmer',      full ]).
 
 %%%%%%%%%%%%%% VC %%%%%%%%%%%%%%
 
