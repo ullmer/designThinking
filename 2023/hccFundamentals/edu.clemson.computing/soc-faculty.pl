@@ -86,44 +86,48 @@ institution(  brown.edu, ri, pvd, usa, [jt]).
 institution(clemson.edu, sc, ceu, usa, [aa, ep, sd, yf, ck, cr]).
 institution(  mines.edu, co, den, usa, [kl]). 
 institution(   udel.edu, de, ilg, usa, [nl]).
-
-
-
-  brown.edu:      {ftd: [Tessendorf],             sab: RI, cab: PVD, ia3: USA}
-  clemson.edu:    {ftd: [Patterson, Drachova, Feaster, Kittelstad, Russell, Sun],
-                                                  sab: SC, cab: CEU, ia3: USA}
-  mines.edu:      {ftd: [Liu],                    sab: CO, cab: DEN, ia3: USA}   
-  udel.edu:       {ftd: [Li],                     sab: DE, cab: ILG, ia3: USA}
-  gmu.edu:        {ftd: [Shue],                   sab: VA, cab: DCA, ia3: USA}
-  gatech.edu:     {ftd: [Caine, Kraemer, Zordan, Plaue], 
-                                                  sab: GA, cab: ATL, ia3: USA}
-  indiana.edu:    {ftd: [Freeman],                sab: IN, cab: BMG, ia3: USA}
-  jhu.edu:        {ftd: [Taylor],                 sab: MD, cab: BWI, ia3: USA}
-  mit.edu:        {ftd: [Dean, Goddard, Ullmer],  sab: MA, cab: BOS, ia3: USA}
-  ncsu.edu:       {ftd: [Martin],                 sab: NC, cab: RDU, ia3: USA}
-  osu.edu:        {ftd: [Sitaraman],              sab: OH, cab: OSU, ia3: USA}
-  psu.edu:        {ftd: [McNeese],                sab: PA, cab: UNV, ia3: USA}
-  scad.edu:       {ftd: [Kwon],                   sab: GA, cab: SAV, ia3: USA}
-  tum.de:         {ftd: [Hubig],                           cab: MUC, ia3: DEU}
-  tamu.edu:       {ftd: [Duchowski],              sab: TX, cab: CLL, ia3: USA}
-  unibe.ch:       {ftd: [Dhillon Singh],                   cab: BRN, ia3: CHE}
-  caluniv.ac.in:  {ftd: [Srimani],                         cab: CCU, ia3: IND}
-  uci.edu:        {ftd: [Knijnenburg],            sab: CA, cab: SNA, ia3: USA}
-  ucla.edu:       {ftd: [Widman],                 sab: CA, cab: LAX, ia3: USA}
-  ucf.edu:        {ftd: [Wang],                   sab: FL, cab: MCO, ia3: USA}
+institution(    gmu.edu, va, dca, usa, [ms]).
+institution( gatech.edu, ga, atl, usa, [kc, ek, vz, cp]). 
+institution(indiana.edu, in, bmg, usa, [gf]).
+institution(    jhu.edu, md, bwi, usa, [ct]).
+institution(    mit.edu, ma, bos, usa, [bcd, wg, bu]).
+institution(   ncsu.edu, nc, rdu, usa, [jm]).
+institution(    osu.edu, oh, osu, usa, [ms]).
+institution(    psu.edu, pa, unv, usa, [nm]).
+institution(   scad.edu, ga, sav, usa, [ik]).
+institution(     tum.de,  _, muc, deu, [nh]).
+institution(   tamu.edu, tx, cll, usa, [ad]).
+institution(   unibe.ch,  _, brn, che, [dsd]).
+institution(    uci.edu, ca, sna, usa, [bk]).
+institution(   ucla.edu, ca, lax, usa, [nw]).
+institution(    ucf.edu, fl, mco, usa, [jw]).
+institution( 
   tcd.ie:         {ftd: [Joerg],                           cab: DUB, ia3: IRL}
+institution( 
   ufl.edu:        {ftd: [Brinkley, Robb],         sab: FL, cab: GNV, ia3: USA}
+institution( 
   unige.it:       {ftd: [Iuricich],                        cab: GOA, ia3: ITA}
+institution( 
   umaine.edu:     {ftd: [Razi],                   sab: ME, cab: BDL, ia3: USA}
+institution( 
   umass.edu:      {ftd: [Sorber],                 sab: MA, cab: BGR, ia3: USA}
+institution( 
   unc.edu:        {ftd: [Smotherman],             sab: NC, cab: RDU, ia3: USA}
+institution( 
   charlotte.edu:  {ftd: [Babu],                   sab: NC, cab: CLT, ia3: USA}
+institution( 
   pitt.edu:       {ftd: [Van Scoy],               sab: PA, cab: PIT, ia3: USA}
+institution( 
   utdallas.edu:   {ftd: [Luo],                    sab: TX, cab: DFW, ia3: USA}
+institution( 
   virginia.edu:   {ftd: [Hedetniemi],             sab: VA, cab: CHO, ia3: USA}
+institution( 
   uu.nl:          {ftd: [Karamouzas],                      cab: UTC, ia3: NLD}
+institution( 
   vanderbilt.edu: {ftd: [Apon],                   sab: TN, cab: BNA, ia3: USA}
+institution( 
   vatech.edu:     {ftd: [Cheng, Ge],              sab: VA, cab: ROA, ia3: USA}
+institution( 
   washington.edu: {ftd: [Jin],                    sab: WA, cab: SEA, ia3: USA}
 
 category(acadRank, Rank, P) :- acadRank(P, Rank).
