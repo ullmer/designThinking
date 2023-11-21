@@ -77,10 +77,6 @@ rank:
   slecturer: [Feaster, Kittelstad, Plaue]
   pop:       [Kwon, Russell, Shue, Taylor, Van Scoy]
 
-domCat(inst, dncpsci, [Domain, State, City, Country, People]) :-
-  institution(Domain, State, City, Country, People).
-
-institutions(X) :- findall(Y, institution(Y, _, _, _, _), X).
 
 institution(     brown.edu, ri, pvd, usa, [jt]).
 institution(   clemson.edu, sc, ceu, usa, [aa, ep, sd, yf, ck, cr]).
@@ -113,6 +109,13 @@ institution(vanderbilt.edu, tn, bna, usa, [aa]).
 institution(    vatech.edu, va, roa, usa, [lc, rg]).
 institution(washington.edu, wa, sea, usa, [sj]).
 
+%%%%%%%%%%%%%% Generalizations %%%%%%%%%%%%%%
+
+institutions(X) :- findall(Y, institution(Y, _, _, _, _), X).
+
+domCat(inst, dncpsci, [Domain, State, City, Country, People]) :-
+  institution(Domain, State, City, Country, People).
+
 category(acadRank, Rank, P) :- acadRank(P, Rank).
 
 acadRank(P, Rank) :- person(P, flr,  L),  nth0(L, 2, Rank).
@@ -120,7 +123,7 @@ acadRank(P, Rank) :- person(P, fmlr, L),  nth0(L, 3, Rank).
 acadRank(P, Rank) :- person(P, fmlrr, L), nth0(L, 3, Rank).
 
 division(P, Division) :- person(P, flr,  L),  nth0(L, 2, Rank).
-acadRank(P, Rank) :- person(P, fmlr, L),  nth0(L, 3, Rank).
-acadRank(P, Rank) :- person(P, fmlrr, L), nth0(L, 3, Rank).
+acadRank(P, Rank)     :- person(P, fmlr, L),  nth0(L, 3, Rank).
+acadRank(P, Rank)     :- person(P, fmlrr, L), nth0(L, 3, Rank).
 
-### end ###
+%%% end %%%
