@@ -91,37 +91,39 @@ rank:
   pop:       [Kwon, Russell, Shue, Taylor, Van Scoy]
 
 %           Domain, State, City, Country, PhD,  Mx, Bx 
-institution(     brown.edu, ri, pvd, usa, [jt],                     [], []).
-institution(   clemson.edu, sc, ceu, usa, [aa, ep, sd, yf, ck, cr], [], []).
-institution(     mines.edu, co, den, usa, [kl],                     [], []). 
-institution(      udel.edu, de, ilg, usa, [nl],                     [], []).
-institution(       gmu.edu, va, dca, usa, [ms],                     [], []).
-institution(    gatech.edu, ga, atl, usa, [kc, ek, vz, cp],         [], []). 
-institution(  illinois.edu, il, cmi, usa, [],                       [], [bu]).
-institution(   indiana.edu, in, bmg, usa, [gf],                     [], []).
-institution(       jhu.edu, md, bwi, usa, [ct],                     [], []).
-institution(       mit.edu, ma, bos, usa, [bcd, wg, bu],            [bu], [bcd]).
-institution(      ncsu.edu, nc, rdu, usa, [jm],                     [], []).
-institution(       osu.edu, oh, osu, usa, [ms],                     [], []).
-institution(       psu.edu, pa, unv, usa, [nm],                     [], []).
-institution(      scad.edu, ga, sav, usa, [ik],                     [], []).
-institution(       tum.de,   _, muc, deu, [nh],                     [], []).
-institution(      tamu.edu, tx, cll, usa, [ad],                     [], []).
-institution(     unibe.ch,   _, brn, che, [dsd],                    [], []).
-institution(       uci.edu, ca, sna, usa, [bk],                     [], []).
-institution(      ucla.edu, ca, lax, usa, [nw],                     [], []).
-institution(       ucf.edu, fl, mco, usa, [jw],                     [], []).
-institution(       ufl.edu, fl, gnv, usa, [jb],                     [], []).
-institution(      unige.it,  _, goa, ita, [fi],                     [], []).
-institution(    umaine.edu, me, bdl, usa, [ar],                     [], []).
-institution(     umass.edu, ma, bgr, usa, [js],                     [], []).
-institution(       unc.edu, nc, rdu, usa, [ms],                     [], []).
-institution( charlotte.edu, nc, clt, usa, [sb],                     [], []).
-institution(      pitt.edu, pa, pit, usa, [rvs],                    [], []).
-institution(  utdallas.edu, tx, dfw, usa, [fl],                     [], []).
-institution(vanderbilt.edu, tn, bna, usa, [aa],                     [], []).
-institution(    vatech.edu, va, roa, usa, [lc, rg],                 [], []).
-institution(washington.edu, wa, sea, usa, [sj],                     [], []).
+institution(     brown.edu, ri, pvd, usa, [jt],                     [], [], []).
+institution(   clemson.edu, sc, ceu, usa, [aa, ep, sd, yf, ck, cr], [], [], []).
+institution(     mines.edu, co, den, usa, [kl],                     [], [], []). 
+institution(      udel.edu, de, ilg, usa, [nl],                     [], [], []).
+institution(       gmu.edu, va, dca, usa, [ms],                     [], [], []).
+institution(    gatech.edu, ga, atl, usa, [kc, ek, vz, cp],         [], [], []). 
+institution(  illinois.edu, il, cmi, usa, [],                       [], [bu], []).
+institution(   indiana.edu, in, bmg, usa, [gf],                     [], [], []).
+institution(       jhu.edu, md, bwi, usa, [ct],                     [], [], []).
+institution(       mit.edu, ma, bos, usa, [bcd, wg, bu],            [bu], [bcd], []).
+institution(      ncsu.edu, nc, rdu, usa, [jm],                     [], [], []).
+institution(       osu.edu, oh, osu, usa, [ms],                     [], [], []).
+institution(       psu.edu, pa, unv, usa, [nm],                     [], [], []).
+institution(      scad.edu, ga, sav, usa, [ik],                     [], [], []).
+institution(       tum.de,   _, muc, deu, [nh],                     [], [], []).
+institution(      tamu.edu, tx, cll, usa, [ad],                     [], [], []).
+institution(     unibe.ch,   _, brn, che, [dsd],                    [], [], []).
+institution(       uci.edu, ca, sna, usa, [bk],                     [], [], []).
+institution(      ucla.edu, ca, lax, usa, [nw],                     [], [], []).
+institution(       ucf.edu, fl, mco, usa, [jw],                     [], [], []).
+institution(       ufl.edu, fl, gnv, usa, [jb],                     [], [], []).
+institution(      unige.it,  _, goa, ita, [fi],                     [], [], []).
+institution(    umaine.edu, me, bdl, usa, [ar],                     [], [], []).
+institution(     umass.edu, ma, bgr, usa, [js],                     [], [], []).
+institution(       unc.edu, nc, rdu, usa, [ms],                     [], [], []).
+institution( charlotte.edu, nc, clt, usa, [sb],                     [], [], []).
+institution(      pitt.edu, pa, pit, usa, [rvs],                    [], [], []).
+institution(  poly.edu.hk,   _, hkg, hkg, [],                       [], [], [bu]).
+institution(  utdallas.edu, tx, dfw, usa, [fl],                     [], [], []).
+institution(vanderbilt.edu, tn, bna, usa, [aa],                     [], [], []).
+institution(    vatech.edu, va, roa, usa, [lc, rg],                 [], [], []).
+institution(washington.edu, wa, sea, usa, [sj],                     [], [], []).
+institution(       zib.de,   _, ber, deu, [],                       [], [], [bu]).
 
 %%%%%%%%%%%%%% Generalizations %%%%%%%%%%%%%%
 
