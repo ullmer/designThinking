@@ -5,8 +5,8 @@
 %%%%%%%%%%%%%% CS %%%%%%%%%%%%%%
 
 category(division, cs,  hncp, [soc, 'Computer Science',
-  [apon, dean, hubig, liu, luo, wang, yang, goddard, hedetniemi, srimani, 
-   smotherman, martin, sorber, westall, donar, rodeghero, sitaraman, ge, 
+  [apon, dean, hubig, liu, luo, wang, yang, goddard, 
+   smotherman, sorber, westall, donar, rodeghero, ge, 
    cheng, razi, zhang, li]]).
 
 person(apon,       flr,  [aa,  'Amy',         'Apon',       full])
@@ -30,35 +30,33 @@ person(donar,      flr,  [dd,  'David',       'Donar',      adjassoc]).
 %%%%%%%%%%%%%% HCC %%%%%%%%%%%%%%
 
 category(division, hcc,  hncp, [soc, 'Human-Centered Computing',
-  [babu, brinkley, caine, freeman, knijnenburg, kraemer, 
+  [babu, brinkley, caine, dixon, freeman, knijnenburg, kraemer, 
    mcneese, robb, ullmer]]).
 
-person(babu,        flr,  ['Sabarish', 'Babu',        assoc]).
-person(brinkley,    flr,  ['Julian',   'Brinkley',    asst ]).
-person(caine,       flr,  ['Kelly',    'Caine',       full ]).
-person(dixon,       flr,  ['Emma',     'Dixon',       asst ]).
-person(freeman,     flr,  ['Guo',      'Freeman',     assoc]).
-person(hernandez,   flr,  ['Carlos',   'Hernandez',   asst ]).
-person(knijnenburg, flr,  ['Bart',     'Knijnenburg', assoc]).
-person(kraemer,     flr,  ['Eileen',   'Kraemer',     full ]).
-person(mcneese,     flr,  ['Nathan',   'McNeese',     assoc]).
-person(robb,        flr,  ['Andrew',   'Robb',        assoc]).
-person(ullmer,      flr,  ['Brygg',    'Ullmer',      full ]).
+person(babu,        flr,  [sb, 'Sabarish', 'Babu',        assoc]).
+person(brinkley,    flr,  [jb, 'Julian',   'Brinkley',    asst ]).
+person(caine,       flr,  [kc, 'Kelly',    'Caine',       full ]).
+person(dixon,       flr,  [ed, 'Emma',     'Dixon',       asst ]).
+person(freeman,     flr,  [gf, 'Guo',      'Freeman',     assoc]).
+person(hernandez,   flr,  [ch, 'Carlos',   'Hernandez',   asst ]).
+person(knijnenburg, flr,  [bk, 'Bart',     'Knijnenburg', assoc]).
+person(kraemer,     flr,  [ek, 'Eileen',   'Kraemer',     full ]).
+person(mcneese,     flr,  [nm, 'Nathan',   'McNeese',     assoc]).
+person(robb,        flr,  [ar, 'Andrew',   'Robb',        assoc]).
+person(ullmer,      flr,  [bu, 'Brygg',    'Ullmer',      full ]).
 
 %%%%%%%%%%%%%% VC %%%%%%%%%%%%%%
 
 category(division, vc,  hncp, [soc, 'Visual Computing',
-  [jin, joerg, karamouzas, patterson, iuricich, tessendorf, zordan, 
+  [jin, karamouzas, patterson, iuricich, tessendorf, zordan, 
    singhdhillon, duchowski, kwon]]).
 
-person(jin,        flr,  ['Shuangshuang', 'Jin',    assoc]).
-person(joerg,      flr,  ['Sophie',       'Joerg',  assoc]).
-person(karamouzas, flr,  ['Ioannis',      'Karamouzas', asst]).
-person(patterson,  flr,  ['Eric', 'Patterson', assoc]).
-person(iuricich,   flr,  ['Federico', 'Iuricich', asst]).
-person(tessendorf, flr,  ['Jerry', 'Tessendorf', full]).
-person(zordan,     flr,  ['Victor, 'Zordan', full]).
-person(,        flr,  ['
+person(jin,          flr,  [sj,  'Shuangshuang', 'Jin',       assoc]).
+person(patterson,    flr,  [ep,  'Eric',     'Patterson',     assoc]).
+person(iuricich,     flr,  [fi,  'Federico', 'Iuricich',      asst ]).
+person(tessendorf,   flr,  [jt,  'Jerry',    'Tessendorf',    full ]).
+person(zordan,       flr,  [vz,  'Victor,    'Zordan',        full ]).
+person(singhdhillon, flr,  [dsd, 'Daljit',   'Singh Dhillon', asst ])
 Daljit Singh Dhillon
 person(,        flr,  ['
 Andrew Duchowski
