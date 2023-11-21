@@ -82,53 +82,36 @@ domCat(inst, dncpsci, [Domain, State, City, Country, People]) :-
 
 institutions(X) :- findall(Y, institution(Y, _, _, _, _), X).
 
-institution(  brown.edu, ri, pvd, usa, [jt]).
-institution(clemson.edu, sc, ceu, usa, [aa, ep, sd, yf, ck, cr]).
-institution(  mines.edu, co, den, usa, [kl]). 
-institution(   udel.edu, de, ilg, usa, [nl]).
-institution(    gmu.edu, va, dca, usa, [ms]).
-institution( gatech.edu, ga, atl, usa, [kc, ek, vz, cp]). 
-institution(indiana.edu, in, bmg, usa, [gf]).
-institution(    jhu.edu, md, bwi, usa, [ct]).
-institution(    mit.edu, ma, bos, usa, [bcd, wg, bu]).
-institution(   ncsu.edu, nc, rdu, usa, [jm]).
-institution(    osu.edu, oh, osu, usa, [ms]).
-institution(    psu.edu, pa, unv, usa, [nm]).
-institution(   scad.edu, ga, sav, usa, [ik]).
-institution(     tum.de,  _, muc, deu, [nh]).
-institution(   tamu.edu, tx, cll, usa, [ad]).
-institution(   unibe.ch,  _, brn, che, [dsd]).
-institution(    uci.edu, ca, sna, usa, [bk]).
-institution(   ucla.edu, ca, lax, usa, [nw]).
-institution(    ucf.edu, fl, mco, usa, [jw]).
-institution( 
-  tcd.ie:         {ftd: [Joerg],                           cab: DUB, ia3: IRL}
-institution( 
-  ufl.edu:        {ftd: [Brinkley, Robb],         sab: FL, cab: GNV, ia3: USA}
-institution( 
-  unige.it:       {ftd: [Iuricich],                        cab: GOA, ia3: ITA}
-institution( 
-  umaine.edu:     {ftd: [Razi],                   sab: ME, cab: BDL, ia3: USA}
-institution( 
-  umass.edu:      {ftd: [Sorber],                 sab: MA, cab: BGR, ia3: USA}
-institution( 
-  unc.edu:        {ftd: [Smotherman],             sab: NC, cab: RDU, ia3: USA}
-institution( 
-  charlotte.edu:  {ftd: [Babu],                   sab: NC, cab: CLT, ia3: USA}
-institution( 
-  pitt.edu:       {ftd: [Van Scoy],               sab: PA, cab: PIT, ia3: USA}
-institution( 
-  utdallas.edu:   {ftd: [Luo],                    sab: TX, cab: DFW, ia3: USA}
-institution( 
-  virginia.edu:   {ftd: [Hedetniemi],             sab: VA, cab: CHO, ia3: USA}
-institution( 
-  uu.nl:          {ftd: [Karamouzas],                      cab: UTC, ia3: NLD}
-institution( 
-  vanderbilt.edu: {ftd: [Apon],                   sab: TN, cab: BNA, ia3: USA}
-institution( 
-  vatech.edu:     {ftd: [Cheng, Ge],              sab: VA, cab: ROA, ia3: USA}
-institution( 
-  washington.edu: {ftd: [Jin],                    sab: WA, cab: SEA, ia3: USA}
+institution(     brown.edu, ri, pvd, usa, [jt]).
+institution(   clemson.edu, sc, ceu, usa, [aa, ep, sd, yf, ck, cr]).
+institution(     mines.edu, co, den, usa, [kl]). 
+institution(      udel.edu, de, ilg, usa, [nl]).
+institution(       gmu.edu, va, dca, usa, [ms]).
+institution(    gatech.edu, ga, atl, usa, [kc, ek, vz, cp]). 
+institution(   indiana.edu, in, bmg, usa, [gf]).
+institution(       jhu.edu, md, bwi, usa, [ct]).
+institution(       mit.edu, ma, bos, usa, [bcd, wg, bu]).
+institution(      ncsu.edu, nc, rdu, usa, [jm]).
+institution(       osu.edu, oh, osu, usa, [ms]).
+institution(       psu.edu, pa, unv, usa, [nm]).
+institution(      scad.edu, ga, sav, usa, [ik]).
+institution(       tum.de,   _, muc, deu, [nh]).
+institution(      tamu.edu, tx, cll, usa, [ad]).
+institution(     unibe.ch,   _, brn, che, [dsd]).
+institution(       uci.edu, ca, sna, usa, [bk]).
+institution(      ucla.edu, ca, lax, usa, [nw]).
+institution(       ucf.edu, fl, mco, usa, [jw]).
+institution(       ufl.edu, fl, gnv, usa, [jb]).
+institution(      unige.it,  _, goa, ita, [fi]).
+institution(    umaine.edu, me, bdl, usa, [ar]). 
+institution(     umass.edu, ma, bgr, usa, [js]).
+institution(       unc.edu, nc, rdu, usa, [ms]).
+institution( charlotte.edu, nc, clt, usa, [sb]).
+institution(      pitt.edu, pa, pit, usa, [rvs]).
+institution(  utdallas.edu, tx, dfw, usa, [fl]).
+institution(vanderbilt.edu, tn, bna, usa, [aa]).
+institution(    vatech.edu, va, roa, usa, [lc, rg]).
+institution(washington.edu, wa, sea, usa, [sj]).
 
 category(acadRank, Rank, P) :- acadRank(P, Rank).
 
