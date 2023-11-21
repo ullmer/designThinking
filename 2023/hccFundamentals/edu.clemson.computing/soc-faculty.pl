@@ -49,28 +49,22 @@ person(ullmer,      flr,  [bu, 'Brygg',    'Ullmer',      full ]).
 
 category(division, vc,  hncp, [soc, 'Visual Computing',
   [jin, karamouzas, patterson, iuricich, tessendorf, zordan, 
-   singhdhillon, duchowski, kwon]]).
+   singhdhillon, duchowski]]).
 
 person(jin,          flr,  [sj,  'Shuangshuang', 'Jin',       assoc]).
 person(patterson,    flr,  [ep,  'Eric',     'Patterson',     assoc]).
 person(iuricich,     flr,  [fi,  'Federico', 'Iuricich',      asst ]).
 person(tessendorf,   flr,  [jt,  'Jerry',    'Tessendorf',    full ]).
 person(zordan,       flr,  [vz,  'Victor,    'Zordan',        full ]).
-person(singhdhillon, flr,  [dsd, 'Daljit',   'Singh Dhillon', asst ])
-Daljit Singh Dhillon
-person(,        flr,  ['
-Andrew Duchowski
-person(,        flr,  ['
-Insun Kwon
-person(,        flr,  ['
+person(singhdhillon, flr,  [dsd, 'Daljit',   'Singh Dhillon', asst ]).
+person(duchowski,    flr,  [ad,  'Andrew',   'Duchowski',     full ]).
 
-
+%%%%%%%%%%%%%% FOI %%%%%%%%%%%%%%
 
   FOI: [Svetlana Drachova, Yvon Feaster, Alexander Herzog, 
         Catherine Kittelstad, Christopher Plaue, Carrie Russell, Mitch Shue, 
         Yu-Shan Sun, Connie Taylor, Roger Van Scoy, Nicolas Widman]
 
-doCat(inst, brown, dncpsci, ['brown.edu', 'Brown University', [tessendorf], ri, pvd, usa]).
 
 rank:
   asst:      [Brinkley, Cheng, Singh Dhillon, Freeman, Hubig, Iuricich,
@@ -82,6 +76,9 @@ rank:
   lecturer:  [Drachova, Sun, Widman]
   slecturer: [Feaster, Kittelstad, Plaue]
   pop:       [Kwon, Russell, Shue, Taylor, Van Scoy]
+
+domCat(inst, dncpsci, [Domain, State, City, Country, People]) :-
+  institution(Domain, State, City, Country, People).
 
 institutions(X) :- findall(Y, institution(Y, _, _, _, _), X).
 
