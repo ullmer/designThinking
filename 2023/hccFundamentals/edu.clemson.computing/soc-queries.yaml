@@ -1,0 +1,77 @@
+# YAML summary of database queries:
+#   Clemson SoC faculty + research interests SQLite database 
+# By Brygg Ullmer, Clemson University
+# Begun 2021-09-20
+
+dbDescr: #database description
+  sqliteDb: 'soc.db3' #source sqlite filename
+
+  queries: 
+    getRanksCompact: ###################################
+      query:   "select abbrev from facultyRanks order by rankOrder;"
+      results: [abbrev]
+
+    getRanksExpanded: ##################################
+      query: "select abbrev, name from facultyRanks order by rankOrder;"
+      results: [abbrev, name]
+
+    getDivisions: ######################################
+      query:  "select name from facultyDivisions;"
+      results: [name]
+
+    getFacultyByRank: ##################################
+      arguments: [rank]
+      query: "select name from faculty where rank=\"%s\";" 
+      results: [name]
+
+    getFacultyByDivision: ##############################
+      arguments: [division]
+      query: "select name from faculty where division='%s' order by lastName;"
+      results: [name]
+
+    getFacultyRankByDivision: ###########################
+      arguments: [division]
+      query: "select name, rank from faculty where division='%s' order by lastName"
+      results: [name, rank]
+
+    getFacultyRankExtraLByDivision: #####################
+      arguments: [division]
+      query: "select lastName, rank, extraRole from faculty where division='%s' order by lastName"
+      results: [lastName, rank, extraRole]
+
+    getMajorResearchAreas:
+      query: select ra.name from researchArea as ra, 
+               researchAreaRelation as rar 
+               where rar.parentID = 0 and ra.id = rar.childID;
+      results: [name]
+    
+    getResearchFields: ##################################
+      arguments: [majorResearchArea]
+      query: select ra1.name from researchArea as ra1, researchArea as ra2,
+               researchAreaRelation as rar 
+               where ra2.name="%s" and 
+                     rar.parentId = ra2.id and rar.childId = ra1.id;
+      results: [name]
+#               where where ra2.name="Artificial Intelligence" and 
+
+    getFacultyResearchFields: ##################################
+      arguments: [subarea]
+      query: select f.name, f.division, f.rank
+                from faculty as f, researchArea as ra, 
+                personResearchRelation as prr
+                where ra.name = '%s' and
+                  prr.raid = ra.id and prr.fid = f.id
+                group by f.name order by f.rank, f.division
+      results: [name, division, rank]
+
+    getResearchFieldsOrdered: ############################
+      arguments: [subarea, orderStr]
+      query: select f.name, f.division, f.rank
+                from faculty as f, researchArea as ra, 
+                personResearchRelation as prr
+                where ra.name = '%s' and
+                  prr.raid = ra.id and prr.fid = f.id
+                group by f.name order by %s
+      results: [name, division, rank]
+
+### end ###
