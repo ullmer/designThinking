@@ -22,7 +22,8 @@ class csv2yaml:
 
   targetColDictN  = {} #target column dictionary, Excel column ID (numeric)
   targetColFields = [] #keys of targetColDictXC/N
-  targetColList   = [] #vals of targetColDictN
+  targetColVals   = [] #vals of targetColDictN
+  ignoreRowErrors = True
 
   maxLineNum = 10
   lineNum    = 0
@@ -42,7 +43,7 @@ class csv2yaml:
   
   def mapAlpha2Num(self, alpha):
     try:
-      lowAlpha = alpha.tolower()
+      lowAlpha = alpha.lower()
       return ord(alpha) - ord('a') #A/a -> 0 .. Z/z-> 25
     except: 
       print('mapAlpha2Num issue:'); print(traceback.print_exc()); sys.exit(-1)
@@ -52,11 +53,11 @@ class csv2yaml:
   def mapColAlpha2Num(self, colAlpha): #map column alphabetic ID (A..Z, AA..AZ, etc.) to numeric
                                  #initially, hardcode to 1 or 2 alphabetic codes 
     numCA  = len(colAlpha)
-    if numCA == 1: return mapAlpha2Num(alpha)
+    if numCA == 1: return self.mapAlpha2Num(alpha)
     if numCA > 2:  print('mapColAlpha2Num requires generalization; sorry!'); sys.exit(-1)
     if numCA == 0: print('mapColAlpha2Num requires 1 or 2 alphabetic characters; sorry!'); sys.exit(-1)
   
-    result = 26 * mapAlpha2Num(colAlpha[0]) + mapAlpha2Num(colAlpha[1]) # hardwired to two 
+    result = 26 * self.mapAlpha2Num(colAlpha[0]) + self.mapAlpha2Num(colAlpha[1]) # hardwired to two 
     return result
   
   ################### map column IDs ###################
@@ -68,23 +69,28 @@ class csv2yaml:
      numVal   = self.mapColAlpha2Num(alphaVal)
      self.targetColDictN[key] = numVal
      self.targetColFields.append(key) 
-     self.targetColVals.append(val) 
+     self.targetColVals.append(numVal) 
   
   ################### loadCsv ###################
   
   def loadCsv(self): 
     if self.csvFn  is None: print("csv2yaml: loadCsv requires csvFn");  sys.exit(-1)
 
-    csvF  = open(csvFn, 'rt')
-    csvR  = csv.reader(csvF, delimter=',', quotechar='"')
+    csvF  = open(self.csvFn, 'rt')
+    csvR  = csv.reader(csvF, delimiter=',', quotechar='"')
     for row in csvR:
       if self.lineNum >= self.maxLineNum: sys.exit(1)
 
-      extractDict = {}
-      for key in self.targetColDictN:
-        colVal  = self.targetColDictN[key]
-        dataVal = row[colVal]
-        extractDict[key] = dataVal
+      try:
+        extractDict = {}
+        for key in self.targetColDictN:
+          colVal  = self.targetColDictN[key]
+          dataVal = row[colVal]
+          extractDict[key] = dataVal
+      except:
+        if self.ignoreRowErrors: continue
+        print("csv2yaml: loadCsv error:")
+        print(traceback.print_exc()); sys.exit(-1)
 
       print("%i: %s" % (self.lineNum, str(extractDict)))
       self.lineNum += 1
