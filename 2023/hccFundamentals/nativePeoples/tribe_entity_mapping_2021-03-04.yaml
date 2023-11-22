@@ -1,0 +1,363 @@
+# YAML representation of https://www.epa.gov/sites/production/files/2021-03/tribe_entity_mapping_2021-03-04.xlsx
+# Initial programmatic synthesis by Brygg Ullmer, Clemson University
+# Begun 2023-11-21
+
+ - {biaCode: 604, epaId: 100000091, states: [AZ, CA, NV], name: "Fort Mojave Indian Tribe of Arizona, California & Nevada"}
+ - {biaCode: 803, epaId: 100000092, states: [AZ, NM, OK], name: "Fort Sill Apache Tribe of Oklahoma"}
+ - {biaCode: 780, epaId: 100000171, states: [AZ, NM, UT], name: "Navajo Nation, Arizona, New Mexico, & Utah"}
+ - {biaCode: 304, epaId: 100000311, states: [MT, ND, SD], name: "Turtle Mountain Band of Chippewa Indians of North Dakota"}
+
+ - {biaCode: 603, epaId: 100000051, states: [AZ, CA], name: "Colorado River Indian Tribes of the Colorado River Indian Reservation, Arizona and California"}
+ - {biaCode: 681, epaId: 100000057, states: [NV, UT], name: "Confederated Tribes of the Goshute Reservation, Nevada and Utah"}
+ - {biaCode: 921, epaId: 100000077, states: [MO, OK], name: "Eastern Shawnee Tribe of Oklahoma"}
+ - {biaCode: 646, epaId: 100000089, states: [NV, OR], name: "Fort McDermitt Paiute and Shoshone Tribes of the Fort McDermitt Indian Reservation, Nevada and Oregon"}
+ - {biaCode: 860, epaId: 100000111, states: [KS, NE], name: "Iowa Tribe of Kansas and Nebraska"}
+ - {biaCode: 980, epaId: 100000162, states: [MS, TN], name: "Mississippi Band of Choctaw Indians"}
+ - {biaCode: 344, epaId: 100000179, states: [NE, SD], name: "Oglala Sioux Tribe"}
+ - {biaCode: 380, epaId: 100000181, states: [IA, NE], name: "Omaha Tribe of Nebraska"}
+ - {biaCode: 028, epaId: 100000204, states: [AL, FL], name: "Poarch Band of Creeks"}
+ - {biaCode: 480, epaId: 100000205, states: [IN, MI], name: "Pokagon Band of Potawatomi Indians, Michigan and Indiana"}
+ - {biaCode: 381, epaId: 100000207, states: [IA, NE], name: "Ponca Tribe of Nebraska"}
+ - {biaCode: 920, epaId: 100000230, states: [KS, OK], name: "Quapaw Nation"}
+ - {biaCode: 696, epaId: 100000232, states: [AZ, CA], name: "Quechan Tribe of the Fort Yuma Indian Reservation, California & Arizona"}
+ - {biaCode: 863, epaId: 100000247, states: [KS, NE], name: "Sac & Fox Nation of Missouri in Kansas and Nebraska"}
+ - {biaCode: 641, epaId: 100000277, states: [ID, NV], name: "Shoshone-Paiute Tribes of the Duck Valley Reservation, Nevada"}
+ - {biaCode: 347, epaId: 100000278, states: [ND, SD], name: "Sisseton-Wahpeton Oyate of the Lake Traverse Reservation, South Dakota"}
+ - {biaCode: 302, epaId: 100000289, states: [ND, SD], name: "Standing Rock Sioux Tribe of North & South Dakota"}
+ - {biaCode: 908, epaId: 100000169, states: [KS, OK], name: "The Muscogee (Creek) Nation"}
+ - {biaCode: 693, epaId: 100000071, states: [CA, NV], name: "Timbisha Shoshone Tribe"}
+ - {biaCode: 401, epaId: 100000316, states: [MN, WI], name: "Upper Sioux Community, Minnesota"}
+ - {biaCode: 751, epaId: 100000319, states: [CO, NM], name: "Ute Mountain Ute Tribe"}
+ - {biaCode: 672, epaId: 100000323, states: [CA, NV], name: "Washoe Tribe of Nevada & California (Carson Colony, Dresslerville Colony, Woodfords Community, Stewart Community, & Washoe Ranches)"}
+ - {biaCode: 383, epaId: 100000327, states: [IA, NE], name: "Winnebago Tribe of Nebraska"}
+ - {biaCode: 924, epaId: 100000330, states: [KS, OK], name: "Wyandotte Nation"}
+ - {biaCode: 721, epaId: 100000339, states: [AZ, NM], name: "Zuni Tribe of the Zuni Reservation, New Mexico"}
+
+ - {biaCode: 820, epaId: 100000001, states: [OK], name: "Absentee-Shawnee Tribe of Indians of Oklahoma"}
+ - {biaCode: 584, epaId: 100000002, states: [CA], name: "Agua Caliente Band of Cahuilla Indians of the Agua Caliente Indian Reservation, California"}
+ - {biaCode: 612, epaId: 100000003, states: [AZ], name: "Ak-Chin Indian Community"}
+ - {biaCode: 830, epaId: 100000004, states: [TX], name: "Alabama-Coushatta Tribe of Texas"}
+ - {biaCode: 901, epaId: 100000005, states: [OK], name: "Alabama-Quassarte Tribal Town"}
+ - {biaCode: 502, epaId: 100000006, states: [CA], name: "Alturas Indian Rancheria, California"}
+ - {biaCode: 809, epaId: 100000007, states: [OK], name: "Apache Tribe of Oklahoma"}
+ - {biaCode: 281, epaId: 100000008, states: [WY], name: "Arapaho Tribe of the Wind River Reservation, Wyoming"}
+ - {biaCode: 031, epaId: 100000009, states: [ME], name: "Aroostook Band of Micmacs"}
+ - {biaCode: 206, epaId: 100000010, states: [MT], name: "Assiniboine and Sioux Tribes of the Fort Peck Indian Reservation, Montana"}
+ - {biaCode: 567, epaId: 100000011, states: [CA], name: "Augustine Band of Cahuilla Indians, California"}
+ - {biaCode: 430, epaId: 100000012, states: [WI], name: "Bad River Band of the Lake Superior Tribe of Chippewa Indians of the Bad River Reservation, Wisconsin"}
+ - {biaCode: 470, epaId: 100000013, states: [MI], name: "Bay Mills Indian Community, Michigan"}
+ - {biaCode: 560, epaId: 100000014, states: [CA], name: "Bear River Band of the Rohnerville Rancheria, California"}
+ - {biaCode: 504, epaId: 100000015, states: [CA], name: "Berry Creek Rancheria of Maidu Indians of California"}
+ - {biaCode: 554, epaId: 100000016, states: [CA], name: "Big Lagoon Rancheria, California"}
+ - {biaCode: 530, epaId: 100000017, states: [CA], name: "Big Pine Paiute Tribe of the Owens Valley"}
+ - {biaCode: 506, epaId: 100000018, states: [CA], name: "Big Sandy Rancheria of Western Mono Indians of California"}
+ - {biaCode: 507, epaId: 100000019, states: [CA], name: "Big Valley Band of Pomo Indians of the Big Valley Rancheria, California"}
+ - {biaCode: 549, epaId: 100000189, states: [CA], name: "Bishop Paiute Tribe"}
+ - {biaCode: 201, epaId: 100000020, states: [MT], name: "Blackfeet Tribe of the Blackfeet Indian Reservation of Montana"}
+ - {biaCode: 558, epaId: 100000021, states: [CA], name: "Blue Lake Rancheria, California"}
+ - {biaCode: 691, epaId: 100000022, states: [CA], name: "Bridgeport Indian Colony"}
+ - {biaCode: 508, epaId: 100000023, states: [CA], name: "Buena Vista Rancheria of Me-Wuk Indians of California"}
+ - {biaCode: 144, epaId: 100000024, states: [OR], name: "Burns Paiute Tribe"}
+ - {biaCode: 568, epaId: 100000025, states: [CA], name: "Cabazon Band of Mission Indians, California"}
+ - {biaCode: 512, epaId: 100000026, states: [CA], name: "Cachil DeHe Band of Wintun Indians of the Colusa Indian Community of the Colusa Rancheria, California"}
+ - {biaCode: 806, epaId: 100000027, states: [OK], name: "Caddo Nation of Oklahoma"}
+ - {biaCode: 524, epaId: 100000029, states: [CA], name: "Cahto Tribe of the Laytonville Rancheria"}
+ - {biaCode: 569, epaId: 100000028, states: [CA], name: "Cahuilla Band of Indians"}
+ - {biaCode: 628, epaId: 100000030, states: [CA], name: "California Valley Miwok Tribe, California"}
+ - {biaCode: 570, epaId: 100000031, states: [CA], name: "Campo Band of Diegueno Mission Indians of the Campo Indian Reservation, California"}
+ - {biaCode: 571, epaId: 100000032, states: [CA], name: "Capitan Grande Band of Diegueno Mission Indians of California (Barona Group of Capitan Grande Band of Mission Indians of the Barona Reservation, California; Viejas (Baron Long) Group of Capitan Grande Band of Mission Indians of the Viejas Reservation, California)"}
+ - {biaCode: 032, epaId: 100000033, states: [SC], name: "Catawba Indian Nation"}
+ - {biaCode: 013, epaId: 100000034, states: [NY], name: "Cayuga Nation"}
+ - {biaCode: 621, epaId: 100000035, states: [CA], name: "Cedarville Rancheria, California"}
+ - {biaCode: 695, epaId: 100000036, states: [CA], name: "Chemehuevi Indian Tribe of the Chemehuevi Reservation, California"}
+ - {biaCode: 566, epaId: 100000037, states: [CA], name: "Cher-Ae Heights Indian Community of the Trinidad Rancheria, California"}
+ - {biaCode: 905, epaId: 100000038, states: [OK], name: "Cherokee Nation"}
+ - {biaCode: 801, epaId: 100000039, states: [OK], name: "Cheyenne and Arapaho Tribes, Oklahoma"}
+ - {biaCode: 340, epaId: 100000040, states: [SD], name: "Cheyenne River Sioux Tribe of the Cheyenne River Reservation, South Dakota"}
+ - {biaCode: TBD, epaId: 100000591, states: [VA], name: "Chickahominy Indian Tribe"}
+ - {biaCode: TBD, epaId: 100000592, states: [VA], name: "Chickahominy Indian Tribe--Eastern Division"}
+ - {biaCode: 523, epaId: 100000042, states: [CA], name: "Chicken Ranch Rancheria of Me-Wuk Indians of California"}
+ - {biaCode: 205, epaId: 100000043, states: [MT], name: "Chippewa Cree Indians of the Rocky Boy's Reservation, Montana"}
+ - {biaCode: 970, epaId: 100000044, states: [LA], name: "Chitimacha Tribe of Louisiana"}
+ - {biaCode: 821, epaId: 100000046, states: [OK], name: "Citizen Potawatomi Nation, Oklahoma"}
+ - {biaCode: 510, epaId: 100000047, states: [CA], name: "Cloverdale Rancheria of Pomo Indians of California"}
+ - {biaCode: 602, epaId: 100000048, states: [AZ], name: "Cocopah Tribe of Arizona"}
+ - {biaCode: 181, epaId: 100000049, states: [ID], name: "Coeur D'Alene Tribe"}
+ - {biaCode: 511, epaId: 100000050, states: [CA], name: "Cold Springs Rancheria of Mono Indians of California"}
+ - {biaCode: 808, epaId: 100000052, states: [OK], name: "Comanche Nation, Oklahoma"}
+ - {biaCode: 203, epaId: 100000053, states: [MT], name: "Confederated Salish and Kootenai Tribes of the Flathead Reservation"}
+ - {biaCode: 124, epaId: 100000062, states: [WA], name: "Confederated Tribes and Bands of the Yakama Nation"}
+ - {biaCode: 142, epaId: 100000059, states: [OR], name: "Confederated Tribes of Siletz Indians of Oregon"}
+ - {biaCode: 105, epaId: 100000054, states: [WA], name: "Confederated Tribes of the Chehalis Reservation"}
+ - {biaCode: 101, epaId: 100000055, states: [WA], name: "Confederated Tribes of the Colville Reservation"}
+ - {biaCode: 152, epaId: 100000056, states: [OR], name: "Confederated Tribes of the Coos, Lower Umpqua and Siuslaw Indians"}
+ - {biaCode: 141, epaId: 100000058, states: [OR], name: "Confederated Tribes of the Grand Ronde Community of Oregon"}
+ - {biaCode: 143, epaId: 100000060, states: [OR], name: "Confederated Tribes of the Umatilla Indian Reservation"}
+ - {biaCode: 145, epaId: 100000061, states: [OR], name: "Confederated Tribes of the Warm Springs Reservation of Oregon"}
+ - {biaCode: 155, epaId: 100000063, states: [OR], name: "Coquille Indian Tribe"}
+ - {biaCode: 971, epaId: 100000065, states: [LA], name: "Coushatta Tribe of Louisiana"}
+ - {biaCode: 153, epaId: 100000066, states: [OR], name: "Cow Creek Band of Umpqua Tribe of Indians"}
+ - {biaCode: 132, epaId: 100000067, states: [WA], name: "Cowlitz Indian Tribe"}
+ - {biaCode: 638, epaId: 100000068, states: [CA], name: "Coyote Valley Band of Pomo Indians of California"}
+ - {biaCode: 342, epaId: 100000070, states: [SD], name: "Crow Creek Sioux Tribe of the Crow Creek Reservation, South Dakota"}
+ - {biaCode: 202, epaId: 100000069, states: [MT], name: "Crow Tribe of Montana"}
+ - {biaCode: 807, epaId: 100000072, states: [OK], name: "Delaware Nation, Oklahoma"}
+ - {biaCode: 816, epaId: 100000073, states: [OK], name: "Delaware Tribe of Indians"}
+ - {biaCode: 515, epaId: 100000074, states: [CA], name: "Dry Creek Rancheria Band of Pomo Indians, California"}
+ - {biaCode: 642, epaId: 100000075, states: [NV], name: "Duckwater Shoshone Tribe of the Duckwater Reservation, Nevada"}
+ - {biaCode: 001, epaId: 100000076, states: [NC], name: "Eastern Band of Cherokee Indians"}
+ - {biaCode: 282, epaId: 100000275, states: [WY], name: "Eastern Shoshone Tribe of the Wind River Reservation, Wyoming"}
+ - {biaCode: 632, epaId: 100000078, states: [CA], name: "Elem Indian Colony of Pomo Indians of the Sulphur Bank Rancheria, California"}
+ - {biaCode: 559, epaId: 100000079, states: [CA], name: "Elk Valley Rancheria, California"}
+ - {biaCode: 644, epaId: 100000080, states: [NV], name: "Ely Shoshone Tribe of Nevada"}
+ - {biaCode: 517, epaId: 100000081, states: [CA], name: "Enterprise Rancheria of Maidu Indians of California"}
+ - {biaCode: 573, epaId: 100000082, states: [CA], name: "Ewiiaapaayp Band of Kumeyaay Indians, California"}
+ - {biaCode: 622, epaId: 100000083, states: [CA], name: "Federated Indians of Graton Rancheria, California"}
+ - {biaCode: 341, epaId: 100000084, states: [SD], name: "Flandreau Santee Sioux Tribe of South Dakota"}
+ - {biaCode: 434, epaId: 100000085, states: [WI], name: "Forest County Potawatomi Community, Wisconsin"}
+ - {biaCode: 204, epaId: 100000086, states: [MT], name: "Fort Belknap Indian Community of the Fort Belknap Reservation of Montana"}
+ - {biaCode: 518, epaId: 100000087, states: [CA], name: "Fort Bidwell Indian Community of the Fort Bidwell Reservation of California"}
+ - {biaCode: 525, epaId: 100000088, states: [CA], name: "Fort Independence Indian Community of Paiute Indians of the Fort Independence Reservation, California"}
+ - {biaCode: 613, epaId: 100000090, states: [AZ], name: "Fort McDowell Yavapai Nation, Arizona"}
+ - {biaCode: 614, epaId: 100000093, states: [AZ], name: "Gila River Indian Community of the Gila River Indian Reservation, Arizona"}
+ - {biaCode: 468, epaId: 100000094, states: [MI], name: "Grand Traverse Band of Ottawa and Chippewa Indians, Michigan"}
+ - {biaCode: 545, epaId: 100000095, states: [CA], name: "Greenville Rancheria"}
+ - {biaCode: 519, epaId: 100000096, states: [CA], name: "Grindstone Indian Rancheria of Wintun-Wailaki Indians of California"}
+ - {biaCode: 505, epaId: 100000097, states: [CA], name: "Guidiville Rancheria of California"}
+ - {biaCode: 636, epaId: 100000098, states: [CA], name: "Habematolel Pomo of Upper Lake, California"}
+ - {biaCode: 471, epaId: 100000099, states: [MI], name: "Hannahville Indian Community, Michigan"}
+ - {biaCode: 605, epaId: 100000100, states: [AZ], name: "Havasupai Tribe of the Havasupai Reservation, Arizona"}
+ - {biaCode: 439, epaId: 100000101, states: [WI], name: "Ho-Chunk Nation of Wisconsin"}
+ - {biaCode: 106, epaId: 100000102, states: [WA], name: "Hoh Indian Tribe"}
+ - {biaCode: 561, epaId: 100000103, states: [CA], name: "Hoopa Valley Tribe, California"}
+ - {biaCode: 608, epaId: 100000104, states: [AZ], name: "Hopi Tribe of Arizona"}
+ - {biaCode: 521, epaId: 100000105, states: [CA], name: "Hopland Band of Pomo Indians, California"}
+ - {biaCode: 019, epaId: 100000106, states: [ME], name: "Houlton Band of Maliseet Indians"}
+ - {biaCode: 606, epaId: 100000107, states: [AZ], name: "Hualapai Indian Tribe of the Hualapai Indian Reservation, Arizona"}
+ - {biaCode: 592, epaId: 100000108, states: [CA], name: "Iipay Nation of Santa Ysabel, California"}
+ - {biaCode: 574, epaId: 100000109, states: [CA], name: "Inaja Band of Diegueno Mission Indians of the Inaja and Cosmit Reservation, California"}
+ - {biaCode: 529, epaId: 100000110, states: [CA], name: "Ione Band of Miwok Indians of California"}
+ - {biaCode: 822, epaId: 100000112, states: [OK], name: "Iowa Tribe of Oklahoma"}
+ - {biaCode: 522, epaId: 100000113, states: [CA], name: "Jackson Band of Miwuk Indians"}
+ - {biaCode: 129, epaId: 100000114, states: [WA], name: "Jamestown S'Klallam Tribe"}
+ - {biaCode: 575, epaId: 100000115, states: [CA], name: "Jamul Indian Village of California"}
+ - {biaCode: 034, epaId: 100000116, states: [LA], name: "Jena Band of Choctaw Indians"}
+ - {biaCode: 701, epaId: 100000117, states: [NM], name: "Jicarilla Apache Nation, New Mexico"}
+ - {biaCode: 617, epaId: 100000118, states: [AZ], name: "Kaibab Band of Paiute Indians of the Kaibab Indian Reservation, Arizona"}
+ - {biaCode: 103, epaId: 100000119, states: [WA], name: "Kalispel Indian Community of the Kalispel Reservation"}
+ - {biaCode: 555, epaId: 100000120, states: [CA], name: "Karuk Tribe"}
+ - {biaCode: 547, epaId: 100000121, states: [CA], name: "Kashia Band of Pomo Indians of the Stewarts Point Rancheria, California"}
+ - {biaCode: 810, epaId: 100000122, states: [OK], name: "Kaw Nation, Oklahoma"}
+ - {biaCode: 717, epaId: 100000123, states: [NM], name: "Kewa Pueblo, New Mexico"}
+ - {biaCode: 475, epaId: 100000124, states: [MI], name: "Keweenaw Bay Indian Community, Michigan"}
+ - {biaCode: 902, epaId: 100000125, states: [OK], name: "Kialegee Tribal Town"}
+ - {biaCode: 826, epaId: 100000128, states: [TX], name: "Kickapoo Traditional Tribe of Texas"}
+ - {biaCode: 861, epaId: 100000126, states: [KS], name: "Kickapoo Tribe of Indians of the Kickapoo Reservation in Kansas"}
+ - {biaCode: 823, epaId: 100000127, states: [OK], name: "Kickapoo Tribe of Oklahoma"}
+ - {biaCode: 802, epaId: 100000129, states: [OK], name: "Kiowa Indian Tribe of Oklahoma"}
+ - {biaCode: 140, epaId: 100000130, states: [OR], name: "Klamath Tribes"}
+ - {biaCode: 513, epaId: 100000064, states: [CA], name: "Kletsel Dehe Band of Wintun Indians"}
+ - {biaCode: 639, epaId: 100000140, states: [CA], name: "Koi Nation of Northern California"}
+ - {biaCode: 183, epaId: 100000131, states: [ID], name: "Kootenai Tribe of Idaho"}
+ - {biaCode: 576, epaId: 100000132, states: [CA], name: "La Jolla Band of Luiseno Indians, California"}
+ - {biaCode: 577, epaId: 100000133, states: [CA], name: "La Posta Band of Diegueno Mission Indians of the La Posta Indian Reservation, California"}
+ - {biaCode: 431, epaId: 100000134, states: [WI], name: "Lac Courte Oreilles Band of Lake Superior Chippewa Indians of Wisconsin"}
+ - {biaCode: 432, epaId: 100000135, states: [WI], name: "Lac du Flambeau Band of Lake Superior Chippewa Indians of the Lac du Flambeau Reservation of Wisconsin"}
+ - {biaCode: 479, epaId: 100000136, states: [MI], name: "Lac Vieux Desert Band of Lake Superior Chippewa Indians of Michigan"}
+ - {biaCode: 648, epaId: 100000137, states: [NV], name: "Las Vegas Tribe of Paiute Indians of the Las Vegas Indian Colony, Nevada"}
+ - {biaCode: 482, epaId: 100000138, states: [MI], name: "Little River Band of Ottawa Indians, Michigan"}
+ - {biaCode: TBD, epaId: 100000597, states: [MT], name: "Little Shell Tribe of Chippewa Indians of Montana"}
+ - {biaCode: 483, epaId: 100000139, states: [MI], name: "Little Traverse Bay Bands of Odawa Indians, Michigan"}
+ - {biaCode: 624, epaId: 100000191, states: [CA], name: "Lone Pine Paiute-Shoshone Tribe"}
+ - {biaCode: 578, epaId: 100000141, states: [CA], name: "Los Coyotes Band of Cahuilla and Cupeno Indians, California"}
+ - {biaCode: 649, epaId: 100000142, states: [NV], name: "Lovelock Paiute Tribe of the Lovelock Indian Colony, Nevada"}
+ - {biaCode: 343, epaId: 100000143, states: [SD], name: "Lower Brule Sioux Tribe of the Lower Brule Reservation, South Dakota"}
+ - {biaCode: 125, epaId: 100000144, states: [WA], name: "Lower Elwha Tribal Community"}
+ - {biaCode: 402, epaId: 100000145, states: [MN], name: "Lower Sioux Indian Community in the State of Minnesota"}
+ - {biaCode: 107, epaId: 100000146, states: [WA], name: "Lummi Tribe of the Lummi Reservation"}
+ - {biaCode: 509, epaId: 100000147, states: [CA], name: "Lytton Rancheria of California"}
+ - {biaCode: 108, epaId: 100000148, states: [WA], name: "Makah Indian Tribe of the Makah Indian Reservation"}
+ - {biaCode: 527, epaId: 100000149, states: [CA], name: "Manchester Band of Pomo Indians of the Manchester Rancheria, California"}
+ - {biaCode: 579, epaId: 100000150, states: [CA], name: "Manzanita Band of Diegueno Mission Indians of the Manzanita Reservation, California"}
+ - {biaCode: 020, epaId: 100000151, states: [CT], name: "Mashantucket Pequot Indian Tribe"}
+ - {biaCode: 035, epaId: 100000152, states: [MA], name: "Mashpee Wampanoag Tribe"}
+ - {biaCode: 484, epaId: 100000153, states: [MI], name: "Match-e-be-nash-she-wish Band of Pottawatomi Indians of Michigan"}
+ - {biaCode: 531, epaId: 100000154, states: [CA], name: "Mechoopda Indian Tribe of Chico Rancheria, California"}
+ - {biaCode: 440, epaId: 100000155, states: [WI], name: "Menominee Indian Tribe of Wisconsin"}
+ - {biaCode: 580, epaId: 100000156, states: [CA], name: "Mesa Grande Band of Diegueno Mission Indians of the Mesa Grande Reservation, California"}
+ - {biaCode: 702, epaId: 100000157, states: [NM], name: "Mescalero Apache Tribe of the Mescalero Reservation, New Mexico"}
+ - {biaCode: 925, epaId: 100000158, states: [OK], name: "Miami Tribe of Oklahoma"}
+ - {biaCode: 026, epaId: 100000159, states: [FL], name: "Miccosukee Tribe of Indians"}
+ - {biaCode: 528, epaId: 100000160, states: [CA], name: "Middletown Rancheria of Pomo Indians of California"}
+ - {biaCode: 400, epaId: 100000161, states: [MN], name: "Minnesota Chippewa Tribe, Minnesota (Six component reservations: Bois Forte Band (Nett Lake); Fond du Lac Band; Grand Portage Band; Leech Lake Band; Mille Lacs Band; White Earth Band)"}
+ - {biaCode: 650, epaId: 100000163, states: [NV], name: "Moapa Band of Paiute Indians of the Moapa River Indian Reservation, Nevada"}
+ - {biaCode: 927, epaId: 100000164, states: [OK], name: "Modoc Nation"}
+ - {biaCode: 033, epaId: 100000165, states: [CT], name: "Mohegan Tribe of Indians of Connecticut"}
+ - {biaCode: TBD, epaId: 100000593, states: [VA], name: "Monacan Indian Nation"}
+ - {biaCode: 626, epaId: 100000166, states: [CA], name: "Mooretown Rancheria of Maidu Indians of California"}
+ - {biaCode: 582, epaId: 100000167, states: [CA], name: "Morongo Band of Mission Indians, California"}
+ - {biaCode: 109, epaId: 100000168, states: [WA], name: "Muckleshoot Indian Tribe"}
+ - {biaCode: TBD, epaId: 100000594, states: [VA], name: "Nansemond Indian Nation"}
+ - {biaCode: 027, epaId: 100000170, states: [RI], name: "Narragansett Indian Tribe"}
+ - {biaCode: 182, epaId: 100000172, states: [ID], name: "Nez Perce Tribe"}
+ - {biaCode: 110, epaId: 100000173, states: [WA], name: "Nisqually Indian Tribe"}
+ - {biaCode: 111, epaId: 100000174, states: [WA], name: "Nooksack Indian Tribe"}
+ - {biaCode: 207, epaId: 100000175, states: [MT], name: "Northern Cheyenne Tribe of the Northern Cheyenne Indian Reservation, Montana"}
+ - {biaCode: 532, epaId: 100000176, states: [CA], name: "Northfork Rancheria of Mono Indians of California"}
+ - {biaCode: 195, epaId: 100000177, states: [UT], name: "Northwestern Band of the Shoshone Nation"}
+ - {biaCode: 481, epaId: 100000178, states: [MI], name: "Nottawaseppi Huron Band of the Potawatomi, Michigan"}
+ - {biaCode: 714, epaId: 100000180, states: [NM], name: "Ohkay Owingeh, New Mexico"}
+ - {biaCode: 011, epaId: 100000182, states: [NY], name: "Oneida Indian Nation"}
+ - {biaCode: 433, epaId: 100000183, states: [WI], name: "Oneida Nation"}
+ - {biaCode: 006, epaId: 100000184, states: [NY], name: "Onondaga Nation"}
+ - {biaCode: 811, epaId: 100000187, states: [OK], name: "Otoe-Missouria Tribe of Indians, Oklahoma"}
+ - {biaCode: 922, epaId: 100000186, states: [OK], name: "Ottawa Tribe of Oklahoma"}
+ - {biaCode: 692, epaId: 100000188, states: [UT], name: "Paiute Indian Tribe of Utah (Cedar Band of Paiutes, Kanosh Band of Paiutes, Koosharem Band of Paiutes, Indian Peaks Band of Paiutes, and Shivwits Band of Paiutes)"}
+ - {biaCode: 645, epaId: 100000190, states: [NV], name: "Paiute-Shoshone Tribe of the Fallon Reservation and Colony, Nevada"}
+ - {biaCode: 583, epaId: 100000192, states: [CA], name: "Pala Band of Mission Indians"}
+ - {biaCode: 037, epaId: 100000590, states: [VA], name: "Pamunkey Indian Tribe"}
+ - {biaCode: 665, epaId: 100000193, states: [AZ], name: "Pascua Yaqui Tribe of Arizona"}
+ - {biaCode: 533, epaId: 100000194, states: [CA], name: "Paskenta Band of Nomlaki Indians of California"}
+ - {biaCode: 014, epaId: 100000195, states: [ME], name: "Passamaquoddy Tribe"}
+ - {biaCode: 585, epaId: 100000196, states: [CA], name: "Pauma Band of Luiseno Mission Indians of the Pauma & Yuima Reservation, California"}
+ - {biaCode: 812, epaId: 100000197, states: [OK], name: "Pawnee Nation of Oklahoma"}
+ - {biaCode: 586, epaId: 100000198, states: [CA], name: "Pechanga Band of Luiseno Mission Indians of the Pechanga Reservation, California"}
+ - {biaCode: 018, epaId: 100000199, states: [ME], name: "Penobscot Nation"}
+ - {biaCode: 926, epaId: 100000200, states: [OK], name: "Peoria Tribe of Indians of Oklahoma"}
+ - {biaCode: 534, epaId: 100000201, states: [CA], name: "Picayune Rancheria of Chukchansi Indians of California"}
+ - {biaCode: 535, epaId: 100000202, states: [CA], name: "Pinoleville Pomo Nation, California"}
+ - {biaCode: 536, epaId: 100000203, states: [CA], name: "Pit River Tribe, California (includes XL Ranch, Big Bend, Likely, Lookout, Montgomery Creek, and Roaring Creek Rancherias)"}
+ - {biaCode: 813, epaId: 100000206, states: [OK], name: "Ponca Tribe of Indians of Oklahoma"}
+ - {biaCode: 113, epaId: 100000208, states: [WA], name: "Port Gamble S'Klallam Tribe"}
+ - {biaCode: 537, epaId: 100000209, states: [CA], name: "Potter Valley Tribe, California"}
+ - {biaCode: 862, epaId: 100000210, states: [KS], name: "Prairie Band Potawatomi Nation"}
+ - {biaCode: 403, epaId: 100000211, states: [MN], name: "Prairie Island Indian Community in the State of Minnesota"}
+ - {biaCode: 703, epaId: 100000212, states: [NM], name: "Pueblo of Acoma, New Mexico"}
+ - {biaCode: 704, epaId: 100000213, states: [NM], name: "Pueblo of Cochiti, New Mexico"}
+ - {biaCode: 705, epaId: 100000215, states: [NM], name: "Pueblo of Isleta, New Mexico"}
+ - {biaCode: 706, epaId: 100000214, states: [NM], name: "Pueblo of Jemez, New Mexico"}
+ - {biaCode: 707, epaId: 100000216, states: [NM], name: "Pueblo of Laguna, New Mexico"}
+ - {biaCode: 708, epaId: 100000217, states: [NM], name: "Pueblo of Nambe, New Mexico"}
+ - {biaCode: 709, epaId: 100000218, states: [NM], name: "Pueblo of Picuris, New Mexico"}
+ - {biaCode: 710, epaId: 100000219, states: [NM], name: "Pueblo of Pojoaque, New Mexico"}
+ - {biaCode: 712, epaId: 100000220, states: [NM], name: "Pueblo of San Felipe, New Mexico"}
+ - {biaCode: 713, epaId: 100000221, states: [NM], name: "Pueblo of San Ildefonso, New Mexico"}
+ - {biaCode: 711, epaId: 100000222, states: [NM], name: "Pueblo of Sandia, New Mexico"}
+ - {biaCode: 715, epaId: 100000223, states: [NM], name: "Pueblo of Santa Ana, New Mexico"}
+ - {biaCode: 716, epaId: 100000224, states: [NM], name: "Pueblo of Santa Clara, New Mexico"}
+ - {biaCode: 718, epaId: 100000225, states: [NM], name: "Pueblo of Taos, New Mexico"}
+ - {biaCode: 719, epaId: 100000226, states: [NM], name: "Pueblo of Tesuque, New Mexico"}
+ - {biaCode: 720, epaId: 100000227, states: [NM], name: "Pueblo of Zia, New Mexico"}
+ - {biaCode: 115, epaId: 100000228, states: [WA], name: "Puyallup Tribe of the Puyallup Reservation"}
+ - {biaCode: 651, epaId: 100000229, states: [NV], name: "Pyramid Lake Paiute Tribe of the Pyramid Lake Reservation, Nevada"}
+ - {biaCode: 563, epaId: 100000231, states: [CA], name: "Quartz Valley Indian Community of the Quartz Valley Reservation of California"}
+ - {biaCode: 116, epaId: 100000233, states: [WA], name: "Quileute Tribe of the Quileute Reservation"}
+ - {biaCode: 117, epaId: 100000234, states: [WA], name: "Quinault Indian Nation"}
+ - {biaCode: 597, epaId: 100000235, states: [CA], name: "Ramona Band of Cahuilla, California"}
+ - {biaCode: TBD, epaId: 100000595, states: [VA], name: "Rappahannock Tribe, Inc."}
+ - {biaCode: 435, epaId: 100000236, states: [WI], name: "Red Cliff Band of Lake Superior Chippewa Indians of Wisconsin"}
+ - {biaCode: 409, epaId: 100000237, states: [MN], name: "Red Lake Band of Chippewa Indians, Minnesota"}
+ - {biaCode: 538, epaId: 100000238, states: [CA], name: "Redding Rancheria, California"}
+ - {biaCode: 539, epaId: 100000239, states: [CA], name: "Redwood Valley or Little River Band of Pomo Indians of the Redwood Valley Rancheria California"}
+ - {biaCode: 653, epaId: 100000240, states: [NV], name: "Reno-Sparks Indian Colony, Nevada"}
+ - {biaCode: 556, epaId: 100000241, states: [CA], name: "Resighini Rancheria, California"}
+ - {biaCode: 587, epaId: 100000242, states: [CA], name: "Rincon Band of Luiseno Mission Indians of Rincon Reservation, California"}
+ - {biaCode: 516, epaId: 100000243, states: [CA], name: "Robinson Rancheria"}
+ - {biaCode: 345, epaId: 100000244, states: [SD], name: "Rosebud Sioux Tribe of the Rosebud Indian Reservation, South Dakota"}
+ - {biaCode: 540, epaId: 100000245, states: [CA], name: "Round Valley Indian Tribes, Round Valley Reservation, California"}
+ - {biaCode: 824, epaId: 100000248, states: [OK], name: "Sac & Fox Nation, Oklahoma"}
+ - {biaCode: 490, epaId: 100000246, states: [IA], name: "Sac & Fox Tribe of the Mississippi in Iowa"}
+ - {biaCode: 472, epaId: 100000249, states: [MI], name: "Saginaw Chippewa Indian Tribe of Michigan"}
+ - {biaCode: 007, epaId: 100000251, states: [NY], name: "Saint Regis Mohawk Tribe"}
+ - {biaCode: 615, epaId: 100000252, states: [AZ], name: "Salt River Pima-Maricopa Indian Community of the Salt River Reservation, Arizona"}
+ - {biaCode: 133, epaId: 100000253, states: [WA], name: "Samish Indian Nation"}
+ - {biaCode: 616, epaId: 100000254, states: [AZ], name: "San Carlos Apache Tribe of the San Carlos Reservation, Arizona"}
+ - {biaCode: 689, epaId: 100000255, states: [AZ], name: "San Juan Southern Paiute Tribe of Arizona"}
+ - {biaCode: 588, epaId: 100000256, states: [CA], name: "San Manuel Band of Mission Indians, California"}
+ - {biaCode: 589, epaId: 100000257, states: [CA], name: "San Pasqual Band of Diegueno Mission Indians of California"}
+ - {biaCode: 590, epaId: 100000259, states: [CA], name: "Santa Rosa Band of Cahuilla Indians, California"}
+ - {biaCode: 542, epaId: 100000258, states: [CA], name: "Santa Rosa Indian Community of the Santa Rosa Rancheria, California"}
+ - {biaCode: 591, epaId: 100000260, states: [CA], name: "Santa Ynez Band of Chumash Mission Indians of the Santa Ynez Reservation, California"}
+ - {biaCode: 382, epaId: 100000261, states: [NE], name: "Santee Sioux Nation, Nebraska"}
+ - {biaCode: 119, epaId: 100000262, states: [WA], name: "Sauk-Suiattle Indian Tribe"}
+ - {biaCode: 469, epaId: 100000263, states: [MI], name: "Sault Ste. Marie Tribe of Chippewa Indians, Michigan"}
+ - {biaCode: 503, epaId: 100000264, states: [CA], name: "Scotts Valley Band of Pomo Indians of California"}
+ - {biaCode: 021, epaId: 100000266, states: [FL], name: "Seminole Tribe of Florida"}
+ - {biaCode: 012, epaId: 100000267, states: [NY], name: "Seneca Nation of Indians"}
+ - {biaCode: 923, epaId: 100000268, states: [OK], name: "Seneca-Cayuga Nation"}
+ - {biaCode: 411, epaId: 100000269, states: [MN], name: "Shakopee Mdewakanton Sioux Community of Minnesota"}
+ - {biaCode: 911, epaId: 100000270, states: [OK], name: "Shawnee Tribe"}
+ - {biaCode: 629, epaId: 100000271, states: [CA], name: "Sherwood Valley Rancheria of Pomo Indians of California"}
+ - {biaCode: 546, epaId: 100000272, states: [CA], name: "Shingle Springs Band of Miwok Indians, Shingle Springs Rancheria (Verona Tract), California"}
+ - {biaCode: 036, epaId: 100000273, states: [NY], name: "Shinnecock Indian Nation"}
+ - {biaCode: 118, epaId: 100000274, states: [WA], name: "Shoalwater Bay Indian Tribe of the Shoalwater Bay Indian Reservation"}
+ - {biaCode: 180, epaId: 100000276, states: [ID], name: "Shoshone-Bannock Tribes of the Fort Hall Reservation"}
+ - {biaCode: 120, epaId: 100000279, states: [WA], name: "Skokomish Indian Tribe"}
+ - {biaCode: 682, epaId: 100000280, states: [UT], name: "Skull Valley Band of Goshute Indians of Utah"}
+ - {biaCode: 126, epaId: 100000282, states: [WA], name: "Snoqualmie Indian Tribe"}
+ - {biaCode: 593, epaId: 100000283, states: [CA], name: "Soboba Band of Luiseno Indians, California"}
+ - {biaCode: 437, epaId: 100000284, states: [WI], name: "Sokaogon Chippewa Community, Wisconsin"}
+ - {biaCode: 750, epaId: 100000285, states: [CO], name: "Southern Ute Indian Tribe of the Southern Ute Reservation, Colorado"}
+ - {biaCode: 303, epaId: 100000286, states: [ND], name: "Spirit Lake Tribe, North Dakota"}
+ - {biaCode: 102, epaId: 100000287, states: [WA], name: "Spokane Tribe of the Spokane Reservation"}
+ - {biaCode: 121, epaId: 100000288, states: [WA], name: "Squaxin Island Tribe of the Squaxin Island Reservation"}
+ - {biaCode: 436, epaId: 100000250, states: [WI], name: "St. Croix Chippewa Indians of Wisconsin"}
+ - {biaCode: 139, epaId: 100000291, states: [WA], name: "Stillaguamish Tribe of Indians of Washington"}
+ - {biaCode: 438, epaId: 100000290, states: [WI], name: "Stockbridge Munsee Community, Wisconsin"}
+ - {biaCode: 655, epaId: 100000292, states: [NV], name: "Summit Lake Paiute Tribe of Nevada"}
+ - {biaCode: 114, epaId: 100000293, states: [WA], name: "Suquamish Indian Tribe of the Port Madison Reservation"}
+ - {biaCode: 550, epaId: 100000294, states: [CA], name: "Susanville Indian Rancheria, California"}
+ - {biaCode: 122, epaId: 100000295, states: [WA], name: "Swinomish Indian Tribal Community"}
+ - {biaCode: 594, epaId: 100000296, states: [CA], name: "Sycuan Band of the Kumeyaay Nation"}
+ - {biaCode: 551, epaId: 100000297, states: [CA], name: "Table Mountain Rancheria"}
+ - {biaCode: 630, epaId: 100000298, states: [CA], name: "Tejon Indian Tribe"}
+ - {biaCode: 640, epaId: 100000299, states: [NV], name: "Te-Moak Tribe of Western Shoshone Indians of Nevada (Four constituent bands: Battle Mountain Band; Elko Band; South Fork Band; and Wells Band)"}
+ - {biaCode: 906, epaId: 100000041, states: [OK], name: "The Chickasaw Nation"}
+ - {biaCode: 907, epaId: 100000045, states: [OK], name: "The Choctaw Nation of Oklahoma"}
+ - {biaCode: 930, epaId: 100000185, states: [OK], name: "The Osage Nation"}
+ - {biaCode: 909, epaId: 100000265, states: [OK], name: "The Seminole Nation of Oklahoma"}
+ - {biaCode: 903, epaId: 100000300, states: [OK], name: "Thlopthlocco Tribal Town"}
+ - {biaCode: 301, epaId: 100000301, states: [ND], name: "Three Affiliated Tribes of the Fort Berthold Reservation, North Dakota"}
+ - {biaCode: 610, epaId: 100000302, states: [AZ], name: "Tohono O'odham Nation of Arizona"}
+ - {biaCode: 564, epaId: 100000281, states: [CA], name: "Tolowa Dee-ni' Nation"}
+ - {biaCode: 008, epaId: 100000303, states: [NY], name: "Tonawanda Band of Seneca"}
+ - {biaCode: 814, epaId: 100000304, states: [OK], name: "Tonkawa Tribe of Indians of Oklahoma"}
+ - {biaCode: 674, epaId: 100000305, states: [AZ], name: "Tonto Apache Tribe of Arizona"}
+ - {biaCode: 595, epaId: 100000306, states: [CA], name: "Torres Martinez Desert Cahuilla Indians, California"}
+ - {biaCode: 123, epaId: 100000308, states: [WA], name: "Tulalip Tribes of Washington"}
+ - {biaCode: 553, epaId: 100000307, states: [CA], name: "Tule River Indian Tribe of the Tule River Reservation, California"}
+ - {biaCode: 336, epaId: 100000309, states: [LA], name: "Tunica-Biloxi Indian Tribe"}
+ - {biaCode: 634, epaId: 100000310, states: [CA], name: "Tuolumne Band of Me-Wuk Indians of the Tuolumne Rancheria of California"}
+ - {biaCode: 009, epaId: 100000312, states: [NY], name: "Tuscarora Nation"}
+ - {biaCode: 598, epaId: 100000313, states: [CA], name: "Twenty-Nine Palms Band of Mission Indians of California"}
+ - {biaCode: 637, epaId: 100000314, states: [CA], name: "United Auburn Indian Community of the Auburn Rancheria of California"}
+ - {biaCode: 904, epaId: 100000315, states: [OK], name: "United Keetoowah Band of Cherokee Indians in Oklahoma"}
+ - {biaCode: TBD, epaId: 100000596, states: [VA], name: "Upper Mattaponi Tribe"}
+ - {biaCode: 131, epaId: 100000317, states: [WA], name: "Upper Skagit Indian Tribe"}
+ - {biaCode: 687, epaId: 100000318, states: [UT], name: "Ute Indian Tribe of the Uintah & Ouray Reservation, Utah"}
+ - {biaCode: 520, epaId: 100000320, states: [CA], name: "Utu Utu Gwaitu Paiute Tribe of the Benton Paiute Reservation, California"}
+ - {biaCode: 656, epaId: 100000321, states: [NV], name: "Walker River Paiute Tribe of the Walker River Reservation, Nevada"}
+ - {biaCode: 030, epaId: 100000322, states: [MA], name: "Wampanoag Tribe of Gay Head (Aquinnah)"}
+ - {biaCode: 607, epaId: 100000324, states: [AZ], name: "White Mountain Apache Tribe of the Fort Apache Reservation, Arizona"}
+ - {biaCode: 804, epaId: 100000325, states: [OK], name: "Wichita and Affiliated Tribes (Wichita, Keechi, Waco, & Tawakonie), Oklahoma"}
+ - {biaCode: 635, epaId: 100000326, states: [CA], name: "Wilton Rancheria, California"}
+ - {biaCode: 659, epaId: 100000328, states: [NV], name: "Winnemucca Indian Colony of Nevada"}
+ - {biaCode: 565, epaId: 100000329, states: [CA], name: "Wiyot Tribe, California"}
+ - {biaCode: 346, epaId: 100000331, states: [SD], name: "Yankton Sioux Tribe of South Dakota"}
+ - {biaCode: 601, epaId: 100000332, states: [AZ], name: "Yavapai-Apache Nation of the Camp Verde Indian Reservation, Arizona"}
+ - {biaCode: 618, epaId: 100000333, states: [AZ], name: "Yavapai-Prescott Indian Tribe"}
+ - {biaCode: 660, epaId: 100000334, states: [NV], name: "Yerington Paiute Tribe of the Yerington Colony & Campbell Ranch, Nevada"}
+ - {biaCode: 541, epaId: 100000335, states: [CA], name: "Yocha Dehe Wintun Nation, California"}
+ - {biaCode: 661, epaId: 100000336, states: [NV], name: "Yomba Shoshone Tribe of the Yomba Reservation, Nevada"}
+ - {biaCode: 725, epaId: 100000337, states: [TX], name: "Ysleta del Sur Pueblo"}
+ - {biaCode: 562, epaId: 100000338, states: [CA], name: "Yurok Tribe of the Yurok Reservation, California"}
+
+ - {epaId: 100000585, states: [], name: ""}
+ - {epaId: 100000586, states: [], name: ""}
+ - {epaId: 100000587, states: [], name: ""}
+ - {epaId: 100000588, states: [], name: ""}
+ - {epaId: 100000589, states: [], name: ""}
+ - {epaId: 100000582, states: [], name: ""}
+ - {epaId: 100000581, states: [], name: ""}
+
+### end ###
