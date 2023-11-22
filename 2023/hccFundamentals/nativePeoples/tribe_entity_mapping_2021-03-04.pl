@@ -73,12 +73,12 @@ tribe(340, 100000040,         [sd], 'Cheyenne River Sioux Tribe of the Cheyenne 
 tribe(tbd, 100000591,         [va], 'Chickahominy Indian Tribe').
 tribe(tbd, 100000592,         [va], 'Chickahominy Indian Tribe--Eastern Division').
 tribe(523, 100000042,         [ca], 'Chicken Ranch Rancheria of Me-Wuk Indians of California').
-tribe(205, 100000043,         [mt], 'Chippewa Cree Indians of the Rocky Boy's Reservation, Montana').
+tribe(205, 100000043,         [mt], 'Chippewa Cree Indians of the Rocky Boy''s Reservation, Montana').
 tribe(970, 100000044,         [la], 'Chitimacha Tribe of Louisiana').
 tribe(821, 100000046,         [ok], 'Citizen Potawatomi Nation, Oklahoma').
 tribe(510, 100000047,         [ca], 'Cloverdale Rancheria of Pomo Indians of California').
 tribe(602, 100000048,         [az], 'Cocopah Tribe of Arizona').
-tribe(181, 100000049,         [id], 'Coeur D'Alene Tribe').
+tribe(181, 100000049,         [id], 'Coeur D''Alene Tribe').
 tribe(511, 100000050,         [ca], 'Cold Springs Rancheria of Mono Indians of California').
 tribe(808, 100000052,         [ok], 'Comanche Nation, Oklahoma').
 tribe(203, 100000053,         [mt], 'Confederated Salish and Kootenai Tribes of the Flathead Reservation').
@@ -135,7 +135,7 @@ tribe(574, 100000109,         [ca], 'Inaja Band of Diegueno Mission Indians of t
 tribe(529, 100000110,         [ca], 'Ione Band of Miwok Indians of California').
 tribe(822, 100000112,         [ok], 'Iowa Tribe of Oklahoma').
 tribe(522, 100000113,         [ca], 'Jackson Band of Miwuk Indians').
-tribe(129, 100000114,         [wa], 'Jamestown S'Klallam Tribe').
+tribe(129, 100000114,         [wa], 'Jamestown S''Klallam Tribe').
 tribe(575, 100000115,         [ca], 'Jamul Indian Village of California').
 tribe( 28, 100000116,         [la], 'Jena Band of Choctaw Indians').
 tribe(701, 100000117,         [nm], 'Jicarilla Apache Nation, New Mexico').
@@ -224,7 +224,7 @@ tribe(534, 100000201,         [ca], 'Picayune Rancheria of Chukchansi Indians of
 tribe(535, 100000202,         [ca], 'Pinoleville Pomo Nation, California').
 tribe(536, 100000203,         [ca], 'Pit River Tribe, California (includes XL Ranch, Big Bend, Likely, Lookout, Montgomery Creek, and Roaring Creek Rancherias)').
 tribe(813, 100000206,         [ok], 'Ponca Tribe of Indians of Oklahoma').
-tribe(113, 100000208,         [wa], 'Port Gamble S'Klallam Tribe').
+tribe(113, 100000208,         [wa], 'Port Gamble S''Klallam Tribe').
 tribe(537, 100000209,         [ca], 'Potter Valley Tribe, California').
 tribe(862, 100000210,         [ks], 'Prairie Band Potawatomi Nation').
 tribe(403, 100000211,         [mn], 'Prairie Island Indian Community in the State of Minnesota').
@@ -314,8 +314,8 @@ tribe(930, 100000185,         [ok], 'The Osage Nation').
 tribe(909, 100000265,         [ok], 'The Seminole Nation of Oklahoma').
 tribe(903, 100000300,         [ok], 'Thlopthlocco Tribal Town').
 tribe(301, 100000301,         [nd], 'Three Affiliated Tribes of the Fort Berthold Reservation, North Dakota').
-tribe(610, 100000302,         [az], 'Tohono O'odham Nation of Arizona').
-tribe(564, 100000281,         [ca], 'Tolowa Dee-ni' Nation').
+tribe(610, 100000302,         [az], 'Tohono O''odham Nation of Arizona').
+tribe(564, 100000281,         [ca], 'Tolowa Dee-ni'' Nation').
 tribe(008, 100000303,         [ny], 'Tonawanda Band of Seneca').
 tribe(814, 100000304,         [ok], 'Tonkawa Tribe of Indians of Oklahoma').
 tribe(674, 100000305,         [az], 'Tonto Apache Tribe of Arizona').
@@ -347,7 +347,6 @@ tribe(541, 100000335,         [ca], 'Yocha Dehe Wintun Nation, California').
 tribe(661, 100000336,         [nv], 'Yomba Shoshone Tribe of the Yomba Reservation, Nevada').
 tribe(725, 100000337,         [tx], 'Ysleta del Sur Pueblo').
 tribe(562, 100000338,         [ca], 'Yurok Tribe of the Yurok Reservation, California').
-
 tribe(tbd, 100000585,           [], '').
 tribe(tbd, 100000586,           [], '').
 tribe(tbd, 100000587,           [], '').
