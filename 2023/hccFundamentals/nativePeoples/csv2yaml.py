@@ -24,6 +24,9 @@ class csv2yaml:
   targetColFields = [] #keys of targetColDictXC/N
   targetColList   = [] #vals of targetColDictN
 
+  maxLineNum = 10
+  lineNum    = 0
+
   ################### constructor ###################
 
   def __init__(self, **kwargs): 
@@ -69,24 +72,30 @@ class csv2yaml:
   
   ################### loadCsv ###################
   
-    if self.csvFn  is None: print("csv2yaml constructor requires csvFn");  sys.exit(-1)
-    if self.yamlFn is None: print("csv2yaml constructor requires yamlFn"); sys.exit(-1)
-  csvF  = open(csvFn, 'rt')
-  csvR  = csv.reader(csvF, delimter=',', quotechar='"')
-  
-  maxLineNum = 10
-  lineNum    = 0
-  
-  for row in csvR:
-    print("TBD")
-    lineNum += 1
-    if lineNum >= maxLineNum: sys.exit(1)
+  def loadCsv(self):
+    if self.csvFn  is None: print("csv2yaml: loadCsv requires csvFn");  sys.exit(-1)
+
+    csvF  = open(csvFn, 'rt')
+    csvR  = csv.reader(csvF, delimter=',', quotechar='"')
+    for row in csvR:
+      if self.lineNum >= self.maxLineNum: sys.exit(1)
+
+      extractDict = {}
+      for key in self.targetColDictN:
+        colVal  = self.targetColDictN[key]
+        dataVal = row[colVal]
+        extractDict[key] = dataVal
+
+      print("%i: %s" % (self.lineNum
+      self.lineNum += 1
+    
+#if self.yamlFn is None: print("csv2yaml constructor requires yamlFn"); sys.exit(-1)
 
 ################### main ###################
 
-csvFn = 'tribe_entity_mapping_2021-03-04.csv'
-yFn   = 'tribe_entity_mapping_2021-03-04.csv'
+ourCsvFn   = 'tribe_entity_mapping_2021-03-04.csv'
+ourYamlFn  = 'tribe_entity_mapping_2021-03-04.yaml'
 
-c2y = csv2yaml()
+c2y = csv2yaml(csvFn=ourCsvFn, yamlFn=ourYamlFn)
   
 ### end ###
