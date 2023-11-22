@@ -7,12 +7,12 @@
 
 import csv, sys, traceback
 
-
 ################### csv2yaml support class ###################
 
 class csv2yaml:
 
-  csvFn = 'tribe_entity_mapping_2021-03-04.csv'
+  csvFn  = None
+  yamlFn = None
 
   targetColDictXC = { #target column dictionary, Excel column ID (alphabetic)
     'name':     'AE',
@@ -23,6 +23,15 @@ class csv2yaml:
   targetColDictN  = {} #target column dictionary, Excel column ID (numeric)
   targetColFields = [] #keys of targetColDictXC/N
   targetColList   = [] #vals of targetColDictN
+
+  ################### constructor ###################
+  def __init__(self, **kwargs): 
+
+    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+    #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
+
+    self.loadCsv()
+    self.genYaml()
   
   ################### map alphabetic to numeric ###################
   
@@ -47,10 +56,11 @@ class csv2yaml:
   
   ################### map column IDs ###################
   
-  targetColDictXC = { #target column dictionary, Excel column ID (alphabetic)
   
-  ################### main ###################
+  ################### loadCsv ###################
   
+    if self.csvFn  is None: print("csv2yaml constructor requires csvFn");  sys.exit(-1)
+    if self.yamlFn is None: print("csv2yaml constructor requires yamlFn"); sys.exit(-1)
   csvF  = open(csvFn, 'rt')
   csvR  = csv.reader(csvF, delimter=',', quotechar='"')
   
@@ -61,5 +71,12 @@ class csv2yaml:
     print("TBD")
     lineNum += 1
     if lineNum >= maxLineNum: sys.exit(1)
+
+################### main ###################
+
+csvFn = 'tribe_entity_mapping_2021-03-04.csv'
+yFn   = 'tribe_entity_mapping_2021-03-04.csv'
+
+c2y = csv2yaml()
   
 ### end ###
