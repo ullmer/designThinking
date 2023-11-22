@@ -20,7 +20,10 @@ class csv2yaml:
     'epaId':    'AG',
     'states':   'AH'}
 
-  quoteFields = ['name']
+  quoteFields   = ['name']
+  listifyFields = ['states']       #change these fields into lists
+  listifySubstitutes = {';' : ','} #... making these character substitutions
+
   fieldOrder  = ['biaCode', 'epaId', 'states', 'name']
 
   targetColDictN     = {} #target column dictionary, Excel column ID (numeric)
@@ -114,6 +117,19 @@ class csv2yaml:
       self.lineNum += 1
 
     print("loadCsv completed")
+
+  ################### listify fields ###################
+  
+  def genListifyStr(self, fieldstr):
+    result = "["
+
+    for changeThis in self.listifySubstitutes:
+      intoThis = self.listifySubstitutes[changeThis]
+      fieldstr.replace(changeThis, intoThis)
+  
+    result += fieldstr
+    result += "]"
+    return result
     
   ################### loadCsv ###################
   
@@ -128,8 +144,9 @@ class csv2yaml:
 
         for key in self.fieldOrder:
           fieldstr = key + ': '
-          if key in self.quoteFields: fieldstr += '"%s"' % rowDict[key] #initially, ignore justification
-          else:                       fieldstr += rowDict[key]
+          if   key in self.quoteFields:   fieldstr += '"%s"' % rowDict[key] #initially, ignore justification 
+          elif key in self.listifyFields: fieldstr += self.genListifyStr(rowDict[key])
+          else:                           fieldstr += rowDict[key]
           subels.append(fieldstr)
 
         if self.verbose: print(subels)
