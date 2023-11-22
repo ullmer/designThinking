@@ -19,6 +19,9 @@ targetColDictN  = {} #target column dictionary, Excel column ID (numeric)
 targetColFields = [] #keys of targetColDictXC/N
 targetColList   = [] #vals of targetColDictN
 
+def mapAlpha2Num(alpha):       return ord(alpha) - ord('A') #A -> 0 .. Z-> 25
+def mapColAlpha2Num(colAlpha): #map column alphabetic ID (A..Z, AA..AZ, etc.) to numeric 
+
 csvF  = open(csvFn, 'rt')
 csvR  = csv.reader(csvF, delimter=',', quotechar='"')
 
