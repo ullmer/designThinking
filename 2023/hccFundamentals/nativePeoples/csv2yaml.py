@@ -23,7 +23,9 @@ class csv2yaml:
   targetColDictN  = {} #target column dictionary, Excel column ID (numeric)
   targetColFields = [] #keys of targetColDictXC/N
   targetColVals   = [] #vals of targetColDictN
-  ignoreRowErrors = True
+  #ignoreRowErrors = True
+  ignoreRowErrors = False
+  verbose         = True
 
   maxLineNum = 10
   lineNum    = 0
@@ -85,6 +87,8 @@ class csv2yaml:
         extractDict = {}
         for key in self.targetColDictN:
           colVal  = self.targetColDictN[key]
+          if self.verbose: print(key, colVal)
+
           dataVal = row[colVal]
           extractDict[key] = dataVal
       except:
