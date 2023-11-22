@@ -5,4 +5,15 @@
 # Brygg Ullmer, Clemson University
 # Begun 2023-11-21
 
+import csv
+
+csvFn = 'tribe_entity_mapping_2021-03-04.csv'
+targetColumns = []
+
+csvF  = open(csvFn, 'rt')
+csvR  = csv.reader(csvF, delimter=',', quotechar='"')
+
+for row in csvR:
+  print("TBD")
+
 ### end ###
