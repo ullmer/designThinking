@@ -1,0 +1,10 @@
+CA 108
+NM 24
+AZ 23
+NY 8
+UT 6
+ID 5
+LA 4
+MA 2
+SC 1
+NC 1

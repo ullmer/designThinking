@@ -1,4 +1,4 @@
-for i in SC NC CA UT ID NY LA
+for i in CA NM AZ NY UT ID LA MA SC NC 
 do
   echo $i `grep $i *yaml|wc -l`
 done
