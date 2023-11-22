@@ -21,6 +21,7 @@ class csv2yaml:
     'states':   'AH'}
 
   quoteFields = ['name']
+  fieldOrder  = ['biaCode', 'epaId', 'states', 'name']
 
   targetColDictN     = {} #target column dictionary, Excel column ID (numeric)
   maxObservedLenDict = {}
@@ -114,12 +115,19 @@ class csv2yaml:
     if self.yamlFn is None: print("csv2yaml: genYaml requires yamlFn"); sys.exit(-1)
 
     for rowDict in self.rowData:
-      str = " - {
-      for key in rowDict: 
-        
+      rowstr = " - {
+      subels = []
 
+      for key in self.fieldOrder:
+        fieldstr += key + ': '
+          if key in self.quoteFields: fieldstr += '"%s"' % rowDict[key] #initially, ignore justification
+          else:                       fieldstr += rowDict[key]
+        subels.append(str)
 
-            self.maxObservedLenDict[key] = valLen
+     rowstr += ','.join(subels)
+     rowstr += '}'
+
+     print(rowstr)
 
 ################### main ###################
 
