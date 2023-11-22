@@ -10,6 +10,9 @@ tribeIntersectsState(State, Bia, Epa, States, Name) :-
                       tribe(Bia, Epa, States, Name), 
                         member(State, States).
 
-tribeIntersectsRegion(Region, Bia, Epa, States, Name)
+tribeIntersectsRegion(Region, Name) :-
+           tribe(_, _, States1, Name),
+           beaRegion(Region, States2),
+          intersect(States1, States2).
 
 %%% end %%%
