@@ -72,7 +72,7 @@ class csv2yaml:
   
   ################### loadCsv ###################
   
-  def loadCsv(self):
+  def loadCsv(self): 
     if self.csvFn  is None: print("csv2yaml: loadCsv requires csvFn");  sys.exit(-1)
 
     csvF  = open(csvFn, 'rt')
@@ -86,10 +86,13 @@ class csv2yaml:
         dataVal = row[colVal]
         extractDict[key] = dataVal
 
-      print("%i: %s" % (self.lineNum
+      print("%i: %s" % (self.lineNum, str(extractDict)))
       self.lineNum += 1
     
-#if self.yamlFn is None: print("csv2yaml constructor requires yamlFn"); sys.exit(-1)
+  ################### loadCsv ###################
+  
+  def genYaml(self): #internally checks for yamlFn to be populated 
+    if self.yamlFn is None: print("csv2yaml: genYaml requires yamlFn"); sys.exit(-1)
 
 ################### main ###################
 
