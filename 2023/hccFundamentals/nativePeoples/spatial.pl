@@ -19,7 +19,7 @@ tribeIntersectsRegion(Region, Name, State) :-
              member(State, States1).
 
 tribesIntersectRegion(Region, Names) :-
-  findall(Region, tribeIntersectsRegions(Region, Name), Names).
+  findall(Name, tribeIntersectsRegion(Region, Name, _), Names).
 
 %tribeIntersectsRegion(Region, Name, CommonStates) :-
 %         tribe(_, _, States1, Name),
