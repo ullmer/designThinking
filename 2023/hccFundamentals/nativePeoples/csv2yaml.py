@@ -35,7 +35,7 @@ class csv2yaml:
   ignoreRowErrors    = False
   verbose            = False
 
-  groupByTargetListLen   = False    #e.g., group by number of states
+  groupByTargetListLen   = True #e.g., group by number of states
   groupByTargetListField = 'states' #e.g., group by number of states
 
   #maxLineNum = 10
@@ -139,7 +139,7 @@ class csv2yaml:
   #  https://realpython.com/python-counter/
   # ... but doing another way
 
-  def countNumCharInstances(srcStr, targetChar):
+  def countNumCharInstances(self, srcStr, targetChar):
     result = 0
     slen   = len(srcStr)
 
@@ -172,13 +172,12 @@ class csv2yaml:
         rowstr += ', '.join(subels)
         rowstr += '}'
         if self.groupByTargetListLen is False: print(rowstr)
+        else:   # group by target list length
+          srcStr = rowDict[self.groupByTargetListField]
+          tllen  = self.countNumCharInstances(srcStr, ';') + 1
 
-	else:   # group by target list length
-	  srcStr = rowDict[self.groupByTargetListField]
-	  tllen  = self.countNumCharInstances(srcStr, ';') + 1
-
-	  if tllen in targetListLenDict: targetListLenDict[tllen].append(rowstr)
-	  else:                          targetListLenDict[tllen] = [rowstr]
+          if tllen in targetListLenDict: targetListLenDict[tllen].append(rowstr)
+          else:                          targetListLenDict[tllen] = [rowstr]
 
       except:
         if self.ignoreRowErrors: continue
@@ -187,6 +186,10 @@ class csv2yaml:
 
       if self.groupByTargetListLen:
         targetListLengths = list(targetListLenDict.keys())
+        targetListLengths.sort(reverse=True) #largest to smallest
+        for listLength in targetListLengths:
+          rows = targetListLenDict[listLength]
+          for row in rows: print(rows)
 
 ################### main ###################
 
