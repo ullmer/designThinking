@@ -25,17 +25,19 @@ class csv2yaml:
   targetColList   = [] #vals of targetColDictN
 
   ################### constructor ###################
+
   def __init__(self, **kwargs): 
 
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
 
-    self.loadCsv()
-    self.genYaml()
+    self.mapColId()
+    self.loadCsv() #internally checks for csvFn to be populated
+    self.genYaml() #internally checks for yamlFn to be populated 
   
   ################### map alphabetic to numeric ###################
   
-  def mapAlpha2Num(alpha):       
+  def mapAlpha2Num(self, alpha):
     try:
       lowAlpha = alpha.tolower()
       return ord(alpha) - ord('a') #A/a -> 0 .. Z/z-> 25
@@ -44,7 +46,7 @@ class csv2yaml:
   
   ################### map alphabetic to numeric ###################
   
-  def mapColAlpha2Num(colAlpha): #map column alphabetic ID (A..Z, AA..AZ, etc.) to numeric
+  def mapColAlpha2Num(self, colAlpha): #map column alphabetic ID (A..Z, AA..AZ, etc.) to numeric
                                  #initially, hardcode to 1 or 2 alphabetic codes 
     numCA  = len(colAlpha)
     if numCA == 1: return mapAlpha2Num(alpha)
@@ -56,6 +58,15 @@ class csv2yaml:
   
   ################### map column IDs ###################
   
+  def mapColId(self)
+  
+  targetColDictXC = { #target column dictionary, Excel column ID (alphabetic)
+    for keys 
+    'name':     'AE',
+  targetColDictN  = {} #target column dictionary, Excel column ID (numeric)
+  targetColFields = [] #keys of targetColDictXC/N
+  targetColList   = [] #vals of targetColDictN
+  def mapColAlpha2Num(colAlpha): #map column alphabetic ID (A..Z, AA..AZ, etc.) to numeric
   
   ################### loadCsv ###################
   
