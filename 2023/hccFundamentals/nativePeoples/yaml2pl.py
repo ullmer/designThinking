@@ -42,14 +42,14 @@ class yaml2pl:
 
     for row in self.yamlD:
       try:
-        str = self.basePredicate + "("
+        plstr = self.basePredicate + "("
         keys = []
-        for key in row: keys.append(row[key])
-        str += ", ".join(keys)
-        str += ");"
-        print(str)
+        for key in row: keys.append(str(row[key]))
+        plstr += ", ".join(keys)
+        plstr += ");"
+        print(plstr)
       except:
-        print("<<ignoring ", row); 
+        print("<<ignoring ", row); print(traceback.print_exc())
 
 ###################### main ######################
 
