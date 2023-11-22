@@ -24,8 +24,7 @@ class csv2yaml:
   targetColFields = [] #keys of targetColDictXC/N
   targetColVals   = [] #vals of targetColDictN
   ignoreRowErrors = True
-  #ignoreRowErrors = False
-  verbose         = True
+  verbose         = False
 
   maxLineNum = 10
   lineNum    = 0
