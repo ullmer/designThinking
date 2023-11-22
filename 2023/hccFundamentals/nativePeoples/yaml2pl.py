@@ -9,7 +9,7 @@
 # - {biaCode: 304, epaId: 100000311, states: [MT, ND, SD], name: "Turtle Mountain Band of Chippewa Indians of North Dakota"}
 # - {biaCode: 603, epaId: 100000051, states: [AZ, CA], name: "Colorado River Indian Tribes of the Colorado River Indian Reservation, Arizona and California"}
 
-import yaml
+import yaml, sys, traceback
 
 ###################### yaml to prolog ######################
 
@@ -17,6 +17,7 @@ class yaml2pl:
   yamlFn = None
   yamlD  = None
   ourPl  = None
+  basePredicate = None
 
   ################### constructor ###################
 
@@ -30,19 +31,32 @@ class yaml2pl:
   ################### load YAML ###################
 
   def loadYaml(self):
-    if self.yamlFn is None: print("yaml2pl loadYaml error: yaml filename unspecified")
+    if self.yamlFn is None: print("yaml2pl loadYaml error: yaml filename unspecified"); sys.exit(-1)
     yamlF = open(self.yamlFn, 'rt')
     self.yamlD = yaml.safe_load(yamlF)
   
   ################### generate prolog ###################
 
-  def genPl(self): pass
+  def genPl(self): 
+    if self.basePredicate is None: print("yaml2pl genPl requires basePredicate to be specified"); sys.exit(-1)
+
+    for row in self.yamlD:
+      try:
+        str = self.basePredicate + "("
+        keys = []
+        for key in row: keys.append(row[key])
+        str += ", ".join(keys)
+        str += ");"
+        print(str)
+      except:
+        print("<<ignoring ", row); 
 
 ###################### main ######################
 
 ourYamlFn = 'tribe_entity_mapping_2021-03-04.yaml'
 ourPlFn   = 'tribe_entity_mapping_2021-03-04.pl'
+ourBasePredicate = 'tribe'
 
-y2p = yaml2pl(yamlFn=ourYamlFn, plFn=ourPlFn)
+y2p = yaml2pl(yamlFn=ourYamlFn, plFn=ourPlFn, basePredicate=ourBasePredicate)
 
 ### end ###
