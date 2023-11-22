@@ -1,7 +1,7 @@
 # Make partial extraction of CSV-save of tribe_entity_mapping sheet from this source:
 #  https://www.epa.gov/sites/production/files/2021-03/tribe_entity_mapping_2021-03-04.xlsx
-#  into YAML.
-# (Exploratory version to facilitate related conversations.)
+#  into YAML (with some fields initially hardcoded to defaults, but coded to generalize)
+# Exploratory version to facilitate related conversations.
 # Brygg Ullmer, Clemson University
 # Begun 2023-11-21
 
@@ -20,11 +20,15 @@ class csv2yaml:
     'epaId':    'AG',
     'states':   'AH'}
 
-  targetColDictN  = {} #target column dictionary, Excel column ID (numeric)
-  targetColFields = [] #keys of targetColDictXC/N
-  targetColVals   = [] #vals of targetColDictN
-  ignoreRowErrors = True
-  verbose         = False
+  quoteFields = ['name']
+
+  targetColDictN     = {} #target column dictionary, Excel column ID (numeric)
+  maxObservedLenDict = {}
+  targetColFields    = [] #keys of targetColDictXC/N
+  targetColVals      = [] #vals of targetColDictN
+  rowData            = []
+  ignoreRowErrors    = True
+  verbose            = False
 
   maxLineNum = 10
   lineNum    = 0
@@ -71,7 +75,7 @@ class csv2yaml:
      self.targetColDictN[key] = numVal
      self.targetColFields.append(key) 
      self.targetColVals.append(numVal) 
-  
+
   ################### loadCsv ###################
   
   def loadCsv(self): 
@@ -90,18 +94,32 @@ class csv2yaml:
 
           dataVal = row[colVal]
           extractDict[key] = dataVal
+
+          valLen  = len(str(dataVal))
+          if key not in self.maxObservedLenDict or valLen > self.maxObservedLenDict[key]: 
+            self.maxObservedLenDict[key] = valLen
+  
       except:
         if self.ignoreRowErrors: continue
         print("csv2yaml: loadCsv error:")
         print(traceback.print_exc()); sys.exit(-1)
 
-      print("%i: %s" % (self.lineNum, str(extractDict)))
+      if self.verbose: print("%i: %s" % (self.lineNum, str(extractDict)))
+      self.rowData.append(extractDict)
       self.lineNum += 1
     
   ################### loadCsv ###################
   
   def genYaml(self): #internally checks for yamlFn to be populated 
     if self.yamlFn is None: print("csv2yaml: genYaml requires yamlFn"); sys.exit(-1)
+
+    for rowDict in self.rowData:
+      str = " - {
+      for key in rowDict: 
+        
+
+
+            self.maxObservedLenDict[key] = valLen
 
 ################### main ###################
 
