@@ -6,6 +6,7 @@
 # Begun 2023-11-21
 
 import csv, sys, traceback
+from collections import Counter
 
 ################### csv2yaml support class ###################
 
@@ -33,6 +34,9 @@ class csv2yaml:
   rowData            = []
   ignoreRowErrors    = False
   verbose            = False
+
+  groupByTargetListLen   = False    #e.g., group by number of states
+  groupByTargetListField = 'states' #e.g., group by number of states
 
   #maxLineNum = 10
   maxLineNum = None
@@ -125,16 +129,30 @@ class csv2yaml:
 
     for changeThis in self.listifySubstitutes:
       intoThis = self.listifySubstitutes[changeThis]
-      fieldstr.replace(changeThis, intoThis)
+      fieldstr = fieldstr.replace(changeThis, intoThis)
   
     result += fieldstr
     result += "]"
     return result
+
+  ################### count num char instances ###################
+  #  https://realpython.com/python-counter/
+  # ... but doing another way
+
+  def countNumCharInstances(srcStr, targetChar):
+    result = 0
+    slen   = len(srcStr)
+
+    for i in range(slen):
+      if srcStr[i] == targetChar: result += 1
+    return result
     
-  ################### loadCsv ###################
+  ################### generate yaml ###################
   
   def genYaml(self): #internally checks for yamlFn to be populated 
     if self.yamlFn is None: print("csv2yaml: genYaml requires yamlFn"); sys.exit(-1)
+
+    targetListLenDict = {}
 
     for rowDict in self.rowData:
       if self.verbose: print(rowDict)
@@ -153,11 +171,22 @@ class csv2yaml:
 
         rowstr += ', '.join(subels)
         rowstr += '}'
-        print(rowstr)
+        if self.groupByTargetListLen is False: print(rowstr)
+
+	else:   # group by target list length
+	  srcStr = rowDict[self.groupByTargetListField]
+	  tllen  = self.countNumCharInstances(srcStr, ';') + 1
+
+	  if tllen in targetListLenDict: targetListLenDict[tllen].append(rowstr)
+	  else:                          targetListLenDict[tllen] = [rowstr]
+
       except:
         if self.ignoreRowErrors: continue
         print("csv2yaml: genYaml error:")
         print(traceback.print_exc()); #sys.exit(-1)
+
+      if self.groupByTargetListLen:
+        targetListLengths = list(targetListLenDict.keys())
 
 ################### main ###################
 
