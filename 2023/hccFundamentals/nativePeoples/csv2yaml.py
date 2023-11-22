@@ -171,6 +171,7 @@ class csv2yaml:
 
         rowstr += ', '.join(subels)
         rowstr += '}'
+
         if self.groupByTargetListLen is False: print(rowstr)
         else:   # group by target list length
           srcStr = rowDict[self.groupByTargetListField]
@@ -184,12 +185,14 @@ class csv2yaml:
         print("csv2yaml: genYaml error:")
         print(traceback.print_exc()); #sys.exit(-1)
 
-      if self.groupByTargetListLen:
-        targetListLengths = list(targetListLenDict.keys())
-        targetListLengths.sort(reverse=True) #largest to smallest
-        for listLength in targetListLengths:
-          rows = targetListLenDict[listLength]
-          for row in rows: print(rows)
+    if self.groupByTargetListLen:
+      targetListLengths = list(targetListLenDict.keys())
+      targetListLengths.sort(reverse=True) #largest to smallest
+      #print(targetListLengths)
+      for listLength in targetListLengths:
+        rows = targetListLenDict[listLength]
+        for row in rows: print(row)
+        print()
 
 ################### main ###################
 
