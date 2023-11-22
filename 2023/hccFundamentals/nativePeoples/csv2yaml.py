@@ -86,7 +86,7 @@ class csv2yaml:
     csvF  = open(self.csvFn, 'rt')
     csvR  = csv.reader(csvF, delimiter=',', quotechar='"')
     for row in csvR:
-      if self.lineNum >= self.maxLineNum: sys.exit(1)
+      if self.lineNum >= self.maxLineNum: return 
 
       try:
         extractDict = {}
@@ -112,6 +112,8 @@ class csv2yaml:
       if self.verbose: print("%i: %s" % (self.lineNum, str(extractDict)))
       self.rowData.append(extractDict)
       self.lineNum += 1
+
+    print("loadCsv completed")
     
   ################### loadCsv ###################
   
@@ -121,18 +123,26 @@ class csv2yaml:
     print("genYaml called")
 
     for rowDict in self.rowData:
-      rowstr = " - {"
-      subels = []
+      print(rowDict)
+      try:
+        rowstr = " - {"
+        subels = []; fieldstr = ''
 
-      for key in self.fieldOrder:
-        fieldstr += key + ': '
-        if key in self.quoteFields: fieldstr += '"%s"' % rowDict[key] #initially, ignore justification
-        else:                       fieldstr += rowDict[key]
-        subels.append(str)
+        for key in self.fieldOrder:
+          fieldstr += key + ': '
+          if key in self.quoteFields: fieldstr += '"%s"' % rowDict[key] #initially, ignore justification
+          else:                       fieldstr += rowDict[key]
+          subels.append(str)
 
-      rowstr += ','.join(subels)
-      rowstr += '}'
-      print(rowstr)
+        print(subels)
+
+        #rowstr += ','.join(subels)
+        rowstr += '}'
+        print(rowstr)
+      except:
+        if self.ignoreRowErrors: continue
+        print("csv2yaml: genYaml error:")
+        print(traceback.print_exc()); #sys.exit(-1)
 
 ################### main ###################
 
