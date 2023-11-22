@@ -1,3 +1,7 @@
+% Prolog representation of https://www.epa.gov/sites/production/files/2021-03/tribe_entity_mapping_2021-03-04.xlsx
+% Initial programmatic synthesis by Brygg Ullmer, Clemson University
+% Begun 2023-11-21
+
 tribe(604, 100000091, [az, ca, nv], 'Fort Mojave Indian Tribe of Arizona, California & Nevada').
 tribe(803, 100000092, [az, nm, ok], 'Fort Sill Apache Tribe of Oklahoma').
 tribe(780, 100000171, [az, nm, ut], 'Navajo Nation, Arizona, New Mexico, & Utah').
@@ -354,3 +358,5 @@ tribe(tbd, 100000588,           [], '').
 tribe(tbd, 100000589,           [], '').
 tribe(tbd, 100000582,           [], '').
 tribe(tbd, 100000581,           [], '').
+
+%%% end %%%
