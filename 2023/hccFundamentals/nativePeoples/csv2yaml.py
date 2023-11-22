@@ -23,8 +23,8 @@ class csv2yaml:
   targetColDictN  = {} #target column dictionary, Excel column ID (numeric)
   targetColFields = [] #keys of targetColDictXC/N
   targetColVals   = [] #vals of targetColDictN
-  #ignoreRowErrors = True
-  ignoreRowErrors = False
+  ignoreRowErrors = True
+  #ignoreRowErrors = False
   verbose         = True
 
   maxLineNum = 10
@@ -46,7 +46,7 @@ class csv2yaml:
   def mapAlpha2Num(self, alpha):
     try:
       lowAlpha = alpha.lower()
-      return ord(alpha) - ord('a') #A/a -> 0 .. Z/z-> 25
+      return ord(lowAlpha) - ord('a') #A/a -> 0 .. Z/z-> 25
     except: 
       print('mapAlpha2Num issue:'); print(traceback.print_exc()); sys.exit(-1)
   
