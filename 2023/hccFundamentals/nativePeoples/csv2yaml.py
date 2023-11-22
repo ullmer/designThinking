@@ -31,7 +31,8 @@ class csv2yaml:
   ignoreRowErrors    = False
   verbose            = False
 
-  maxLineNum = 10
+  #maxLineNum = 10
+  maxLineNum = None
   lineNum    = 0
 
   ################### constructor ###################
@@ -42,7 +43,6 @@ class csv2yaml:
 
     self.mapColId()
     self.loadCsv() #internally checks for csvFn to be populated
-    print("bar")
     self.genYaml() #internally checks for yamlFn to be populated 
   
   ################### map alphabetic to numeric ###################
@@ -86,7 +86,7 @@ class csv2yaml:
     csvF  = open(self.csvFn, 'rt')
     csvR  = csv.reader(csvF, delimiter=',', quotechar='"')
     for row in csvR:
-      if self.lineNum >= self.maxLineNum: return 
+      if self.maxLineNum is not None and self.lineNum >= self.maxLineNum: return 
 
       try:
         extractDict = {}
@@ -120,23 +120,21 @@ class csv2yaml:
   def genYaml(self): #internally checks for yamlFn to be populated 
     if self.yamlFn is None: print("csv2yaml: genYaml requires yamlFn"); sys.exit(-1)
 
-    print("genYaml called")
-
     for rowDict in self.rowData:
-      print(rowDict)
+      if self.verbose: print(rowDict)
       try:
-        rowstr = " - {"
-        subels = []; fieldstr = ''
+        rowstr   = " - {"
+        subels   = []
 
         for key in self.fieldOrder:
-          fieldstr += key + ': '
+          fieldstr = key + ': '
           if key in self.quoteFields: fieldstr += '"%s"' % rowDict[key] #initially, ignore justification
           else:                       fieldstr += rowDict[key]
-          subels.append(str)
+          subels.append(fieldstr)
 
-        print(subels)
+        if self.verbose: print(subels)
 
-        #rowstr += ','.join(subels)
+        rowstr += ', '.join(subels)
         rowstr += '}'
         print(rowstr)
       except:
