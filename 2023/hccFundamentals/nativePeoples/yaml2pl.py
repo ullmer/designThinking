@@ -17,6 +17,8 @@ class yaml2pl:
   yamlFn = None
   yamlD  = None
   ourPl  = None
+  unquoteFields = ['states']
+  quoteFields   = ['name']
   basePredicate = None
 
   ################### constructor ###################
@@ -44,7 +46,13 @@ class yaml2pl:
       try:
         plstr = self.basePredicate + "("
         keys = []
-        for key in row: keys.append(str(row[key]))
+        for key in row: 
+          sval = str(row[key])
+          if   key in self.quoteFields:   sval2 = "'%s'" % sval
+          elif key in self.unquoteFields: sval2 = sval.replace("'",'')
+          else:                           sval2 = sval
+          keys.append(sval2)
+
         plstr += ", ".join(keys)
         plstr += ");"
         print(plstr)
