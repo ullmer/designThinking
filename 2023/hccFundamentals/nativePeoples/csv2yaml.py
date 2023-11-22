@@ -5,7 +5,7 @@
 # Brygg Ullmer, Clemson University
 # Begun 2023-11-21
 
-import csv
+import csv, sys
 
 csvFn = 'tribe_entity_mapping_2021-03-04.csv'
 targetColumns = []
@@ -13,7 +13,12 @@ targetColumns = []
 csvF  = open(csvFn, 'rt')
 csvR  = csv.reader(csvF, delimter=',', quotechar='"')
 
+maxLineNum = 10
+lineNum    = 0
+
 for row in csvR:
   print("TBD")
+  lineNum += 1
+  if lineNum >= maxLineNum: sys.exit(1)
 
 ### end ###
