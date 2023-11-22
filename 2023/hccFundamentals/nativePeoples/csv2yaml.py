@@ -58,15 +58,14 @@ class csv2yaml:
   
   ################### map column IDs ###################
   
-  def mapColId(self)
-  
-  targetColDictXC = { #target column dictionary, Excel column ID (alphabetic)
-    for keys 
-    'name':     'AE',
-  targetColDictN  = {} #target column dictionary, Excel column ID (numeric)
-  targetColFields = [] #keys of targetColDictXC/N
-  targetColList   = [] #vals of targetColDictN
-  def mapColAlpha2Num(colAlpha): #map column alphabetic ID (A..Z, AA..AZ, etc.) to numeric
+  def mapColId(self):
+
+   for key in self.targetColDictXC:
+     alphaVal = self.targetColDictXC[key]
+     numVal   = self.mapColAlpha2Num(alphaVal)
+     self.targetColDictN[key] = numVal
+     self.targetColFields.append(key) 
+     self.targetColVals.append(val) 
   
   ################### loadCsv ###################
   
