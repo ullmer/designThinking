@@ -9,13 +9,15 @@ import csv, sys
 
 csvFn = 'tribe_entity_mapping_2021-03-04.csv'
 
-targetColDict = {
+targetColDictXC = { #target column dictionary, Excel column ID (alphabetic)
   'name':     'AE',
   'biaCode':  'AF',
   'epaId':    'AG',
   'states':   'AH'}
 
-targetColList = []
+targetColDictN  = {} #target column dictionary, Excel column ID (numeric)
+targetColFields = [] #keys of targetColDictXC/N
+targetColList   = [] #vals of targetColDictN
 
 csvF  = open(csvFn, 'rt')
 csvR  = csv.reader(csvF, delimter=',', quotechar='"')
