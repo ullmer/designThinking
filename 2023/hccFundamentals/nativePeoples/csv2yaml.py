@@ -58,7 +58,7 @@ class csv2yaml:
     if numCA > 2:  print('mapColAlpha2Num requires generalization; sorry!'); sys.exit(-1)
     if numCA == 0: print('mapColAlpha2Num requires 1 or 2 alphabetic characters; sorry!'); sys.exit(-1)
   
-    result = 26 * self.mapAlpha2Num(colAlpha[0]) + self.mapAlpha2Num(colAlpha[1]) # hardwired to two 
+    result = 26 * (self.mapAlpha2Num(colAlpha[0])+1) + self.mapAlpha2Num(colAlpha[1]) # hardwired to two 
     return result
   
   ################### map column IDs ###################
