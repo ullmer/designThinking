@@ -9,10 +9,13 @@
 # - {biaCode: 304, epaId: 100000311, states: [MT, ND, SD], name: "Turtle Mountain Band of Chippewa Indians of North Dakota"}
 # - {biaCode: 603, epaId: 100000051, states: [AZ, CA], name: "Colorado River Indian Tribes of the Colorado River Indian Reservation, Arizona and California"}
 
+import yaml
+
 ###################### yaml to prolog ######################
 
 class yaml2pl:
   yamlFn = None
+  yamlD  = None
   ourPl  = None
 
   ################### constructor ###################
@@ -23,6 +26,17 @@ class yaml2pl:
 
     self.loadYaml()
     self.genPl()
+
+  ################### load YAML ###################
+
+  def loadYaml(self):
+    if self.yamlFn is None: print("yaml2pl loadYaml error: yaml filename unspecified")
+    yamlF = open(self.yamlFn, 'rt')
+    self.yamlD = yaml.safe_load(yamlF)
+  
+  ################### generate prolog ###################
+
+  def genPl(self): pass
 
 ###################### main ######################
 
