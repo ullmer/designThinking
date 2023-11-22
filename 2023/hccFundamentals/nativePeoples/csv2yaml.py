@@ -5,7 +5,7 @@
 # Brygg Ullmer, Clemson University
 # Begun 2023-11-21
 
-import csv, sys
+import csv, sys, traceback
 
 csvFn = 'tribe_entity_mapping_2021-03-04.csv'
 
@@ -19,8 +19,25 @@ targetColDictN  = {} #target column dictionary, Excel column ID (numeric)
 targetColFields = [] #keys of targetColDictXC/N
 targetColList   = [] #vals of targetColDictN
 
-def mapAlpha2Num(alpha):       return ord(alpha) - ord('A') #A -> 0 .. Z-> 25
-def mapColAlpha2Num(colAlpha): #map column alphabetic ID (A..Z, AA..AZ, etc.) to numeric 
+################### map alphabetic to numeric ###################
+
+def mapAlpha2Num(alpha):       
+  try:
+    lowAlpha = alpha.tolower()
+    return ord(alpha) - ord('a') #A/a -> 0 .. Z/z-> 25
+  except: 
+    print('mapAlpha2Num issue:'); print(traceback.print_exc()); sys.exit(-1)
+
+################### map alphabetic to numeric ###################
+
+def mapColAlpha2Num(colAlpha): #map column alphabetic ID (A..Z, AA..AZ, etc.) to numeric
+                               #initially, hardcode to 1 or 2 alphabetic codes 
+  numCA  = len(colAlpha)
+  if numCA == 1: return mapAlpha2Num(alpha)
+  if numCA > 2:  print('mapColAlpha2Num requires generalization; sorry!'); sys.exit(-1)
+  if numCA == 0: print('mapColAlpha2Num requires 1 or 2 alphabetic
+
+################### main ###################
 
 csvF  = open(csvFn, 'rt')
 csvR  = csv.reader(csvF, delimter=',', quotechar='"')
