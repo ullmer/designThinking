@@ -8,7 +8,14 @@
 import csv, sys
 
 csvFn = 'tribe_entity_mapping_2021-03-04.csv'
-targetColumns = []
+
+targetColDict = {
+  'name':     'AE',
+  'biaCode':  'AF',
+  'epaId':    'AG',
+  'states':   'AH'}
+
+targetColList = []
 
 csvF  = open(csvFn, 'rt')
 csvR  = csv.reader(csvF, delimter=',', quotechar='"')
