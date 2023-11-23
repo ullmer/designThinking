@@ -1,4 +1,4 @@
-# Garden database probe
+# First Peoples database probe
 # By Brygg Ullmer, Clemson University
 # Begun 2023-06-09
 # Revamped 2023-09-17
@@ -9,16 +9,16 @@ import traceback
 import yaml
 from itertools import islice
 
-################################################################################
-############### Garden class ############### 
+###################################################
+############### First Peoples class ############### 
 
-class gardenDb:
+class firstPeoplesDb:
   wpDbFn         = 'sdowi.db3'
-  gardenDbFn     = 'garden.db3'
+  firstPeoplesDbFn     = 'firstPeoples.db3'
   wpDbConn       = None
   wpDbCursor     = None
-  gardenDbConn   = None
-  gardenDbCursor = None
+  firstPeoplesDbConn   = None
+  firstPeoplesDbCursor = None
   verbose        = False
   fOut           = None
   currentYear    = 2023
@@ -32,8 +32,8 @@ class gardenDb:
   ############### constructor ############### 
 
   def __init__(self):
-    #self.gardenDbConn   = sqlite3.connect(self.gardenDbFn)
-    #self.gardenDbCursor = self.gardenDbConn.cursor()
+    #self.firstPeoplesDbConn   = sqlite3.connect(self.firstPeoplesDbFn)
+    #self.firstPeoplesDbCursor = self.firstPeoplesDbConn.cursor()
 
     self.wpDbConn       = sqlite3.connect(self.wpDbFn)
     self.wpDbCursor     = self.wpDbConn.cursor()
@@ -42,11 +42,11 @@ class gardenDb:
 
     self.wpLinkCountDict = {}
 
-  ############### get garden plant links ############### 
+  ############### get firstPeoples  links ############### 
 
-  def getGardenPlantLinks(self):
+  def getFirst PeoplesLinks(self):
 
-    linksStr = self.getGardenPlantLinksStr()
+    linksStr = self.getFirst PeoplesLinksStr()
 
     ilinks = []
     for link in links: ilinks.append(int(link))
@@ -69,13 +69,13 @@ class gardenDb:
     result = [list(islice(targetlistIter, n)) for n in sublistLengths]
     return result
 
-  ############### get garden plant links ############### 
+  ############### get firstPeoples links ############### 
 
-  def getGardenPlantLinksStr(self):
+  def getFirstPeoplesLinksStr(self):
 
     query1 = "select outgoing_links from links where id = 334173;"
     try:    df = pd.read_sql_query(query1, self.wpDbConn) 
-    except: print("gardenDb::getGardenPlantLilnks error"); traceback.print_exc(); return None
+    except: print("firstPeoplesDb::getFirst PeoplesLilnks error"); traceback.print_exc(); return None
 
     ilinks = []
 
@@ -99,7 +99,7 @@ class gardenDb:
       #print(query1)
 
       try:    df = pd.read_sql_query(query1, self.wpDbConn) 
-      except: print("gardenDb::getPageNames error"); traceback.print_exc(); return None
+      except: print("firstPeoplesDb::getPageNames error"); traceback.print_exc(); return None
   
       for index, row in df.iterrows():
         #id, title = row['id'], row['title']
@@ -150,8 +150,8 @@ class gardenDb:
 ############### main ############### 
 
 def main():
-  gdb       = gardenDb()
-  links     = gdb.getGardenPlantLinksStr()
+  gdb       = firstPeoplesDb()
+  links     = gdb.getFirstPeoplesLinksStr()
   pagenames = gdb.getPageNames(links)
   for name in pagenames: print(name)
 
