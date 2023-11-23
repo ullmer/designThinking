@@ -1,7 +1,7 @@
 # First Peoples database probe
 # By Brygg Ullmer, Clemson University
-# Begun 2023-06-09
-# Revamped 2023-09-17
+# Begun    2023-06-09; first revamped 2023-09-17
+# Revamped 2023-11-23
 
 import sqlite3
 import pandas as pd
@@ -13,21 +13,20 @@ from itertools import islice
 ############### First Peoples class ############### 
 
 class firstPeoplesDb:
-  wpDbFn         = 'sdowi.db3'
+  wpDbFn               = 'sdowi.db3'
   firstPeoplesDbFn     = 'firstPeoples.db3'
-  wpDbConn       = None
-  wpDbCursor     = None
+  wpDbConn             = None
+  wpDbCursor           = None
   firstPeoplesDbConn   = None
   firstPeoplesDbCursor = None
-  verbose        = False
-  fOut           = None
-  currentYear    = 2023
-  statesYamlFn   = 'states.yaml'
-  statesY          = None
-  stateName2Abbrev = None
-  fnOut            = 'players1b.yaml'
-  scyfn            = 'bb6.yaml'
-  wpLinkCountDict  = None
+  verbose              = False
+  fOut                 = None
+  currentYear          = 2023
+  statesYamlFn         = 'states.yaml'
+  statesY              = None
+  stateName2Abbrev     = None
+  fnOut                = 'firstPeoples.yaml'
+  wpLinkCountDict      = None
 
   ############### constructor ############### 
 
