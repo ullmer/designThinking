@@ -72,13 +72,13 @@ class firstPeoplesDb:
 
   def getFirstPeoplesLinksStr(self, titleStr):
 
-    query1 = "select links.outgoing_links as outlinks,
-                     links.id             as linksid,
-                     pages.id    as pid,
-                     pages.title as ptitle
-                       from links, pages
-                         where ptitle = '%s' and
-                                  pid = linksid;" % titleStr
+    query1 = """select links.outgoing_links as outlinks,
+                       links.id             as linksid,
+                       pages.id    as pid,
+                       pages.title as ptitle
+                         from links, pages
+                           where ptitle = '%s' and
+                                    pid = linksid;""" % titleStr
 
     try:    df = pd.read_sql_query(query1, self.wpDbConn) 
     except: print("firstPeoplesDb::getFirst PeoplesLilnks error"); traceback.print_exc(); return None
@@ -156,8 +156,8 @@ class firstPeoplesDb:
 ############### main ############### 
 
 def main():
-  fpdb       = firstPeoplesDb()
-  links     = fpdb.getFirstPeoplesLinksStr()
+  fpdb      = firstPeoplesDb()
+  links     = fpdb.getFirstPeoplesLinksStr('Indigenous_peoples_of_California')
   pagenames = fpdb.getPageNames(links)
   for name in pagenames: print(name)
 
