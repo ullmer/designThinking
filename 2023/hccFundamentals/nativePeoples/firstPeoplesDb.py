@@ -72,12 +72,13 @@ class firstPeoplesDb:
 
   def getFirstPeoplesLinksStr(self, titleStr):
 
-    query1 = "select links.outgoing_links as outlinks from links, 
-                     links.id             as linksid  from links,
-                     pages.id    as pid    from pages, 
-                     pages.title as ptitle from pages
-                where ptitle = '%s' and 
-                      pid    = linksid;"
+    query1 = "select links.outgoing_links as outlinks,
+                     links.id             as linksid,
+                     pages.id    as pid,
+                     pages.title as ptitle
+                       from links, pages
+                         where ptitle = '%s' and
+                                  pid = linksid;" % titleStr
 
     try:    df = pd.read_sql_query(query1, self.wpDbConn) 
     except: print("firstPeoplesDb::getFirst PeoplesLilnks error"); traceback.print_exc(); return None
