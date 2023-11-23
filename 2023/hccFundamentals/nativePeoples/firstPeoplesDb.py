@@ -43,9 +43,9 @@ class firstPeoplesDb:
 
   ############### get firstPeoples  links ############### 
 
-  def getFirst PeoplesLinks(self):
+  def getFirstPeoplesLinks(self):
 
-    linksStr = self.getFirst PeoplesLinksStr()
+    linksStr = self.getFirstPeoplesLinksStr()
 
     ilinks = []
     for link in links: ilinks.append(int(link))
@@ -70,9 +70,15 @@ class firstPeoplesDb:
 
   ############### get firstPeoples links ############### 
 
-  def getFirstPeoplesLinksStr(self):
+  def getFirstPeoplesLinksStr(self, titleStr):
 
-    query1 = "select outgoing_links from links where id = 334173;"
+    query1 = "select links.outgoing_links as outlinks from links, 
+                     links.id             as linksid  from links,
+                     pages.id    as pid    from pages, 
+                     pages.title as ptitle from pages
+                where ptitle = '%s' and 
+                      pid    = linksid;"
+
     try:    df = pd.read_sql_query(query1, self.wpDbConn) 
     except: print("firstPeoplesDb::getFirst PeoplesLilnks error"); traceback.print_exc(); return None
 
@@ -149,9 +155,9 @@ class firstPeoplesDb:
 ############### main ############### 
 
 def main():
-  gdb       = firstPeoplesDb()
-  links     = gdb.getFirstPeoplesLinksStr()
-  pagenames = gdb.getPageNames(links)
+  fpdb       = firstPeoplesDb()
+  links     = fpdb.getFirstPeoplesLinksStr()
+  pagenames = fpdb.getPageNames(links)
   for name in pagenames: print(name)
 
 if __name__ == "__main__":
