@@ -2,14 +2,9 @@
 # By Brygg Ullmer, Clemson University
 # Begun 2023-11-08
 
-# Extra credit modification, SD (opted for public):
-# For this activity, I would like to use the Pgz along with my final project.  
-# For now, I will add an image (ascreenshot) from the application prototype,
-# and use the Actors as the input(fingerTouch) by the user
-
 import sys
 
-WIDTH=1000
+WIDTH=1024
 
 class globalState:
   numTimesSpaceHit  = 0
@@ -18,6 +13,7 @@ class globalState:
   actorOriginalPos  = {}
   stableActors = moveableActors = actorNames = None
 
+  defaultEllipseColor    = (0, 200, 200)
   defaultEllipseLocation = Rect((800, 600), (850, 650))
 
 gs = globalState()
@@ -26,16 +22,20 @@ knownActorFilenames = ['red-hl-1in-200dpi', 'person-iconic1',
                        'ipanel-cell-selection1']
 defaultActorFn      = knownActorFilenames[1]
 
-b1 = Actor('exit',         pos=(925, 75))
-s1 = Actor('sample_screen')
-a3 = Actor('canvas_touch')
+a1 = Actor(defaultActorFn) #previously: a1 = Actor('red-hl-1in-200dpi')
+a2 = Actor(defaultActorFn,  pos=(180, 180))
+s1 = Actor('unsdg2',             pos=(550, 100)) #H20
+s2 = Actor('unsdg4',             pos=(550, 100)) #NaCl
+b1 = Actor('person-add-iconic1', pos=( 80, 500))
+m1 = Actor('campus-map8',        pos=(348, 202))
+#m1 = Actor('clemson12d2',        pos=(348, 202))
 
-#s1 = Actor('login_screen', pos=(350, 210))
-
-gs.lastSelectedActor = a3
-gs.moveableActors    = [a3]
-gs.stableActors      = [s1, b1]
-gs.actorNames        = {a3: "canvas touch", s1: "login screen", b1: "exit"}
+successiveScreens    = [s1, s2]
+gs.lastSelectedActor = a1
+gs.moveableActors    = [m1, a1, a2, b1] # chalraha
+gs.stableActors      = [s1] #achalraha / rukha
+gs.actorNames        = {a1: "John", a2: "Jane", s1: "screen", 
+                        b1: "addUser", m1: "map"}
 
 ###################### draw ######################
 
@@ -43,6 +43,10 @@ def draw():
   screen.clear()
   for actor in gs.stableActors:   actor.draw()
   for actor in gs.moveableActors: actor.draw()
+
+  #placeholder per idea from Yang
+  #pygame.draw.ellipse(screen.surface, defaultEllipseColor, defaultEllipseLocation)
+  screen.draw.circle((800, 500), 50, gs.defaultEllipseColor)
 
 ###################### on mouse down/press ######################
 
@@ -64,8 +68,8 @@ def on_mouse_down(pos): # on_press_down
         print("update the virtual screen images")
         gs.stableActors = [s2, b1]
 
-      elif name == "exit":
-        sys.exit(-1)
+      elif name == "addUser":
+        addUser()
 
       else:
         gs.actorOriginalPos[actor] = pos     
@@ -109,7 +113,6 @@ def on_key_down(key):
 
   if key == keys.RIGHT: gs.lastSelectedActor.angle += 45
   if key == keys.LEFT:  gs.lastSelectedActor.angle -= 45
-  if key == keys.ESCAPE: sys.exit(1)
 
 ### end ###
 
