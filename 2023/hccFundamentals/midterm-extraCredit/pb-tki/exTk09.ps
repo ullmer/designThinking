@@ -1,0 +1,864 @@
+%!PS-Adobe-3.0
+%%BoundingBox: 24 24 571 818
+%%Title: Enscript Output
+%%For: U-CAMPUS\bullmer,S-1-5-21-2479343993-3405887502-1059502911-343544
+%%Creator: GNU Enscript 1.6.6
+%%CreationDate: Thu Nov  9 12:18:43 2023
+%%Orientation: Portrait
+%%Pages: (atend)
+%%DocumentMedia: A4 595 842 0 () ()
+%%DocumentNeededResources: (atend)
+%%EndComments
+%%BeginProlog
+%%BeginResource: procset Enscript-Prolog 1.6 6
+%
+% Procedures.
+%
+
+/_S {	% save current state
+  /_s save def
+} def
+/_R {	% restore from saved state
+  _s restore
+} def
+
+/S {	% showpage protecting gstate
+  gsave
+  showpage
+  grestore
+} bind def
+
+/MF {	% fontname newfontname -> -	make a new encoded font
+  /newfontname exch def
+  /fontname exch def
+
+  /fontdict fontname findfont def
+  /newfont fontdict maxlength dict def
+
+  fontdict {
+    exch
+    dup /FID eq {
+      % skip FID pair
+      pop pop
+    } {
+      % copy to the new font dictionary
+      exch newfont 3 1 roll put
+    } ifelse
+  } forall
+
+  newfont /FontName newfontname put
+
+  % insert only valid encoding vectors
+  encoding_vector length 256 eq {
+    newfont /Encoding encoding_vector put
+  } if
+
+  newfontname newfont definefont pop
+} def
+
+/MF_PS { % fontname newfontname -> -	make a new font preserving its enc
+  /newfontname exch def
+  /fontname exch def
+
+  /fontdict fontname findfont def
+  /newfont fontdict maxlength dict def
+
+  fontdict {
+    exch
+    dup /FID eq {
+      % skip FID pair
+      pop pop
+    } {
+      % copy to the new font dictionary
+      exch newfont 3 1 roll put
+    } ifelse
+  } forall
+
+  newfont /FontName newfontname put
+
+  newfontname newfont definefont pop
+} def
+
+/SF { % fontname width height -> -	set a new font
+  /height exch def
+  /width exch def
+
+  findfont
+  [width 0 0 height 0 0] makefont setfont
+} def
+
+/SUF { % fontname width height -> -	set a new user font
+  /height exch def
+  /width exch def
+
+  /F-gs-user-font MF
+  /F-gs-user-font width height SF
+} def
+
+/SUF_PS { % fontname width height -> -	set a new user font preserving its enc
+  /height exch def
+  /width exch def
+
+  /F-gs-user-font MF_PS
+  /F-gs-user-font width height SF
+} def
+
+/M {moveto} bind def
+/s {show} bind def
+
+/Box {	% x y w h -> -			define box path
+  /d_h exch def /d_w exch def /d_y exch def /d_x exch def
+  d_x d_y  moveto
+  d_w 0 rlineto
+  0 d_h rlineto
+  d_w neg 0 rlineto
+  closepath
+} def
+
+/bgs {	% x y height blskip gray str -> -	show string with bg color
+  /str exch def
+  /gray exch def
+  /blskip exch def
+  /height exch def
+  /y exch def
+  /x exch def
+
+  gsave
+    x y blskip sub str stringwidth pop height Box
+    gray setgray
+    fill
+  grestore
+  x y M str s
+} def
+
+/bgcs { % x y height blskip red green blue str -> -  show string with bg color
+  /str exch def
+  /blue exch def
+  /green exch def
+  /red exch def
+  /blskip exch def
+  /height exch def
+  /y exch def
+  /x exch def
+
+  gsave
+    x y blskip sub str stringwidth pop height Box
+    red green blue setrgbcolor
+    fill
+  grestore
+  x y M str s
+} def
+
+% Highlight bars.
+/highlight_bars {	% nlines lineheight output_y_margin gray -> -
+  gsave
+    setgray
+    /ymarg exch def
+    /lineheight exch def
+    /nlines exch def
+
+    % This 2 is just a magic number to sync highlight lines to text.
+    0 d_header_y ymarg sub 2 sub translate
+
+    /cw d_output_w cols div def
+    /nrows d_output_h ymarg 2 mul sub lineheight div cvi def
+
+    % for each column
+    0 1 cols 1 sub {
+      cw mul /xp exch def
+
+      % for each rows
+      0 1 nrows 1 sub {
+        /rn exch def
+        rn lineheight mul neg /yp exch def
+        rn nlines idiv 2 mod 0 eq {
+	  % Draw highlight bar.  4 is just a magic indentation.
+	  xp 4 add yp cw 8 sub lineheight neg Box fill
+	} if
+      } for
+    } for
+
+  grestore
+} def
+
+% Line highlight bar.
+/line_highlight {	% x y width height gray -> -
+  gsave
+    /gray exch def
+    Box gray setgray fill
+  grestore
+} def
+
+% Column separator lines.
+/column_lines {
+  gsave
+    .1 setlinewidth
+    0 d_footer_h translate
+    /cw d_output_w cols div def
+    1 1 cols 1 sub {
+      cw mul 0 moveto
+      0 d_output_h rlineto stroke
+    } for
+  grestore
+} def
+
+% Column borders.
+/column_borders {
+  gsave
+    .1 setlinewidth
+    0 d_footer_h moveto
+    0 d_output_h rlineto
+    d_output_w 0 rlineto
+    0 d_output_h neg rlineto
+    closepath stroke
+  grestore
+} def
+
+% Do the actual underlay drawing
+/draw_underlay {
+  ul_style 0 eq {
+    ul_str true charpath stroke
+  } {
+    ul_str show
+  } ifelse
+} def
+
+% Underlay
+/underlay {	% - -> -
+  gsave
+    0 d_page_h translate
+    d_page_h neg d_page_w atan rotate
+
+    ul_gray setgray
+    ul_font setfont
+    /dw d_page_h dup mul d_page_w dup mul add sqrt def
+    ul_str stringwidth pop dw exch sub 2 div ul_h_ptsize -2 div moveto
+    draw_underlay
+  grestore
+} def
+
+/user_underlay {	% - -> -
+  gsave
+    ul_x ul_y translate
+    ul_angle rotate
+    ul_gray setgray
+    ul_font setfont
+    0 0 ul_h_ptsize 2 div sub moveto
+    draw_underlay
+  grestore
+} def
+
+% Page prefeed
+/page_prefeed {		% bool -> -
+  statusdict /prefeed known {
+    statusdict exch /prefeed exch put
+  } {
+    pop
+  } ifelse
+} def
+
+% Wrapped line markers
+/wrapped_line_mark {	% x y charwith charheight type -> -
+  /type exch def
+  /h exch def
+  /w exch def
+  /y exch def
+  /x exch def
+
+  type 2 eq {
+    % Black boxes (like TeX does)
+    gsave
+      0 setlinewidth
+      x w 4 div add y M
+      0 h rlineto w 2 div 0 rlineto 0 h neg rlineto
+      closepath fill
+    grestore
+  } {
+    type 3 eq {
+      % Small arrows
+      gsave
+        .2 setlinewidth
+        x w 2 div add y h 2 div add M
+        w 4 div 0 rlineto
+        x w 4 div add y lineto stroke
+
+        x w 4 div add w 8 div add y h 4 div add M
+        x w 4 div add y lineto
+	w 4 div h 8 div rlineto stroke
+      grestore
+    } {
+      % do nothing
+    } ifelse
+  } ifelse
+} def
+
+% EPSF import.
+
+/BeginEPSF {
+  /b4_Inc_state save def    		% Save state for cleanup
+  /dict_count countdictstack def	% Count objects on dict stack
+  /op_count count 1 sub def		% Count objects on operand stack
+  userdict begin
+  /showpage { } def
+  0 setgray 0 setlinecap
+  1 setlinewidth 0 setlinejoin
+  10 setmiterlimit [ ] 0 setdash newpath
+  /languagelevel where {
+    pop languagelevel
+    1 ne {
+      false setstrokeadjust false setoverprint
+    } if
+  } if
+} bind def
+
+/EndEPSF {
+  count op_count sub { pos } repeat	% Clean up stacks
+  countdictstack dict_count sub { end } repeat
+  b4_Inc_state restore
+} bind def
+
+% Check PostScript language level.
+/languagelevel where {
+  pop /gs_languagelevel languagelevel def
+} {
+  /gs_languagelevel 1 def
+} ifelse
+%%EndResource
+%%BeginResource: procset Enscript-Encoding-88591 1.6 6
+/encoding_vector [
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/space        	/exclam       	/quotedbl     	/numbersign   	
+/dollar       	/percent      	/ampersand    	/quoteright   	
+/parenleft    	/parenright   	/asterisk     	/plus         	
+/comma        	/hyphen       	/period       	/slash        	
+/zero         	/one          	/two          	/three        	
+/four         	/five         	/six          	/seven        	
+/eight        	/nine         	/colon        	/semicolon    	
+/less         	/equal        	/greater      	/question     	
+/at           	/A            	/B            	/C            	
+/D            	/E            	/F            	/G            	
+/H            	/I            	/J            	/K            	
+/L            	/M            	/N            	/O            	
+/P            	/Q            	/R            	/S            	
+/T            	/U            	/V            	/W            	
+/X            	/Y            	/Z            	/bracketleft  	
+/backslash    	/bracketright 	/asciicircum  	/underscore   	
+/quoteleft    	/a            	/b            	/c            	
+/d            	/e            	/f            	/g            	
+/h            	/i            	/j            	/k            	
+/l            	/m            	/n            	/o            	
+/p            	/q            	/r            	/s            	
+/t            	/u            	/v            	/w            	
+/x            	/y            	/z            	/braceleft    	
+/bar          	/braceright   	/tilde        	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/space        	/exclamdown   	/cent         	/sterling     	
+/currency     	/yen          	/brokenbar    	/section      	
+/dieresis     	/copyright    	/ordfeminine  	/guillemotleft	
+/logicalnot   	/hyphen       	/registered   	/macron       	
+/degree       	/plusminus    	/twosuperior  	/threesuperior	
+/acute        	/mu           	/paragraph    	/bullet       	
+/cedilla      	/onesuperior  	/ordmasculine 	/guillemotright	
+/onequarter   	/onehalf      	/threequarters	/questiondown 	
+/Agrave       	/Aacute       	/Acircumflex  	/Atilde       	
+/Adieresis    	/Aring        	/AE           	/Ccedilla     	
+/Egrave       	/Eacute       	/Ecircumflex  	/Edieresis    	
+/Igrave       	/Iacute       	/Icircumflex  	/Idieresis    	
+/Eth          	/Ntilde       	/Ograve       	/Oacute       	
+/Ocircumflex  	/Otilde       	/Odieresis    	/multiply     	
+/Oslash       	/Ugrave       	/Uacute       	/Ucircumflex  	
+/Udieresis    	/Yacute       	/Thorn        	/germandbls   	
+/agrave       	/aacute       	/acircumflex  	/atilde       	
+/adieresis    	/aring        	/ae           	/ccedilla     	
+/egrave       	/eacute       	/ecircumflex  	/edieresis    	
+/igrave       	/iacute       	/icircumflex  	/idieresis    	
+/eth          	/ntilde       	/ograve       	/oacute       	
+/ocircumflex  	/otilde       	/odieresis    	/divide       	
+/oslash       	/ugrave       	/uacute       	/ucircumflex  	
+/udieresis    	/yacute       	/thorn        	/ydieresis    	
+] def
+%%EndResource
+%%EndProlog
+%%BeginSetup
+%%IncludeResource: font Courier-Bold
+%%IncludeResource: font Courier
+/HFpt_w 10 def
+/HFpt_h 10 def
+/Courier-Bold /HF-gs-font MF
+/HF /HF-gs-font findfont [HFpt_w 0 0 HFpt_h 0 0] makefont def
+/Courier /F-gs-font MF
+/F-gs-font 10 10 SF
+/#copies 1 def
+% Pagedevice definitions:
+gs_languagelevel 1 gt {
+  <<
+    /PageSize [595 842] 
+  >> setpagedevice
+} if
+%%BeginResource: procset Enscript-Header-enscript 1.6 6
+%%IncludeResource: font Times-Bold
+%%IncludeResource: font Times-Roman
+
+% Fonts.
+/Times-Bold /HeaderFont-Bold MF
+/HeaderDateF /HeaderFont-Bold findfont 12 scalefont def
+
+/Times-Roman /HeaderFont-Times MF
+/HeaderHDRF /HeaderFont-Times findfont 14 scalefont def
+
+/HeaderPageNumF /Helvetica-Bold findfont 28.8 scalefont def
+
+/do_header {	% print enscript header
+  gsave
+    d_header_x d_header_y translate
+
+    % light bar
+    0 0 d_header_w d_header_h 2 div Box
+    .95 setgray fill
+
+    % dark gray boxes
+    /dbw d_header_h 2 mul def	% dark box width
+    /dbc .7 def			% dark box color
+
+    % left dark box.
+    0 0 dbw d_header_h Box
+    dbc setgray fill
+
+    0 setgray 
+    HeaderDateF setfont
+    moddatestr dup stringwidth pop dbw exch sub 2 div 
+    d_header_h 2 div 2 add moveto show
+    modtimestr dup stringwidth pop dbw exch sub 2 div 
+    d_header_h 5 div moveto show
+
+    % right dark box
+    d_header_w dbw sub 0 dbw d_header_h Box
+    dbc setgray fill
+
+    HeaderPageNumF setfont
+    1 setgray
+    pagenumstr dup
+    stringwidth pop dbw exch sub 2 div d_header_w dbw sub add
+    d_header_h .2 mul moveto show
+
+    % filename
+    0 setgray 
+    HeaderHDRF setfont
+    d_header_w fname stringwidth pop sub 2 div d_header_h 8 div moveto
+    fname show
+
+    % user supplied header string.
+    user_header_p {
+      /h d_header_h 8 div 5 mul def
+
+      % Implement strict enscript compatibility.
+      user_header_center_str () eq user_header_right_str () eq and {
+        d_header_w user_header_left_str stringwidth pop sub 2 div 
+        h moveto user_header_left_str show
+      } {
+        dbw 5 add h moveto user_header_left_str show
+
+        d_header_w user_header_center_str stringwidth pop sub 2 div 
+        h moveto user_header_center_str show
+
+	d_header_w dbw sub 5 sub user_header_right_str stringwidth pop
+	sub h moveto user_header_right_str show
+      } ifelse
+    } if
+
+  grestore
+} def
+%%EndResource
+/d_page_w 547 def
+/d_page_h 794 def
+/d_header_x 0 def
+/d_header_y 758 def
+/d_header_w 547 def
+/d_header_h 36 def
+/d_footer_x 0 def
+/d_footer_y 0 def
+/d_footer_w 547 def
+/d_footer_h 0 def
+/d_output_w 547 def
+/d_output_h 758 def
+/cols 1 def
+%%EndSetup
+%%Page: (1) 1
+%%BeginPageSetup
+_S
+24 24 translate
+/pagenum 1 def
+/fname (exTki09.py) def
+/fdir (.) def
+/ftail (exTki09.py) def
+% User defined strings:
+/pagenumstr (1) def
+/moddatestr (11/09/23) def
+/modtimestr (12:18:29) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+30 745 M (1:) s
+48 745 M
+(# Example code relating to interactive storyboarding) s
+30 734 M (2:) s
+48 734 M
+(# By Brygg Ullmer, Clemson University) s
+30 723 M (3:) s
+48 723 M
+(# Begun 2023-11-09) s
+30 712 M (4:) s
+30 701 M (5:) s
+48 701 M
+(from tkinter import *) s
+30 690 M (6:) s
+48 690 M
+(import PIL.Image, PIL.ImageTk #image manipulation package) s
+30 679 M (7:) s
+30 668 M (8:) s
+48 668 M
+(#WIDTH=1024) s
+30 657 M (9:) s
+24 646 M (10:) s
+48 646 M
+(screenStates = ['unsdg2', 'unsdg4']) s
+24 635 M (11:) s
+48 635 M
+(imgAddUser   = 'person-add-iconic1') s
+24 624 M (12:) s
+24 613 M (13:) s
+48 613 M
+(#actorNames          = {a1: "John", a2: "Jane", s1: "screen", b1: "addUser"}) s
+24 602 M (14:) s
+48 602 M
+(actorOriginalPos     = {}) s
+24 591 M (15:) s
+48 591 M
+(selectedActor        = None) s
+24 580 M (16:) s
+48 580 M
+(selectedActorName    = None) s
+24 569 M (17:) s
+48 569 M
+(selectedActorOrigPos = None) s
+24 558 M (18:) s
+24 547 M (19:) s
+48 547 M
+(def helloCB\(\):) s
+24 536 M (20:) s
+48 536 M
+(  print\("hello was pushed"\)) s
+24 525 M (21:) s
+24 514 M (22:) s
+48 514 M
+(####################### build UI ######################) s
+24 503 M (23:) s
+24 492 M (24:) s
+48 492 M
+(imP1 = imTk1 = None) s
+24 481 M (25:) s
+48 481 M
+(imP2 = imTk2 = None) s
+24 470 M (26:) s
+24 459 M (27:) s
+48 459 M
+(#https://stackoverflow.com/questions/51591456/can-i-use-rgb-in-tkinter) s
+24 448 M (28:) s
+48 448 M
+(#translates rgb values of type int to a tkinter friendly color code) s
+24 437 M (29:) s
+48 437 M
+(def rgb2tk\(r, g, b\):) s
+24 426 M (30:) s
+48 426 M
+(  return "#%02x%02x%02x" % \(r,g,b\)) s
+24 415 M (31:) s
+24 404 M (32:) s
+48 404 M
+(c                    = None #canvas handle, sigh; should be moved into a class) s
+24 393 M (33:) s
+48 393 M
+(selectedCanvasObject = None #ID \(1,2,3...\) of a selected object within canvas c) s
+24 382 M (34:) s
+48 382 M
+(lastDragXY           = None #coordinates of where a mouse-drag sequence began) s
+24 371 M (35:) s
+48 371 M
+(img1                 = None) s
+24 360 M (36:) s
+24 349 M (37:) s
+48 349 M
+(####################### build user interface ######################) s
+24 338 M (38:) s
+24 327 M (39:) s
+48 327 M
+(def buildUI\(f1Screens, f2Spatial, f3Controls\):) s
+24 316 M (40:) s
+48 316 M
+(  global imP1, imTk1, imP2, imTk2, c, img1) s
+24 305 M (41:) s
+24 294 M (42:) s
+48 294 M
+(  imgAddUserFn   = 'person-add-iconic1.png') s
+24 283 M (43:) s
+48 283 M
+(  imP1  = PIL.Image.open\(imgAddUserFn\)) s
+24 272 M (44:) s
+48 272 M
+(  imTk1 = PIL.ImageTk.PhotoImage\(imP1\)) s
+24 261 M (45:) s
+24 250 M (46:) s
+48 250 M
+(  #b = Button\(f3Controls, text="add actor", command=helloCB\) # Create a label with) s
+5 239 M
+( words) s
+24 228 M (47:) s
+48 228 M
+(  b  = Button\(f3Controls, image=imTk1, command=addCanvasItem\)) s
+24 217 M (48:) s
+48 217 M
+(  b.pack\(side=LEFT, expand=True, fill=BOTH\) ) s
+24 206 M (49:) s
+24 195 M (50:) s
+48 195 M
+(  screenFilenames = ['unsdg2.png', 'unsdg4.png']) s
+24 184 M (51:) s
+48 184 M
+(  imP2   = PIL.Image.open\(screenFilenames[0]\)) s
+24 173 M (52:) s
+48 173 M
+(  imTk2  = PIL.ImageTk.PhotoImage\(imP2\)) s
+24 162 M (53:) s
+48 162 M
+(  label1 = Label\(f1Screens, image=imTk2\)) s
+24 151 M (54:) s
+48 151 M
+(  label1.pack\(\)) s
+24 140 M (55:) s
+24 129 M (56:) s
+48 129 M
+(  bgColor = rgb2tk\(10, 10, 10\)) s
+24 118 M (57:) s
+48 118 M
+(  #c = Canvas\(f2Spatial, bg="orange", height=200, width=1024\)) s
+24 107 M (58:) s
+48 107 M
+(  c = Canvas\(f2Spatial,  bg=bgColor,  height=400, width=1024\)) s
+24 96 M (59:) s
+48 96 M
+(  c.pack\(\)) s
+24 85 M (60:) s
+24 74 M (61:) s
+48 74 M
+(  img1Fn = 'clemson12d2.png') s
+24 63 M (62:) s
+48 63 M
+(  img1   = PhotoImage\(file=img1Fn\) #transparent image) s
+24 52 M (63:) s
+48 52 M
+(  c.create_image\(100, 100, image=img1,anchor='ne'\) ) s
+24 41 M (64:) s
+24 30 M (65:) s
+48 30 M
+(  r1Coords = \(10, 10, 60, 60\)) s
+24 19 M (66:) s
+48 19 M
+(  r1 = c.create_rectangle\(r1Coords, fill="white"\)) s
+24 8 M (67:) s
+_R
+S
+%%Page: (2) 2
+%%BeginPageSetup
+_S
+24 24 translate
+/pagenum 2 def
+/fname (exTki09.py) def
+/fdir (.) def
+/ftail (exTki09.py) def
+% User defined strings:
+/pagenumstr (2) def
+/moddatestr (11/09/23) def
+/modtimestr (12:18:29) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+24 745 M (68:) s
+48 745 M
+(  r2Coords = \(70, 10, 120, 60\)) s
+24 734 M (69:) s
+48 734 M
+(  r2 = c.create_rectangle\(r2Coords, fill="orange"\)) s
+24 723 M (70:) s
+24 712 M (71:) s
+48 712 M
+(  #print\("canvas rectangle ids:", r1, r2\)) s
+24 701 M (72:) s
+48 701 M
+(  #c.move\(r1, 50, 50\)) s
+24 690 M (73:) s
+24 679 M (74:) s
+48 679 M
+(  c.bind\("<Button-1>",  on_click\)) s
+24 668 M (75:) s
+48 668 M
+(  c.bind\("<B1-Motion>", on_drag\)) s
+24 657 M (76:) s
+24 646 M (77:) s
+48 646 M
+(################### mouse click callback ##################) s
+24 635 M (78:) s
+24 624 M (79:) s
+48 624 M
+(#next pulls from https://stackoverflow.com/questions/65189412/python-canvas-move-i) s
+5 613 M
+(tems-with-mouse-tkinter) s
+24 602 M (80:) s
+24 591 M (81:) s
+48 591 M
+(def on_click\(event\):) s
+24 580 M (82:) s
+48 580 M
+(  global c, selectedCanvasObj, lastDragXY) s
+24 569 M (83:) s
+24 558 M (84:) s
+48 558 M
+(  x, y = event.x, event.y) s
+24 547 M (85:) s
+48 547 M
+(  csr  = 10 #click search radius) s
+24 536 M (86:) s
+48 536 M
+(  x1, y1, x2, y2 = x-csr, y-csr, x+csr, y+csr) s
+24 525 M (87:) s
+48 525 M
+(  #print\("click event:", event\)) s
+24 514 M (88:) s
+24 503 M (89:) s
+48 503 M
+(  selected = c.find_overlapping\(x1, y1, x2, y2\)) s
+24 492 M (90:) s
+48 492 M
+(  if selected: selectedCanvasObj = selected[-1]) s
+24 481 M (91:) s
+48 481 M
+(  else:        selectedCanvasObj = None) s
+24 470 M (92:) s
+24 459 M (93:) s
+48 459 M
+(  lastDragXY = \(x,y\) #for calculating dx, dy movement changes with drag) s
+24 448 M (94:) s
+24 437 M (95:) s
+48 437 M
+(  #print\("selected:", selectedCanvasObj\)) s
+24 426 M (96:) s
+24 415 M (97:) s
+48 415 M
+(################### mouse drag callback ##################) s
+24 404 M (98:) s
+24 393 M (99:) s
+48 393 M
+(def on_drag\(event\):) s
+18 382 M (100:) s
+48 382 M
+(  global c, selectedCanvasObj, lastDragXY) s
+18 371 M (101:) s
+48 371 M
+(  #print\("drag event:", event\)) s
+18 360 M (102:) s
+18 349 M (103:) s
+48 349 M
+(  x0, y0 = lastDragXY) s
+18 338 M (104:) s
+48 338 M
+(  x1, y1 = event.x, event.y) s
+18 327 M (105:) s
+48 327 M
+(  dx, dy = x1-x0, y1-y0) s
+18 316 M (106:) s
+48 316 M
+(  lastDragXY = \(x1,y1\) ) s
+18 305 M (107:) s
+18 294 M (108:) s
+48 294 M
+(  c.move\(selectedCanvasObj, dx, dy\)) s
+18 283 M (109:) s
+48 283 M
+(  print\(">>", selectedCanvasObj, x1, y1\)) s
+18 272 M (110:) s
+48 272 M
+(  ) s
+18 261 M (111:) s
+48 261 M
+(################### add Canvas Item ##################) s
+18 250 M (112:) s
+18 239 M (113:) s
+48 239 M
+(def addCanvasItem\(\):) s
+18 228 M (114:) s
+48 228 M
+(  global c) s
+18 217 M (115:) s
+48 217 M
+(  rCoords = \(100, 100, 150, 150\)) s
+18 206 M (116:) s
+48 206 M
+(  r = c.create_rectangle\(rCoords, fill="purple"\)) s
+18 195 M (117:) s
+18 184 M (118:) s
+48 184 M
+(####################### main ######################) s
+18 173 M (119:) s
+18 162 M (120:) s
+48 162 M
+(root = Tk\(\) # Create the root \(base\) window) s
+18 151 M (121:) s
+18 140 M (122:) s
+48 140 M
+(f1Screens  = Frame\(root\)) s
+18 129 M (123:) s
+48 129 M
+(f2Spatial  = Frame\(root\)) s
+18 118 M (124:) s
+48 118 M
+(f3Controls = Frame\(root\)) s
+18 107 M (125:) s
+48 107 M
+(buildUI\(f1Screens, f2Spatial, f3Controls\)) s
+18 96 M (126:) s
+18 85 M (127:) s
+48 85 M
+(for frame in [f1Screens, f2Spatial, f3Controls]: ) s
+18 74 M (128:) s
+48 74 M
+(  frame.pack\(side=TOP, expand=True, fill=BOTH\)) s
+18 63 M (129:) s
+18 52 M (130:) s
+48 52 M
+(root.mainloop\(\) # Start the event loop) s
+18 41 M (131:) s
+18 30 M (132:) s
+48 30 M
+(### end ###) s
+_R
+S
+%%Trailer
+%%Pages: 2
+%%DocumentNeededResources: font Times-Roman Courier-Bold Courier 
+%%+ font Times-Bold 
+%%EOF

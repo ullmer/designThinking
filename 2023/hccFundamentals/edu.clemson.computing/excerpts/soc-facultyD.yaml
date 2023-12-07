@@ -1,0 +1,21 @@
+  charlotte.edu:  {ftd: [Babu],                   sab: NC, cab: CLT, ia3: USA}
+  pitt.edu:       {ftd: [Van Scoy],               sab: PA, cab: PIT, ia3: USA}
+  utdallas.edu:   {ftd: [Luo],                    sab: TX, cab: DFW, ia3: USA}
+  virginia.edu:   {ftd: [Hedetniemi],             sab: VA, cab: CHO, ia3: USA}
+  uu.nl:          {ftd: [Karamouzas],                      cab: UTC, ia3: NLD}
+  vanderbilt.edu: {ftd: [Apon],                   sab: TN, cab: BNA, ia3: USA}
+  vatech.edu:     {ftd: [Cheng, Ge],              sab: VA, cab: ROA, ia3: USA}
+  washington.edu: {ftd: [Jin],                    sab: WA, cab: SEA, ia3: USA}
+
+geoRelations:
+  ia3:
+    people:
+      usa: {present: []; past: []}
+  sab:
+    people:
+      sc: {present: []; past: []}
+  cab:
+    people:
+      clt:  []
+
+### end ###

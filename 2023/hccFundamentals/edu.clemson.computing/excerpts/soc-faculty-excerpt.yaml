@@ -1,0 +1,23 @@
+divisions:
+  HCC: [Kelly Caine, Bart Knijnenburg, Nathan McNeese, Sabarish Babu, 
+        Andrew Robb, Brygg Ullmer, Eileen Kraemer, Guo Freeman, Julian Brinkley]
+
+  VC:  [Shuangshuang Jin, Sophie Joerg, Ioannis Karamouzas, Eric Patterson, 
+        Federico Iuricich, Jerry Tessendorf, Victor Zordan, 
+        Daljit Singh Dhillon, Andrew Duchowski, Insun Kwon]
+
+rank:
+  asst:      [Brinkley, Cheng, Singh Dhillon, Freeman, Hubig, Iuricich,
+              Karamouzas, Li, Liu, McNeese, Robb, Rodeghero, Zhang]
+  assoc:     [Babu, Caine, Donar, Ge, Jin, Joerg, Knijnenburg, Patterson,
+              Razi, Smotherman, Sorber, Yang]
+
+institutions: #ftd: Faculty w/ Terminal Degrees; sab, cab: State, City Abbrv
+  gatech.edu:     {ftd: [Caine, Kraemer, Zordan, Plaue], 
+                                                  sab: GA, cab: ATL, ia3: USA}
+  indiana.edu:    {ftd: [Freeman],                sab: IN, cab: BMG, ia3: USA}
+  jhu.edu:        {ftd: [Taylor],                 sab: MD, cab: BWI, ia3: USA}
+  mit.edu:        {ftd: [Dean, Goddard, Ullmer],  sab: MA, cab: BOS, ia3: USA}
+  osu.edu:        {ftd: [Sitaraman],              sab: OH, cab: OSU, ia3: USA}
+
+### end ###
