@@ -51,8 +51,8 @@ class ReadingsPg(Readings):
       self.actors.append(a)
       y += self.dy; row += 1; self.actor2id[a] = i
 
-    if row >= self.rows: 
-      row = 0; col += 1; y = self.y0; x += self.dx
+      if row >= self.rows: 
+        row = 0; col += 1; y = self.y0; x += self.dx
 
   ################## draw ##################
 
