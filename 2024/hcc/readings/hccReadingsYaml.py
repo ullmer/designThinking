@@ -62,9 +62,10 @@ class Readings: #not catching any errors; caveat emptor
   yc          = None          #YAML extraction for classes
   readingList = None
 
-  ################## constructor ##################
+  ################## constructor, err ##################
 
-  def __init__(self): self.readingList = []
+  def __init__(self): self.readingList = []; self.loadYaml()
+
   def err(self, msg): print("Readings error:", msg); traceback.print_exc()
 
   ################## load YAML from file ##################

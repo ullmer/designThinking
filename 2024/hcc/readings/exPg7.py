@@ -4,14 +4,15 @@
 
 from hccReadingsYaml import *
 
-WIDTH, HEIGHT = 1200, 850 
+WIDTH, HEIGHT = 850, 1200
 
-numRd  = 8
+rows, cols = 8, 2
 dy     = 100
 y = y0 = 10
 actors = []
 
 readings = Readings()
+numRd    = readings.size()
 
 for i in range(numRd):
   a = Actor('readings_box_1c', topleft=(50,y))

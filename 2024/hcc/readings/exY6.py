@@ -5,7 +5,6 @@
 from hccReadingsYaml import *
 
 readings = Readings()
-readings.loadYaml()
 readings.printReadingAbbrevs()
 
 ### end ###
