@@ -11,6 +11,7 @@ a2 = Actor('readings_box_1c', pos=(400,500))
 
 actors = [a1, a2]
 font1  = "oswald-medium"
+cwhite = "#ffffff"
 
 readings = Readings()
 readings.loadYaml()
@@ -27,8 +28,10 @@ def on_mouse_down(pos):
   
 def drawReading(reading, x0, y0):
   au, yr, abTi, prDa = reading.getFields(['author', 'year', 'abbrevTitle', 'presentedDate']) 
+  mo, da = prDa.split('-')
+  fs = 70
 
-  screen.draw.text("A",       topright  =self.tpos1, fontsize=70, fontname=self.font1, color=self.mwhite, alpha=0.5)
-  screen.draw.text("SPATIAL", bottomleft=self.tpos2, fontsize=25, fontname=self.font1, color=self.mwhite, alpha=0.5)
+  screen.draw.text(au, topleft = (x0, y0),    fontsize=fs, fontname=font1, color=cwhite, alpha=0.8)
+  screen.draw.text(au, topleft = (x0, y0+30), fontsize=fs, fontname=font1, color=cwhite, alpha=0.8)
 
 ### end ###
