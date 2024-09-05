@@ -1,4 +1,4 @@
-# Example parsing class reading list
+# Example ~visualizing class readings
 # Brygg Ullmer, Clemson University
 # Begun 2024-09-05
 
