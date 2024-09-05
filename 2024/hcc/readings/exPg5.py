@@ -12,6 +12,7 @@ a2 = Actor('readings_box_1c', topleft=(100,500))
 actors = [a1, a2]
 font1  = "oswald-medium"
 cwhite = "#ffffff"
+cblack = "#000000"
 
 readings = Readings()
 readings.loadYaml()
@@ -34,8 +35,10 @@ def drawReading(reading, x0, y0):
   au2 = ', '.join(au)
   yr2 = str(yr)
 
-  screen.draw.text(au2,  topleft  = (x0+  3, y0-7),  fontsize=fs, fontname=font1, color=cwhite, alpha=0.2)
-  screen.draw.text(yr2,  topright = (x0+285, y0-7),  fontsize=fs, fontname=font1, color=cwhite, alpha=0.2)
+  screen.draw.text(au2,  topleft  = (x0+  3, y0- 7), fontsize=fs, fontname=font1, color=cwhite, alpha=0.2)
+  screen.draw.text(yr2,  topright = (x0+285, y0- 7), fontsize=fs, fontname=font1, color=cwhite, alpha=0.2)
   screen.draw.text(abTi, topleft  = (x0+  3, y0+41), fontsize=fs, fontname=font1, color=cwhite, alpha=0.5)
+  screen.draw.text(mo,   topright = (x0+332, y0- 7), fontsize=fs, fontname=font1, color=cblack, alpha=0.4)
+  screen.draw.text(da,   topright = (x0+332, y0+41), fontsize=fs, fontname=font1, color=cblack, alpha=0.4)
 
 ### end ###
