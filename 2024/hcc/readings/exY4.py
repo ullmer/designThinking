@@ -9,11 +9,12 @@ import yaml
 class Reading: #not catching any errors; caveat emptor
 
   fields     = ['author', 'year', 'abbrevTitle', 'title', 'presenter']
-  fieldsDict = {}
+  fieldsDict = None
 
   def setFieldsFromYaml(self, yd):
     for field in self.fields: self.fieldsDict[field] = yd[field]
 
+  def __init__(self):              self.fieldsDict = {}
   def setField(self, field, val):  self.fieldsDict[field] = val
   def getField(self, field):       return self.fieldsDict[field]
   def printReadingAbbrev(self):    print(self.fieldsDict['abbrevTitle'])
