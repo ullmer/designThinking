@@ -1,4 +1,4 @@
-# Example parsing class reading li
+# Example parsing class reading list
 # Brygg Ullmer, Clemson University
 # Begun 2024-09-05
 

@@ -1,4 +1,4 @@
-# Example parsing class reading li
+# Example parsing class reading list
 # Brygg Ullmer, Clemson University
 # Begun 2024-09-05
 
@@ -11,25 +11,37 @@ class Reading: #not catching any errors; caveat emptor
   fields     = ['author', 'year', 'abbrevTitle', 'title', 'presenter']
   fieldsDict = None
 
+  ################## constructor, error ##################
+
+  def __init__(self): self.fieldsDict = {}
+  def err(self, msg): print("Reading error:", msg); traceback.print_exc()
+
+  ################## set fields from yaml ##################
+
   def setFieldsFromYaml(self, yd):
     try: 
       for field in self.fields: self.fieldsDict[field] = yd[field]
     except: self.err('setFieldsFromYaml')
     
-  def err(self, msg):              print("Reading error:", msg); traceback.print_exc()
-  def __init__(self):              self.fieldsDict = {}
+  ################## set field ##################
 
   def setField(self, field, val):  
     try:    self.fieldsDict[field] = val
     except: self.err('setField' + field + val)
 
+  ################## get field ##################
+
   def getField(self, field):       
     try:    return self.fieldsDict[field]
     except: self.err('getField' + field)
 
+  ################## print ##################
+
   def printReadingAbbrev(self):    
     try:    print(self.fieldsDict['abbrevTitle'])
     except: self.err('printReadingAbbrev')
+
+  def print(self): print(self.fieldsDict)   
 
 ################## Readings class ##################
 
