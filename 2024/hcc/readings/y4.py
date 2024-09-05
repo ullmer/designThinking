@@ -1,4 +1,4 @@
-# Example parsing class reading list
+# Example parsing class reading li
 # Brygg Ullmer, Clemson University
 # Begun 2024-09-05
 
@@ -8,7 +8,7 @@ import yaml
 
 class Reading: #not catching any errors; caveat emptor
 
-  fields     = ['author', 'year', 'abbrevTitle', 'title', 'studentPresenter']
+  fields     = ['author', 'year', 'abbrevTitle', 'title', 'presenter']
   fieldsDict = {}
 
   def setFieldsFromYaml(self, yd):
@@ -24,12 +24,12 @@ class Readings: #not catching any errors; caveat emptor
   fn          = 'index.yaml'  #filename
   yd          = None          #YAML data
   yc          = None          #YAML extraction for classes
-  readingList = None
+  readingLi = None
 
-  ################## load YAML from named file ##################
+  ################## load YAML from file ##################
 
-  def loadYaml(self, fn): 
-    f       = open(fn, 'rt')
+  def loadYaml(self): 
+    f       = open(self.fn, 'rt')
     self.yd = yaml.safe_load(f)
     self.yc = self.yd['class'] 
 
@@ -38,11 +38,18 @@ class Readings: #not catching any errors; caveat emptor
       for reading in classPeriod:
         r = Reading()
         r.setFieldsFromYaml(reading)
-        self.readingList.append(r)
+        self.readingLi.append(r)
 
   ################## print reading abbreviations ##################
 
   def printReadingAbbrevs(self): 
-    for r in self.readingList: r.printReadingAbbrev()
+    for r in self.readingLi: r.printReadingAbbrev()
+
+################## main ##################
+
+if __name__ == "__main__":
+  readings = Readings()
+  readings.loadYaml()
+  readings.printReadingAbbrevs()
 
 ### end ###
