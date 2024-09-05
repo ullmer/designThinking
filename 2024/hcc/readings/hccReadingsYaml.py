@@ -79,6 +79,15 @@ class Readings: #not catching any errors; caveat emptor
       for r in self.readingList: r.printReadingAbbrev()
     except: self.err("printReadingAbbrevs")
 
+  ################## get reading index ##################
+
+  def getReading(self, i): 
+    try:
+      if i < 0 or i > len(self.readingList): self.err("getReading index out of bounds: " + i); return
+      return self.readingList[i]
+      
+    except: self.err("getReading: " + i); return
+
 ################## main ##################
 
 if __name__ == "__main__":
