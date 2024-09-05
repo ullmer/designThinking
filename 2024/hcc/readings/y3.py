@@ -13,5 +13,8 @@ yc = yd['class']
 for classDate in yc:
   classPeriod = yc[classDate]
   for reading in classPeriod:
-    r = classPeriod[reading]
-    
+    r       = classPeriod[reading]
+    abbrevT = r['abbrevTitle']
+    print(abbrevT)
+
+### end ###
