@@ -2,16 +2,27 @@
 # Brygg Ullmer, Clemson University
 # Begun 2024-09-05
 
+import traceback
 from hccReadingsYaml import *
 
 WIDTH, HEIGHT = 1200, 800
 
-rows, cols = 6, 2
-dx, dy     = 350, 100
+################### readingsPg ################### 
 
-y = y0 = 10
-x = x0 = 50
-actors = []
+def readingsPg(Readings):
+
+  rows, cols =   6,   2
+  dx, dy     = 350, 100
+  x0, y0     =  50,  10
+  actors     = None
+
+  ################## constructor, error ##################
+
+  def __init__(self): 
+    super().__init__()
+    self.actors = []
+
+  def err(self, msg): print("ReadingPg error:", msg); traceback.print_exc()
 
 readings = Readings()
 numRd    = readings.size()
