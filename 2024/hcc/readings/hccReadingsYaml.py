@@ -8,7 +8,7 @@ import yaml, traceback
 
 class Reading: #not catching any errors; caveat emptor
 
-  fields     = ['author', 'year', 'abbrevTitle', 'title', 'presenter']
+  fields     = ['author', 'year', 'abbrevTitle', 'title', 'presenter', 'presentedDate']
   fieldsDict = None
 
   ################## constructor, error ##################
@@ -34,6 +34,17 @@ class Reading: #not catching any errors; caveat emptor
   def getField(self, field):       
     try:    return self.fieldsDict[field]
     except: self.err('getField' + field)
+
+  ################## get field ##################
+
+  def getFields(self, fields):       
+    result = []
+
+    try:    
+      for field in fields: result.append(self.fieldsDict[field])
+    except: self.err('getField' + field)
+
+    return result
 
   ################## print ##################
 
@@ -67,6 +78,8 @@ class Readings: #not catching any errors; caveat emptor
       for classDate in self.yc:
         classPeriod = self.yc[classDate]
         for reading in classPeriod:
+          reading['presentedDate'] = classDate
+
           r = Reading()
           r.setFieldsFromYaml(reading)
           self.readingList.append(r)
