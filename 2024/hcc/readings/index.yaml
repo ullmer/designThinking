@@ -1,11 +1,11 @@
 class:
   08-27:
-    - {author: Kling, Starr, year: 1998, abbrevTitle: HCS,
+    - {author: Kling, Starr, year: 1998, abbrevTitle: HCS/Org&Soc,
        title: Human Centered Systems in the Perspective of Organizational and Social Informatics}
  
   08-29:
-    - {author: Talbert,      year: 1997, abbrevTitle: HCC, studentPresenter: Visser,
-       title: }
+    - {author: Talbert,      year: 1997, abbrevTitle: Toward HCS,      studentPresenter: Visser,
+       title: Toward Human-Centered Systems}
 
     - {author: Banon,        year: 2010, abbrevTitle: Reimagining HCI, studentPresenter: Liu,
        title: Reimagining HCI: Toward a More Human-Centered Perspective}
