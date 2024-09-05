@@ -15,6 +15,13 @@ def readingsPg(Readings):
   dx, dy     = 350, 100
   x0, y0     =  50,  10
   actors     = None
+  numRd      = None
+
+  font1  = "oswald-medium"
+  cwhite = "#ffffff"
+  cblack = "#000000"
+
+  actorBgFn  = 'readings_box_1c'
 
   ################## constructor, error ##################
 
@@ -22,24 +29,26 @@ def readingsPg(Readings):
     super().__init__()
     self.actors = []
 
+    self.numRd    = self.size()
+    rxc           = self.rows * self.cols
+    if self.numRd > rxc: self.numRd = rxc
+
+    self.buildUI()
+
   def err(self, msg): print("ReadingPg error:", msg); traceback.print_exc()
 
-readings = Readings()
-numRd    = readings.size()
-if numRd > rows * cols: numRd = rows * cols
+  ################## build UI ##################
 
-row, col = 0, 0
+  def buildUI(self): 
+    row, col = 0, 0
 
-for i in range(numRd):
-  a = Actor('readings_box_1c', topleft=(x, y))
-  actors.append(a); y += dy; row += 1
+    for i in range(self.numRd):
+      a = Actor(self.actorBgFn, topleft=(x, y))
+      self.actors.append(a); y += self.dy; row += 1
 
-  if row >= rows: 
-    row = 0; col += 1; y = y0; x += dx
+    if row >= self.rows: 
+      row = 0; col += 1; y = self.y0; x += self.dx
 
-font1  = "oswald-medium"
-cwhite = "#ffffff"
-cblack = "#000000"
 
 def draw(): 
   screen.clear()
