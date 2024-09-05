@@ -11,5 +11,6 @@ rpg = ReadingsPg()
 def draw(): screen.clear();      rpg.draw(screen)
 def on_mouse_down(pos):          rpg.on_mouse_down(pos)
 def on_mouse_move(rel, buttons): rpg.on_mouse_move(rel, buttons)
+def on_mouse_up():               rpg.on_mouse_up()
 
 ### end ###
