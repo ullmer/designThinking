@@ -18,12 +18,13 @@ class ReadingsPg(Readings):
   actor2id   = None
   numRd      = None
 
-  font1    = "oswald-medium"
-  fontSize = 40
-  cwhite   = "#ffffff"
-  cblack   = "#000000"
-
+  font1      = "oswald-medium"
+  fontSize   = 40
+  cwhite     = "#ffffff"
+  cblack     = "#000000"
   actorBgFn  = 'readings_box_1c'
+
+  actorSelectedId = None
 
   ################## constructor, error ##################
 
@@ -75,7 +76,24 @@ class ReadingsPg(Readings):
   def on_mouse_down(self, pos): 
     for i in range(self.numRd):
       actor = self.actors[i]
-      if actor.collidepoint(pos): print("Actor was pressed:", i)
+      if actor.collidepoint(pos): 
+        print("Actor selected:", i)
+        self.actorSelectedId = i
+
+  ################## on_mouse_move ##################
+
+  def on_mouse_move(self, rel, buttons): 
+    if self.actorSelectedId is not None:
+      id     = self.actorSelectedId
+      actor  = actors[id]
+      #x1, y1 = actor.pos
+      #dx, dy = rel
+      #x2, y2 = x1+dx, y1+dy
+      actor.pos += rel
+
+      actor.pos = (x2, y2)
+
+  def on_mouse_up(self): self.actorSelectedId = None
 
   ################## draw reading ################## 
   

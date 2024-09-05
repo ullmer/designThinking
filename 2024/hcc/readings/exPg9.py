@@ -8,7 +8,8 @@ WIDTH, HEIGHT = 1200, 800
 
 rpg = ReadingsPg()
 
-def draw(): screen.clear(); rpg.draw(screen)
-def on_mouse_down(pos):     rpg.on_mouse_down(pos)
+def draw(): screen.clear();      rpg.draw(screen)
+def on_mouse_down(pos):          rpg.on_mouse_down(pos)
+def on_mouse_move(rel, buttons): rpg.on_mouse_move(rel, buttons)
 
 ### end ###
