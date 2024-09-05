@@ -42,25 +42,30 @@ class Readings: #not catching any errors; caveat emptor
   ################## constructor ##################
 
   def __init__(self): self.readingList = []
+  def err(self, msg): print("Readings error:", msg); traceback.print_exc()
 
   ################## load YAML from file ##################
 
   def loadYaml(self): 
-    f       = open(self.fn, 'rt')
-    self.yd = yaml.safe_load(f)
-    self.yc = self.yd['class'] 
+    try:
+      f       = open(self.fn, 'rt')
+      self.yd = yaml.safe_load(f)
+      self.yc = self.yd['class'] 
 
-    for classDate in self.yc:
-      classPeriod = self.yc[classDate]
-      for reading in classPeriod:
-        r = Reading()
-        r.setFieldsFromYaml(reading)
-        self.readingList.append(r)
+      for classDate in self.yc:
+        classPeriod = self.yc[classDate]
+        for reading in classPeriod:
+          r = Reading()
+          r.setFieldsFromYaml(reading)
+          self.readingList.append(r)
+    except: self.err("loadYaml")
 
   ################## print reading abbreviations ##################
 
   def printReadingAbbrevs(self): 
-    for r in self.readingList: r.printReadingAbbrev()
+    try:
+      for r in self.readingList: r.printReadingAbbrev()
+    except: self.err("printReadingAbbrevs")
 
 ################## main ##################
 
