@@ -4,9 +4,9 @@
 
 from hccReadingsYaml import *
 
-WIDTH, HEIGHT = 1200, 850
+WIDTH, HEIGHT = 1200, 800
 
-rows, cols = 8, 2
+rows, cols = 6, 2
 dx, dy     = 350, 100
 
 y = y0 = 10
@@ -17,9 +17,14 @@ readings = Readings()
 numRd    = readings.size()
 if numRd > rows * cols: numRd = rows * cols
 
+row, col = 0, 0
+
 for i in range(numRd):
-  a = Actor('readings_box_1c', topleft=(50,y))
-  actors.append(a); y += dy
+  a = Actor('readings_box_1c', topleft=(x, y))
+  actors.append(a); y += dy; row += 1
+
+  if row >= rows: 
+    row = 0; col += 1; y = y0; x += dx
 
 font1  = "oswald-medium"
 cwhite = "#ffffff"
@@ -35,8 +40,8 @@ def draw():
     r = readings.getReading(i)
     drawReading(r, x, y)
     y += dy; row += 1
-    if row > rows: 
-       row = 0; col += 1; y = y0; x += dx
+    if row >= rows: 
+      row = 0; col += 1; y = y0; x += dx
 
 def on_mouse_down(pos): 
   if a1.collidepoint(pos): print("Actor 1 was pressed")
@@ -56,6 +61,6 @@ def drawReading(reading, x0, y0):
   screen.draw.text(yr2,  topright = (x0+285, y0- 7), fontsize=fs, fontname=font1, color=cwhite, alpha=0.2)
   screen.draw.text(abTi, topleft  = (x0+  3, y0+41), fontsize=fs, fontname=font1, color=cwhite, alpha=0.5)
   screen.draw.text(mo,   topright = (x0+332, y0- 7), fontsize=fs, fontname=font1, color=cblack, alpha=0.4)
-  screen.draw.text(da,   topright = (x0+332, y0+41), fontsize=fs, fontname=font1, color=cblack, alpha=0.4)
+  screen.draw.text(da,   topright = (x0+332, y0+41), fontsize=fs, fontname=font1, color=cwhite, alpha=0.3)
 
 ### end ###
