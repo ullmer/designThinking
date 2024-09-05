@@ -85,11 +85,10 @@ class ReadingsPg(Readings):
   def on_mouse_move(self, rel, buttons): 
     if self.actorSelectedId is not None:
       id     = self.actorSelectedId
-      actor  = actors[id]
-      #x1, y1 = actor.pos
-      #dx, dy = rel
-      #x2, y2 = x1+dx, y1+dy
-      actor.pos += rel
+      actor  = self.actors[id]
+      x1, y1 = actor.pos
+      dx, dy = rel
+      x2, y2 = x1+dx, y1+dy
 
       actor.pos = (x2, y2)
 
