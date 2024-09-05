@@ -4,15 +4,18 @@
 
 from hccReadingsYaml import *
 
-WIDTH, HEIGHT = 850, 1200
+WIDTH, HEIGHT = 1200, 850
 
 rows, cols = 8, 2
-dy     = 100
+dx, dy     = 350, 100
+
 y = y0 = 10
+x = x0 = 50
 actors = []
 
 readings = Readings()
 numRd    = readings.size()
+if numRd > rows * cols: numRd = rows * cols
 
 for i in range(numRd):
   a = Actor('readings_box_1c', topleft=(50,y))
@@ -25,12 +28,15 @@ cblack = "#000000"
 def draw(): 
   screen.clear()
   for actor in actors: actor.draw()
-  y = y0
+  x, y     = x0, y0
+  row, col = 0, 0
 
   for i in range(numRd):
     r = readings.getReading(i)
-    drawReading(r, 50, y)
-    y += dy
+    drawReading(r, x, y)
+    y += dy; row += 1
+    if row > rows: 
+       row = 0; col += 1; y = y0; x += dx
 
 def on_mouse_down(pos): 
   if a1.collidepoint(pos): print("Actor 1 was pressed")

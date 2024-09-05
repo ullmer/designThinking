@@ -68,6 +68,9 @@ class Readings: #not catching any errors; caveat emptor
 
   def err(self, msg): print("Readings error:", msg); traceback.print_exc()
 
+  def size(self): 
+    if self.readingList is not None: return len(self.readingList)
+
   ################## load YAML from file ##################
 
   def loadYaml(self): 
