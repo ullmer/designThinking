@@ -14,9 +14,9 @@ class Reading: #not catching any errors; caveat emptor
   def setFieldsFromYaml(self, yd):
     for field in self.fields: self.fieldsDict[field] = yd[field]
 
-  def setField(self, field, val):      self.fieldsDict[field] = val
-  def getField(self, field):           return self.fieldsDict[field]
-  def printReadingAbbrev(self, field): print(fieldsDict['abbrevTitle'])
+  def setField(self, field, val):  self.fieldsDict[field] = val
+  def getField(self, field):       return self.fieldsDict[field]
+  def printReadingAbbrev(self):    print(self.fieldsDict['abbrevTitle'])
 
 ################## Readings class ##################
 
@@ -24,7 +24,11 @@ class Readings: #not catching any errors; caveat emptor
   fn          = 'index.yaml'  #filename
   yd          = None          #YAML data
   yc          = None          #YAML extraction for classes
-  readingLi = None
+  readingList = None
+
+  ################## constructor ##################
+
+  def __init__(self): self.readingList = []
 
   ################## load YAML from file ##################
 
@@ -38,12 +42,12 @@ class Readings: #not catching any errors; caveat emptor
       for reading in classPeriod:
         r = Reading()
         r.setFieldsFromYaml(reading)
-        self.readingLi.append(r)
+        self.readingList.append(r)
 
   ################## print reading abbreviations ##################
 
   def printReadingAbbrevs(self): 
-    for r in self.readingLi: r.printReadingAbbrev()
+    for r in self.readingList: r.printReadingAbbrev()
 
 ################## main ##################
 
