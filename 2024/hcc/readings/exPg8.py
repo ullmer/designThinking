@@ -9,7 +9,7 @@ WIDTH, HEIGHT = 1200, 800
 
 ################### readingsPg ################### 
 
-def readingsPg(Readings):
+class ReadingsPg(Readings):
 
   rows, cols =   6,   2
   dx, dy     = 350, 100
@@ -44,11 +44,12 @@ def readingsPg(Readings):
 
   def buildUI(self): 
     row, col = 0, 0
+    x, y     = self.x0, self.y0
 
     for i in range(self.numRd):
       a = Actor(self.actorBgFn, topleft=(x, y))
-      self.actors.append(a); y += self.dy; row += 1
-      self.actor2id(a) = i
+      self.actors.append(a)
+      y += self.dy; row += 1; self.actor2id[a] = i
 
     if row >= self.rows: 
       row = 0; col += 1; y = self.y0; x += self.dx
@@ -57,8 +58,9 @@ def readingsPg(Readings):
 
   def draw(self, screen): 
     for actor in self.actors: actor.draw()
-    x, y     = x0, y0
+
     row, col = 0, 0
+    x, y     = self.x0, self.y0
 
     for i in range(self.numRd):
       r = self.getReading(i)
@@ -69,7 +71,7 @@ def readingsPg(Readings):
 
   ################## on_mouse_down ##################
 
-  def on_mouse_down(self.pos): 
+  def on_mouse_down(self, pos): 
     for i in range(self.numRd):
       actor = self.actors[i]
       if actor.collidepoint(pos): print("Actor was pressed:", i)
@@ -83,13 +85,21 @@ def readingsPg(Readings):
     if type(au) is list: au2 = ', '.join(au)
     else:                au2 = str(au)
   
-    yr2, fs = str(yr), self.fontSize
-    x0, y0  = self.x0, self.y0
+    yr2    = str(yr)
+    x0, y0 = self.x0, self.y0
+    f1, fs = self.font1, self.fontSize
+    c1     = self.cwhite
   
-    screen.draw.text(au2,  topleft  = (x0+  3, y0- 7), fontsize=fs, fontname=font1, color=cwhite, alpha=0.2)
-    screen.draw.text(yr2,  topright = (x0+285, y0- 7), fontsize=fs, fontname=font1, color=cwhite, alpha=0.2)
-    screen.draw.text(abTi, topleft  = (x0+  3, y0+41), fontsize=fs, fontname=font1, color=cwhite, alpha=0.5)
-    screen.draw.text(mo,   topright = (x0+332, y0- 7), fontsize=fs, fontname=font1, color=cblack, alpha=0.4)
-    screen.draw.text(da,   topright = (x0+332, y0+41), fontsize=fs, fontname=font1, color=cwhite, alpha=0.3)
+    screen.draw.text(au2,  topleft  = (x0+  3, y0- 7), fontsize=fs, fontname=f1, color=c1, alpha=0.2)
+    screen.draw.text(yr2,  topright = (x0+285, y0- 7), fontsize=fs, fontname=f1, color=c1, alpha=0.2)
+    screen.draw.text(abTi, topleft  = (x0+  3, y0+41), fontsize=fs, fontname=f1, color=c1, alpha=0.5)
+    screen.draw.text(mo,   topright = (x0+332, y0- 7), fontsize=fs, fontname=f1, color=c1, alpha=0.4)
+    screen.draw.text(da,   topright = (x0+332, y0+41), fontsize=fs, fontname=f1, color=c1, alpha=0.3)
+
+################## main ################## 
+
+rpg = ReadingsPg()
+
+def draw(): rpg.draw(screen)
 
 ### end ###
