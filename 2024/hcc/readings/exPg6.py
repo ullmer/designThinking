@@ -41,7 +41,9 @@ def drawReading(reading, x0, y0):
   mo, da = prDa.split('-')
   fs = 40
 
-  au2 = ', '.join(au)
+  if type(au) is list: au2 = ', '.join(au)
+  else:                au2 = str(au)
+
   yr2 = str(yr)
 
   screen.draw.text(au2,  topleft  = (x0+  3, y0- 7), fontsize=fs, fontname=font1, color=cwhite, alpha=0.2)
