@@ -8,7 +8,9 @@ WIDTH, HEIGHT = 800, 800
 
 a1 = Actor('readings_box_1c', pos=(400,400))
 a2 = Actor('readings_box_1c', pos=(400,500))
+
 actors = [a1, a2]
+font1  = "oswald-medium"
 
 readings = Readings()
 readings.loadYaml()
@@ -24,6 +26,9 @@ def on_mouse_down(pos):
   if a2.collidepoint(pos): print("Actor 2 was pressed")
   
 def drawReading(reading, x0, y0):
-  print("foo")
+  au, yr, abTi, prDa = reading.getFields(['author', 'year', 'abbrevTitle', 'presentedDate']) 
+
+  screen.draw.text("A",       topright  =self.tpos1, fontsize=70, fontname=self.font1, color=self.mwhite, alpha=0.5)
+  screen.draw.text("SPATIAL", bottomleft=self.tpos2, fontsize=25, fontname=self.font1, color=self.mwhite, alpha=0.5)
 
 ### end ###
