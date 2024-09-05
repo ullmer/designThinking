@@ -32,8 +32,10 @@ def drawReading(reading, x0, y0):
   fs = 40
 
   au2 = ', '.join(au)
+  yr2 = str(yr)
 
-  screen.draw.text(au2,  topleft = (x0+3, y0-7),  fontsize=fs, fontname=font1, color=cwhite, alpha=0.5)
-  screen.draw.text(abTi, topleft = (x0+3, y0+41), fontsize=fs, fontname=font1, color=cwhite, alpha=0.5)
+  screen.draw.text(au2,  topleft  = (x0+  3, y0-7),  fontsize=fs, fontname=font1, color=cwhite, alpha=0.2)
+  screen.draw.text(yr2,  topright = (x0+285, y0-7),  fontsize=fs, fontname=font1, color=cwhite, alpha=0.2)
+  screen.draw.text(abTi, topleft  = (x0+  3, y0+41), fontsize=fs, fontname=font1, color=cwhite, alpha=0.5)
 
 ### end ###
