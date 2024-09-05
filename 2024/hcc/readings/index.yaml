@@ -1,6 +1,6 @@
 class:
   08-27:
-    - {author: Kling, Starr, year: 1998, abbrevTitle: HCS/Org&Soc,     presenter: Ullmer,
+    - {author: [Kling, Starr], year: 1998, abbrevTitle: HCS/Org&Soc,     presenter: Ullmer,
        title:  Human Centered Systems in the Perspective of Organizational and Social Informatics}
  
   08-29:

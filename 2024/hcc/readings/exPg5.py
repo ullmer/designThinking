@@ -6,8 +6,8 @@ from hccReadingsYaml import *
 
 WIDTH, HEIGHT = 800, 800
 
-a1 = Actor('readings_box_1c', pos=(400,400))
-a2 = Actor('readings_box_1c', pos=(400,500))
+a1 = Actor('readings_box_1c', topleft=(100,400))
+a2 = Actor('readings_box_1c', topleft=(100,500))
 
 actors = [a1, a2]
 font1  = "oswald-medium"
@@ -20,7 +20,7 @@ r0       = readings.getReading(0)
 def draw(): 
   screen.clear()
   for actor in actors: actor.draw()
-  drawReading(r0, 400, 400)
+  drawReading(r0, 100, 400)
 
 def on_mouse_down(pos): 
   if a1.collidepoint(pos): print("Actor 1 was pressed")
@@ -29,9 +29,11 @@ def on_mouse_down(pos):
 def drawReading(reading, x0, y0):
   au, yr, abTi, prDa = reading.getFields(['author', 'year', 'abbrevTitle', 'presentedDate']) 
   mo, da = prDa.split('-')
-  fs = 70
+  fs = 40
 
-  screen.draw.text(au, topleft = (x0, y0),    fontsize=fs, fontname=font1, color=cwhite, alpha=0.8)
-  screen.draw.text(au, topleft = (x0, y0+30), fontsize=fs, fontname=font1, color=cwhite, alpha=0.8)
+  au2 = ', '.join(au)
+
+  screen.draw.text(au2,   topleft = (x0+5, y0- 5),    fontsize=fs, fontname=font1, color=cwhite, alpha=0.5)
+  screen.draw.text(abTi, topleft = (x0+5, y0+45), fontsize=fs, fontname=font1, color=cwhite, alpha=0.5)
 
 ### end ###
