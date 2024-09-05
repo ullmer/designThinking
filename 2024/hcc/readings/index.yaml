@@ -1,14 +1,16 @@
 class:
   08-27:
     - {author: Kling, Starr, year: 1998, abbrevTitle: HCS,
-       title: zzz}
+       title: tbd}
  
   08-29:
+    - {author: Talbert,      year: 1997, abbrevTitle: HCC, studentPresenter: Visser,
+       title: tbd}
 
-talbert-cga97-human-centered-systems.pdf (Student presenter: Daniel Visser)
+    - {author: Banon,        year: 2010, abbrevTitle: Reimagining HCI, studentPresenter: Liu,
+       title: tbd}
 
-banon-interactions11-reimagining-hci.pdf (Student presenter: Na Liu)
-
+  09-03:
 
 September 3:
 
