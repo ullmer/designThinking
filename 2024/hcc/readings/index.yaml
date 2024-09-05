@@ -11,23 +11,23 @@ class:
        title:  "Reimagining HCI: Toward a More Human-Centered Perspective"}
 
   09-03:
-    - {author: Brooks,       year: 1919, abbrevTitle: Translatlantic Aircraft, studentPresenter: Fu,
+    - {author: Brooks,       year: 1919, abbrevTitle: Transatlantic,   studentPresenter: Fu,
        title:  The Design of a Trans-Atlantic Airplane}
 
-    - {author: Markoff,      year: 1990, abbrevTitle: Fast Modems,             studentPresenter: Fu,
+    - {author: Markoff,      year: 1990, abbrevTitle: Fast Modems,     studentPresenter: Fu,
        title:  "Fast Modems: All Dressed Up, With Only a Slow Way to Go"}
 
-    - {author: Freeman,      year: 1998, abbrevTitle: Earring/Broach Pulse,    studentPresenter: Jiang,
+    - {author: Freeman,      year: 1998, abbrevTitle: Earring/Broach,  studentPresenter: Jiang,
        title:  A Chance to Wear Your Heart On Your Sleeve -- or Bosom}
 
-    - {author: Nabil,        year: 2021, abbrevTitle: Soft Speakers,           studentPresenter: Jiang,
+    - {author: Nabil,        year: 2021, abbrevTitle: Soft Speakers,   studentPresenter: Jiang,
        title:  "Soft Speakers: Digital Embroidering of DIY Customizable Fabric Actuators"}
 
   09-05:
-    - {author: Bush,         year: 1945, abbrevTitle: As We May Think,         studentPresenter: Gurrieri,
+    - {author: Bush,         year: 1945, abbrevTitle: As We May Think, studentPresenter: Gurrieri,
        title:  As We May Think}
 
-    - {author: Kenneally,    year: 2021, abbrevTitle: Brain Implants,          studentPresenter: McGrath,
-       title:  Do Brain Implants Change Your Identity?}
+    - {author: Kenneally,    year: 2021, abbrevTitle: Brain Implants,  studentPresenter: McGrath,
+       title:  "Do Brain Implants Change Your Identity?"}
 
   
