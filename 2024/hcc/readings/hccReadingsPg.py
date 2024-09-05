@@ -24,14 +24,16 @@ class ReadingsPg(Readings):
   cblack     = "#000000"
   actorBgFn  = 'readings_box_1c'
 
-  actorSelectedId = None
+  actorSelectedId       = None
+  readingTextDrawOffset = None
 
   ################## constructor, error ##################
 
   def __init__(self): 
     super().__init__()
-    self.actors   = []
-    self.actor2id = {}
+    self.actors                = []
+    self.actor2id              = {}
+    self.readingTextDrawOffset = {}
 
     self.numRd    = self.size()
     rxc           = self.rows * self.cols
@@ -64,12 +66,22 @@ class ReadingsPg(Readings):
     x, y     = self.x0, self.y0
 
     for i in range(self.numRd):
-      r = self.getReading(i)
-      self.drawReading(screen, r, x, y)
-      y += self.dy; row += 1
+      if i in self.readingTextDrawOffset: textDrawOffsetsSaved = True
+      else:                               textDrawOffsetsSaved = False
 
-      if row >= self.rows: 
-        row = 0; col += 1; y = self.y0; x += self.dx
+      if textDrawOffsetsSaved:
+        x2, y2 = self.readingTextDrawOffset[i]
+      else:
+        self.readingTextDrawOffset[i] = (x, y)
+        x2, y2 = x, y
+
+      self.drawReading(screen, i, x2, y2)
+
+      if not(textDrawOffsetsSaved): # we need to calculate them. Logic should be relocated
+        y += self.dy; row += 1
+
+        if row >= self.rows: 
+          row = 0; col += 1; y = self.y0; x += self.dx
 
   ################## on_mouse_down ##################
 
@@ -90,13 +102,19 @@ class ReadingsPg(Readings):
       dx, dy = rel
       x2, y2 = x1+dx, y1+dy
 
+      if id in self.readingTextDrawOffset: 
+        x3, y3 = self.readingTextDrawOffset[id]
+        x4, y4 = x3+dx, y3+dy
+        self.readingTextDrawOffset[id] = (x4, y4)
+
       actor.pos = (x2, y2)
 
   def on_mouse_up(self): self.actorSelectedId = None
 
   ################## draw reading ################## 
   
-  def drawReading(self, screen, reading, x0, y0):
+  def drawReading(self, screen, readingId, x0, y0):
+    reading = self.getReading(readingId)
     au, yr, abTi, prDa = reading.getFields(['author', 'year', 'abbrevTitle', 'presentedDate']) 
     mo, da = prDa.split('-')
   
