@@ -66,6 +66,7 @@ class ReadingsPg(Readings):
       r = self.getReading(i)
       self.drawReading(screen, r, x, y)
       y += self.dy; row += 1
+
       if row >= self.rows: 
         row = 0; col += 1; y = self.y0; x += self.dx
 
@@ -86,7 +87,6 @@ class ReadingsPg(Readings):
     else:                au2 = str(au)
   
     yr2    = str(yr)
-    x0, y0 = self.x0, self.y0
     f1, fs = self.font1, self.fontSize
     c1     = self.cwhite
   
@@ -100,6 +100,6 @@ class ReadingsPg(Readings):
 
 rpg = ReadingsPg()
 
-def draw(): rpg.draw(screen)
+def draw(): screen.clear(); rpg.draw(screen)
 
 ### end ###
