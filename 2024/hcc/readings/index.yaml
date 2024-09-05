@@ -1,29 +1,33 @@
 class:
   08-27:
     - {author: Kling, Starr, year: 1998, abbrevTitle: HCS/Org&Soc,
-       title: Human Centered Systems in the Perspective of Organizational and Social Informatics}
+       title:  Human Centered Systems in the Perspective of Organizational and Social Informatics}
  
   08-29:
     - {author: Talbert,      year: 1997, abbrevTitle: Toward HCS,      studentPresenter: Visser,
-       title: Toward Human-Centered Systems}
+       title:  Toward Human-Centered Systems}
 
     - {author: Banon,        year: 2010, abbrevTitle: Reimagining HCI, studentPresenter: Liu,
-       title: Reimagining HCI: Toward a More Human-Centered Perspective}
+       title:  Reimagining HCI: Toward a More Human-Centered Perspective}
 
   09-03:
+    - {author: Brooks,       year: 1919, abbrevTitle: Translatlantic Aircraft, studentPresenter: Fu,
+       title:  The Design of a Trans-Atlantic Airplane}
 
-September 3:
+    - {author: Markoff,      year: 1990, abbrevTitle: Fast Modems,             studentPresenter: Fu,
+       title:  Fast Modems: All Dressed Up, With Only a Slow Way to Go}
 
-"Past" (Student presenter: Tianyu Fu)
-brooks-mitms1919-transatlantic-aircraft.pdf  (first few pages)
-markoff-nyt90-fast-modems.pdf
-Example HCC inflection point (1993-94)
-"Future" (Student presenter: Qian Jiang)
-(please think of similarities and differences between 2024 smart phones and 1919 flying boats, as intersecting with these)
-freeman-nyt98-earring-broach-pulse-hawley-winston.pdf
-nabil-tei21-softspeakers.pdf (optionally with special attention to the text and images surrounding sections 5.3 and 5.4, and analogistic variations toward quite difference context and domains; e.g., in-class aside re Cajun culture, including thisLinks to an external site.)
-September 5:
+    - {author: Freeman,      year: 1998, abbrevTitle: Earring/Broach Pulse,    studentPresenter: Jiang,
+       title:  A Chance to Wear Your Heart On Your Sleeve -- or Bosom}
 
-bush-atlantic45-as-we-may-think.pdf (Student presenter: Mary Love Gurrieri)
-https://www.newyorker.com/magazine/2021/04/26/do-brain-implants-change-your-identity Links to an external site.(Student presenter: Connor McGrath)
+    - {author: Nabil,        year: 2021, abbrevTitle: Soft Speakers,           studentPresenter: Jiang,
+       title:  Soft Speakers: Digital Embroidering of DIY Customizable Fabric Actuators}
 
+  09-05:
+    - {author: Bush,         year: 1945, abbrevTitle: As We May Think,         studentPresenter: Gurrieri,
+       title:  As We May Think}
+
+    - {author: Kenneally,    year: 2021, abbrevTitle: Brain Implants,          studentPresenter: McGrath,
+       title:  Do Brain Implants Change Your Identity?}
+
+  
