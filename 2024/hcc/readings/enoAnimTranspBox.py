@@ -26,7 +26,7 @@ class enoAnimTranspBox:
 
   animDuration = 0.5
   animActive   = 0
-  verbose      = True
+  verbose      = False
 
   verticalLinesSurface = None
   horizLinesSurface    = None
@@ -81,6 +81,8 @@ class enoAnimTranspBox:
 
     w2 = self.boxWidth - (self.lineThickness * 2)
     h2 = self.lineThickness
+
+    print("bb w2 h2:", w2, h2)
 
     c  = self.lineColor
 
