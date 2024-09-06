@@ -25,10 +25,11 @@ class enoAnimTranspBox:
 
   animSrc, animDest = None, None
   animTLx, animTLy  = None, None
+  animBRx, animBRy  = None, None
   animSrcDestDiffTL = None
   animSrcDestDiffBR = None
 
-  animDuration     = 0.5
+  animDuration     = 15
   animTween        = 'accel_decel'
   animActive       = False
   animHandler      = None
@@ -82,7 +83,7 @@ class enoAnimTranspBox:
 
   ###################### is transparent rect of specificed width & height cached ###################
 
-  def setTRCached(self, x, y, val):  
+  def setTRCache(self, x, y, val):  
     keyTuple = (int(x), int(y)) #... since interpolation may generate floats
 
     if self.transpRectSurfaceCache is not None:
@@ -101,6 +102,7 @@ class enoAnimTranspBox:
   def startAnim(self, targetInterpolationExtent=1):
     self.animInterpolateSetup()
     self.animInterpolate()
+    self.animActive = True
 
     tie = targetInterpolationExtent
 
@@ -122,6 +124,8 @@ class enoAnimTranspBox:
       self.animSrcDestDiffTL     = self.calc2dDiff(animTL1, animTL2)
       self.animSrcDestDiffBR     = self.calc2dDiff(animBR1, animBR2)
       self.animTLx, self.animTLy = animTL1
+      self.animBRx, self.animBRy = animBR1
+      self.buildBox()
 
     except:
       self.err("animInterpolateSetup error:"); traceback.print_exc()
@@ -181,7 +185,7 @@ class enoAnimTranspBox:
     w2 = self.boxWidth - (self.lineThickness * 2)
     h2 = self.lineThickness
 
-    print("bb w2 h2:", w2, h2)
+    if verbose: print("bb w2 h2:", w2, h2)
 
     c  = self.lineColor
 
