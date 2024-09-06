@@ -87,6 +87,8 @@ class enoAnimTranspBox:
     pygame.draw.rect(self.verticalLinesSurface, color, (0, 0), (w1, h1), self.lineThickness)
     pygame.draw.rect(self.horizLinesSurface,    color, (0, 0), (w2, h2), self.lineThickness)
 
+    self.updateDrawingCoords()
+
   ############################ updateDrawingCoords ############################
 
   def updateDrawingCoords(self):
@@ -106,7 +108,6 @@ class enoAnimTranspBox:
   ############################ draw ############################
 
   def draw(self, screen):
-
     # Draw the surface on the screen
     screen.blit(self.verticalLinesSurface, self.vCoord1)
     screen.blit(self.verticalLinesSurface, self.vCoord2) 
