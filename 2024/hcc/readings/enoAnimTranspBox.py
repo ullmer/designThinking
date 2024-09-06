@@ -38,7 +38,7 @@ class enoAnimTranspBox:
 
   transpRectSurfaceCache = None
 
-  verbose      = False
+  verbose      = True
   animBounce   = False # bounce between animSrc and animDest
 
   verticalLinesSurface = None
@@ -121,10 +121,11 @@ class enoAnimTranspBox:
       animTL1, animBR1 = self.animSrc
       animTL2, animBR2 = self.animDest
 
-      self.animSrcDestDiffTL     = self.calc2dDiff(animTL1, animTL2)
-      self.animSrcDestDiffBR     = self.calc2dDiff(animBR1, animBR2)
-      self.animTLx, self.animTLy = animTL1
-      self.animBRx, self.animBRy = animBR1
+      self.animSrcDestDiffTL         = self.calc2dDiff(animTL1, animTL2)
+      self.animSrcDestDiffBR         = self.calc2dDiff(animBR1, animBR2)
+      self.animTLx, self.animTLy     = animTL1
+      self.animBRx, self.animBRy     = animBR1
+      self.topLeft, self.bottomRight = animTL1, animBR1
       self.buildBox()
 
     except:
@@ -255,7 +256,7 @@ class enoAnimTranspBox:
 def draw(): screen.clear(); eatb1.draw(screen)
 
 print("main")
-TL1 = (500, 500)
+TL1 = (400, 400)
 BR1 = (700, 700)
 
 TL2 = (10, 10)
