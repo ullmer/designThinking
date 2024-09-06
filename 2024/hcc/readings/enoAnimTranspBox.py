@@ -64,9 +64,29 @@ class enoAnimTranspBox:
 
   ###################### is transparent rect of specificed width & height cached ###################
 
-  def isTRCached(self, elWH):  
-    if self.transpRectSurfaceCache is not None and elWH in self.transpRectSurfaceCache: return True
+  def isTRCached(self, x, y):  
+    keyTuple = (int(x), int(y)) #... since interpolation may generate floats
+    if self.transpRectSurfaceCache is not None and keyTuple in self.transpRectSurfaceCache: return True
     return False
+
+  ###################### is transparent rect of specificed width & height cached ###################
+
+  def getTRCached(self, x, y):  
+    keyTuple = (int(x), int(y)) #... since interpolation may generate floats
+
+    if self.transpRectSurfaceCache is not None and keyTuple in self.transpRectSurfaceCache: 
+       return self.transpRectSurfaceCache[keyTuple]
+
+    return None
+
+  ###################### is transparent rect of specificed width & height cached ###################
+
+  def setTRCached(self, x, y, val):  
+    keyTuple = (int(x), int(y)) #... since interpolation may generate floats
+
+    if self.transpRectSurfaceCache is not None:
+       self.transpRectSurfaceCache[keyTuple] = val
+
 
   ############################ animation interpolation setup ############################
   
@@ -168,23 +188,23 @@ class enoAnimTranspBox:
     vWH = (w1, h1) #vertical   line width & height
     hWH = (w2, h2) #horizontal line width & height
 
-    if self.isTRCached(vWH):  # especially in bounce scenario, prevent endless generation of new equiv surfaces
-      self.verticalLinesSurface = self.transpRectSurfaceCache[vWH]
+    if self.isTRCached(w1, h1):  # especially in bounce scenario, prevent endless generation of new equiv surfaces
+      self.verticalLinesSurface = self.getTRCached(w1, h1)
 
     else:
       self.verticalLinesSurface = pygame.Surface((w1,h1), pygame.SRCALPHA)
       self.vRect = Rect((0,0), (w1, h1))
       pygame.draw.rect(self.verticalLinesSurface, c, self.vRect, self.lineThickness)
-      self.transpRectSurfaceCache[vWH] = self.verticalLinesSurface
+      self.setTRCache(w1, h1, self.verticalLinesSurface)
 
-    if self.isTRCached(hWH): 
-      self.horizLinesSurface    = self.transpRectSurfaceCache[hWH]
+    if self.isTRCached(w2, h2): 
+      self.horizLinesSurface    = self.getTRCached(w2, h2)
 
     else: 
       self.horizLinesSurface    = pygame.Surface((w2,h2), pygame.SRCALPHA)
       self.hRect = Rect((0,0), (w2, h2))
       pygame.draw.rect(self.horizLinesSurface,    c, self.hRect, self.lineThickness)
-      self.transpRectSurfaceCache[hWH] = self.horizLinesSurface
+      self.setTRCache(w2, h2, self.horizLinesSurface)
 
     self.updateDrawingCoords()
 
@@ -211,6 +231,10 @@ class enoAnimTranspBox:
     if self.verbose:
       print("draw:")
       for c in [self.vCoord1, self.vCoord2, self.hCoord1, self.hCoord2]: print(c)
+
+    if self.verticalLinesSurface = 
+
+
 
     # Draw the surface on the screen
     screen.blit(self.verticalLinesSurface, self.vCoord1)
