@@ -88,9 +88,9 @@ class enoAnimTranspBox:
       if tie==1: cb = partial(self.startAnim, 0)
       else:      cb = partial(self.startAnim, 1)
 
-      animate(self.animProgress, tie, tween=self.animTween, duration=self.animDuration, on_finished=cb)
+      animate(self, animProgress=tie, tween=self.animTween, duration=self.animDuration, on_finished=cb)
     else:
-      animate(self.animProgress, tie, tween=self.animTween, duration=self.animDuration)
+      animate(self, animProgress=tie, tween=self.animTween, duration=self.animDuration)
 
   ############################ animation interpolation setup ############################
   
