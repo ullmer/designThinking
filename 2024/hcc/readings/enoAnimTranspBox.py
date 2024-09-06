@@ -5,8 +5,8 @@
 #Several key pygame alpha-drawing aspects draw from Asad Ali Yawar response in:
 #https://stackoverflow.com/questions/18701453/how-to-draw-a-transparent-line-in-pygame
 
+import pgzrun
 import pygame  
-import math
 
 # if we're running directly in test mode, set the window geometry 
 if __name__ == "__main__": WIDTH, HEIGHT = 500, 500
@@ -28,12 +28,13 @@ class enoAnimTranspBox:
 
   animDuration = 0.5
   animActive   = 0
+  verbose      = True
 
   verticalLinesSurface = None
   horizLinesSurface    = None
 
-  vCoord1, vCoord2 = None #cached coordinates for blitting operations
-  hCoord1, hCoord2 = None
+  vCoord1, vCoord2 = None, None #cached coordinates for blitting operations
+  hCoord1, hCoord2 = None, None
 
   ############# constructor #############
 
@@ -42,7 +43,7 @@ class enoAnimTranspBox:
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
 
-    if topLeft is not None and bottomRight is not None: self.buildBox()
+    if self.topLeft is not None and self.bottomRight is not None: self.buildBox()
 
   ####################### error message (redirectable) ####################
 
@@ -62,8 +63,8 @@ class enoAnimTranspBox:
     x1, y1 = self.topLeft
     x2, y2 = self.bottomRight
 
-    self.boxWidth  = math.abs(x2-x1)
-    self.boxHeight = math.abs(y2-y1)
+    self.boxWidth  = abs(x2-x1)
+    self.boxHeight = abs(y2-y1)
 
   ############################ build box ############################
 
@@ -82,11 +83,13 @@ class enoAnimTranspBox:
     w2 = self.boxWidth - (self.lineThickness * 2)
     h2 = self.lineThickness
 
+    c  = self.lineColor
+
     self.verticalLinesSurface = pygame.Surface((w1,h1), pygame.SRCALPHA)
     self.horizLinesSurface    = pygame.Surface((w2,h2), pygame.SRCALPHA)
 
-    pygame.draw.rect(self.verticalLinesSurface, color, (0, 0), (w1, h1), self.lineThickness)
-    pygame.draw.rect(self.horizLinesSurface,    color, (0, 0), (w2, h2), self.lineThickness)
+    pygame.draw.rect(self.verticalLinesSurface, c, (0, 0), (w1, h1), self.lineThickness)
+    pygame.draw.rect(self.horizLinesSurface,    c, (0, 0), (w2, h2), self.lineThickness)
 
     self.updateDrawingCoords()
 
@@ -109,6 +112,11 @@ class enoAnimTranspBox:
   ############################ draw ############################
 
   def draw(self, screen):
+
+    if self.verbose:
+      print("draw:")
+      for c in [self.vCoord1, self.vCoord2, self.hCoord1, self.hCoord2]: print(c)
+
     # Draw the surface on the screen
     screen.blit(self.verticalLinesSurface, self.vCoord1)
     screen.blit(self.verticalLinesSurface, self.vCoord2) 
@@ -119,11 +127,15 @@ class enoAnimTranspBox:
 
 if __name__ == "__main__":
 
+  print("main")
+
   TL = (100, 100)
   BR = (300, 300)
 
   eatb1 = enoAnimTranspBox(topLeft=TL, bottomRight=BR)
 
   def draw(): screen.clear(); eatb1.draw(screen)
+
+  pgzrun()
 
 ### end ###
