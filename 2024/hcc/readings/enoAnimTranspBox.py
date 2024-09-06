@@ -38,7 +38,7 @@ class enoAnimTranspBox:
 
   transpRectSurfaceCache = None
 
-  verbose      = True
+  verbose      = False
   animBounce   = False # bounce between animSrc and animDest
 
   verticalLinesSurface = None
@@ -149,11 +149,11 @@ class enoAnimTranspBox:
 
     try:
       x1, y1 = self.animSrcDestDiffTL
-      x2, y2 = x1 + self.animTLx * self.animProgress, y1 + self.animTLy * self.animProgress
+      x2, y2 = self.animTLx + x1 * self.animProgress, self.animTLy + y1 * self.animProgress
       self.topLeft = (x2, y2)
 
       x3, y3 = self.animSrcDestDiffBR
-      x4, y4 = x3 + self.animBRx * self.animProgress, y3 + self.animBRy * self.animProgress
+      x4, y4 = self.animBRx + x3 * self.animProgress, self.animBRy + y3 * self.animProgress
       self.bottomRight = (x4, y4)
 
       self.calcWidthHeight()
