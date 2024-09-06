@@ -7,6 +7,7 @@
 
 import traceback
 import pygame  
+from functools import partial
 
 WIDTH, HEIGHT = 500, 500
 
@@ -77,9 +78,19 @@ class enoAnimTranspBox:
 
   ############################ start animation ############################
   
-  def startAnim(self):
+  def startAnim(self, targetInterpolationExtent=1):
     self.animInterpolateSetup()
     self.animInterpolate()
+
+    tie = targetInterpolationExtent
+
+    if self.animBounce:
+      if tie=1: cb = partial(self.startAnim, 0)
+      else:     cb = partial(self.startAnim, 1)
+
+      animate(self.animProgress, tie, tween=self.animTween, duration=self.animDuration, on_finished=cb)
+    else:
+      animate(self.animProgress, tie, tween=self.animTween, duration=self.animDuration)
 
   ############################ animation interpolation setup ############################
   
@@ -220,7 +231,7 @@ BR2 = (20, 20)
 
 aSrc, aDest = (TL1, BR1), (TL2, BR2)
 
-eatb1 = enoAnimTranspBox(topLeft=TL1, bottomRight=BR1)
-#eatb1 = enoAnimTranspBox(animSrc=aSrc, animDest=aDest, bounce=True)
+#eatb1 = enoAnimTranspBox(topLeft=TL1, bottomRight=BR1)
+eatb1 = enoAnimTranspBox(animSrc=aSrc, animDest=aDest, bounce=True)
 
 ### end ###
