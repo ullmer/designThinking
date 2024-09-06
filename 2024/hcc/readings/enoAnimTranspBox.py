@@ -89,17 +89,24 @@ class enoAnimTranspBox:
     if self.transpRectSurfaceCache is not None:
        self.transpRectSurfaceCache[keyTuple] = val
 
-  ############################ animation interpolation setup ############################
+  ############################ calculate 2D diff ############################
   
   def calc2dDiff(self, v1, v2):
+    if self.verbose: print("calc2dDiff", v1, v2)
+
     x1, y1 = v1
     x2, y2 = v2
     dx, dy = x2-x1, y2-y1
+
+    if self.verbose: print(dx, dy)
     return (dx, dy)
 
   ############################ start animation ############################
   
   def startAnim(self, targetInterpolationExtent=1):
+
+    if self.verbose: print("startAnim", self.animSrc, self.animDest)
+
     self.animInterpolateSetup()
     self.animInterpolate()
     self.animActive = True
@@ -126,6 +133,9 @@ class enoAnimTranspBox:
       self.animTLx, self.animTLy     = animTL1
       self.animBRx, self.animBRy     = animBR1
       self.topLeft, self.bottomRight = animTL1, animBR1
+
+      if self.verbose: print("animInterpolateSetup dtl dbr:", self.animSrcDestDiffTL, self.animSrcDestDiffBR)
+
       self.buildBox()
 
     except:
