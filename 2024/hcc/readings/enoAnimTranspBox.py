@@ -5,11 +5,9 @@
 #Several key pygame alpha-drawing aspects draw from Asad Ali Yawar response in:
 #https://stackoverflow.com/questions/18701453/how-to-draw-a-transparent-line-in-pygame
 
-import pgzrun
 import pygame  
 
-# if we're running directly in test mode, set the window geometry 
-if __name__ == "__main__": WIDTH, HEIGHT = 500, 500
+WIDTH, HEIGHT = 500, 500
 
 ############################ enodia animated transparent box ############################
 
@@ -35,6 +33,7 @@ class enoAnimTranspBox:
 
   vCoord1, vCoord2 = None, None #cached coordinates for blitting operations
   hCoord1, hCoord2 = None, None
+  vRect,   hRect   = None, None
 
   ############# constructor #############
 
@@ -88,8 +87,11 @@ class enoAnimTranspBox:
     self.verticalLinesSurface = pygame.Surface((w1,h1), pygame.SRCALPHA)
     self.horizLinesSurface    = pygame.Surface((w2,h2), pygame.SRCALPHA)
 
-    pygame.draw.rect(self.verticalLinesSurface, c, (0, 0), (w1, h1), self.lineThickness)
-    pygame.draw.rect(self.horizLinesSurface,    c, (0, 0), (w2, h2), self.lineThickness)
+    self.vRect = Rect((0,0), (w1, h1))
+    self.hRect = Rect((0,0), (h2, h2))
+
+    pygame.draw.rect(self.verticalLinesSurface, c, self.vRect, self.lineThickness)
+    pygame.draw.rect(self.horizLinesSurface,    c, self.hRect, self.lineThickness)
 
     self.updateDrawingCoords()
 
@@ -97,7 +99,7 @@ class enoAnimTranspBox:
 
   def updateDrawingCoords(self):
 
-    x1, y1 = self.topLeft()
+    x1, y1 = self.topLeft
     x2, y2 = x1 + self.boxWidth - self.lineThickness, y1
 
     x3 = x1 + self.lineThickness
@@ -125,17 +127,13 @@ class enoAnimTranspBox:
 
 ################## main ##################
 
-if __name__ == "__main__":
 
-  print("main")
+def draw(): screen.clear(); eatb1.draw(screen)
 
-  TL = (100, 100)
-  BR = (300, 300)
+print("main")
+TL = (100, 100)
+BR = (300, 300)
 
-  eatb1 = enoAnimTranspBox(topLeft=TL, bottomRight=BR)
-
-  def draw(): screen.clear(); eatb1.draw(screen)
-
-  pgzrun()
+eatb1 = enoAnimTranspBox(topLeft=TL, bottomRight=BR)
 
 ### end ###
