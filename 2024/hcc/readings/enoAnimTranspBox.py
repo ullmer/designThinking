@@ -90,7 +90,7 @@ class enoAnimTranspBox:
     self.horizLinesSurface    = pygame.Surface((w2,h2), pygame.SRCALPHA)
 
     self.vRect = Rect((0,0), (w1, h1))
-    self.hRect = Rect((0,0), (h2, h2))
+    self.hRect = Rect((0,0), (w2, h2))
 
     pygame.draw.rect(self.verticalLinesSurface, c, self.vRect, self.lineThickness)
     pygame.draw.rect(self.horizLinesSurface,    c, self.hRect, self.lineThickness)
