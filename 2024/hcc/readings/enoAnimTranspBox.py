@@ -28,11 +28,12 @@ class enoAnimTranspBox:
   animSrcDestDiffTL = None
   animSrcDestDiffBR = None
 
-  animDuration = 0.5
-  animTween    = 'accel_decel'
-  animActive   = False
-  animHandler  = None
-  animProgress = 0    #ranges from 0=animSrc to 1=full progression to animDest
+  animDuration     = 0.5
+  animTween        = 'accel_decel'
+  animActive       = False
+  animHandler      = None
+  animProgress     = 0    #ranges from 0=animSrc to 1=full progression to animDest
+  lastAnimProgress = None
 
   transpRectSurfaceCache = None
 
@@ -86,7 +87,6 @@ class enoAnimTranspBox:
 
     if self.transpRectSurfaceCache is not None:
        self.transpRectSurfaceCache[keyTuple] = val
-
 
   ############################ animation interpolation setup ############################
   
@@ -232,15 +232,19 @@ class enoAnimTranspBox:
       print("draw:")
       for c in [self.vCoord1, self.vCoord2, self.hCoord1, self.hCoord2]: print(c)
 
-    if self.verticalLinesSurface = 
+    if self.animActive and self.animProgress != self.lastAnimProgress:
+      self.animInterpolate()
+      self.calcWidthHeight()
+      self.buildBox()
 
-
-
-    # Draw the surface on the screen
-    screen.blit(self.verticalLinesSurface, self.vCoord1)
-    screen.blit(self.verticalLinesSurface, self.vCoord2) 
-    screen.blit(self.horizLinesSurface,    self.hCoord1)
-    screen.blit(self.horizLinesSurface,    self.hCoord2)
+    try:
+      # Draw the surface on the screen
+      screen.blit(self.verticalLinesSurface, self.vCoord1)
+      screen.blit(self.verticalLinesSurface, self.vCoord2) 
+      screen.blit(self.horizLinesSurface,    self.hCoord1)
+      screen.blit(self.horizLinesSurface,    self.hCoord2)
+    except:
+      self.err("draw error:"); traceback.print_exc()
 
 ################## main ##################
 
