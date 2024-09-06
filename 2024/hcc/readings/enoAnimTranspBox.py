@@ -8,7 +8,8 @@
 import pygame  
 import math
 
-#WIDTH, HEIGHT = 500, 500
+# if we're running directly in test mode, set the window geometry 
+if __name__ == "__main__": WIDTH, HEIGHT = 500, 500
 
 ############################ enodia animated transparent box ############################
 
@@ -113,5 +114,16 @@ class enoAnimTranspBox:
     screen.blit(self.verticalLinesSurface, self.vCoord2) 
     screen.blit(self.horizLinesSurface,    self.hCoord1)
     screen.blit(self.horizLinesSurface,    self.hCoord2)
+
+################## main ##################
+
+if __name__ == "__main__":
+
+  TL = (100, 100)
+  BR = (300, 300)
+
+  eatb1 = enoAnimTranspBox(topLeft=TL, bottomRight=BR)
+
+  def draw(): screen.clear(); eatb1.draw(screen)
 
 ### end ###
