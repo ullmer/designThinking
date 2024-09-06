@@ -5,6 +5,7 @@
 #Several key pygame alpha-drawing aspects draw from Asad Ali Yawar response in:
 #https://stackoverflow.com/questions/18701453/how-to-draw-a-transparent-line-in-pygame
 
+import traceback
 import pygame  
 
 WIDTH, HEIGHT = 500, 500
@@ -22,11 +23,14 @@ class enoAnimTranspBox:
   boxWidth      = None
 
   animSrc, animDest = None, None
-  animTL1, animBR1  = None, None
-  animTL2, animBR2  = None, None
+  animSrcDestDist   = None
+  animSrcDestVect   = None
 
   animDuration = 0.5
   animActive   = 0
+  animHandler  = None
+  animProgress = 0    #ranges from 0=animSrc to 1=full progression to animDest
+
   verbose      = False
   bounce       = False # bounce between animSrc and animDest
 
@@ -45,10 +49,38 @@ class enoAnimTranspBox:
     #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
 
     if self.topLeft is not None and self.bottomRight is not None: self.buildBox()
+    if self.animSrc is not None and self.animDest    is not None: self.startAnim()
 
   ####################### error message (redirectable) ####################
 
   def err(self, msg): print("enoAnimTranspBox:", str(msg))
+
+  ############################ animation interpolation setup ############################
+  
+  def animInterpolateSetup():
+    try:
+      x1, y1 = self.animSrc
+      x2, y2 = self.animDest
+      dx, dy = x2-x1, y2-y1
+
+      self.animSrcDestDist = math.dist(self.animSrc, self.animDest)
+      self.animSrcDestVect = (dx, dy)
+    except:
+      self.err("animInterpolateSetup error:"); traceback.print_exc()
+  
+  ############################ animation interpolation ############################
+
+  def animInterpolate():
+    for i in [self.animSrcDestDist, animSrcDestVect]:
+      if i is None: self.animInterpolateSetup() 
+
+    if self.animProgress 
+
+  ############################ build box ############################
+
+  def buildBox(self):
+eatb1 = enoAnimTranspBox(animSrc=aSrc, animDest=aDest, bounce=True)
+
 
   ############################ set bounds ############################
 
@@ -145,7 +177,5 @@ aSrc, aDest = (TL1, BR1), (TL2, BR2)
 
 #eatb1 = enoAnimTranspBox(topLeft=TL, bottomRight=BR)
 eatb1 = enoAnimTranspBox(animSrc=aSrc, animDest=aDest, bounce=True)
-
-animSrc, animDest = None, None
 
 ### end ###
