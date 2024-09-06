@@ -9,7 +9,7 @@ import traceback
 import pygame  
 from functools import partial
 
-WIDTH, HEIGHT = 500, 500
+WIDTH, HEIGHT = 800, 800
 
 ############################ enodia animated transparent box ############################
 
@@ -185,7 +185,7 @@ class enoAnimTranspBox:
     w2 = self.boxWidth - (self.lineThickness * 2)
     h2 = self.lineThickness
 
-    if verbose: print("bb w2 h2:", w2, h2)
+    if self.verbose: print("bb w2 h2:", w2, h2)
 
     c  = self.lineColor
 
@@ -255,8 +255,8 @@ class enoAnimTranspBox:
 def draw(): screen.clear(); eatb1.draw(screen)
 
 print("main")
-TL1 = (100, 100)
-BR1 = (300, 300)
+TL1 = (500, 500)
+BR1 = (700, 700)
 
 TL2 = (10, 10)
 BR2 = (20, 20)
