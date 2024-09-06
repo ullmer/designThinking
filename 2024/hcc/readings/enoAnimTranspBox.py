@@ -6,6 +6,8 @@ import pygame
 
 #WIDTH, HEIGHT = 500, 500
 
+############################ enodia animated transparent box ############################
+
 class enoAnimTranspBox:
 
   lineThickness = 5
@@ -13,11 +15,24 @@ class enoAnimTranspBox:
   topLeft       = None #tuple
   bottomRight   = None #tuple
 
+  ############# constructor #############
+
+  def __init__(self, **kwargs):
+
+    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+    #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
+
+  ############################ build box ############################
+
+  def buildBox(self):
+
 # Create a temporary surface that supports alpha values
 s1 = pygame.Surface((WIDTH, HEIGHT), pygame.SRCALPHA)
 s2 = pygame.Surface((WIDTH, HEIGHT), pygame.SRCALPHA)
 
-def draw():
+  ############################ draw ############################
+
+  def draw(self, screen):
   screen.clear()
   color  = (255, 255, 255, 128) # or '#ffffffdd'
 
