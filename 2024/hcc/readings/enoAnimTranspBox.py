@@ -23,9 +23,9 @@ class enoAnimTranspBox:
   boxWidth      = None
 
   animSrc, animDest = None, None
+  animTLx, animTLy  = None, None
   animSrcDestDiffTL = None
   animSrcDestDiffBR = None
-  animTLx, animTLy  = None
 
   animDuration = 0.5
   animTween    = 'accel_decel'
@@ -52,7 +52,7 @@ class enoAnimTranspBox:
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
 
-    transpRectSurfaceCache = {}
+    self.transpRectSurfaceCache = {}
 
     if self.topLeft is not None and self.bottomRight is not None: self.buildBox()
     if self.animSrc is not None and self.animDest    is not None: self.startAnim()
@@ -60,6 +60,12 @@ class enoAnimTranspBox:
   ####################### error message (redirectable) ####################
 
   def err(self, msg): print("enoAnimTranspBox:", str(msg))
+
+  ###################### is transparent rect of specificed width & height cached ###################
+
+  def isTRCached(self, elWH):  
+    if self.transpRectSurfaceCache is not None and elWH in self.transpRectSurfaceCache: return True
+    return False
 
   ############################ animation interpolation setup ############################
   
@@ -74,7 +80,6 @@ class enoAnimTranspBox:
   def startAnim(self):
     self.animInterpolateSetup()
     self.animInterpolate()
-    
 
   ############################ animation interpolation setup ############################
   
@@ -105,6 +110,7 @@ class enoAnimTranspBox:
       x4, y4 = x3 + self.animBRx * self.animProgress, y3 + self.animBRy * self.animProgress
       self.bottomRight = (x4, y4)
 
+      self.calcWidthHeight()
       self.buildBox()
 
     except:
@@ -153,14 +159,16 @@ class enoAnimTranspBox:
 
     if self.isTRCached(vWH):  # especially in bounce scenario, prevent endless generation of new equiv surfaces
       self.verticalLinesSurface = self.transpRectSurfaceCache[vWH]
+
     else:
       self.verticalLinesSurface = pygame.Surface((w1,h1), pygame.SRCALPHA)
       self.vRect = Rect((0,0), (w1, h1))
       pygame.draw.rect(self.verticalLinesSurface, c, self.vRect, self.lineThickness)
-      self.transpRectSurfaceCache[vWH] = self.transpRectSurfaceCache[vWH]
+      self.transpRectSurfaceCache[vWH] = self.verticalLinesSurface
 
     if self.isTRCached(hWH): 
       self.horizLinesSurface    = self.transpRectSurfaceCache[hWH]
+
     else: 
       self.horizLinesSurface    = pygame.Surface((w2,h2), pygame.SRCALPHA)
       self.hRect = Rect((0,0), (w2, h2))
@@ -201,7 +209,6 @@ class enoAnimTranspBox:
 
 ################## main ##################
 
-
 def draw(): screen.clear(); eatb1.draw(screen)
 
 print("main")
@@ -213,7 +220,7 @@ BR2 = (20, 20)
 
 aSrc, aDest = (TL1, BR1), (TL2, BR2)
 
-#eatb1 = enoAnimTranspBox(topLeft=TL, bottomRight=BR)
-eatb1 = enoAnimTranspBox(animSrc=aSrc, animDest=aDest, bounce=True)
+eatb1 = enoAnimTranspBox(topLeft=TL1, bottomRight=BR1)
+#eatb1 = enoAnimTranspBox(animSrc=aSrc, animDest=aDest, bounce=True)
 
 ### end ###
