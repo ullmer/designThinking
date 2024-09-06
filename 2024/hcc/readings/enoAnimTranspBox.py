@@ -21,12 +21,14 @@ class enoAnimTranspBox:
   boxHeight     = None
   boxWidth      = None
 
-  animTL1, animBR1 = None, None
-  animTL2, animBR2 = None, None
+  animSrc, animDest = None, None
+  animTL1, animBR1  = None, None
+  animTL2, animBR2  = None, None
 
   animDuration = 0.5
   animActive   = 0
   verbose      = False
+  bounce       = False # bounce between animSrc and animDest
 
   verticalLinesSurface = None
   horizLinesSurface    = None
@@ -133,9 +135,17 @@ class enoAnimTranspBox:
 def draw(): screen.clear(); eatb1.draw(screen)
 
 print("main")
-TL = (100, 100)
-BR = (300, 300)
+TL1 = (100, 100)
+BR1 = (300, 300)
 
-eatb1 = enoAnimTranspBox(topLeft=TL, bottomRight=BR)
+TL2 = (10, 10)
+BR2 = (20, 20)
+
+aSrc, aDest = (TL1, BR1), (TL2, BR2)
+
+#eatb1 = enoAnimTranspBox(topLeft=TL, bottomRight=BR)
+eatb1 = enoAnimTranspBox(animSrc=aSrc, animDest=aDest, bounce=True)
+
+animSrc, animDest = None, None
 
 ### end ###
