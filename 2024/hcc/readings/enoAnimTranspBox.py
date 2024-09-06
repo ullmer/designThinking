@@ -2,6 +2,9 @@
 # By Brygg Ullmer, Clemson University
 # Begun 2024-09-06
 
+#Several key pygame alpha-drawing aspects draw from Asad Ali Yawar response in:
+#https://stackoverflow.com/questions/18701453/how-to-draw-a-transparent-line-in-pygame
+
 import pygame  
 import math
 
@@ -18,6 +21,12 @@ class enoAnimTranspBox:
   bottomRight   = None #tuple
   boxHeight     = None
   boxWidth      = None
+
+  animTL1, animBR1 = None, None
+  animTL2, animBR2 = None, None
+
+  animDuration = 0.5
+  animActive   = 0
 
   verticalLinesSurface = None
   horizLinesSurface    = None
@@ -72,16 +81,13 @@ class enoAnimTranspBox:
     self.verticalLinesSurface = pygame.Surface((w1,h1), pygame.SRCALPHA)
     self.horizLinesSurface    = pygame.Surface((w2,h2), pygame.SRCALPHA)
 
-    pygame.draw.rect(self.verticalLinesSurface, color, (0, 250), (500, 250), 50)
-    pygame.draw.rect(self.horizLinesSurface,    color, (250, 0), (250, 500), 50)
+    pygame.draw.rect(self.verticalLinesSurface, color, (0, 0), (w1, h1), self.lineThickness)
+    pygame.draw.rect(self.horizLinesSurface,    color, (0, 0), (w2, h2), self.lineThickness)
 
   ############################ draw ############################
 
   def draw(self, screen):
-  screen.clear()
-  color  = (255, 255, 255, 128) # or '#ffffffdd'
 
-#https://stackoverflow.com/questions/18701453/how-to-draw-a-transparent-line-in-pygame
   # Draw the line on the temporary surface
   #pygame.draw.line(s1, color, start_pos, end_pos, width)
 
