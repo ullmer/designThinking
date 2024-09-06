@@ -33,6 +33,8 @@ class enoAnimTranspBox:
   animHandler  = None
   animProgress = 0    #ranges from 0=animSrc to 1=full progression to animDest
 
+  transpRectSurfaceCache = None
+
   verbose      = False
   bounce       = False # bounce between animSrc and animDest
 
@@ -50,6 +52,8 @@ class enoAnimTranspBox:
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
 
+    transpRectSurfaceCache = {}
+
     if self.topLeft is not None and self.bottomRight is not None: self.buildBox()
     if self.animSrc is not None and self.animDest    is not None: self.startAnim()
 
@@ -64,6 +68,13 @@ class enoAnimTranspBox:
     x2, y2 = v2
     dx, dy = x2-x1, y2-y1
     return (dx, dy)
+
+  ############################ start animation ############################
+  
+  def startAnim(self):
+    self.animInterpolateSetup()
+    self.animInterpolate()
+    
 
   ############################ animation interpolation setup ############################
   
@@ -94,14 +105,10 @@ class enoAnimTranspBox:
       x4, y4 = x3 + self.animBRx * self.animProgress, y3 + self.animBRy * self.animProgress
       self.bottomRight = (x4, y4)
 
+      self.buildBox()
+
     except:
       self.err("animInterpolate error:"); traceback.print_exc()
-
-  ############################ build box ############################
-
-  def buildBox(self):
-eatb1 = enoAnimTranspBox(animSrc=aSrc, animDest=aDest, bounce=True)
-
 
   ############################ set bounds ############################
 
@@ -141,14 +148,24 @@ eatb1 = enoAnimTranspBox(animSrc=aSrc, animDest=aDest, bounce=True)
 
     c  = self.lineColor
 
-    self.verticalLinesSurface = pygame.Surface((w1,h1), pygame.SRCALPHA)
-    self.horizLinesSurface    = pygame.Surface((w2,h2), pygame.SRCALPHA)
+    vWH = (w1, h1) #vertical   line width & height
+    hWH = (w2, h2) #horizontal line width & height
 
-    self.vRect = Rect((0,0), (w1, h1))
-    self.hRect = Rect((0,0), (w2, h2))
+    if self.isTRCached(vWH):  # especially in bounce scenario, prevent endless generation of new equiv surfaces
+      self.verticalLinesSurface = self.transpRectSurfaceCache[vWH]
+    else:
+      self.verticalLinesSurface = pygame.Surface((w1,h1), pygame.SRCALPHA)
+      self.vRect = Rect((0,0), (w1, h1))
+      pygame.draw.rect(self.verticalLinesSurface, c, self.vRect, self.lineThickness)
+      self.transpRectSurfaceCache[vWH] = self.transpRectSurfaceCache[vWH]
 
-    pygame.draw.rect(self.verticalLinesSurface, c, self.vRect, self.lineThickness)
-    pygame.draw.rect(self.horizLinesSurface,    c, self.hRect, self.lineThickness)
+    if self.isTRCached(hWH): 
+      self.horizLinesSurface    = self.transpRectSurfaceCache[hWH]
+    else: 
+      self.horizLinesSurface    = pygame.Surface((w2,h2), pygame.SRCALPHA)
+      self.hRect = Rect((0,0), (w2, h2))
+      pygame.draw.rect(self.horizLinesSurface,    c, self.hRect, self.lineThickness)
+      self.transpRectSurfaceCache[hWH] = self.horizLinesSurface
 
     self.updateDrawingCoords()
 
