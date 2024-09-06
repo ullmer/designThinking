@@ -37,7 +37,7 @@ class enoAnimTranspBox:
   transpRectSurfaceCache = None
 
   verbose      = False
-  bounce       = False # bounce between animSrc and animDest
+  animBounce   = False # bounce between animSrc and animDest
 
   verticalLinesSurface = None
   horizLinesSurface    = None
@@ -85,8 +85,8 @@ class enoAnimTranspBox:
     tie = targetInterpolationExtent
 
     if self.animBounce:
-      if tie=1: cb = partial(self.startAnim, 0)
-      else:     cb = partial(self.startAnim, 1)
+      if tie==1: cb = partial(self.startAnim, 0)
+      else:      cb = partial(self.startAnim, 1)
 
       animate(self.animProgress, tie, tween=self.animTween, duration=self.animDuration, on_finished=cb)
     else:
@@ -94,7 +94,7 @@ class enoAnimTranspBox:
 
   ############################ animation interpolation setup ############################
   
-  def animInterpolateSetup():
+  def animInterpolateSetup(self):
     try:
       animTL1, animBR1 = self.animSrc
       animTL2, animBR2 = self.animDest
@@ -108,8 +108,8 @@ class enoAnimTranspBox:
   
   ############################ animation interpolation ############################
 
-  def animInterpolate():
-    for el in [self.animSrcDestDiffTL, animSrcDestDiffBR]:
+  def animInterpolate(self):
+    for el in [self.animSrcDestDiffTL, self.animSrcDestDiffBR]:
       if el is None: self.animInterpolateSetup() 
 
     try:
@@ -232,6 +232,6 @@ BR2 = (20, 20)
 aSrc, aDest = (TL1, BR1), (TL2, BR2)
 
 #eatb1 = enoAnimTranspBox(topLeft=TL1, bottomRight=BR1)
-eatb1 = enoAnimTranspBox(animSrc=aSrc, animDest=aDest, bounce=True)
+eatb1 = enoAnimTranspBox(animSrc=aSrc, animDest=aDest, animBounce=True)
 
 ### end ###
