@@ -28,7 +28,8 @@ class enoAnimTranspBox:
   animTLx, animTLy  = None
 
   animDuration = 0.5
-  animActive   = 0
+  animTween    = 'accel_decel'
+  animActive   = False
   animHandler  = None
   animProgress = 0    #ranges from 0=animSrc to 1=full progression to animDest
 
