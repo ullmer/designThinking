@@ -31,6 +31,9 @@ class enoAnimTranspBox:
   verticalLinesSurface = None
   horizLinesSurface    = None
 
+  vCoord1, vCoord2 = None #cached coordinates for blitting operations
+  hCoord1, hCoord2 = None
+
   ############# constructor #############
 
   def __init__(self, **kwargs):
@@ -84,15 +87,30 @@ class enoAnimTranspBox:
     pygame.draw.rect(self.verticalLinesSurface, color, (0, 0), (w1, h1), self.lineThickness)
     pygame.draw.rect(self.horizLinesSurface,    color, (0, 0), (w2, h2), self.lineThickness)
 
+  ############################ updateDrawingCoords ############################
+
+  def updateDrawingCoords(self):
+
+    x1, y1 = self.topLeft()
+    x2, y2 = x1 + self.boxWidth - self.lineThickness, y1
+
+    x3 = x1 + self.lineThickness
+    y3 = y1 + self.boxHeight - self.lineThickness
+
+    self.vCoord1 = self.topLeft
+    self.vCoord2 = (x2, y2)
+
+    self.hCoord1 = (x3, y1)
+    self.hCoord2 = (x3, y3)
+
   ############################ draw ############################
 
   def draw(self, screen):
 
-  # Draw the line on the temporary surface
-  #pygame.draw.line(s1, color, start_pos, end_pos, width)
-
-  # Draw the surface on the screen
-  screen.blit(s1, (0,0))
-  screen.blit(s2, (0,0))
+    # Draw the surface on the screen
+    screen.blit(self.verticalLinesSurface, self.vCoord1)
+    screen.blit(self.verticalLinesSurface, self.vCoord2) 
+    screen.blit(self.horizLinesSurface,    self.hCoord1)
+    screen.blit(self.horizLinesSurface,    self.hCoord2)
 
 ### end ###
