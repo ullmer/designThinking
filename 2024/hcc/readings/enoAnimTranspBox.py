@@ -23,8 +23,8 @@ class enoAnimTranspBox:
   boxWidth      = None
 
   animSrc, animDest = None, None
-  animSrcDestDist   = None
-  animSrcDestVect   = None
+  animSrcDestVectTL = None
+  animSrcDestVectBR = None
 
   animDuration = 0.5
   animActive   = 0
@@ -57,24 +57,41 @@ class enoAnimTranspBox:
 
   ############################ animation interpolation setup ############################
   
+  def calc2dDiff(self, v1, v2):
+    x1, y1 = v1
+    x2, y2 = v2
+    dx, dy = x2-x1, y2-y1
+    return (dx, dy)
+
+  ############################ animation interpolation setup ############################
+  
   def animInterpolateSetup():
     try:
-      x1, y1 = self.animSrc
-      x2, y2 = self.animDest
-      dx, dy = x2-x1, y2-y1
+      animTL1, animBR1 = self.animSrc
+      animTL2, animBR2 = self.animDest
+
+      dTL = self.calc2dDiff(animTL1, animTL2)
+      dBR = self.calc2dDiff(animBR1, animBR2)
 
       self.animSrcDestDist = math.dist(self.animSrc, self.animDest)
       self.animSrcDestVect = (dx, dy)
     except:
       self.err("animInterpolateSetup error:"); traceback.print_exc()
   
+  animSrcDestVectTL = None
+  animSrcDestVectBR = None
+
   ############################ animation interpolation ############################
 
   def animInterpolate():
     for i in [self.animSrcDestDist, animSrcDestVect]:
       if i is None: self.animInterpolateSetup() 
 
-    if self.animProgress 
+    try:
+      dx1, dy1 = self.animSrcDestVect
+      dx2, dy2 = dx1 * self.animProgress, dy1 * self.animProgress
+
+
 
   ############################ build box ############################
 
