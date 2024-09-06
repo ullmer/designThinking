@@ -57,8 +57,8 @@ class enoAnimTranspBox:
 
     self.transpRectSurfaceCache = {}
 
-    if self.topLeft is not None and self.bottomRight is not None: self.buildBox()
-    if self.animSrc is not None and self.animDest    is not None: self.startAnim()
+    if None not in (self.topLeft, self.bottomRight): self.buildBox()
+    if None not in (self.animSrc, self.animDest):    self.startAnim()
 
   ####################### error message (redirectable) ####################
 
