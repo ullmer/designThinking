@@ -5,8 +5,9 @@
 #Several key pygame alpha-drawing aspects draw from Asad Ali Yawar response in:
 #https://stackoverflow.com/questions/18701453/how-to-draw-a-transparent-line-in-pygame
 
-import traceback
+import sys
 import pygame  
+import traceback
 from functools import partial
 
 WIDTH, HEIGHT = 800, 800
@@ -16,6 +17,8 @@ WIDTH, HEIGHT = 800, 800
 
 class enoTranspSurfaceCache:
   transpRectSurfaceCache = None
+  cacheCountCheck = 0
+  cacheCountFlush = 20
 
   ############# constructor #############
 
@@ -29,8 +32,14 @@ class enoTranspSurfaceCache:
   ###################### is transparent rect of specificed width & height cached ###################
 
   def isTRCached(self, x, y):  
+    self.cacheCountCheck += 1
+    if self.cacheCountCheck % self.cacheCountFlush == 0: sys.stdout.flush()
+
     keyTuple = (int(x), int(y)) #... since interpolation may generate floats
-    if self.transpRectSurfaceCache is not None and keyTuple in self.transpRectSurfaceCache: return True
+    if self.transpRectSurfaceCache is not None and keyTuple in self.transpRectSurfaceCache: 
+       print(".", end=""); return True
+
+    print("!", end="")
     return False
 
   ###################### is transparent rect of specificed width & height cached ###################
@@ -296,7 +305,9 @@ BR2 = (20, 20)
 
 aSrc, aDest = (TL1, BR1), (TL2, BR2)
 
+etsc = enoTranspSurfaceCache()
+
 #eatb1 = enoAnimTranspBox(topLeft=TL1, bottomRight=BR1)
-eatb1 = enoAnimTranspBox(animSrc=aSrc, animDest=aDest, animBounce=True)
+eatb1 = enoAnimTranspBox(animSrc=aSrc, animDest=aDest, animBounce=True, eTranspSurfaceCache=etsc)
 
 ### end ###
