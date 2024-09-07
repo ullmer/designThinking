@@ -37,7 +37,7 @@ shadow.addChild(light)
 shadow.addChild(scene)
 root.addChild(shadow)
 
-#shadow.addChild(importedSeparator)
+shadow.addChild(scene)
 
 ### end ###
 
