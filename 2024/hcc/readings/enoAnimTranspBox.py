@@ -5,6 +5,14 @@
 #Several key pygame alpha-drawing aspects draw from Asad Ali Yawar response in:
 #https://stackoverflow.com/questions/18701453/how-to-draw-a-transparent-line-in-pygame
 
+# Note: as presently written, with an eye toward computational efficiency (especially on Raspberry Pi and
+# other small platforms), the current code below caches alpha-rendered rectangular border Pygame surfaces
+# for every unique length and width combination.  While this memory consumption is optionally done once
+# per process (and not per rectangle), unless there are distinctive patterns such as gradients, this
+# is inefficient, and better done with (say) a replicated 10-pixel block, and then 1xn blocks or 1-9xn blocks.
+# However, my current priority is on all of the applications functionality that would hopefully make this
+# worthwhile in the first place, so deferring that until later.  BAU 2024-09-07
+
 import sys
 import pygame  
 import traceback
