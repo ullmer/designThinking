@@ -23,7 +23,7 @@ shadow.addChild(scene)
 root.addChild(shadow)
 
 
-c1, c2 = coin.Cube(), coin.Cube()
+c1, c2 = coin.SoCube(), coin.SoCube()
 c2.width = 3; c2.height=.5
 
 shadow.addChild(c1)
