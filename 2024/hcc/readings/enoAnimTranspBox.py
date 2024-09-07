@@ -40,9 +40,10 @@ class enoTranspSurfaceCache:
 
     keyTuple = (int(x), int(y)) #... since interpolation may generate floats
     if self.transpRectSurfaceCache is not None and keyTuple in self.transpRectSurfaceCache: 
-       print(".", end=""); return True
+       if self.displayCacheHits: print(".", end=""); 
+       return True
 
-    print("!", end="")
+    if self.displayCacheHits: print("!", end="")
     return False
 
   ###################### is transparent rect of specificed width & height cached ###################
@@ -297,20 +298,22 @@ class enoAnimTranspBox:
 
 ################## main ##################
 
-def draw(): screen.clear(); eatb1.draw(screen)
+def draw(): screen.clear(); eatb1.draw(screen); eatb2.draw(screen)
 
 print("main")
-TL1 = (400, 400); BR1 = (700, 700)
+TL1 = (400, 400); BR1 = (780, 780)
 TL2 = ( 10,  10); BR2 = (20, 20)
 
 TL3 = (  5,   5); BR3 = (300, 300)
 TL4 = (500, 500); BR4 = (600, 600)
 
-aSrc, aDest = (TL1, BR1), (TL2, BR2)
+aSrc1, aDest1 = (TL1, BR1), (TL2, BR2)
+aSrc2, aDest2 = (TL3, BR3), (TL4, BR4)
 
 etsc = enoTranspSurfaceCache()
 
 #eatb1 = enoAnimTranspBox(topLeft=TL1, bottomRight=BR1)
-eatb1 = enoAnimTranspBox(animSrc=aSrc, animDest=aDest, animBounce=True, eTranspSurfaceCache=etsc)
+eatb1 = enoAnimTranspBox(animSrc=aSrc1, animDest=aDest1, animBounce=True, eTranspSurfaceCache=etsc, animDuration=1.5)
+eatb2 = enoAnimTranspBox(animSrc=aSrc2, animDest=aDest2, animBounce=True, eTranspSurfaceCache=etsc, animDuration=1.5)
 
 ### end ###
