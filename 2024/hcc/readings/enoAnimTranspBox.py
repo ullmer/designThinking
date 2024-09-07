@@ -11,42 +11,11 @@ from functools import partial
 
 WIDTH, HEIGHT = 800, 800
 
-############################ enodia animated transparent box ############################
+############################ enodia transparent surface cache ############################
+### allows sharing between elements
 
-class enoAnimTranspBox:
-
-  lineThickness = 5
-  #alpha        = 128  #on 255 scale
-  lineColor     = (128, 128, 128, 128) #include alpha as 4th element
-  topLeft       = None #tuple
-  bottomRight   = None #tuple
-  boxHeight     = None
-  boxWidth      = None
-
-  animSrc, animDest = None, None
-  animTLx, animTLy  = None, None
-  animBRx, animBRy  = None, None
-  animSrcDestDiffTL = None
-  animSrcDestDiffBR = None
-
-  animDuration     = 15
-  animTween        = 'accel_decel'
-  animActive       = False
-  animHandler      = None
-  animProgress     = 0    #ranges from 0=animSrc to 1=full progression to animDest
-  lastAnimProgress = None
-
+class enoTranspSurfaceCache:
   transpRectSurfaceCache = None
-
-  verbose      = False
-  animBounce   = False # bounce between animSrc and animDest
-
-  verticalLinesSurface = None
-  horizLinesSurface    = None
-
-  vCoord1, vCoord2 = None, None #cached coordinates for blitting operations
-  hCoord1, hCoord2 = None, None
-  vRect,   hRect   = None, None
 
   ############# constructor #############
 
@@ -56,13 +25,6 @@ class enoAnimTranspBox:
     #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
 
     self.transpRectSurfaceCache = {}
-
-    if None not in (self.topLeft, self.bottomRight): self.buildBox()
-    if None not in (self.animSrc, self.animDest):    self.startAnim()
-
-  ####################### error message (redirectable) ####################
-
-  def err(self, msg): print("enoAnimTranspBox:", str(msg))
 
   ###################### is transparent rect of specificed width & height cached ###################
 
@@ -88,6 +50,66 @@ class enoAnimTranspBox:
 
     if self.transpRectSurfaceCache is not None:
        self.transpRectSurfaceCache[keyTuple] = val
+
+############################ enodia animated transparent box ############################
+
+class enoAnimTranspBox:
+
+  lineThickness = 5
+  #alpha        = 128  #on 255 scale
+  lineColor     = (128, 128, 128, 128) #include alpha as 4th element
+  topLeft       = None #tuple
+  bottomRight   = None #tuple
+  boxHeight     = None
+  boxWidth      = None
+
+  animSrc, animDest = None, None
+  animTLx, animTLy  = None, None
+  animBRx, animBRy  = None, None
+  animSrcDestDiffTL = None
+  animSrcDestDiffBR = None
+
+  eTranspSurfaceCache = None
+
+  animDuration     = 2
+  animTween        = 'accel_decel'
+  animActive       = False
+  animHandler      = None
+  animProgress     = 0    #ranges from 0=animSrc to 1=full progression to animDest
+  lastAnimProgress = None
+
+  verbose      = False
+  animBounce   = False # bounce between animSrc and animDest
+
+  verticalLinesSurface = None
+  horizLinesSurface    = None
+
+  vCoord1, vCoord2 = None, None #cached coordinates for blitting operations
+  hCoord1, hCoord2 = None, None
+  vRect,   hRect   = None, None
+
+  ############# constructor #############
+
+  def __init__(self, **kwargs):
+
+    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+    #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
+
+    if self.eTranspSurfaceCache is None: 
+      self.eTranspSurfaceCache = enoTranspSurfaceCache()
+
+    if None not in (self.topLeft, self.bottomRight): self.buildBox()
+    if None not in (self.animSrc, self.animDest):    self.startAnim()
+
+  ####################### error message (redirectable) ####################
+
+  def err(self, msg): print("enoAnimTranspBox:", str(msg))
+
+  ####################### transparent rect surface cache wrappers ####################
+
+  def isTRCached(self, x, y):      return self.eTranspSurfaceCache.isTRCached(x, y)
+  def getTRCached(self, x, y):     return self.eTranspSurfaceCache.getTRCached(x, y)
+  def setTRCache(self, x, y, val): self.eTranspSurfaceCache.setTRCache(x, y, val)
 
   ############################ calculate 2D diff ############################
   
