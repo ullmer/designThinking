@@ -5,7 +5,7 @@
 #Several key pygame alpha-drawing aspects draw from Asad Ali Yawar response in:
 #https://stackoverflow.com/questions/18701453/how-to-draw-a-transparent-line-in-pygame
 
-import * from enoAnimTranspBox 
+from enoAnimTranspBox import *
 
 WIDTH, HEIGHT = 800, 800
 
