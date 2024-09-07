@@ -16,9 +16,11 @@ WIDTH, HEIGHT = 800, 800
 ### allows sharing between elements
 
 class enoTranspSurfaceCache:
+
   transpRectSurfaceCache = None
-  cacheCountCheck = 0
-  cacheCountFlush = 20
+  cacheCountCheck  = 0
+  cacheCountFlush  = 20
+  displayCacheHits = False
 
   ############# constructor #############
 
@@ -32,8 +34,9 @@ class enoTranspSurfaceCache:
   ###################### is transparent rect of specificed width & height cached ###################
 
   def isTRCached(self, x, y):  
-    self.cacheCountCheck += 1
-    if self.cacheCountCheck % self.cacheCountFlush == 0: sys.stdout.flush()
+    if self.displayCacheHits:
+      self.cacheCountCheck += 1
+      if self.cacheCountCheck % self.cacheCountFlush == 0: sys.stdout.flush()
 
     keyTuple = (int(x), int(y)) #... since interpolation may generate floats
     if self.transpRectSurfaceCache is not None and keyTuple in self.transpRectSurfaceCache: 
@@ -297,11 +300,11 @@ class enoAnimTranspBox:
 def draw(): screen.clear(); eatb1.draw(screen)
 
 print("main")
-TL1 = (400, 400)
-BR1 = (700, 700)
+TL1 = (400, 400); BR1 = (700, 700)
+TL2 = ( 10,  10); BR2 = (20, 20)
 
-TL2 = (10, 10)
-BR2 = (20, 20)
+TL3 = (  5,   5); BR3 = (300, 300)
+TL4 = (500, 500); BR4 = (600, 600)
 
 aSrc, aDest = (TL1, BR1), (TL2, BR2)
 
