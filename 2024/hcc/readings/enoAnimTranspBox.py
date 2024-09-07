@@ -10,7 +10,7 @@ import pygame
 import traceback
 from functools import partial
 
-WIDTH, HEIGHT = 800, 800
+#WIDTH, HEIGHT = 800, 800
 
 ############################ enodia transparent surface cache ############################
 ### allows sharing between elements
@@ -295,25 +295,5 @@ class enoAnimTranspBox:
       screen.blit(self.horizLinesSurface,    self.hCoord2)
     except:
       self.err("draw error:"); traceback.print_exc()
-
-################## main ##################
-
-def draw(): screen.clear(); eatb1.draw(screen); eatb2.draw(screen)
-
-print("main")
-TL1 = (400, 400); BR1 = (780, 780)
-TL2 = ( 10,  10); BR2 = (20, 20)
-
-TL3 = (  5,   5); BR3 = (300, 300)
-TL4 = (500, 500); BR4 = (600, 600)
-
-aSrc1, aDest1 = (TL1, BR1), (TL2, BR2)
-aSrc2, aDest2 = (TL3, BR3), (TL4, BR4)
-
-etsc = enoTranspSurfaceCache()
-
-#eatb1 = enoAnimTranspBox(topLeft=TL1, bottomRight=BR1)
-eatb1 = enoAnimTranspBox(animSrc=aSrc1, animDest=aDest1, animBounce=True, eTranspSurfaceCache=etsc, animDuration=1.5)
-eatb2 = enoAnimTranspBox(animSrc=aSrc2, animDest=aDest2, animBounce=True, eTranspSurfaceCache=etsc, animDuration=1.5)
 
 ### end ###
