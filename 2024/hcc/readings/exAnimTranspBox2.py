@@ -9,23 +9,25 @@ from enoAnimTranspBox import *
 
 WIDTH, HEIGHT = 800, 800
 
-print("main")
-TL1 = (400, 400); BR1 = (780, 780)
-TL2 = ( 10,  10); BR2 = (20, 20)
-
-TL3 = (  5,   5); BR3 = (300, 300)
-TL4 = (500, 500); BR4 = (600, 600)
-
-TL5 = (  5, 700); BR5 = ( 55, 750)
-TL6 = (750, 700); BR6 = (800, 750)
+TL1 = (400, 400); BR1 = (780, 780); TL2 = ( 10,  10); BR2 = (20, 20)
+TL3 = (  5,   5); BR3 = (300, 300); TL4 = (500, 500); BR4 = (600, 600)
+TL5 = (  5, 700); BR5 = ( 55, 750); TL6 = (750, 700); BR6 = (800, 750)
 
 aSrc1, aDest1 = (TL1, BR1), (TL2, BR2)
 aSrc2, aDest2 = (TL3, BR3), (TL4, BR4)
 aSrc3, aDest3 = (TL5, BR5), (TL6, BR6)
 
+#################### launch rectangle ####################
+
 def launchRect():
   TL1, BR1 = cursor.topLeft, cursor.bottomRight
   TL2, BR2 = cursor.add(TL1, (0, -700)), cursor.add(BR1, (0, -700))
+  
+  launched = enoAnimTranspBox(animSrc=(TL1,BR1), animDest=(TL2,BR2), animDuration=3,
+                            eTranspSurfaceCache=etsc2, lineColor=cursorColor)
+  boxes.append(launched)
+
+#################### main ####################
 
 etsc1 = enoTranspSurfaceCache()
 etsc2 = enoTranspSurfaceCache()
@@ -38,7 +40,12 @@ cursorColor = (200, 0, 0, 75)
 cursor = enoAnimTranspBox(animSrc=aSrc3, animDest=aDest3, animBounce=True, animDuration=5, 
                           eTranspSurfaceCache = etsc2, lineColor=cursorColor)
 
-def draw():           screen.clear(); eatb1.draw(screen); eatb2.draw(screen); cursor.draw(screen)
+boxes = [eatb1, eatb2, cursor]
+
+def draw():           
+  screen.clear(); 
+  for box in boxes: box.draw(screen)
+
 def on_key_down(key): launchRect()
 
 ### end ###
