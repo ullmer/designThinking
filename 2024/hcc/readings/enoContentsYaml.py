@@ -7,14 +7,16 @@ import yaml, traceback
 ################## Content class ##################
 
 class ContentYaml: 
-
   #fields     = ['author', 'year', 'abbrevTitle', 'title', 'presenter', 'presentedDate']
   fields     = None
   fieldsDict = None
 
   ################## constructor, error ##################
 
-  def __init__(self): self.fieldsDict = {}
+  def __init__(self, **kwargs):
+    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+    self.fieldsDict = {}
+
   def err(self, msg): print("Content error:", msg); traceback.print_exc()
 
   ################## set fields from yaml ##################
@@ -49,9 +51,9 @@ class ContentYaml:
 
   ################## print ##################
 
-  def printContentAbbrev(self):    
-    try:    print(self.fieldsDict['abbrevTitle'])
-    except: self.err('printContentAbbrev')
+  def printContentField(self, targetField):    
+    try:    print(self.fieldsDict[targetField])
+    except: self.err('printContentField')
 
   def print(self): print(self.fieldsDict)   
 
@@ -61,16 +63,19 @@ class ContentsYaml: #not catching any errors; caveat emptor
   fn          = 'index.yaml'  #filename
   yd          = None          #YAML data
   yc          = None          #YAML extraction for classes
-  readingList = None
+  contentList = None
 
   ################## constructor, err ##################
 
-  def __init__(self): self.readingList = []; self.loadYaml()
+  def __init__(self, **kwargs):
+    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+    self.contentList = []
+    self.loadYaml()
 
   def err(self, msg): print("Contents error:", msg); traceback.print_exc()
 
   def size(self): 
-    if self.readingList is not None: return len(self.readingList)
+    if self.contentList is not None: return len(self.contentList)
 
   ################## load YAML from file ##################
 
@@ -78,31 +83,21 @@ class ContentsYaml: #not catching any errors; caveat emptor
     try:
       f       = open(self.fn, 'rt')
       self.yd = yaml.safe_load(f)
-      self.yc = self.yd['class'] 
-
-      for classDate in self.yc:
-        classPeriod = self.yc[classDate]
-        for reading in classPeriod:
-          reading['presentedDate'] = classDate
-
-          r = Content()
-          r.setFieldsFromYaml(reading)
-          self.readingList.append(r)
     except: self.err("loadYaml")
 
   ################## print reading abbreviations ##################
 
-  def printContentAbbrevs(self): 
+  def printContentFields(self, field): 
     try:
-      for r in self.readingList: r.printContentAbbrev()
-    except: self.err("printContentAbbrevs")
+      for r in self.contentList: r.printContentFields(field)
+    except: self.err("printContentFields")
 
   ################## get reading index ##################
 
   def getContent(self, i): 
     try:
-      if i < 0 or i > len(self.readingList): self.err("getContent index out of bounds: " + i); return
-      return self.readingList[i]
+      if i < 0 or i > len(self.contentList): self.err("getContent index out of bounds: " + i); return
+      return self.contentList[i]
       
     except: self.err("getContent: " + i); return
 
