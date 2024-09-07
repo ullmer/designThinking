@@ -124,10 +124,27 @@ class enoAnimTranspBox:
   def getTRCached(self, x, y):     return self.eTranspSurfaceCache.getTRCached(x, y)
   def setTRCache(self, x, y, val): self.eTranspSurfaceCache.setTRCache(x, y, val)
 
-  ############################ calculate 2D diff ############################
+  ############################ get center ############################
+
+  def getCenter(self):
+    x1, y1 = self.topLeft
+    x2, y2 = self.bottomRight
+
+    mx, my = (x1+x2)/2, (y1+y2)/2
+    return (mx, my)
+
+  ############################ calculate 2D addition ############################
   
-  def calc2dDiff(self, v1, v2):
-    if self.verbose: print("calc2dDiff", v1, v2)
+  def add(self, v1, v2):
+   x1, y1 = v1
+   x2, y2 = v2
+   x3, y3 = x1+x2, y1+y2
+   return(x3, y3)
+
+  ############################ calculate 2D difference ############################
+  
+  def diff(self, v1, v2):
+    if self.verbose: print("diff", v1, v2)
 
     x1, y1 = v1
     x2, y2 = v2
@@ -163,8 +180,8 @@ class enoAnimTranspBox:
       animTL1, animBR1 = self.animSrc
       animTL2, animBR2 = self.animDest
 
-      self.animSrcDestDiffTL         = self.calc2dDiff(animTL1, animTL2)
-      self.animSrcDestDiffBR         = self.calc2dDiff(animBR1, animBR2)
+      self.animSrcDestDiffTL         = self.diff(animTL1, animTL2)
+      self.animSrcDestDiffBR         = self.diff(animBR1, animBR2)
       self.animTLx, self.animTLy     = animTL1
       self.animBRx, self.animBRy     = animBR1
       self.topLeft, self.bottomRight = animTL1, animBR1

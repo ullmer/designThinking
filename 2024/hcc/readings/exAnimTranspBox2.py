@@ -23,15 +23,22 @@ aSrc1, aDest1 = (TL1, BR1), (TL2, BR2)
 aSrc2, aDest2 = (TL3, BR3), (TL4, BR4)
 aSrc3, aDest3 = (TL5, BR5), (TL6, BR6)
 
-etsc = enoTranspSurfaceCache()
+def launchRect():
+  TL1, BR1 = cursor.topLeft, cursor.bottomRight
+  TL2, BR2 = cursor.add(TL1, (0, -700)), cursor.add(BR1, (0, -700))
+
+etsc1 = enoTranspSurfaceCache()
+etsc2 = enoTranspSurfaceCache()
 
 #eatb1 = enoAnimTranspBox(topLeft=TL1, bottomRight=BR1)
-eatb1 = enoAnimTranspBox(animSrc=aSrc1, animDest=aDest1, animBounce=True, eTranspSurfaceCache=etsc, animDuration=4)
-eatb2 = enoAnimTranspBox(animSrc=aSrc2, animDest=aDest2, animBounce=True, eTranspSurfaceCache=etsc, animDuration=4)
+eatb1 = enoAnimTranspBox(animSrc=aSrc1, animDest=aDest1, animBounce=True, eTranspSurfaceCache=etsc1, animDuration=4)
+eatb2 = enoAnimTranspBox(animSrc=aSrc2, animDest=aDest2, animBounce=True, eTranspSurfaceCache=etsc1, animDuration=4)
 
 cursorColor = (200, 0, 0, 75)
-cursor = enoAnimTranspBox(animSrc=aSrc3, animDest=aDest3, animBounce=True, animDuration=5, lineColor=cursorColor)
+cursor = enoAnimTranspBox(animSrc=aSrc3, animDest=aDest3, animBounce=True, animDuration=5, 
+                          eTranspSurfaceCache = etsc2, lineColor=cursorColor)
 
-def draw(): screen.clear(); eatb1.draw(screen); eatb2.draw(screen); cursor.draw(screen)
+def draw():           screen.clear(); eatb1.draw(screen); eatb2.draw(screen); cursor.draw(screen)
+def on_key_down(key): launchRect()
 
 ### end ###
