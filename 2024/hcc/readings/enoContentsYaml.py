@@ -4,17 +4,18 @@
 
 import yaml, traceback
 
-################## Reading class ##################
+################## Content class ##################
 
-class Reading: #not catching any errors; caveat emptor
+class ContentYaml: 
 
-  fields     = ['author', 'year', 'abbrevTitle', 'title', 'presenter', 'presentedDate']
+  #fields     = ['author', 'year', 'abbrevTitle', 'title', 'presenter', 'presentedDate']
+  fields     = None
   fieldsDict = None
 
   ################## constructor, error ##################
 
   def __init__(self): self.fieldsDict = {}
-  def err(self, msg): print("Reading error:", msg); traceback.print_exc()
+  def err(self, msg): print("Content error:", msg); traceback.print_exc()
 
   ################## set fields from yaml ##################
 
@@ -48,15 +49,15 @@ class Reading: #not catching any errors; caveat emptor
 
   ################## print ##################
 
-  def printReadingAbbrev(self):    
+  def printContentAbbrev(self):    
     try:    print(self.fieldsDict['abbrevTitle'])
-    except: self.err('printReadingAbbrev')
+    except: self.err('printContentAbbrev')
 
   def print(self): print(self.fieldsDict)   
 
-################## Readings class ##################
+################## Contents class ##################
 
-class Readings: #not catching any errors; caveat emptor
+class ContentsYaml: #not catching any errors; caveat emptor
   fn          = 'index.yaml'  #filename
   yd          = None          #YAML data
   yc          = None          #YAML extraction for classes
@@ -66,7 +67,7 @@ class Readings: #not catching any errors; caveat emptor
 
   def __init__(self): self.readingList = []; self.loadYaml()
 
-  def err(self, msg): print("Readings error:", msg); traceback.print_exc()
+  def err(self, msg): print("Contents error:", msg); traceback.print_exc()
 
   def size(self): 
     if self.readingList is not None: return len(self.readingList)
@@ -84,32 +85,32 @@ class Readings: #not catching any errors; caveat emptor
         for reading in classPeriod:
           reading['presentedDate'] = classDate
 
-          r = Reading()
+          r = Content()
           r.setFieldsFromYaml(reading)
           self.readingList.append(r)
     except: self.err("loadYaml")
 
   ################## print reading abbreviations ##################
 
-  def printReadingAbbrevs(self): 
+  def printContentAbbrevs(self): 
     try:
-      for r in self.readingList: r.printReadingAbbrev()
-    except: self.err("printReadingAbbrevs")
+      for r in self.readingList: r.printContentAbbrev()
+    except: self.err("printContentAbbrevs")
 
   ################## get reading index ##################
 
-  def getReading(self, i): 
+  def getContent(self, i): 
     try:
-      if i < 0 or i > len(self.readingList): self.err("getReading index out of bounds: " + i); return
+      if i < 0 or i > len(self.readingList): self.err("getContent index out of bounds: " + i); return
       return self.readingList[i]
       
-    except: self.err("getReading: " + i); return
+    except: self.err("getContent: " + i); return
 
 ################## main ##################
 
 if __name__ == "__main__":
-  readings = Readings()
+  readings = Contents()
   readings.loadYaml()
-  readings.printReadingAbbrevs()
+  readings.printContentAbbrevs()
 
 ### end ###
