@@ -34,7 +34,7 @@ class enoButton:
   fgcolor     = "#bbbbbb"
   alpha       = .8
   fontSize    = 36
-  angle        = 0
+  angle       = 0
 
   drawText    = True
   drawImg     = False
@@ -71,6 +71,12 @@ class enoButton:
       if self.verbose: print("button" + str(self.buttonLabel) + ": pos" + str(self.actor.pos))
 
     if self.requestAnim: self.launchAnim()
+
+  ############# is toggled on #############
+
+  def isToggledOn(self): 
+    if self.toggleState: return True
+    return False 
 
   ############# postAnimCb #############
 
@@ -169,7 +175,7 @@ class enoButton:
 
   def toggle(self):
     if self.toggleState: self.toggleState = False
-    else:                self.toggleState = True
+    else:                self.toggleState = True; self.invokeCallbacks()
 
   ######################### on_mouse_down #########################
 

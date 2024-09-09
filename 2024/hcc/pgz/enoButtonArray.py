@@ -28,16 +28,20 @@ class enoButtonArray:
   animDuration    = 1.
   callbackList    = None
 
-  drawText        = True
-  drawImg         = False
-  drawAdapt       = True   # if True, will render text and/or image only when specified
+  maxOneToggledOn    = False
+  currentToggleState = None
 
-  bgcolor1        = (30, 30, 30)
-  bgcolor2        = (80, 10, 10)
-  fgcolor         = "#bbbbbb"
-  alpha           = .8
-  fontSize        = 36
-  angle           = 0
+  drawText  = True
+  drawImg   = False
+  drawAdapt = True   # if True, will render text and/or image only when specified
+  verbose   = True
+
+  bgcolor1  = (30, 30, 30)
+  bgcolor2  = (80, 10, 10)
+  fgcolor   = "#bbbbbb"
+  alpha     = .8
+  fontSize  = 36
+  angle     = 0
 
   expandContractState = 1   # 1 if expanded or animating in that direction; 0 if contracted
   buttonRetractedPos  = None # buttons in contracted position, optionally (esp. if animated)
@@ -58,7 +62,8 @@ class enoButtonArray:
 
     self.buttonRetractedPos = {}
     self.buttonUnfurledPos  = {}
-    self.label2Button        = {}
+    self.label2Button       = {}
+    self.currentToggleState = {}
 
     idx = 0
 
@@ -91,6 +96,40 @@ class enoButtonArray:
       self.buttonArray.append(but); idx += 1
 
   activAnim   = None
+
+  ############# get number of buttons #############
+
+  def getNumButtons(self):
+    if self.buttonArray is None: return 0
+    return len(self.buttonArray)
+
+  ############# get button by index #############
+
+  def getButtonIdx(self, idx):
+    nb = self.getNumButtons()
+    if idx >= 0 and idx < nb: return self.buttonArray[idx]
+    return None #error
+
+  ############# tobble button by index #############
+
+  def toggleButtonIdx(self, idx):
+    if self.verbose: self.msg("toggleButtonIdx called")
+
+    b = self.getButtonIdx(idx)
+    if b is None: self.err("toggleButtonIdx fails: " + str(idx)); return
+    b.toggle()
+
+    if self.maxOneToggledOn and b.isToggledOn(): # we will clear the others, albeit hackily
+      nb = self.getNumButtons()
+      for i in range(nb):
+        if i == idx: continue #we've already toggled that
+
+        b = self.getButtonIdx(i)
+        if b is None: self.err("toggleButtonIdx fails in clearing button idx " + str(idx)); return
+
+        if b.isToggledOn(): b.toggle() 
+
+    b.toggle()
 
   ############# addCallback #############
 
