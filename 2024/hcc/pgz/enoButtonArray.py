@@ -34,7 +34,7 @@ class enoButtonArray:
   drawText  = True
   drawImg   = False
   drawAdapt = True   # if True, will render text and/or image only when specified
-  verbose   = True
+  verbose   = False
 
   bgcolor1  = (30, 30, 30)
   bgcolor2  = (80, 10, 10)
@@ -128,8 +128,6 @@ class enoButtonArray:
         if b is None: self.err("toggleButtonIdx fails in clearing button idx " + str(idx)); return
 
         if b.isToggledOn(): b.toggle() 
-
-    b.toggle()
 
   ############# addCallback #############
 

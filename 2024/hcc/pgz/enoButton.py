@@ -40,9 +40,9 @@ class enoButton:
   drawImg     = False
   drawAdapt   = True   # if True, will render text and/or image only when specified
 
+  verbose     = False
   toggleMode  = True
   toggleState = False
-  verbose     = False
   rectCenter  = None
   requestAnim = False
   motionAnimTween = None
@@ -72,6 +72,11 @@ class enoButton:
 
     if self.requestAnim: self.launchAnim()
 
+  ############# error message #############
+
+  def err(self, msg): print("enoButton error:" + msg)
+  def msg(self, msg): print("enoButton msg:  " + msg)
+
   ############# is toggled on #############
 
   def isToggledOn(self): 
@@ -99,23 +104,26 @@ class enoButton:
   ############# addCallback #############
 
   def addCallback(self, callback):
-    if self.callbackList is None: err("addCallback: callback list not yet created!"); return
+    if self.callbackList is None: 
+      self.err("addCallback: callback list not yet created!"); return
 
     self.callbackList.append(callback)
 
   ############# invokeCallbacks #############
 
   def invokeCallbacks(self):
-    if self.callbackList is None: err("invokeCallback: callback list not yet created!"); return
+    if self.callbackList is None: 
+      self.err("invokeCallback: callback list not yet created!"); return
 
     for cb in self.callbackList: 
       try:     cb()
-      except:  err("invokeCallbacks: error received"); traceback.print_exc(); return None
+      except:  self.err("invokeCallbacks: error received"); traceback.print_exc(); return None
 
   ############# launchAnim #############
 
   def launchAnim(self):
-    if self.motionAnimTween is None: err("launchAnim called, but motion animation tween is not selected"); return
+    if self.motionAnimTween is None: 
+      self.err("launchAnim called, but motion animation tween is not selected"); return
 
     if self.verbose: print("launchAnim:" + str (self.postAnimPos))
 
@@ -174,6 +182,7 @@ class enoButton:
   ######################### on_mouse_down #########################
 
   def toggle(self):
+    if self.verbose:     self.msg("toggle called")
     if self.toggleState: self.toggleState = False
     else:                self.toggleState = True; self.invokeCallbacks()
 
