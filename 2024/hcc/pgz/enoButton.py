@@ -30,7 +30,7 @@ class enoButton:
   #bgcolor1    = (0, 0, 130)
   #bgcolor2    = (50, 50, 250)
   bgcolor1    = (30, 30, 30)
-  bgcolor2    = (50, 200, 200)
+  bgcolor2    = (80, 10, 10)
   fgcolor     = "#bbbbbb"
   alpha       = .8
   fontSize    = 36

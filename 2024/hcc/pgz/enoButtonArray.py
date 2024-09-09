@@ -28,11 +28,21 @@ class enoButtonArray:
   animDuration    = 1.
   callbackList    = None
 
-  expandContractState = 1   # 1 if expanded or animating in that direction; 0 if contracted
+  drawText        = True
+  drawImg         = False
+  drawAdapt       = True   # if True, will render text and/or image only when specified
 
-  buttonRetractedPos = None # buttons in contracted position, optionally (esp. if animated)
-  buttonUnfurledPos  = None # buttons in unfurled position, optionally (esp. if animated)
-  text2Button        = None
+  bgcolor1        = (30, 30, 30)
+  bgcolor2        = (80, 10, 10)
+  fgcolor         = "#bbbbbb"
+  alpha           = .8
+  fontSize        = 36
+  angle           = 0
+
+  expandContractState = 1   # 1 if expanded or animating in that direction; 0 if contracted
+  buttonRetractedPos  = None # buttons in contracted position, optionally (esp. if animated)
+  buttonUnfurledPos   = None # buttons in unfurled position, optionally (esp. if animated)
+  label2Button        = None
 
   ############# error message #############
 
@@ -41,15 +51,14 @@ class enoButtonArray:
 
   ############# constructor #############
 
-  def __init__(self, buttonTextList, **kwargs): 
+  def __init__(self, **kwargs): 
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
-    self.labelArray  = buttonTextList
     self.buttonArray  = []
     self.callbackList = []
 
     self.buttonRetractedPos = {}
     self.buttonUnfurledPos  = {}
-    self.text2Button        = {}
+    self.label2Button        = {}
 
     idx = 0
 
@@ -57,7 +66,7 @@ class enoButtonArray:
     ifn       = None         #image filename
     postAnimP = None
 
-    for text in self.labelArray:
+    for label in self.labelArray:
       if self.imageFns is not None: ifn = self.imageFns[idx]
 
       p1 = (bpx+idx*self.dx, bpy+idx*self.dy)
@@ -71,14 +80,14 @@ class enoButtonArray:
 
       else: baseP = p1         # no distinction
 
-      but = enoButton(text, basePos = baseP, postAnimPos = postAnimP, 
-                      buttonDim = self.buttonDim,  angle = self.angle,     imageFn = ifn,
-                      drawText = self.drawText,  drawImg = self.drawImg, drawAdapt = self.drawAdapt,
-                      bgcolor1 = self.bgcolor1, bgcolor2 = self.bgcolor2,  fgcolor = self.fgcolor,
-                      alpha    = self.alpha,    fontSize = self.fontSize, animDuration = self.animDuration,
-                      requestAnim = self.requestAnim,              motionAnimTween = self.motionAnimTween)
+      but = enoButton(buttonLabel = label, basePos = baseP, postAnimPos = postAnimP, 
+                      buttonDim   = self.buttonDim,   angle = self.angle,         imageFn = ifn,
+                      drawText    = self.drawText,  drawImg = self.drawImg,     drawAdapt = self.drawAdapt,
+                      bgcolor1    = self.bgcolor1, bgcolor2 = self.bgcolor2,      fgcolor = self.fgcolor,
+                      alpha       = self.alpha,    fontSize = self.fontSize, animDuration = self.animDuration,
+                      requestAnim = self.requestAnim,                     motionAnimTween = self.motionAnimTween)
 
-      self.text2Button[text] = but
+      self.label2Button[label] = but
       self.buttonArray.append(but); idx += 1
 
   activAnim   = None
@@ -107,7 +116,7 @@ class enoButtonArray:
 
   def expandContract(self):
     for text in self.labelArray:
-      but = self.text2Button[text] 
+      but = self.label2Button[text] 
 
       if self.expandContractState == 1:   # 1 if expanded or animating in that direction; 0 if contracted
         targetPos = self.buttonRetractedPos[text] 
@@ -131,7 +140,7 @@ class enoButtonArray:
       if but.on_mouse_down(pos):
         if self.lastSelected is not None: self.lastSelected.toggle()
         self.lastSelected = but
-        try: self.invokeCallbacks(but.buttonText)
+        try: self.invokeCallbacks(but.buttonLabel)
         except: self.err("on_mouse_down error:"); traceback.print_exc(); return None
 
 ### end ###
