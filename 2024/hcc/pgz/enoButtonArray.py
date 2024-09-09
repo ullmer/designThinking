@@ -18,7 +18,7 @@ class enoButtonArray:
   buttonDim  = (100, 30)
   dx, dy     = 190, 0
 
-  textArray       = None
+  labelArray      = None #originally named textArray, but decided (e.g.) ints equally interesting
   buttonArray     = None
   imageFns        = None
   lastSelected    = None
@@ -43,7 +43,7 @@ class enoButtonArray:
 
   def __init__(self, buttonTextList, **kwargs): 
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
-    self.textArray  = buttonTextList
+    self.labelArray  = buttonTextList
     self.buttonArray  = []
     self.callbackList = []
 
@@ -57,7 +57,7 @@ class enoButtonArray:
     ifn       = None         #image filename
     postAnimP = None
 
-    for text in self.textArray:
+    for text in self.labelArray:
       if self.imageFns is not None: ifn = self.imageFns[idx]
 
       p1 = (bpx+idx*self.dx, bpy+idx*self.dy)
@@ -106,7 +106,7 @@ class enoButtonArray:
   ############# expand/contract #############
 
   def expandContract(self):
-    for text in self.textArray:
+    for text in self.labelArray:
       but = self.text2Button[text] 
 
       if self.expandContractState == 1:   # 1 if expanded or animating in that direction; 0 if contracted

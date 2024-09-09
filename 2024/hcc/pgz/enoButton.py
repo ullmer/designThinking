@@ -22,7 +22,7 @@ class enoButton:
 
   buttonDim  = (100, 30)
   buttonRect  = None
-  buttonText  = ""
+  buttonLabel = None
   actor       = None
   imageFn     = None #image filename, relative to PGZ's "images/" directory expectations; lower-case only
   selectImgFn = None #   selected image filename
@@ -51,12 +51,11 @@ class enoButton:
 
   ############# constructor #############
 
-  def __init__(self, buttonText, **kwargs): 
+  def __init__(self, **kwargs): 
 
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
 
-    self.buttonText   = buttonText
     self.callbackList = []
 
     bpx,  bpy  = self.basePos
@@ -69,7 +68,7 @@ class enoButton:
     if self.imageFn is not None:
       self.actor     = Actor(self.imageFn)
       self.actor.pos = self.basePos
-      if self.verbose: print("button" + self.buttonText + ": pos" + str(self.actor.pos))
+      if self.verbose: print("button" + str(self.buttonLabel) + ": pos" + str(self.actor.pos))
 
     if self.requestAnim: self.launchAnim()
 
@@ -137,8 +136,11 @@ class enoButton:
     #x0, y0 = self.basePos; dx, dy = self.buttonDim; cx=x0+dx/2; cy = y0+dy/2
     x0, y0 = self.basePos; dx, dy = self.buttonDim; cx, cy = x0, y0
 
-    if (self.drawText or (self.drawAdapt and self.imageFn is None)) and len(self.buttonText)>0:
-      screen.draw.text(self.buttonText, centerx=cx, centery=cy, align="center",
+    labelText = str(self.buttonLabel)
+    lbl = len(labelText)
+
+    if (self.drawText or (self.drawAdapt and self.imageFn is None)) and lbl > 0:
+      screen.draw.text(labelText, centerx=cx, centery=cy, align="center",
                        fontsize=self.fontSize, color=self.fgcolor, 
                        alpha=self.alpha, angle=self.angle)
 
@@ -174,7 +176,7 @@ class enoButton:
   def on_mouse_down(self, pos):
     if self.buttonRect.collidepoint(pos) or \
        (self.actor is not None and self.actor.collidepoint(pos)):
-      print(self.buttonText, "pressed")
+      print(str(self.buttonLabel), "pressed")
       self.toggle()
       return True
 
