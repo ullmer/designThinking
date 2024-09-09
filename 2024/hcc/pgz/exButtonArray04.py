@@ -37,8 +37,7 @@ def on_key_down(key): #initially hardwired; sigh
    if key == keys.L:   eba2.toggleButtonIdx(2); print('load  mode')
 
    if key.name.startswith('K_') and key.name[2].isdigit():
-     print("num key pressed", key.name[2])
-
-   #if key == keys.K_0: print('0 pressed')
+     digit = ord(key.name[2]) - ord('0')
+     eba3.toggleButtonIdx(digit)
 
 ### end ###
