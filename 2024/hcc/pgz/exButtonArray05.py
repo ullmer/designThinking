@@ -15,6 +15,9 @@ bp3       = (50, 775) #button array 2 base position
 bd1Labels   = ['time', 1920, 1940, 1980, 1990, 2000, 2010, 2010, 2020]
 bd2Labels   = ['action', 'recall', 'load']
 bd3Labels   = ['slot'] + list(range(1,10))
+bd4Labels   = ['code', 'homels1', 'homels2', 
+
+kbShortcuts = {1: 'ta49012', 2: 'arl', 3: 's123456789', 4: 'shj}
 
 eba1 = enoButtonArray(buttonDim=bd, dx=bdx, labelArray=bd1Labels, basePos=bp1)
 eba2 = enoButtonArray(buttonDim=bd, dx=bdx, labelArray=bd2Labels, basePos=bp2, maxOneToggledOn=True)
