@@ -33,7 +33,7 @@ def on_mouse_down(pos):
   for touchable in drawables: touchable.on_mouse_down(pos)
 
 def on_key_down(key): #initially hardwired; sigh
-   if key is 's': eba2.toggleButtonIdx(1) 
-   if key is 'l': eba2.toggleButtonIdx(2)
+   if key == 's': eba2.toggleButtonIdx(1) 
+   if key == 'l': eba2.toggleButtonIdx(2)
 
 ### end ###
