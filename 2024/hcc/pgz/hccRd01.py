@@ -14,7 +14,7 @@ bp2       = (50, 730) #button array 3 base position
 bp3       = (50, 775) #button array 2 base position
 
 bd1Labels   = ['time', 1920, 1940, 1980, 1990, 2000, 2010, 2010, 2020]
-bd2Labels   = ['action', 'recall', 'load']
+bd2Labels   = ['action', 'store', 'load']
 bd3Labels   = ['slot'] + list(range(1,10))
 
 eba1 = enoButtonArray(buttonDim=bd, dx=bdx, labelArray=bd1Labels, basePos=bp1)
