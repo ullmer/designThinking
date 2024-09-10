@@ -1,37 +1,39 @@
 enoAnimTranspBox: 
+  enoAnimTranspBox:
+    core:
+      __init__(**kwargs):
+      draw(screen):
+      getCenter():
+      startAnim(targetInterpolationExtent=1):
+      err(msg): 
+
+    support:
+      isTRCached(x, y): 
+      getTRCached(x, y):
+      setTRCache(x, y, val):
+      add(v1, v2):
+      diff(v1, v2):
+      animInterpolateSetup():
+      animInterpolate():
+      setBounds(topLeft, bottomRight):
+      calcWidthHeight():
+      buildBox():
+      updateDrawingCoords():
+
   enoTranspSurfaceCache:
-    __init__:
-    isTRCached(x, y):  
-    getTRCached(x, y):  
-    setTRCache(x, y, val):  
-
-  class enoAnimTranspBox:
-    __init__():
-    draw(screen):
-    getCenter():
-    startAnim(targetInterpolationExtent=1):
-
-    err(msg): 
-    isTRCached(x, y): 
-    getTRCached(x, y):
-    setTRCache(x, y, val):
-    add(v1, v2):
-    diff(v1, v2):
-    animInterpolateSetup():
-    animInterpolate():
-    setBounds(topLeft, bottomRight):
-    calcWidthHeight():
-    buildBox():
-    updateDrawingCoords():
+    core:
+      __init__(**kwargs):
+      isTRCached(x, y):  
+      getTRCached(x, y):  
+      setTRCache(x, y, val):  
 
 enoButton:
-class enoButton:
-  def __init__(self, **kwargs): 
-    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
-  def err(self, msg): print("enoButton error:" + msg)
-  def msg(self, msg): print("enoButton msg:  " + msg)
-  def isToggledOn(self): 
-  def postAnimCb(self):
+  enoButton:
+    __init__(**kwargs):
+  err(msg): 
+  msg(msg): 
+  isToggledOn(): 
+  postAnimCb():
   def clearCallbacks(self): self.callbackList = []
   def addCallback(self, callback):
   def invokeCallbacks(self):
