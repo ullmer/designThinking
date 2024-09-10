@@ -4,8 +4,8 @@
 
 WIDTH, HEIGHT = 1200, 800
 
-from hccReadingsPg  import *
-from enoButtonArray import *
+from hccReadingsPgAnim import *
+from enoButtonArray    import *
 
 bd        = (70, 40)  #button dimension
 bdx       = 75        #x offset between buttons
@@ -21,14 +21,17 @@ eba1 = enoButtonArray(buttonDim=bd, dx=bdx, labelArray=bd1Labels, basePos=bp1)
 eba2 = enoButtonArray(buttonDim=bd, dx=bdx, labelArray=bd2Labels, basePos=bp2, maxOneToggledOn=True)
 eba3 = enoButtonArray(buttonDim=bd, dx=bdx, labelArray=bd3Labels, basePos=bp3, maxOneToggledOn=True)
 
+ebam = enoButtonArrayMgr()
+ebam.addArrays([eba1, eba2, eba3])
+
 headerColor = (50, 50, 50)
 for ba in [eba1, eba2, eba3]: ba.getButtonIdx(0).bgcolor1 = headerColor
 
-rpg  = ReadingsPg()
+rpga = ReadingsPgAnim()
 hrkm = hccRdKeyMgr()
 hrkm = hccRdKeyMgr()
 
-drawables  = [eba1, eba2, eba3, rpg]
+drawables  = [eba1, eba2, eba3, rpga]
 
 def draw(): 
   screen.clear(); 
@@ -37,10 +40,10 @@ def draw():
 def on_mouse_down(pos):          
   for touchable in drawables: touchable.on_mouse_down(pos)
 
-def on_mouse_up():               rpg.on_mouse_up()
-def on_mouse_move(rel, buttons): rpg.on_mouse_move(rel, buttons)
+def on_mouse_up():               rpga.on_mouse_up()
+def on_mouse_move(rel, buttons): rpga.on_mouse_move(rel, buttons)
 
-def on_key_down(key): hrkm.on_key_down(key)
-def on_key_up(key):   hrkm.on_key_up(key)
+def on_key_down(key): hrkm.on_key_down(key, rpga)
+def on_key_up(key):   hrkm.on_key_up(key,   rpga)
 
 ### end ###
