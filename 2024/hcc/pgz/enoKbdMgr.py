@@ -61,19 +61,20 @@ class enoKbdMgr:
     result = list(self.keyCallbacksDict.keys())
     return result
 
+  ############### isKeyBound ############### 
+
+  def isKeyBound(self, whichKey): 
+    if self.keyCallbacksDict is None:     return False
+    if whichKey in self.keyCallbacksDict: return True
+    return False
+
   ############### on key down ############### 
 
   def on_key_down(self, key): 
-    if key in self.keyCallbacksDict:
-    if key == keys.S:   eba2.toggleButtonIdx(1); print('store mode')
-    if key == keys.L:   eba2.toggleButtonIdx(2); print('load  mode')
-
-    if key.name.startswith('K_') and key.name[2].isdigit():
-      digit = ord(key.name[2]) - ord('0')
-      eba3.toggleButtonIdx(digit)
+    if self.isKeyBound(key): self.triggerKeyCallbacks(key)
 
   ############### on key up ############### 
 
-  def on_key_up(self, key): pass
+  def on_key_up(self, key): pass #not always to be ignored; more to come
 
 ### end ###
