@@ -18,30 +18,48 @@ class ReadingsPgAnim(ReadingsPg):
   displayActorHalo = True
   actorHaloAnimDirection = None #dict; are "halos" animating toward or away from their ~pair? 1=twd, 0=awy
   actorHaloAnimPair      = None #dict: "pair" for each actor (e.g., storage slot)
+  actorHaloCoords        = None 
 
   actorDefaultSize       = (335,94)
-  actorhaloPad           = 5    #pixel padding (initially, same in X and Y)
+  actorHaloPad           = 5    #pixel padding (initially, same in X and Y)
 
   ################## constructor, error ##################
 
-  def __init__(self): 
+  def __init__(self, **kwargs):
+    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+    #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
+
     super().__init__()
-    self.transpBoundingBoxAnimDirection = {}
-    self.transpBoundingBoxAnimPair      = {}
+    self.actorHaloAnimDirection = {}
+    self.actorHaloAnimPair      = {}
+    self.actorHaloCoords        = {}
     
   def err(self, msg): print("ReadingPgAnim error:", msg); traceback.print_exc()
   
 ################## calculate actor "halo" dimensions ################## 
 
-  def calcActorHaloDim(self, actor): 
-    
-    
+  def calcActorHaloCoords(self, actor): 
+    w, h = self.actorDefaultSize #brittle, but an initial expediency
+    x, y = actor.pos
+    pad  = self.actorHaloPad
 
+    w2, h2 = w/2, h/2
+    x1, y1 = x-w2-pad, y-h2-pad
+    x2, y2 = x+w2+pad, y+h2+pad
+
+    result = ((x1, y1), (x2, y2))
+    return result
+
+################## wcalculate "halo" dimensions for all actors, and cache ################## 
+
+  def calcActorsHaloCoords(self): 
+   
+    for actor in self.actors
+    
 ################## draw ################## 
 
   def draw(self, screen): 
     super().draw(screen)
-
 
 ################## main ################## 
 
