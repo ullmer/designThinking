@@ -50,11 +50,17 @@ class ReadingsPgAnim(ReadingsPg):
     result = ((x1, y1), (x2, y2))
     return result
 
-################## wcalculate "halo" dimensions for all actors, and cache ################## 
+################## calculate "halo" dimensions for all actors, and cache ################## 
 
   def calcActorsHaloCoords(self): 
-   
-    for actor in self.actors
+    if self.actors is None: self.err("calcActorsHaloCoords: no actors found"); return
+
+    numActors = len(self.actors)
+
+    for i in range(numActors):
+      actor      = self.actors[i]
+      haloCoords = self.calcActorHaloCoords(actor)
+      self.actorHaloCoords[i] = halocoords
     
 ################## draw ################## 
 
