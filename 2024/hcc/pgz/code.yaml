@@ -113,7 +113,7 @@ enoContentsYaml
     printContentFields(field): 
     getContent(i): 
 
-############### enodia glyph array, pygame zero############### 
+############### enodia glyph array, pygame zero ############### 
 
 enoGlyphArrayPgz:
   enoGlyphArrayPgz:
@@ -124,21 +124,27 @@ enoGlyphArrayPgz:
       on_mouse_down(pos): 
       on_mouse_move(rel, buttons): 
       on_mouse_up(): 
+
+    support:
       buildUI(): 
 
-fn: enoKbdMgr.py
-class enoKbdMgr:
-  def __init__(self, **kwargs):
-    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
-  def err(self, msg): print("enoKbdMgr error:", msg);  traceback.print_exc()
-  def msg(self, msg): print("enoKbdMgr message:", msg)
-  def registerKeyCallback(self, whichKey, callback): #maintain in a list, as multiple callbacks may be present
-  def registerKeyCallbacks(self, whichKey, callbackList): 
-  def triggerKeyCallbacks(self, whichKey): 
-  def getBoundKeys(self): 
-  def isKeyBound(self, whichKey): 
-  def on_key_down(self, key): 
-  def on_key_up(self, key): pass #not always to be ignored; more to come
+############### enodia glyph array, pygame zero############### 
+
+enoKbdMgr:
+  enoKbdMgr:
+    core:
+      __init__(**kwargs):
+      err(msg): 
+      msg(msg): 
+      registerKeyCallback(whichKey, callback): 
+      registerKeyCallbacks(whichKey, callbackList): 
+      triggerKeyCallbacks(whichKey): 
+      getBoundKeys(): 
+      isKeyBound(whichKey): 
+
+      on_key_down(key): 
+      on_key_up(key): 
+
 fn: enoTranspWinDance.py
 class enoTranspWinDance:
   def __init__(self, **kwargs):
