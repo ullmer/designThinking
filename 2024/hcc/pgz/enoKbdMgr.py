@@ -18,7 +18,14 @@ class enoKbdMgr:
 
  ############### on key down ############### 
 
- def on_key_down(key): 
+ def getBoundKeys(self): 
+   if self.registeredKeys is None: return None
+   result = list(self.registeredKeys.keys())
+   return result
+
+ ############### on key down ############### 
+
+ def on_key_down(self, key): 
    if key in self.registeredKeys:
    if key == keys.S:   eba2.toggleButtonIdx(1); print('store mode')
    if key == keys.L:   eba2.toggleButtonIdx(2); print('load  mode')
@@ -29,6 +36,6 @@ class enoKbdMgr:
 
  ############### on key up ############### 
 
- def on_key_up(key): pass
+ def on_key_up(self, key): pass
 
 ### end ###
