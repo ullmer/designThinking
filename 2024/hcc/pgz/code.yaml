@@ -1,0 +1,292 @@
+enoAnimTranspBox: 
+  enoTranspSurfaceCache:
+    __init__
+   isTRCached(x, y):  
+   getTRCached(x, y):  
+   setTRCache(x, y, val):  
+
+class enoAnimTranspBox:
+  def __init__(self, **kwargs):
+    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+  def err(self, msg): print("enoAnimTranspBox:", str(msg))
+  def isTRCached(self, x, y):      return self.eTranspSurfaceCache.isTRCached(x, y)
+  def getTRCached(self, x, y):     return self.eTranspSurfaceCache.getTRCached(x, y)
+  def setTRCache(self, x, y, val): self.eTranspSurfaceCache.setTRCache(x, y, val)
+  def getCenter(self):
+  def add(self, v1, v2):
+  def diff(self, v1, v2):
+  def startAnim(self, targetInterpolationExtent=1):
+  def animInterpolateSetup(self):
+  def animInterpolate(self):
+  def setBounds(self, topLeft, bottomRight):
+  def calcWidthHeight(self):
+  def buildBox(self):
+  def updateDrawingCoords(self):
+  def draw(self, screen):
+fn: enoButton.py
+class enoButton:
+  def __init__(self, **kwargs): 
+    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+  def err(self, msg): print("enoButton error:" + msg)
+  def msg(self, msg): print("enoButton msg:  " + msg)
+  def isToggledOn(self): 
+  def postAnimCb(self):
+  def clearCallbacks(self): self.callbackList = []
+  def addCallback(self, callback):
+  def invokeCallbacks(self):
+  def launchAnim(self):
+  def animate(self, postAnimPos):
+  def draw(self, screen):
+  def nudgeY(self, dy): 
+  def nudgeXY(self, dx, dy): 
+  def toggle(self):
+  def on_mouse_down(self, pos):
+fn: enoButtonArray.py
+class enoButtonArray:
+  def err(self, msg): print("enoButtonArray error:" + msg)
+  def msg(self, msg): print("enoButtonArray msg:  " + msg)
+  def __init__(self, **kwargs): 
+    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+  def getNumButtons(self):
+  def getButtonIdx(self, idx):
+  def toggleButtonIdx(self, idx):
+  def addCallback(self, callback):
+  def clearCallbacks(self): self.callbackList = []
+  def invokeCallbacks(self, buttonName):
+  def expandContract(self):
+  def draw(self, screen): 
+  def on_mouse_down(self, pos):
+fn: enoButtonArrayL1.py
+class enoButtonArrayL1(enoButtonArray):
+  def err(self, msg): print("enoButtonArrayL1 error:" + msg)
+  def msg(self, msg): print("enoButtonArrayL1 msg:  " + msg)
+  def __init__(self, buttonTextList, **kwargs): 
+    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+fn: enoContentsPgz.py
+class ContentsPgz(ContentsYaml):
+  def __init__(self): 
+  def err(self, msg): print("ContentsPgz error:", msg); traceback.print_exc()
+  def buildUI(self): 
+  def draw(self, screen): 
+  def on_mouse_down(self, pos): 
+  def on_mouse_move(self, rel, buttons): 
+  def on_mouse_up(self): self.actorSelectedId = None
+  def draw(): screen.clear(); rpg.draw(screen)
+  def on_mouse_down(pos):     rpg.on_mouse_down(pos)
+fn: enoContentsYaml.py
+class ContentYaml: 
+  def __init__(self, **kwargs):
+    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+  def err(self, msg): print("Content error:", msg); traceback.print_exc()
+  def setFieldsFromYaml(self, yd):
+  def setField(self, field, val):  
+  def getField(self, field):       
+  def getFields(self, fields):       
+  def printContentField(self, targetField):    
+  def print(self): print(self.fieldsDict)   
+class ContentsYaml: #not catching any errors; caveat emptor
+  def __init__(self, **kwargs):
+    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+  def err(self, msg): print("Contents error:", msg); traceback.print_exc()
+  def size(self): 
+  def loadYaml(self): 
+  def printContentFields(self, field): 
+  def getContent(self, i): 
+fn: enoGlyphArrayPgz.py
+class enoGlyphArrayPgz:
+  def __init__(self): 
+  def err(self, msg): print("ContentsPgz error:", msg); traceback.print_exc()
+  def buildUI(self): 
+  def draw(self, screen): 
+  def on_mouse_down(self, pos): 
+  def on_mouse_move(self, rel, buttons): 
+  def on_mouse_up(self): self.actorSelectedId = None
+  def draw(): screen.clear(); rpg.draw(screen)
+  def on_mouse_down(pos):     rpg.on_mouse_down(pos)
+fn: enoKbdMgr.py
+class enoKbdMgr:
+  def __init__(self, **kwargs):
+    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+  def err(self, msg): print("enoKbdMgr error:", msg);  traceback.print_exc()
+  def msg(self, msg): print("enoKbdMgr message:", msg)
+  def registerKeyCallback(self, whichKey, callback): #maintain in a list, as multiple callbacks may be present
+  def registerKeyCallbacks(self, whichKey, callbackList): 
+  def triggerKeyCallbacks(self, whichKey): 
+  def getBoundKeys(self): 
+  def isKeyBound(self, whichKey): 
+  def on_key_down(self, key): 
+  def on_key_up(self, key): pass #not always to be ignored; more to come
+fn: enoTranspWinDance.py
+class enoTranspWinDance:
+  def __init__(self, **kwargs):
+    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+  def getWinCoordProxies(self, whichWinId):
+  def firstFrame(self):
+  def animTransition1(self):
+  def draw(self):
+  def draw(): et8.draw()
+fn: enoWinMgr.py
+class enoWinMgr:
+  def __init__(self, **kwargs):
+    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+  def newWindow(self, name, w,h):
+  def getWindow(self, name=None):
+  def moveWindow(self, pWindow, x, y):
+  def moveWindowById(self, windowId, x, y, pWindows):
+  def transpWinSetup(self, screen, keyColor, winWidth, winHeight, pWindow=None):
+fn: exAnimTranspBox1.py
+def draw(): screen.clear(); eatb1.draw(screen); eatb2.draw(screen)
+fn: exAnimTranspBox2.py
+def launchRect():
+def draw():           
+def on_key_down(key): launchRect()
+fn: exAnimTranspBox3.py
+def launchRect():
+def draw():           
+def on_key_down(key): launchRect()
+fn: exAnimTranspBox4.py
+def launchRect():
+def draw():           
+def on_key_down(key): launchRect()
+fn: exButtonArray01.py
+def draw():      screen.clear(); eba1.draw(screen)
+def on_mouse_down(pos):          eba1.on_mouse_down(pos)
+fn: exButtonArray02.py
+def draw(): 
+def on_mouse_down(pos):          
+fn: exButtonArray03.py
+def draw(): 
+def on_mouse_down(pos):          
+fn: exButtonArray04.py
+def draw(): 
+def on_mouse_down(pos):          
+def on_key_down(key): #initially hardwired; sigh
+fn: exButtonArray04b.py
+def draw(): 
+def on_mouse_down(pos):          
+def on_key_down(key): #initially hardwired; sigh
+fn: exPg0.py
+fn: exPg1.py
+def draw(): a.draw()
+fn: exPg2.py
+def draw():             a.draw()
+def on_mouse_down(pos): print("mouse pressed")
+def on_mouse_up(pos):   print("mouse released")
+fn: exPg3.py
+def draw():             a.draw()
+def on_mouse_down(pos): 
+fn: exPg4.py
+def draw(): 
+def on_mouse_down(pos): 
+fn: exPg5.py
+def draw(): 
+def on_mouse_down(pos): 
+def drawReading(reading, x0, y0):
+fn: exPg6.py
+def draw(): 
+def on_mouse_down(pos): 
+def drawReading(reading, x0, y0):
+fn: exPg7.py
+def draw(): 
+def on_mouse_down(pos): 
+def drawReading(reading, x0, y0):
+fn: exPg8.py
+class ReadingsPg(Readings):
+  def __init__(self): 
+  def err(self, msg): print("ReadingPg error:", msg); traceback.print_exc()
+  def buildUI(self): 
+  def draw(self, screen): 
+  def on_mouse_down(self, pos): 
+  def drawReading(self, screen, reading, x0, y0):
+def draw(): screen.clear(); rpg.draw(screen)
+def on_mouse_down(pos):     rpg.on_mouse_down(pos)
+fn: exPg9.py
+def draw(): screen.clear();      rpg.draw(screen)
+def on_mouse_down(pos):          rpg.on_mouse_down(pos)
+def on_mouse_move(rel, buttons): rpg.on_mouse_move(rel, buttons)
+def on_mouse_up():               rpg.on_mouse_up()
+fn: exTransp09.py
+class exTransp09(enoTranspWinDance): 
+  def subwinAnimBounce(self, whichSubwin, nextDest, subsequentDest):
+  def firstFrame(self): # invoked on rendering of first frame
+def draw(): et9.draw() #requires invocation via pgzrun, per its ~simplification of scope
+fn: exY1.py
+fn: exY2.py
+fn: exY3.py
+fn: exY4.py
+class Reading: #not catching any errors; caveat emptor
+  def setFieldsFromYaml(self, yd):
+  def __init__(self):              self.fieldsDict = {}
+  def setField(self, field, val):  self.fieldsDict[field] = val
+  def getField(self, field):       return self.fieldsDict[field]
+  def printReadingAbbrev(self):    print(self.fieldsDict['abbrevTitle'])
+class Readings: #not catching any errors; caveat emptor
+  def __init__(self): self.readingList = []
+  def loadYaml(self): 
+  def printReadingAbbrevs(self): 
+fn: exY5.py
+class Reading: #not catching any errors; caveat emptor
+  def setFieldsFromYaml(self, yd):
+  def err(self, msg):              print("Reading error:", msg); traceback.print_exc()
+  def __init__(self):              self.fieldsDict = {}
+  def setField(self, field, val):  
+  def getField(self, field):       
+  def printReadingAbbrev(self):    
+class Readings: #not catching any errors; caveat emptor
+  def __init__(self): self.readingList = []
+  def err(self, msg): print("Readings error:", msg); traceback.print_exc()
+  def loadYaml(self): 
+  def printReadingAbbrevs(self): 
+fn: exY6.py
+fn: hccRd01.py
+def draw(): 
+def on_mouse_down(pos):          
+def on_mouse_up():               rpg.on_mouse_up()
+def on_mouse_move(rel, buttons): rpg.on_mouse_move(rel, buttons)
+def on_key_down(key): #initially hardwired; sigh
+fn: hccRd02.py
+def draw(): 
+def on_mouse_down(pos):          
+def on_mouse_up():               rpga.on_mouse_up()
+def on_mouse_move(rel, buttons): rpga.on_mouse_move(rel, buttons)
+def on_key_down(key): hrkm.on_key_down(key, rpga)
+def on_key_up(key):   hrkm.on_key_up(key,   rpga)
+fn: hccReadingsPg.py
+class ReadingsPg(Readings):
+  def __init__(self): 
+  def err(self, msg): print("ReadingPg error:", msg); traceback.print_exc()
+  def buildUI(self): 
+  def draw(self, screen): 
+  def on_mouse_down(self, pos): 
+  def on_mouse_move(self, rel, buttons): 
+  def on_mouse_up(self): self.actorSelectedId = None
+  def drawReading(self, screen, readingId, x0, y0):
+  def draw(): screen.clear(); rpg.draw(screen)
+  def on_mouse_down(pos):     rpg.on_mouse_down(pos)
+fn: hccReadingsPgAnim.py
+class ReadingsPgAnim(ReadingsPg):
+  def __init__(self, **kwargs):
+    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+  def err(self, msg): print("ReadingPgAnim error:", msg); traceback.print_exc()
+  def calcActorHaloCoords(self, actor): 
+  def calcActorsHaloCoords(self): 
+  def draw(self, screen): 
+def draw(): screen.clear(); rpga.draw(screen)
+def on_mouse_down(pos):     rpga.on_mouse_down(pos)
+fn: hccReadingsYaml.py
+class Reading: #not catching any errors; caveat emptor
+  def __init__(self): self.fieldsDict = {}
+  def err(self, msg): print("Reading error:", msg); traceback.print_exc()
+  def setFieldsFromYaml(self, yd):
+  def setField(self, field, val):  
+  def getField(self, field):       
+  def getFields(self, fields):       
+  def printReadingAbbrev(self):    
+  def print(self): print(self.fieldsDict)   
+class Readings: #not catching any errors; caveat emptor
+  def __init__(self): self.readingList = []; self.loadYaml()
+  def err(self, msg): print("Readings error:", msg); traceback.print_exc()
+  def size(self): 
+  def loadYaml(self): 
+  def printReadingAbbrevs(self): 
+  def getReading(self, i): 
