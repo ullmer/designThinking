@@ -51,7 +51,7 @@ enoButton:
       nudgeY(dy): 
       nudgeXY(dx, dy): 
 
-enoButtonArray
+enoButtonArray:
   enoButtonArray:
     core:
       err(msg): 
@@ -102,17 +102,17 @@ enoContentsYaml
     printContentFields(field): 
     getContent(i): 
 
-fn: enoGlyphArrayPgz.py
-class enoGlyphArrayPgz:
-  def __init__(self): 
-  def err(self, msg): print("ContentsPgz error:", msg); traceback.print_exc()
-  def buildUI(self): 
-  def draw(self, screen): 
-  def on_mouse_down(self, pos): 
-  def on_mouse_move(self, rel, buttons): 
-  def on_mouse_up(self): self.actorSelectedId = None
-  def draw(): screen.clear(); rpg.draw(screen)
-  def on_mouse_down(pos):     rpg.on_mouse_down(pos)
+enoGlyphArrayPgz:
+  enoGlyphArrayPgz:
+    core:
+      __init__(): 
+      err(msg): 
+      draw(screen): 
+      on_mouse_down(pos): 
+      on_mouse_move(rel, buttons): 
+      on_mouse_up(): 
+      buildUI(): 
+
 fn: enoKbdMgr.py
 class enoKbdMgr:
   def __init__(self, **kwargs):
