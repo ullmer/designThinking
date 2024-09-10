@@ -19,9 +19,11 @@ class ReadingsPgAnim(ReadingsPg):
   actorHaloAnimDirection = None #dict; are "halos" animating toward or away from their ~pair? 1=twd, 0=awy
   actorHaloAnimPair      = None #dict: "pair" for each actor (e.g., storage slot)
   actorHaloCoords        = None 
+  glyphArrayPgz          = None
 
   actorDefaultSize       = (335,94)
   actorHaloPad           = 5    #pixel padding (initially, same in X and Y)
+
 
   ################## constructor, error ##################
 
@@ -33,6 +35,7 @@ class ReadingsPgAnim(ReadingsPg):
     self.actorHaloAnimDirection = {}
     self.actorHaloAnimPair      = {}
     self.actorHaloCoords        = {}
+    self.glyphArrayPgz          = enoGlyphArrayPgz()
     
   def err(self, msg): print("ReadingPgAnim error:", msg); traceback.print_exc()
   

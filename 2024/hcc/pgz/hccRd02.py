@@ -24,7 +24,9 @@ eba3 = enoButtonArray(buttonDim=bd, dx=bdx, labelArray=bd3Labels, basePos=bp3, m
 headerColor = (50, 50, 50)
 for ba in [eba1, eba2, eba3]: ba.getButtonIdx(0).bgcolor1 = headerColor
 
-rpg = ReadingsPg()
+rpg  = ReadingsPg()
+hrkm = hccRdKeyMgr()
+hrkm = hccRdKeyMgr()
 
 drawables  = [eba1, eba2, eba3, rpg]
 
@@ -38,12 +40,7 @@ def on_mouse_down(pos):
 def on_mouse_up():               rpg.on_mouse_up()
 def on_mouse_move(rel, buttons): rpg.on_mouse_move(rel, buttons)
 
-def on_key_down(key): #initially hardwired; sigh
-   if key == keys.S:   eba2.toggleButtonIdx(1); print('store mode') 
-   if key == keys.L:   eba2.toggleButtonIdx(2); print('load  mode')
-
-   if key.name.startswith('K_') and key.name[2].isdigit():
-     digit = ord(key.name[2]) - ord('0')
-     eba3.toggleButtonIdx(digit)
+def on_key_down(key): hrkm.on_key_down(key)
+def on_key_up(key):   hrkm.on_key_up(key)
 
 ### end ###
