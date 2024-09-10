@@ -67,42 +67,41 @@ enoButtonArray
 
     draw(screen): 
     on_mouse_down(pos):
-fn: enoButtonArrayL1.py
-class enoButtonArrayL1(enoButtonArray):
-  def err(self, msg): print("enoButtonArrayL1 error:" + msg)
-  def msg(self, msg): print("enoButtonArrayL1 msg:  " + msg)
-  def __init__(self, buttonTextList, **kwargs): 
-    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
-fn: enoContentsPgz.py
-class ContentsPgz(ContentsYaml):
-  def __init__(self): 
-  def err(self, msg): print("ContentsPgz error:", msg); traceback.print_exc()
-  def buildUI(self): 
-  def draw(self, screen): 
-  def on_mouse_down(self, pos): 
-  def on_mouse_move(self, rel, buttons): 
-  def on_mouse_up(self): self.actorSelectedId = None
-  def draw(): screen.clear(); rpg.draw(screen)
-  def on_mouse_down(pos):     rpg.on_mouse_down(pos)
-fn: enoContentsYaml.py
-class ContentYaml: 
-  def __init__(self, **kwargs):
-    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
-  def err(self, msg): print("Content error:", msg); traceback.print_exc()
-  def setFieldsFromYaml(self, yd):
-  def setField(self, field, val):  
-  def getField(self, field):       
-  def getFields(self, fields):       
-  def printContentField(self, targetField):    
-  def print(self): print(self.fieldsDict)   
-class ContentsYaml: #not catching any errors; caveat emptor
-  def __init__(self, **kwargs):
-    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
-  def err(self, msg): print("Contents error:", msg); traceback.print_exc()
-  def size(self): 
-  def loadYaml(self): 
-  def printContentFields(self, field): 
-  def getContent(self, i): 
+
+enoContentsPgz:
+  ContentsPgz(ContentsYaml):
+    core: 
+      __init__(self): 
+      err(msg): 
+      buildUI(): 
+
+      draw(screen): 
+      on_mouse_down(pos): 
+      on_mouse_move(rel, buttons): 
+      on_mouse_up(): 
+      draw(): 
+      on_mouse_down(pos):
+
+enoContentsYaml
+  ContentYaml: 
+    core:
+      __init__(**kwargs):
+    err(msg): 
+    setFieldsFromYaml(yd):
+    setField(field, val):  
+    getField(field):       
+    getFields(fields):       
+    printContentField(targetField):    
+    print(): 
+
+  ContentsYaml: 
+    __init__(**kwargs):
+    err(msg): 
+    size(): 
+    loadYaml(): 
+    printContentFields(field): 
+    getContent(i): 
+
 fn: enoGlyphArrayPgz.py
 class enoGlyphArrayPgz:
   def __init__(self): 
@@ -221,10 +220,6 @@ class exTransp09(enoTranspWinDance):
   def subwinAnimBounce(self, whichSubwin, nextDest, subsequentDest):
   def firstFrame(self): # invoked on rendering of first frame
 def draw(): et9.draw() #requires invocation via pgzrun, per its ~simplification of scope
-fn: exY1.py
-fn: exY2.py
-fn: exY3.py
-fn: exY4.py
 class Reading: #not catching any errors; caveat emptor
   def setFieldsFromYaml(self, yd):
   def __init__(self):              self.fieldsDict = {}
