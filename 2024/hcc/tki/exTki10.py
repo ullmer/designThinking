@@ -33,7 +33,7 @@ def rgb2tk(r, g, b):
 ####################### build user interface ######################
 
 def buildUI(gs, f1Screens, f2Spatial, f3Controls):
-  imgAddUserFn = 'person-add-iconic1.png'
+  imgAddUserFn = 'images/person-add-iconic1.png'
   gs.imP1      = PIL.Image.open(imgAddUserFn)
   gs.imTk1     = PIL.ImageTk.PhotoImage(gs.imP1)
 
@@ -43,7 +43,7 @@ def buildUI(gs, f1Screens, f2Spatial, f3Controls):
   b               = Button(f3Controls, image=gs.imTk1, command=addCanvasItemCb)
   b.pack(side=LEFT, expand=True, fill=BOTH) 
 
-  screenFilenames = ['unsdg2.png', 'unsdg4.png']
+  screenFilenames = ['images/unsdg2.png', 'images/unsdg4.png']
   gs.imP2  = PIL.Image.open(screenFilenames[0])
   gs.imTk2 = PIL.ImageTk.PhotoImage(gs.imP2)
   label1   = Label(f1Screens, image=gs.imTk2)
@@ -53,7 +53,7 @@ def buildUI(gs, f1Screens, f2Spatial, f3Controls):
   gs.canvas = Canvas(f2Spatial,  bg=bgColor,  height=400, width=1024)
   gs.canvas.pack()
 
-  img1Fn  = 'clemson12d2.png'
+  img1Fn  = 'images/clemson12d2.png'
   gs.img1 = PhotoImage(file=img1Fn) #transparent image
   gs.canvas.create_image(100, 100, image=gs.img1,anchor='ne') 
 
