@@ -18,7 +18,7 @@ mf = mainFrame = tk.Tk()
 mf.title("Interactive grid example")
 mf.geometry("800x800")
 
-imPTk = PIL.ImageTk.PhotoImage(file="im_or2.png")
+imPTk = PIL.ImageTk.PhotoImage(file="images/im_or2.png")
 button = tk.Button(mf, image=imPTk) #see reddit link for image & dimensions
 button.pack()
 
