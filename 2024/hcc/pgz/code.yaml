@@ -1,3 +1,6 @@
+
+############### enodia animated transparent box ############### 
+
 enoAnimTranspBox: 
   enoAnimTranspBox:
     core:
@@ -27,6 +30,8 @@ enoAnimTranspBox:
       getTRCached(x, y):  
       setTRCache(x, y, val):  
 
+############### enodia button ############### 
+
 enoButton:
   enoButton:
     core:
@@ -51,6 +56,8 @@ enoButton:
       nudgeY(dy): 
       nudgeXY(dx, dy): 
 
+############### enodia button array ############### 
+
 enoButtonArray:
   enoButtonArray:
     core:
@@ -68,6 +75,8 @@ enoButtonArray:
     draw(screen): 
     on_mouse_down(pos):
 
+############### enodia contents, pygame zero ############### 
+
 enoContentsPgz:
   ContentsPgz(ContentsYaml):
     core: 
@@ -81,6 +90,8 @@ enoContentsPgz:
       on_mouse_up(): 
       draw(): 
       on_mouse_down(pos):
+
+############### enodia contents : yaml ############### 
 
 enoContentsYaml
   ContentYaml: 
@@ -101,6 +112,8 @@ enoContentsYaml
     loadYaml(): 
     printContentFields(field): 
     getContent(i): 
+
+############### enodia glyph array, pygame zero############### 
 
 enoGlyphArrayPgz:
   enoGlyphArrayPgz:
