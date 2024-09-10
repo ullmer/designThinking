@@ -15,10 +15,12 @@ class enoKbdMgr:
 
   def __init__(self, **kwargs):
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
-  
     self.keyCallbacksDict = {} #dictionary
 
-  def err(self, msg): print("Reading error:", msg); traceback.print_exc()
+  ############### err, msg ############### 
+
+  def err(self, msg): print("enoKbdMgr error:", msg);  traceback.print_exc()
+  def msg(self, msg): print("enoKbdMgr message:", msg)
 
   ############### register key callback ############### 
 
