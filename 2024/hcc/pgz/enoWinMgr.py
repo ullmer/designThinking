@@ -25,10 +25,10 @@ class enoWinMgr:
   borderless             = True
   winEnumDict            = None
   winNameSignatures = {
-    acrobat:     "Adobe Acrobat Pro ",
-    blender:     " - Blender ",
-    calculator:  "Calculator",
-    chrome:      " - Google Chrome",
+    "acrobat":     "Adobe Acrobat Pro ",
+    "blender":     " - Blender ",
+    "calculator":  "Calculator",
+    "chrome":      " - Google Chrome"
   }
 
   ############# constructor #############
@@ -75,8 +75,9 @@ class enoWinMgr:
   def getVisibleWindowsDict(self):
     #https://stackoverflow.com/questions/14653168/get-hwnd-of-each-window
     win32gui.EnumWindows(self.getWinEnumHandler, None)
-    winNames = list(self.winEnumDict.keys)
-    print(winNames)
+    winNames = list(self.winEnumDict.keys())
+    #print(winNames)
+    return winNames
 
   def getWinEnumHandler(self, hwnd, lParam):
     self.winEnumDict = {}
