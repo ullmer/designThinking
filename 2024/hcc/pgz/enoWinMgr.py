@@ -23,6 +23,7 @@ class enoWinMgr:
   moveWindowLastCoords   = None
   moveWindowIdLastCoords = None
   borderless             = True
+  winEnumDict            = None
 
   ############# constructor #############
 
@@ -48,6 +49,24 @@ class enoWinMgr:
   def getWindow(self, name=None):
     if name=='firstWin' or name is None: return Window.from_display_module()
     if name in self.name2window:         result = self.name2window[name]; return result
+
+  ##################### get windows dict ##################### 
+  
+  def getWindowsDict(self):
+    #https://stackoverflow.com/questions/14653168/get-hwnd-of-each-window
+    win32gui.EnumWindows(self.getWinEnumHandler, None)
+    winNames = list(self.winEnumDict.keys)
+    print(winNames)
+
+  def getWinEnumHandler(self, hwnd, lParam):
+    self.winEnumDict = {}
+
+    winText = win32gui.GetWindowText(hwnd)
+    if win32gui.IsWindowVisible(hwnd) and len(winText) > 0: 
+      self.winEnumDict[winText] = hwnd
+
+    #    if 'Stack Overflow' in win32gui.GetWindowText(hwnd):
+    #       win32gui.MoveWindow(hwnd, 0, 0, 760, 500, True)
   
   ##################### move window ##################### 
   
@@ -95,3 +114,4 @@ class enoWinMgr:
     win32gui.SetLayeredWindowAttributes(hwnd, win32api.RGB(*keyColor), 0, win32con.LWA_COLORKEY)
 
 ### end ###
+
