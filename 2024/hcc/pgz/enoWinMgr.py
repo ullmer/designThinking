@@ -24,6 +24,8 @@ class enoWinMgr:
   moveWindowIdLastCoords = None
   borderless             = True
   winEnumDict            = None
+  verbose                = True
+
   winNameSignatures = {
     "acrobat":     "Adobe Acrobat Pro ",
     "blender":     " - Blender ",
@@ -73,15 +75,18 @@ class enoWinMgr:
   ##################### get windows dict ##################### 
   
   def getVisibleWindowsDict(self):
+    self.winEnumDict = {}
+
     #https://stackoverflow.com/questions/14653168/get-hwnd-of-each-window
     win32gui.EnumWindows(self.getWinEnumHandler, None)
+
     winNames = list(self.winEnumDict.keys())
     #print(winNames)
     return winNames
 
-  def getWinEnumHandler(self, hwnd, lParam):
-    self.winEnumDict = {}
+  ##################### get windows enumeration handler ##################### 
 
+  def getWinEnumHandler(self, hwnd, lParam):
     winText = win32gui.GetWindowText(hwnd)
     if win32gui.IsWindowVisible(hwnd) and len(winText) > 0: 
       self.winEnumDict[winText] = hwnd
