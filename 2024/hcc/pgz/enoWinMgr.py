@@ -24,6 +24,12 @@ class enoWinMgr:
   moveWindowIdLastCoords = None
   borderless             = True
   winEnumDict            = None
+  winNameSignatures = {
+    acrobat:     "Adobe Acrobat Pro ",
+    blender:     " - Blender ",
+    calculator:  "Calculator",
+    chrome:      " - Google Chrome",
+  }
 
   ############# constructor #############
 
@@ -50,9 +56,23 @@ class enoWinMgr:
     if name=='firstWin' or name is None: return Window.from_display_module()
     if name in self.name2window:         result = self.name2window[name]; return result
 
+  ##################### identify recognized open windows ##################### 
+  
+  def identifyRecognizedOpenWindows(self):
+    result = {}
+
+    winList = self.getVisibleWindowsDict()
+    for winTitle in winList:
+      for app in self.winNameSignatures:
+        appWinTitleSignature = self.winNameSignatures[app]
+        if winTitle.find(appWinTitleSignature) >= 0:
+          if app not in result: result[app] = []
+          result[app].append(winTitle)
+    return result
+
   ##################### get windows dict ##################### 
   
-  def getWindowsDict(self):
+  def getVisibleWindowsDict(self):
     #https://stackoverflow.com/questions/14653168/get-hwnd-of-each-window
     win32gui.EnumWindows(self.getWinEnumHandler, None)
     winNames = list(self.winEnumDict.keys)
