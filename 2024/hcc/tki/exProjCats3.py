@@ -16,7 +16,13 @@ class studentThemes:
   studentYamlData = {}
   studentYamlFns  = 'themes/yaml/*' #
 
-  def loadYaml()
+  def loadYaml():
+    filenames = glob.glob(self.studentYamlFns)
+    for filename in filenames:
+      try:
+        yf = open(filename, 'rt')
+        self.studentYamlData[] = yaml.safe_load(yf)
+        yf.close()
 
   
 
