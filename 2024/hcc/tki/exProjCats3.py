@@ -23,7 +23,7 @@ cw   = 25 #column width
 categories = getCategories(yd)
 
 for category in categories:
-  f    = Frame(root); f.pack(side=LEFT)
+  f    = Frame(root); f.pack(side=LEFT, anchor="n") #anchor to the north
   b    = Button(f, text=category, command=helloCB, width=cw)
   b.pack(expand=True, fill=BOTH)
 
