@@ -1,10 +1,24 @@
+# In-class example in HCC Fundamentals
+# Brygg Ullmer, Clemson University
+# Begun 2024-09-12
+
 import yaml
+import glob #file pattern matching
 from tkinter import *
 
 yfn = 'projCats.yaml'
 yf  = open(yfn, 'rt')
 yd  = yaml.safe_load(yf)
 print(yd)
+
+####### small class for ingesting student themes data ####### 
+class studentThemes:
+  studentYamlData = {}
+  studentYamlFns  = 'themes/yaml/*' #
+
+  def loadYaml()
+
+  
 
 def getCategories(yamlData):
   result = list(yamlData.keys())
