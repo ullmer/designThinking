@@ -10,6 +10,10 @@ def getCategories(yamlData):
   result = list(yamlData.keys())
   return result
 
+def getCatEntries(yamlData, whichCategory):
+  result = yamlData[whichCategory]
+  return result
+
 def helloCB():
   print("hello was pushed")
 
@@ -18,8 +22,14 @@ root      = Tk()
 categories = getCategories(yd)
 
 for category in categories:
-  w    = Button(root, text=category, command=helloCB, width=15)
-  w.pack()
+  f    = Frame(root); f.pack(side=LEFT)
+  b    = Button(f, text=category, command=helloCB, width=15)
+  b.pack()
+
+  subthemes = getCatEntries(yd, category)
+  for subtheme in subthemes:
+    b2 = Button(f, text=subtheme, width=15)
+    b2.pack()
 
 root.mainloop()                                          
 
