@@ -26,7 +26,7 @@ categories = getCategories(yd)
 
 for category in categories:
   f    = Frame(root); f.pack(side=LEFT, anchor="n") #anchor to the north
-  b    = Button(f, text=category, command=helloCB, font=headerFont)
+  b    = Button(f, text=category, command=helloCB, font=headerFont, bg='#aaa')
   b.pack(expand=True, fill=BOTH)
 
   subthemes = getCatEntries(yd, category)
