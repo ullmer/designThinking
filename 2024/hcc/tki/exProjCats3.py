@@ -19,17 +19,19 @@ def helloCB():
 
 root = Tk() 
 cw   = 25 #column width
+headerFont = ('Sans','12','bold')
+bodyFont   = ('Sans','12')
 
 categories = getCategories(yd)
 
 for category in categories:
   f    = Frame(root); f.pack(side=LEFT, anchor="n") #anchor to the north
-  b    = Button(f, text=category, command=helloCB, width=cw)
+  b    = Button(f, text=category, command=helloCB, font=headerFont)
   b.pack(expand=True, fill=BOTH)
 
   subthemes = getCatEntries(yd, category)
   for subtheme in subthemes:
-    b2 = Button(f, text=subtheme, width=cw, anchor="w") #anchor to the west means left-aligned
+    b2 = Button(f, text=subtheme, width=cw, anchor="w", font=bodyFont) #anchor to the west means left-aligned
     b2.pack(side=TOP)
 
 root.mainloop()                                          
