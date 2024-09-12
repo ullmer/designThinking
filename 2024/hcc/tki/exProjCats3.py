@@ -17,19 +17,20 @@ def getCatEntries(yamlData, whichCategory):
 def helloCB():
   print("hello was pushed")
 
-root      = Tk() 
+root = Tk() 
+cw   = 25 #column width
 
 categories = getCategories(yd)
 
 for category in categories:
   f    = Frame(root); f.pack(side=LEFT)
-  b    = Button(f, text=category, command=helloCB, width=15)
-  b.pack()
+  b    = Button(f, text=category, command=helloCB, width=cw)
+  b.pack(expand=True, fill=BOTH)
 
   subthemes = getCatEntries(yd, category)
   for subtheme in subthemes:
-    b2 = Button(f, text=subtheme, width=15)
-    b2.pack()
+    b2 = Button(f, text=subtheme, width=cw, anchor="w") #anchor to the west means left-aligned
+    b2.pack(side=TOP)
 
 root.mainloop()                                          
 
