@@ -44,8 +44,11 @@ class studentThemes:
         self.studentYamlData[studentName1] = yaml.safe_load(yf)
         yf.close()
       except: 
-        self.studentYamlData[studentName1] = True; 
-        print('='*15 + studentName1); traceback.print_exc() #print error
+        yf.close() # the file probably remains open, but we need to re-read as plaintext
+        yf = open(filename, 'rt')
+        rawlines = yf.readlines(); yf.close()
+        self.studentYamlData[studentName1] = rawlines; 
+        #print('='*15 + studentName1); traceback.print_exc() #print error
     print(self.studentYamlData)
 
   def getStudentKeys(self):
