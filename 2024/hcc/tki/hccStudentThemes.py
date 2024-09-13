@@ -14,10 +14,10 @@ class studentThemes:
   projCatsYd        = None
   projCatsYFn       = 'projCats.yaml'
   studentYamlFns    = 'themes/yaml/*.yaml' #
-  studentLookupTxt  = 'basap:How Cultur;becke:MCI & AI S;child:Technology assist;coene:Technology-Driv;' +
-    'futia:reducing bias;gozub:Dark Patte;gurri:HCC within;guynu:Autonomous;jiang:AI in Ment;lawso:Working Th;' +
-    'liuna:Trust in A;mcalh:Most effec;mcgra:Genetic Se;mille:Assisting;nguye:team cogni;visse:AI in Educ;' +
-    'wangy:Human Insp;wangz:AI vs Huma;woodw:Cognitive ;wuyun:More inclusive;xudan:autopilot ;yanji:privacy en;' +
+  studentLookupTxt  = 'basap:How Cultur;becke:MCI & AI S;child:Technology assist;coene:Technology-Driv;' + \
+    'futia:reducing bias;gozub:Dark Patte;gurri:HCC within;guynu:Autonomous;jiang:AI in Ment;lawso:Working Th;' + \
+    'liuna:Trust in A;mcalh:Most effec;mcgra:Genetic Se;mille:Assisting;nguye:team cogni;visse:AI in Educ;' + \
+    'wangy:Human Insp;wangz:AI vs Huma;woodw:Cognitive ;wuyun:More inclusive;xudan:autopilot ;yanji:privacy en;' + \
     'yorkd:dummy-proo'
 
   def __init__(self): self.studentYamlData = {}; self.loadYaml() # "constructor"
@@ -70,5 +70,11 @@ class studentThemes:
   def getCatEntries(self, whichCategory):
     result = self.projCatsYd[whichCategory]
     return result
+
+########### main ##############
+if __name__ == "__main__":
+  st = studentThemes()
+  print("student keys:", st.getStudentKeys())
+  print("categories:",   st.getCategories())
 
 ### end ###
