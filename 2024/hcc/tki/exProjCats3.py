@@ -3,7 +3,7 @@
 # Begun 2024-09-12
 
 import yaml
-import glob #file pattern matching
+import os, glob #file pattern matching
 from tkinter import *
 
 yfn = 'projCats.yaml'
@@ -13,16 +13,22 @@ print(yd)
 
 ####### small class for ingesting student themes data ####### 
 class studentThemes:
-  studentYamlData = {}
-  studentYamlFns  = 'themes/yaml/*' #
+  studentYamlData = None
+  studentYamlFns  = 'themes/yaml/*.yaml' #
 
-  def loadYaml():
+  def __init__(self): self.studentYamlData = {}; self.loadYaml() # "constructor"
+
+  def loadYaml(self):
     filenames = glob.glob(self.studentYamlFns)
     for filename in filenames:
+      bn = os.path.basename(filename) #removes directory prefix
+      studentName1 = bn[:-5] #removes .yaml extension
+      print(studentName1)
       try:
         yf = open(filename, 'rt')
-        self.studentYamlData[] = yaml.safe_load(yf)
+        self.studentYamlData[studentName1] = yaml.safe_load(yf)
         yf.close()
+      except: self.studentYamlData[studentName1] = True
 
   
 
@@ -43,6 +49,7 @@ headerFont = ('Sans','12','bold')
 bodyFont   = ('Sans','12')
 
 categories = getCategories(yd)
+studTh     = studentThemes()
 
 for category in categories:
   f    = Frame(root); f.pack(side=LEFT, anchor="n") #anchor to the north
