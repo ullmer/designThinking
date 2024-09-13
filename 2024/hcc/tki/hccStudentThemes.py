@@ -5,7 +5,7 @@
 import yaml
 import os, glob, traceback #file pattern matching
 
-####### small class for ingesting student themes data ####### 
+####### Functionality for reading and processing student themes data ####### 
 
 class studentThemes:
 
