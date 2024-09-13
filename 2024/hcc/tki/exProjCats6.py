@@ -7,20 +7,16 @@ from tkinter.font        import *
 from hccStudentThemesTki import *
 from functools           import partial
 
-def helloCB():
-  print("hello was pushed")
-
 root = Tk() 
-root.title("HCC student themes navigator")
 cw   = 25 #column width
+
+root.title("HCC student themes navigator")
 
 try:    headerFont = Font(family="Calibri", size=15, weight=BOLD)
 except: headerFont = ('Sans','15','bold') #fallback if Calibri not installed
 
 try:    bodyFont = Font(family="Calibri", size=13)
 except: bodyFont = ('Sans','13') 
-
-#bodyFont = Font(family="Oswald", size=12, slant=ROMAN)
 
 st          = studentThemesTki()
 categories  = st.getCategories()
@@ -42,6 +38,5 @@ studentViewFrame = st.buildStudentThemeView(root, firstStudent)
 studentViewFrame.pack(expand=True, fill=BOTH)
 
 root.mainloop()                                          
-
 
 ### end ###
