@@ -8,8 +8,7 @@ import os, glob, traceback #file pattern matching
 ####### Functionality for reading and processing student themes data ####### 
 
 class studentThemes:
-  verbose           = True
-
+  verbose           = False
   studentYamlData   = None
   studentLookupDict = None
   themeLookupDict   = None
@@ -53,7 +52,7 @@ class studentThemes:
     for filename in filenames:
       bn = os.path.basename(filename) #removes directory prefix
       studentName1 = bn[:-5] #removes .yaml extension
-      #print(studentName1)
+      if self.verbose: print(studentName1)
       try:
         yf = open(filename, 'rt')
         self.studentYamlData[studentName1] = yaml.safe_load(yf)
@@ -65,8 +64,8 @@ class studentThemes:
         yf.close()
         self.studentYamlData[studentName1] = rawlines
 
-        #print('='*15 + studentName1); traceback.print_exc() #print error
-    #print(self.studentYamlData)
+        if self.verbose: print('='*15 + studentName1); traceback.print_exc() #print error
+    if self.verbose: print(self.studentYamlData)
 
   ########### get student keys ########### 
 
@@ -100,7 +99,7 @@ class studentThemes:
     result = list(self.themeLookupDict.keys())
     return result
 
-  ########### retrieve theme data ########### 
+  ########### retrieve theme student match ########### 
 
   def retrieveThemeData(self, themeName): #uses "full" theme names, and matches on abbreviated
     if self.verbose: print("retrieveThemeData:", themeName)
@@ -108,12 +107,22 @@ class studentThemes:
     themeAbbrevs = self.getAbbrevThemeList()
     if themeAbbrevs is None: return None
 
+    studAbbrev = None
     for themeAbbrev in themeAbbrevs:
       if self.verbose: print(">", themeAbbrev)
 
-      if themeName.find(themeAbbrev) >= 0: #we have a match
-        result = self.themeLookupDict(themeAbbrev)
-        return result 
+      if themeName.find(themeAbbrev) >= 0: #we have a theme match
+        studAbbrev = self.themeLookupDict[themeAbbrev]; break
+
+    if studAbbrev is None: return None # no data found.
+
+    studentKeys = self.getStudentKeys()
+    for studentKey in studentKeys:
+      if studentKey.find(studAbbrev) >= 0: #we have a student match
+        if studentKey not in self.studentYamlData:
+          print("retrieveThemeData problem: student not found:", studentKey); return None
+        result = self.studentYamlData[studentKey]
+        return result
 
     return None
 
