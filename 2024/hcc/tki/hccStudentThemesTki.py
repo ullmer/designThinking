@@ -12,7 +12,7 @@ from hccStudentThemes import *
 class studentThemesTki(studentThemes):
 
   frameText  = None 
-  frameWidth = 80
+  frameWidth = 100
 
   tkiFrame   = None
   tkiTextbox = None
@@ -81,12 +81,17 @@ class studentThemesTki(studentThemes):
         name  = themeData['name']
         theme = themeData['possibleProjectTheme']
 
+        self.tkiTextbox.tag_configure('bold', font=('Calibri', 13, 'bold'))
+        self.tkiTextbox.tag_configure('norm', font=('Calibri', 11))
+
         self.tkiTextbox.insert("1.0",   "name: ")
         self.tkiTextbox.insert(END,   name + "\n")
 
         self.tkiTextbox.insert(END,   "theme: ")
         self.tkiTextbox.insert(END,  theme)
 
+        self.tkiTextbox.tag_add("norm", "1.6", "2.0") 
+        self.tkiTextbox.tag_add("norm", "2.7", END)
         self.tkiTextbox.tag_add("bold", "1.0", "1.5")
         self.tkiTextbox.tag_add("bold", "2.0", "2.6")
 
