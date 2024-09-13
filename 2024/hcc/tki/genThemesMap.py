@@ -8,7 +8,7 @@ lines = sys.stdin.readlines()
 for line in lines:
   nameLetters  = line[:5] #extract the first five letters
   idx          = line.find(": ") #find the ": " as a demarcation
-  themeName    = line[idx+2:].strip()
+  themeName    = line[idx+2:]
   themeLetters = themeName[:10]
   print(nameLetters + ':' + themeLetters + ';', end='')
 
