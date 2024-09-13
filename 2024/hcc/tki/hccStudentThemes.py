@@ -8,6 +8,7 @@ import os, glob, traceback #file pattern matching
 ####### Functionality for reading and processing student themes data ####### 
 
 class studentThemes:
+  verbose           = True
 
   studentYamlData   = None
   studentLookupDict = None
@@ -27,6 +28,7 @@ class studentThemes:
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     self.studentYamlData = {}
     self.loadYaml() 
+    self.mapStudentLookups()
 
   ########### map student lookups -- heuristic to connect themes with source yaml files ###########
  
@@ -101,10 +103,14 @@ class studentThemes:
   ########### retrieve theme data ########### 
 
   def retrieveThemeData(self, themeName): #uses "full" theme names, and matches on abbreviated
+    if self.verbose: print("retrieveThemeData:", themeName)
+
     themeAbbrevs = self.getAbbrevThemeList()
     if themeAbbrevs is None: return None
 
     for themeAbbrev in themeAbbrevs:
+      if self.verbose: print(">", themeAbbrev)
+
       if themeName.find(themeAbbrev) >= 0: #we have a match
         result = self.themeLookupDict(themeAbbrev)
         return result 

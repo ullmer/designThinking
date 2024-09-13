@@ -66,7 +66,7 @@ class studentThemesTki(studentThemes):
   ################## update theme view ##################
 
   def updateThemeView(self, themeViewText): 
-    self.frameText = themeViewText
+    self.frameText = str(themeViewText)
 
     self.tkiTextbox.delete(1.0, END)
     self.tkiTextbox.insert(END, self.frameText)
