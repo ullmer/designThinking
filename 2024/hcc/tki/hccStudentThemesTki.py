@@ -82,12 +82,13 @@ class studentThemesTki(studentThemes):
         theme = themeData['possibleProjectTheme']
 
         self.tkiTextbox.insert("1.0",   "name: ")
-        self.tkiTextbox.tag_add("bold", "1.0", "1.5")
         self.tkiTextbox.insert(END,   name + "\n")
-     
+
         self.tkiTextbox.insert(END,   "theme: ")
-        self.tkiTextbox.tag_add("bold", "2.0", "2.6")
         self.tkiTextbox.insert(END,  theme)
+
+        self.tkiTextbox.tag_add("bold", "1.0", "1.5")
+        self.tkiTextbox.tag_add("bold", "2.0", "2.6")
 
       except: print("displayStudent theme challenge"); traceback.print_exc()
 
