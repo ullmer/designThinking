@@ -22,6 +22,8 @@ class studentThemes:
 
   def __init__(self): self.studentYamlData = {}; self.loadYaml() # "constructor"
 
+  ########### map student lookups -- heuristic to connect themes with source yaml files ###########
+ 
   def mapStudentLookups(self): # if the YAML were mostly parsing, this would not be necessary, but meanwhile
     self.studentLookupDict = {}
     pairs = self.studentLookupTxt.split(';') #first, break apart on semicolons
@@ -29,6 +31,8 @@ class studentThemes:
     for pair in pairs:
       student, theme = pair.split(':')
       self.studentLookupPair[student] = theme
+
+  ########### load YAML data ########### 
       
   def loadYaml(self):
     yf = open(self.projCatsYFn, 'rt')
@@ -38,7 +42,7 @@ class studentThemes:
     for filename in filenames:
       bn = os.path.basename(filename) #removes directory prefix
       studentName1 = bn[:-5] #removes .yaml extension
-      print(studentName1)
+      #print(studentName1)
       try:
         yf = open(filename, 'rt')
         self.studentYamlData[studentName1] = yaml.safe_load(yf)
@@ -49,11 +53,15 @@ class studentThemes:
         rawlines = yf.readlines(); yf.close()
         self.studentYamlData[studentName1] = rawlines; 
         #print('='*15 + studentName1); traceback.print_exc() #print error
-    print(self.studentYamlData)
+    #print(self.studentYamlData)
+
+  ########### get student keys ########### 
 
   def getStudentKeys(self):
     result = list(self.studentYamlData.keys())
     return result
+
+  ########### get student vals ########### 
 
   def getStudentVals(self, studentKey):
     if studentKey not in self.studentYamlData:
@@ -63,9 +71,13 @@ class studentThemes:
     result = self.studentYamlData[studentKey]
     return result
 
+  ########### get project categories ########### 
+
   def getCategories(self):
     result = list(self.projCatsYd.keys())
     return result
+
+  ########### get category entries ########### 
 
   def getCatEntries(self, whichCategory):
     result = self.projCatsYd[whichCategory]
