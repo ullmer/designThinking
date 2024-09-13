@@ -11,6 +11,7 @@ class studentThemes:
 
   studentYamlData   = None
   studentLookupDict = None
+  themeLookupDict   = None
   projCatsYd        = None
   projCatsYFn       = 'projCats.yaml'
   studentYamlFns    = 'themes/yaml/*.yaml' #
@@ -31,11 +32,14 @@ class studentThemes:
  
   def mapStudentLookups(self): # if the YAML were mostly parsing, this would not be necessary, but meanwhile
     self.studentLookupDict = {}
+    self.themeLookupDict   = {}
+
     pairs = self.studentLookupTxt.split(';') #first, break apart on semicolons
 
     for pair in pairs:
       student, theme = pair.split(':')
-      self.studentLookupPair[student] = theme
+      self.studentLookupDict[student] = theme
+      self.themeLookupDict[theme]     = student
 
   ########### load YAML data ########### 
       
@@ -86,6 +90,24 @@ class studentThemes:
     else: result = "No information found"
 
     return result
+
+  ########### get abbreviated theme list vals ########### 
+
+  def getAbbrevThemeList(self): 
+    if self.themeLookupDict is None: return None
+    result = list(self.themeLookupDict.keys())
+    return result
+
+  def retrieveThemeData(self, themeName): #uses "full" theme names, and matches on abbreviated
+    themeAbbrevs = self.getAbbrevThemeList()
+    if themeAbbrevs is None: return None
+
+    for themeAbbrev in themeAbbrevs:
+      if themeName.find(themeAbbrev) >= 0: #we have a match
+        result = self.themeLookupDict(themeAbbrev)
+        return result 
+
+    return None
 
   ########### get project categories ########### 
 
