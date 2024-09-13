@@ -5,6 +5,7 @@
 from tkinter             import *
 from tkinter.font        import *
 from hccStudentThemesTki import *
+from functools           import partial
 
 def helloCB():
   print("hello was pushed")
@@ -13,14 +14,13 @@ root = Tk()
 root.title("HCC student themes navigator")
 cw   = 25 #column width
 
-#headerFont = ('Sans','12','bold')
-#try:    bodyFont = Font(family="Oswald", size=12)
-#except: bodyFont = ('Sans','12') #fallback if Oswald not installed
+try:    headerFont = Font(family="Calibri", size=15, weight=BOLD)
+except: headerFont = ('Sans','15','bold') #fallback if Calibri not installed
+
+try:    bodyFont = Font(family="Calibri", size=13)
+except: bodyFont = ('Sans','13') 
 
 #bodyFont = Font(family="Oswald", size=12, slant=ROMAN)
-
-headerFont = Font(family="Calibri", size=15, weight=BOLD)
-bodyFont   = Font(family="Calibri", size=13)
 
 st          = studentThemesTki()
 categories  = st.getCategories()
@@ -32,7 +32,8 @@ for category in categories:
 
   subthemes = st.getCatEntries(category)
   for subtheme in subthemes:
-    b2 = Button(f, text=subtheme, width=cw, anchor="w", font=bodyFont) #anchor to the west means left-aligned
+    cb = partial(st.displayStudentTheme, subtheme) #callback to display associated information
+    b2 = Button(f, text=subtheme, width=cw, anchor="w", font=bodyFont, command=cb) #anchor to the west means left-aligned
     b2.pack(side=TOP)
 
 studentKeys      = st.getStudentKeys()

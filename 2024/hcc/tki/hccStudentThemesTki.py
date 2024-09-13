@@ -18,6 +18,8 @@ class studentThemesTki(studentThemes):
   tkiTextbox = None
   scrollbar  = None
 
+  #st.displayStudentTheme, subtheme
+
   #inherited studentThemes functions
   #__init__()
   #loadYaml()
