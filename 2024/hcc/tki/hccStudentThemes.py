@@ -57,10 +57,7 @@ class studentThemes:
         yf = open(filename, 'rt')
         rawlines = yf.readlines() #we call these "rawlines," because each line includes newline characters
         yf.close()
-
-        cleanlines = []
-        for rawline in rawlines: cleanlines.append(rawline.rstrip()) #rstrip removes newlines
-        self.studentYamlData[studentName1] = cleanlines
+        self.studentYamlData[studentName1] = rawlines
 
         #print('='*15 + studentName1); traceback.print_exc() #print error
     #print(self.studentYamlData)
@@ -78,7 +75,16 @@ class studentThemes:
       print("studentThemes getStudentVals called on", studentKey, "but no data present")
       return None
 
-    result = self.studentYamlData[studentKey]
+    studentThemeInfo = self.studentYamlData[studentKey]
+
+    if type(studentThemeInfo) is list: #we have a list of raw text; join it back together
+      result = ''.join(studentThemeInfo)
+
+    elif type(studVal) is dict: 
+      return studentThemeInfo
+
+    else: result = "No information found"
+
     return result
 
   ########### get project categories ########### 

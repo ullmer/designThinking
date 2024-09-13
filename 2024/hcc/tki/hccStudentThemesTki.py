@@ -12,7 +12,7 @@ from hccStudentThemes import *
 class studentThemesTki(studentThemes):
 
   frameText  = None 
-  frameWidth = 600  
+  frameWidth = 800  
 
   tkiFrame   = None
   tkiMsg     = None
