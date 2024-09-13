@@ -3,7 +3,7 @@
 # Begun 2024-09-12
 
 import yaml
-import os, glob #file pattern matching
+import os, glob, traceback #file pattern matching
 from tkinter import *
 
 yfn = 'projCats.yaml'
@@ -28,7 +28,9 @@ class studentThemes:
         yf = open(filename, 'rt')
         self.studentYamlData[studentName1] = yaml.safe_load(yf)
         yf.close()
-      except: self.studentYamlData[studentName1] = True
+      except: 
+        self.studentYamlData[studentName1] = True; 
+        print('='*15 + studentName1); traceback.print_exc() #print error
     print(self.studentYamlData)
 
 
