@@ -11,8 +11,8 @@ from hccStudentThemes import *
 
 class studentThemesTki(studentThemes):
 
-  frameText  = 40 #~characters
-  frameWidth = 40 #~characters
+  frameText  = None 
+  frameWidth = 600  
 
   tkiFrame   = None
   tkiMsg     = None

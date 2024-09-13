@@ -52,11 +52,16 @@ class studentThemes:
         yf = open(filename, 'rt')
         self.studentYamlData[studentName1] = yaml.safe_load(yf)
         yf.close()
-      except: 
+      except:  # we encountered a problem in reading the YAML.  As fallback, read in the raw text
         yf.close() # the file probably remains open, but we need to re-read as plaintext
         yf = open(filename, 'rt')
-        rawlines = yf.readlines(); yf.close()
-        self.studentYamlData[studentName1] = rawlines; 
+        rawlines = yf.readlines() #we call these "rawlines," because each line includes newline characters
+        yf.close()
+
+        cleanlines = []
+        for rawline in rawlines: cleanlines.append(rawline.rstrip()) #rstrip removes newlines
+        self.studentYamlData[studentName1] = cleanlines
+
         #print('='*15 + studentName1); traceback.print_exc() #print error
     #print(self.studentYamlData)
 
