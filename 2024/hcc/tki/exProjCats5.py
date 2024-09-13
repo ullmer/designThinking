@@ -13,8 +13,9 @@ cw   = 25 #column width
 headerFont = ('Sans','12','bold')
 bodyFont   = ('Sans','12')
 
-st         = studentThemes()
-categories = st.getCategories()
+st          = studentThemesTki()
+categories  = st.getCategories()
+spacerLabel = Label(root, width=5)
 
 for category in categories:
   f    = Frame(root); f.pack(side=LEFT, anchor="n") #anchor to the north
@@ -26,8 +27,14 @@ for category in categories:
     b2 = Button(f, text=subtheme, width=cw, anchor="w", font=bodyFont) #anchor to the west means left-aligned
     b2.pack(side=TOP)
 
+spacerLabel.pack()
+
+studentKeys      = st.getStudentKeys()
+firstStudent     = studentKeys[0]
+studentViewFrame = st.buildStudentThemeView(firstStudent)
+studentViewFrame.pack(expand=True, fill=BOTH)
+
 root.mainloop()                                          
 
-#  print("student keys:", st.getStudentKeys())
 
 ### end ###
