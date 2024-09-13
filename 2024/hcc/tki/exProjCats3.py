@@ -29,8 +29,8 @@ class studentThemes:
         self.studentYamlData[studentName1] = yaml.safe_load(yf)
         yf.close()
       except: self.studentYamlData[studentName1] = True
+    print(self.studentYamlData)
 
-  
 
 def getCategories(yamlData):
   result = list(yamlData.keys())
