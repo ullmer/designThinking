@@ -12,10 +12,11 @@ from hccStudentThemes import *
 class studentThemesTki(studentThemes):
 
   frameText  = None 
-  frameWidth = 1200  
+  frameWidth = 80
 
   tkiFrame   = None
-  tkiMsg     = None
+  tkiTextbox = None
+  scrollbar  = None
 
   #inherited studentThemes functions
   #__init__()
@@ -32,15 +33,21 @@ class studentThemesTki(studentThemes):
     super().__init__()
 
   def buildStudentThemeView(self, parentTkiWidget, studentKey):
-    self.tkiFrame = Frame(parentTkiWidget, width=self.frameWidth)
+    self.tkiFrame = Frame(parentTkiWidget)
     self.tkiFrame.pack(expand=True, fill=BOTH)
 
-    #frameText = None
-    sv = self.getStudentVals(studentKey)
+    sv             = self.getStudentVals(studentKey)
     self.frameText = str(sv)
 
-    self.tkiMsg   = Message(self.tkiFrame, width=self.frameWidth, text=self.frameText)
-    self.tkiMsg.pack(expand=True, fill=BOTH)
+    self.tkiTextbox   = Text(self.tkiFrame, width=self.frameWidth)
+    self.tkiTextbox.insert(END, self.frameText)
+
+    self.tkiTextbox.pack(expand=True, fill=BOTH)
+
+    self.scrollbar = Scrollbar(self.tkiFrame, command=self.tkiTextbox.yview)
+    self.scrollbar.pack(side=RIGHT, fill=Y)
+    self.tkiTextbox.config(yscrollcommand=self.scrollbar.set)
+
     return self.tkiFrame
 
   def clearStudentThemeView(self): pass
