@@ -42,7 +42,7 @@ class studentThemesTki(studentThemes):
     self.tkiTextbox   = Text(self.tkiFrame, width=self.frameWidth)
     self.tkiTextbox.insert(END, self.frameText)
 
-    self.tkiTextbox.pack(expand=True, fill=BOTH)
+    self.tkiTextbox.pack(expand=True, fill=BOTH, side=LEFT)
 
     self.scrollbar = Scrollbar(self.tkiFrame, command=self.tkiTextbox.yview)
     self.scrollbar.pack(side=RIGHT, fill=Y)
