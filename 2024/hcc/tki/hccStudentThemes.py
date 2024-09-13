@@ -20,7 +20,13 @@ class studentThemes:
     'wangy:Human Insp;wangz:AI vs Huma;woodw:Cognitive ;wuyun:More inclusive;xudan:autopilot ;yanji:privacy en;' + \
     'yorkd:dummy-proo'
 
-  def __init__(self): self.studentYamlData = {}; self.loadYaml() # "constructor"
+
+  ################## constructor, error ##################
+
+  def __init__(self, **kwargs):
+    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+    self.studentYamlData = {}
+    self.loadYaml() 
 
   ########### map student lookups -- heuristic to connect themes with source yaml files ###########
  
