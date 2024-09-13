@@ -63,19 +63,33 @@ class studentThemesTki(studentThemes):
     self.tkiTextbox.delete(1.0, END)
     self.tkiTextbox.insert(END, self.frameText)
 
-  ################## update theme view ##################
-
-  def updateThemeView(self, themeViewText): 
-    self.frameText = str(themeViewText)
-
-    self.tkiTextbox.delete(1.0, END)
-    self.tkiTextbox.insert(END, self.frameText)
-
   ################## display student theme ##################
 
   def displayStudentTheme(self, subtheme):
     themeData = self.retrieveThemeData(subtheme)
-    self.updateThemeView(themeData)
+
+    self.tkiTextbox.delete(1.0, END) #clear existing text
+    self.tkiTextbox.delete(1.0, END)
+
+    if   type(themeData) is list: 
+      themeText=''.join(themeData)
+      self.tkiTextbox.insert(END, themeText)
+      return
+
+    if type(themeData) is dict: 
+      try:
+        name  = themeData['name']
+        theme = themeData['possibleProjectTheme']
+
+        self.tkiTextbox.insert("1.0",   "name: ")
+        self.tkiTextbox.tag_add("bold", "1.0", "1.5")
+        self.tkiTextbox.insert(END,   name + "\n")
+     
+        self.tkiTextbox.insert(END,   "theme: ")
+        self.tkiTextbox.tag_add("bold", "2.0", "2.6")
+        self.tkiTextbox.insert(END,  theme)
+
+      except: print("displayStudent theme challenge"); traceback.print_exc()
 
 ########### main ##############
 #if __name__ == "__main__":
