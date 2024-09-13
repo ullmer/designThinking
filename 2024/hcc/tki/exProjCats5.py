@@ -3,6 +3,7 @@
 # Begun 2024-09-12
 
 from tkinter             import *
+from tkinter.font        import *
 from hccStudentThemesTki import *
 
 def helloCB():
@@ -10,8 +11,15 @@ def helloCB():
 
 root = Tk() 
 cw   = 25 #column width
-headerFont = ('Sans','12','bold')
-bodyFont   = ('Sans','12')
+
+#headerFont = ('Sans','12','bold')
+#try:    bodyFont = Font(family="Oswald", size=12)
+#except: bodyFont = ('Sans','12') #fallback if Oswald not installed
+
+#bodyFont = Font(family="Oswald", size=12, slant=ROMAN)
+
+headerFont = Font(family="Calibri", size=15, weight=BOLD)
+bodyFont   = Font(family="Calibri", size=13)
 
 st          = studentThemesTki()
 categories  = st.getCategories()

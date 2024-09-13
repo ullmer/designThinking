@@ -1,4 +1,4 @@
-# In-class example in HCC Fundamentals
+# Tkinter wrappers around HCC student themes class
 # Brygg Ullmer, Clemson University
 # Begun 2024-09-12
 
@@ -12,7 +12,7 @@ from hccStudentThemes import *
 class studentThemesTki(studentThemes):
 
   frameText  = None 
-  frameWidth = 800  
+  frameWidth = 1200  
 
   tkiFrame   = None
   tkiMsg     = None
@@ -32,7 +32,7 @@ class studentThemesTki(studentThemes):
     super().__init__()
 
   def buildStudentThemeView(self, parentTkiWidget, studentKey):
-    self.tkiFrame = Frame(parentTkiWidget)
+    self.tkiFrame = Frame(parentTkiWidget, width=self.frameWidth)
     self.tkiFrame.pack(expand=True, fill=BOTH)
 
     #frameText = None
