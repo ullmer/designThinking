@@ -55,6 +55,14 @@ class studentThemes:
     result = list(self.studentYamlData.keys())
     return result
 
+  def getStudentVals(self, studentKey):
+    if studentKey not in self.studentYamlData:
+      print("studentThemes getStudentVals called on", studentKey, "but no data present")
+      return None
+
+    result = self.studentYamlData[studentKey]
+    return result
+
   def getCategories(self):
     result = list(self.projCatsYd.keys())
     return result
