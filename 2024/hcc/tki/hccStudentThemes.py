@@ -14,11 +14,11 @@ class studentThemes:
   projCatsYd        = None
   projCatsYFn       = 'projCats.yaml'
   studentYamlFns    = 'themes/yaml/*.yaml' #
-  studentLookupTxt  = 'basap:How Cultur;becke:MCI & AI S;child:Technology;coene:Technology;' +
-    'futia:3 to 5 wor;gozub:Dark Patte;gurri:HCC within;guynu:Autonomous;jiang:AI in Ment;lawso:Working Th' +
-    ';liuna:Trust in A;mcalh:Most effec;mcgra:Genetic Se;mille:Assisting ;nguye:team cogni;visse:AI in Educ;' +
-    'wangy:Human Insp;wangz:AI vs Huma;woodw:Cognitive ;wuyun:uyuntaoli.;xudan:autopilot ;yanji:privacy en;' +
-    'yorkd:dummy-proo;'
+  studentLookupTxt  = 'basap:How Cultur;becke:MCI & AI S;child:Technology assist;coene:Technology-Driv;' +
+    'futia:reducing bias;gozub:Dark Patte;gurri:HCC within;guynu:Autonomous;jiang:AI in Ment;lawso:Working Th;' +
+    'liuna:Trust in A;mcalh:Most effec;mcgra:Genetic Se;mille:Assisting;nguye:team cogni;visse:AI in Educ;' +
+    'wangy:Human Insp;wangz:AI vs Huma;woodw:Cognitive ;wuyun:More inclusive;xudan:autopilot ;yanji:privacy en;' +
+    'yorkd:dummy-proo'
 
   def __init__(self): self.studentYamlData = {}; self.loadYaml() # "constructor"
 
@@ -30,7 +30,6 @@ class studentThemes:
       student, theme = pair.split(':')
       self.studentLookupPair[student] = theme
       
-
   def loadYaml(self):
     yf = open(self.projCatsYFn, 'rt')
     self.projCatsYd = yaml.safe_load(yf)
@@ -49,12 +48,16 @@ class studentThemes:
         print('='*15 + studentName1); traceback.print_exc() #print error
     print(self.studentYamlData)
 
-  def getCategories(yamlData):
-    result = list(yamlData.keys())
+  def getStudentKeys(self):
+    result = list(self.studentYamlData.keys())
     return result
 
-  def getCatEntries(yamlData, whichCategory):
-    result = yamlData[whichCategory]
+  def getCategories(self):
+    result = list(self.projCatsYd.keys())
+    return result
+
+  def getCatEntries(self, whichCategory):
+    result = self.projCatsYd[whichCategory]
     return result
 
 ### end ###
