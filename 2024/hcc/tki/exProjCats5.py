@@ -31,7 +31,7 @@ spacerLabel.pack()
 
 studentKeys      = st.getStudentKeys()
 firstStudent     = studentKeys[0]
-studentViewFrame = st.buildStudentThemeView(firstStudent)
+studentViewFrame = st.buildStudentThemeView(root, firstStudent)
 studentViewFrame.pack(expand=True, fill=BOTH)
 
 root.mainloop()                                          

@@ -2,8 +2,10 @@
 # Brygg Ullmer, Clemson University
 # Begun 2024-09-12
 
-import tkinter
+from tkinter import *
 import traceback 
+
+from hccStudentThemes import *
 
 ####### Functionality for viewing themes data ####### 
 
@@ -39,6 +41,7 @@ class studentThemesTki(studentThemes):
 
     self.tkiMsg   = Message(self.tkiFrame, width=self.frameWidth, text=self.frameText)
     self.tkiMsg.pack(expand=True, fill=BOTH)
+    return self.tkiFrame
 
   def clearStudentThemeView(self): pass
 
