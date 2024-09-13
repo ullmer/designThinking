@@ -98,6 +98,8 @@ class studentThemes:
     result = list(self.themeLookupDict.keys())
     return result
 
+  ########### retrieve theme data ########### 
+
   def retrieveThemeData(self, themeName): #uses "full" theme names, and matches on abbreviated
     themeAbbrevs = self.getAbbrevThemeList()
     if themeAbbrevs is None: return None

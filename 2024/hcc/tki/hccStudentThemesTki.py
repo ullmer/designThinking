@@ -18,8 +18,6 @@ class studentThemesTki(studentThemes):
   tkiTextbox = None
   scrollbar  = None
 
-  #st.displayStudentTheme, subtheme
-
   #inherited studentThemes functions
   #__init__()
   #loadYaml()
@@ -27,12 +25,16 @@ class studentThemesTki(studentThemes):
   #getStudentVals(studentKey)
   #getCategories()
   #getCatEntries(whichCategory)
+  #getAbbrevThemeList()
+  #retrieveThemeData(themeName)
 
-  ################## constructor, error ##################
+  ################## constructor ##################
 
   def __init__(self, **kwargs):
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     super().__init__()
+
+  ################## build student theme view ##################
 
   def buildStudentThemeView(self, parentTkiWidget, studentKey):
     self.tkiFrame = Frame(parentTkiWidget)
@@ -52,7 +54,28 @@ class studentThemesTki(studentThemes):
 
     return self.tkiFrame
 
-  def clearStudentThemeView(self): pass
+  ################## update student theme view ##################
+
+  def updateStudentThemeView(self, studentKey): 
+    sv             = self.getStudentVals(studentKey)
+    self.frameText = str(sv)
+
+    self.tkiTextbox.delete(1.0, END)
+    self.tkiTextbox.insert(END, self.frameText)
+
+  ################## update theme view ##################
+
+  def updateThemeView(self, themeViewText): 
+    self.frameText = themeViewText
+
+    self.tkiTextbox.delete(1.0, END)
+    self.tkiTextbox.insert(END, self.frameText)
+
+  ################## display student theme ##################
+
+  def displayStudentTheme(self, subtheme):
+    themeData = self.retrieveThemeData(subtheme)
+    self.updateThemeView(themeData)
 
 ########### main ##############
 #if __name__ == "__main__":
