@@ -19,7 +19,7 @@ categories = getCategories(yd)
 
 for category in categories:
   w    = Button(root, text=category, command=helloCB, width=15)
-  w.pack()
+  w.pack(side=LEFT)
 
 root.mainloop()                                          
 

@@ -2,8 +2,8 @@
 # Brygg Ullmer, Clemson University
 # Begun 2024-09-12
 
-from tkinter          import *
-from hccStudentThemes import *
+from tkinter             import *
+from hccStudentThemesTki import *
 
 def helloCB():
   print("hello was pushed")

@@ -20,7 +20,6 @@ class studentThemes:
     'wangy:Human Insp;wangz:AI vs Huma;woodw:Cognitive ;wuyun:More inclusive;xudan:autopilot ;yanji:privacy en;' + \
     'yorkd:dummy-proo'
 
-
   ################## constructor, error ##################
 
   def __init__(self, **kwargs):

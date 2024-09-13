@@ -9,6 +9,12 @@ import traceback
 
 class studentThemesTki(studentThemes):
 
+  frameText  = 40 #~characters
+  frameWidth = 40 #~characters
+
+  tkiFrame   = None
+  tkiMsg     = None
+
   #inherited studentThemes functions
   #__init__()
   #loadYaml()
@@ -23,10 +29,18 @@ class studentThemesTki(studentThemes):
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     super().__init__()
 
-  def buildStudentThemeView(self, parentTkiWidget):
-    Frame(parentTkiWidget
+  def buildStudentThemeView(self, parentTkiWidget, studentKey):
+    self.tkiFrame = Frame(parentTkiWidget)
+    self.tkiFrame.pack(expand=True, fill=BOTH)
 
-  def clearStudentThemeView(self):
+    #frameText = None
+    sv = self.getStudentVals(studentKey)
+    self.frameText = str(sv)
+
+    self.tkiMsg   = Message(self.tkiFrame, width=self.frameWidth, text=self.frameText)
+    self.tkiMsg.pack(expand=True, fill=BOTH)
+
+  def clearStudentThemeView(self): pass
 
 ########### main ##############
 #if __name__ == "__main__":
