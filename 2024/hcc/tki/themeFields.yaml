@@ -1,13 +1,13 @@
 themeFields: 
-  name
-  currentDegreeName
-  currentDegreeLevel
-  priorDegrees
-  briefIntroduction
-  relevantAspirations
-  classRelevantSkills
-  partnerSkillsInterests
-  possibleProjectThemeName
-  possibleProjectTheme
+  name:                     {key: N
+  currentDegreeName:        {key:
+  currentDegreeLevel:       {
+  priorDegrees:             {
+  briefIntroduction:        {
+  relevantAspirations:      {
+  classRelevantSkills:      {
+  partnerSkillsInterests:   {
+  possibleProjectThemeName: {key: P
+  possibleProjectTheme:     {key: D, short: "proj theme descr", long: "Possible project theme description"}
 
 ### end ###
