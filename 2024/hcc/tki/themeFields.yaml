@@ -1,0 +1,13 @@
+themeFields: 
+  name
+  currentDegreeName
+  currentDegreeLevel
+  priorDegrees
+  briefIntroduction
+  relevantAspirations
+  classRelevantSkills
+  partnerSkillsInterests
+  possibleProjectThemeName
+  possibleProjectTheme
+
+### end ###
