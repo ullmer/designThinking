@@ -24,25 +24,28 @@ for i in range(blockSize): #blockSize lines of blockSize words
 
 root = Tk()              
 
-t = Text(root, width=400) 
+t = Text(root, width=40) 
 t.pack(expand=True, fill=BOTH)    
 
 t.tag_configure('bold', font=('Calibri', 13, 'bold'))
 t.tag_configure('norm', font=('Calibri', 11))
 
+print(lpRows)
+
 row = 1
 for lpRow in lpRows:
-  word1    = lpRow[0]
-  wordRest = ' '.join(lpRow[1:]) # a bit inefficient computationally, but...
+  word1    = lpRow[0] + " "
+  wordRest = ' '.join(lpRow[1:]) + "\n" # a bit inefficient computationally, but...
   word1Len = len(word1)
   coord1 = "%i.0"  % (row)
-  coord2 = "%i.%i" % (row, word1Len+1)
+  coord2 = "%i.%i" % (row, word1Len)
+  coord3 = "%i.%i" % (row, word1Len+len(wordRest))
 
   t.insert(coord1, word1)
   t.insert(coord2, wordRest)
 
   t.tag_add("bold", coord1, coord2)
-  t.tag_add("norm", coord2, END)
+  t.tag_add("norm", coord2, coord3)
 
   row += 1
 
