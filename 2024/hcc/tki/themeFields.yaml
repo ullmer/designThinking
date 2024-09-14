@@ -3,11 +3,11 @@ themeFields:
   currentDegreeName:        {key:
   currentDegreeLevel:       {
   priorDegrees:             {
-  briefIntroduction:        {
-  relevantAspirations:      {
-  classRelevantSkills:      {
-  partnerSkillsInterests:   {
-  possibleProjectThemeName: {key: P
-  possibleProjectTheme:     {key: D, short: "proj theme descr", long: "Possible project theme description"}
+  briefIntroduction:        {key: In, short: "Introduction",            long: "Brief introduction"}
+  relevantAspirations:      {key: As, short: 
+  classRelevantSkills:      {key: Sk, short: "Class-relevant skills",   long: "Skills relevant to the class"}
+  partnerSkillsInterests:   {key: Pa, short: "Partner skill interests", long: "Skills ideally sought in partner"}
+  possibleProjectThemeName: {key: Pr, short: "Project theme title",     long: "Possible project theme title"}
+  possibleProjectTheme:     {key: De, short: "project theme Descr",     long: "Possible project theme description"}
 
 ### end ###
