@@ -30,20 +30,21 @@ t.pack(expand=True, fill=BOTH)
 t.tag_configure('bold', font=('Calibri', 13, 'bold'))
 t.tag_configure('norm', font=('Calibri', 11))
 
+row = 1
 for lpRow in lpRows:
   word1    = lpRow[0]
   wordRest = ' '.join(lpRow[1:]) # a bit inefficient computationally, but...
+  word1Len = len(word1)
+  coord1 = "%i.0"  % (row)
+  coord2 = "%i.%i" % (row, word1Len+1)
 
-.insert("1.0",   "name: ")
-.insert(END,   name + "\n")
+  t.insert(coord1, word1)
+  t.insert(coord2, wordRest)
 
-.insert(END,   "theme: ")
-.insert(END,  theme)
+  t.tag_add("bold", coord1, coord2)
+  t.tag_add("norm", coord2, END)
 
-.tag_add("norm", "1.6", "2.0") 
-.tag_add("norm", "2.7", END)
-.tag_add("bold", "1.0", "1.5")
-.tag_add("bold", "2.0", "2.6")
+  row += 1
 
 root.mainloop() 
 
