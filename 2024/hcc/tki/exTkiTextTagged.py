@@ -1,4 +1,14 @@
+# Tkinter Text widget tagging experiment
+# Brygg Ullmer, Clemson University
+# Begun 2024-09-14
+
 from tkinter import *
+import lorem
+
+#https://pypi.org/project/lorem/
+
+p = lorem.paragraph()
+
 root = Tk()              
 t = Text(root, width=400) 
 t.pack(expand=True, fill=BOTH)    
