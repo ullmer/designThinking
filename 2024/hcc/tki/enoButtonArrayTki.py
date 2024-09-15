@@ -17,8 +17,8 @@ class enoButtonArrayTki:
   buttonState  = None
   buttonTk     = None
   buttonsFrame = None
-
   buttonSide   = tk.LEFT
+  verbose      = False
   
   buttonNames     = None
   buttonKeyDict   = None
@@ -96,16 +96,16 @@ class enoButtonArrayTki:
 
     for buttonName in buttonNames:
       bkey = self.buttonKeyDict[buttonName]
-      cb   = 
+      cb   = partial(self.toggleCb, buttonName)
       self.buttonState[buttonName] = False #not activated
       self.buttonTk[buttonName]    = Button(text=bkey, command=cb)
 
   ############### button toggle callback ############### 
   
-  def toggleCB(self, coord):
-    if self.buttonState[coord]: 
-      self.buttonState[coord] = False
-      print("toggleCB on %s: off" % str(coord))
+  def toggleCB(self, buttonName):
+    if self.buttonState[buttonName]: 
+      self.buttonState[buttonName] = False
+      if self.verbose: print("toggleCB on %s: off" % str(coord))
 
 
 ### end ###
