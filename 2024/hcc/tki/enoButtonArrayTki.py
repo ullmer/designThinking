@@ -17,6 +17,10 @@ class enoButtonArrayTki:
   buttonTk     = None
   hideTitlebar = False
 
+  buttonKeyDict   = None
+  buttonShortDict = None
+  buttonLongDict  = None
+
   ############# constructor #############
 
   def __init__(self, **kwargs):
@@ -46,6 +50,14 @@ class enoButtonArrayTki:
       if 'themeFields' not in self.yamlFieldsDescriptorsD:
         self.err("loadYaml: themeFields expected but not found in YAML"); return None
 
+      for buttonHandle in self.buttonsD: #will be assiged to dictionary key, not full entry
+      bd = self.buttonsD[buttonHandle]
+      bkey, bshort, blong = bd['key'], bd['short'], bd['long']
+
+      buttonKeyDict[buttonHandle]   = bkey
+      buttonShortDict[buttonHandle] = bshort
+      buttonLongDict[buttonHandle]  = blong
+
     except:
       self.err("loadYaml error on loading and parsing); return None
 
@@ -60,11 +72,9 @@ class enoButtonArrayTki:
     self.buttonState = {}
     self.buttonTk    = {}
 
-    if 'themeFields' not in self.yamlFieldsDescriptorsD:
-      self.err("buildUI: themeFields expected but not found in YAML"); return None
-
-    self.buttonsD = self.yamlFieldsDescriptorsD['themeFields']
-
+  buttonKeyDict   = None
+  buttonShortDict = None
+  buttonLongDict  = None
 
   ############### button toggle callback ############### 
   
