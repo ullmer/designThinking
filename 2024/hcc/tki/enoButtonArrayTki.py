@@ -25,6 +25,11 @@ class enoButtonArrayTki:
   buttonShortDict = None
   buttonLongDict  = None
 
+  whichButtonsToggledOn = None
+
+  bgColor1 = '#ddd'
+  bgColor2 = '#e77'
+
   ############# constructor #############
 
   def __init__(self, **kwargs):
@@ -55,10 +60,11 @@ class enoButtonArrayTki:
       if 'themeFields' not in self.yamlFieldsDescriptorsD:
         self.err("loadYaml: themeFields expected but not found in YAML"); return None
 
-      self.buttonNames     = []
-      self.buttonKeyDict   = {}
-      self.buttonShortDict = {}
-      self.buttonLongDict  = {}
+      self.buttonNames           = []
+      self.buttonKeyDict         = {}
+      self.buttonShortDict       = {}
+      self.buttonLongDict        = {}
+      self.whichButtonsToggledOn = {}
 
       for buttonHandle in self.buttonsD: #will be assiged to dictionary key, not full entry
         bd = self.buttonsD[buttonHandle]
