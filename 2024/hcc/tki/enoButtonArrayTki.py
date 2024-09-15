@@ -21,25 +21,34 @@ class enoButtonArrayTki:
 
     self.buildUI()
 
+  ################## error ##################
+
+  def err(self, msg): print("enoButtonArrayTki error:", msg); traceback.print_exc()
+
   ################# load yaml ################# 
 
   def loadYaml(self):
     if self.yamlFieldDescriptorsFn is None:
       self.err("loadYaml error: yamlFieldDescriptors filename not set"); return None
 
-    if self.yamlFieldDescriptorsFn is None:
-      self.err("loadYaml error: yamlFieldDescriptors filename not set"); return None
+    if not(os.path.exists(self.yamlFieldDescriptorsFn):
+      self.err("loadYaml error: yamlFieldDescriptors filename reported not existing" + \
+               self.yamlFieldDescriptorsFn); return None
+
+    try:
+      f = open(self.yamlFieldDescriptorsFn)
+      self.yamlFieldDescriptorsD = yaml.safe_load(f)
+      f.close()
+    except:
+      self.err("loadYaml error on loading and parsing); return None
+
+    return True
 
   #################### build user interface ####################
 
   def buildUI(self):
-  
-    self.root = tk.Tk()
-
-    #self.root.title("Interactive grid example")
-    #self.root.geometry(self.windowGeometry)
-
-    if self.hideTitlebar: self.root.overrideredirect(1) #hide window decorations ~= titlebar
+    if self.root is None:
+      self.err("buildUI error: root must be assigned, but is not"); return None
   
     self.buttonState = {}
     self.buttonTk    = {}
