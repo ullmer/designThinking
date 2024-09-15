@@ -4,6 +4,7 @@
 
 import tkinter as tk
 import os
+from functools import partial
   
 ############# Enodia Button Array: tkinter #############
 
@@ -15,8 +16,10 @@ class enoButtonArrayTki:
   buttonD      = None #buttons data
   buttonState  = None
   buttonTk     = None
-  hideTitlebar = False
+  buttonsFrame = None
 
+  buttonSide   = tk.LEFT
+  
   buttonNames     = None
   buttonKeyDict   = None
   buttonShortDict = None
@@ -58,12 +61,13 @@ class enoButtonArrayTki:
       self.buttonLongDict  = {}
 
       for buttonHandle in self.buttonsD: #will be assiged to dictionary key, not full entry
-      bd = self.buttonsD[buttonHandle]
-      bkey, bshort, blong = bd['key'], bd['short'], bd['long']
+        bd = self.buttonsD[buttonHandle]
+        bkey, bshort, blong = bd['key'], bd['short'], bd['long']
 
-      buttonKeyDict[buttonHandle]   = bkey
-      buttonShortDict[buttonHandle] = bshort
-      buttonLongDict[buttonHandle]  = blong
+        self.buttonNames.append(buttonHandle)
+        buttonKeyDict[buttonHandle]   = bkey
+        buttonShortDict[buttonHandle] = bshort
+        buttonLongDict[buttonHandle]  = blong
 
     except:
       self.err("loadYaml error on loading and parsing); return None
@@ -75,10 +79,20 @@ class enoButtonArrayTki:
   def buildUI(self):
     if self.root is None:
       self.err("buildUI error: root must be assigned, but is not"); return None
-  
+
+    if self.buttonNames is None or len(buttonNames) < 1: 
+      self.err("buttonUI: buttonNames not as expected"); return
+
+    buttonsFrame = Frame(self.root)
+
     self.buttonState = {}
     self.buttonTk    = {}
 
+    for buttonName in buttonNames:
+      bkey = self.buttonKeyDict[buttonName]
+      cb   = 
+      self.buttonState[buttonName] = False #not activated
+      self.buttonTk[buttonName]    = Button(text=bkey, command=cb)
 
   ############### button toggle callback ############### 
   
