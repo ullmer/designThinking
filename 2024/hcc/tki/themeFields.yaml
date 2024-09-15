@@ -1,10 +1,10 @@
 themeFields: 
-  name:                     {key: N
-  currentDegreeName:        {key:
-  currentDegreeLevel:       {
-  priorDegrees:             {
+  name:                     {key: Na, short: "Name",                    long: "Name"}
+  currentDegreeName:        {key: Dn, short: "Degree name",             long: "Current degree name"}
+  currentDegreeLevel:       {key: Dl, short: "Degree level",            long: "Current degree level"}
+  priorDegrees:             {key: PD, short, "Prior degrees",           long: "Prior academic degrees"}
   briefIntroduction:        {key: In, short: "Introduction",            long: "Brief introduction"}
-  relevantAspirations:      {key: As, short: 
+  relevantAspirations:      {key: As, short: "Relevant aspirations",    long: "Class-relevant prof. aspirations"}
   classRelevantSkills:      {key: Sk, short: "Class-relevant skills",   long: "Skills relevant to the class"}
   partnerSkillsInterests:   {key: Pa, short: "Partner skill interests", long: "Skills ideally sought in partner"}
   possibleProjectThemeName: {key: Pr, short: "Project theme title",     long: "Possible project theme title"}
