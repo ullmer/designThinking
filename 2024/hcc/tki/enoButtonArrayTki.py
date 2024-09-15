@@ -3,6 +3,7 @@
 # Begun 2024-09-14
 
 import tkinter as tk
+import os
 
 class enoButtonArrayTki:
   yamlFieldDescriptorsFn = 'themeFields.yaml'
@@ -19,6 +20,15 @@ class enoButtonArrayTki:
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
 
     self.buildUI()
+
+  ################# load yaml ################# 
+
+  def loadYaml(self):
+    if self.yamlFieldDescriptorsFn is None:
+      self.err("loadYaml error: yamlFieldDescriptors filename not set"); return None
+
+    if self.yamlFieldDescriptorsFn is None:
+      self.err("loadYaml error: yamlFieldDescriptors filename not set"); return None
 
   #################### build user interface ####################
 
@@ -41,8 +51,5 @@ class enoButtonArrayTki:
       self.buttonState[coord] = False
       print("toggleCB on %s: off" % str(coord))
 
-  ################# load yaml ################# 
-
-  def loadYaml(self):
 
 ### end ###
