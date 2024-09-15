@@ -4,14 +4,17 @@
 
 import tkinter as tk
 import os
+  
+############# Enodia Button Array: tkinter #############
 
 class enoButtonArrayTki:
   yamlFieldDescriptorsFn = 'themeFields.yaml'
   yamlFieldDescriptorsD  = None
 
   root         = None
-  buttonState  = {}
-  buttonTk     = {}
+  buttonD      = None #buttons data
+  buttonState  = None
+  buttonTk     = None
   hideTitlebar = False
 
   ############# constructor #############
@@ -29,16 +32,20 @@ class enoButtonArrayTki:
 
   def loadYaml(self):
     if self.yamlFieldDescriptorsFn is None:
-      self.err("loadYaml error: yamlFieldDescriptors filename not set"); return None
+      self.err("loadYaml: yamlFieldDescriptors filename not set"); return None
 
     if not(os.path.exists(self.yamlFieldDescriptorsFn):
-      self.err("loadYaml error: yamlFieldDescriptors filename reported not existing" + \
+      self.err("loadYaml: yamlFieldDescriptors filename reported not existing" + \
                self.yamlFieldDescriptorsFn); return None
 
     try:
       f = open(self.yamlFieldDescriptorsFn)
       self.yamlFieldDescriptorsD = yaml.safe_load(f)
       f.close()
+
+      if 'themeFields' not in self.yamlFieldsDescriptorsD:
+        self.err("loadYaml: themeFields expected but not found in YAML"); return None
+
     except:
       self.err("loadYaml error on loading and parsing); return None
 
@@ -52,6 +59,12 @@ class enoButtonArrayTki:
   
     self.buttonState = {}
     self.buttonTk    = {}
+
+    if 'themeFields' not in self.yamlFieldsDescriptorsD:
+      self.err("buildUI: themeFields expected but not found in YAML"); return None
+
+    self.buttonsD = self.yamlFieldsDescriptorsD['themeFields']
+
 
   ############### button toggle callback ############### 
   
