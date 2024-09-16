@@ -41,6 +41,7 @@ class enoButtonArrayTki:
   ################## error ##################
 
   def err(self, msg): print("enoButtonArrayTki error:", msg); traceback.print_exc()
+  def msg(self, msg): print("enoButtonArrayTki msg:", msg)
 
   ################# load yaml ################# 
 
@@ -100,8 +101,14 @@ class enoButtonArrayTki:
       self.buttonState[buttonName] = False #not activated
       self.buttonTk[buttonName]    = Button(text=bkey, command=cb)
 
-  ############### button toggle callback ############### 
+    buttonsFrame.bind("<KeyPress>", self.onKeyDown)
+
+  ############### on key down ############### 
   
+  def onKeyDown(self, event): self.msg("key pressed: " + str(event))
+
+  ############### button toggle callback ############### 
+
   def toggleCB(self, buttonName):
     if self.buttonState[buttonName]: 
       self.buttonState[buttonName] = False
