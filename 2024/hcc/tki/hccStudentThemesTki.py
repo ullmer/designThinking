@@ -81,11 +81,6 @@ class studentThemesTki(studentThemes):
 
     if type(themeData) is dict: 
       try:
-        #name     = themeData['name']
-        #theme    = themeData['possibleProjectTheme']
-        #stSkills = themeData['classRelevantSkills']
-        #paSkills = themeData['partnerSkillInterests']
-
         self.tkiTextbox.tag_configure('bold', font=('Calibri', 13, 'bold'))
         self.tkiTextbox.tag_configure('norm', font=('Calibri', 11))
       
@@ -105,17 +100,6 @@ class studentThemesTki(studentThemes):
             self.tkiTextbox.tag_add("norm", coord2, coord3)
             row += val.count('\n')+1
           except: print("displayStudentTheme: ignoring problem with key", key); traceback.print_exc()
-
-        #self.tkiTextbox.insert("1.0",   "name: ")
-        #self.tkiTextbox.insert(END,   name + "\n")
-
-        #self.tkiTextbox.insert(END,   "theme: ")
-        #self.tkiTextbox.insert(END,  theme)
-
-        #self.tkiTextbox.tag_add("norm", "1.6", "2.0") 
-        #self.tkiTextbox.tag_add("norm", "2.7", END)
-        #self.tkiTextbox.tag_add("bold", "1.0", "1.5")
-        #self.tkiTextbox.tag_add("bold", "2.0", "2.6")
 
       except: print("displayStudent theme challenge"); traceback.print_exc()
 
