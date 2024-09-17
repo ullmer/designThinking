@@ -92,18 +92,18 @@ class studentThemesTki(studentThemes):
         row = 1
         for key in ['name', 'possibleProjectTheme', 'classRelevantSkills', 'partnerSkillInterests']:
           try:
-            val    = themeData[el]
-            keyLen = len(key); valLen(val)
+            val    = themeData[key]
+            keyLen = len(key); valLen = len(val)
             coord1 = "%i.0"  % (row)
-            coord2 = "%i.%i" % (row, labelLen)
-            coord3 = "%i.%i" % (row, labelLen+valLen+2)
+            coord2 = "%i.%i" % (row, keyLen+2)
+            coord3 = "%i.%i" % (row, keyLen+valLen+2)
           
             self.tkiTextbox.insert(coord1, key+': ')
-            self.tkiTextbox.insert(coord2, val)
+            self.tkiTextbox.insert(coord2, val+"\n")
             self.tkiTextbox.tag_add("bold", coord1, coord2)
             self.tkiTextbox.tag_add("norm", coord2, coord3)
-            row += 1
-          except: print("displayStudentTheme: ignoring problem with key", key)
+            row += val.count('\n')+1
+          except: print("displayStudentTheme: ignoring problem with key", key); traceback.print_exc()
 
         #self.tkiTextbox.insert("1.0",   "name: ")
         #self.tkiTextbox.insert(END,   name + "\n")
