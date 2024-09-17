@@ -22,14 +22,14 @@ st          = studentThemesTki()
 categories  = st.getCategories()
 
 for category in categories:
-  f    = Frame(root); f.pack(side=LEFT, anchor="n") #anchor to the north
-  b    = Button(f, text=category, font=headerFont, bg='#aaa')
-  b.pack(expand=True, fill=BOTH)
+  f    = Frame(root, bg='#112'); f.pack(side=LEFT, anchor="n", expand=True, fill=BOTH)
+  b    = Button(f, text=category, font=headerFont, bg='#000', fg='#eee')
+  b.pack(fill=X)
 
   subthemes = st.getCatEntries(category)
   for subtheme in subthemes:
     cb = partial(st.displayStudentTheme, subtheme) #callback to display associated information
-    b2 = Button(f, text=subtheme, width=cw, anchor="w", font=bodyFont, command=cb) #anchor to the west means left-aligned
+    b2 = Button(f, text=subtheme, width=cw, anchor="w", font=bodyFont, command=cb, bg='#444', fg='#ccc') 
     b2.pack(side=TOP)
 
 studentKeys      = st.getStudentKeys()
