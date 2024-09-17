@@ -40,6 +40,12 @@ for category in categories:
     bhm.registerButtonHandleCb(subtheme, b2, cb1)
     b2.pack(side=TOP)
 
+def bindAllWidgets(widget, keybind, cb):
+  widget.bind(keybind, cb)
+  for child in widget.winfo_children(): bindAllWidgets(child, keybind, cb)
+
+bindAllWidgets(root, '<Right>', bhm.cycleNextButton) 
+
 studentKeys      = st.getStudentKeys()
 firstStudent     = studentKeys[0]
 studentViewFrame = st.buildStudentThemeView(root, firstStudent)

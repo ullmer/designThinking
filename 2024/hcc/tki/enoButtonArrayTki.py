@@ -149,7 +149,7 @@ class buttonHighlightMgr:
     self.highlightButtonVisual(h)
     self.triggerButtonCb(h)
 
-  def cycleNextButton(self):                         
+  def cycleNextButton(self, event=None):
      h=self.getNextHandle()
      self.clearButtonsVisuals()
      self.highlightButtonVisual(h)
