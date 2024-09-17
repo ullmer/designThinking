@@ -18,6 +18,9 @@ class studentThemesTki(studentThemes):
   tkiTextbox = None
   scrollbar  = None
 
+  bg = '#333'
+  fg = '#ccc'
+
   #inherited studentThemes functions
   #__init__()
   #loadYaml()
@@ -43,7 +46,7 @@ class studentThemesTki(studentThemes):
     sv             = self.getStudentVals(studentKey)
     self.frameText = str(sv)
 
-    self.tkiTextbox   = Text(self.tkiFrame, width=self.frameWidth)
+    self.tkiTextbox   = Text(self.tkiFrame, width=self.frameWidth, bg=self.bg, fg=self.fg)
     self.tkiTextbox.insert(END, self.frameText)
 
     self.tkiTextbox.pack(expand=True, fill=BOTH, side=LEFT)
@@ -78,22 +81,40 @@ class studentThemesTki(studentThemes):
 
     if type(themeData) is dict: 
       try:
-        name  = themeData['name']
-        theme = themeData['possibleProjectTheme']
+        #name     = themeData['name']
+        #theme    = themeData['possibleProjectTheme']
+        #stSkills = themeData['classRelevantSkills']
+        #paSkills = themeData['partnerSkillInterests']
 
         self.tkiTextbox.tag_configure('bold', font=('Calibri', 13, 'bold'))
         self.tkiTextbox.tag_configure('norm', font=('Calibri', 11))
+      
+        row = 1
+        for key in ['name', 'possibleProjectTheme', 'classRelevantSkills', 'partnerSkillInterests']:
+          try:
+            val    = themeData[el]
+            keyLen = len(key); valLen(val)
+            coord1 = "%i.0"  % (row)
+            coord2 = "%i.%i" % (row, labelLen)
+            coord3 = "%i.%i" % (row, labelLen+valLen+2)
+          
+            self.tkiTextbox.insert(coord1, key+': ')
+            self.tkiTextbox.insert(coord2, val)
+            self.tkiTextbox.tag_add("bold", coord1, coord2)
+            self.tkiTextbox.tag_add("norm", coord2, coord3)
+            row += 1
+          except: print("displayStudentTheme: ignoring problem with key", key)
 
-        self.tkiTextbox.insert("1.0",   "name: ")
-        self.tkiTextbox.insert(END,   name + "\n")
+        #self.tkiTextbox.insert("1.0",   "name: ")
+        #self.tkiTextbox.insert(END,   name + "\n")
 
-        self.tkiTextbox.insert(END,   "theme: ")
-        self.tkiTextbox.insert(END,  theme)
+        #self.tkiTextbox.insert(END,   "theme: ")
+        #self.tkiTextbox.insert(END,  theme)
 
-        self.tkiTextbox.tag_add("norm", "1.6", "2.0") 
-        self.tkiTextbox.tag_add("norm", "2.7", END)
-        self.tkiTextbox.tag_add("bold", "1.0", "1.5")
-        self.tkiTextbox.tag_add("bold", "2.0", "2.6")
+        #self.tkiTextbox.tag_add("norm", "1.6", "2.0") 
+        #self.tkiTextbox.tag_add("norm", "2.7", END)
+        #self.tkiTextbox.tag_add("bold", "1.0", "1.5")
+        #self.tkiTextbox.tag_add("bold", "2.0", "2.6")
 
       except: print("displayStudent theme challenge"); traceback.print_exc()
 
