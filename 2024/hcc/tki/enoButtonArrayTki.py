@@ -121,7 +121,7 @@ class enoButtonArrayTki:
 class buttonHighlightMgr: 
   handle2button, handle2cb = {}, {}
   currentHandle = None
-  bg1, bg2 = '#444', '#a44' #bg1 = normal background color; bg2, highlighted
+  bg1, bg2 = '#444', '#722' #bg1 = normal background color; bg2, highlighted
 
   def err(self, msg): print("buttonHighlightMgr error:", msg); traceback.print_exc()
 
@@ -133,13 +133,11 @@ class buttonHighlightMgr:
 
   def clearButtonVisuals(self):
     try:
-      for h in self.handle2button(): b = self.handle2button[h]; b.configure(bg=self.bg1)
+      for h in self.handle2button: b = self.handle2button[h]; b.configure(bg=self.bg1)
     except: self.err("clearButtonVisuals")
 
   def highlightButtonVisual(self, h):
-    print("highlight button", h)
     b = self.handle2button[h]; b.configure(bg=self.bg2)
-    print(b)
 
   def triggerButtonCb(self, h):
     cb = self.handle2cb[h]

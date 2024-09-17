@@ -98,7 +98,7 @@ class studentThemesTki(studentThemes):
             self.tkiTextbox.insert(coord2, val2)
             self.tkiTextbox.tag_add("bold", coord1, coord2)
             self.tkiTextbox.tag_add("norm", coord2, coord3)
-            row += val.count('\n')+1
+            row += val.count('\n')+2
           except: print("displayStudentTheme: ignoring problem with key", key); traceback.print_exc()
 
       except: print("displayStudent theme challenge"); traceback.print_exc()
