@@ -21,6 +21,15 @@ except: bodyFont = ('Sans','13')
 st          = studentThemesTki()
 categories  = st.getCategories()
 
+############# simple button highlight manager ############# 
+
+class buttonHighlightMgr: 
+  handle2Button = {}
+  bg1, bg2 = '#444', '#ccc'
+  def registerButtonHandle(self, handleStr, button): self.handle2Button[handleStr] = button
+
+############# main ############# 
+
 for category in categories:
   f    = Frame(root, bg='#112'); f.pack(side=LEFT, anchor="n", expand=True, fill=BOTH)
   b    = Button(f, text=category, font=headerFont, bg='#000', fg='#eee')
