@@ -116,3 +116,63 @@ class enoButtonArrayTki:
 
 
 ### end ###
+# In-class example in HCC Fundamentals
+# Brygg Ullmer, Clemson University
+# Begun 2024-09-12
+
+from tkinter             import *
+from tkinter.font        import *
+from hccStudentThemesTki import *
+from functools           import partial
+
+root = Tk() 
+cw   = 25 #column width
+
+root.title("HCC student themes navigator")
+
+try:    headerFont = Font(family="Calibri", size=15, weight=BOLD)
+except: headerFont = ('Sans','15','bold') #fallback if Calibri not installed
+
+try:    bodyFont = Font(family="Calibri", size=13)
+except: bodyFont = ('Sans','13') 
+
+st          = studentThemesTki()
+categories  = st.getCategories()
+
+############# button highlight manager; may merit from fusion with above ############# 
+
+class buttonHighlightMgr: 
+  handle2button, handle2cb = {}, {}
+  currentHandle = None
+  bg1, bg2 = '#444', '#ccc' #bg1 = normal background color; bg2, highlighted
+
+  def err(self, msg): print("buttonHighlightMgr error:", msg)
+
+  def registerButtonHandle(self, handleStr, button):       self.handle2button[handleStr] = button
+  def registerHandleCb(self,     handleStr, cb):           self.handle2cb[handleStr]     = cb
+
+  def registerButtonHandleCb(self, handleStr, button, cb): 
+     self.registerHandleCb(handleStr, cb);  self.registerButtonHandle(handleStr, button)
+
+  def clearButtonVisuals(self):
+    for h in self.handle2button(): b = self.handle2button[h]; b.bg=self.bg1
+
+  def highlightButtonVisual(self, h):
+    b = self.handle2button[h]; b.bg=self.bg2
+
+  def triggerButtonCb(self, h):
+    b = self.handle2button[h]
+    try:    b.cmd()
+    except: self.err("triggerButtonCb " + str(h))
+
+  def triggerHighlightButton(self, h):   #both highlight the button, and invoke it's callback
+    self.highlightButtonVisual(h)
+    self.triggerButtonCb(h)
+
+  def cycleNextButton(self):                         
+     h=self.getNextHandle()
+     self.clearButtonsVisuals()
+     self.highlightButtonVisual(h)
+     self.triggerButtonCb(h)
+
+### end ###

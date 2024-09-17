@@ -4,8 +4,9 @@
 
 from tkinter             import *
 from tkinter.font        import *
-from hccStudentThemesTki import *
 from functools           import partial
+from hccStudentThemesTki import *
+from enoButtonArrayTki   import *
 
 root = Tk() 
 cw   = 25 #column width
@@ -21,14 +22,9 @@ except: bodyFont = ('Sans','13')
 st          = studentThemesTki()
 categories  = st.getCategories()
 
-############# simple button highlight manager ############# 
-
-class buttonHighlightMgr: 
-  handle2Button = {}
-  bg1, bg2 = '#444', '#ccc'
-  def registerButtonHandle(self, handleStr, button): self.handle2Button[handleStr] = button
-
 ############# main ############# 
+
+bhm = buttonHighlightMgr()
 
 for category in categories:
   f    = Frame(root, bg='#112'); f.pack(side=LEFT, anchor="n", expand=True, fill=BOTH)
@@ -37,8 +33,11 @@ for category in categories:
 
   subthemes = st.getCatEntries(category)
   for subtheme in subthemes:
-    cb = partial(st.displayStudentTheme, subtheme) #callback to display associated information
-    b2 = Button(f, text=subtheme, width=cw, anchor="w", font=bodyFont, command=cb, bg='#444', fg='#ccc') 
+    cb1 = partial(st.displayStudentTheme, subtheme) #callback to display associated information
+    cb2 = partial(bhm.triggerHighlightButton, subtheme)
+
+    b2 = Button(f, text=subtheme, width=cw, anchor="w", font=bodyFont, command=cb2, bg='#444', fg='#ccc') 
+    bhm.registerButtonHandleCb(subtheme, b2, cb1)
     b2.pack(side=TOP)
 
 studentKeys      = st.getStudentKeys()
