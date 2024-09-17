@@ -90,16 +90,17 @@ class studentThemesTki(studentThemes):
         self.tkiTextbox.tag_configure('norm', font=('Calibri', 11))
       
         row = 1
-        for key in ['name', 'possibleProjectTheme', 'classRelevantSkills', 'partnerSkillInterests']:
+        for key in ['name', 'possibleProjectTheme', 'classRelevantSkills', 'partnerSkillsInterests']:
           try:
             val    = themeData[key]
-            keyLen = len(key); valLen = len(val)
+            val2   = str(val).replace("\n",'')+"\n\n"
+            keyLen = len(key); valLen = len(val2)
             coord1 = "%i.0"  % (row)
             coord2 = "%i.%i" % (row, keyLen+2)
             coord3 = "%i.%i" % (row, keyLen+valLen+2)
           
             self.tkiTextbox.insert(coord1, key+': ')
-            self.tkiTextbox.insert(coord2, val+"\n")
+            self.tkiTextbox.insert(coord2, val2)
             self.tkiTextbox.tag_add("bold", coord1, coord2)
             self.tkiTextbox.tag_add("norm", coord2, coord3)
             row += val.count('\n')+1
