@@ -138,8 +138,8 @@ class buttonHighlightMgr:
     b = self.handle2button[h]; b.bg=self.bg2
 
   def triggerButtonCb(self, h):
-    b = self.handle2button[h]
-    try:    b.cmd()
+    cb = self.handle2cb[h]
+    try:    cb()
     except: self.err("triggerButtonCb " + str(h))
 
   def triggerHighlightButton(self, h):   #both highlight the button, and invoke it's callback
