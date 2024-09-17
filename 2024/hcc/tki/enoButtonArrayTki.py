@@ -4,7 +4,9 @@
 
 import tkinter as tk
 import os
-from functools import partial
+import traceback
+from tkinter.font import *
+from functools    import partial
   
 ############# Enodia Button Array: tkinter #############
 
@@ -49,7 +51,7 @@ class enoButtonArrayTki:
     if self.yamlFieldDescriptorsFn is None:
       self.err("loadYaml: yamlFieldDescriptors filename not set"); return None
 
-    if not(os.path.exists(self.yamlFieldDescriptorsFn):
+    if not(os.path.exists(self.yamlFieldDescriptorsFn)): 
       self.err("loadYaml: yamlFieldDescriptors filename reported not existing" + \
                self.yamlFieldDescriptorsFn); return None
 
@@ -77,7 +79,7 @@ class enoButtonArrayTki:
         buttonLongDict[buttonHandle]  = blong
 
     except:
-      self.err("loadYaml error on loading and parsing); return None
+      self.err("loadYaml error on loading and parsing"); return None
 
     return True
 
@@ -114,31 +116,6 @@ class enoButtonArrayTki:
       self.buttonState[buttonName] = False
       if self.verbose: print("toggleCB on %s: off" % str(coord))
 
-
-### end ###
-# In-class example in HCC Fundamentals
-# Brygg Ullmer, Clemson University
-# Begun 2024-09-12
-
-from tkinter             import *
-from tkinter.font        import *
-from hccStudentThemesTki import *
-from functools           import partial
-
-root = Tk() 
-cw   = 25 #column width
-
-root.title("HCC student themes navigator")
-
-try:    headerFont = Font(family="Calibri", size=15, weight=BOLD)
-except: headerFont = ('Sans','15','bold') #fallback if Calibri not installed
-
-try:    bodyFont = Font(family="Calibri", size=13)
-except: bodyFont = ('Sans','13') 
-
-st          = studentThemesTki()
-categories  = st.getCategories()
-
 ############# button highlight manager; may merit from fusion with above ############# 
 
 class buttonHighlightMgr: 
@@ -146,7 +123,7 @@ class buttonHighlightMgr:
   currentHandle = None
   bg1, bg2 = '#444', '#ccc' #bg1 = normal background color; bg2, highlighted
 
-  def err(self, msg): print("buttonHighlightMgr error:", msg)
+  def err(self, msg): print("buttonHighlightMgr error:", msg); traceback.print_exc()
 
   def registerButtonHandle(self, handleStr, button):       self.handle2button[handleStr] = button
   def registerHandleCb(self,     handleStr, cb):           self.handle2cb[handleStr]     = cb
