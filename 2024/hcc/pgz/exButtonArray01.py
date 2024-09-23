@@ -16,7 +16,4 @@ eba1 = enoButtonArray(buttonDim=bd, dx=bdx, labelArray=bd1Labels, basePos=bp1)
 def draw():      screen.clear(); eba1.draw(screen)
 def on_mouse_down(pos):          eba1.on_mouse_down(pos)
 
-#def on_mouse_move(rel, buttons): eba1.on_mouse_move(rel, buttons)
-#def on_mouse_up():               eba1.on_mouse_up()
-
 ### end ###

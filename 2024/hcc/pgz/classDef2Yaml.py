@@ -2,7 +2,7 @@
 # Brygg Ullmer, Clemson University
 # Begun 2024-09-10
 
-import sys 
+import sys, traceback
 
 arglen = len(sys.argv)
 
@@ -17,10 +17,14 @@ for fn in filenames:
     rawlines = f.readlines()
     print("fn:", fn)
     for rawline in rawlines:
-      if rawline.find('class ') >= 0 or rawline.find('def: ') >= 0:
-        print(rawline, endline='')
+      lstr = rawline.lstrip()
+      if len(lstr) > 0 and lstr[0] == '#': continue #ignore whole-line comments
+
+      if rawline.find('class ') >= 0 or rawline.find('def ') >= 0:
+        print(rawline, end='')
     f.close()
-  except: pass
+  except: 
+    print("error processing", fn); traceback.print_exc()
 
 ### end ###
 

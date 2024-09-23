@@ -2,6 +2,7 @@
 # Brygg Ullmer, Clemson University
 # Begun 2024-09-05
 
+from hccReadingsPg    import *
 from hccReadingsYaml  import *
 from enoGlyphArrayPgz import *
 

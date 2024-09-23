@@ -2,7 +2,7 @@
 # Brygg Ullmer, Clemson University
 # Begun 2024-08-26
 
-import sys; sys.path.append("..")
+#import sys; sys.path.append("..")
 
 WIDTH, HEIGHT = 300, 300
 

@@ -13,7 +13,7 @@ class ReadingsPg(Readings):
 
   rows, cols =   6,   2
   dx, dy     = 350, 100
-  x0, y0     =  50,  10
+  x0, y0     =  50,  70
   actors     = None
   actor2id   = None
   numRd      = None
