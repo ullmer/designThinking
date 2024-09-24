@@ -36,6 +36,7 @@ class ReadingsPg(Readings):
 
   actorSelectedId       = None
   readingTextDrawOffset = None
+  connectingLineWidth   = 1
 
   ################## constructor, error ##################
 
@@ -143,11 +144,11 @@ class ReadingsPg(Readings):
 
       if lri >= 2:
         id0, id1 = readingIds[0], readingIds[1]
-        self.drawLineBetweenReadings(screen, id0, id1, rgcolor, 2)
+        self.drawLineBetweenReadings(screen, id0, id1, rgcolor, self.connectingLineWidth)
         if lri > 2:
           for j in range(2, lri):
             id1 = readingIds[j]
-            self.drawLineBetweenReadings(screen, id0, id1, rgcolor, 2)
+            self.drawLineBetweenReadings(screen, id0, id1, rgcolor, self.connectingLineWidth)
 
   ################## on_mouse_down ##################
 
@@ -221,7 +222,12 @@ class ReadingsPg(Readings):
     y1 += ryDiv2
     y2 -= ryDiv2
 
+    x3, x4 = x1+self.rrectX, x2+self.rrectX
+    x5, x6 = x1+rxDiv2,      x2+rxDiv2
+
     screen.draw.line((x1, y1), (x2, y2), rcolor, width=lwidth)
+    screen.draw.line((x3, y1), (x4, y2), rcolor, width=lwidth)
+    screen.draw.line((x5, y1), (x6, y2), rcolor, width=lwidth)
 
 ################## main ################## 
 
