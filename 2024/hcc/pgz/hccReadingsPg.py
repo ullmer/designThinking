@@ -23,8 +23,10 @@ class ReadingsPg(Readings):
   rrectX, rrectY = 336, 92
   readingGroups  = None
   timeDotActors  = None
-  timeDotImgFn   = 'time_circ01b'
-  timeDotDefaultPos = (100, 900)
+  timeDotImgFn   = 'time_circ01e'
+  timeDotX       = 100
+  timeDotY       = 900
+  timeDotDX      = 80
 
   font1      = "oswald-medium"
   fontSize   = 40
@@ -41,6 +43,7 @@ class ReadingsPg(Readings):
   drawExtraAnnotatives  = True
 
   actorSelectedId       = None
+  dotSelected           = False
   readingTextDrawOffset = None
   connectingLineWidth   = 1
 
@@ -101,8 +104,10 @@ class ReadingsPg(Readings):
       self.readingGroups[n].append(i)
 
       if self.drawExtraAnnotatives: 
-        timeDotActor          = Actor(self.timeDotImgFn, pos=self.timeDotDefaultPos)
+        tdpos = (self.timeDotX, self.timeDotY)
+        timeDotActor          = Actor(self.timeDotImgFn, pos=tdpos)
         self.timeDotActors[i] = timeDotActor
+        self.timeDotX        += self.timeDotDX
 
   ################## calculate reading position by id ##################
 
@@ -172,25 +177,39 @@ class ReadingsPg(Readings):
       if actor.collidepoint(pos): 
         print("Actor selected:", i)
         self.actorSelectedId = i
+        return
+
+      if self.drawExtraAnnotatives: 
+        actor = self.timeDotActors[i]
+        if actor.collidepoint(pos): 
+          print("Actor selected:", i)
+          self.actorSelectedId = i
+          self.dotSelected     = True
+          return
 
   ################## on_mouse_move ##################
 
   def on_mouse_move(self, rel, buttons): 
     if self.actorSelectedId is not None:
       id     = self.actorSelectedId
-      actor  = self.actors[id]
+
+      if not(self.dotSelected): actor  = self.actors[id]
+      else:                     actor  = self.timeDotActors[id]
+
       x1, y1 = actor.pos
       dx, dy = rel
       x2, y2 = x1+dx, y1+dy
 
-      if id in self.readingTextDrawOffset: 
+      if id in self.readingTextDrawOffset and not(self.dotSelected): 
         x3, y3 = self.readingTextDrawOffset[id]
         x4, y4 = x3+dx, y3+dy
         self.readingTextDrawOffset[id] = (x4, y4)
 
       actor.pos = (x2, y2)
 
-  def on_mouse_up(self): self.actorSelectedId = None
+  def on_mouse_up(self): 
+     self.actorSelectedId = None
+     self.dotSelected     = False
 
   ################## draw reading ################## 
   
