@@ -245,19 +245,33 @@ class ReadingsPg(Readings):
       rcolor = self.getReadingGroupColor(rGn, False)
       screen.draw.rect(rrect, rcolor, width=2)
 
-  ################## draw time dot text and line ################## 
+  ################## draw time dot text ################## 
 
   def drawTimeDotText(self, screen, readingId):
     reading = self.getReading(readingId)
-    rGn = reading.readingGroupNum
-    f1, fs = self.font1, self.fontSize
+    rGn     = reading.readingGroupNum
+    f1, fs  = self.font1, self.fontSize
+
+    if rGn is not None:
+      timeDotActor = self.timeDotActors[readingId]
+      gnt  = self.getReadingGroupLetter(rGn)
+      c2   = self.getReadingGroupColor(rGn) 
+      x, y = timeDotActor.pos
+      x   -= 1 #nudge by one pixel; a detail, but shows
+      screen.draw.text(gnt, center=(x,y), fontsize=fs, fontname=f1, color=c2, alpha=.7)
+
+  ################## draw time dot text ################## 
+
+  def drawTimeDotLine(self, screen, readingId):
+    reading = self.getReading(readingId)
+    rGn     = reading.readingGroupNum
 
     if rGn is not None:
       gnt = self.getReadingGroupLetter(rGn)
       c2  = self.getReadingGroupColor(rGn) 
       timeDotActor = self.timeDotActors[readingId]
-      x, y = timeDotActor.pos
-      x -= 1 #nudge by one pixel; a detail, but shows
+      x2, y2 = timeDotActor.pos
+
       screen.draw.text(gnt, center=(x,y), fontsize=fs, fontname=f1, color=c2, alpha=.7)
 
   ################## get reading group letter ################## 
