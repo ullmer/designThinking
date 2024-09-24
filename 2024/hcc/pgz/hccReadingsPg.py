@@ -127,13 +127,15 @@ class ReadingsPg(Readings):
     x, y     = self.x0, self.y0
     
     #draw lines connecting readings within reading groups
-    if self.drawExtraAnnotatives: self.drawLinesAmongReadingsInGroups(screen)
+    if self.drawExtraAnnotatives: 
+      self.drawLinesAmongReadingsInGroups(screen)
 
-    for i in range(self.numRd):
-      if self.drawExtraAnnotatives: 
+      for i in range(self.numRd):
         timeDotActor = self.timeDotActors[i]
         timeDotActor.draw()
+        self.drawTimeDotText(screen, i)
 
+    for i in range(self.numRd):
       if i in self.readingTextDrawOffset: textDrawOffsetsSaved = True
       else:                               textDrawOffsetsSaved = False
 
@@ -245,13 +247,18 @@ class ReadingsPg(Readings):
 
   ################## draw time dot text and line ################## 
 
-  def drawTimeDotTextLine(self, screen, id):
+  def drawTimeDotText(self, screen, readingId):
     reading = self.getReading(readingId)
     rGn = reading.readingGroupNum
+    f1, fs = self.font1, self.fontSize
 
     if rGn is not None:
       gnt = self.getReadingGroupLetter(rGn)
-      c2 = self.getReadingGroupColor(rGn) 
+      c2  = self.getReadingGroupColor(rGn) 
+      timeDotActor = self.timeDotActors[readingId]
+      x, y = timeDotActor.pos
+      x -= 1 #nudge by one pixel; a detail, but shows
+      screen.draw.text(gnt, center=(x,y), fontsize=fs, fontname=f1, color=c2, alpha=.7)
 
   ################## get reading group letter ################## 
 
