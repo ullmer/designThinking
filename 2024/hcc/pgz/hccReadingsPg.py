@@ -45,7 +45,7 @@ class ReadingsPg(Readings):
   actorSelectedId       = None
   dotSelected           = False
   readingTextDrawOffset = None
-  connectingLineWidth   = 1
+  connectingLineWidth   = 3
 
   ################## constructor, error ##################
 
@@ -282,7 +282,7 @@ class ReadingsPg(Readings):
     r *= s; g *= s; b *= s
     c3    = (r,g,b,250)
 
-    screen.draw.line((x1, y1), (x2, y2), c3, width=2)
+    screen.draw.line((x1, y1), (x2, y2), c3, width=3)
 
   ################## get reading group letter ################## 
 
