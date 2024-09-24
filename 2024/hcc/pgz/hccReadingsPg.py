@@ -164,9 +164,9 @@ class ReadingsPg(Readings):
       c2 = self.getReadingGroupColor(rGn) 
       screen.draw.text(gnt, topright = (x0+285, y0+41), fontsize=fs, fontname=f1, color=c2, alpha=.7)
 
-    rrect  = pygame.Rect(x0, y0, 330, 80)
+    rrect  = pygame.Rect(x0, y0, 336, 92)
     rcolor = self.getReadingGroupColor(rGn, False)
-    screen.draw.rect(rrect, rcolor)
+    screen.draw.rect(rrect, rcolor, width=2)
 
 ################## main ################## 
 
