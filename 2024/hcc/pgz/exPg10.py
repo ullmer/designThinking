@@ -7,7 +7,7 @@ from hccReadingsPg import *
 WIDTH, HEIGHT = 1920, 1080
 
 rpg = ReadingsPg()
-bg  = Actor('bg01a')
+bg  = Actor('bg01c')
 
 def draw(): screen.clear(); bg.draw(); rpg.draw(screen); 
 def on_mouse_down(pos):                rpg.on_mouse_down(pos)

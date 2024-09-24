@@ -25,11 +25,10 @@ class ReadingsPg(Readings):
   cblack     = "#000000"
   actorBgFn  = 'readings_box_1c'
 
-  colorScaleColors = ['orange', 'purple']
+  #colorScaleColors = ['orange', 'purple']
+  #colorScaleColors = ['yellow', 'white', 'cyan', 'chartreuse', 'mauve']
+  colorScaleColors = ['yellow', 'gold', 'white', 'cyan', 'chartreuse', 'violet']
   colorScale = None
-
-#s(0).rgb
-#s(1).rgb
 
   actorSelectedId       = None
   readingTextDrawOffset = None
@@ -54,6 +53,19 @@ class ReadingsPg(Readings):
   ################## error ##################
 
   def err(self, msg): print("ReadingPg error:", msg); traceback.print_exc()
+
+  ################## get reading group color ##################
+
+  def getReadingGroupColor(self, readingGroupId): 
+    if self.numReadingGroups is None: #unassigned; error, sigh
+      self.err("getGroupColor: numReadingGroups unassigned!"); return '#aaa'; #gray
+
+    if self.colorScale is None: return '#c99' #spectra not installed, return red
+
+    ratio = float(readingGroupId) / float(self.numReadingGroups)
+    #result = self.colorScale(ratio).rgb
+    result = self.colorScale(ratio).hexcode
+    return result
 
   ################## build UI ##################
 
@@ -146,7 +158,8 @@ class ReadingsPg(Readings):
     rGn = reading.readingGroupNum
     if rGn is not None:
       gnt = str(chr(ord('A') + rGn))
-      screen.draw.text(gnt, topright = (x0+285, y0+41), fontsize=fs, fontname=f1, color=c1, alpha=.2)
+      c2 = self.getReadingGroupColor(rGn) 
+      screen.draw.text(gnt, topright = (x0+285, y0+41), fontsize=fs, fontname=f1, color=c2, alpha=.7)
 
 ################## main ################## 
 
