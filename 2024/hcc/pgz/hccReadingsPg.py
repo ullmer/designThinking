@@ -11,7 +11,7 @@ WIDTH, HEIGHT = 1200, 800
 
 class ReadingsPg(Readings):
 
-  rows, cols =   6,   2
+  rows, cols =   6,   3
   dx, dy     = 350, 100
   x0, y0     =  50,  70
   actors     = None
@@ -125,11 +125,16 @@ class ReadingsPg(Readings):
     f1, fs = self.font1, self.fontSize
     c1     = self.cwhite
   
-    screen.draw.text(au2,  topleft  = (x0+  3, y0- 7), fontsize=fs, fontname=f1, color=c1, alpha=0.2)
-    screen.draw.text(yr2,  topright = (x0+285, y0- 7), fontsize=fs, fontname=f1, color=c1, alpha=0.2)
-    screen.draw.text(abTi, topleft  = (x0+  3, y0+41), fontsize=fs, fontname=f1, color=c1, alpha=0.5)
-    screen.draw.text(mo,   topright = (x0+332, y0- 7), fontsize=fs, fontname=f1, color=c1, alpha=0.4)
-    screen.draw.text(da,   topright = (x0+332, y0+41), fontsize=fs, fontname=f1, color=c1, alpha=0.3)
+    screen.draw.text(au2,   topleft  = (x0+  3, y0- 7), fontsize=fs, fontname=f1, color=c1, alpha=0.2)
+    screen.draw.text(yr2,   topright = (x0+285, y0- 7), fontsize=fs, fontname=f1, color=c1, alpha=0.2)
+    screen.draw.text(abTi,  topleft  = (x0+  3, y0+41), fontsize=fs, fontname=f1, color=c1, alpha=0.5)
+    screen.draw.text(mo,    topright = (x0+332, y0- 7), fontsize=fs, fontname=f1, color=c1, alpha=0.4)
+    screen.draw.text(da,    topright = (x0+332, y0+41), fontsize=fs, fontname=f1, color=c1, alpha=0.3)
+
+    rGn = reading.readingGroupNum
+    if rGn is not None:
+      gnt = str(chr(ord('A') + rGn))
+      screen.draw.text(gnt, topright = (x0+285, y0+41), fontsize=fs, fontname=f1, color=c1, alpha=.2)
 
 ################## main ################## 
 

@@ -8,8 +8,9 @@ import yaml, traceback
 
 class Reading: #not catching any errors; caveat emptor
 
-  fields     = ['author', 'year', 'abbrevTitle', 'title', 'presenter', 'presentedDate']
-  fieldsDict = None
+  fields          = ['author', 'year', 'abbrevTitle', 'title', 'presenter', 'presentedDate']
+  readingGroupNum = None
+  fieldsDict      = None
 
   ################## constructor, error ##################
 
@@ -78,6 +79,7 @@ class Readings: #not catching any errors; caveat emptor
       f       = open(self.fn, 'rt')
       self.yd = yaml.safe_load(f)
       self.yc = self.yd['class'] 
+      idx     = 0
 
       for classDate in self.yc:
         classPeriod = self.yc[classDate]
@@ -86,7 +88,11 @@ class Readings: #not catching any errors; caveat emptor
 
           r = Reading()
           r.setFieldsFromYaml(reading)
+          r.readingGroupNum = idx
           self.readingList.append(r)
+
+        idx += 1 # by class period, not reading #
+
     except: self.err("loadYaml")
 
   ################## print reading abbreviations ##################
