@@ -278,6 +278,8 @@ class ReadingsPg(Readings):
     x2, y2 = timeDotActor.pos
 
     r,g,b = c2 
+    s = .7 #scale, since transparency not working (well)
+    r *= s; g *= s; b *= s
     c3    = (r,g,b,250)
 
     screen.draw.line((x1, y1), (x2, y2), c3, width=2)
@@ -306,6 +308,9 @@ class ReadingsPg(Readings):
     x5, x6 = x1+rxDiv2,      x2+rxDiv2
 
     r,g,b = rcolor
+
+    s = .7 #scale, since transparency not working (well)
+    r *= s; g *= s; b *= s
     
     rcolor2  = (r,g,b,250)
 
