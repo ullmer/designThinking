@@ -6,7 +6,7 @@ from hccReadingsYaml import *
 
 WIDTH, HEIGHT = 1200, 800
 
-rows, cols = 6, 2
+rows, cols = 6, 3
 dx, dy     = 350, 100
 
 y = y0 = 10
@@ -44,8 +44,8 @@ def draw():
       row = 0; col += 1; y = y0; x += dx
 
 def on_mouse_down(pos): 
-  if a1.collidepoint(pos): print("Actor 1 was pressed")
-  if a2.collidepoint(pos): print("Actor 2 was pressed")
+  for i in range(len(actors)):
+    if actors[i].collidepoint(pos): print("Actor " + str(i) + " was pressed")
   
 def drawReading(reading, x0, y0):
   au, yr, abTi, prDa = reading.getFields(['author', 'year', 'abbrevTitle', 'presentedDate']) 
