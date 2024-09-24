@@ -34,6 +34,9 @@ class ReadingsPg(Readings):
   colorScaleColors = ['yellow', 'gold', 'white', 'cyan', 'chartreuse', 'violet']
   colorScale = None
 
+  #drawExtraAnnotatives  = False
+  drawExtraAnnotatives  = True
+
   actorSelectedId       = None
   readingTextDrawOffset = None
   connectingLineWidth   = 1
@@ -113,7 +116,7 @@ class ReadingsPg(Readings):
     x, y     = self.x0, self.y0
     
     #draw lines connecting readings within reading groups
-    self.drawLinesAmongReadingsInGroups(screen)
+    if self.drawExtraAnnotatives: self.drawLinesAmongReadingsInGroups(screen)
 
     for i in range(self.numRd):
       if i in self.readingTextDrawOffset: textDrawOffsetsSaved = True
@@ -147,6 +150,7 @@ class ReadingsPg(Readings):
         self.drawLineBetweenReadings(screen, id0, id1, rgcolor, self.connectingLineWidth)
         if lri > 2:
           for j in range(2, lri):
+            id0 = readingIds[j-1]
             id1 = readingIds[j]
             self.drawLineBetweenReadings(screen, id0, id1, rgcolor, self.connectingLineWidth)
 
@@ -202,11 +206,13 @@ class ReadingsPg(Readings):
     if rGn is not None:
       gnt = str(chr(ord('A') + rGn))
       c2 = self.getReadingGroupColor(rGn) 
-      screen.draw.text(gnt, topright = (x0+285, y0+41), fontsize=fs, fontname=f1, color=c2, alpha=.7)
+      if self.drawExtraAnnotatives: 
+        screen.draw.text(gnt, topright = (x0+285, y0+41), fontsize=fs, fontname=f1, color=c2, alpha=.7)
 
-    rrect  = pygame.Rect(x0, y0, self.rrectX, self.rrectY)
-    rcolor = self.getReadingGroupColor(rGn, False)
-    screen.draw.rect(rrect, rcolor, width=2)
+    if self.drawExtraAnnotatives: 
+      rrect  = pygame.Rect(x0, y0, self.rrectX, self.rrectY)
+      rcolor = self.getReadingGroupColor(rGn, False)
+      screen.draw.rect(rrect, rcolor, width=2)
 
   ################## draw line between readings: bl to tl ################## 
   
