@@ -210,9 +210,16 @@ class ReadingsPg(Readings):
   ################## draw line between readings: bl to tl ################## 
   
   def drawLineBetweenReadings(self, screen, readingId1, readingId2, rcolor, lwidth=1):
-    x1, y1 = calcReadingPosById(readingId1)
-    x2, y2 = calcReadingPosById(readingId2)
-    y1 += self.rrectY
+    x1, y1 = self.calcReadingPosById(readingId1)
+    x2, y2 = self.calcReadingPosById(readingId2)
+
+    rxDiv2 = self.rrectX/2.
+    ryDiv2 = self.rrectY/2.
+
+    x1 -= rxDiv2
+    x2 -= rxDiv2
+    y1 += ryDiv2
+    y2 -= ryDiv2
 
     screen.draw.line((x1, y1), (x2, y2), rcolor, width=lwidth)
 
