@@ -72,7 +72,7 @@ class ReadingsPg(Readings):
 
   ################## get reading group color ##################
 
-  def getReadingGroupColor(self, readingGroupId, cHex=True): 
+  def getReadingGroupColor(self, readingGroupId, colorType): 
     if self.numReadingGroups is None: #unassigned; error, sigh
       self.err("getGroupColor: numReadingGroups unassigned!"); return '#aaa'; #gray
 
@@ -81,8 +81,8 @@ class ReadingsPg(Readings):
     ratio = float(readingGroupId) / float(self.numReadingGroups)
     #result = self.colorScale(ratio).rgb
 
-    if cHex: result = self.colorScale(ratio).hexcode
-    else:     r,g,b = self.colorScale(ratio).rgb; result = (r*255, g*255, b*255)
+    if colorType == 'hex': result = self.colorScale(ratio).hexcode
+    else:                  r,g,b = self.colorScale(ratio).rgb; result = (r*255, g*255, b*255)
     return result
 
   ################## build UI ##################
@@ -132,6 +132,7 @@ class ReadingsPg(Readings):
 
       for i in range(self.numRd):
         timeDotActor = self.timeDotActors[i]
+        self.drawTimeDotLine(screen, i)
         timeDotActor.draw()
         self.drawTimeDotText(screen, i)
 
@@ -160,7 +161,7 @@ class ReadingsPg(Readings):
       readingIds = self.readingGroups[i]
       lri = len(readingIds)
       if lri == 1: continue #nothing to do, onwards
-      rgcolor = self.getReadingGroupColor(i, False) #False indicates "we need color triple, not hex"
+      rgcolor = self.getReadingGroupColor(i, 'rgb')
 
       if lri >= 2:
         id0, id1 = readingIds[0], readingIds[1]
@@ -236,13 +237,13 @@ class ReadingsPg(Readings):
     rGn = reading.readingGroupNum
     if rGn is not None:
       gnt = self.getReadingGroupLetter(rGn)
-      c2 = self.getReadingGroupColor(rGn) 
+      c2 = self.getReadingGroupColor(rGn, 'hex') 
       if self.drawExtraAnnotatives: 
         screen.draw.text(gnt, topright = (x0+285, y0+41), fontsize=fs, fontname=f1, color=c2, alpha=.7)
 
     if self.drawExtraAnnotatives: 
       rrect  = pygame.Rect(x0, y0, self.rrectX, self.rrectY)
-      rcolor = self.getReadingGroupColor(rGn, False)
+      rcolor = self.getReadingGroupColor(rGn, 'rgb')
       screen.draw.rect(rrect, rcolor, width=2)
 
   ################## draw time dot text ################## 
@@ -255,7 +256,7 @@ class ReadingsPg(Readings):
     if rGn is not None:
       timeDotActor = self.timeDotActors[readingId]
       gnt  = self.getReadingGroupLetter(rGn)
-      c2   = self.getReadingGroupColor(rGn) 
+      c2   = self.getReadingGroupColor(rGn, 'hex') 
       x, y = timeDotActor.pos
       x   -= 1 #nudge by one pixel; a detail, but shows
       screen.draw.text(gnt, center=(x,y), fontsize=fs, fontname=f1, color=c2, alpha=.7)
@@ -265,14 +266,21 @@ class ReadingsPg(Readings):
   def drawTimeDotLine(self, screen, readingId):
     reading = self.getReading(readingId)
     rGn     = reading.readingGroupNum
+    if rGn is None: self.err("drawTimeDotLine: rGn error, ignoring"); return
 
-    if rGn is not None:
-      gnt = self.getReadingGroupLetter(rGn)
-      c2  = self.getReadingGroupColor(rGn) 
-      timeDotActor = self.timeDotActors[readingId]
-      x2, y2 = timeDotActor.pos
+    x1, y1 = self.calcReadingPosById(readingId)
+    ryDiv2 = self.rrectY/2.
+    y1    -= ryDiv2
 
-      screen.draw.text(gnt, center=(x,y), fontsize=fs, fontname=f1, color=c2, alpha=.7)
+    gnt = self.getReadingGroupLetter(rGn)
+    c2  = self.getReadingGroupColor(rGn, 'rgb') 
+    timeDotActor = self.timeDotActors[readingId]
+    x2, y2 = timeDotActor.pos
+
+    r,g,b = c2 
+    c3    = (r,g,b,250)
+
+    screen.draw.line((x1, y1), (x2, y2), c3, width=2)
 
   ################## get reading group letter ################## 
 
