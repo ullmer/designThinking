@@ -62,6 +62,7 @@ class Readings: #not catching any errors; caveat emptor
   yd          = None          #YAML data
   yc          = None          #YAML extraction for classes
   readingList = None
+  numReadingGroups = 0
 
   ################## constructor, err ##################
 
@@ -83,6 +84,7 @@ class Readings: #not catching any errors; caveat emptor
 
       for classDate in self.yc:
         classPeriod = self.yc[classDate]
+        self.numReadingGroups += 1 
         for reading in classPeriod:
           reading['presentedDate'] = classDate
 

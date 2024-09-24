@@ -3,6 +3,7 @@
 # Begun 2024-09-05
 
 import traceback
+import spectra
 from hccReadingsYaml import *
 
 WIDTH, HEIGHT = 1200, 800
@@ -24,6 +25,14 @@ class ReadingsPg(Readings):
   cblack     = "#000000"
   actorBgFn  = 'readings_box_1c'
 
+  colorScaleColors = ['orange', 'purple']
+  colorScale = None
+
+
+s(0).rgb
+s(1).rgb
+
+
   actorSelectedId       = None
   readingTextDrawOffset = None
 
@@ -35,11 +44,16 @@ class ReadingsPg(Readings):
     self.actor2id              = {}
     self.readingTextDrawOffset = {}
 
+    try:    self.colorScale = spectra.scale(self.colorScaleColors)
+    except: print("problems with color scale; spectra probably not installed"); pass #if spectra installed, do the right thing
+
     self.numRd    = self.size()
     rxc           = self.rows * self.cols
     if self.numRd > rxc: self.numRd = rxc
 
     self.buildUI()
+
+  ################## error ##################
 
   def err(self, msg): print("ReadingPg error:", msg); traceback.print_exc()
 
