@@ -1,0 +1,42 @@
+hccReadingsPg.py:
+
+  def __init__(): 
+  def err(msg): print("ReadingPg error:", msg); traceback.print_exc()
+  def getReadingGroupColor(readingGroupId, colorType): 
+  def buildUI(): 
+  def calcReadingPosById(readingId): 
+  
+  def draw(screen): 
+  def drawLinesAmongReadingsInGroups(screen): 
+  
+  def on_mouse_down(pos): 
+  def on_mouse_move(rel, buttons): 
+  def on_mouse_up(): 
+  
+  def drawReading(screen, readingId, x0, y0):
+  def drawTimeDotText(screen, readingId):
+  def drawTimeDotLine(screen, readingId):
+  
+  def getReadingGroupLetter(readingGroupNumber):
+  def drawLineBetweenReadings(screen, readingId1, readingId2, rcolor, lwidth=1):
+
+hccReadingsYaml.py:
+
+  ################## Reading class ##################
+  def __init__(): self.fieldsDict = {}
+  def err(msg): print("Reading error:", msg); traceback.print_exc()
+  def setFieldsFromYaml(yd):
+  def setField(field, val):  
+  def getField(field):       
+  def getFields(fields):       
+  def printReadingAbbrev():    
+  def print(): 
+
+################## Readings class ##################
+  def __init__(): 
+  def err(msg): 
+  def size(): 
+  def loadYaml(): 
+  def printReadingAbbrevs(): 
+  def getReading(i): 
+
