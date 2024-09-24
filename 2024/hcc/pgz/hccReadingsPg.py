@@ -19,6 +19,9 @@ class ReadingsPg(Readings):
   actors     = None
   actor2id   = None
   numRd      = None
+  readingGroups = None
+
+  rrectX, rrectY = 336, 92
 
   font1      = "oswald-medium"
   fontSize   = 40
@@ -84,6 +87,22 @@ class ReadingsPg(Readings):
       if row >= self.rows: 
         row = 0; col += 1; y = self.y0; x += self.dx
 
+    if self.readingGroups is None: #construct the reading groups
+      self.readingGroups = {}
+      for i in range(self.numRd):
+        n = self.getReading(i).readingGroupNum
+        if n not in self.readingGroups: self.readingGroups[n] = []
+        self.readingGroups[n].append(i)
+
+  ################## calculate reading position by id ##################
+
+  def calcReadingPosById(self, readingId): 
+    try:
+      actor  = self.actors[readingId]
+      result = actor.pos
+      return result
+    except: self.err("calcReadingPosById on readingId " + str(readingId)); return None
+
   ################## draw ##################
 
   def draw(self, screen): 
@@ -91,7 +110,7 @@ class ReadingsPg(Readings):
 
     row, col = 0, 0
     x, y     = self.x0, self.y0
-
+    
     for i in range(self.numRd):
       if i in self.readingTextDrawOffset: textDrawOffsetsSaved = True
       else:                               textDrawOffsetsSaved = False
@@ -109,6 +128,26 @@ class ReadingsPg(Readings):
 
         if row >= self.rows: 
           row = 0; col += 1; y = self.y0; x += self.dx
+
+    #draw lines connecting readings within reading groups
+    self.drawLinesAmongReadingsInGroups(screen)
+
+  ################## draw lines amongs readings in groups ##################
+
+  def drawLinesAmongReadingsInGroups(self, screen): 
+    for i in range(self.numReadingGroups):
+      readingIds = self.readingGroups[i]
+      lri = len(readingIds)
+      if lri == 1: continue #nothing to do, onwards
+      rgcolor = self.getReadingGroupColor(i, False) #False indicates "we need color triple, not hex"
+
+      if lri >= 2:
+        id0, id1 = readingIds[0], readingIds[1]
+        self.drawLineBetweenReadings(screen, id0, id1, rgcolor, 2)
+        if lri > 2:
+          for j in range(2, lri):
+            id1 = readingIds[j]
+            self.drawLineBetweenReadings(screen, id0, id1, rgcolor, 2)
 
   ################## on_mouse_down ##################
 
@@ -164,9 +203,18 @@ class ReadingsPg(Readings):
       c2 = self.getReadingGroupColor(rGn) 
       screen.draw.text(gnt, topright = (x0+285, y0+41), fontsize=fs, fontname=f1, color=c2, alpha=.7)
 
-    rrect  = pygame.Rect(x0, y0, 336, 92)
+    rrect  = pygame.Rect(x0, y0, self.rrectX, self.rrectY)
     rcolor = self.getReadingGroupColor(rGn, False)
     screen.draw.rect(rrect, rcolor, width=2)
+
+  ################## draw line between readings: bl to tl ################## 
+  
+  def drawLineBetweenReadings(self, screen, readingId1, readingId2, rcolor, lwidth=1):
+    x1, y1 = calcReadingPosById(readingId1)
+    x2, y2 = calcReadingPosById(readingId2)
+    y1 += self.rrectY
+
+    screen.draw.line((x1, y1), (x2, y2), rcolor, width=lwidth)
 
 ################## main ################## 
 
