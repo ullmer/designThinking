@@ -233,7 +233,7 @@ class ReadingsPg(Readings):
 
     rGn = reading.readingGroupNum
     if rGn is not None:
-      gnt = str(chr(ord('A') + rGn))
+      gnt = self.getReadingGroupLetter(rGn)
       c2 = self.getReadingGroupColor(rGn) 
       if self.drawExtraAnnotatives: 
         screen.draw.text(gnt, topright = (x0+285, y0+41), fontsize=fs, fontname=f1, color=c2, alpha=.7)
@@ -242,6 +242,22 @@ class ReadingsPg(Readings):
       rrect  = pygame.Rect(x0, y0, self.rrectX, self.rrectY)
       rcolor = self.getReadingGroupColor(rGn, False)
       screen.draw.rect(rrect, rcolor, width=2)
+
+  ################## draw time dot text and line ################## 
+
+  def drawTimeDotTextLine(self, screen, id):
+    reading = self.getReading(readingId)
+    rGn = reading.readingGroupNum
+
+    if rGn is not None:
+      gnt = self.getReadingGroupLetter(rGn)
+      c2 = self.getReadingGroupColor(rGn) 
+
+  ################## get reading group letter ################## 
+
+  def getReadingGroupLetter(self, readingGroupNumber):
+    result = str(chr(ord('A') + readingGroupNumber))
+    return result
 
   ################## draw line between readings: bl to tl ################## 
   
