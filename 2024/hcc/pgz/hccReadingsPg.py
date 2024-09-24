@@ -28,10 +28,8 @@ class ReadingsPg(Readings):
   colorScaleColors = ['orange', 'purple']
   colorScale = None
 
-
-s(0).rgb
-s(1).rgb
-
+#s(0).rgb
+#s(1).rgb
 
   actorSelectedId       = None
   readingTextDrawOffset = None
