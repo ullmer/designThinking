@@ -121,8 +121,6 @@ class ReadingsPg(Readings):
   ################## draw ##################
 
   def draw(self, screen): 
-    for actor in self.actors: actor.draw()
-
     row, col = 0, 0
     x, y     = self.x0, self.y0
     
@@ -135,6 +133,8 @@ class ReadingsPg(Readings):
         self.drawTimeDotLine(screen, i)
         timeDotActor.draw()
         self.drawTimeDotText(screen, i)
+
+    for actor in self.actors: actor.draw()
 
     for i in range(self.numRd):
       if i in self.readingTextDrawOffset: textDrawOffsetsSaved = True
@@ -270,7 +270,7 @@ class ReadingsPg(Readings):
 
     x1, y1 = self.calcReadingPosById(readingId)
     ryDiv2 = self.rrectY/2.
-    y1    -= ryDiv2
+    y1    += ryDiv2
 
     gnt = self.getReadingGroupLetter(rGn)
     c2  = self.getReadingGroupColor(rGn, 'rgb') 
