@@ -4,6 +4,7 @@
 
 import traceback
 import spectra
+import pygame
 from hccReadingsYaml import *
 
 WIDTH, HEIGHT = 1200, 800
@@ -56,7 +57,7 @@ class ReadingsPg(Readings):
 
   ################## get reading group color ##################
 
-  def getReadingGroupColor(self, readingGroupId): 
+  def getReadingGroupColor(self, readingGroupId, cHex=True): 
     if self.numReadingGroups is None: #unassigned; error, sigh
       self.err("getGroupColor: numReadingGroups unassigned!"); return '#aaa'; #gray
 
@@ -64,7 +65,9 @@ class ReadingsPg(Readings):
 
     ratio = float(readingGroupId) / float(self.numReadingGroups)
     #result = self.colorScale(ratio).rgb
-    result = self.colorScale(ratio).hexcode
+
+    if cHex: result = self.colorScale(ratio).hexcode
+    else:     r,g,b = self.colorScale(ratio).rgb; result = (r*255, g*255, b*255)
     return result
 
   ################## build UI ##################
@@ -160,6 +163,10 @@ class ReadingsPg(Readings):
       gnt = str(chr(ord('A') + rGn))
       c2 = self.getReadingGroupColor(rGn) 
       screen.draw.text(gnt, topright = (x0+285, y0+41), fontsize=fs, fontname=f1, color=c2, alpha=.7)
+
+    rrect  = pygame.Rect(x0, y0, 330, 80)
+    rcolor = self.getReadingGroupColor(rGn, False)
+    screen.draw.rect(rrect, rcolor)
 
 ################## main ################## 
 
