@@ -19,9 +19,12 @@ class ReadingsPg(Readings):
   actors     = None
   actor2id   = None
   numRd      = None
-  readingGroups = None
 
   rrectX, rrectY = 336, 92
+  readingGroups  = None
+  timeDotActors  = None
+  timeDotImgFn   = 'time_circ01b'
+  timeDotDefaultPos = (100, 900)
 
   font1      = "oswald-medium"
   fontSize   = 40
@@ -48,6 +51,8 @@ class ReadingsPg(Readings):
     self.actors                = []
     self.actor2id              = {}
     self.readingTextDrawOffset = {}
+    self.timeDotActors         = {}
+    self.readingGroups         = {}
 
     try:    self.colorScale = spectra.scale(self.colorScaleColors)
     except: print("problems with color scale; spectra probably not installed"); pass #if spectra installed, do the right thing
@@ -91,12 +96,13 @@ class ReadingsPg(Readings):
       if row >= self.rows: 
         row = 0; col += 1; y = self.y0; x += self.dx
 
-    if self.readingGroups is None: #construct the reading groups
-      self.readingGroups = {}
-      for i in range(self.numRd):
-        n = self.getReading(i).readingGroupNum
-        if n not in self.readingGroups: self.readingGroups[n] = []
-        self.readingGroups[n].append(i)
+      n = self.getReading(i).readingGroupNum
+      if n not in self.readingGroups: self.readingGroups[n] = []
+      self.readingGroups[n].append(i)
+
+      if self.drawExtraAnnotatives: 
+        timeDotActor          = Actor(self.timeDotImgFn, pos=self.timeDotDefaultPos)
+        self.timeDotActors[i] = timeDotActor
 
   ################## calculate reading position by id ##################
 
@@ -119,6 +125,10 @@ class ReadingsPg(Readings):
     if self.drawExtraAnnotatives: self.drawLinesAmongReadingsInGroups(screen)
 
     for i in range(self.numRd):
+      if self.drawExtraAnnotatives: 
+        timeDotActor = self.timeDotActors[i]
+        timeDotActor.draw()
+
       if i in self.readingTextDrawOffset: textDrawOffsetsSaved = True
       else:                               textDrawOffsetsSaved = False
 
