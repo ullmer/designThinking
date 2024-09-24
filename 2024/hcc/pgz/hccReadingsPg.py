@@ -112,6 +112,9 @@ class ReadingsPg(Readings):
     row, col = 0, 0
     x, y     = self.x0, self.y0
     
+    #draw lines connecting readings within reading groups
+    self.drawLinesAmongReadingsInGroups(screen)
+
     for i in range(self.numRd):
       if i in self.readingTextDrawOffset: textDrawOffsetsSaved = True
       else:                               textDrawOffsetsSaved = False
@@ -129,9 +132,6 @@ class ReadingsPg(Readings):
 
         if row >= self.rows: 
           row = 0; col += 1; y = self.y0; x += self.dx
-
-    #draw lines connecting readings within reading groups
-    self.drawLinesAmongReadingsInGroups(screen)
 
   ################## draw lines amongs readings in groups ##################
 
@@ -225,9 +225,13 @@ class ReadingsPg(Readings):
     x3, x4 = x1+self.rrectX, x2+self.rrectX
     x5, x6 = x1+rxDiv2,      x2+rxDiv2
 
-    screen.draw.line((x1, y1), (x2, y2), rcolor, width=lwidth)
-    screen.draw.line((x3, y1), (x4, y2), rcolor, width=lwidth)
-    screen.draw.line((x5, y1), (x6, y2), rcolor, width=lwidth)
+    r,g,b = rcolor
+    
+    rcolor2  = (r,g,b,250)
+
+    screen.draw.line((x1, y1), (x2, y2), rcolor2, width=lwidth)
+    screen.draw.line((x3, y1), (x4, y2), rcolor2, width=lwidth)
+    screen.draw.line((x5, y1), (x6, y2), rcolor2, width=lwidth)
 
 ################## main ################## 
 
