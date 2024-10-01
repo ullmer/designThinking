@@ -5,6 +5,8 @@
 import traceback
 import spectra
 import pygame
+from pgzero.builtins import Actor, animate, keyboard, keys
+
 from hccReadingsYaml import *
 
 WIDTH, HEIGHT = 1200, 800
@@ -46,6 +48,7 @@ class ReadingsPg(Readings):
   dotSelected           = False
   readingTextDrawOffset = None
   connectingLineWidth   = 3
+  olderPgz              = True # suppress line widths and fading
 
   ################## constructor, error ##################
 
@@ -70,6 +73,10 @@ class ReadingsPg(Readings):
 
   def err(self, msg): print("ReadingPg error:", msg); traceback.print_exc()
 
+  #def checkPgzVersion(self): 
+  #  print(dir(pgzero.builtins))
+  #  return pgzero.__version__
+
   ################## get reading group color ##################
 
   def getReadingGroupColor(self, readingGroupId, colorType): 
@@ -90,6 +97,8 @@ class ReadingsPg(Readings):
   def buildUI(self): 
     row, col = 0, 0
     x, y     = self.x0, self.y0
+
+    #print("PGZ version: ", self.checkPgzVersion())
 
     for i in range(self.numRd):
       a = Actor(self.actorBgFn, topleft=(x, y))
@@ -129,8 +138,10 @@ class ReadingsPg(Readings):
       self.drawLinesAmongReadingsInGroups(screen)
 
       for i in range(self.numRd):
-        timeDotActor = self.timeDotActors[i]
         self.drawTimeDotLine(screen, i)
+
+      for i in range(self.numRd):
+        timeDotActor = self.timeDotActors[i]
         timeDotActor.draw()
         self.drawTimeDotText(screen, i)
 
@@ -244,7 +255,10 @@ class ReadingsPg(Readings):
     if self.drawExtraAnnotatives: 
       rrect  = pygame.Rect(x0, y0, self.rrectX, self.rrectY)
       rcolor = self.getReadingGroupColor(rGn, 'rgb')
-      screen.draw.rect(rrect, rcolor, width=2)
+
+      if self.olderPgz: screen.draw.rect(rrect, rcolor)
+      else:             screen.draw.rect(rrect, rcolor, width=2)
+
 
   ################## draw time dot text ################## 
 
@@ -278,11 +292,11 @@ class ReadingsPg(Readings):
     x2, y2 = timeDotActor.pos
 
     r,g,b = c2 
-    s = .7 #scale, since transparency not working (well)
+    s = .5 #scale, since transparency not working (well)
     r *= s; g *= s; b *= s
     c3    = (r,g,b,250)
 
-    screen.draw.line((x1, y1), (x2, y2), c3, width=3)
+    screen.draw.line((x1, y1), (x2, y2), c3, width=1)
 
   ################## get reading group letter ################## 
 
