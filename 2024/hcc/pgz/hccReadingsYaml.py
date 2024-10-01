@@ -8,7 +8,7 @@ import yaml, traceback
 
 class Reading: #not catching any errors; caveat emptor
 
-  fields          = ['author', 'year', 'abbrevTitle', 'title', 'presenter', 'presentedDate']
+  fields          = ['author', 'year', 'abbrevTitle', 'abbrevTitleC', 'title', 'presenter', 'presentedDate']
   readingGroupNum = None
   fieldsDict      = None
 
