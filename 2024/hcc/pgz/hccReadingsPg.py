@@ -296,7 +296,11 @@ class ReadingsPg(Readings):
     r *= s; g *= s; b *= s
     c3    = (r,g,b,250)
 
-    screen.draw.line((x1, y1), (x2, y2), c3, width=1)
+    #screen.draw.line((x1, y1), (x2, y2), c3, width=1)
+    screen.draw.line((x1, y1), (x2, y2), c3)
+
+    #if self.olderPgz: screen.draw.rect(rrect, rcolor)
+    #else:             screen.draw.rect(rrect, rcolor, width=2)
 
   ################## get reading group letter ################## 
 
@@ -328,9 +332,14 @@ class ReadingsPg(Readings):
     
     rcolor2  = (r,g,b,250)
 
-    screen.draw.line((x1, y1), (x2, y2), rcolor2, width=lwidth)
-    screen.draw.line((x3, y1), (x4, y2), rcolor2, width=lwidth)
-    screen.draw.line((x5, y1), (x6, y2), rcolor2, width=lwidth)
+    if self.olderPgz: 
+      screen.draw.line((x1, y1), (x2, y2), rcolor2)
+      screen.draw.line((x3, y1), (x4, y2), rcolor2)
+      screen.draw.line((x5, y1), (x6, y2), rcolor2)
+    else:             
+      screen.draw.line((x1, y1), (x2, y2), rcolor2, width=lwidth)
+      screen.draw.line((x3, y1), (x4, y2), rcolor2, width=lwidth)
+      screen.draw.line((x5, y1), (x6, y2), rcolor2, width=lwidth)
 
 ################## main ################## 
 
