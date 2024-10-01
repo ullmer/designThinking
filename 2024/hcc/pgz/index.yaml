@@ -1,33 +1,33 @@
 class:
   08-27:
-    - {author: [Kling, Star], year: 1998, abbrevTitle: HCS/Org&Soc,     presenter: Ullmer,
+    - {author: [Kling, Star], year: 1998, abbrevTitle: HCS/Org&Soc, abbrevTitleC: 以人为本/社信, presenter: Ullmer,
        title:  Human Centered Systems in the Perspective of Organizational and Social Informatics}
  
   08-29:
-    - {author: Talbert,       year: 1997, abbrevTitle: Toward HCS,      presenter: Visser,
+    - {author: Talbert,       year: 1997, abbrevTitle: Toward HCS, abbrevTitleC: 走向以人为本, presenter: Visser,
        title:  Toward Human-Centered Systems}
 
-    - {author: Banon,         year: 2010, abbrevTitle: Reimagining HCI, presenter: Liu,
+    - {author: Banon,         year: 2010, abbrevTitle: Reimagining HCI, abbrevTitleC: 重构人机交互, presenter: Liu,
        title:  "Reimagining HCI: Toward a More Human-Centered Perspective"}
 
   09-03:
-    - {author: Brooks,        year: 1919, abbrevTitle: Transatlantic,   presenter: Fu,
+    - {author: Brooks,        year: 1919, abbrevTitle: Transatlantic, abbrevTitleC: 跨大西洋飞机设计,  presenter: Fu,
        title:  The Design of a Trans-Atlantic Airplane}
 
-    - {author: Markoff,       year: 1990, abbrevTitle: Fast Modems,     presenter: Fu,
+    - {author: Markoff,       year: 1990, abbrevTitle: Fast Modems,  abbrevTitleC: 调制解调器,   presenter: Fu,
        title:  "Fast Modems: All Dressed Up, With Only a Slow Way to Go"}
 
-    - {author: Freeman,       year: 1998, abbrevTitle: Earring/Broach,  presenter: Jiang,
+    - {author: Freeman,       year: 1998, abbrevTitle: Earring/Broach, abbrevTitleC: 耳环/胸针, presenter: Jiang,
        title:  A Chance to Wear Your Heart On Your Sleeve -- or Bosom}
 
-    - {author: Nabil,         year: 2021, abbrevTitle: Soft Speakers,   presenter: Jiang,
+    - {author: Nabil,         year: 2021, abbrevTitle: Soft Speakers, abbrevTitleC: 软扬声器, presenter: Jiang,
        title:  "Soft Speakers: Digital Embroidering of DIY Customizable Fabric Actuators"}
 
   09-05:
-    - {author: Bush,          year: 1945, abbrevTitle: As We May Think, presenter: Gurrieri,
+    - {author: Bush,          year: 1945, abbrevTitle: As We May Think, abbrevTitleC: 如我们所思, presenter: Gurrieri,
        title:  As We May Think}
 
-    - {author: Kenneally,     year: 2021, abbrevTitle: Brain Implants,  presenter: McGrath,
+    - {author: Kenneally,     year: 2021, abbrevTitle: Brain Implants, abbrevTitleC: 脑植入, presenter: McGrath,
        title:  "Do Brain Implants Change Your Identity?"}
 
   
