@@ -1,0 +1,12 @@
+#fadeImage {
+    transition: filter 1s ease;
+}
+
+.fade-out {
+    filter: brightness(0);
+}
+
+.fade-in {
+    filter: brightness(1);
+}
+
