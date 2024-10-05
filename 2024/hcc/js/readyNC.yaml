@@ -1,0 +1,24 @@
+# Markup by Brygg Ullmer, Clemson University 
+# Begun 2024-10-02
+ categories:
+  - {a: cwc, name: Current Weather Conditions, url: "https://www.readync.gov/stay-informed/weather"}
+  - {a: eo,  name: Evacuation Orders,  url: "https://www.readync.gov/stay-informed/evacuation-orders"}
+  - {a: er,  name: Evacuation Routes,  url: "https://www.ncdot.gov/travel-maps/maps/Pages/evacuation-routes.aspx"}
+  - {a: rc,  name: Road Conditions,    url: "https://www.readync.gov/stay-informed/road-conditions"}
+  - {a: po,  name: Power Outages,         url: "https://www.readync.gov/stay-informed/power-outages"}
+  - {a: sh,  name: Shelters,              url: "https://www.readync.gov/stay-informed/open-shelters"}
+  - {a: fg,  name: Flood Gauges - FIMAN,  url: "http://fiman.nc.gov/"}
+  - {a: da,  name: Disaster Assistance,   url: "https://www.readync.gov/recover-and-rebuild/recovery-centers"}
+  - {a: rer, name: Re-entry Registration, url: "https://www.readync.gov/recover-and-rebuild/re-entry-registration"}
+  - {a: ne,  name: Nuclear Emergencies,   url: "https://www.readync.gov/stay-informed/north-carolina-hazards/nuclear"}
+  - {a: hg,  name: Hurricane Guide,       url: "https://www.readync.gov/plan-and-prepare/hurricane-guide"}
+  - {a: pl,  name: PLAN,                relurl: "/plan-and-prepare/make-plan"}
+  - {a: pr,  name: PREPARE,             relurl: "/plan-and-prepare/get-kit"}
+  - {a: si,  name: STAY INFORMED,       relurl: "/stay-informed/emergency-alerts"}
+  - {a: asl, name: American Sign Language, url: "https://www.readync.gov/stay-informed/readync-asl-video"}
+  - {a: fb,  name: Facebook,               url: "https://www.facebook.com/NCEmergency"}
+  - {a: x,   name: X,                      url: "https://twitter.com/NCEmergency"}
+  - {a: fl,  name: Flickr,                 url: "https://www.flickr.com/photos/ncem/albums"}
+  - {a: yt,  name: YouTube,                url: "https://www.youtube.com/user/NCemergency"}
+  - {a: nc,  name: State Govt.,            url: "https://nc.gov/"}
+  - {a: acc, name: Accessibility,          url: "https://www.nc.gov/accessibility"}

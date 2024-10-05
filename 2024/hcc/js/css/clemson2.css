@@ -1,0 +1,83 @@
+/*
+Part of the Gridsphere XP theme
+Author: Oliver Wehrens (wehrens@aei.mpg.de)
+Version: $Id: clemson.css,v 1.3 2019/02/04 17:44:46 bullmer Exp bullmer $
+*/
+
+/* ANCHOR tag                                   */
+
+
+a {
+  color: #000000;
+  font-family: verdana, arial, sans-serif;
+  font-size: inherit;
+/*  font-size:13px; */
+  text-decoration: none;
+  /*font-weight:bold;  */
+}
+a:link {
+/*  color: #ddaadd;*/
+  color: #555500;   
+/*  color: #0b40A5;  */
+  text-decoration: bold;
+}
+a:visited       {
+/*  color: #0D70C6; */
+  color: #ddaadd;
+  /*color: #0735A0;*/
+  text-decoration: none;
+}
+a:active {
+/*  color: #ddaadd;*/
+  color: #30A0F0;
+/*  color: #FFCC66;*/
+}
+a:hover {
+/*  color: #ddaadd;*/
+  color: #1090D0; 
+/*  color: #30A0F0; */
+/*  color: #FFCC66;*/
+}
+
+
+/************************************************/
+/* default settings                             */
+
+body {
+  font-family: verdana, arial, sans-serif;
+  font-size:13px;
+  font-weight:normal;
+  margin: 10px;
+  /* background-color: #550055; */
+  background-color: #CC6600;
+  color: #000000;
+}
+
+
+/************************************************/
+/* table tag                                    */
+table {
+    empty-cells: show;
+   /* font-size: inherit;*/           /* important belive it or not */
+
+   font-size:13px;
+   border-width: thin;
+}
+
+td, th {
+  border: 1px;
+}
+
+
+/************************************************/
+/* input tag                                    */
+
+input[type=submit] {
+  margin-top: 2px;
+}
+
+input, select, textarea {
+  font-size: inherit;
+  font-family: courier, courier new, monospaced;
+}
+

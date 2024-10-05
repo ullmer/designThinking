@@ -1,0 +1,79 @@
+/*
+Part of the Gridsphere XP theme
+Author: Oliver Wehrens (wehrens@aei.mpg.de)
+Version: $Id: slide.css,v 1.1 2004/10/11 15:03:27 ullmer Exp ullmer $
+*/
+
+/* ANCHOR tag                                   */
+
+
+a {
+/*  color: #cceeee; */
+  color: #eeeeee;
+  font-family: verdana, arial, sans-serif;
+  font-size: inherit;
+/*  font-size:13px; */
+  text-decoration: none;
+  /*font-weight:bold;  */
+}
+a:link {
+/*  color: #ddddcc;*/
+/*  color: #cccc99; */
+  color: #bbbbbb;
+  text-decoration: bold;
+}
+a:visited       {
+/*  color: #0D70C6; */
+/*  color: #ddddcc;*/
+  color: #cccccc;
+  text-decoration: none;
+}
+a:active {
+  color: #ddddcc;
+/*  color: #FFCC66;*/
+}
+a:hover {
+/* color: #cccc99;  */
+/*  color: #ffffaa; */
+  color: #ffffff; 
+/*  color: #30A0F0; */
+/*  color: #FFCC66;*/
+}
+
+
+/************************************************/
+/* default settings                             */
+
+body {
+  font-family: verdana, arial, sans-serif;
+  font-size:13px;
+  font-weight:normal;
+  margin: 10px;
+  background-color: #000000;
+  color: #dddddd;
+}
+
+
+/************************************************/
+/* table tag                                    */
+table {
+    empty-cells: show;
+   /* font-size: inherit;*/           /* important belive it or not */
+
+   font-size:13px;
+}
+
+
+
+/************************************************/
+/* input tag                                    */
+
+input[type=submit] {
+  margin-top: 2px;
+}
+
+input, select, textarea {
+  font-size: inherit;
+  font-family: courier, courier new, monospaced;
+}
+
