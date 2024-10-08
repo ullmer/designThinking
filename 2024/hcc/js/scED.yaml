@@ -57,7 +57,7 @@ categories:
     - {a: abt,    name: About,                  durl: "node/136"}
     - {a: onl,    name: Online services,        durl: "node/146"}
     - {a: dat,    name: Data and Transparencys, durl: "node/231"}
-url: "https://sc.accessgov.com/sc/Forms/Page/sc/sc-contactus" target="_blank">Contact Us</a>
+    - {a: ctc,    name: Contact,                 url: "https://sc.accessgov.com/sc/Forms/Page/sc/sc-contactus"}
 url: "/connect-us" data-drupal-link-system-path="node/186">Connect With Us</a>
 category: Footer (right)
 url: "/help-center" data-drupal-link-system-path="node/91">Help Center</a>
