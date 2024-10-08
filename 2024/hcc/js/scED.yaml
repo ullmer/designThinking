@@ -8,25 +8,21 @@
 
 categories: 
   - Immediate Help
-    - {a: ppc,  name: Call Palmetto Poison Center,     url: "http://poison.sc.edu/calling.html"}
-    - {a: shep, name: State Highway Emergency Program, 
+    - {a: PPC,  name: Call Palmetto Poison Center,     url: "http://poison.sc.edu/calling.html"}
+    - {a: SHEP, name: State Highway Emergency Program, 
            url: "https://www.scdot.org/travel/travel-emergencyresponse.aspx"}
-    - {a: hush, name: Hurricane Shelters, 
+    - {a: HuSh, name: Hurricane Shelters, 
            url: "https://www.scdhec.gov/HomeAndEnvironment/DisasterPreparedness/Hurricanes/Sheltering/"}
 
   - General Emergency Info.
-    - {name: Amber Alerts,       url: "https://www.sled.sc.gov/AMBER.aspx"}
-    - {name: American Red Cross, url: "https://www.redcross.org/"}
-url: "https://alerts.weather.gov/cap/sc.php?x=1
-name: Current Weather Alerts
-url: "https://scdps.sc.gov/schp/webcad
-name: Emergency Traffic Network
-url: "https://www.scdot.org/travel/stormResources.aspx
-name: Evacuation Routes
-url: "https://www.fema.gov/
-name: Federal Emergency Management Agency
-url: "https://www.admin.sc.gov/services/technology-services/palmetto-800
-name: Palmetto 800
+    - {a: AmAl, name: Amber Alerts,               url: "https://www.sled.sc.gov/AMBER.aspx"}
+    - {a: ARC,  name: American Red Cross,         url: "https://www.redcross.org/"}
+    - {a: CWA,  name: Current Weather Alerts,     url: "https://alerts.weather.gov/cap/sc.php?x=1"}
+    - {a: ETN,  name: Emergency Traffic Network,  url: "https://scdps.sc.gov/schp/webcad"}
+    - {a: EvRo, name: Evacuation Routes,          url: "https://www.scdot.org/travel/stormResources.aspx"}
+    - {a: FEMA, name: Federal Emergency Management Agency, url: "https://www.fema.gov/"}
+    - {a: P800, name: Palmetto 800, 
+                        url: "https://www.admin.sc.gov/services/technology-services/palmetto-800"}
 url: "https://www.scemd.org/prepare/types-of-disasters/earthquakes/
 name: Earthquake Plan
 url: "https://www.scemd.org/prepare/types-of-disasters/hurricanes/
