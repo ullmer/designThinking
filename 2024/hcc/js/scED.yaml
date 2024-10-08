@@ -54,13 +54,12 @@ categories:
     - {a: gov,    name: Government, rurl: "/government"}
 
   - Footer
-    - {a: abt,    name: About,                  durl: "node/136"}
-    - {a: onl,    name: Online services,        durl: "node/146"}
-    - {a: dat,    name: Data and Transparencys, durl: "node/231"}
-    - {a: ctc,    name: Contact,                 url: "https://sc.accessgov.com/sc/Forms/Page/sc/sc-contactus"}
-url: "/connect-us" data-drupal-link-system-path="node/186">Connect With Us</a>
-category: Footer (right)
-url: "/help-center" data-drupal-link-system-path="node/91">Help Center</a>
+    - {a: about,    name: About,                  durl: "node/136"}
+    - {a: online,   name: Online services,        durl: "node/146"}
+    - {a: data,     name: Data and Transparencys, durl: "node/231"}
+    - {a: contact,  name: Contact,                 url: "https://sc.accessgov.com/sc/Forms/Page/sc/sc-contactus"}
+    - {a: connect,  name: Contact,                durl: "node/186"}
+    - {a: help,     name: Help Center,            durl: "node/91"}
 url: "/e11" data-drupal-link-system-path="node/71">E11</a>
 url: "https://sc.accessgov.com/sc/Forms/Page/sc/scfeedback" target="_blank">Provide Feedback</a>
 url: "/"> South Carolina </a>
