@@ -4,31 +4,31 @@
 sourceURL: "https://sc.gov/residents/protecting-your-safety/emergencies-and-disasters"
 
 categories: 
-  - Immediate Help
+  - catname: Immediate Help
     PPC:  {name: Call Palmetto Poison Center,     url: "http://poison.sc.edu/calling.html"}
     SHEP: {name: State Highway Emergency Program, 
            url: "https://www.scdot.org/travel/travel-emergencyresponse.aspx"}
     HuSh: {name: Hurricane Shelters, 
            url: "https://www.scdhec.gov/HomeAndEnvironment/DisasterPreparedness/Hurricanes/Sheltering/"}
 
-  - General Emergency Info.
-    - {a: AmAl, name: Amber Alerts,               url: "https://www.sled.sc.gov/AMBER.aspx"}
-    - {a: ARC,  name: American Red Cross,         url: "https://www.redcross.org/"}
-    - {a: CWA,  name: Current Weather Alerts,     url: "https://alerts.weather.gov/cap/sc.php?x=1"}
-    - {a: ETN,  name: Emergency Traffic Network,  url: "https://scdps.sc.gov/schp/webcad"}
-    - {a: EvRo, name: Evacuation Routes,          url: "https://www.scdot.org/travel/stormResources.aspx"}
-    - {a: FEMA, name: Federal Emergency Management Agency, url: "https://www.fema.gov/"}
-    - {a: P800, name: Palmetto 800, 
+  - catname: General Emergency Info
+    AmAl: {name: Amber Alerts,               url: "https://www.sled.sc.gov/AMBER.aspx"}
+    ARC:  {name: American Red Cross,         url: "https://www.redcross.org/"}
+    CWA:  {name: Current Weather Alerts,     url: "https://alerts.weather.gov/cap/sc.php?x=1"}
+    ETN:  {name: Emergency Traffic Network,  url: "https://scdps.sc.gov/schp/webcad"}
+    EvRo: {name: Evacuation Routes,          url: "https://www.scdot.org/travel/stormResources.aspx"}
+    FEMA: {name: Federal Emergency Management Agency, url: "https://www.fema.gov/"}
+    P800: {name: Palmetto 800, 
                         url: "https://www.admin.sc.gov/services/technology-services/palmetto-800"}
-    - {a: EaPl, name: Earthquake Plan, url: "https://www.scemd.org/prepare/types-of-disasters/earthquakes/"}
-    - {a: HuPl, name: Hurricane Plan,  url: "https://www.scemd.org/prepare/types-of-disasters/hurricanes/"}
+    EaPl: {name: Earthquake Plan, url: "https://www.scemd.org/prepare/types-of-disasters/earthquakes/"}
+    HuPl: {name: Hurricane Plan,  url: "https://www.scemd.org/prepare/types-of-disasters/hurricanes/"}
 
-  - Recover After an Emergency
-    - {a: FYLARC, name: Find Your Local American Red Cross, url: "https://www.redcross.org/find-your-local-chapter.html"}
-    - {a: EMPRP,  name: Emergency Management Division Recovery Program,  url: "https://www.scemd.org/recover/"}
-    - {a: EMDBRR, name: Emergency Management Division Business Reentry Registration, url: "https://applications.sc.gov/BusinessReentry"}
-    - {a: IA,     name: Individual Assistance,              url: "https://www.scemd.org/recover/get-help/help-for-individuals/"}
-    - {a: RR,     name: Rebuilding Resources,               url: "https://www.scemd.org/recover/"}
+  - catname: Recover After an Emergency
+    FYLARC: {name: Find Your Local American Red Cross, url: "https://www.redcross.org/find-your-local-chapter.html"}
+    EMPRP:  {name: Emergency Management Division Recovery Program,  url: "https://www.scemd.org/recover/"}
+    EMDBRR: {name: Emergency Management Division Business Reentry Registration, url: "https://applications.sc.gov/BusinessReentry"}
+    IA:     {name: Individual Assistance,              url: "https://www.scemd.org/recover/get-help/help-for-individuals/"}
+    RR:     {name: Rebuilding Resources,               url: "https://www.scemd.org/recover/"}
 
   - Prepare Before an Emergency
     - {a: HuPr,   name: Hurricane Preparedness,  url: "https://des.sc.gov/community/disaster-preparedness-relief/hurricanes-floods"}
