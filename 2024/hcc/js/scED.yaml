@@ -63,10 +63,8 @@ categories:
     - {a: e11,      name: E11,                    durl: "node/71"}
     - {a: feedback, name: Provide Feedback,        url: "https://sc.accessgov.com/sc/Forms/Page/sc/scfeedback"}
     - {a: sc,       name: South Carolina,         rurl: "/"}
-category: Follow Us:
-url: "https://www.linkedin.com/company/state-of-south-carolina/" aria-label="LinkedIn - https://www.linkedin.com/company/state-of-south-carolina/">LinkedIn</a>
-category: Footer (bottom)
-url: "/accessibility-policy" data-drupal-link-system-path="node/101">Accessibility Policy</a>
+    - {a: linkedin, name: Follow us/LinkedIn,      url: "https://www.linkedin.com/company/state-of-south-carolina/"}
+    - {a: accsblty, name: Accessibility Policy,   rurl: "/accessibility-policy"}
 url: "/linking-policy" data-drupal-link-system-path="node/126">Linking Policy</a>
 url: "/privacy-and-security-policy" data-drupal-link-system-path="node/116">Privacy &amp; Security Policy</a>
 url: "/terms-and-conditions" data-drupal-link-system-path="node/131">Terms &amp; Conditions </a>
