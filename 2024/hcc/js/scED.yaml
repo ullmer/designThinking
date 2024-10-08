@@ -1,0 +1,95 @@
+# Markup by Brygg Ullmer, Clemson University 
+# Begun 2024-10-08
+
+ sourceURL: "https://sc.gov/residents/protecting-your-safety/emergencies-and-disasters"
+
+ categories:
+  - {a: cwc, name: Current Weather Conditions, url: "https://www.readync.gov/stay-informed/weather"}
+
+categories: 
+  - Immediate Help
+    - {a: ppc,  name: Call Palmetto Poison Center,     url: "http://poison.sc.edu/calling.html"}
+    - {a: shep, name: State Highway Emergency Program, 
+           url: "https://www.scdot.org/travel/travel-emergencyresponse.aspx"}
+    - {a: hush, name: Hurricane Shelters, 
+           url: "https://www.scdhec.gov/HomeAndEnvironment/DisasterPreparedness/Hurricanes/Sheltering/"}
+
+  - General Emergency Info.
+    - {name: Amber Alerts,       url: "https://www.sled.sc.gov/AMBER.aspx"}
+    - {name: American Red Cross, url: "https://www.redcross.org/"}
+url: "https://alerts.weather.gov/cap/sc.php?x=1
+name: Current Weather Alerts
+url: "https://scdps.sc.gov/schp/webcad
+name: Emergency Traffic Network
+url: "https://www.scdot.org/travel/stormResources.aspx
+name: Evacuation Routes
+url: "https://www.fema.gov/
+name: Federal Emergency Management Agency
+url: "https://www.admin.sc.gov/services/technology-services/palmetto-800
+name: Palmetto 800
+url: "https://www.scemd.org/prepare/types-of-disasters/earthquakes/
+name: Earthquake Plan
+url: "https://www.scemd.org/prepare/types-of-disasters/hurricanes/
+name: Hurricane Plan
+category: Recover After an Emergency
+url: "https://www.redcross.org/find-your-local-chapter.html
+name: Find Your Local American Red Cross
+url: "https://www.scemd.org/recover/
+name: Emergency Management Division Recovery Program
+url: "https://applications.sc.gov/BusinessReentry
+name: Emergency Management Division Business Reentry Registration
+url: "https://www.scemd.org/recover/get-help/help-for-individuals/
+name: Individual Assistance
+url: "https://www.scemd.org/recover/
+name: Rebuilding Resources
+category: Prepare Before an Emergency
+url: "https://des.sc.gov/community/disaster-preparedness-relief/hurricanes-floods
+name: Hurricane Preparedness
+url: "https://www.scemd.org/prepare/types-of-disasters/fire/
+name: Home and Fire Safety: Disaster Plan
+url: "https://www.scdhec.gov/disaster-preparedness
+name: Health Emergencies Planning and Information
+url: "https://www.ready.gov/make-a-plan
+name: Citizen Preparedness Guide
+url: "https://www.scemd.org/prepare/know-your-zone/
+name: County Emergency Management Agencies
+url: "https://dss.sc.gov/about/disaster-response/
+name: Disaster Response Services
+url: "https://www.scdot.org/travel/travel-emergencyresponse.aspx
+name: Department of Transportation Emergency Response
+url: "https://scemd.org/prepare/
+name: Prepare for a Disaster
+url: "https://www.scemd.org/prepare/your-emergency-plan/
+name: Emergency Planning for Your Family
+url: "https://scemd.org/prepare/preparing-a-business/
+name: Emergency Planning for Your Business
+url: "https://applications.sc.gov/BusinessReentry
+name: Emergency Management Division Business Reentry Registration
+url: "http://nokr.org/nok/restricted/home.htm
+name: National Next of Kin Registry
+
+
+category: Main navigation
+url: "/residents
+url: "/visitors
+url: "/business
+url: "/government
+category: Footer (left)
+url: "/about-us" data-drupal-link-system-path="node/136">About Us</a>
+url: "/online-services" data-drupal-link-system-path="node/146">Online Services</a>
+url: "/data-and-transparency" data-drupal-link-system-path="node/231">Data &amp; Transparency</a>
+url: "https://sc.accessgov.com/sc/Forms/Page/sc/sc-contactus" target="_blank">Contact Us</a>
+url: "/connect-us" data-drupal-link-system-path="node/186">Connect With Us</a>
+category: Footer (right)
+url: "/help-center" data-drupal-link-system-path="node/91">Help Center</a>
+url: "/e11" data-drupal-link-system-path="node/71">E11</a>
+url: "https://sc.accessgov.com/sc/Forms/Page/sc/scfeedback" target="_blank">Provide Feedback</a>
+url: "/"> South Carolina </a>
+category: Follow Us:
+url: "https://www.linkedin.com/company/state-of-south-carolina/" aria-label="LinkedIn - https://www.linkedin.com/company/state-of-south-carolina/">LinkedIn</a>
+category: Footer (bottom)
+url: "/accessibility-policy" data-drupal-link-system-path="node/101">Accessibility Policy</a>
+url: "/linking-policy" data-drupal-link-system-path="node/126">Linking Policy</a>
+url: "/privacy-and-security-policy" data-drupal-link-system-path="node/116">Privacy &amp; Security Policy</a>
+url: "/terms-and-conditions" data-drupal-link-system-path="node/131">Terms &amp; Conditions </a>
+### end ###
