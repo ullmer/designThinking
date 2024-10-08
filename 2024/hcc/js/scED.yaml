@@ -32,13 +32,11 @@ categories:
     - {a: EMDBRR, name: Emergency Management Division Business Reentry Registration, url: "https://applications.sc.gov/BusinessReentry"}
     - {a: IA,     name: Individual Assistance,              url: "https://www.scemd.org/recover/get-help/help-for-individuals/"}
     - {a: RR,     name: Rebuilding Resources,               url: "https://www.scemd.org/recover/"}
-category: Prepare Before an Emergency
-url: "https://des.sc.gov/community/disaster-preparedness-relief/hurricanes-floods
-name: Hurricane Preparedness
-url: "https://www.scemd.org/prepare/types-of-disasters/fire/
-name: Home and Fire Safety: Disaster Plan
-url: "https://www.scdhec.gov/disaster-preparedness
-name: Health Emergencies Planning and Information
+
+  - Prepare Before an Emergency
+    - {a: HuPr,   name: Hurricane Preparedness,  url: "https://des.sc.gov/community/disaster-preparedness-relief/hurricanes-floods"}
+    - {a: HFSDP,  name: Home and Fire Safety: Disaster Plan, url: "https://www.scemd.org/prepare/types-of-disasters/fire/"}
+    - {a: HEPI,   name: Health Emergencies Planning and Information, url: "https://www.scdhec.gov/disaster-preparedness"}
 url: "https://www.ready.gov/make-a-plan
 name: Citizen Preparedness Guide
 url: "https://www.scemd.org/prepare/know-your-zone/
