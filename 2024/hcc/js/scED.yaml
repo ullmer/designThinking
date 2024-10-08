@@ -30,40 +30,40 @@ categories:
     IA:     {name: Individual Assistance,              url: "https://www.scemd.org/recover/get-help/help-for-individuals/"}
     RR:     {name: Rebuilding Resources,               url: "https://www.scemd.org/recover/"}
 
-  - Prepare Before an Emergency
-    - {a: HuPr,   name: Hurricane Preparedness,  url: "https://des.sc.gov/community/disaster-preparedness-relief/hurricanes-floods"}
-    - {a: HFSDP,  name: Home and Fire Safety: Disaster Plan, url: "https://www.scemd.org/prepare/types-of-disasters/fire/"}
-    - {a: HEPI,   name: Health Emergencies Planning and Information, url: "https://www.scdhec.gov/disaster-preparedness"}
-    - {a: CPG,    name: Citizen Preparedness Guide,                  url: "https://www.ready.gov/make-a-plan"}
-    - {a: CEMA,   name: County Emergency Management Agencies,        url: "https://www.scemd.org/prepare/know-your-zone/"}
-    - {a: DRS,    name: Disaster Response Services,                  url: "https://dss.sc.gov/about/disaster-response/"}
-    - {a: DTER,   name: Department of Transportation Emergency Response, url: "https://www.scdot.org/travel/travel-emergencyresponse.aspx"}
-    - {a: PfaD,   name: Prepare for a Disaster,                      url: "https://scemd.org/prepare/"}
-    - {a: EPfyF,  name: Emergency Planning for Your Family,          url: "https://www.scemd.org/prepare/your-emergency-plan/"}
-    - {a: EPfyB,  name: Emergency Planning for Your Business,        url: "https://scemd.org/prepare/preparing-a-business/"}
-    - {a: EMDBRR, name: Emergency Management Division Business Reentry Registration, url: "https://applications.sc.gov/BusinessReentry"}
-    - {a: NNoKR,  name: National Next of Kin Registry,               url: "http://nokr.org/nok/restricted/home.htm"}
+  - catname: Prepare Before an Emergency
+    HuPr:   {name: Hurricane Preparedness,  url: "https://des.sc.gov/community/disaster-preparedness-relief/hurricanes-floods"}
+    HFSDP:  {name: Home and Fire Safety: Disaster Plan, url: "https://www.scemd.org/prepare/types-of-disasters/fire/"}
+    HEPI:   {name: Health Emergencies Planning and Information, url: "https://www.scdhec.gov/disaster-preparedness"}
+    CPG:    {name: Citizen Preparedness Guide,                  url: "https://www.ready.gov/make-a-plan"}
+    CEMA:   {name: County Emergency Management Agencies,        url: "https://www.scemd.org/prepare/know-your-zone/"}
+    DRS:    {name: Disaster Response Services,                  url: "https://dss.sc.gov/about/disaster-response/"}
+    DTER:   {name: Department of Transportation Emergency Response, url: "https://www.scdot.org/travel/travel-emergencyresponse.aspx"}
+    PfaD:   {name: Prepare for a Disaster,                      url: "https://scemd.org/prepare/"}
+    EPfyF:  {name: Emergency Planning for Your Family,          url: "https://www.scemd.org/prepare/your-emergency-plan/"}
+    EPfyB:  {name: Emergency Planning for Your Business,        url: "https://scemd.org/prepare/preparing-a-business/"}
+    EMDBRR: {name: Emergency Management Division Business Reentry Registration, url: "https://applications.sc.gov/BusinessReentry"}
+    NNoKR:  {name: National Next of Kin Registry,               url: "http://nokr.org/nok/restricted/home.htm"}
 
-  - Main navigation
-    - {a: res,    name: Residents,  rurl: "/residents"}
-    - {a: vis,    name: Visitors,   rurl: "/visitors"}
-    - {a: biz,    name: Business,   rurl: "/business"}
-    - {a: gov,    name: Government, rurl: "/government"}
+  - catname: Main navigation
+    res: {name: Residents,  rurl: "/residents"}
+    vis: {name: Visitors,   rurl: "/visitors"}
+    biz: {name: Business,   rurl: "/business"}
+    gov: {name: Government, rurl: "/government"}
 
-  - Footer
-    - {a: about,    name: About,                  durl: "node/136"}
-    - {a: online,   name: Online services,        durl: "node/146"}
-    - {a: data,     name: Data and Transparencys, durl: "node/231"}
-    - {a: contact,  name: Contact,                 url: "https://sc.accessgov.com/sc/Forms/Page/sc/sc-contactus"}
-    - {a: connect,  name: Contact,                durl: "node/186"}
-    - {a: help,     name: Help Center,            durl: "node/91"}
-    - {a: e11,      name: E11,                    durl: "node/71"}
-    - {a: feedback, name: Provide Feedback,        url: "https://sc.accessgov.com/sc/Forms/Page/sc/scfeedback"}
-    - {a: sc,       name: South Carolina,         rurl: "/"}
-    - {a: linkedin, name: Follow us/LinkedIn,      url: "https://www.linkedin.com/company/state-of-south-carolina/"}
-    - {a: accsblty, name: Accessibility Policy,   rurl: "/accessibility-policy"}
-    - {a: linkPlcy, name: Linking Policy,              rurl: "/linking-policy"}
-    - {a: PrivSec,  name: Privacy and Security Policy, rurl: "/privacy-and-security-policy"}
-    - {a: Terms,    name: Terms and conditions,        rurl: "/terms-and-conditions"}
+  - catname: Footer
+    about:    {name: About,                  durl: "node/136"} #replace durl with rurl
+    online:   {name: Online services,        durl: "node/146"}
+    data:     {name: Data and Transparencys, durl: "node/231"}
+    contact:  {name: Contact,                 url: "https://sc.accessgov.com/sc/Forms/Page/sc/sc-contactus"}
+    connect:  {name: Contact,                durl: "node/186"}
+    help:     {name: Help Center,            durl: "node/91"}
+    e11:      {name: E11,                    durl: "node/71"}
+    feedback: {name: Provide Feedback,        url: "https://sc.accessgov.com/sc/Forms/Page/sc/scfeedback"}
+    sc:       {name: South Carolina,         rurl: "/"}
+    linkedin: {name: Follow us/LinkedIn,      url: "https://www.linkedin.com/company/state-of-south-carolina/"}
+    accsblty: {name: Accessibility Policy,   rurl: "/accessibility-policy"}
+    linkPlcy: {name: Linking Policy,              rurl: "/linking-policy"}
+    PrivSec:  {name: Privacy and Security Policy, rurl: "/privacy-and-security-policy"}
+    Terms:    {name: Terms and conditions,        rurl: "/terms-and-conditions"}
 
 ### end ###
