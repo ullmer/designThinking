@@ -23,21 +23,15 @@ categories:
     - {a: FEMA, name: Federal Emergency Management Agency, url: "https://www.fema.gov/"}
     - {a: P800, name: Palmetto 800, 
                         url: "https://www.admin.sc.gov/services/technology-services/palmetto-800"}
-url: "https://www.scemd.org/prepare/types-of-disasters/earthquakes/
-name: Earthquake Plan
-url: "https://www.scemd.org/prepare/types-of-disasters/hurricanes/
-name: Hurricane Plan
-category: Recover After an Emergency
-url: "https://www.redcross.org/find-your-local-chapter.html
-name: Find Your Local American Red Cross
-url: "https://www.scemd.org/recover/
-name: Emergency Management Division Recovery Program
-url: "https://applications.sc.gov/BusinessReentry
-name: Emergency Management Division Business Reentry Registration
-url: "https://www.scemd.org/recover/get-help/help-for-individuals/
-name: Individual Assistance
-url: "https://www.scemd.org/recover/
-name: Rebuilding Resources
+    - {a: EaPl, name: Earthquake Plan, url: "https://www.scemd.org/prepare/types-of-disasters/earthquakes/"}
+    - {a: HuPl, name: Hurricane Plan,  url: "https://www.scemd.org/prepare/types-of-disasters/hurricanes/"}
+
+  - Recover After an Emergency
+    - {a: FYLARC, name: Find Your Local American Red Cross, url: "https://www.redcross.org/find-your-local-chapter.html"}
+    - {a: EMPRP,  name: Emergency Management Division Recovery Program,  url: "https://www.scemd.org/recover/"}
+    - {a: EMDBRR, name: Emergency Management Division Business Reentry Registration, url: "https://applications.sc.gov/BusinessReentry"}
+    - {a: IA,     name: Individual Assistance,              url: "https://www.scemd.org/recover/get-help/help-for-individuals/"}
+    - {a: RR,     name: Rebuilding Resources,               url: "https://www.scemd.org/recover/"}
 category: Prepare Before an Emergency
 url: "https://des.sc.gov/community/disaster-preparedness-relief/hurricanes-floods
 name: Hurricane Preparedness
