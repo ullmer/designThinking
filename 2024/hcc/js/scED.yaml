@@ -60,9 +60,9 @@ categories:
     - {a: contact,  name: Contact,                 url: "https://sc.accessgov.com/sc/Forms/Page/sc/sc-contactus"}
     - {a: connect,  name: Contact,                durl: "node/186"}
     - {a: help,     name: Help Center,            durl: "node/91"}
-url: "/e11" data-drupal-link-system-path="node/71">E11</a>
-url: "https://sc.accessgov.com/sc/Forms/Page/sc/scfeedback" target="_blank">Provide Feedback</a>
-url: "/"> South Carolina </a>
+    - {a: e11,      name: E11,                    durl: "node/71"}
+    - {a: feedback, name: Provide Feedback,        url: "https://sc.accessgov.com/sc/Forms/Page/sc/scfeedback"}
+    - {a: sc,       name: South Carolina,         rurl: "/"}
 category: Follow Us:
 url: "https://www.linkedin.com/company/state-of-south-carolina/" aria-label="LinkedIn - https://www.linkedin.com/company/state-of-south-carolina/">LinkedIn</a>
 category: Footer (bottom)
