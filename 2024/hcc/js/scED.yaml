@@ -5,10 +5,10 @@ sourceURL: "https://sc.gov/residents/protecting-your-safety/emergencies-and-disa
 
 categories: 
   - Immediate Help
-    - {a: PPC,  name: Call Palmetto Poison Center,     url: "http://poison.sc.edu/calling.html"}
-    - {a: SHEP, name: State Highway Emergency Program, 
+    PPC:  {name: Call Palmetto Poison Center,     url: "http://poison.sc.edu/calling.html"}
+    SHEP: {name: State Highway Emergency Program, 
            url: "https://www.scdot.org/travel/travel-emergencyresponse.aspx"}
-    - {a: HuSh, name: Hurricane Shelters, 
+    HuSh: {name: Hurricane Shelters, 
            url: "https://www.scdhec.gov/HomeAndEnvironment/DisasterPreparedness/Hurricanes/Sheltering/"}
 
   - General Emergency Info.
