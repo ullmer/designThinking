@@ -37,35 +37,26 @@ categories:
     - {a: HuPr,   name: Hurricane Preparedness,  url: "https://des.sc.gov/community/disaster-preparedness-relief/hurricanes-floods"}
     - {a: HFSDP,  name: Home and Fire Safety: Disaster Plan, url: "https://www.scemd.org/prepare/types-of-disasters/fire/"}
     - {a: HEPI,   name: Health Emergencies Planning and Information, url: "https://www.scdhec.gov/disaster-preparedness"}
-url: "https://www.ready.gov/make-a-plan
-name: Citizen Preparedness Guide
-url: "https://www.scemd.org/prepare/know-your-zone/
-name: County Emergency Management Agencies
-url: "https://dss.sc.gov/about/disaster-response/
-name: Disaster Response Services
-url: "https://www.scdot.org/travel/travel-emergencyresponse.aspx
-name: Department of Transportation Emergency Response
-url: "https://scemd.org/prepare/
-name: Prepare for a Disaster
-url: "https://www.scemd.org/prepare/your-emergency-plan/
-name: Emergency Planning for Your Family
-url: "https://scemd.org/prepare/preparing-a-business/
-name: Emergency Planning for Your Business
-url: "https://applications.sc.gov/BusinessReentry
-name: Emergency Management Division Business Reentry Registration
-url: "http://nokr.org/nok/restricted/home.htm
-name: National Next of Kin Registry
+    - {a: CPG,    name: Citizen Preparedness Guide,                  url: "https://www.ready.gov/make-a-plan"}
+    - {a: CEMA,   name: County Emergency Management Agencies,        url: "https://www.scemd.org/prepare/know-your-zone/"}
+    - {a: DRS,    name: Disaster Response Services,                  url: "https://dss.sc.gov/about/disaster-response/"}
+    - {a: DTER,   name: Department of Transportation Emergency Response, url: "https://www.scdot.org/travel/travel-emergencyresponse.aspx"}
+    - {a: PfaD,   name: Prepare for a Disaster,                      url: "https://scemd.org/prepare/"}
+    - {a: EPfyF,  name: Emergency Planning for Your Family,          url: "https://www.scemd.org/prepare/your-emergency-plan/"}
+    - {a: EPfyB,  name: Emergency Planning for Your Business,        url: "https://scemd.org/prepare/preparing-a-business/"}
+    - {a: EMDBRR, name: Emergency Management Division Business Reentry Registration, url: "https://applications.sc.gov/BusinessReentry"}
+    - {a: NNoKR,  name: National Next of Kin Registry,               url: "http://nokr.org/nok/restricted/home.htm"}
 
+  - Main navigation
+    - {a: res,    name: Residents,  rurl: "/residents"}
+    - {a: vis,    name: Visitors,   rurl: "/visitors"}
+    - {a: biz,    name: Business,   rurl: "/business"}
+    - {a: gov,    name: Government, rurl: "/government"}
 
-category: Main navigation
-url: "/residents
-url: "/visitors
-url: "/business
-url: "/government
-category: Footer (left)
-url: "/about-us" data-drupal-link-system-path="node/136">About Us</a>
-url: "/online-services" data-drupal-link-system-path="node/146">Online Services</a>
-url: "/data-and-transparency" data-drupal-link-system-path="node/231">Data &amp; Transparency</a>
+  - Footer
+    - {a: abt,    name: About,                  durl: "node/136"}
+    - {a: onl,    name: Online services,        durl: "node/146"}
+    - {a: dat,    name: Data and Transparencys, durl: "node/231"}
 url: "https://sc.accessgov.com/sc/Forms/Page/sc/sc-contactus" target="_blank">Contact Us</a>
 url: "/connect-us" data-drupal-link-system-path="node/186">Connect With Us</a>
 category: Footer (right)
