@@ -18,9 +18,10 @@ cube1b = translate([-.5, -.5, 0])(cube1a)
 cube1c = scale([2, .2, 2])(cube1b)
 
 cube2a = cube(2)
-cube2b = translate([-1, -1, 1])(cube2a)
+cube2b = translate([-1.3, -.8, 1])(cube2a)
+cube2c = rotate(a =[0, 15, 0])(    cube2b)
 
-outGeom = cyl1b - cyl2b - cube1c + cyl3b + cube2b
+outGeom = cyl1b - cyl2b - cube1c + cyl3b + cube2c
 
 radialSegments = 90; hdr = '$fn = %s;' % radialSegments # create a header for the export
 scad_render_to_file(outGeom, 'exSolid03b.scad', file_header=hdr) # write the .scad file
