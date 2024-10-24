@@ -1,6 +1,6 @@
 # SolidPython example code 
 # Brygg Ullmer, Clemson University
-# Written 2021-10-27
+# Written 2024-10-24
 
 from solid import *        # load in SolidPython/SCAD support code
 
