@@ -5,7 +5,8 @@
 from solid import *        # load in SolidPython/SCAD support code
 
 cyl1a = cylinder(r=.5,  h=1.5); cyl1b = scale([1.5, 1, 1])(cyl1a)
-cyl2a = cylinder(r=.4,  h=2);   cyl2b = scale([1.5, 1, 1])(cyl2a)
+#cyl2a = cylinder(r=.4,  h=2);   cyl2b = scale([1.5, 1, 1])(cyl2a)
+cyl2a = cylinder(r=.4,  h=2);   cyl2b = scale([1.6, 1.1, 1])(cyl2a)
 cyl3a = cylinder(r=.45, h=2);   cyl3b = rotate(a = [90, 0, 0])(cyl3a)
 cyl4a = cylinder(r=.5,  h=2);   cyl4b = rotate(a = [90, 0, 0])(cyl4a)
 cyl5a = cylinder(r=.65, h=2);   cyl5b = rotate(a = [90, 0, 0])(cyl5a)
