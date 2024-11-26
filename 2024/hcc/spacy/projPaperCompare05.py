@@ -104,15 +104,15 @@ if __name__ == "__main__":
       except: print("ignoring ", id); traceback.print_exc();
 
     print("=" * 40)
-    titleScoresL.sort(reverse=True); summaryScoresL.sort(reverse=True) //
-    print(titleScoresL[:5]);         print(summaryScoresL[:5])
+    titleScoresL.sort(reverse=True); summaryScoresL.sort(reverse=True)  //sort by similarity metric, most similar first
+    print(titleScoresL[0:5]);        print(summaryScoresL[0:5])         //list IDs of top-5 "most similar"
   
-    print(pt); print(ps)
-
+    print(pt); print(ps)                                                         //G
+                                                                              
     print("\nsimilarity by project title")                                       //x
-    for i in titleScoresL[-5:]:   print(titleScoresD[i])
+    for i in titleScoresL[0:5]:   print(titleScoresD[i])   // G: print IUI articles by similarity with 8310 student project title
 
-    print("\nsimilarity by project summary")
-    for i in summaryScoresL[-5:]: print(summaryScoresD[i])
+    print("\nsimilarity by project summary")                                     //x
+    for i in summaryScoresL[0:5]: print(summaryScoresD[i]) // G: print IUI articles by similarity with 8310 student project description
 
 ### end ###
