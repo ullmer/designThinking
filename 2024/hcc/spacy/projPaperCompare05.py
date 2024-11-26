@@ -108,7 +108,6 @@ if __name__ == "__main__":
     print(titleScoresL[0:5]);        print(summaryScoresL[0:5])         //list IDs of top-5 "most similar"
   
     print(pt); print(ps)                                                         //G
-                                                                              
     print("\nsimilarity by project title")                                       //x
     for i in titleScoresL[0:5]:   print(titleScoresD[i])   // G: print IUI articles by similarity with 8310 student project title
 
