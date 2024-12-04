@@ -61,7 +61,7 @@ class ReadingsPg(Readings):
     self.timeDotActors         = {}
     self.readingGroups         = {}
 
-    try:    self.colorScale = spectra.scale(self.colorScaleColors)
+    try:    self.colorScale = spectra.scale(self.colorScaleColors)    //A
     except: print("problems with color scale; spectra probably not installed"); pass #if spectra installed, do the right thing
 
     self.numRd    = self.size()
@@ -208,7 +208,7 @@ class ReadingsPg(Readings):
     if self.actorSelectedId is not None:
       id     = self.actorSelectedId
 
-      if not(self.dotSelected): actor  = self.actors[id]
+      if not(self.dotSelected): actor  = self.actors[id]                           //A
       else:                     actor  = self.timeDotActors[id]
 
       x1, y1 = actor.pos
@@ -240,7 +240,7 @@ class ReadingsPg(Readings):
     f1, fs = self.font1, self.fontSize
     c1     = self.cwhite
   
-    screen.draw.text(au2,   topleft  = (x0+  3, y0- 7), fontsize=fs, fontname=f1, color=c1, alpha=0.2)
+    screen.draw.text(au2,   topleft  = (x0+  3, y0- 7), fontsize=fs, fontname=f1, color=c1, alpha=0.2) //B
     screen.draw.text(yr2,   topright = (x0+285, y0- 7), fontsize=fs, fontname=f1, color=c1, alpha=0.2)
     screen.draw.text(abTi,  topleft  = (x0+  3, y0+41), fontsize=fs, fontname=f1, color=c1, alpha=0.5)
     screen.draw.text(mo,    topright = (x0+332, y0- 7), fontsize=fs, fontname=f1, color=c1, alpha=0.4)
