@@ -28,26 +28,29 @@ class:
     - {author: Hoffman, year: 2020, abbrevTitle: Exp. Human-Robot Interaction, presenter: Ullmer,
        title: A Primer for Conducting Experiments in Human–Robot Interaction}
 
+  11-12:
+    - {author: Kennedy, year: 2019, abbrevTitle: Exp. Human-Robot Interaction, presenter: Wang,
+       title: "Qualitative observations of student reasoning: Coding in the wild"}
 
-November 12:
+  11-14:
+    - {author: , year: 2019, abbrevTitle: Exp. Human-Robot Interaction, presenter: Wang,
+       title: "Six Human-Centered Artificial Intelligence Grand Challenges"}
 
-Yunhau Wang    Kennedy & Kraemer 2019:  Qualitative observations of student reasoning: Coding in the wild
+    - {author: , year: 2023, abbrevTitle: GenAI ChatGPT MidJourney, presenter: Xu,
+       title: "The impact of Generative AI (GenAI) on practices, policies and research direction in education: a case of ChatGPT and Midjourney"}
 
-Brief interactivity presentations
+  11-19:
+    - {author: Dixon, year: 2020, abbrevTitle: Approach Matters, presenter: Wood,
+       title: Approach Matters}
 
-November 14: 
+    - {author: Becker, year: 2024, abbrevTitle: Older Amer. AI world, presenter: Wood,
+       title: Older Americans prepare themselves for a world altered by artificial intelligence}
 
-Zhuoyang Wang    Six Human-Centered Artificial Intelligence Grand Challenges
+  11-12:
+    - {author: Norman, year: , abbrevTitle: Approach Matters, presenter: Wuyun,
+       title: Human-Centered Design Considered Harmful}
 
-Danqi Xu    Chiu 2023: The impact of Generative AI (GenAI) on practices, policies and research direction in education: a case of ChatGPT and MidjourneyDownload The impact of Generative AI (GenAI) on practices, policies and research direction in education: a case of ChatGPT and Midjourney
+    - {author: , year: 2023, abbrevTitle: Approach Matters, presenter: Lawson,
+       title: As AI Spreads, Experts Predict the Best and Worst Changes in Digital Life by 2035}
 
-November 19:    
-
-Wren Wood          2020: Approach Matters (Dixon)
-Stephen Becker    2024: Older Americans prepare themselves for a world altered by artificial intelligence
-
-November 21:
-
-Taoli Wuyun : Human-Centered Design Considered Harmful (Norman)
-
-Christopher Lawson : As AI Spreads, Experts Predict the Best and Worst Changes in Digital Life by 2035 - https://www.pewresearch.org/internet/2023/06/21/as-ai-spreads-experts-predict-the-best-and-worst-changes-in-digital-life-by-2035/
+### end ###
