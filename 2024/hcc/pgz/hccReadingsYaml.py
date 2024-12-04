@@ -66,7 +66,9 @@ class Readings: #not catching any errors; caveat emptor
 
   ################## constructor, err ##################
 
-  def __init__(self): self.readingList = []; self.loadYaml()
+  def __init__(self, **kwargs):
+    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+    self.readingList = []; self.loadYaml()
 
   def err(self, msg): print("Readings error:", msg); traceback.print_exc()
 
