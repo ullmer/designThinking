@@ -8,36 +8,12 @@ import pygame
 from pgzero.builtins import Actor, animate, keyboard, keys
 
 from hccReadingsYaml import *
-
-WIDTH, HEIGHT = 1200, 800
+from hccReadingsSuppl import *
 
 ################### readingsPg ################### 
 
-class ReadingsPg(Readings):
+class ReadingsPgHighlighted(hccReadingsPgSuppl):
 
-  rows, cols =   6,   3
-  dx, dy     = 350, 100
-  x0, y0     =  50,  70
-  actors     = None
-  actor2id   = None
-  numRd      = None
-
-  rrectX, rrectY = 336, 92
-  readingGroups  = None
-  timeDotActors  = None
-  timeDotImgFn   = 'time_circ01e'
-  timeDotX       = 100
-  timeDotY       = 900
-  timeDotDX      = 80
-
-  font1      = "oswald-medium"
-  fontSize   = 40
-  cwhite     = "#ffffff"
-  cblack     = "#000000"
-  actorBgFn  = 'readings_box_1c'
-
-  #colorScaleColors = ['orange', 'purple']
-  #colorScaleColors = ['yellow', 'white', 'cyan', 'chartreuse', 'mauve']
   colorScaleColors = ['yellow', 'gold', 'white', 'cyan', 'chartreuse', 'violet']
   colorScale = None
 
@@ -55,28 +31,13 @@ class ReadingsPg(Readings):
   def __init__(self, **kwargs):
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     super().__init__()
-    self.actors                = []
-    self.actor2id              = {}
-    self.readingTextDrawOffset = {}
-    self.timeDotActors         = {}
-    self.readingGroups         = {}
 
     try:    self.colorScale = spectra.scale(self.colorScaleColors)    //A
     except: print("problems with color scale; spectra probably not installed"); pass #if spectra installed, do the right thing
 
-    self.numRd    = self.size()
-    rxc           = self.rows * self.cols
-    if self.numRd > rxc: self.numRd = rxc
-
     self.buildUI()
 
-  ################## error ##################
-
-  def err(self, msg): print("ReadingPg error:", msg); traceback.print_exc()
-
-  #def checkPgzVersion(self): 
-  #  print(dir(pgzero.builtins))
-  #  return pgzero.__version__
+  def err(self, msg): print("hccReadingsPgHighlighted error:", msg); traceback.print_exc()
 
   ################## get reading group color ##################
 

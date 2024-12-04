@@ -13,7 +13,7 @@ WIDTH, HEIGHT = 1200, 800
 
 ################### readingsPg ################### 
 
-class ReadingsPg(Readings):
+class ReadingsPgSuppl(Readings): # bulk of code from former HccReadingsPg, aside from "highlights"
 
   rows, cols =   6,   3
   dx, dy     = 350, 100
