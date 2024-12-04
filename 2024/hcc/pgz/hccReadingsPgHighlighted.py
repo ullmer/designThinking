@@ -17,14 +17,7 @@ class ReadingsPgHighlighted(hccReadingsPgSuppl):
   colorScaleColors = ['yellow', 'gold', 'white', 'cyan', 'chartreuse', 'violet']
   colorScale = None
 
-  #drawExtraAnnotatives  = False
   drawExtraAnnotatives  = True
-
-  actorSelectedId       = None
-  dotSelected           = False
-  readingTextDrawOffset = None
-  connectingLineWidth   = 3
-  olderPgz              = True # suppress line widths and fading
 
   ################## constructor, error ##################
 
@@ -48,102 +41,10 @@ class ReadingsPgHighlighted(hccReadingsPgSuppl):
     if self.colorScale is None: return '#c99' #spectra not installed, return red
 
     ratio = float(readingGroupId) / float(self.numReadingGroups)
-    #result = self.colorScale(ratio).rgb
 
     if colorType == 'hex': result = self.colorScale(ratio).hexcode
     else:                  r,g,b = self.colorScale(ratio).rgb; result = (r*255, g*255, b*255)
     return result
-
-  ################## build UI ##################
-
-  def buildUI(self): 
-    row, col = 0, 0
-    x, y     = self.x0, self.y0
-
-    #print("PGZ version: ", self.checkPgzVersion())
-
-    for i in range(self.numRd):
-      a = Actor(self.actorBgFn, topleft=(x, y))
-      self.actors.append(a)
-      y += self.dy; row += 1; self.actor2id[a] = i
-
-      if row >= self.rows: 
-        row = 0; col += 1; y = self.y0; x += self.dx
-
-      n = self.getReading(i).readingGroupNum
-      if n not in self.readingGroups: self.readingGroups[n] = []
-      self.readingGroups[n].append(i)
-
-      if self.drawExtraAnnotatives: 
-        tdpos = (self.timeDotX, self.timeDotY)
-        timeDotActor          = Actor(self.timeDotImgFn, pos=tdpos)
-        self.timeDotActors[i] = timeDotActor
-        self.timeDotX        += self.timeDotDX
-
-  ################## calculate reading position by id ##################
-
-  def calcReadingPosById(self, readingId): 
-    try:
-      actor  = self.actors[readingId]
-      result = actor.pos
-      return result
-    except: self.err("calcReadingPosById on readingId " + str(readingId)); return None
-
-  ################## draw ##################
-
-  def draw(self, screen): 
-    row, col = 0, 0
-    x, y     = self.x0, self.y0
-    
-    #draw lines connecting readings within reading groups
-    if self.drawExtraAnnotatives: 
-      self.drawLinesAmongReadingsInGroups(screen)
-
-      for i in range(self.numRd):
-        self.drawTimeDotLine(screen, i)
-
-      for i in range(self.numRd):
-        timeDotActor = self.timeDotActors[i]
-        timeDotActor.draw()
-        self.drawTimeDotText(screen, i)
-
-    for actor in self.actors: actor.draw()
-
-    for i in range(self.numRd):
-      if i in self.readingTextDrawOffset: textDrawOffsetsSaved = True
-      else:                               textDrawOffsetsSaved = False
-
-      if textDrawOffsetsSaved:
-        x2, y2 = self.readingTextDrawOffset[i]
-      else:
-        self.readingTextDrawOffset[i] = (x, y)
-        x2, y2 = x, y
-
-      self.drawReading(screen, i, x2, y2)
-
-      if not(textDrawOffsetsSaved): # we need to calculate them. Logic should be relocated
-        y += self.dy; row += 1
-
-        if row >= self.rows: 
-          row = 0; col += 1; y = self.y0; x += self.dx
-
-  ################## draw lines amongs readings in groups ##################
-
-  def drawLinesAmongReadingsInGroups(self, screen): 
-    for i in range(self.numReadingGroups):
-      readingIds = self.readingGroups[i]
-      lri = len(readingIds)
-      if lri == 1: continue #nothing to do, onwards
-      rgcolor = self.getReadingGroupColor(i, 'rgb')
-
-      if lri >= 2:
-        id0, id1 = readingIds[0], readingIds[1]
-        self.drawLineBetweenReadings(screen, id0, id1, rgcolor, self.connectingLineWidth)
-        if lri > 2:
-          for j in range(2, lri):
-            id0 = readingIds[j-1]
-            id1 = readingIds[j]
-            self.drawLineBetweenReadings(screen, id0, id1, rgcolor, self.connectingLineWidth)
 
   ################## on_mouse_down ##################
 
@@ -151,14 +52,12 @@ class ReadingsPgHighlighted(hccReadingsPgSuppl):
     for i in range(self.numRd):
       actor = self.actors[i]
       if actor.collidepoint(pos): 
-        print("Actor selected:", i)
         self.actorSelectedId = i
         return
 
       if self.drawExtraAnnotatives: 
         actor = self.timeDotActors[i]
         if actor.collidepoint(pos): 
-          print("Actor selected:", i)
           self.actorSelectedId = i
           self.dotSelected     = True
           return
@@ -221,7 +120,6 @@ class ReadingsPgHighlighted(hccReadingsPgSuppl):
       if self.olderPgz: screen.draw.rect(rrect, rcolor)
       else:             screen.draw.rect(rrect, rcolor, width=2)
 
-
   ################## draw time dot text ################## 
 
   def drawTimeDotText(self, screen, readingId):
@@ -236,80 +134,5 @@ class ReadingsPgHighlighted(hccReadingsPgSuppl):
       x, y = timeDotActor.pos
       x   -= 1 #nudge by one pixel; a detail, but shows
       screen.draw.text(gnt, center=(x,y), fontsize=fs, fontname=f1, color=c2, alpha=.7)
-
-  ################## draw time dot text ################## 
-
-  def drawTimeDotLine(self, screen, readingId):
-    reading = self.getReading(readingId)
-    rGn     = reading.readingGroupNum
-    if rGn is None: self.err("drawTimeDotLine: rGn error, ignoring"); return
-
-    x1, y1 = self.calcReadingPosById(readingId)
-    ryDiv2 = self.rrectY/2.
-    y1    += ryDiv2
-
-    gnt = self.getReadingGroupLetter(rGn)
-    c2  = self.getReadingGroupColor(rGn, 'rgb') 
-    timeDotActor = self.timeDotActors[readingId]
-    x2, y2 = timeDotActor.pos
-
-    r,g,b = c2 
-    s = .5 #scale, since transparency not working (well)
-    r *= s; g *= s; b *= s
-    c3    = (r,g,b,250)
-
-    #screen.draw.line((x1, y1), (x2, y2), c3, width=1)
-    screen.draw.line((x1, y1), (x2, y2), c3)
-
-    #if self.olderPgz: screen.draw.rect(rrect, rcolor)
-    #else:             screen.draw.rect(rrect, rcolor, width=2)
-
-  ################## get reading group letter ################## 
-
-  def getReadingGroupLetter(self, readingGroupNumber):
-    result = str(chr(ord('A') + readingGroupNumber))
-    return result
-
-  ################## draw line between readings: bl to tl ################## 
-  
-  def drawLineBetweenReadings(self, screen, readingId1, readingId2, rcolor, lwidth=1):
-    x1, y1 = self.calcReadingPosById(readingId1)
-    x2, y2 = self.calcReadingPosById(readingId2)
-
-    rxDiv2 = self.rrectX/2.
-    ryDiv2 = self.rrectY/2.
-
-    x1 -= rxDiv2
-    x2 -= rxDiv2
-    y1 += ryDiv2
-    y2 -= ryDiv2
-
-    x3, x4 = x1+self.rrectX, x2+self.rrectX
-    x5, x6 = x1+rxDiv2,      x2+rxDiv2
-
-    r,g,b = rcolor
-
-    s = .7 #scale, since transparency not working (well)
-    r *= s; g *= s; b *= s
-    
-    rcolor2  = (r,g,b,250)
-
-    if self.olderPgz: 
-      screen.draw.line((x1, y1), (x2, y2), rcolor2)
-      screen.draw.line((x3, y1), (x4, y2), rcolor2)
-      screen.draw.line((x5, y1), (x6, y2), rcolor2)
-    else:             
-      screen.draw.line((x1, y1), (x2, y2), rcolor2, width=lwidth)
-      screen.draw.line((x3, y1), (x4, y2), rcolor2, width=lwidth)
-      screen.draw.line((x5, y1), (x6, y2), rcolor2, width=lwidth)
-
-################## main ################## 
-
-if __name__ == "__main__":
-
-  rpg = ReadingsPg()
-
-  def draw(): screen.clear(); rpg.draw(screen)
-  def on_mouse_down(pos):     rpg.on_mouse_down(pos)
 
 ### end ###
