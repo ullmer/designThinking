@@ -27,7 +27,7 @@ outGeom -= cube2c #cube2c trims the top of the two oculus halves (at height trim
 roundOutTopEdge = cube3b - cyl4c # SolidPython doesn't presently provide a bevel/fillet, but we can approximate
 outGeom -= roundOutTopEdge #output as exSolid04c.png. Angle-trimmed top, rounded out top-edge. 
 
-radialSegments = 90; hdr = '$fn = %s;' % radialSegments # create a header for the export
+radialSegments = 90; hdr = '$fn = %s;' % radialSegments # create a header, expressing the number of radial segments
 scad_render_to_file(outGeom, 'exSolid04c.scad', file_header=hdr) # write the .scad file
 
 ### end ###
