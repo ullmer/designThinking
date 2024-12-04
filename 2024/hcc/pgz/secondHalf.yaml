@@ -33,24 +33,25 @@ class:
        title: "Qualitative observations of student reasoning: Coding in the wild"}
 
   11-14:
-    - {author: , year: 2019, abbrevTitle: Exp. Human-Robot Interaction, presenter: Wang,
+    - {author: Garibay, year: 2023, abbrevTitle: Exp. Human-Robot Interaction, presenter: Wang,
        title: "Six Human-Centered Artificial Intelligence Grand Challenges"}
 
-    - {author: , year: 2023, abbrevTitle: GenAI ChatGPT MidJourney, presenter: Xu,
-       title: "The impact of Generative AI (GenAI) on practices, policies and research direction in education: a case of ChatGPT and Midjourney"}
+    - {author: Chiu, year: 2023, abbrevTitle: GenAI ChatGPT MidJourney, presenter: Xu,
+       title: "The impact of Generative AI (GenAI) on practices, policies and research direction in 
+               education: a case of ChatGPT and Midjourney"}
 
   11-19:
     - {author: Dixon, year: 2020, abbrevTitle: Approach Matters, presenter: Wood,
-       title: Approach Matters}
+       title: "Approach Matters: Linking Practitioner Approaches to Technology Design for People with Dementia"}
 
     - {author: Becker, year: 2024, abbrevTitle: Older Amer. AI world, presenter: Wood,
        title: Older Americans prepare themselves for a world altered by artificial intelligence}
 
-  11-12:
+  11-21:
     - {author: Norman, year: , abbrevTitle: Approach Matters, presenter: Wuyun,
        title: Human-Centered Design Considered Harmful}
 
-    - {author: , year: 2023, abbrevTitle: Approach Matters, presenter: Lawson,
+    - {author: Anderson, year: 2023, abbrevTitle: Approach Matters, presenter: Lawson,
        title: As AI Spreads, Experts Predict the Best and Worst Changes in Digital Life by 2035}
 
 ### end ###
