@@ -36,21 +36,27 @@ cyl5a  = cylinder(r=.65, h=2); cyl5b = rotate(a = [90, 0, 0])(cyl5a); cyl5c  = t
 roundOutTopBack  = cube3b - cyl4c; outGeom -= roundOutTopBack 
 roundOutTopFront = cube4b - cyl5c; outGeom -= roundOutTopFront #output as exSolid04d.png (angle-trimmed top, rounded out top ends)
 
-#Next, 
+#Next, let's make some side perforations, that can be used toward (e.g.) illuminated capacitive touch sensing regions
+#We'll first add them together, then  subtract them from the main body
+
+offX, offY, offZ1, offZ2= .575, .7, .15, .225 #x, y, and z offsets, and z offset between
+numVerticalPerforations = 3
+
 cyl6a = cylinder(r=.1,  h=2); cyl6b = rotate(a = [90, 0, 0])(cyl6a)
 
+cyl6c1 = translate([ offX, offY, offZ1])(cyl6b)
+cyl7c1 = translate([-offX, offY, offZ1])(cyl6b)
+sidePerforations = cyl6c1 + cyl7c1 # first perforations on left and right
 
-cyl6c1 = translate([ .575, .7, .15])(cyl6b)
-cyl6c2 = translate([  0,   0, .225])(cyl6c1)
-cyl6c3 = translate([  0,   0, .225])(cyl6c2)
+for i in range(1, numVerticalPerforations):
+  cyl6c2 = translate([0, 0, offZ2 * i])(cyl6c1)
+  cyl7c2 = translate([0, 0, offZ2 * i])(cyl7c1)
+  sidePerforations += cyl6c2 + cyl7c2
 
-cyl7c1 = translate([-.575, .7, .15])(cyl6b)
-cyl7c2 = translate([  0,   0, .225])(cyl7c1)
-cyl7c3 = translate([  0,   0, .225])(cyl7c2)
-
+outGeom -= sidePerforations
 
 radialSegments = 90; hdr = '$fn = %s;' % radialSegments # create a header, expressing the number of radial segments
-scad_render_to_file(outGeom, 'exSolid04d.scad', file_header=hdr) # write the .scad file
+scad_render_to_file(outGeom, 'exSolid04e.scad', file_header=hdr) # write the .scad file
 
 ### end ###
 
