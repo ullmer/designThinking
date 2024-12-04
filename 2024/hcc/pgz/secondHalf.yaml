@@ -15,17 +15,19 @@ class:
        title: Understanding the benefits and challenges of deploying conversational AI leveraging 
               large language models for public health intervention} 
 
-    - {author: Jo, year: 2022, abbrevTitle: Public health LLM, presenter: Coen,
+    - {author: Chen, year: 2022, abbrevTitle: Explainable medical img AI, presenter: Coen,
        title: "Explainable medical imaging AI needs human-centered design: guidelines and evidence 
                from a systematic review"}
 
+  10-31:
+    - {author: , year: 2021, abbrevTitle: Human-Vehicle Collab, presenter: McAlhany,
+       title: "Toward human-vehicle collaboration: Review and perspectives on human-centered 
+              collaborative automated driving"}
 
-Han Nguyen: Jo 2023: Understanding the benefits and challenges of deploying conversational AI leveraging large language models for public health interventionLinks to an external site.
-Emma Coen    22: Explainable medical imaging AI needs human-centered design: guidelines and evidence from a systematic reviewLinks to an external site.
+  11-07:
+    - {author: Hoffman, year: 2020, abbrevTitle: Exp. Human-Robot Interaction, presenter: Ullmer,
+       title: A Primer for Conducting Experiments in Human–Robot Interaction}
 
-October 31: Serena McAlhany: 2021. Toward human-vehicle collaboration: Review and perspectives on human-centered collaborative automated drivingLinks to an external site.
-
-November 7: Human subjects and study design 
 
 November 12:
 
