@@ -10,7 +10,7 @@ emc = enoMidiController('nu_dj2go2')
 mc = emc.getYaml('mmpController')
 controller  = mc['controller']
 interactors = controller['interactors']
-#print("interactors:", interactors)
+#print("interactors:",    interactors)
 
 aliased     = interactors['aliased']
 aliases     = interactors['aliases']
