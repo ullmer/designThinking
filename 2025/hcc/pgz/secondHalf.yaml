@@ -1,0 +1,57 @@
+class:
+  10-22:
+    - {author: Caine,      year: 2013, abbrevTitle: "Hlth gran privacy", presenter: Yan,
+       title:   Patients want granular privacy control over health information in electronic medical records}
+
+  10-24:
+    - {author: Shneiderman, year: 2020, abbrevTitle: Human-Ctr AI, presenter: Guynup,
+       title:  "Human-Centered Artificial Intelligence: Reliable, Safe & Trustworthy"}
+
+    - {author: David, year: 2023, abbrevTitle: Transp AI models, presenter: Guzubuyuk,
+       title:  "The world’s biggest AI models aren’t very transparent, Stanford study says"}
+
+  10-29:
+    - {author: Jo, year: 2023, abbrevTitle: Pub health LLM, presenter: Nguyen,
+       title: Understanding the benefits and challenges of deploying conversational AI leveraging 
+              large language models for public health intervention} 
+
+    - {author: Chen, year: 2022, abbrevTitle: Expl med img AI, presenter: Coen,
+       title: "Explainable medical imaging AI needs human-centered design: guidelines and evidence 
+               from a systematic review"}
+
+  10-31:
+    - {author: Xing, year: 2021, abbrevTitle: Hum-Veh Collab, presenter: McAlhany,
+       title: "Toward human-vehicle collaboration: Review and perspectives on human-centered 
+              collaborative automated driving"}
+
+  11-07:
+    - {author: Hoffman, year: 2020, abbrevTitle: Hum-Rob Interact, presenter: Ullmer,
+       title: A Primer for Conducting Experiments in Human–Robot Interaction}
+
+  11-12:
+    - {author: Kennedy, year: 2019, abbrevTitle: Coding in Wild, presenter: Wang,
+       title: "Qualitative observations of student reasoning: Coding in the wild"}
+
+  11-14:
+    - {author: Garibay, year: 2023, abbrevTitle: 6 HC AI GC, presenter: Wang,
+       title: "Six Human-Centered Artificial Intelligence Grand Challenges"}
+
+    - {author: Chiu, year: 2023, abbrevTitle: GenAI CG MJ, presenter: Xu,
+       title: "The impact of Generative AI (GenAI) on practices, policies and research direction in 
+               education: a case of ChatGPT and Midjourney"}
+
+  11-19:
+    - {author: Dixon, year: 2020, abbrevTitle: Approach Matters, presenter: Wood,
+       title: "Approach Matters: Linking Practitioner Approaches to Technology Design for People with Dementia"}
+
+    - {author: Becker, year: 2024, abbrevTitle: Older Amer. AI world, presenter: Wood,
+       title: Older Americans prepare themselves for a world altered by artificial intelligence}
+
+  11-21:
+    - {author: Norman, year: 2005, abbrevTitle: "HCD Harmful?", presenter: Wuyun,
+       title: Human-Centered Design Considered Harmful}
+
+    - {author: Anderson, year: 2023, abbrevTitle: Dig Life 2035, presenter: Lawson,
+       title: As AI Spreads, Experts Predict the Best and Worst Changes in Digital Life by 2035}
+
+### end ###
