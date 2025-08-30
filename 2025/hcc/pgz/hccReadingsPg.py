@@ -246,14 +246,15 @@ class HccReadingsPg(Readings):
       screen.draw.text(abTi,  topleft  = (x0+  3, y0+41), fontsize=fs, fontname=f1, color=c1, alpha=0.5)
       screen.draw.text(mo,    topright = (x0+332, y0- 7), fontsize=fs, fontname=f1, color=c1, alpha=0.4)
       screen.draw.text(da,    topright = (x0+332, y0+41), fontsize=fs, fontname=f1, color=c1, alpha=0.3)
-    except: self.err("drawReading r1"); return
+    except: self.err("drawReading 1"); return
 
     rGn = reading.readingGroupNum
     if rGn is not None:
       gnt = self.getReadingGroupLetter(rGn)
       c2 = self.getReadingGroupColor(rGn, 'hex') 
       if self.drawExtraAnnotatives: 
-        screen.draw.text(gnt, topright = (x0+285, y0+41), fontsize=fs, fontname=f1, color=c2, alpha=.7)
+        try: screen.draw.text(gnt, topright = (x0+285, y0+41), fontsize=fs, fontname=f1, color=c2, alpha=.7)
+        except: self.err("drawReading 2"); return
 
     if self.drawExtraAnnotatives: 
       rrect  = pygame.Rect(x0, y0, self.rrectX, self.rrectY)
