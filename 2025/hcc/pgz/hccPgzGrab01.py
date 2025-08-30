@@ -9,6 +9,9 @@ WIDTH, HEIGHT = 335, 94
 
 hrpg = HccReadingsPg(x0=0, y0=0)
 
-def draw(): screen.clear(); hrpg.draw(screen)
+def draw(): 
+  screen.clear()
+  hrpg.draw(screen)
+  pygame.image.save(screen.surface, "tiles/t01.png")
 
 ### end ###
