@@ -205,8 +205,8 @@ class HccReadingsPg(Readings):
 
   ################## on_mouse_move ##################
 
-  def moveActorHome(self,      readingNum): self.moveActorId(readingNum, (self.x0, self.y0))
-  def moveActorOffscreen(self, readingNum): self.moveActorId(readingNum, (     xOff,    yOff))
+  def moveActorHome(self,      readingNum): self.moveActorId(readingNum, (self.x0,   self.y0))
+  def moveActorOffscreen(self, readingNum): self.moveActorId(readingNum, (self.xOff, self.yOff))
 
   def moveActorId(self, readingNum, pos):
     try:
