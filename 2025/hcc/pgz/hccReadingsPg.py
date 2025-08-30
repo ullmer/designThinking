@@ -205,25 +205,26 @@ class HccReadingsPg(Readings):
 
   ################## on_mouse_move ##################
 
-  def moveActorHome(self, actorId):      self.moveActorId(actorId, (self.x0, self.y0))
-  def moveActorOffscreen(self, actorId): self.moveActorId(actorId, (     xOff,    yOff))
+  def moveActorHome(self,      readingNum): self.moveActorId(readingNum, (self.x0, self.y0))
+  def moveActorOffscreen(self, readingNum): self.moveActorId(readingNum, (     xOff,    yOff))
 
-  def moveActorId(self, actorId, pos):
+  def moveActorId(self, readingNum, pos):
     try:
-      if self.actorSelectedId is not None:
-      if actorId     is None: self.msg("moveActorId: actorId is None"); return
-      if pos         is None: self.msg("moveActorId: pos     is None"); return
-      if self.actors is None: self.msg("moveActorId: actors is None");  return
+      if readingNum  is None: self.msg("moveActorId: readingNum is None"); return
+      if pos         is None: self.msg("moveActorId: pos is None");        return
+      if self.actors is None: self.msg("moveActorId: actors is None");     return
 
-      if actorId not in self.actors:            self.msg("moveActorId: actorId is not known: "  + str(actorId)); return
-      if id  not in self.readingTextDrawOffset: self.msg("moveActorId: text offsets not found:" + str(actorId)); return
+      if readingNum not in self.actors: 
+         self.msg("moveActorId: readingNum is not known: "  + str(actorId)); return
+      if readingNum not in self.readingTextDrawOffset: 
+         self.msg("moveActorId: text offsets not found:" + str(readingNum)); return
 
-      actor  = self.actors[actorId]
+      actor  = self.actors[readingNum]
       x1, y1 = actor.pos
       x2, y2 = pos
 
       dx, dy = x2-x1, y2-y1
-      x3, y3 = self.readingTextDrawOffset[actorId]
+      x3, y3 = self.readingTextDrawOffset[readingNum]
       x4, y4 = x3+dx, y3+dy
 
       actor.pos = pos
