@@ -76,6 +76,8 @@ class Readings(AtaBase): #not catching any errors; caveat emptor
   def size(self): 
     if self.readingList is not None: return len(self.readingList)
 
+  def getNumReadings(self): return self.size()
+
   ################## load YAML from file ##################
 
   def loadYaml(self): 
