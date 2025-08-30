@@ -13,7 +13,7 @@ WIDTH, HEIGHT = 1200, 800
 
 ################### readingsPg ################### 
 
-class ReadingsPg(Readings):
+class HccReadingsPg(Readings):
 
   rows, cols =   6,   3
   dx, dy     = 350, 100
@@ -292,7 +292,9 @@ class ReadingsPg(Readings):
     timeDotActor = self.timeDotActors[readingId]
     x2, y2 = timeDotActor.pos
 
-    r,g,b = c2 
+    try:    r,g,b = c2 
+    except: self.err("drawTimeDotLine: rgb c2 error on " + str(c2)); return
+
     s = .5 #scale, since transparency not working (well)
     r *= s; g *= s; b *= s
     c3    = (r,g,b,250)
@@ -326,7 +328,8 @@ class ReadingsPg(Readings):
     x3, x4 = x1+self.rrectX, x2+self.rrectX
     x5, x6 = x1+rxDiv2,      x2+rxDiv2
 
-    r,g,b = rcolor
+    try:    r,g,b = rcolor
+    except: self.err("drawLineBetweenReadings rcolor of unexpected length:" + str(rcolor)); return
 
     s = .7 #scale, since transparency not working (well)
     r *= s; g *= s; b *= s
