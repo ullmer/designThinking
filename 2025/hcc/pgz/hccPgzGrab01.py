@@ -2,14 +2,13 @@
 # Brygg Ullmer, Clemson University
 # Begun 2024-09-05
 
-import traceback
-from hccReadingsYaml import *
-from hccReadingsPg import   *
-WIDTH, HEIGHT = 1200, 800
+from hccReadingsPg  import *
 
-hrpg = HccReadingsPg()
+#WIDTH, HEIGHT = 1200, 800
+WIDTH, HEIGHT = 335, 94
+
+hrpg = HccReadingsPg(x0=0, y0=0)
 
 def draw(): screen.clear(); hrpg.draw(screen)
-def on_mouse_down(pos):     hrpg.on_mouse_down(pos)
 
 ### end ###
