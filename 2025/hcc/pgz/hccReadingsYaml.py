@@ -3,10 +3,11 @@
 # Begun 2024-09-05
 
 import yaml, traceback
+from ataBase import *
 
 ################## Reading class ##################
 
-class Reading: #not catching any errors; caveat emptor
+class Reading(AtaBase): #not catching any errors; caveat emptor
 
   fields          = ['author', 'year', 'abbrevTitle', 'title', 'presenter', 'presentedDate']
   readingGroupNum = None
@@ -57,7 +58,7 @@ class Reading: #not catching any errors; caveat emptor
 
 ################## Readings class ##################
 
-class Readings: #not catching any errors; caveat emptor
+class Readings(AtaBase): #not catching any errors; caveat emptor
   fn          = 'index.yaml'  #filename
   yd          = None          #YAML data
   yc          = None          #YAML extraction for classes
@@ -113,7 +114,7 @@ class Readings: #not catching any errors; caveat emptor
       if i < 0 or i > len(self.readingList): self.err("getReading index out of bounds: " + i); return
       return self.readingList[i]
       
-    except: self.err("getReading: " + i); return
+    except: self.err("getReading: " + i); return None
 
 ################## main ##################
 
