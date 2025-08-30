@@ -204,6 +204,19 @@ class HccReadingsPg(Readings):
 
   ################## on_mouse_move ##################
 
+  def moveActorId(self, actorId, pos):
+    try:
+      if self.actorSelectedId is not None:
+      if actorId     is None: self.msg("moveActorId: actorId is None"); return
+      if pos         is None: self.msg("moveActorId: pos     is None"); return
+      if self.actors is None: self.msg("moveActorId: actors is None");  return
+
+      if actorId not in self.actors
+
+    except: self.err("moveActorId")
+
+  ################## on_mouse_move ##################
+
   def on_mouse_move(self, rel, buttons): 
     if self.actorSelectedId is not None:
       id     = self.actorSelectedId
@@ -335,7 +348,9 @@ class HccReadingsPg(Readings):
     x5, x6 = x1+rxDiv2,      x2+rxDiv2
 
     try:    r,g,b = rcolor
-    except: self.err("drawLineBetweenReadings rcolor of unexpected length:" + str(rcolor)); return
+    except: 
+      if rcolor is None: return
+      self.err("drawLineBetweenReadings rcolor of unexpected length:" + str(rcolor)); return
 
     s = .7 #scale, since transparency not working (well)
     r *= s; g *= s; b *= s
