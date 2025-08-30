@@ -240,11 +240,13 @@ class HccReadingsPg(Readings):
     f1, fs = self.font1, self.fontSize
     c1     = self.cwhite
   
-    screen.draw.text(au2,   topleft  = (x0+  3, y0- 7), fontsize=fs, fontname=f1, color=c1, alpha=0.2) //B
-    screen.draw.text(yr2,   topright = (x0+285, y0- 7), fontsize=fs, fontname=f1, color=c1, alpha=0.2)
-    screen.draw.text(abTi,  topleft  = (x0+  3, y0+41), fontsize=fs, fontname=f1, color=c1, alpha=0.5)
-    screen.draw.text(mo,    topright = (x0+332, y0- 7), fontsize=fs, fontname=f1, color=c1, alpha=0.4)
-    screen.draw.text(da,    topright = (x0+332, y0+41), fontsize=fs, fontname=f1, color=c1, alpha=0.3)
+    try:
+      screen.draw.text(au2,   topleft  = (x0+  3, y0- 7), fontsize=fs, fontname=f1, color=c1, alpha=0.2) #B
+      screen.draw.text(yr2,   topright = (x0+285, y0- 7), fontsize=fs, fontname=f1, color=c1, alpha=0.2)
+      screen.draw.text(abTi,  topleft  = (x0+  3, y0+41), fontsize=fs, fontname=f1, color=c1, alpha=0.5)
+      screen.draw.text(mo,    topright = (x0+332, y0- 7), fontsize=fs, fontname=f1, color=c1, alpha=0.4)
+      screen.draw.text(da,    topright = (x0+332, y0+41), fontsize=fs, fontname=f1, color=c1, alpha=0.3)
+    except: self.err("drawReading r1"); return
 
     rGn = reading.readingGroupNum
     if rGn is not None:
@@ -274,7 +276,9 @@ class HccReadingsPg(Readings):
       c2   = self.getReadingGroupColor(rGn, 'hex') 
       x, y = timeDotActor.pos
       x   -= 1 #nudge by one pixel; a detail, but shows
-      screen.draw.text(gnt, center=(x,y), fontsize=fs, fontname=f1, color=c2, alpha=.7)
+
+      try: screen.draw.text(gnt, center=(x,y), fontsize=fs, fontname=f1, color=c2, alpha=.7)
+      except: self.err("drawTimeDotText")
 
   ################## draw time dot text ################## 
 
