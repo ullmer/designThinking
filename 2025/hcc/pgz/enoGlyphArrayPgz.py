@@ -33,13 +33,13 @@ class enoGlyphArrayPgz(AtaBase):
     self.actor2id              = {}
     self.contentTextDrawOffset = {}
 
-    try:    self.numRd    = self.size()
+    try: 
+      self.numRd    = self.size()
+      rxc           = self.rows * self.cols
+      if self.numRd > rxc: self.numRd = rxc
+      self.buildUI()
+
     except: self.err("__init__")
-
-    rxc           = self.rows * self.cols
-    if self.numRd > rxc: self.numRd = rxc
-
-    self.buildUI()
 
   def err(self, msg): print("ContentsPgz error:", msg); traceback.print_exc()
 
