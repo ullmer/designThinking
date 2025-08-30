@@ -3,12 +3,13 @@
 # Begun 2024-09-07
 
 import traceback
+from ataBase import *
 
 WIDTH, HEIGHT = 1200, 800
 
 ################### enodia glyph array : pygame zero ################### 
 
-class enoGlyphArrayPgz:
+class enoGlyphArrayPgz(AtaBase):
 
   textualsList = None
   actors       = None
@@ -32,7 +33,9 @@ class enoGlyphArrayPgz:
     self.actor2id              = {}
     self.contentTextDrawOffset = {}
 
-    self.numRd    = self.size()
+    try:    self.numRd    = self.size()
+    except: self.err("__init__")
+
     rxc           = self.rows * self.cols
     if self.numRd > rxc: self.numRd = rxc
 
