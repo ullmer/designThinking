@@ -211,7 +211,16 @@ class HccReadingsPg(Readings):
       if pos         is None: self.msg("moveActorId: pos     is None"); return
       if self.actors is None: self.msg("moveActorId: actors is None");  return
 
-      if actorId not in self.actors
+      if actorId not in self.actors:            self.msg("moveActorId: actorId is not known: "  + str(actorId)); return
+      if id  not in self.readingTextDrawOffset: self.msg("moveActorId: text offsets not found:" + str(actorId)); return
+
+      actor  = self.actors[actorId]
+      x1, y1 = actor.pos
+      x2, y2 = pos
+
+      dx, dy = x2-x1, y2-y1
+      x3, y3 = self.readingTextDrawOffset[actorId]
+      x4, y4 = x3+dx, y3+dy
 
     except: self.err("moveActorId")
 
