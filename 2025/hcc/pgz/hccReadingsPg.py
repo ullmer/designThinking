@@ -18,6 +18,7 @@ class HccReadingsPg(Readings):
   rows, cols =   6,   3
   dx, dy     = 350, 100
   x0, y0     =  50,  70
+  xOff, yOff = -400, -100 #offscreen
   actors     = None
   actor2id   = None
   numRd      = None
@@ -204,6 +205,9 @@ class HccReadingsPg(Readings):
 
   ################## on_mouse_move ##################
 
+  def moveActorHome(self, actorId):      self.moveActorId(actorId, (self.x0, self.y0))
+  def moveActorOffscreen(self, actorId): self.moveActorId(actorId, (     xOff,    yOff))
+
   def moveActorId(self, actorId, pos):
     try:
       if self.actorSelectedId is not None:
@@ -221,6 +225,9 @@ class HccReadingsPg(Readings):
       dx, dy = x2-x1, y2-y1
       x3, y3 = self.readingTextDrawOffset[actorId]
       x4, y4 = x3+dx, y3+dy
+
+      actor.pos = pos
+      self.readingTextDrawOffset[actorId] = (x4, y4)
 
     except: self.err("moveActorId")
 
