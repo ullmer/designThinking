@@ -219,15 +219,17 @@ class HccReadingsPg(Readings):
       if readingNum not in self.readingTextDrawOffset:
          self.msg("moveActorId: text offsets not found:" + str(readingNum)); return
 
+
       actor  = self.actors[readingNum]
       x1, y1 = actor.pos
       x2, y2 = pos
+      w,  h  = actor.width, actor.height
 
       dx, dy = x2-x1, y2-y1
       x3, y3 = self.readingTextDrawOffset[readingNum]
-      x4, y4 = x3+dx, y3+dy
+      x4, y4 = x3+dx+w/2, y3+dy+h/2
 
-      actor.pos = pos
+      actor.topleft = pos
       self.readingTextDrawOffset[readingNum] = (x4, y4)
 
     except: self.err("moveActorId")
