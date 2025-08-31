@@ -16,12 +16,16 @@ print("num readings:", numReadings)
 readingId=0
 
 def draw(): 
+  global readingId
+  print("RID: " + str(readingId))
+
   screen.clear()
   if readingId>0: hrpg.moveActorOffscreen(readingId-1)
   hrpg.moveActorHome(readingId)
   hrpg.draw(screen)
-  strN = str(i).zfill(2)
+  strN = str(readingId).zfill(2)
   pygame.image.save(screen.surface, "tiles/t%s.png" % strN)
   if readingId >= numReadings: sys.exit(1)
+  readingId += 1
 
 ### end ###
