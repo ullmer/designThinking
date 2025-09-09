@@ -24,7 +24,7 @@ eba3 = enoButtonArray(buttonDim=bd, dx=bdx, labelArray=bd3Labels, basePos=bp3, m
 headerColor = (50, 50, 50)
 for ba in [eba1, eba2, eba3]: ba.getButtonIdx(0).bgcolor1 = headerColor
 
-rpg = ReadingsPg()
+rpg = HccReadingsPg()
 
 drawables  = [eba1, eba2, eba3, rpg]
 
