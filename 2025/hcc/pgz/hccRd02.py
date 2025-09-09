@@ -27,7 +27,7 @@ ebam.addArrays([eba1, eba2, eba3])
 headerColor = (50, 50, 50)
 for ba in [eba1, eba2, eba3]: ba.getButtonIdx(0).bgcolor1 = headerColor
 
-rpga = ReadingsPgAnim()
+rpga = HccReadingsPgAnim()
 hrkm = hccRdKeyMgr()
 hrkm = hccRdKeyMgr()
 

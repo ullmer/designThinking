@@ -14,7 +14,7 @@ WIDTH, HEIGHT = 1200, 800
 
 ################### readingsPg ################### 
 
-class ReadingsPgAnim(ReadingsPg):
+class ReadingsPgAnim(HccReadingsPg):
 
   displayActorHalo = True
   actorHaloAnimDirection = None #dict; are "halos" animating toward or away from their ~pair? 1=twd, 0=awy
