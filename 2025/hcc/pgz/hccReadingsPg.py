@@ -62,7 +62,7 @@ class HccReadingsPg(Readings):
     self.timeDotActors         = {}
     self.readingGroups         = {}
 
-    try:    self.colorScale = spectra.scale(self.colorScaleColors)    //A
+    try:    self.colorScale = spectra.scale(self.colorScaleColors)    #A
     except: print("problems with color scale; spectra probably not installed"); pass #if spectra installed, do the right thing
 
     self.numRd    = self.size()
@@ -240,7 +240,7 @@ class HccReadingsPg(Readings):
     if self.actorSelectedId is not None:
       id     = self.actorSelectedId
 
-      if not(self.dotSelected): actor  = self.actors[id]                           //A
+      if not(self.dotSelected): actor  = self.actors[id]                           #A
       else:                     actor  = self.timeDotActors[id]
 
       x1, y1 = actor.pos
