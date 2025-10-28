@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<title>UN SDG 5 Ps Interactive</title>
+<style>
+  html, body { margin: 0; padding: 0; background: black; overflow: hidden; }
+  canvas { display: block; }
+  @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@600&display=swap');
+</style>
+</head>
+<body>
+<canvas id='canvas'></canvas>
+<script>
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const ps = [{'name': 'People', 'color': '#E5243B', 'sdgs': ['SDG 1: No Poverty', 'SDG 2: Zero Hunger', 'SDG 3: Good Health and Well-being', 'SDG 4: Quality Education', 'SDG 5: Gender Equality']}, {'name': 'Planet', 'color': '#3F7E44', 'sdgs': ['SDG 6: Clean Water and Sanitation', 'SDG 12: Responsible Consumption and Production', 'SDG 13: Climate Action', 'SDG 14: Life Below Water', 'SDG 15: Life on Land']}, {'name': 'Prosperity', 'color': '#FFB800', 'sdgs': ['SDG 7: Affordable and Clean Energy', 'SDG 8: Decent Work and Economic Growth', 'SDG 9: Industry, Innovation and Infrastructure', 'SDG 10: Reduced Inequalities', 'SDG 11: Sustainable Cities and Communities']}, {'name': 'Peace', 'color': '#19486A', 'sdgs': ['SDG 16: Peace', 'SDG Justice and Strong Institutions: None']}, {'name': 'Partnership', 'color': '#6A1E74', 'sdgs': ['SDG 17: Partnerships for the Goals']}];
+const boxSize = Math.min(canvas.width, canvas.height) * 0.15;
+const spacing = canvas.width / (ps.length + 1);
+
+ps.forEach((p, i) => {
+  p.x = spacing * (i + 1) - boxSize / 2;
+  p.y = canvas.height / 2 - boxSize / 2;
+  p.active = false;
+  p.vibePhase = Math.random() * Math.PI * 2;
+});
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ps.forEach(p => {
+    const vibe = Math.sin(Date.now() / 300 + p.vibePhase) * 2;
+    const x = p.x + vibe;
+    const y = p.y + vibe;
+    ctx.fillStyle = p.color;
+    ctx.fillRect(x, y, boxSize, boxSize);
+    ctx.font = `${boxSize * 0.2}px 'Barlow', sans-serif`;
+    ctx.fillStyle = 'white';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(p.name, x + boxSize / 2, y + boxSize / 2);
+
+    if (p.active) {
+      ctx.font = `${boxSize * 0.12}px 'Barlow', sans-serif`;
+      p.sdgs.forEach((sdg, idx) => {
+        ctx.fillText(sdg, x + boxSize / 2, y + boxSize + 25 + idx * 22);
+      });
+    }
+  });
+  requestAnimationFrame(draw);
+}
+draw();
+
+canvas.addEventListener('click', e => {
+  const mx = e.offsetX, my = e.offsetY;
+  ps.forEach(p => {
+    if (mx >= p.x && mx <= p.x + boxSize &&
+        my >= p.y && my <= p.y + boxSize) {
+      p.active = !p.active;
+    }
+  });
+});
+</script>
+</body>
+</html>

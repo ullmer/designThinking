@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>UN SDG 5 P's Interactive Canvas</title>
+<style>
+  html, body { margin: 0; padding: 0; background: black; overflow: hidden; }
+  canvas { display: block; }
+  @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@600&display=swap');
+</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const psData = [{'name': 'People', 'color': '#E5243B', 'sdgs': ['1: No Poverty', '2: Zero Hunger', '3: Good Health and Well-being', '4: Quality Education', '5: Gender Equality']}, {'name': 'Planet', 'color': '#3F7E44', 'sdgs': ['6: Clean Water and Sanitation', '12: Responsible Consumption and Production', '13: Climate Action', '14: Life Below Water', '15: Life on Land']}, {'name': 'Prosperity', 'color': '#FFB800', 'sdgs': ['7: Affordable and Clean Energy', '8: Decent Work and Economic Growth', '9: Industry, Innovation and Infrastructure', '10: Reduced Inequalities', '11: Sustainable Cities and Communities']}, {'name': 'Peace', 'color': '#19486A', 'sdgs': ['16: Peace', 'Justice and Strong Institutions: None']}, {'name': 'Partnership', 'color': '#6A1E74', 'sdgs': ['17: Partnerships for the Goals']}];
+const squareSize = Math.min(canvas.width, canvas.height) * 0.15;
+const spacing = canvas.width / (psData.length + 1);
+const centerY = canvas.height / 2;
+
+class PSquare {
+  constructor(data, index) {
+    this.name = data.name;
+    this.color = data.color;
+    this.sdgs = data.sdgs;
+    this.x = spacing * (index + 1) - squareSize / 2;
+    this.y = centerY - squareSize / 2;
+    this.vibePhase = Math.random() * Math.PI * 2;
+    this.showSDGs = false;
+  }
+
+  draw(time) {
+    const vibe = Math.sin(time / 500 + this.vibePhase) * 2;
+    ctx.fillStyle = this.color;
+    ctx.fillRect(this.x, this.y + vibe, squareSize, squareSize);
+    ctx.font = `${squareSize * 0.2}px 'Barlow', sans-serif`;
+    ctx.fillStyle = 'white';
+    ctx.textAlign = 'center';
+    ctx.fillText(this.name, this.x + squareSize / 2, this.y + squareSize / 2 + vibe);
+
+    if (this.showSDGs) {
+      ctx.font = `${squareSize * 0.12}px 'Barlow', sans-serif`;
+      this.sdgs.forEach((sdg, i) => {
+        ctx.fillText(sdg, this.x + squareSize / 2, this.y + squareSize + 25 + i * 20);
+      });
+    }
+  }
+
+  contains(mx, my) {
+    return mx >= this.x && mx <= this.x + squareSize &&
+           my >= this.y && my <= this.y + squareSize;
+  }
+}
+
+const squares = psData.map((data, i) => new PSquare(data, i));
+
+canvas.addEventListener('click', e => {
+  const rect = canvas.getBoundingClientRect();
+  const mx = e.clientX - rect.left;
+  const my = e.clientY - rect.top;
+  squares.forEach(sq => {
+    if (sq.contains(mx, my)) {
+      sq.showSDGs = !sq.showSDGs;
+    }
+  });
+});
+
+function draw(time) {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  squares.forEach(sq => sq.draw(time));
+  requestAnimationFrame(draw);
+}
+draw();
+</script>
+</body>
+</html>
