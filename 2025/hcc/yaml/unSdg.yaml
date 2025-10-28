@@ -1,0 +1,33 @@
+### UN SDGs: 5 P's ###
+# Tabulation by Brygg Ullmer and CoPilot, 2025-10-28
+
+unSdg5Ps:
+
+  people:
+    1: No Poverty
+    2: Zero Hunger
+    3: Good Health and Well-being
+    4: Quality Education
+    5: Gender Equality
+
+  planet:
+    6:  Clean Water and Sanitation
+    12: Responsible Consumption and Production
+    13: Climate Action
+    14: Life Below Water
+    15: Life on Land
+
+  prosperity:
+    7:  Affordable and Clean Energy
+    8:  Decent Work and Economic Growth
+    9:  Industry, Innovation and Infrastructure
+    10: Reduced Inequalities
+    11: Sustainable Cities and Communities
+
+  peace:
+    16: Peace, Justice and Strong Institutions
+
+  partnership:
+    17: Partnerships for the Goals
+
+### end ###
