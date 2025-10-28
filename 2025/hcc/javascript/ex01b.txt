@@ -1,0 +1,1 @@
+thanks much!  can you please make the canvas and window background black?  also, under chrome, when i touch both squares simultaneously on a multitouch screen, the boxes ~fuse together.  (this wasn't the case when you and I explored a similar example some months back.)  Can you please adjust the logic to retain improved distinct behavior?  
