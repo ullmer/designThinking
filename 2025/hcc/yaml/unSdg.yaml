@@ -4,30 +4,38 @@
 unSdg5Ps:
 
   people:
-    1: No Poverty
-    2: Zero Hunger
-    3: Good Health and Well-being
-    4: Quality Education
-    5: Gender Equality
+    sdgs: 
+      1: No Poverty
+      2: Zero Hunger
+      3: Good Health and Well-being
+      4: Quality Education
+      5: Gender Equality
+    color: {name: warm red, hex: 0xE5243B}
 
   planet:
-    6:  Clean Water and Sanitation
-    12: Responsible Consumption and Production
-    13: Climate Action
-    14: Life Below Water
-    15: Life on Land
+    sdgs: 
+      6:  Clean Water and Sanitation
+      12: Responsible Consumption and Production
+      13: Climate Action
+      14: Life Below Water
+      15: Life on Land
+    color: {name: earth green, hex: 0x3F7E44}
 
   prosperity:
-    7:  Affordable and Clean Energy
-    8:  Decent Work and Economic Growth
-    9:  Industry, Innovation and Infrastructure
-    10: Reduced Inequalities
-    11: Sustainable Cities and Communities
+    sdgs: 
+      7:  Affordable and Clean Energy
+      8:  Decent Work and Economic Growth
+      9:  Industry, Innovation and Infrastructure
+      10: Reduced Inequalities
+      11: Sustainable Cities and Communities
+    color: {name: orange-gold, hex: 0xFFB800}
 
   peace:
-    16: Peace, Justice and Strong Institutions
+    sdgs:  {16: Peace, Justice and Strong Institutions}
+    color: {name: deep blue, hex: 0x19486A}
 
   partnership:
-    17: Partnerships for the Goals
+    sdgs:  {17: Partnerships for the Goals}
+    color: {name: royal purple, hex: 0x6A1E74}
 
 ### end ###
