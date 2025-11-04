@@ -3,7 +3,7 @@
 # Begun 2025-11-03
 
 import pygame
-import ataBase
+from ataBase import *
 
 class EnoPrismBars(AtaBase):
   basePos   = (0, 0)
@@ -17,12 +17,11 @@ class EnoPrismBars(AtaBase):
   maxW, maxH = None, None
 
   surfaceList = None
-  screen    = None
+  screen      = None
 
   ############# constructor #############
 
-  def __init__(self, screen, **kwargs):
-    self.screen = screen
+  def __init__(self, **kwargs):
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
 
     self.createColors()
@@ -62,20 +61,21 @@ class EnoPrismBars(AtaBase):
               (self.pathMaxDx,                  self.maxH)]
 
     # Draw the polygon on the transparent surface
-    pygame.draw.polygon(surf, color, points]
+    pygame.draw.polygon(surf, color, points)
     self.surfaceList.append(surf)
 
   ############# draw #############
 
-  def draw():
+  def draw(self, screen):
     for surf in self.surfaceList:
-      self.screen.blit(surf, self.basePos)
+      screen.blit(surf, self.basePos)
 
-##### test ##### 
+##### main ##### 
 
 color1  = (0, 0, 255, 128)
 color1N = 'blu1'
-epb = EnoPrismBars(screen, colorList=[color1], colorKeys = [color1N])
-def draw(): epb.draw()
+
+epb = EnoPrismBars(colorList=[color1], colorKeys=[color1N])
+def draw(): epb.draw(screen)
 
 ### end ###
