@@ -16,9 +16,12 @@ class EnoPrismBars(AtaBase):
   colorKeys  = None
   maxW, maxH = None, None
 
-  surfaceList = None
-  screen      = None
-  flowLeft    = False # directionality of prismatic angle; better name TBD
+  surfaceList  = None
+  screen       = None
+  flowLeft     = False # directionality of prismatic angle; better name TBD
+  drawOutline  = True
+  outlineColor = (255, 255, 255, 80)
+  outlineWidth = 1
 
   ############# constructor #############
 
@@ -69,6 +72,10 @@ class EnoPrismBars(AtaBase):
 
     # Draw the polygon on the transparent surface
     pygame.draw.polygon(surf, colorH, points)
+
+    if self.drawOutline:
+      pygame.draw.polygon(surf, self.outlineColor, points, width=self.outlineWidth)
+
     self.surfaceList.append(surf)
 
   ############# draw #############
