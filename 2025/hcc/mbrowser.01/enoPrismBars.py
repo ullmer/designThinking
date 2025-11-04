@@ -6,6 +6,7 @@ import pygame
 import ataBase
 
 class EnoPrismBars(AtaBase):
+  basePos   = (0, 0)
   pathWidth = 100
   pathMaxDx = 300
   pathMaxDy = 700
@@ -63,7 +64,7 @@ class EnoPrismBars(AtaBase):
   ############# draw #############
 
   def draw():
-    screen.blit(poly1, (0, 0))
-    screen.blit(poly2, (0, 0))
+    for surf in self.surfaceList:
+      self.screen.blit(surf, self.basePos)
 
 ### end ###
