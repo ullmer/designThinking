@@ -2,12 +2,6 @@
 # Brygg Ullmer, Clemson University
 # Begun 2025-11-03
 
-import os
-os.environ['SDL_VIDEO_WINDOW_POS'] = '0,0'
-import pgzrun
-
-WIDTH, HEIGHT=1900,1000
-
 import pygame
 from ataBase import *
 
@@ -77,14 +71,4 @@ class EnoPrismBars(AtaBase):
     for surf in self.surfaceList:
       screen.blit(surf, self.basePos)
 
-##### main ##### 
-
-color1  = (0, 0, 255, 128)
-color1N = 'blu1'
-
-epb = EnoPrismBars(colorList=[color1], colorKeys=[color1N])
-def draw(): 
-  screen.clear(); epb.draw(screen)
-
-pgzrun.go()
 ### end ###
