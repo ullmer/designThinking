@@ -7,7 +7,7 @@ from ataBase import *
 
 class EnoPrismBars(AtaBase):
   basePos   = (50, 0)
-  pathWidth = 300
+  pathWidth = 500
   pathMaxDx = 800
   pathMaxDy = 950
 
@@ -18,6 +18,7 @@ class EnoPrismBars(AtaBase):
 
   surfaceList = None
   screen      = None
+  flowLeft    = False # directionality of prismatic angle; better name TBD
 
   ############# constructor #############
 
@@ -57,9 +58,14 @@ class EnoPrismBars(AtaBase):
     surf = pygame.Surface((self.maxW, self.maxH), pygame.SRCALPHA)
 
     # Define polygon points
-    points = [(0, 0), (self.pathWidth, 0), 
-              (self.pathMaxDx + self.pathWidth, self.maxH),
-              (self.pathMaxDx,                  self.maxH)]
+    if not self.flowLeft:
+      points = [(0, 0), (self.pathWidth, 0), 
+                (self.pathMaxDx + self.pathWidth, self.maxH),
+                (self.pathMaxDx,                  self.maxH)]
+    else:
+      points = [(self.pathMaxDx + self.pathWidth, 0), (self.pathMaxDx, 0), 
+                (0,              self.maxH),
+                (self.pathWidth, self.maxH)]
 
     # Draw the polygon on the transparent surface
     pygame.draw.polygon(surf, colorH, points)
