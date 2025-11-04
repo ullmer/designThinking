@@ -10,6 +10,9 @@ class EnoPrismBars(AtaBase):
   pathMaxDx = 300
   pathMaxDy = 700
   screen    = None
+  colorDict = None
+  colorList = None
+  colorKeys = None
 
   ############# constructor #############
 
@@ -18,9 +21,20 @@ class EnoPrismBars(AtaBase):
 
   ############# create colors #############
     
-  def createColors(self, ):
-    # Define a color with alpha (RGBA)
-    colRed = (255, 0, 0, 128)  # Semi-transparent red
+  def createColors(self):
+    self.colorDict = {}
+
+    if self.colorList is None: 
+      self.msg("createColors: colorList unassigned"); return
+
+    if self.colorKeys is None: 
+      self.msg("createColors: colorKeys unassigned"); return
+
+    for colorSpec, colorName in zip(self.colorList, self.colorKeys):
+      self.colorDict[colorName] = colorSpec
+
+    ## Define a color with alpha (RGBA)
+    #colRed = (255, 0, 0, 128)  # Semi-transparent red
 
   ############# create surface #############
 
