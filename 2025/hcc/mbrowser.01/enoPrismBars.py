@@ -21,8 +21,12 @@ class EnoPrismBars(AtaBase):
 
   ############# constructor #############
 
-  def __init__(self, **kwargs):
+  def __init__(self, screen, **kwargs):
+    self.screen = screen
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+
+    self.createColors()
+    self.createSurface()
 
   ############# create colors #############
     
@@ -66,5 +70,12 @@ class EnoPrismBars(AtaBase):
   def draw():
     for surf in self.surfaceList:
       self.screen.blit(surf, self.basePos)
+
+##### test ##### 
+
+color1  = (0, 0, 255, 128)
+color1N = 'blu1'
+epb = EnoPrismBars(screen, colorList=[color1], colorKeys = [color1N])
+def draw(): epb.draw()
 
 ### end ###
