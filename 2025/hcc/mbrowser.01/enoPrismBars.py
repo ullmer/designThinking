@@ -9,10 +9,14 @@ class EnoPrismBars(AtaBase):
   pathWidth = 100
   pathMaxDx = 300
   pathMaxDy = 700
+
+  colorDict  = None
+  colorList  = None
+  colorKeys  = None
+  maxW, maxH = None, None
+
+  surfaceList = None
   screen    = None
-  colorDict = None
-  colorList = None
-  colorKeys = None
 
   ############# constructor #############
 
@@ -38,7 +42,10 @@ class EnoPrismBars(AtaBase):
 
   ############# create surface #############
 
-  def createSurface(self, ):
+  def createSurface(self):
+
+    self.maxW = self.pathWidth + self.pathMaxDx 
+    self.maxH = self.pathMaxDy 
 
     # Create a transparent surface
     poly1 = pygame.Surface((400, 400), pygame.SRCALPHA)
@@ -48,15 +55,14 @@ class EnoPrismBars(AtaBase):
     points1 = [(100, 100), (300, 100), (350, 300), (150, 350)]
     points2 = [(200,   0), (400, 400), (  0, 400)]
 
-# Draw the polygon on the transparent surface
-pygame.draw.polygon(poly1, colRed, points1)
-pygame.draw.polygon(poly2, colRed, points2)
+    # Draw the polygon on the transparent surface
+    pygame.draw.polygon(poly1, colRed, points1)
+    pygame.draw.polygon(poly2, colRed, points2)
 
-def draw():
-  screen.clear()
-  screen.blit(poly1, (0, 0))
-  screen.blit(poly2, (0, 0))
+  ############# draw #############
 
-
+  def draw():
+    screen.blit(poly1, (0, 0))
+    screen.blit(poly2, (0, 0))
 
 ### end ###
