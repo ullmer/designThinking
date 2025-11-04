@@ -3,17 +3,26 @@
 # Begun 2025-11-03
 
 import pygame
+import ataBase
 
-class EnoPrismBars:
+class EnoPrismBars(AtaBase):
   pathWidth = 100
   pathMaxDx = 300
-  pathMaxDy = 
+  pathMaxDy = 700
+  screen    = None
+
+  ############# constructor #############
+
+  def __init__(self, **kwargs):
+    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+
+  ############# create colors #############
     
   def createColors(self, ):
     # Define a color with alpha (RGBA)
     colRed = (255, 0, 0, 128)  # Semi-transparent red
 
-
+  ############# create surface #############
 
   def createSurface(self, ):
 
@@ -33,5 +42,7 @@ def draw():
   screen.clear()
   screen.blit(poly1, (0, 0))
   screen.blit(poly2, (0, 0))
+
+
 
 ### end ###
