@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interactive Squares</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    canvas {
+      display: block;
+    }
+    @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@700&display=swap');
+  </style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+let width, height;
+
+function resizeCanvas() {
+  width = window.innerWidth;
+  height = window.innerHeight;
+  canvas.width = canvas.height = Math.min(width, height);
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+const squareSize = canvas.width * 0.15;
+const center = { x: canvas.width / 2, y: canvas.height / 2 };
+
+class Square {
+  constructor(label, x, y) {
+    this.label = label;
+    this.x = x;
+    this.y = y;
+    this.color = 'darkpurple';
+    this.isDragging = false;
+    this.offsetX = 0;
+    this.offsetY = 0;
+    this.target = null;
+  }
+
+  draw() {
+    ctx.fillStyle = this.color === 'darkpurple' ? '#4B0082' : '#FF8C00';
+    ctx.fillRect(this.x, this.y, squareSize, squareSize);
+    ctx.font = `${squareSize * 0.5}px 'Barlow', sans-serif`;
+    ctx.fillStyle = 'white';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(this.label, this.x + squareSize / 2, this.y + squareSize / 2);
+  }
+
+  contains(mx, my) {
+    return mx >= this.x && mx <= this.x + squareSize &&
+           my >= this.y && my <= this.y + squareSize;
+  }
+
+  startDrag(mx, my) {
+    this.isDragging = true;
+    this.offsetX = mx - this.x;
+    this.offsetY = my - this.y;
+    this.color = 'darkorange';
+  }
+
+  drag(mx, my) {
+    if (this.isDragging) {
+      this.x = mx - this.offsetX;
+      this.y = my - this.offsetY;
+    }
+  }
+
+  endDrag() {
+    this.isDragging = false;
+    this.color = 'darkpurple';
+    const dx = Math.abs(this.x + squareSize / 2 - center.x);
+    const dy = Math.abs(this.y + squareSize / 2 - center.y);
+    if (dx > dy) {
+      this.target = { x: center.x - squareSize / 2, y: this.y };
+    } else {
+      this.target = { x: this.x, y: center.y - squareSize / 2 };
+    }
+  }
+
+  update() {
+    if (this.target) {
+      const ease = 0.1;
+      this.x += (this.target.x - this.x) * ease;
+      this.y += (this.target.y - this.y) * ease;
+      if (Math.abs(this.x - this.target.x) < 1 &&
+          Math.abs(this.y - this.target.y) < 1) {
+        this.x = this.target.x;
+        this.y = this.target.y;
+        this.target = null;
+      }
+    }
+  }
+}
+
+const squares = [
+  new Square('A', canvas.width * 0.2, canvas.height * 0.4),
+  new Square('B', canvas.width * 0.6, canvas.height * 0.4)
+];
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  squares.forEach(sq => {
+    sq.update();
+    sq.draw();
+  });
+  requestAnimationFrame(draw);
+}
+draw();
+
+canvas.addEventListener('mousedown', e => {
+  const mx = e.offsetX, my = e.offsetY;
+  squares.forEach(sq => {
+    if (sq.contains(mx, my)) {
+      sq.startDrag(mx, my);
+    }
+  });
+});
+
+canvas.addEventListener('mousemove', e => {
+  const mx = e.offsetX, my = e.offsetY;
+  squares.forEach(sq => sq.drag(mx, my));
+});
+
+canvas.addEventListener('mouseup', () => {
+  squares.forEach(sq => sq.endDrag());
+});
+
+canvas.addEventListener('touchstart', e => {
+  const rect = canvas.getBoundingClientRect();
+  for (let touch of e.touches) {
+    const mx = touch.clientX - rect.left;
+    const my = touch.clientY - rect.top;
+    squares.forEach(sq => {
+      if (sq.contains(mx, my)) {
+        sq.startDrag(mx, my);
+      }
+    });
+  }
+});
+
+canvas.addEventListener('touchmove', e => {
+  const rect = canvas.getBoundingClientRect();
+  for (let touch of e.touches) {
+    const mx = touch.clientX - rect.left;
+    const my = touch.clientY - rect.top;
+    squares.forEach(sq => sq.drag(mx, my));
+  }
+  e.preventDefault();
+}, { passive: false });
+
+canvas.addEventListener('touchend', () => {
+  squares.forEach(sq => sq.endDrag());
+});
+</script>
+</body>
+</html>

@@ -31,7 +31,8 @@ class HccReadingsPg(Readings):
   timeDotY       = 900
   timeDotDX      = 80
 
-  font1      = "oswald-medium"
+  #font1      = "oswald-medium"
+  font1      = "saira/saira_condensed_medium"
   fontSize   = 40
   cwhite     = "#ffffff"
   cblack     = "#000000"
