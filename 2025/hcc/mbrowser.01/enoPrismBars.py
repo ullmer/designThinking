@@ -2,8 +2,10 @@
 # Brygg Ullmer, Clemson University
 # Begun 2025-11-03
 
+import math
 import pygame
 import pygame.gfxdraw
+
 from ataBase import *
 
 class EnoPrismBars(AtaBase):
@@ -24,6 +26,10 @@ class EnoPrismBars(AtaBase):
   drawAntialiased = True
   outlineColor = (255, 255, 255, 135)
   outlineWidth = 1
+
+  drawText     = True
+  textStrs     = None
+  textAngle    = None
 
   ############# constructor #############
 
@@ -49,6 +55,18 @@ class EnoPrismBars(AtaBase):
 
     ## Define a color with alpha (RGBA)
     #colRed = (255, 0, 0, 128)  # Semi-transparent red
+
+  ############# calcTextAngle #############
+
+  def calcTextAngle(self): #CoPilot
+    if self.flowLeft:
+      angle_rad = math.atan2(pathMaxDy, -(pathMaxDx - pathWidth))
+      angle_deg = math.degrees(angle_rad)
+    else: 
+      angle_rad = math.atan2(pathMaxDy, pathMaxDx - pathWidth)
+      angle_deg = math.degrees(angle_rad)
+
+    self.textAngle = angle_deg
 
   ############# create surface #############
 
