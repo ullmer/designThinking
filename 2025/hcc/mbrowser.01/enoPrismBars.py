@@ -3,6 +3,7 @@
 # Begun 2025-11-03
 
 import pygame
+import pygame.gfxdraw
 from ataBase import *
 
 class EnoPrismBars(AtaBase):
@@ -19,8 +20,9 @@ class EnoPrismBars(AtaBase):
   surfaceList  = None
   screen       = None
   flowLeft     = False # directionality of prismatic angle; better name TBD
-  drawOutline  = True
-  outlineColor = (255, 255, 255, 80)
+  drawOutline     = True
+  drawAntialiased = True
+  outlineColor = (255, 255, 255, 135)
   outlineWidth = 1
 
   ############# constructor #############
@@ -74,7 +76,14 @@ class EnoPrismBars(AtaBase):
     pygame.draw.polygon(surf, colorH, points)
 
     if self.drawOutline:
-      pygame.draw.polygon(surf, self.outlineColor, points, width=self.outlineWidth)
+      if self.drawAntialiased:
+        lenPoints = len(points)
+        for i in range(lenPoints):
+          start, end = points[i], points[(i+1) % lenPoints]
+          x1, y1 = start; x2, y2 = end; x1 += 1; x2 -= 1
+          pygame.gfxdraw.line(surf, x1, y1, x2, y2, self.outlineColor)
+
+      else: pygame.draw.polygon(surf, self.outlineColor, points, width=self.outlineWidth)
 
     self.surfaceList.append(surf)
 
