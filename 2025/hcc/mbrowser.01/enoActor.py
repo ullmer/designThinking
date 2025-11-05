@@ -16,7 +16,7 @@ from pgzero.builtins import Actor, animate, keyboard
 
 ##################### enodia actor #####################
 
-class enoActor:
+class EnoActor:
   pos        = (0,0)
   actorDim   = (100, 30)
   buttonRect = None
@@ -133,7 +133,7 @@ class enoActor:
 ##################### enodia actor array #####################
 ## fixed, regular grid
 
-class enoActorArray:
+class EnoActorArray:
   pos    = (0,0) #30, 327
   actorDim  = (100, 30)
   #dx, dy     = 190, 0
@@ -157,7 +157,7 @@ class enoActorArray:
 
     bpx, bpy = self.pos
     for text in self.textArray:
-      but = enoActor(text, pos = (bpx+idx*self.dx, bpy+idx*self.dy),
+      but = EnoActor(text, pos = (bpx+idx*self.dx, bpy+idx*self.dy),
                       actorDim = self.actorDim)
       self.actorArray.append(but); idx += 1
 
@@ -199,7 +199,7 @@ class enoActorArray:
 ##################### enodia actor ensemble ###################
 ## plurality, but not of regular structure
 
-class enoActorEnsemble:
+class EnoActorEnsemble:
   actorList     = None
   lastSelected  = None
   actorNameDict = None
@@ -223,10 +223,10 @@ class enoActorEnsemble:
   def addActor(self, actorName, imgFn, **kwargs): 
     a = None 
 
-    if 'topleft' in kwargs: tl = kwargs['topleft']; a = enoActor(imgFn, topleft=tl)
-    if 'midleft' in kwargs: ml = kwargs['midleft']; a = enoActor(imgFn, midleft=ml)
-    if 'pos'     in kwargs: p  = kwargs['pos'];     a = enoActor(imgFn, pos=p)
-    if 'center'  in kwargs: c  = kwargs['center'];  a = enoActor(imgFn, center=c)
+    if 'topleft' in kwargs: tl = kwargs['topleft']; a = EnoActor(imgFn, topleft=tl)
+    if 'midleft' in kwargs: ml = kwargs['midleft']; a = EnoActor(imgFn, midleft=ml)
+    if 'pos'     in kwargs: p  = kwargs['pos'];     a = EnoActor(imgFn, pos=p)
+    if 'center'  in kwargs: c  = kwargs['center'];  a = EnoActor(imgFn, center=c)
 
     if 'bottomleft' in kwargs: bl = kwargs['bottomleft']; a = enoActor(imgFn, bottomleft=bl)
 
