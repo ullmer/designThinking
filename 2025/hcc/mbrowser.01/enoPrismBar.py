@@ -9,12 +9,12 @@ import pygame.gfxdraw
 from ataBase import *
 
 class EnoPrismBar(AtaBase):
-  basePos   = (0, 0)
-  botPosXStart = None
-  barWidth  = 500
-  baseWidth = None # if None, same as barWidth
-  pathMaxDx = 800
-  pathMaxDy = 950
+  basePos    = (0, 0)
+  baseShiftX = None
+  barWidth   = 500
+  baseWidth  = None # if None, same as barWidth
+  pathMaxDx  = 800
+  pathMaxDy  = 950
 
   barColor   = None
   maxW, maxH = None, None
@@ -89,8 +89,9 @@ class EnoPrismBar(AtaBase):
     bottomWidth = self.barWidth
     if self.baseWidth is not None: bottomWidth = self.baseWidth
 
-    self.maxW = bottomWidth + self.pathMaxDx 
     self.maxH = self.pathMaxDy 
+    self.maxW = bottomWidth + self.pathMaxDx 
+    if self.baseShiftX is not None: self.maxW += self.baseShiftX
     self.surfaceList = []
 
     # Create a transparent surface
@@ -99,15 +100,15 @@ class EnoPrismBar(AtaBase):
     #bpxs                  = self.botPosXStart 
     #if bpxs is None: bpxs = self.pathMaxDx
     bpxs = self.pathMaxDx
+
+    bsx = 0 # baseShift X
+    if self.baseShiftX is not None: bsx += self.baseShiftX
     
     # Define polygon points
     if not self.flowLeft:
       points = [(0, 0), (self.barWidth, 0), 
-                (bpxs + bottomWidth, self.maxH),
-                (bpxs,               self.maxH)]
-
-                #(self.pathMaxDx + bottomWidth, self.maxH),
-                #(self.pathMaxDx,               self.maxH)]
+                (bsx + bpxs + bottomWidth, self.maxH),
+                (bsx + bpxs,               self.maxH)]
     else: 
       points = [(self.pathMaxDx + self.barWidth, 0), (self.pathMaxDx, 0), 
                 (0,              self.maxH),
