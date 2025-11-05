@@ -16,8 +16,6 @@ from enoPrismBar  import *
 from enoPrismBars import *
 from enoActor     import *
 
-initialized = False
-
 ##### main ##### 
 
 cblu = (0,   0, 255, 80)
@@ -50,6 +48,8 @@ def setup():
   b1.scaleV(sc)
   b2.scaleV(sc)
   bs = [b1, b2]
+
+initialized = False
 
 def update():
   global initialized

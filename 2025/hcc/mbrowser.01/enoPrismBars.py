@@ -10,9 +10,10 @@ from ataBase     import *
 from enoPrismBar import *
 
 class EnoPrismBars(AtaBase):
-  basePos   = (50, 0)
+  basePos   = (0, 0)
   cumPos    = None
   pathWidth = 500
+  baseWidth = None
   pathMaxDx = 800
   pathMaxDy = 850
 
@@ -38,7 +39,8 @@ class EnoPrismBars(AtaBase):
     to2    = self.textOffset2
     epb    = EnoPrismBar(textStrs=barText, barColor=barColor, barWidth=barWidth, 
                          basePos=self.cumPos, flowLeft=fl, textOffset2=to2, 
-                         pathMaxDx=self.pathMaxDx, pathMaxDy=self.pathMaxDy, fontSize=fs)
+                         pathMaxDx=self.pathMaxDx, pathMaxDy=self.pathMaxDy, fontSize=fs,
+                         baseWidth=self.baseWidth)
 
     cx, cy      = self.cumPos
     cx         += barWidth
