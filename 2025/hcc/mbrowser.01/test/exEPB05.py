@@ -46,8 +46,9 @@ def setup():
   global bs
   b1 = EnoActor("teiland04",      bottomleft=(0,  1190))
   b2 = EnoActor("teiblockconf04", bottomleft=(975,1190))
-  b1.scaleV(.65)
-  b2.scaleV(.65)
+  sc = .45
+  b1.scaleV(sc)
+  b2.scaleV(sc)
   bs = [b1, b2]
 
 def update():
