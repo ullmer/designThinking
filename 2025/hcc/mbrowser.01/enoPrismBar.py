@@ -10,7 +10,7 @@ from ataBase import *
 
 class EnoPrismBar(AtaBase):
   basePos   = (50, 0)
-  pathWidth = 500
+  barWidth = 500
   pathMaxDx = 800
   pathMaxDy = 950
 
@@ -71,7 +71,7 @@ class EnoPrismBar(AtaBase):
     tox2, toy2 = self.textOffset2
 
     bx, by  = self.basePos
-    x, y    = bx+tox1+tox2+self.pathWidth, by+toy1+toy2
+    x, y    = bx+tox1+tox2+self.barWidth, by+toy1+toy2
     ta, tc  = self.textAlpha, self.textColor
     tan     = self.textAngle
 
@@ -82,7 +82,7 @@ class EnoPrismBar(AtaBase):
 
   def createSurface(self):
 
-    self.maxW = self.pathWidth + self.pathMaxDx 
+    self.maxW = self.barWidth + self.pathMaxDx 
     self.maxH = self.pathMaxDy 
     self.surfaceList = []
 
@@ -91,13 +91,13 @@ class EnoPrismBar(AtaBase):
 
     # Define polygon points
     if not self.flowLeft:
-      points = [(0, 0), (self.pathWidth, 0), 
-                (self.pathMaxDx + self.pathWidth, self.maxH),
+      points = [(0, 0), (self.barWidth, 0), 
+                (self.pathMaxDx + self.barWidth, self.maxH),
                 (self.pathMaxDx,                  self.maxH)]
     else:
-      points = [(self.pathMaxDx + self.pathWidth, 0), (self.pathMaxDx, 0), 
+      points = [(self.pathMaxDx + self.barWidth, 0), (self.pathMaxDx, 0), 
                 (0,              self.maxH),
-                (self.pathWidth, self.maxH)]
+                (self.barWidth, self.maxH)]
 
     # Draw the polygon on the transparent surface
     pygame.draw.polygon(surf, self.barColor, points)
