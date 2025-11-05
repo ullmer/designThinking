@@ -40,6 +40,7 @@ class EnoPrismBars(AtaBase):
     cx, cy      = self.cumPos
     cx         += barWidth
     self.cumPos = (cx, cy)
+    self.barList.append(epb)
 
   ############# draw #############
 
@@ -47,6 +48,6 @@ class EnoPrismBars(AtaBase):
     if self.barList is None:
       if self.verbose: self.msg("draw called with empty barlist"); return
 
-    for b in self.barList: b.draw(); self.msg("bd")
+    for b in self.barList: b.draw(screen)
 
 ### end ###
