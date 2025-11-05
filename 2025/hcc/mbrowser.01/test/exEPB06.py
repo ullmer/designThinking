@@ -18,7 +18,7 @@ from enoActor     import *
 
 ##### main ##### 
 
-cblu = (0,   0, 255, 80)
+cblu = (0,   0, 255, 75)
 cyel = (255, 255, 0, 70)
 cgre = (0,   255, 0, 70)
 cred = (255,   0, 0, 70)
@@ -31,11 +31,10 @@ epb1.addBar("24: Cork",     cblu, w)
 epb1.addBar("25: Bordeaux", cblu, n)
 epb1.addBar("26: Chicago",  cred, n)
 
-epb1b = EnoPrismBars(flowLeft=False, pathMaxDx=140, pathMaxDy=80, baseWidth=78, basePos=(900, 850))
-#epb1b = EnoPrismBars(flowLeft=False, pathMaxDx=140, pathMaxDy=75, basePos=(900, 850))
+epb1b = EnoPrismBars(flowLeft=False, pathMaxDx=140, pathMaxDy=80, baseWidth=79, basePos=(900, 850))
 epb1b.addBar("", cyel, n)
-#epb1b.addBar("", cblu, n)
-#epb1b.addBar("", cblu, w)
+epb1b.addBar("", cblu, n)
+epb1b.addBar("", cblu, w)
 #epb1b.addBar("", cblu, n)
 #epb1b.addBar("", cred, n)
 

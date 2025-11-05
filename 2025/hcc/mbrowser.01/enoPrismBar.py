@@ -90,8 +90,11 @@ class EnoPrismBar(AtaBase):
     if self.baseWidth is not None: bottomWidth = self.baseWidth
 
     self.maxH = self.pathMaxDy 
-    self.maxW = bottomWidth + self.pathMaxDx 
-    if self.baseShiftX is not None: self.maxW += self.baseShiftX
+    self.maxW = self.pathMaxDx
+    bwp = bottomWidth + self.pathMaxDx
+    if bwp > self.maxW: self.maxW = bwp
+    if self.baseShiftX > 0: self.maxW += self.baseShiftX
+
     self.surfaceList = []
 
     # Create a transparent surface

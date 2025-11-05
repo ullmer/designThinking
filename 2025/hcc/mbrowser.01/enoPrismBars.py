@@ -49,7 +49,7 @@ class EnoPrismBars(AtaBase):
                          baseWidth=self.baseWidth, baseShiftX=self.baseShiftX)
 
     cx1             += barWidth
-    #self.baseShiftX += bottomWidth
+    self.baseShiftX += (bottomWidth-barWidth)
     self.cumPosTop   = (cx1, cy1)
     
     self.barList.append(epb)
