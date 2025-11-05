@@ -14,13 +14,10 @@ from enoPrismBar import *
 ##### main ##### 
 
 color1  = (0, 0, 255, 80)
-color1N = 'blu1'
-
 color2  = (255, 255, 0, 60)
-color2N = 'yel1'
 
-epb1 = EnoPrismBar(colorList=[color1], colorKeys=[color1N], textStrs="foo", flowLeft=False, textOffset2=(-20,-30))
-epb2 = EnoPrismBar(colorList=[color2], colorKeys=[color2N], textStrs="bar", flowLeft=True)
+epb1 = EnoPrismBar(barColor=color1, textStrs="foo", flowLeft=False, textOffset2=(-20,-30))
+epb2 = EnoPrismBar(barColor=color2, textStrs="bar", flowLeft=True)
 epb = [epb1, epb2]
 
 def draw(): 

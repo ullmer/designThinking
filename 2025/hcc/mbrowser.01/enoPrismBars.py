@@ -11,6 +11,7 @@ from enoPrismBar import *
 
 class EnoPrismBars(AtaBase):
   basePos   = (50, 0)
+  cumPos    = None
   pathWidth = 500
   pathMaxDx = 800
   pathMaxDy = 950
@@ -25,7 +26,11 @@ class EnoPrismBars(AtaBase):
   ############# addBar #############
 
   def addBar(self, barText, barColor, barWidth): 
-    if self.barList is None: self.barList = []
+    if self.barList is None: 
+      self.barList = []
+      self.cumPos  = self.basePos
+
+    epb = EnoPrismBar(textStrs=barText
 
   ############# draw #############
 

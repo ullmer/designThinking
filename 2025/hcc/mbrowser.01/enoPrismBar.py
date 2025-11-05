@@ -14,18 +14,16 @@ class EnoPrismBar(AtaBase):
   pathMaxDx = 800
   pathMaxDy = 950
 
-  colorDict  = None
-  colorList  = None
-  colorKeys  = None
+  barColor   = None
   maxW, maxH = None, None
 
-  surfaceList  = None
-  screen       = None
-  flowLeft     = False # directionality of prismatic angle; better name TBD
+  surfaceList     = None
+  screen          = None
+  flowLeft        = False # directionality of prismatic angle; better name TBD
   drawOutline     = True
   drawAntialiased = True
-  outlineColor = (255, 255, 255, 135)
-  outlineWidth = 1
+  outlineColor    = (255, 255, 255, 135)
+  outlineWidth    = 1
 
   drawText     = True
   textStrs     = None
@@ -42,25 +40,7 @@ class EnoPrismBar(AtaBase):
   def __init__(self, **kwargs):
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
 
-    self.createColors()
     self.createSurface()
-
-  ############# create colors #############
-    
-  def createColors(self):
-    self.colorDict = {}
-
-    if self.colorList is None: 
-      self.msg("createColors: colorList unassigned"); return
-
-    if self.colorKeys is None: 
-      self.msg("createColors: colorKeys unassigned"); return
-
-    for colorSpec, colorName in zip(self.colorList, self.colorKeys):
-      self.colorDict[colorName] = colorSpec
-
-    ## Define a color with alpha (RGBA)
-    #colRed = (255, 0, 0, 128)  # Semi-transparent red
 
   ############# calcTextAngle #############
 
@@ -89,10 +69,11 @@ class EnoPrismBar(AtaBase):
     fn, fs     = self.fontName, self.fontSize
     tox1, toy1 = self.textOffset
     tox2, toy2 = self.textOffset2
-    bx,  by  = self.basePos
-    x, y     = bx+tox1+tox2+self.pathWidth, by+toy1+toy2
-    ta, tc   = self.textAlpha, self.textColor
-    tan      = self.textAngle
+
+    bx, by  = self.basePos
+    x, y    = bx+tox1+tox2+self.pathWidth, by+toy1+toy2
+    ta, tc  = self.textAlpha, self.textColor
+    tan     = self.textAngle
 
     screen.draw.text(str1, (x,y), alpha=ta, color=tc, fontname=fn, fontsize=fs, angle=tan)
     self.msg("drawTexts called on " + str1 + str((x,y)))
@@ -100,7 +81,6 @@ class EnoPrismBar(AtaBase):
   ############# create surface #############
 
   def createSurface(self):
-    colorH = self.colorList[0]
 
     self.maxW = self.pathWidth + self.pathMaxDx 
     self.maxH = self.pathMaxDy 
@@ -120,7 +100,7 @@ class EnoPrismBar(AtaBase):
                 (self.pathWidth, self.maxH)]
 
     # Draw the polygon on the transparent surface
-    pygame.draw.polygon(surf, colorH, points)
+    pygame.draw.polygon(surf, self.barColor, points)
 
     if self.drawOutline:
       if self.drawAntialiased:
