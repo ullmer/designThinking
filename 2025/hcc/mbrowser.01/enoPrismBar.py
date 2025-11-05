@@ -85,22 +85,23 @@ class EnoPrismBar(AtaBase):
 
   def createSurface(self):
 
-    self.maxW = self.barWidth + self.pathMaxDx 
+    bottomWidth = self.barWidth
+    if self.baseWidth is not None: bottomWidth = self.baseWidth
+
+    self.maxW = bottomWidth + self.pathMaxDx 
     self.maxH = self.pathMaxDy 
     self.surfaceList = []
 
     # Create a transparent surface
     surf = pygame.Surface((self.maxW, self.maxH), pygame.SRCALPHA)
 
-    bottomWidth = self.barWidth
-    if self.baseWidth is not None: bottomWidth = self.baseWidth
     
     # Define polygon points
     if not self.flowLeft:
       points = [(0, 0), (self.barWidth, 0), 
                 (self.pathMaxDx + bottomWidth, self.maxH),
-                (self.pathMaxDx,                  self.maxH)]
-    else:
+                (self.pathMaxDx,               self.maxH)]
+    else: 
       points = [(self.pathMaxDx + self.barWidth, 0), (self.pathMaxDx, 0), 
                 (0,              self.maxH),
                 (bottomWidth, self.maxH)]

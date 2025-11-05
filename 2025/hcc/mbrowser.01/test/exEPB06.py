@@ -10,7 +10,7 @@ sys.path.insert(0, #access module in parent directory (for test stubs)
 import pgzrun
 from pgzero.builtins import Actor, animate, keyboard, keys
 
-WIDTH, HEIGHT=1900,1080
+WIDTH, HEIGHT=1600,1080
 
 from enoPrismBar  import *
 from enoPrismBars import *
@@ -31,12 +31,13 @@ epb1.addBar("24: Cork",     cblu, w)
 epb1.addBar("25: Bordeaux", cblu, n)
 epb1.addBar("26: Chicago",  cred, n)
 
-epb1b = EnoPrismBars(flowLeft=False, pathMaxDx=90, pathMaxDy=75, baseWidth=75, basePos=(900, 850))
+epb1b = EnoPrismBars(flowLeft=False, pathMaxDx=140, pathMaxDy=80, baseWidth=78, basePos=(900, 850))
+#epb1b = EnoPrismBars(flowLeft=False, pathMaxDx=140, pathMaxDy=75, basePos=(900, 850))
 epb1b.addBar("", cyel, n)
-epb1b.addBar("", cblu, n)
-epb1b.addBar("", cblu, w)
-epb1b.addBar("", cblu, n)
-epb1b.addBar("", cred, n)
+#epb1b.addBar("", cblu, n)
+#epb1b.addBar("", cblu, w)
+#epb1b.addBar("", cblu, n)
+#epb1b.addBar("", cred, n)
 
 n2=88
 epb2 = EnoPrismBars(flowLeft=True, textOffset2=(705, 0), fontSize=25)
