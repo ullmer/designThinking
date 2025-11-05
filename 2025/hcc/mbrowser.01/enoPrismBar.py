@@ -10,6 +10,7 @@ from ataBase import *
 
 class EnoPrismBar(AtaBase):
   basePos   = (0, 0)
+  botPosXStart = None
   barWidth  = 500
   baseWidth = None # if None, same as barWidth
   pathMaxDx = 800
@@ -95,12 +96,17 @@ class EnoPrismBar(AtaBase):
     # Create a transparent surface
     surf = pygame.Surface((self.maxW, self.maxH), pygame.SRCALPHA)
 
+    bpxs                  = self.botPosXStart 
+    if bpxs is None: bpxs = self.pathMaxDx
     
     # Define polygon points
     if not self.flowLeft:
       points = [(0, 0), (self.barWidth, 0), 
-                (self.pathMaxDx + bottomWidth, self.maxH),
-                (self.pathMaxDx,               self.maxH)]
+                (bpxs + bottomWidth, self.maxH),
+                (bpxs,               self.maxH)]
+
+                #(self.pathMaxDx + bottomWidth, self.maxH),
+                #(self.pathMaxDx,               self.maxH)]
     else: 
       points = [(self.pathMaxDx + self.barWidth, 0), (self.pathMaxDx, 0), 
                 (0,              self.maxH),
