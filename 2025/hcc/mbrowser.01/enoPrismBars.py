@@ -18,7 +18,7 @@ class EnoPrismBars(AtaBase):
 
   barList     = None
   flowLeft    = True
-  textOffset2 = None
+  textOffset2 = (0,0)
 
   ############# constructor #############
 

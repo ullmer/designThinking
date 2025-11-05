@@ -21,7 +21,10 @@ epb1 = EnoPrismBars(flowLeft=False, textOffset2=(-20,-30))
 epb1.addBar("foo1", color1, 200)
 epb1.addBar("foo2", color1, 200)
 
-epb2 = EnoPrismBar(barColor=color2, textStrs="bar", flowLeft=True)
+epb2 = EnoPrismBars(flowLeft=True, textOffset2=(350, 0))
+epb2.addBar("bar1", color2, 150)
+epb2.addBar("bar2", color2, 150)
+epb2.addBar("bar3", color2, 150)
 
 epb = [epb1, epb2]
 
