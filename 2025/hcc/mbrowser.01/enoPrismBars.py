@@ -34,7 +34,7 @@ class EnoPrismBars(AtaBase):
     if self.barList is None: 
       self.barList = []
       self.cumPosTop = self.basePos
-      self.cumPosBot = self.basePos #TBD; incorrect! 
+      #self.cumPosBot = self.basePos #TBD; incorrect! 
 
     bottomWidth = barWidth
     if self.baseWidth is not None: bottomWidth = self.baseWidth
@@ -43,16 +43,16 @@ class EnoPrismBars(AtaBase):
     fs       = self.fontSize
     to2      = self.textOffset2
     cx1, cy1 = self.cumPosTop
-    cx2, cy2 = self.cumPosBot
+    #cx2, cy2 = self.cumPosBot
     epb    = EnoPrismBar(textStrs=barText,     barColor=barColor, barWidth=barWidth, 
                          basePos =self.cumPosTop, flowLeft=fl,    textOffset2=to2, 
                          pathMaxDx=self.pathMaxDx, pathMaxDy=self.pathMaxDy, fontSize=fs,
-                         baseWidth=self.baseWidth, botPosXStart=cx2)
+                         baseWidth=self.baseWidth) #, botPosXStart=cx2)
 
     cx1           += barWidth
-    cx2           += bottomWidth
+    #cx2           += bottomWidth
     self.cumPosTop = (cx1, cy1)
-    self.cumPosBot = (cx2, cy2)
+    #self.cumPosBot = (cx2, cy2)
     
     self.barList.append(epb)
 
