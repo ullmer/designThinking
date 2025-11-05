@@ -19,8 +19,8 @@ color1N = 'blu1'
 color2  = (255, 255, 0, 60)
 color2N = 'yel1'
 
-epb1 = EnoPrismBars(colorList=[color1], colorKeys=[color1N], flowLeft=False)
-epb2 = EnoPrismBars(colorList=[color2], colorKeys=[color2N], flowLeft=True)
+epb1 = EnoPrismBars(colorList=[color1], colorKeys=[color1N], textStrs="foo", flowLeft=False)
+epb2 = EnoPrismBars(colorList=[color2], colorKeys=[color2N], textStrs="bar", flowLeft=True)
 epb = [epb1, epb2]
 
 def draw(): 

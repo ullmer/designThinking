@@ -30,6 +30,11 @@ class EnoPrismBars(AtaBase):
   drawText     = True
   textStrs     = None
   textAngle    = None
+  textColor    = (200, 200, 200)
+  textAlpha    = .5
+  fontName     = "Barlow_Condensed/BarlowCondensed-ExtraLight"
+  fontSize     = 8
+  textOffset   = (450, 50)
 
   ############# constructor #############
 
@@ -60,13 +65,33 @@ class EnoPrismBars(AtaBase):
 
   def calcTextAngle(self): #CoPilot
     if self.flowLeft:
-      angle_rad = math.atan2(pathMaxDy, -(pathMaxDx - pathWidth))
+      angle_rad = math.atan2(self.pathMaxDy, -(self.pathMaxDx - self.pathWidth))
       angle_deg = math.degrees(angle_rad)
     else: 
-      angle_rad = math.atan2(pathMaxDy, pathMaxDx - pathWidth)
+      angle_rad = math.atan2(self.pathMaxDy,   self.pathMaxDx - self.pathWidth)
       angle_deg = math.degrees(angle_rad)
 
     self.textAngle = angle_deg
+
+  ############# drawText #############
+
+  def drawTexts(self): #CoPilot
+    if self.textStrs  is None: 
+      if verbose: self.msg('drawText called, no text to be drawn')
+
+    if self.textAngle is None: self.calcTextAngle()
+    str1 = None
+    if   isinstance(self.textStrs, str):  str1 = self.textStrs
+    elif isinstance(self.textStrs, list): str1 = self.textStrs[0]
+    else:                                 return
+
+    fn, fs   = self.fontName, self.fontSize
+    tox, toy = self.textOffset
+    bx,  by  = self.basePos
+    x, y     = bx+tox, by+toy
+    ta, tc   = self.textAlpha, self.textColor
+
+    screen.draw.text(str1, (x,y), alpha=ta, color=tc, fontname=fn, fontsize=fs)
 
   ############# create surface #############
 
@@ -110,5 +135,7 @@ class EnoPrismBars(AtaBase):
   def draw(self, screen):
     for surf in self.surfaceList:
       screen.blit(surf, self.basePos)
+
+    if self.drawText: self.drawTexts()
 
 ### end ###
