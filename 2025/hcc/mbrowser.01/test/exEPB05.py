@@ -25,7 +25,7 @@ cyel = (255, 255, 0, 70)
 cgre = (0,   255, 0, 70)
 cred = (255,   0, 0, 70)
 
-n,w=35,500
+n,w=35,400
 epb1 = EnoPrismBars(flowLeft=False, textOffset2=(-18,0), fontSize=25, pathMaxDx=900)
 epb1.addBar("22: Daejeon",  cyel, n)
 epb1.addBar("23: Warsaw",   cblu, n)
@@ -33,8 +33,8 @@ epb1.addBar("24: Cork",     cblu, w)
 epb1.addBar("25: Bordeaux", cblu, n)
 epb1.addBar("26: Chicago",  cred, n)
 
-n2=120
-epb2 = EnoPrismBars(flowLeft=True, textOffset2=(675, 0), fontSize=25)
+n2=88
+epb2 = EnoPrismBars(flowLeft=True, textOffset2=(705, 0), fontSize=25)
 epb2.addBar("creativity",    cgre, n2)
 epb2.addBar("dance+theater", cgre, n2)
 epb2.addBar("music+sound",   cgre, n2)
@@ -45,7 +45,7 @@ epb2.addBar("computing hardware", cyel, n2)
 def setup():
   global bs
   b1 = EnoActor("teiland04",      bottomleft=(0,  1190))
-  b2 = EnoActor("teiblockconf04", bottomleft=(975,1190))
+  b2 = EnoActor("teiblockconf04", bottomleft=(910,1190))
   sc = .45
   b1.scaleV(sc)
   b2.scaleV(sc)
