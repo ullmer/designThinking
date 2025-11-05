@@ -16,8 +16,9 @@ class EnoPrismBars(AtaBase):
   pathMaxDx = 800
   pathMaxDy = 950
 
-  barList   = None
-  flowLeft  = True
+  barList     = None
+  flowLeft    = True
+  textOffset2 = None
 
   ############# constructor #############
 
@@ -32,7 +33,9 @@ class EnoPrismBars(AtaBase):
       self.cumPos  = self.basePos
 
     fl     = self.flowLeft
-    epb    = EnoPrismBar(textStrs=barText, barColor=barColor, barWidth=barWidth, basePos=cumPos, flowLeft=fl)
+    to2    = self.textOffset2
+    epb    = EnoPrismBar(textStrs=barText, barColor=barColor, barWidth=barWidth, 
+                         basePos=cumPos, flowLeft=fl, textOffset2=to2)
     cx, cy = cumPos
     cx    += barWidth
     cumPos = (cx, cy)
@@ -40,9 +43,9 @@ class EnoPrismBars(AtaBase):
   ############# draw #############
 
   def draw(self, screen):
-    for surf in self.surfaceList:
-      screen.blit(surf, self.basePos)
+    if self.barList is None:
+      if self.verbose: self.msg("draw called with empty barlist"); return
 
-    if self.drawText: self.drawTexts()
+    for b in self.barList: b.draw()
 
 ### end ###
