@@ -8,6 +8,8 @@
 
 import yaml
 import pygame
+#import pgzero #scaling seems to depend on a newer version of pgzero
+# than within pypi ca. 2025-11; could add dependencies here to check
 
 from pygame import Rect
 from pgzero.builtins import Actor, animate, keyboard
