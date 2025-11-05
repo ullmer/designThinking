@@ -35,10 +35,11 @@ class EnoPrismBars(AtaBase):
     fl     = self.flowLeft
     to2    = self.textOffset2
     epb    = EnoPrismBar(textStrs=barText, barColor=barColor, barWidth=barWidth, 
-                         basePos=cumPos, flowLeft=fl, textOffset2=to2)
-    cx, cy = cumPos
-    cx    += barWidth
-    cumPos = (cx, cy)
+                         basePos=self.cumPos, flowLeft=fl, textOffset2=to2)
+
+    cx, cy      = self.cumPos
+    cx         += barWidth
+    self.cumPos = (cx, cy)
 
   ############# draw #############
 
@@ -46,6 +47,6 @@ class EnoPrismBars(AtaBase):
     if self.barList is None:
       if self.verbose: self.msg("draw called with empty barlist"); return
 
-    for b in self.barList: b.draw()
+    for b in self.barList: b.draw(); self.msg("bd")
 
 ### end ###
