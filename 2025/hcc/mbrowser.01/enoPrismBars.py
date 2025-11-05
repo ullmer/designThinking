@@ -34,7 +34,7 @@ class EnoPrismBars(AtaBase):
   textAlpha    = .7
   fontName     = "barlow_condensed_extralight"
   fontSize     = 35
-  textOffset   = (450, 100)
+  textOffset   = (150, 170)
 
   ############# constructor #############
 
@@ -63,12 +63,12 @@ class EnoPrismBars(AtaBase):
 
   ############# calcTextAngle #############
 
-  def calcTextAngle(self): #CoPilot
+  def calcTextAngle(self): 
     if self.flowLeft:
-      angle_rad = math.atan2(self.pathMaxDy, -(self.pathMaxDx - self.pathWidth))
-      angle_deg = math.degrees(angle_rad)
+      angle_rad = math.atan2(self.pathMaxDy, -self.pathMaxDx)
+      angle_deg = math.degrees(angle_rad)+180
     else: 
-      angle_rad = math.atan2(self.pathMaxDy,   self.pathMaxDx - self.pathWidth)
+      angle_rad = math.atan2(self.pathMaxDy,  self.pathMaxDx)
       angle_deg = math.degrees(angle_rad)
 
     self.textAngle = angle_deg
@@ -88,7 +88,7 @@ class EnoPrismBars(AtaBase):
     fn, fs   = self.fontName, self.fontSize
     tox, toy = self.textOffset
     bx,  by  = self.basePos
-    x, y     = bx+tox, by+toy
+    x, y     = bx+tox+self.pathWidth, by+toy
     ta, tc   = self.textAlpha, self.textColor
     tan      = self.textAngle
 
