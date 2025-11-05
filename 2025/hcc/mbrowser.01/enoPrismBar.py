@@ -149,7 +149,9 @@ class EnoPrismBar(AtaBase):
 
     print("foo", str(points))
     minX = self.findTupleListMinX(points)
-    if minX < 0: points = self.normPoints(points, minX)
+    if minX < 0: 
+      points = self.normPoints(points, minX)
+      self.baseShiftX = minX
     print("bar", str(points))
 
     # Draw the polygon on the transparent surface
@@ -171,6 +173,12 @@ class EnoPrismBar(AtaBase):
 
   def draw(self, screen):
     for surf in self.surfaceList:
+      pos = self.basePos
+      if self.baseShiftX is not None:
+        x, y = pos
+        x   += self.baseShiftX
+        pos  = (x, y)
+
       screen.blit(surf, self.basePos)
 
     if self.drawText: self.drawTexts(screen)
