@@ -35,8 +35,8 @@ epb1b = EnoPrismBars(flowLeft=False, pathMaxDx=140, pathMaxDy=80, baseWidth=79, 
 epb1b.addBar("", cyel, n)
 epb1b.addBar("", cblu, n)
 epb1b.addBar("", cblu, w)
-#epb1b.addBar("", cblu, n)
-#epb1b.addBar("", cred, n)
+epb1b.addBar("", cblu, n)
+epb1b.addBar("", cred, n)
 
 n2=88
 epb2 = EnoPrismBars(flowLeft=True, textOffset2=(705, 0), fontSize=25)

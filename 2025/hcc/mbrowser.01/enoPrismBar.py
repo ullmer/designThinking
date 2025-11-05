@@ -92,12 +92,14 @@ class EnoPrismBar(AtaBase):
     self.maxH = self.pathMaxDy 
     self.maxW = self.pathMaxDx
     bwp = bottomWidth + self.pathMaxDx
-    if bwp > self.maxW: self.maxW = bwp
-    if self.baseShiftX > 0: self.maxW += self.baseShiftX
+    if self.barWidth > self.maxW: self.maxW = self.barWidth
+    if bwp > self.maxW:           self.maxW = bwp
+    if self.baseShiftX > 0:       self.maxW += self.baseShiftX
 
     self.surfaceList = []
 
     # Create a transparent surface
+    #surf = pygame.Surface((self.maxW, self.maxH), pygame.SRCALPHA)
     surf = pygame.Surface((self.maxW, self.maxH), pygame.SRCALPHA)
 
     #bpxs                  = self.botPosXStart 
