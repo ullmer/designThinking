@@ -9,8 +9,8 @@ import pygame.gfxdraw
 from ataBase import *
 
 class EnoPrismBar(AtaBase):
-  basePos   = (50, 0)
-  barWidth = 500
+  basePos   = (0, 0)
+  barWidth  = 500
   pathMaxDx = 800
   pathMaxDy = 950
 

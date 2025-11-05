@@ -14,8 +14,9 @@ class EnoPrismBars(AtaBase):
   cumPos    = None
   pathWidth = 500
   pathMaxDx = 800
-  pathMaxDy = 950
+  pathMaxDy = 850
 
+  fontSize    = 30
   barList     = None
   flowLeft    = True
   textOffset2 = (0,0)
@@ -33,9 +34,11 @@ class EnoPrismBars(AtaBase):
       self.cumPos  = self.basePos
 
     fl     = self.flowLeft
+    fs     = self.fontSize
     to2    = self.textOffset2
     epb    = EnoPrismBar(textStrs=barText, barColor=barColor, barWidth=barWidth, 
-                         basePos=self.cumPos, flowLeft=fl, textOffset2=to2)
+                         basePos=self.cumPos, flowLeft=fl, textOffset2=to2, 
+                         pathMaxDx=self.pathMaxDx, pathMaxDy=self.pathMaxDy, fontSize=fs)
 
     cx, cy      = self.cumPos
     cx         += barWidth

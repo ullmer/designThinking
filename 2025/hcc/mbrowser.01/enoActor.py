@@ -55,6 +55,12 @@ class EnoActor:
     if 'bottomleft' in kwargs:  bl = kwargs['bottomleft'];  a.bottomleft  = bl
     if 'bottomright' in kwargs: bl = kwargs['bottomright']; a.bottomright = bl
 
+  ############# set position #############
+
+  def setPos(self, newPos):
+    self.pos       = newPos
+    self.actor.pos = newPos
+
   ############# get abbreviation #############
 
   def getAbbrev(self):
