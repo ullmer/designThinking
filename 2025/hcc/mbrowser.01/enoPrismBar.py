@@ -32,7 +32,8 @@ class EnoPrismBar(AtaBase):
   textAlpha    = .7
   fontName     = "barlow_condensed_extralight"
   fontSize     = 32
-  textOffset   = (150, 170)
+  #textOffset   = (150, 170)
+  textOffset   = (10, 10)
   textOffset2  = (0, 0)
 
   ############# constructor #############
@@ -75,7 +76,10 @@ class EnoPrismBar(AtaBase):
     ta, tc  = self.textAlpha, self.textColor
     tan     = self.textAngle
 
-    screen.draw.text(str1, (x,y), alpha=ta, color=tc, fontname=fn, fontsize=fs, angle=tan)
+    if self.flowLeft:
+      screen.draw.text(str1, midright=(x,y), alpha=ta, color=tc, fontname=fn, fontsize=fs, angle=tan)
+    else:
+      screen.draw.text(str1, midleft=(x,y),  alpha=ta, color=tc, fontname=fn, fontsize=fs, angle=tan)
 
   ############# create surface #############
 
