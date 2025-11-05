@@ -2,28 +2,38 @@
 # Brygg Ullmer, Clemson University
 # Begun 2025-11-03
 
-import os,sys
-os.environ['SDL_VIDEO_WINDOW_POS'] = '0,0' #place window at 0,0 
-sys.path.insert(0, #access module in parent directory (for test stubs)
-  os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
-import pgzrun
-from pgzero.builtins import Actor, animate, keyboard, keys
-
-WIDTH, HEIGHT=1600,1080
-
 from enoPrismBar   import *
 from enoPrismBars  import *
 from enoPrismActor import *
 from enoActor     import *
 
-##### main ##### 
+class enoPrismsMgr(AtaBase):
 
-cblu = (0,   0, 255, 80)
-cyel = (255, 255, 0, 70)
-cgre = (0,   255, 0, 70)
-cred = (255,   0, 0, 70)
+  cblu = (0,   0, 255, 80)
+  cyel = (255, 255, 0, 70)
+  cgre = (0,   255, 0, 70)
+  cred = (255,   0, 0, 70)
 
+  prismBarSources = None
+
+  ############# constructor #############
+
+  def __init__(self, **kwargs):
+    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+
+    self.init()
+
+  ############# initiate #############
+
+  def init(self):
+    b1 = EnoActor("teiland04",      bottomleft=(0,  1190))
+    b2 = EnoActor("teiblockconf04", bottomleft=(910,1190))
+    sc = .45
+    b1.scaleV(sc)
+    b2.scaleV(sc)
+    self.prismBarSources = [b1, b2]
+
+initialized = False
 n,w=35,400
 epb1 = EnoPrismBars(flowLeft=False, textOffset2=(-18,0), fontSize=25, pathMaxDx=900)
 epb1.addBar("22: Daejeon",  cyel, n)
@@ -59,16 +69,6 @@ refractBar = pygame.Surface((WIDTH, 75), pygame.SRCALPHAg
 gcolor = (255, 255, 255, 75)
 refractBar.fill(rcolor)
 
-def setup():
-  global bs
-  b1 = EnoActor("teiland04",      bottomleft=(0,  1190))
-  b2 = EnoActor("teiblockconf04", bottomleft=(910,1190))
-  sc = .45
-  b1.scaleV(sc)
-  b2.scaleV(sc)
-  bs = [b1, b2]
-
-initialized = False
 
 def update():
   global initialized

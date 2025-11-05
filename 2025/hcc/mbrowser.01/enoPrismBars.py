@@ -1,25 +1,24 @@
-# Enodia "prism bars"
+# Enodia prism ensemble
 # Brygg Ullmer, Clemson University
-# Begun 2025-11-03
+# Begun 2025-11-05
 
 import math
 import pygame
 import pygame.gfxdraw
 
-from ataBase     import *
-from enoPrismBar import *
+from ataBase      import *
+from enoPrismBar  import *
+from enoPrismBars import *
 
-class EnoPrismBars(AtaBase):
+class EnoPrismEnsemble(AtaBase):
   basePos   = (0, 0)
-  cumPosTop = None
-  cumPosBot = None
   pathWidth = 500
   baseWidth = None
   pathMaxDx = 800
   pathMaxDy = 850
 
   fontSize    = 30
-  barList     = None
+  barsList    = None
   flowLeft    = True
   textOffset2 = (0,0)
 
@@ -27,34 +26,6 @@ class EnoPrismBars(AtaBase):
 
   def __init__(self, **kwargs):
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
-
-  ############# addBar #############
-
-  def addBar(self, barText, barColor, barWidth): 
-    if self.barList is None: 
-      self.barList = []
-      self.cumPosTop = self.basePos
-      #self.cumPosBot = self.basePos #TBD; incorrect! 
-
-    bottomWidth = barWidth
-    if self.baseWidth is not None: bottomWidth = self.baseWidth
-
-    fl       = self.flowLeft
-    fs       = self.fontSize
-    to2      = self.textOffset2
-    cx1, cy1 = self.cumPosTop
-    #cx2, cy2 = self.cumPosBot
-    epb    = EnoPrismBar(textStrs=barText,     barColor=barColor, barWidth=barWidth, 
-                         basePos =self.cumPosTop, flowLeft=fl,    textOffset2=to2, 
-                         pathMaxDx=self.pathMaxDx, pathMaxDy=self.pathMaxDy, fontSize=fs,
-                         baseWidth=self.baseWidth) #, botPosXStart=cx2)
-
-    cx1           += barWidth
-    #cx2           += bottomWidth
-    self.cumPosTop = (cx1, cy1)
-    #self.cumPosBot = (cx2, cy2)
-    
-    self.barList.append(epb)
 
   ############# draw #############
 
