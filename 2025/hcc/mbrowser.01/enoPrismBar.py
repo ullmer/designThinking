@@ -57,7 +57,7 @@ class EnoPrismBar(AtaBase):
 
   ############# drawText #############
 
-  def drawTexts(self): #CoPilot
+  def drawTexts(self, screen):
     if self.textStrs  is None: 
       if verbose: self.msg('drawText called, no text to be drawn')
 
@@ -126,6 +126,6 @@ class EnoPrismBar(AtaBase):
     for surf in self.surfaceList:
       screen.blit(surf, self.basePos)
 
-    if self.drawText: self.drawTexts()
+    if self.drawText: self.drawTexts(screen)
 
 ### end ###
