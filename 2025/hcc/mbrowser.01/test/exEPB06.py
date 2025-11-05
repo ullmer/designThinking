@@ -31,10 +31,10 @@ epb1.addBar("24: Cork",     cblu, w)
 epb1.addBar("25: Bordeaux", cblu, n)
 epb1.addBar("26: Chicago",  cred, n)
 
-epb1b = EnoPrismBars(flowLeft=False, pathMaxDx=0, pathMaxDy=50, baseWidth=75)
+epb1b = EnoPrismBars(flowLeft=False, pathMaxDx=90, pathMaxDy=75, baseWidth=75, basePos=(900, 850))
 epb1b.addBar("", cyel, n)
 epb1b.addBar("", cblu, n)
-epb1b.addBar("", cblu, 2)
+epb1b.addBar("", cblu, w)
 epb1b.addBar("", cblu, n)
 epb1b.addBar("", cred, n)
 
