@@ -48,9 +48,13 @@ epb2.addBar("AI",            cyel, n2)
 epb2.addBar("computing hardware", cyel, n2)
 
 epb2b = EnoPrismBars(flowLeft=True, textOffset2=(705, 0), pathMaxDy=80, pathMaxDx=0,
-                     fontSize=25, basePos=(0, 850)) #, baseWidth=80)
-                     #baseWidth=20, fontSize=25, basePos=(50, 850))
+                     fontSize=25, basePos=(0, 850), baseWidth=79//2)
 epb2b.addBar("", cgre, n2)
+epb2b.addBar("", cgre, n2)
+epb2b.addBar("", cgre, n2)
+epb2b.addBar("", cyel, n2)
+epb2b.addBar("", cyel, n2)
+epb2b.addBar("", cyel, n2)
 
 def setup():
   global bs
