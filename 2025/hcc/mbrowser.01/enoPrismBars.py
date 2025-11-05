@@ -30,11 +30,11 @@ class EnoPrismBars(AtaBase):
   drawText     = True
   textStrs     = None
   textAngle    = None
-  textColor    = (200, 200, 200)
-  textAlpha    = .5
-  fontName     = "Barlow_Condensed/BarlowCondensed-ExtraLight"
-  fontSize     = 8
-  textOffset   = (450, 50)
+  textColor    = (255, 255, 255)
+  textAlpha    = .7
+  fontName     = "barlow_condensed_extralight"
+  fontSize     = 35
+  textOffset   = (450, 100)
 
   ############# constructor #############
 
@@ -90,8 +90,10 @@ class EnoPrismBars(AtaBase):
     bx,  by  = self.basePos
     x, y     = bx+tox, by+toy
     ta, tc   = self.textAlpha, self.textColor
+    tan      = self.textAngle
 
-    screen.draw.text(str1, (x,y), alpha=ta, color=tc, fontname=fn, fontsize=fs)
+    screen.draw.text(str1, (x,y), alpha=ta, color=tc, fontname=fn, fontsize=fs, angle=tan)
+    self.msg("drawTexts called on " + str1 + str((x,y)))
 
   ############# create surface #############
 
