@@ -14,6 +14,7 @@ WIDTH, HEIGHT=1900,1080
 
 from enoPrismBar  import *
 from enoPrismBars import *
+from enoActor     import *
 
 initialized = False
 
@@ -25,7 +26,6 @@ cgre = (0,   255, 0, 70)
 cred = (255,   0, 0, 70)
 
 n,w=35,500
-
 epb1 = EnoPrismBars(flowLeft=False, textOffset2=(-18,0), fontSize=25, pathMaxDx=900)
 epb1.addBar("22: Daejeon",  cyel, n)
 epb1.addBar("23: Warsaw",   cblu, n)
@@ -43,8 +43,12 @@ epb2.addBar("AI",            cyel, n2)
 epb2.addBar("computing hardware", cyel, n2)
 
 def setup():
-  global b2
-  b2 = Actor("teiblockconf04", pos=(600, HEIGHT-70))
+  global bs
+  b1 = EnoActor("teiland04",      bottomleft=(0,  1190))
+  b2 = EnoActor("teiblockconf04", bottomleft=(975,1190))
+  b1.scaleV(.65)
+  b2.scaleV(.65)
+  bs = [b1, b2]
 
 def update():
   global initialized
@@ -55,7 +59,7 @@ epb = [epb1, epb2]
 def draw(): 
   screen.clear()
   for p in epb: p.draw(screen)
-  b2.draw()
+  for b in bs:  b.draw(screen)
 
 pgzrun.go()
 
