@@ -13,12 +13,17 @@ from enoPrismBar import *
 
 ##### main ##### 
 
-color1  = (0, 0, 255, 128)
+color1  = (0, 0, 255, 80)
+color2  = (255, 255, 0, 60)
 
-epb = EnoPrismBar(barColor=color1)
+epb1 = EnoPrismBar(barColor=color1, textStrs="foo", flowLeft=False, textOffset2=(-20,-30))
+
+epb2 = EnoPrismBar(barColor=color2, textStrs="bar", flowLeft=True)
+epb = [epb1, epb2]
 
 def draw(): 
-  screen.clear(); epb.draw(screen)
+  screen.clear()
+  for p in epb: p.draw(screen)
 
 pgzrun.go()
 

@@ -16,7 +16,8 @@ class EnoPrismBars(AtaBase):
   pathMaxDx = 800
   pathMaxDy = 950
 
-  barList      = None
+  barList   = None
+  flowLeft  = True
 
   ############# constructor #############
 
@@ -30,7 +31,11 @@ class EnoPrismBars(AtaBase):
       self.barList = []
       self.cumPos  = self.basePos
 
-    epb = EnoPrismBar(textStrs=barText
+    fl     = self.flowLeft
+    epb    = EnoPrismBar(textStrs=barText, barColor=barColor, barWidth=barWidth, basePos=cumPos, flowLeft=fl)
+    cx, cy = cumPos
+    cx    += barWidth
+    cumPos = (cx, cy)
 
   ############# draw #############
 
