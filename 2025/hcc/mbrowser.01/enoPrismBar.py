@@ -76,7 +76,6 @@ class EnoPrismBar(AtaBase):
     tan     = self.textAngle
 
     screen.draw.text(str1, (x,y), alpha=ta, color=tc, fontname=fn, fontsize=fs, angle=tan)
-    self.msg("drawTexts called on " + str1 + str((x,y)))
 
   ############# create surface #############
 
