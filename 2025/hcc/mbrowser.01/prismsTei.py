@@ -93,4 +93,13 @@ class PrismsTei(AtaBase):
   def update(self):
     if not self.initialized: self.setup(); self.initialized=True
 
+  ################### draw ###################
+
+  def draw(self):
+    if self.activePrisms is None: return
+    try:
+      for prism in self.activePrisms:
+        for ppath in prism: ppath.draw()
+    except: self.err("draw")
+
 ### end ###
