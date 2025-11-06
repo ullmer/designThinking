@@ -31,7 +31,7 @@ epb1.addBar("24: Cork",     cblu, w)
 epb1.addBar("25: Bordeaux", cblu, n)
 epb1.addBar("26: Chicago",  cred, n)
 
-epb1b = EnoPrismBars(flowLeft=False, pathMaxDx=140, pathMaxDy=80, baseWidth=79, basePos=(900, 850))
+epb1b = EnoPrismBars(flowLeft=False, pathMaxDx=140, pathMaxDy=80, baseWidth=79, basePos=(900, 850), refractBars=True)
 epb1b.addBar("", cyel, n)
 epb1b.addBar("", cblu, n)
 epb1b.addBar("", cblu, w)
@@ -48,7 +48,7 @@ epb2.addBar("AI",            cyel, n2)
 epb2.addBar("computing hardware", cyel, n2)
 
 epb2b = EnoPrismBars(flowLeft=True, textOffset2=(705, 0), pathMaxDy=80, pathMaxDx=0,
-                     fontSize=25, basePos=(0, 850), baseWidth=79//2)
+                     fontSize=25, basePos=(0, 850), baseWidth=79//2, refractBars=True)
 epb2b.addBar("", cgre, n2)
 epb2b.addBar("", cgre, n2)
 epb2b.addBar("", cgre, n2)
