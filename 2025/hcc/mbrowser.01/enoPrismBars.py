@@ -48,8 +48,10 @@ class EnoPrismBars(AtaBase):
                          pathMaxDx=self.pathMaxDx, pathMaxDy=self.pathMaxDy, fontSize=fs,
                          baseWidth=self.baseWidth, baseShiftX=self.baseShiftX)
 
-    cx1             += barWidth
-    self.baseShiftX += (bottomWidth-barWidth)
+    if fl: cx1             += barWidth/2
+    else:  cx1             += barWidth
+    if fl: self.baseShiftX += (bottomWidth-barWidth)
+    else:  self.baseShiftX += (bottomWidth-barWidth)
     self.cumPosTop   = (cx1, cy1)
     
     self.barList.append(epb)
