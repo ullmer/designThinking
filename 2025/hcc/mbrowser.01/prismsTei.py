@@ -37,13 +37,14 @@ class PrismsTei(AtaBase):
       p = self.getPrismTeiLandscapeL(); self.activePrisms.append(p); return p
 
     if whichPrism == "teiYearsQ4"   and whichSlot == 1: 
-      p = self.getPrismTeiYearsQ4(); self.activePrisms.append(p); return p
+      p = self.getPrismTeiYearsQ4();    self.activePrisms.append(p); return p
 
   ################### get prism tei landscape left  ###################
 
   def getPrismTeiLandscapeL(self):
     try:
       n,w=35,400
+      cyel, cblu, cred = self.cyel, self.cblu, self.cred
       epb1a = EnoPrismBars(flowLeft=False, textOffset2=(-18,0), fontSize=25, pathMaxDx=700, basePos=(200,0))
       epb1b = EnoPrismBars(flowLeft=False, pathMaxDx=140, pathMaxDy=80, baseWidth=79, basePos=(900, 850), refractBars=True)
 
@@ -60,6 +61,7 @@ class PrismsTei(AtaBase):
   def getPrismTeiYearsQ4(self):
     try:
       n2=88
+      cgre, cyel, cgr2 = self.cgre, self.cyel, self.cgr2
       epb2a = EnoPrismBars(flowLeft=True, textOffset2=(930, 0), fontSize=40, pathMaxDx=1000)
       epb2b = EnoPrismBars(flowLeft=True, textOffset2=(705, 0), pathMaxDy=80, pathMaxDx=-100,
                            fontSize=25, basePos=(100, 850), baseWidth=105, refractBars=True)
@@ -102,7 +104,8 @@ class PrismsTei(AtaBase):
     try:
       for bar   in self.bars: bar.draw(screen)
       for prism in self.activePrisms:
-        for ppath in prism: ppath.draw(screen)
+        for ppath in prism: 
+          if ppath is not None: ppath.draw(screen)
 
     except: self.err("draw")
 

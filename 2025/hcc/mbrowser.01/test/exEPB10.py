@@ -23,6 +23,8 @@ pt = PrismsTei()
 p0 = pt.summonPrism('teiLandscape', 0)
 p1 = pt.summonPrism('teiYearsQ4',   1)
 
+print("active prisms:", str(pt.activePrisms))
+
 refractBar = pygame.Surface((WIDTH, 80), pygame.SRCALPHA)
 rcolor = (255, 255, 255, 45)
 refractBar.fill(rcolor)
