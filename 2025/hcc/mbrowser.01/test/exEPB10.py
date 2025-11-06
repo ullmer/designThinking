@@ -23,10 +23,8 @@ pt = PrismsTei()
 p0 = pt.getPrism('teiLandscape', 0)
 p1 = pt.getPrism('teiYearsQ4',   1)
 
-
 def update():
-  global initialized
-  if not initialized: setup(); initialized=True
+  pt.update()
 
 epb = [epb1a, epb1b, epb2a, epb2b]
 

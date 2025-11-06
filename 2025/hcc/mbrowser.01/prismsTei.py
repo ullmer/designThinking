@@ -17,13 +17,25 @@ class PrismsTei(AtaBase):
   cgr2 = (0,   255, 0, 20); cred = (255,   0, 0, 70)
   bars = None
 
-  initialized = False
+  initialized  = None
+  activePrisms = None
+
+  ############# constructor #############
+
+  def __init__(self, **kwargs):
+    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+
+    self.activePrisms = []
+    self.initialized  = False
 
   ################### get prism ###################
 
-  def getPrism(self, whichPrism, whichSlot):
-    if whichPrism == "teiLandscape" and whichSlot == 0: return self.getPrismTeiLandscapeL()
-    if whichPrism == "teiYearsQ4"   and whichSlot == 1: return self.getPrismTeiYearsQ4()
+  def summonPrism(self, whichPrism, whichSlot):
+    if whichPrism == "teiLandscape" and whichSlot == 0: 
+      p = self.getPrismTeiLandscapeL(); self.activePrisms.append(p); return p
+
+    if whichPrism == "teiYearsQ4"   and whichSlot == 1: 
+      p = self.getPrismTeiYearsQ4(); self.activePrisms.append(p); return p
 
   ################### get prism tei landscape left  ###################
 
