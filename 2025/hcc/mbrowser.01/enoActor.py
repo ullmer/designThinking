@@ -19,6 +19,7 @@ from pgzero.builtins import Actor, animate, keyboard
 ##################### enodia actor #####################
 
 class EnoActor:
+  name       = None
   pos        = (0,0)
   actorDim   = (100, 30)
   buttonRect = None

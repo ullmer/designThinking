@@ -18,14 +18,10 @@ from enoActor     import *
 
 ##### main ##### 
 
-cblu = (0,   0, 255, 75)
-cyel = (255, 255, 0, 70)
-cgre = (0,   255, 0, 70)
-cgr2 = (0,   255, 0, 30)
-cred = (255,   0, 0, 70)
+cblu = (0,   0, 255, 75); cyel = (255, 255, 0, 70); cgre = (0,   255, 0, 70)
+cgr2 = (0,   255, 0, 30); cred = (255,   0, 0, 70)
 
 n,w=35,400
-
 epb1a = EnoPrismBars(flowLeft=False, textOffset2=(-18,0), fontSize=25, pathMaxDx=700, basePos=(200,0))
 epb1b = EnoPrismBars(flowLeft=False, pathMaxDx=140, pathMaxDy=80, baseWidth=79, basePos=(900, 850), refractBars=True)
 

@@ -29,6 +29,16 @@ class EnoPrismBars(AtaBase):
   def __init__(self, **kwargs):
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
 
+  ############# add bar list #############
+
+  def addBarL(self, barList):
+    try:
+      bl = len(barList)
+      if   bl==3: bt, bc, bw      = barList; self.addBar(bt,bc,bw)
+      elif bl==4: bt, bc, bw, eby = barList; self.addBar(btw,bc,bw,eby)
+      else: self.msg("addBarL: non-matching parameters"); return None
+    except: self.err("addBarL")
+
   ############# addBar #############
 
   def addBar(self, barText, barColor, barWidth, extendBottomY=0): 
