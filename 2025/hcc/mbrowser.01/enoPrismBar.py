@@ -193,7 +193,7 @@ class EnoPrismBar(AtaBase):
   def draw(self, screen):
     for surf in self.surfaceList:
       pos = self.basePos
-      if self.baseShiftX is not None:
+      if self.baseShiftX is not None and self.flowLeft:
         x, y = pos
         x   += self.baseShiftX
         pos  = (x, y)
