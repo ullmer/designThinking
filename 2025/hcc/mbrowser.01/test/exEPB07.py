@@ -21,10 +21,12 @@ from enoActor     import *
 cblu = (0,   0, 255, 75)
 cyel = (255, 255, 0, 70)
 cgre = (0,   255, 0, 70)
+cgr2 = (0,   255, 0, 30)
 cred = (255,   0, 0, 70)
 
 n,w=35,400
-epb1 = EnoPrismBars(flowLeft=False, textOffset2=(-18,0), fontSize=25, pathMaxDx=900)
+epb1 = EnoPrismBars(flowLeft=False, textOffset2=(-18,0), fontSize=25, pathMaxDx=700,
+                    basePos=(200,0))
 epb1.addBar("22: Daejeon",  cyel, n)
 epb1.addBar("23: Warsaw",   cblu, n)
 epb1.addBar("24: Cork",     cblu, w)
@@ -39,22 +41,23 @@ epb1b.addBar("", cblu, n)
 epb1b.addBar("", cred, n)
 
 n2=88
-epb2 = EnoPrismBars(flowLeft=True, textOffset2=(705, 0), fontSize=25)
+epb2 = EnoPrismBars(flowLeft=True, textOffset2=(930, 0), fontSize=40, pathMaxDx=1000)
 epb2.addBar("creativity",    cgre, n2)
 epb2.addBar("dance+theater", cgre, n2)
 epb2.addBar("music+sound",   cgre, n2)
 epb2.addBar("actuation",     cyel, n2)
-epb2.addBar("AI",            cyel, n2)
+epb2.addBar("artificial intelligence", cyel, n2)
 epb2.addBar("computing hardware", cyel, n2)
 
 epb2b = EnoPrismBars(flowLeft=True, textOffset2=(705, 0), pathMaxDy=80, pathMaxDx=0,
                      fontSize=25, basePos=(0, 850), baseWidth=67, refractBars=True)
-epb2b.addBar("", cgre, n2)
-epb2b.addBar("", cgre, n2)
-epb2b.addBar("", cgre, n2)
+epb2b.addBar("", cgr2, n2, 100)
+epb2b.addBar("", cgr2, n2, 100)
+epb2b.addBar("", cgr2, n2, 100)
 epb2b.addBar("", cyel, n2)
 epb2b.addBar("", cyel, n2)
 epb2b.addBar("", cyel, n2)
+
 
 def setup():
   global bs
@@ -79,9 +82,10 @@ refractBar.fill(rcolor)
 
 def draw(): 
   screen.clear()
-  for p in epb: p.draw(screen)
   for b in bs:  b.draw(screen)
+  for p in epb: p.draw(screen)
   screen.blit(refractBar, (0, 850))
+  screen.draw.text("TEI", midleft=(300,70), alpha=.2, color=rcolor, fontname="barlow_black", fontsize=250)
 
 pgzrun.go()
 

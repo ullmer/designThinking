@@ -31,7 +31,7 @@ class EnoPrismBars(AtaBase):
 
   ############# addBar #############
 
-  def addBar(self, barText, barColor, barWidth): 
+  def addBar(self, barText, barColor, barWidth, extendBottomY=0): 
     if self.barList is None: 
       self.barList = []
       self.cumPosTop = self.basePos
@@ -46,7 +46,7 @@ class EnoPrismBars(AtaBase):
     cx1, cy1 = self.cumPosTop
     epb      = EnoPrismBar(textStrs=barText,     barColor=barColor, barWidth=barWidth, 
                          basePos =self.cumPosTop, flowLeft=fl,    textOffset2=to2, 
-                         pathMaxDx=self.pathMaxDx, pathMaxDy=self.pathMaxDy, fontSize=fs,
+                         pathMaxDx=self.pathMaxDx, pathMaxDy=self.pathMaxDy+extendBottomY, fontSize=fs,
                          baseWidth=self.baseWidth, baseShiftX=self.baseShiftX, refractBar = self.refractBars)
   
     #if self.refractBars and fl: cx1 += barWidth/2
