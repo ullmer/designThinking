@@ -13,6 +13,8 @@ from enoActor     import *
 
 class PrismsTei(AtaBase):
 
+  pathMaxDy = 850
+
   cblu = (0,   0, 255, 75); cyel = (255, 255, 0, 70); cgre = (0,   255, 0, 70)
   cgr2 = (0,   255, 0, 20); cred = (255,   0, 0, 70)
   bars = None
@@ -43,10 +45,10 @@ class PrismsTei(AtaBase):
 
   def getPrismTeiLandscapeL(self):
     try:
-      n,w=35,400
+      n,w,pmdy=35,400, self.pathMaxDy
       cyel, cblu, cred = self.cyel, self.cblu, self.cred
-      epb1a = EnoPrismBars(flowLeft=False, textOffset2=(-18,0), fontSize=25, pathMaxDx=700, basePos=(200,0))
-      epb1b = EnoPrismBars(flowLeft=False, pathMaxDx=140, pathMaxDy=80, baseWidth=79, basePos=(900, 850), refractBars=True)
+      epb1a = EnoPrismBars(flowLeft=False, textOffset2=(-18,0), fontSize=25, pathMaxDy=pmdy, pathMaxDx=700, basePos=(200,0))
+      epb1b = EnoPrismBars(flowLeft=False, pathMaxDx=140, pathMaxDy=80, baseWidth=79, basePos=(900, pmdy), refractBars=True)
 
       bindings1 = [["22: Daejeon",  cyel, n], ["23: Warsaw",  cblu, n], ["24: Cork", cblu, w],
                    ["25: Bordeaux", cblu, n], ["26: Chicago", cred, n]]
@@ -60,11 +62,11 @@ class PrismsTei(AtaBase):
 
   def getPrismTeiYearsQ4(self):
     try:
-      n2=88
+      n2,pmdy=88, self.pathMaxDy
       cgre, cyel, cgr2 = self.cgre, self.cyel, self.cgr2
-      epb2a = EnoPrismBars(flowLeft=True, textOffset2=(930, 0), fontSize=40, pathMaxDx=1000)
+      epb2a = EnoPrismBars(flowLeft=True, textOffset2=(930, 0), fontSize=40, pathMaxDy=pmdy, pathMaxDx=1000)
       epb2b = EnoPrismBars(flowLeft=True, textOffset2=(705, 0), pathMaxDy=80, pathMaxDx=-100,
-                           fontSize=25, basePos=(100, 850), baseWidth=105, refractBars=True)
+                           fontSize=25, basePos=(100, pmdy), baseWidth=105, refractBars=True)
 
       bindings2a = [["creativity", cgre, n2], ["dance+theater",          cgre, n2], ["music+sound",        cgre, n2],
                     ["actuation",  cyel, n2], ["artificial intelligence", cyel, n2], ["computing hardware", cyel, n2]]
