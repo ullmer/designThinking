@@ -66,8 +66,8 @@ epb2b.addBar("", cyel, n2)
 
 def setup():
   global bs
-  b1 = EnoActor("teiland04",      bottomleft=(0,  1190))
-  b2 = EnoActor("teiblockconf04", bottomleft=(910,1190))
+  b1 = EnoActor("teiland04",      bottomleft=(0,  1190), name='teiLandscape')
+  b2 = EnoActor("teiblockconf04", bottomleft=(910,1190), name='teiConfsQ04')
   sc = .45
   b1.scaleV(sc)
   b2.scaleV(sc)
@@ -91,6 +91,11 @@ def draw():
   for p in epb: p.draw(screen)
   screen.blit(refractBar, (0, 850))
   screen.draw.text("TEI", midleft=(300,70), alpha=.2, color=rcolor, fontname="barlow_black", fontsize=250)
+
+#def on_finger_down(finger_id, x, y):
+
+def on_mouse_down(pos):
+  parsePress(pos)
 
 pgzrun.go()
 
