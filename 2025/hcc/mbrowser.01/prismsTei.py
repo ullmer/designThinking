@@ -13,8 +13,9 @@ from enoActor     import *
 
 class PrismsTei(AtaBase):
 
-  pathMaxDy = 850
-
+  #pathMaxDy = 850
+  pathMaxDy = 750
+  barYShift = pathMaxDy + 340
   cblu = (0,   0, 255, 75); cyel = (255, 255, 0, 70); cgre = (0,   255, 0, 70)
   cgr2 = (0,   255, 0, 20); cred = (255,   0, 0, 70)
   bars = None
@@ -87,8 +88,9 @@ class PrismsTei(AtaBase):
 
   def setup(self):
     try:
-      b1 = EnoActor("teiland04",      bottomleft=(0,  1190), name='teiLandscape')
-      b2 = EnoActor("teiblockconf04", bottomleft=(910,1190), name='teiConfsQ04')
+      bys = self.barYShift
+      b1 = EnoActor("teiland04",      bottomleft=(0,  bys), name='teiLandscape')
+      b2 = EnoActor("teiblockconf04", bottomleft=(910,bys), name='teiConfsQ04')
       sc = .45
       b1.scaleV(sc); b2.scaleV(sc)
       self.bars = [b1, b2]

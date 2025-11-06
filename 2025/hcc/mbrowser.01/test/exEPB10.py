@@ -34,7 +34,8 @@ def update(): pt.update()
 def draw(): 
   screen.clear()
   pt.draw(screen)
-  screen.blit(refractBar, (0, 850))
+  #screen.blit(refractBar, (0, 850))
+  screen.blit(refractBar, (0, 750))
   screen.draw.text("TEI", midleft=(300,70), alpha=.2, color=rcolor, fontname="barlow_black", fontsize=250)
 
 #def on_mouse_down(pos):
