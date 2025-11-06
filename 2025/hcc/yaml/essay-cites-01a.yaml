@@ -1,0 +1,41 @@
+references:
+  bullmer:
+    - title:  "The gothic cathedral: An immersive information visualization space"
+      author:  Francis T. Marchese
+      year:    2014
+      venue:   IEEE Information Visualization
+      gscites: 3
+      link:     
+      abstract: > 
+           During the Middle Ages Gothic cathedrals were immersive information spaces which 
+           supported religious education and practice. Stained glass windows were essential 
+           to their function, in which Biblical narratives had been translated by skilled medieval 
+           artists into visual forms. This paper analyzes this visual phenomenon from the perspective 
+           of spatial information systems and the medieval art of memory.
+
+    - title: "Towards generous interfaces for archival collections"
+      author: Mitchell Whitelaw 
+      venu:   U. Canberra
+      link:   https://mtchl.net/assets/Whitelaw_ICA_GenerousInterfaces.pdf
+      gscites: 53
+      abstract: >
+         This paper considers the challenges and opportunities of access to digital archival collections. 
+         After the era of digitisation, collecting institutions hold vast digital treasure-troves. 
+         But the techniques we use to access these collections have been fundamentally unchanged for decades. 
+         Search remains the dominant access tool. This paper makes the case for the limitations of search, 
+         and proposes instead the concept of “generous interfaces” for digital collections. Generous interfaces 
+         offer rich, browsable views; provide evocative samples of primary content; and support an understanding 
+         of context and relationships. Based on experimental work to date, the paper outlines some 
+         design principles and patterns for generous archival interfaces, as well as considering challenges to their implementation. 
+
+
+
+    - title:  "Representing Abstraction: information visualization in the Middle Ages"
+      author:  Francis T. Marchese
+      year:    2016
+      venue:   Leonardo
+      gscites: 1
+      abstract: > 
+         This paper reviews some of the visualizations employed to represent
+         information during the Middle Ages. It discusses three kinds of visualizations:
+         rotae, tables and trees, and considers their context and use.
