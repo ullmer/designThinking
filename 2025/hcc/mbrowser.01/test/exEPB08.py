@@ -19,7 +19,7 @@ from enoActor     import *
 ##### main ##### 
 
 cblu = (0,   0, 255, 75); cyel = (255, 255, 0, 70); cgre = (0,   255, 0, 70)
-cgr2 = (0,   255, 0, 30); cred = (255,   0, 0, 70)
+cgr2 = (0,   255, 0, 20); cred = (255,   0, 0, 70)
 
 n,w=35,400
 epb1a = EnoPrismBars(flowLeft=False, textOffset2=(-18,0), fontSize=25, pathMaxDx=700, basePos=(200,0))
@@ -32,36 +32,30 @@ for b in bindings1: epb1a.addBarL(b)
 for b in bindings1: epb1b.addBarL2(b)
 
 n2=88
-epb2 = EnoPrismBars(flowLeft=True, textOffset2=(930, 0), fontSize=40, pathMaxDx=1000)
-epb2.addBar("creativity",    cgre, n2)
-epb2.addBar("dance+theater", cgre, n2)
-epb2.addBar("music+sound",   cgre, n2)
-epb2.addBar("actuation",     cyel, n2)
-epb2.addBar("artificial intelligence", cyel, n2)
-epb2.addBar("computing hardware", cyel, n2)
-
+epb2a = EnoPrismBars(flowLeft=True, textOffset2=(930, 0), fontSize=40, pathMaxDx=1000)
 epb2b = EnoPrismBars(flowLeft=True, textOffset2=(705, 0), pathMaxDy=80, pathMaxDx=-100,
-                     fontSize=25, basePos=(100, 850), baseWidth=67, refractBars=True)
+                     fontSize=25, basePos=(100, 850), baseWidth=105, refractBars=True)
 
-epb2b.baseWidth  =  105
-epb2b.addBar("", cgr2, n2, 65)
-epb2b.addBar("", cgr2, n2, 65)
-epb2b.addBar("", cgr2, n2, 65)
+bindings2a = [["creativity", cgre, n2], ["dance+theater",          cgre, n2], ["music+sound",        cgre, n2],
+             ["actuation",  cyel, n2], ["artificial intelligence", cyel, n2], ["computing hardware", cyel, n2]]
 
+for b in bindings2a: epb2a.addBarL(b)
+
+bindings2b = [["creativity", cgr2, n2], ["dance+theater",          cgr2, n2], ["music+sound",        cgr2, n2],
+             ["actuation",  cyel, n2], ["artificial intelligence", cyel, n2], ["computing hardware", cyel, n2]]
+
+for b in bindings2b[0:3]: epb2b.addBarL3(b,65)
 epb2b.baseWidth  =  97
 epb2b.baseShiftX = -260
-epb2b.addBar("", cyel, n2)
-epb2b.addBar("", cyel, n2)
-epb2b.addBar("", cyel, n2)
 
+for b in bindings2b[3:]: epb2b.addBarL2(b)
 
 def setup():
   global bs
   b1 = EnoActor("teiland04",      bottomleft=(0,  1190), name='teiLandscape')
   b2 = EnoActor("teiblockconf04", bottomleft=(910,1190), name='teiConfsQ04')
   sc = .45
-  b1.scaleV(sc)
-  b2.scaleV(sc)
+  b1.scaleV(sc); b2.scaleV(sc)
   bs = [b1, b2]
 
 initialized = False
@@ -83,10 +77,8 @@ def draw():
   screen.blit(refractBar, (0, 850))
   screen.draw.text("TEI", midleft=(300,70), alpha=.2, color=rcolor, fontname="barlow_black", fontsize=250)
 
-#def on_finger_down(finger_id, x, y):
-
-def on_mouse_down(pos):
-  parsePress(pos)
+#def on_mouse_down(pos):
+#  parsePress(pos)
 
 pgzrun.go()
 
