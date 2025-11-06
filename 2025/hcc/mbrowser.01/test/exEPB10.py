@@ -23,19 +23,15 @@ pt = PrismsTei()
 p0 = pt.getPrism('teiLandscape', 0)
 p1 = pt.getPrism('teiYearsQ4',   1)
 
-def update():
-  pt.update()
-
-epb = [epb1a, epb1b, epb2a, epb2b]
-
 refractBar = pygame.Surface((WIDTH, 80), pygame.SRCALPHA)
 rcolor = (255, 255, 255, 45)
 refractBar.fill(rcolor)
 
+def update(): pt.update()
+
 def draw(): 
   screen.clear()
-  for b in bs:  b.draw(screen)
-  for p in epb: p.draw(screen)
+  pt.draw()
   screen.blit(refractBar, (0, 850))
   screen.draw.text("TEI", midleft=(300,70), alpha=.2, color=rcolor, fontname="barlow_black", fontsize=250)
 

@@ -19,6 +19,7 @@ class PrismsTei(AtaBase):
 
   initialized  = None
   activePrisms = None
+  bars         = None
 
   ############# constructor #############
 
@@ -26,6 +27,7 @@ class PrismsTei(AtaBase):
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
 
     self.activePrisms = []
+    self.bars         = []
     self.initialized  = False
 
   ################### get prism ###################
@@ -98,8 +100,10 @@ class PrismsTei(AtaBase):
   def draw(self):
     if self.activePrisms is None: return
     try:
+      for bar   in self.bars: bar.draw()
       for prism in self.activePrisms:
         for ppath in prism: ppath.draw()
+
     except: self.err("draw")
 
 ### end ###
