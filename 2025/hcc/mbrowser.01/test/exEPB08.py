@@ -26,14 +26,14 @@ cred = (255,   0, 0, 70)
 
 n,w=35,400
 
-epb1 = EnoPrismBars(flowLeft=False, textOffset2=(-18,0), fontSize=25, pathMaxDx=700, basePos=(200,0))
+epb1a = EnoPrismBars(flowLeft=False, textOffset2=(-18,0), fontSize=25, pathMaxDx=700, basePos=(200,0))
 epb1b = EnoPrismBars(flowLeft=False, pathMaxDx=140, pathMaxDy=80, baseWidth=79, basePos=(900, 850), refractBars=True)
 
 bindings1 = [["22: Daejeon",  cyel, n], ["23: Warsaw",  cblu, n], ["24: Cork", cblu, w],
              ["25: Bordeaux", cblu, n], ["26: Chicago", cred, n]]
 
-for b in bindings1: epb1.addBarL(b)
-for b in bindings1: epb1.addBarL2(b)
+for b in bindings1: epb1a.addBarL(b)
+for b in bindings1: epb1b.addBarL2(b)
 
 n2=88
 epb2 = EnoPrismBars(flowLeft=True, textOffset2=(930, 0), fontSize=40, pathMaxDx=1000)
@@ -74,7 +74,7 @@ def update():
   global initialized
   if not initialized: setup(); initialized=True
 
-epb = [epb1, epb1b, epb2, epb2b]
+epb = [epb1a, epb1b, epb2a, epb2b]
 
 refractBar = pygame.Surface((WIDTH, 80), pygame.SRCALPHA)
 rcolor = (255, 255, 255, 45)
