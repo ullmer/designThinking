@@ -44,13 +44,15 @@ class EnoPrismBars(AtaBase):
     fs       = self.fontSize
     to2      = self.textOffset2
     cx1, cy1 = self.cumPosTop
-    epb    = EnoPrismBar(textStrs=barText,     barColor=barColor, barWidth=barWidth, 
+    epb      = EnoPrismBar(textStrs=barText,     barColor=barColor, barWidth=barWidth, 
                          basePos =self.cumPosTop, flowLeft=fl,    textOffset2=to2, 
                          pathMaxDx=self.pathMaxDx, pathMaxDy=self.pathMaxDy, fontSize=fs,
-                         baseWidth=self.baseWidth, baseShiftX=self.baseShiftX)
+                         baseWidth=self.baseWidth, baseShiftX=self.baseShiftX, refractBar = self.refractBars)
   
-    if self.refractBars and fl: cx1 += barWidth/2
-    else:                       cx1 += barWidth
+    #if self.refractBars and fl: cx1 += barWidth/2
+    #else:                       cx1 += barWidth
+
+    cx1 += barWidth
     if fl: self.baseShiftX += (bottomWidth-barWidth)
     else:  self.baseShiftX += (bottomWidth-barWidth)
     self.cumPosTop   = (cx1, cy1)

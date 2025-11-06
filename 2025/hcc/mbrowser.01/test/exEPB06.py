@@ -73,10 +73,15 @@ def update():
 
 epb = [epb1, epb1b, epb2, epb2b]
 
+refractBar = pygame.Surface((WIDTH, 80), pygame.SRCALPHA)
+rcolor = (255, 255, 255, 45)
+refractBar.fill(rcolor)
+
 def draw(): 
   screen.clear()
   for p in epb: p.draw(screen)
   for b in bs:  b.draw(screen)
+  screen.blit(refractBar, (0, 850))
 
 pgzrun.go()
 

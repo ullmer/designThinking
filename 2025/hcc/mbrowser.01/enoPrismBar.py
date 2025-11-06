@@ -15,6 +15,7 @@ class EnoPrismBar(AtaBase):
   baseWidth  = None # if None, same as barWidth
   pathMaxDx  = 800
   pathMaxDy  = 950
+  refractBar = False
 
   barColor   = None
   maxW, maxH = None, None
@@ -95,6 +96,17 @@ class EnoPrismBar(AtaBase):
       return (minEl, maxEl)
     except: self.err("findTupleListMinMaxX")
 
+  ############# diffVertexListFirstLastX #############
+
+  def diffVertexListFirstLastX(self, vertexList):
+    try:
+      firstVert, lastVert = vertexList[0], vertexList[-1]
+      x1, x2 = firstVert[0], lastVert[0]
+      dx     = x2 - x1
+      return dx
+    
+    except: self.err("diffVertexListFirstLastX"); return None
+
   ############# normalize points/vertices #############
 
   def normPoints(self, vertices, minX):
@@ -155,6 +167,12 @@ class EnoPrismBar(AtaBase):
       points = self.normPoints(points, minX)
       self.baseShiftX = minX
 
+    #dvlflx = self.diffVertexListFirstLastX(points)
+    #self.msg("dvlflx: " + str(dvlflx))
+    #if dvlflx < 0 and self.refractBar: self.baseShiftX -= dvlflx
+
+    #if self.refractBar: self.baseShiftX -= 25
+
     # Draw the polygon on the transparent surface
     pygame.draw.polygon(surf, self.barColor, points)
 
@@ -173,6 +191,7 @@ class EnoPrismBar(AtaBase):
   ############# draw #############
 
   def draw(self, screen):
+    print("draw sl len: " + str(len(self.surfaceList)))
     for surf in self.surfaceList:
       pos = self.basePos
       if self.baseShiftX is not None:
