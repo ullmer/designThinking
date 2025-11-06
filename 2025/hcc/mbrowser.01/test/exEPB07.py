@@ -49,11 +49,17 @@ epb2.addBar("actuation",     cyel, n2)
 epb2.addBar("artificial intelligence", cyel, n2)
 epb2.addBar("computing hardware", cyel, n2)
 
-epb2b = EnoPrismBars(flowLeft=True, textOffset2=(705, 0), pathMaxDy=80, pathMaxDx=0,
-                     fontSize=25, basePos=(0, 850), baseWidth=67, refractBars=True)
-epb2b.addBar("", cgr2, n2, 100)
-epb2b.addBar("", cgr2, n2, 100)
-epb2b.addBar("", cgr2, n2, 100)
+epb2b = EnoPrismBars(flowLeft=True, textOffset2=(705, 0), pathMaxDy=80, pathMaxDx=-50,
+                     fontSize=25, basePos=(50, 850), baseWidth=67, refractBars=True)
+
+epb2b.baseWidth  =  96
+#epb2b.baseShiftX = 50
+epb2b.addBar("", cgr2, n2, 65)
+epb2b.addBar("", cgr2, n2, 65)
+epb2b.addBar("", cgr2, n2, 65)
+
+epb2b.baseWidth  =  96
+epb2b.baseShiftX = -155
 epb2b.addBar("", cyel, n2)
 epb2b.addBar("", cyel, n2)
 epb2b.addBar("", cyel, n2)
