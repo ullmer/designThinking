@@ -15,8 +15,13 @@ class PrismsTei(AtaBase):
 
   cblu = (0,   0, 255, 75); cyel = (255, 255, 0, 70); cgre = (0,   255, 0, 70)
   cgr2 = (0,   255, 0, 20); cred = (255,   0, 0, 70)
+  bars = None
 
-  getPrism
+  ################### get prism ###################
+
+  def getPrism(self, whichPrism, whichSlot):
+    if whichPrism == "teiLandscape" and whichSlot == 0: return self.getPrismTeiLandscapeL()
+    if whichPrism == "teiYearsQ4"   and whichSlot == 1: return self.getPrismTeiYearsQ4()
 
   ################### get prism tei landscape left  ###################
 
@@ -58,17 +63,20 @@ class PrismsTei(AtaBase):
       return [epb2a, epb2b]
    except: self.err("getPrismTeiYearsQ4)
 
-def setup():
-  global bs
-  b1 = EnoActor("teiland04",      bottomleft=(0,  1190), name='teiLandscape')
-  b2 = EnoActor("teiblockconf04", bottomleft=(910,1190), name='teiConfsQ04')
-  sc = .45
-  b1.scaleV(sc); b2.scaleV(sc)
-  bs = [b1, b2]
+  ################### initiate###################
+
+  def init(self):
+    try:
+      b1 = EnoActor("teiland04",      bottomleft=(0,  1190), name='teiLandscape')
+      b2 = EnoActor("teiblockconf04", bottomleft=(910,1190), name='teiConfsQ04')
+      sc = .45
+      b1.scaleV(sc); b2.scaleV(sc)
+      self.bars = [b1, b2]
+    except: self.err("init")
 
 initialized = False
 
-def update():
+def update(self):
   global initialized
   if not initialized: setup(); initialized=True
 
