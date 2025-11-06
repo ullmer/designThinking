@@ -7,48 +7,56 @@ os.environ['SDL_VIDEO_WINDOW_POS'] = '0,0' #place window at 0,0
 sys.path.insert(0, #access module in parent directory (for test stubs)
   os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-import pgzrun
-from pgzero.builtins import Actor, animate, keyboard, keys
-
-WIDTH, HEIGHT=1600,1080
-
 from enoPrismBar  import *
 from enoPrismBars import *
 from enoActor     import *
 
-##### main ##### 
+class PrismsTei(AtaBase):
 
-cblu = (0,   0, 255, 75); cyel = (255, 255, 0, 70); cgre = (0,   255, 0, 70)
-cgr2 = (0,   255, 0, 20); cred = (255,   0, 0, 70)
+  cblu = (0,   0, 255, 75); cyel = (255, 255, 0, 70); cgre = (0,   255, 0, 70)
+  cgr2 = (0,   255, 0, 20); cred = (255,   0, 0, 70)
 
-n,w=35,400
-epb1a = EnoPrismBars(flowLeft=False, textOffset2=(-18,0), fontSize=25, pathMaxDx=700, basePos=(200,0))
-epb1b = EnoPrismBars(flowLeft=False, pathMaxDx=140, pathMaxDy=80, baseWidth=79, basePos=(900, 850), refractBars=True)
+  getPrism
 
-bindings1 = [["22: Daejeon",  cyel, n], ["23: Warsaw",  cblu, n], ["24: Cork", cblu, w],
-             ["25: Bordeaux", cblu, n], ["26: Chicago", cred, n]]
+  ################### get prism tei landscape left  ###################
 
-for b in bindings1: epb1a.addBarL(b)
-for b in bindings1: epb1b.addBarL2(b)
+  def getPrismTeiLandscapeL(self):
+    try:
+      n,w=35,400
+      epb1a = EnoPrismBars(flowLeft=False, textOffset2=(-18,0), fontSize=25, pathMaxDx=700, basePos=(200,0))
+      epb1b = EnoPrismBars(flowLeft=False, pathMaxDx=140, pathMaxDy=80, baseWidth=79, basePos=(900, 850), refractBars=True)
 
-n2=88
-epb2a = EnoPrismBars(flowLeft=True, textOffset2=(930, 0), fontSize=40, pathMaxDx=1000)
-epb2b = EnoPrismBars(flowLeft=True, textOffset2=(705, 0), pathMaxDy=80, pathMaxDx=-100,
-                     fontSize=25, basePos=(100, 850), baseWidth=105, refractBars=True)
+      bindings1 = [["22: Daejeon",  cyel, n], ["23: Warsaw",  cblu, n], ["24: Cork", cblu, w],
+                   ["25: Bordeaux", cblu, n], ["26: Chicago", cred, n]]
 
-bindings2a = [["creativity", cgre, n2], ["dance+theater",          cgre, n2], ["music+sound",        cgre, n2],
-             ["actuation",  cyel, n2], ["artificial intelligence", cyel, n2], ["computing hardware", cyel, n2]]
+      for b in bindings1: epb1a.addBarL(b)
+      for b in bindings1: epb1b.addBarL2(b)
+      return [epb1a, epb1b]
+    except: self.err("getPrismTeiLandscapeL")
 
-for b in bindings2a: epb2a.addBarL(b)
+  ################### get prism tei years q4 ###################
 
-bindings2b = [["creativity", cgr2, n2], ["dance+theater",          cgr2, n2], ["music+sound",        cgr2, n2],
-             ["actuation",  cyel, n2], ["artificial intelligence", cyel, n2], ["computing hardware", cyel, n2]]
+  def getPrismTeiYearsQ4(self):
+    try:
+      n2=88
+      epb2a = EnoPrismBars(flowLeft=True, textOffset2=(930, 0), fontSize=40, pathMaxDx=1000)
+      epb2b = EnoPrismBars(flowLeft=True, textOffset2=(705, 0), pathMaxDy=80, pathMaxDx=-100,
+                           fontSize=25, basePos=(100, 850), baseWidth=105, refractBars=True)
 
-for b in bindings2b[0:3]: epb2b.addBarL3(b,65)
-epb2b.baseWidth  =  97
-epb2b.baseShiftX = -260
+      bindings2a = [["creativity", cgre, n2], ["dance+theater",          cgre, n2], ["music+sound",        cgre, n2],
+                    ["actuation",  cyel, n2], ["artificial intelligence", cyel, n2], ["computing hardware", cyel, n2]]
 
-for b in bindings2b[3:]: epb2b.addBarL2(b)
+      for b in bindings2a: epb2a.addBarL(b)
+
+      bindings2b = [["creativity", cgr2, n2], ["dance+theater",          cgr2, n2], ["music+sound",        cgr2, n2],
+                    ["actuation",  cyel, n2], ["artificial intelligence", cyel, n2], ["computing hardware", cyel, n2]]
+
+      for b in bindings2b[0:3]: epb2b.addBarL3(b,65)
+      epb2b.baseWidth  =  97
+      epb2b.baseShiftX = -260
+      for b in bindings2b[3:]: epb2b.addBarL2(b)
+      return [epb2a, epb2b]
+   except: self.err("getPrismTeiYearsQ4)
 
 def setup():
   global bs
