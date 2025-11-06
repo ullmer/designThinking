@@ -84,15 +84,16 @@ class EnoPrismBar(AtaBase):
 
   ############# find tuple list minimum x#############
 
-  def findTupleListMinX(self, targList):
-    minEl = None
+  def findTupleListMinMaxX(self, targList):
+    minEl, maxEl = None, None
     try:
       for el in targList:
         x, y = el
-        if minEl is None: minEl = x
+        if minEl is None: minEl = x; maxEl = x
         elif  x  < minEl: minEl = x
-      return minEl
-    except: self.err("findTupleListMinX")
+        elif  x  > maxEl: maxEl = x
+      return (minEl, maxEl)
+    except: self.err("findTupleListMinMaxX")
 
   ############# normalize points/vertices #############
 
@@ -125,10 +126,6 @@ class EnoPrismBar(AtaBase):
 
     self.surfaceList = []
 
-    # Create a transparent surface
-    #surf = pygame.Surface((self.maxW, self.maxH), pygame.SRCALPHA)
-    surf = pygame.Surface((self.maxW, self.maxH), pygame.SRCALPHA)
-
     #bpxs                  = self.botPosXStart 
     #if bpxs is None: bpxs = self.pathMaxDx
     bpxs = self.pathMaxDx
@@ -147,12 +144,16 @@ class EnoPrismBar(AtaBase):
                 (bsx,               self.maxH),
                 (bsx + bottomWidth, self.maxH)]
 
-    print("foo", str(points))
-    minX = self.findTupleListMinX(points)
+    minX, maxX = self.findTupleListMinMaxX(points)
+    maxSpanX = abs(maxX - minX)
+    if maxSpanX > self.maxW: self.maxW = maxSpanX
+
+    # Create a transparent surface
+    surf = pygame.Surface((self.maxW, self.maxH), pygame.SRCALPHA)
+
     if minX < 0: 
       points = self.normPoints(points, minX)
       self.baseShiftX = minX
-    print("bar", str(points))
 
     # Draw the polygon on the transparent surface
     pygame.draw.polygon(surf, self.barColor, points)
