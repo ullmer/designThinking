@@ -77,11 +77,11 @@ class PrismsTei(AtaBase):
       epb2b.baseShiftX = -260
       for b in bindings2b[3:]: epb2b.addBarL2(b)
       return [epb2a, epb2b]
-   except: self.err("getPrismTeiYearsQ4)
+    except: self.err("getPrismTeiYearsQ4")
 
   ################### initiate ###################
 
-  def init(self):
+  def setup(self):
     try:
       b1 = EnoActor("teiland04",      bottomleft=(0,  1190), name='teiLandscape')
       b2 = EnoActor("teiblockconf04", bottomleft=(910,1190), name='teiConfsQ04')
@@ -97,12 +97,12 @@ class PrismsTei(AtaBase):
 
   ################### draw ###################
 
-  def draw(self):
+  def draw(self, screen):
     if self.activePrisms is None: return
     try:
-      for bar   in self.bars: bar.draw()
+      for bar   in self.bars: bar.draw(screen)
       for prism in self.activePrisms:
-        for ppath in prism: ppath.draw()
+        for ppath in prism: ppath.draw(screen)
 
     except: self.err("draw")
 

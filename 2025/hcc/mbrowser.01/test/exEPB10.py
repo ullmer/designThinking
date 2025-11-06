@@ -20,8 +20,8 @@ from prismsTei    import *
 ##### main ##### 
 
 pt = PrismsTei()
-p0 = pt.getPrism('teiLandscape', 0)
-p1 = pt.getPrism('teiYearsQ4',   1)
+p0 = pt.summonPrism('teiLandscape', 0)
+p1 = pt.summonPrism('teiYearsQ4',   1)
 
 refractBar = pygame.Surface((WIDTH, 80), pygame.SRCALPHA)
 rcolor = (255, 255, 255, 45)
@@ -31,7 +31,7 @@ def update(): pt.update()
 
 def draw(): 
   screen.clear()
-  pt.draw()
+  pt.draw(screen)
   screen.blit(refractBar, (0, 850))
   screen.draw.text("TEI", midleft=(300,70), alpha=.2, color=rcolor, fontname="barlow_black", fontsize=250)
 
