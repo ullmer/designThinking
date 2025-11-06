@@ -1,0 +1,85 @@
+# Enodia "prism bars"
+# Brygg Ullmer, Clemson University
+# Begun 2025-11-03
+
+import os,sys
+os.environ['SDL_VIDEO_WINDOW_POS'] = '0,0' #place window at 0,0 
+sys.path.insert(0, #access module in parent directory (for test stubs)
+  os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+import pgzrun
+from pgzero.builtins import Actor, animate, keyboard, keys
+
+WIDTH, HEIGHT=1600,1080
+
+from enoPrismBar  import *
+from enoPrismBars import *
+from enoActor     import *
+
+##### main ##### 
+
+cblu = (0,   0, 255, 75); cyel = (255, 255, 0, 70); cgre = (0,   255, 0, 70)
+cgr2 = (0,   255, 0, 20); cred = (255,   0, 0, 70)
+
+n,w=35,400
+epb1a = EnoPrismBars(flowLeft=False, textOffset2=(-18,0), fontSize=25, pathMaxDx=700, basePos=(200,0))
+epb1b = EnoPrismBars(flowLeft=False, pathMaxDx=140, pathMaxDy=80, baseWidth=79, basePos=(900, 850), refractBars=True)
+
+bindings1 = [["22: Daejeon",  cyel, n], ["23: Warsaw",  cblu, n], ["24: Cork", cblu, w],
+             ["25: Bordeaux", cblu, n], ["26: Chicago", cred, n]]
+
+for b in bindings1: epb1a.addBarL(b)
+for b in bindings1: epb1b.addBarL2(b)
+
+n2=88
+epb2a = EnoPrismBars(flowLeft=True, textOffset2=(930, 0), fontSize=40, pathMaxDx=1000)
+epb2b = EnoPrismBars(flowLeft=True, textOffset2=(705, 0), pathMaxDy=80, pathMaxDx=-100,
+                     fontSize=25, basePos=(100, 850), baseWidth=105, refractBars=True)
+
+bindings2a = [["creativity", cgre, n2], ["dance+theater",          cgre, n2], ["music+sound",        cgre, n2],
+             ["actuation",  cyel, n2], ["artificial intelligence", cyel, n2], ["computing hardware", cyel, n2]]
+
+for b in bindings2a: epb2a.addBarL(b)
+
+bindings2b = [["creativity", cgr2, n2], ["dance+theater",          cgr2, n2], ["music+sound",        cgr2, n2],
+             ["actuation",  cyel, n2], ["artificial intelligence", cyel, n2], ["computing hardware", cyel, n2]]
+
+for b in bindings2b[0:3]: epb2b.addBarL3(b,65)
+epb2b.baseWidth  =  97
+epb2b.baseShiftX = -260
+
+for b in bindings2b[3:]: epb2b.addBarL2(b)
+
+def setup():
+  global bs
+  b1 = EnoActor("teiland04",      bottomleft=(0,  1190), name='teiLandscape')
+  b2 = EnoActor("teiblockconf04", bottomleft=(910,1190), name='teiConfsQ04')
+  sc = .45
+  b1.scaleV(sc); b2.scaleV(sc)
+  bs = [b1, b2]
+
+initialized = False
+
+def update():
+  global initialized
+  if not initialized: setup(); initialized=True
+
+epb = [epb1a, epb1b, epb2a, epb2b]
+
+refractBar = pygame.Surface((WIDTH, 80), pygame.SRCALPHA)
+rcolor = (255, 255, 255, 45)
+refractBar.fill(rcolor)
+
+def draw(): 
+  screen.clear()
+  for b in bs:  b.draw(screen)
+  for p in epb: p.draw(screen)
+  screen.blit(refractBar, (0, 850))
+  screen.draw.text("TEI", midleft=(300,70), alpha=.2, color=rcolor, fontname="barlow_black", fontsize=250)
+
+#def on_mouse_down(pos):
+#  parsePress(pos)
+
+pgzrun.go()
+
+### end ###
