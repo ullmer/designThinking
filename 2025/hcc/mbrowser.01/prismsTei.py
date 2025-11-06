@@ -17,6 +17,8 @@ class PrismsTei(AtaBase):
   cgr2 = (0,   255, 0, 20); cred = (255,   0, 0, 70)
   bars = None
 
+  initialized = False
+
   ################### get prism ###################
 
   def getPrism(self, whichPrism, whichSlot):
@@ -63,7 +65,7 @@ class PrismsTei(AtaBase):
       return [epb2a, epb2b]
    except: self.err("getPrismTeiYearsQ4)
 
-  ################### initiate###################
+  ################### initiate ###################
 
   def init(self):
     try:
@@ -74,28 +76,9 @@ class PrismsTei(AtaBase):
       self.bars = [b1, b2]
     except: self.err("init")
 
-initialized = False
+  ################### update ###################
 
-def update(self):
-  global initialized
-  if not initialized: setup(); initialized=True
-
-epb = [epb1a, epb1b, epb2a, epb2b]
-
-refractBar = pygame.Surface((WIDTH, 80), pygame.SRCALPHA)
-rcolor = (255, 255, 255, 45)
-refractBar.fill(rcolor)
-
-def draw(): 
-  screen.clear()
-  for b in bs:  b.draw(screen)
-  for p in epb: p.draw(screen)
-  screen.blit(refractBar, (0, 850))
-  screen.draw.text("TEI", midleft=(300,70), alpha=.2, color=rcolor, fontname="barlow_black", fontsize=250)
-
-#def on_mouse_down(pos):
-#  parsePress(pos)
-
-pgzrun.go()
+  def update(self):
+    if not self.initialized: self.setup(); self.initialized=True
 
 ### end ###
