@@ -15,7 +15,7 @@ references:
 
     - title: "Towards generous interfaces for archival collections"
       author: Mitchell Whitelaw 
-      venu:   U. Canberra
+      venue:  U. Canberra
       link:   https://mtchl.net/assets/Whitelaw_ICA_GenerousInterfaces.pdf
       gscites: 53
       abstract: >
@@ -28,6 +28,30 @@ references:
          of context and relationships. Based on experimental work to date, the paper outlines some 
          design principles and patterns for generous archival interfaces, as well as considering challenges to their implementation. 
 
+    - title: "Visualizing a field of research: A methodology of systematic scientometric reviews"
+      author: C Chen, M Song 
+      venue:  PloS one
+      year:   2019
+      link:   
+      gscites: 1640
+      abstract: >
+        Systematic scientometric reviews, empowered by computational and visual analytic approaches, offer 
+        opportunities to improve the timeliness, accessibility, and reproducibility of studies of the literature 
+        of a field of research. On the other hand, effectively and adequately identifying the most representative 
+        body of scholarly publications as the basis of subsequent analyses remains a common bottleneck in the 
+        current practice. What can we do to reduce the risk of missing something potentially significant? How can 
+        we compare different search strategies in terms of the relevance and specificity of topical areas covered? 
+        In this study, we introduce a flexible and generic methodology based on a significant extension of the 
+        general conceptual framework of citation indexing for delineating the literature of a research field. 
+        The method, through cascading citation expansion, provides a practical connection between studies of science 
+        from local and global perspectives. We demonstrate an application of the methodology to the research of 
+        literature-based discovery (LBD) and compare five datasets constructed based on three use scenarios and 
+        corresponding retrieval strategies, namely a query-based lexical search (one dataset), forward expansions 
+        starting from a groundbreaking article of LBD (two datasets), and backward expansions starting from a recently 
+        published review article by a prominent expert in LBD (two datasets). We particularly discuss the relevance of 
+        areas captured by expansion processes with reference to the query-based scientometric visualization. The method 
+        used in this study for comparing bibliometric datasets is applicable to comparative studies of search strategies.
+        
 
 
     - title:  "Representing Abstraction: information visualization in the Middle Ages"
