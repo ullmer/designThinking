@@ -191,7 +191,6 @@ class EnoPrismBar(AtaBase):
   ############# draw #############
 
   def draw(self, screen):
-    print("draw sl len: " + str(len(self.surfaceList)))
     for surf in self.surfaceList:
       pos = self.basePos
       if self.baseShiftX is not None:
@@ -199,7 +198,7 @@ class EnoPrismBar(AtaBase):
         x   += self.baseShiftX
         pos  = (x, y)
 
-      screen.blit(surf, self.basePos)
+      screen.blit(surf, pos)
 
     if self.drawText: self.drawTexts(screen)
 
