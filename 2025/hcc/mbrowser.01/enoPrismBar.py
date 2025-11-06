@@ -167,9 +167,7 @@ class EnoPrismBar(AtaBase):
       points = self.normPoints(points, minX)
       self.baseShiftX = minX
 
-    #dvlflx = self.diffVertexListFirstLastX(points)
-    #self.msg("dvlflx: " + str(dvlflx))
-    #if dvlflx < 0 and self.refractBar: self.baseShiftX -= dvlflx
+    self.dvlflx = self.diffVertexListFirstLastX(points)
 
     #if self.refractBar: self.baseShiftX -= 25
 
@@ -193,7 +191,7 @@ class EnoPrismBar(AtaBase):
   def draw(self, screen):
     for surf in self.surfaceList:
       pos = self.basePos
-      if self.baseShiftX is not None and self.flowLeft:
+      if self.baseShiftX is not None and (self.flowLeft or (self.refractBar and self.dvlflx < 0)):
         x, y = pos
         x   += self.baseShiftX
         pos  = (x, y)
