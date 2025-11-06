@@ -35,7 +35,17 @@ class EnoPrismBars(AtaBase):
     try:
       bl = len(barList)
       if   bl==3: bt, bc, bw      = barList; self.addBar(bt,bc,bw)
-      elif bl==4: bt, bc, bw, eby = barList; self.addBar(btw,bc,bw,eby)
+      elif bl==4: bt, bc, bw, eby = barList; self.addBar(bt,bc,bw,eby)
+      else: self.msg("addBarL: non-matching parameters"); return None
+    except: self.err("addBarL")
+
+  ############# add bar list #############
+
+  def addBarL2(self, barList):
+    try:
+      bl = len(barList)
+      if   bl==3: bt, bc, bw      = barList; self.addBar("",bc,bw)
+      elif bl==4: bt, bc, bw, eby = barList; self.addBar("",bc,bw,eby)
       else: self.msg("addBarL: non-matching parameters"); return None
     except: self.err("addBarL")
 
