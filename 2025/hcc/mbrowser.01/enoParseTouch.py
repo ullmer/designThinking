@@ -66,6 +66,14 @@ class EnoParseGrid(AtaBase):
 
   ############# parseLocus #############
 
+  def determineGridPos(self, pos):
+    try:
+      if self.keyFieldUnpopulated(): self.msg("determineGridPos called with key fields unpopulated"); return None
+      x, y = pos
+
+
+  ############# parseLocus #############
+
   def parseLocus(self, pos):
     try:
       intersectingPos = self.collidepoint(pos)
