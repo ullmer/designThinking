@@ -25,10 +25,9 @@ class EnoFrameBox(AtaBase):
 
   def draw(self, screen):
     try:
-      for pb in self.prismBars: pb.draw(screen)
+      r = Rect(self.pos, self.dim)
+      screen.draw.rect(r, self.borderCol)
     except: self.err("draw")
 
-  r = Rect((900, 900), (300, 100))
-  screen.draw.rect(r, borderCol)
 
 ### end ###
