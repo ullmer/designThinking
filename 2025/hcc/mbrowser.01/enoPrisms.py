@@ -8,12 +8,27 @@ from enoPrismsTei  import *
 
 class EnoPrisms(AtaBase):
   prisms = None
+  domainPrisms = None
 
   ############# constructor #############
 
   def __init__(self, **kwargs):
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
-    self.prisms = []
+    self.prisms       = []
+    self.domainPrisms = []
+
+    ept = EnoPrismsTei() #clearly needs further abstraction; a bridge 
+    self.domainPrisms.append(ept)
+
+  ############# summon prism #############
+
+  def summonPrism(self, prismName, prismLoc):
+    try:
+      for dp in self.domainPrisms:
+        p = dp.summonPrism(prismName, prismLoc)
+        if p is not None: return p
+
+    except: self.err("summonPrism")
 
   ############# add prism #############
 
