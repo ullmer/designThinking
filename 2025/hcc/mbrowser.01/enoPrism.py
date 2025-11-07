@@ -6,10 +6,10 @@ import math
 import pygame
 import pygame.gfxdraw
 
-from ataBase       import *
-from enoPrismBar   import *
-from enoPrismBars  import *
-from enoParseTouch import *
+from ataBase      import *
+from enoPrismBar  import *
+from enoPrismBars import *
+from enoParseGrid import *
 
 class EnoPrism(AtaBase):
   prismName  = None

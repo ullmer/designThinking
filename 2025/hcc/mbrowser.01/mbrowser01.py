@@ -22,7 +22,7 @@ p1 = ep.summonPrism('teiYearsQ4',   1)
 
 rb = RefractBar((WIDTH, 80), (0, 750))
 
-def update(): pt.update()
+def update(): ep.update()
 
 def draw(): 
   screen.clear()

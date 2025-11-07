@@ -2,10 +2,10 @@
 # Brygg Ullmer, Clemson University
 # Begun 2025-11-03
 
-from enoPrismBar   import *
-from enoPrismBars  import *
-from enoActor      import *
-from enoParseTouch import *
+from enoActor     import *
+from enoPrismBar  import *
+from enoPrismBars import *
+from enoParseGrid import *
 
 class EnoPrismsTei(AtaBase):
 
