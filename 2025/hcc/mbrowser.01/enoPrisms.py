@@ -39,12 +39,14 @@ class EnoPrisms(AtaBase):
   def addPrism(self, prism):
     self.prisms.append(prism)
 
-  ############# draw #############
+  ############# update #############
   
   def update(self): 
     try:    
       for dp in self.domainPrisms: dp.update()
     except: self.err("self.ept.update")
+
+  ############# draw #############
 
   def draw(self, screen):
     try: 
@@ -52,5 +54,12 @@ class EnoPrisms(AtaBase):
       for dp in self.domainPrisms: dp.draw(screen)
 
     except: self.err("draw")
+
+  ############# parse locus #############
+
+  def parseLocus(self, pos):
+    try: 
+      for  p in self.prisms: p.parseLocus(pos)
+    except: self.err("parseLocus")
 
 ### end ###
