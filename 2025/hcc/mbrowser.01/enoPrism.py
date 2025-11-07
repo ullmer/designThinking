@@ -20,11 +20,26 @@ class EnoPrism(AtaBase):
 
   def __init__(self, **kwargs):
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+    self.prismBars = []
+
+  ############# add prism bar #############
+
+  def addPrismBar(self, prismBar):
+    try:    self.prismBars.append(prismBar)
+    except: self.err("addPrismBar")
+
+  ############# add prism bar #############
+
+  def addPrismBars(self, prismBars):
+    try:    
+      for pb in prismBars: self.prismBars.append(pb)
+    except: self.err("addPrismBars")
 
   ############# create draw #############
 
   def draw(self, screen):
     try:
+      for pb in prismBars: pb.draw(screen)
     except: self.err("draw")
 
 ### end ###
