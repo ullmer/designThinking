@@ -6,7 +6,7 @@ import ataBase
 
 class EnoParseGrid(AtaBase):
 
-  cols, rows   = None, None
+  rows, cols   = None, None
   x0, y0       = None, None
   pixDim       = None
   gridBindings = None
@@ -69,8 +69,15 @@ class EnoParseGrid(AtaBase):
   def determineGridPos(self, pos):
     try:
       if self.keyFieldUnpopulated(): self.msg("determineGridPos called with key fields unpopulated"); return None
-      x, y = pos
+      x,         y = pos
+      w,         h = self.pixDim
+      relX,   relY = x - self.x0, y - self.y0
+      normX, normY = relx / w, rely / h
+      fx,       fy = normX * self.cols, normY * self.rows
+      gx,       gy = int(normX), int(normY) 
+      return((gx, gy))
 
+    except: self.err("determineGridPos"); return None
 
   ############# parseLocus #############
 
