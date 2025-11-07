@@ -12,9 +12,11 @@ from enoPrismBars import *
 from enoParseGrid import *
 
 class EnoFrameBox(AtaBase):
+  verbose         = False
+  shiftMultiplier = 10
+
   borderCol = (255, 255, 255, 80)
   pos, dim  = (900, 900), (100, 100)
-
   lastPos, lastDim = None, None
 
   ############# constructor #############
@@ -36,10 +38,21 @@ class EnoFrameBox(AtaBase):
 
   ############# draw #############
 
-  def nudge(self, x, y, mods):
+  def nudge(self, dx, dy, mods):
     try:
-      msgStr = "%i,%i,%s" % (x,y,str(mods))
-      self.msg(msgStr)
+      if self.verbose: 
+        msgStr = "%i,%i,%s" % (x,y,str(mods))
+        self.msg(msgStr)
+
+      sm = self.shiftMultiplier
+
+      if 'shf' in mods: dx *= sm; dy *= sm
+      x, y = pos
+      w, h = dim
+      if 'alt' not in mods: x += dx; y += dy
+      else                : w += dx; h += dy
+      pos, dim = (x, y), (w, h)
+
     except: self.err("nudge")
 
   ############# draw #############
