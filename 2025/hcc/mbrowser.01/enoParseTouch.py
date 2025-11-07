@@ -27,6 +27,15 @@ class EnoParseGrid(AtaBase):
       self.gridBindings[(row, col)] = binding
     except: self.err("setGridBinding"); return None
 
+  ############# set grid binding #############
+
+  def setGridCallback(self, row, col, callback):
+    try:
+      if self.callbacks is None: self.callbacks = {}
+      self.callbacks[(row, col)] = callback
+
+    except: self.err("setGridCallback"); return None
+
   ############# set grid bindings #############
 
   def setGridBindings(self, bindings):
@@ -40,6 +49,20 @@ class EnoParseGrid(AtaBase):
           if idx < numBindings: self.gridBindings[(i, j)] = bindings[idx]
           idx += 1
     except: self.err("setGridBindings")
+
+  ############# set grid callbacks #############
+
+  def setGridCallbacks(self, callbacks):
+    try:
+      if self.callbacks is None: self.callbacks = {}
+      idx = 0
+      numCallbacks = len(callbacks)
+
+      for i in range(self.cols):
+        for j in range(self.rols):
+          if idx < numCallbacks: self.callbacks[(i, j)] = callbacks[idx]
+          idx += 1
+    except: self.err("setGridCallbacks")
 
   ############# keyFieldsPopulated #############
 
@@ -107,6 +130,9 @@ class EnoParseGrid(AtaBase):
 
       gridPos = self.determineGridPos(pos)
       if self.callbacksActive:
+        if gridPos in self.callbacks: 
+          try:    self.callbacks[gridPos]()
+          except: self.err("parseLocus error on autocallback")
 
       if gridPos in self.gridBindings: return self.gridBindings(gridPos)
       return gridPos
