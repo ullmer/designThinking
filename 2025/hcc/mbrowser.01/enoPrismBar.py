@@ -189,16 +189,17 @@ class EnoPrismBar(AtaBase):
   ############# draw #############
 
   def draw(self, screen):
-    for surf in self.surfaceList:
-      pos = self.basePos
-      if self.baseShiftX is not None and (self.flowLeft or (self.refractBar and self.dvlflx < 0)):
-        x, y = pos
-        x   += self.baseShiftX
-        pos  = (x, y)
+    try: 
+      for surf in self.surfaceList:
+        pos = self.basePos
+        if self.baseShiftX is not None and (self.flowLeft or (self.refractBar and self.dvlflx < 0)):
+          x, y = pos
+          x   += self.baseShiftX
+          pos  = (x, y)
 
-      screen.blit(surf, pos)
+        screen.blit(surf, pos)
 
-    if self.drawText: self.drawTexts(screen)
+      if self.drawText: self.drawTexts(screen)
 
     except: self.err("draw")
 
