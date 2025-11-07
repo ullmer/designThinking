@@ -29,6 +29,8 @@ class EnoPrisms(AtaBase):
         if p is not None: 
           self.prisms.append(p)
           return p
+        else: self.msg("summonPrism requested but not found: " + 
+                        str(prismName) + " " + str(prismLoc))
 
     except: self.err("summonPrism")
 
