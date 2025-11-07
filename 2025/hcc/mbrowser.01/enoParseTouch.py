@@ -46,14 +46,9 @@ class EnoParseTouch(AtaBase):
 
   def parseLocus(self, pos):
     try:
-      if self.keyFieldUnpopulated(): self.msg("parseLocus: key field unpopulated!"); return None
-
-      width, height = self.pixDim
-      x,  y         = pos
-      x1, y1        = self.x0 + width, self.y0 + height
-
-      if x < self.x0 or y < self.y0 or x > x1 or y > y1:
-        return False
+      intersectingPos = self.collidepoint(pos)
+      if intersectingPos is None:  self.msg("parseLocus detects collidepoint issue"); return None
+      if intersectingPos is False: return False
 
     except: self.err("parseLocus"); return None
 
