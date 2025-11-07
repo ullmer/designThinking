@@ -61,8 +61,9 @@ class EnoPrismsTei(AtaBase):
       for b in bindings1: epb1b.addBarL2(b)
       pb = [epb1a, epb1b]
 
-      epg = EnoParseGrid(cols=5, rows=1, x0=1040, y0=831, pixDim=(398, 116))
-      epg.setGridBindings(["tei22", "tei23", "tei24", "tei25", "tei26"])
+      epg = EnoParseGrid(rows=2, cols=4, x0=-10, y0=831, pixDim=(413, 116))
+      cats1='tools,actuation,AI,computing hardware,art,creativity,dance&theater,music&sound'
+      cats2=cats1.split(',')
 
       ep = EnoPrism(prismBars = pb, prismName = "teiLandscape", parseGrid=epg)
 
@@ -93,7 +94,9 @@ class EnoPrismsTei(AtaBase):
       epb2b.baseShiftX = -260
       for b in bindings2b[3:]: epb2b.addBarL2(b)
       pb = [epb2a, epb2b]
-      epg = EnoParseGrid(rows=2, cols=4, x0=-10, y0=831, pixDim=(413, 116))
+      epg = EnoParseGrid(cols=5, rows=1, x0=1040, y0=831, pixDim=(398, 116))
+      epg.setGridBindings(["tei22", "tei23", "tei24", "tei25", "tei26"])
+
       ep  = EnoPrism(prismBars = pb, prismName = "teiYearsQ4", parseGrid=epg)
 
       return ep
