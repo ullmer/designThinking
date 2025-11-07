@@ -64,6 +64,7 @@ class EnoPrismsTei(AtaBase):
       epg = EnoParseGrid(rows=2, cols=4, x0=-10, y0=831, pixDim=(413, 116))
       cats1='tools,actuation,AI,computing hardware,art,creativity,dance&theater,music&sound'
       cats2=cats1.split(',')
+      epg.setGridBindings(cats2)
 
       ep = EnoPrism(prismBars = pb, prismName = "teiLandscape", parseGrid=epg)
 
