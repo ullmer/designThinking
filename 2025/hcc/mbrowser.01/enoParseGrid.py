@@ -102,7 +102,13 @@ class EnoParseGrid(AtaBase):
       relX,   relY = x - self.x0, y - self.y0
       normX, normY = relX / w, relY / h
       fx,       fy = normX * self.cols, normY * self.rows
-      gx,       gy = int(normX), int(normY) 
+      gx,       gy = int(fx), int(fy) 
+
+      if self.verbose: pass
+        #self.msg("determineGridPos: relXY: " + str([relX, relY]))
+        #self.msg("determineGridPos: fXY: " + str([fx, fy]))
+        #self.msg("determineGridPos: gXY: " + str([gx, gy]))
+
       return((gx, gy))
 
     except: self.err("determineGridPos"); return None
