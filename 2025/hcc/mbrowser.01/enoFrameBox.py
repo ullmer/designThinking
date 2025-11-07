@@ -3,7 +3,8 @@
 # Begun 2025-11-06
 
 import pygame
-import pygame.gfxdraw
+
+from pgzero.constants import * #e.g., keys
 
 from ataBase      import *
 from enoPrismBar  import *
@@ -29,6 +30,10 @@ class EnoFrameBox(AtaBase):
       screen.draw.rect(r, self.borderCol)
     except: self.err("draw")
 
-  def on_key_down(self, key, mod): self.msg(str(key))
+  def on_key_down(self, key, mod): 
+    try:
+      if   key==keys.LEFT : print("left")
+      elif key==keys.RIGHT: print("right")
+    except: self.err("on_key_down")
 
 ### end ###
