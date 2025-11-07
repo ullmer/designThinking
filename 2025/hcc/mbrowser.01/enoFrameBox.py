@@ -47,14 +47,22 @@ class EnoFrameBox(AtaBase):
       sm = self.shiftMultiplier
 
       if 'shf' in mods: dx *= sm; dy *= sm
-      x, y = pos
-      w, h = dim
+      x, y = self.pos
+      w, h = self.dim
       if 'alt' not in mods: x += dx; y += dy
       else                : w += dx; h += dy
-      pos, dim = (x, y), (w, h)
+      self.pos, self.dim  = (x, y), (w, h)
 
     except: self.err("nudge")
 
+  ############# print position & dimensions #############
+
+  def printPosDim(self):
+    try: 
+      msgStr = 'pos: %s; dim: %s' % (str(self.pos), str(self.dim))
+      self.msg(msgStr)
+    except: self.err("printPosDim")
+ 
   ############# draw #############
 
   def draw(self, screen):
@@ -71,8 +79,10 @@ class EnoFrameBox(AtaBase):
 
       if   key==keys.LEFT : self.nudge(-1, 0, km) #match/case not present on micropython, etc.
       elif key==keys.RIGHT: self.nudge( 1, 0, km)
-      elif key==keys.UP:    self.nudge( 0, 1, km)
-      elif key==keys.DOWN:  self.nudge( 0,-1, km)
+      elif key==keys.UP:    self.nudge( 0,-1, km)
+      elif key==keys.DOWN:  self.nudge( 0, 1, km)
+      elif key==keys.EXCLAIM: self.printPosDim()
+      elif key==keys.PERIOD:  self.printPosDim()
     except: self.err("on_key_down")
 
 ### end ###
