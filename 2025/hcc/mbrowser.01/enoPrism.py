@@ -12,9 +12,9 @@ from enoPrismBars import *
 from enoParseGrid import *
 
 class EnoPrism(AtaBase):
-  prismName  = None
-  prismBars  = None
-  parseTouch = None
+  prismName = None
+  prismBars = None
+  parseGrid = None
 
   ############# constructor #############
 

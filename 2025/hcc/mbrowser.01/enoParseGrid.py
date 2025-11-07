@@ -45,7 +45,7 @@ class EnoParseGrid(AtaBase):
       numBindings = len(bindings)
 
       for i in range(self.cols):
-        for j in range(self.rols):
+        for j in range(self.rows):
           if idx < numBindings: self.gridBindings[(i, j)] = bindings[idx]
           idx += 1
     except: self.err("setGridBindings")

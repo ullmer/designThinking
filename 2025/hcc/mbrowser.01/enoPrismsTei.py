@@ -60,7 +60,12 @@ class EnoPrismsTei(AtaBase):
       for b in bindings1: epb1a.addBarL(b)
       for b in bindings1: epb1b.addBarL2(b)
       pb = [epb1a, epb1b]
-      ep = EnoPrism(prismBars = pb, prismName = "teiLandscape")
+
+      epg = EnoParseGrid(cols=5, rows=1, x0=200, y0=0, pixDim=(100, 100))
+      epg.setGridBindings(["tei22", "tei23", "tei24", "tei25", "tei26"])
+
+      ep = EnoPrism(prismBars = pb, prismName = "teiLandscape", parseGrid=epg)
+
       return ep
 
     except: self.err("summonPrismTeiLandscapeL")
