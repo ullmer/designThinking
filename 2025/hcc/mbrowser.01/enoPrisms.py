@@ -9,7 +9,6 @@ import pygame.gfxdraw
 from ataBase       import *
 from enoPrismBar   import *
 from enoPrismBars  import *
-from enoParseTouch import *
 
 class EnoPrisms(AtaBase):
   prisms = None
