@@ -16,9 +16,9 @@ from enoPrisms import *
 
 ##### main ##### 
 
-pt = EnoPrisms()
-p0 = pt.summonPrism('teiLandscape', 0)
-p1 = pt.summonPrism('teiYearsQ4',   1)
+ep = EnoPrisms()
+p0 = ep.summonPrism('teiLandscape', 0)
+p1 = ep.summonPrism('teiYearsQ4',   1)
 
 rb = RefractBar((WIDTH, 80), (0, 750))
 
@@ -26,7 +26,7 @@ def update(): pt.update()
 
 def draw(): 
   screen.clear()
-  pt.draw(screen)
+  ep.draw(screen)
   rb.draw(screen)
   rcol = rb.fillColor
   screen.draw.text("TEI", midleft=(305,70), alpha=.2, color=rcol, fontname="barlow_black", fontsize=250)
