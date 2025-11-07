@@ -35,13 +35,15 @@ class EnoPrismsTei(AtaBase):
   ################### get prism ###################
 
   def summonPrism(self, whichPrism, whichSlot):
-    if whichPrism == "teiLandscape" and whichSlot == 0: 
-      p = self.summonPrismTeiLandscapeL(); self.activePrisms.append(p); return p
+    try:
+      if whichPrism == "teiLandscape" and whichSlot == 0: 
+        p = self.summonPrismTeiLandscapeL(); self.activePrisms.append(p); return p
 
-    if whichPrism == "teiYearsQ4"   and whichSlot == 1: 
-      p = self.summonPrismTeiYearsQ4();    self.activePrisms.append(p); return p
+      if whichPrism == "teiYearsQ4"   and whichSlot == 1: 
+        p = self.summonPrismTeiYearsQ4();    self.activePrisms.append(p); return p
 
-    return  None
+      return None
+    except: self.err("summonPrism")
 
   ################### get prism tei landscape left  ###################
 

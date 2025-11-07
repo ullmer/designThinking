@@ -17,8 +17,8 @@ from enoPrisms import *
 ##### main ##### 
 
 ep = EnoPrisms()
-p0 = ep.summonPrism('teiLandscape', 0)
-p1 = ep.summonPrism('teiYearsQ4',   1)
+ep.summonPrism('teiLandscape', 0)
+ep.summonPrism('teiYearsQ4',   1)
 
 rb = RefractBar((WIDTH, 80), (0, 750))
 
