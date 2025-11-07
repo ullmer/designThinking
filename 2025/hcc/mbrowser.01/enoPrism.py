@@ -39,7 +39,7 @@ class EnoPrism(AtaBase):
 
   def draw(self, screen):
     try:
-      for pb in prismBars: pb.draw(screen)
+      for pb in self.prismBars: pb.draw(screen)
     except: self.err("draw")
 
 ### end ###

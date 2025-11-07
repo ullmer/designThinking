@@ -26,7 +26,9 @@ class EnoPrisms(AtaBase):
     try:
       for dp in self.domainPrisms:
         p = dp.summonPrism(prismName, prismLoc)
-        if p is not None: return p
+        if p is not None: 
+          self.prisms.append(p)
+          return p
 
     except: self.err("summonPrism")
 
