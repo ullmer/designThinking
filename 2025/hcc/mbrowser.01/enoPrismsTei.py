@@ -3,6 +3,7 @@
 # Begun 2025-11-03
 
 from enoActor     import *
+from enoPrism     import *
 from enoPrismBar  import *
 from enoPrismBars import *
 from enoParseGrid import *

@@ -38,7 +38,8 @@ class EnoPrisms(AtaBase):
   ############# draw #############
   
   def update(self): 
-    try:    self.ept.update()
+    try:    
+      for dp in self.domainPrisms: dp.update()
     except: self.err("self.ept.update")
 
   def draw(self, screen):
