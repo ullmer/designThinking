@@ -26,12 +26,21 @@ class EnoFrameBox(AtaBase):
   
   def keymod(self, keymod):
     try:
-      if keymod == 0:    return None
-      if keymod == 1:    return "shf"
-      if keymod == 256:  return "alt"
-      if keymod == 1024: return "win"
-      return None
-    except: return None
+      result = []
+      if keymod == 0:       return result
+      if keymod & 1   > 0:  result.append("shf")
+      if keymod & 256  > 0: result.append("alt")
+      if keymod & 1024 > 0: result.append("win")
+      return result
+    except: return []
+
+  ############# draw #############
+
+  def nudge(self, x, y, mods):
+    try:
+      msgStr = "%i,%i,%s" % (x,y,str(mods))
+      self.msg(msgStr)
+    except: self.err("nudge")
 
   ############# draw #############
 
@@ -41,12 +50,16 @@ class EnoFrameBox(AtaBase):
       screen.draw.rect(r, self.borderCol)
     except: self.err("draw")
 
+  ############# on_key_down #############
+
   def on_key_down(self, key, mod): 
     try:
       km = self.keymod(mod)
 
-      if   key==keys.LEFT : print("left", km)
-      elif key==keys.RIGHT: print("right", km)
+      if   key==keys.LEFT : self.nudge(-1, 0, km) #match/case not present on micropython, etc.
+      elif key==keys.RIGHT: self.nudge( 1, 0, km)
+      elif key==keys.UP:    self.nudge( 0, 1, km)
+      elif key==keys.DOWN:  self.nudge( 0,-1, km)
     except: self.err("on_key_down")
 
 ### end ###
