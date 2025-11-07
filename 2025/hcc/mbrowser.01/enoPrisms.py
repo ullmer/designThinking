@@ -78,7 +78,7 @@ class RefractBar(AtaBase):
       self.surf.fill(self.fillColor)
     except: self.err("createSurface")
 
-  ############# create draw #############
+  ############# draw #############
 
   def draw(self, screen):
     try:
