@@ -17,7 +17,8 @@ class EnoFrameBox(AtaBase):
 
   borderCol = (255, 255, 255, 80)
   pos, dim  = (900, 900), (100, 100)
-  lastPos, lastDim = None, None
+  duration  = .15
+  tween     = 'accel_decel'
 
   ############# constructor #############
 
@@ -47,11 +48,17 @@ class EnoFrameBox(AtaBase):
       sm = self.shiftMultiplier
 
       if 'shf' in mods: dx *= sm; dy *= sm
+      if 'sup' in mods: dx *= sm; dy *= sm # initially, *100
+
       x, y = self.pos
       w, h = self.dim
-      if 'alt' not in mods: x += dx; y += dy
-      else                : w += dx; h += dy
-      self.pos, self.dim  = (x, y), (w, h)
+
+      if 'alt' not in mods: 
+        newPos = (x+dx, y+dy); animate(self, pos=newPos, duration=self.duration, tween=self.tween)
+      else                : 
+        newDim = (w+dx, h+dy); animate(self, dim=newDim, duration=self.duration, tween=self.tween)
+
+      #self.pos, self.dim  = (x, y), (w, h)
 
     except: self.err("nudge")
 
