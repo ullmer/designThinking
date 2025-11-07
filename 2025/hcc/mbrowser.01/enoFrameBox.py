@@ -15,8 +15,11 @@ class EnoFrameBox(AtaBase):
   verbose         = False
   shiftMultiplier = 10
 
-  borderCol = (255, 255, 255, 80)
-  pos, dim  = (900, 900), (100, 100)
+  #borderCol = (255, 255, 255, 80)
+  borderCol = (255, 255, 0, 70)
+  width     = 2
+  #pos, dim  = (900, 900), (100, 100)
+  pos, dim  = (2, 2), (10, 10)
   duration  = .15
   tween     = 'accel_decel'
 
@@ -75,7 +78,7 @@ class EnoFrameBox(AtaBase):
   def draw(self, screen):
     try:
       r = Rect(self.pos, self.dim)
-      screen.draw.rect(r, self.borderCol)
+      screen.draw.rect(r, self.borderCol, width=self.width)
     except: self.err("draw")
 
   ############# on_key_down #############

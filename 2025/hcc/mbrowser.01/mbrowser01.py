@@ -12,8 +12,9 @@ from pgzero.builtins import Actor, animate, keyboard, keys
 
 WIDTH, HEIGHT=1600,1080
 
-from enoPrisms   import *
-from enoFrameBox import *
+from enoPrisms     import *
+from enoRefractBar import *
+from enoFrameBox   import *
 
 ##### main ##### 
 
@@ -21,7 +22,7 @@ ep = EnoPrisms()
 ep.summonPrism('teiLandscape', 0)
 ep.summonPrism('teiYearsQ4',   1)
 
-rb  = RefractBar((WIDTH, 80), (0, 750))
+rb  = EnoRefractBar((WIDTH, 80), (0, 750))
 efb = EnoFrameBox()
 
 def update(): ep.update()
@@ -34,8 +35,8 @@ def draw():
   screen.draw.text("TEI", midleft=(305,70), alpha=.2, color=rcol, fontname="barlow_black", fontsize=250)
   efb.draw(screen)
 
-#def on_mouse_down(pos):
-#  parsePress(pos)
+def on_mouse_down(pos):
+  ep.parseLocus(pos)
 
 def on_key_down(key, mod): 
   efb.on_key_down(key, mod)
