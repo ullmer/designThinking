@@ -89,6 +89,8 @@ class EnoPrismsTei(AtaBase):
       for b in bindings2b[3:]: epb2b.addBarL2(b)
       pb = [epb2a, epb2b]
       ep = EnoPrism(prismBars = pb, prismName = "teiYearsQ4")
+      return ep
+
     except: self.err("summonPrismTeiYearsQ4")
 
   ################### initiate ###################
