@@ -21,6 +21,7 @@ ep.summonPrism('teiLandscape', 0)
 ep.summonPrism('teiYearsQ4',   1)
 
 rb = RefractBar((WIDTH, 80), (0, 750))
+borderCol = (255, 255, 255, 80)
 
 def update(): ep.update()
 
@@ -30,6 +31,8 @@ def draw():
   rb.draw(screen)
   rcol = rb.fillColor
   screen.draw.text("TEI", midleft=(305,70), alpha=.2, color=rcol, fontname="barlow_black", fontsize=250)
+  r = Rect((900, 900), (300, 100))
+  screen.draw.rect(r, borderCol)
 
 #def on_mouse_down(pos):
 #  parsePress(pos)
