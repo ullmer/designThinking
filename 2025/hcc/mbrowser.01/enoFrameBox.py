@@ -30,7 +30,7 @@ class EnoFrameBox(AtaBase):
       if keymod == 0:       return result
       if keymod & 1   > 0:  result.append("shf")
       if keymod & 256  > 0: result.append("alt")
-      if keymod & 1024 > 0: result.append("win")
+      if keymod & 1024 > 0: result.append("sup") #"win," "cmd," "meta," ...
       return result
     except: return []
 
