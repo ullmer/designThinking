@@ -48,7 +48,9 @@ class EnoPrisms(AtaBase):
 
   def draw(self, screen):
     try: 
-      for p in self.prisms: p.draw(screen)
+      for  p in self.prisms: p.draw(screen)
+      for dp in self.domainPrisms: dp.draw(screen)
+
     except: self.err("draw")
 
 ############# refract bar #############

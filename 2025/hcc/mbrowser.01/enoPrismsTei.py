@@ -18,7 +18,7 @@ class EnoPrismsTei(AtaBase):
   bars = None
 
   initialized       = None
-  activePrisms      = None
+  #activePrisms      = None
   bars              = None
   parseTouchByPrism = None
 
@@ -114,9 +114,9 @@ class EnoPrismsTei(AtaBase):
     if self.activePrisms is None: return
     try:
       for bar   in self.bars: bar.draw(screen)
-      for prism in self.activePrisms:
-        for ppath in prism: 
-          if ppath is not None: ppath.draw(screen)
+      #for prism in self.activePrisms:
+      #  for ppath in prism: 
+      #    if ppath is not None: ppath.draw(screen)
 
     except: self.err("draw")
 
