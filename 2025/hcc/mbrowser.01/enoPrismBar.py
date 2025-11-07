@@ -222,7 +222,7 @@ class RefractBar(AtaBase):
   def createSurface(self):
     try:
       self.surf = pygame.Surface(self.dimensions, pygame.SRCALPHA)
-      refractBar.fill(self.fillColor)
+      self.surf.fill(self.fillColor)
     except: self.err("createSurface")
 
   ############# create draw #############

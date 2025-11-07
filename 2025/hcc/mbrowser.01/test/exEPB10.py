@@ -22,7 +22,8 @@ from prismsTei    import *
 pt = PrismsTei()
 p0 = pt.summonPrism('teiLandscape', 0)
 p1 = pt.summonPrism('teiYearsQ4',   1)
-rb = refractBar((WIDTH, 80), (0, 750))
+
+rb = RefractBar((WIDTH, 80), (0, 750))
 
 def update(): pt.update()
 
@@ -30,7 +31,8 @@ def draw():
   screen.clear()
   pt.draw(screen)
   rb.draw(screen)
-  screen.draw.text("TEI", midleft=(305,70), alpha=.2, color=rcolor, fontname="barlow_black", fontsize=250)
+  rcol = rb.fillColor
+  screen.draw.text("TEI", midleft=(305,70), alpha=.2, color=rcol, fontname="barlow_black", fontsize=250)
 
 #def on_mouse_down(pos):
 #  parsePress(pos)
