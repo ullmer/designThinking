@@ -7,9 +7,10 @@ os.environ['SDL_VIDEO_WINDOW_POS'] = '0,0' #place window at 0,0
 sys.path.insert(0, #access module in parent directory (for test stubs)
   os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from enoPrismBar  import *
-from enoPrismBars import *
-from enoActor     import *
+from enoPrismBar   import *
+from enoPrismBars  import *
+from enoActor      import *
+from enoParseTouch import *
 
 class PrismsTei(AtaBase):
 
@@ -20,31 +21,33 @@ class PrismsTei(AtaBase):
   cgr2 = (0,   255, 0, 20); cred = (255,   0, 0, 70)
   bars = None
 
-  initialized  = None
-  activePrisms = None
-  bars         = None
+  initialized       = None
+  activePrisms      = None
+  bars              = None
+  parseTouchByPrism = None
 
   ############# constructor #############
 
   def __init__(self, **kwargs):
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
 
-    self.activePrisms = []
-    self.bars         = []
-    self.initialized  = False
+    self.activePrisms      = []
+    self.bars              = []
+    self.parseTouchByPrism = {}
+    self.initialized       = False
 
   ################### get prism ###################
 
   def summonPrism(self, whichPrism, whichSlot):
     if whichPrism == "teiLandscape" and whichSlot == 0: 
-      p = self.getPrismTeiLandscapeL(); self.activePrisms.append(p); return p
+      p = self.summonPrismTeiLandscapeL(); self.activePrisms.append(p); return p
 
     if whichPrism == "teiYearsQ4"   and whichSlot == 1: 
-      p = self.getPrismTeiYearsQ4();    self.activePrisms.append(p); return p
+      p = self.summonPrismTeiYearsQ4();    self.activePrisms.append(p); return p
 
   ################### get prism tei landscape left  ###################
 
-  def getPrismTeiLandscapeL(self):
+  def summonPrismTeiLandscapeL(self):
     try:
       n,w,pmdy=35,400, self.pathMaxDy
       cyel, cblu, cred = self.cyel, self.cblu, self.cred
@@ -57,11 +60,11 @@ class PrismsTei(AtaBase):
       for b in bindings1: epb1a.addBarL(b)
       for b in bindings1: epb1b.addBarL2(b)
       return [epb1a, epb1b]
-    except: self.err("getPrismTeiLandscapeL")
+    except: self.err("summonPrismTeiLandscapeL")
 
   ################### get prism tei years q4 ###################
 
-  def getPrismTeiYearsQ4(self):
+  def summonPrismTeiYearsQ4(self):
     try:
       n2,pmdy=88, self.pathMaxDy
       cgre, cyel, cgr2 = self.cgre, self.cyel, self.cgr2
@@ -82,7 +85,7 @@ class PrismsTei(AtaBase):
       epb2b.baseShiftX = -260
       for b in bindings2b[3:]: epb2b.addBarL2(b)
       return [epb2a, epb2b]
-    except: self.err("getPrismTeiYearsQ4")
+    except: self.err("summonPrismTeiYearsQ4")
 
   ################### initiate ###################
 
