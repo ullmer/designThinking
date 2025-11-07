@@ -1,4 +1,4 @@
-# Enodia "prism bars"
+# Enodia prisms manuscripts browser
 # Brygg Ullmer, Clemson University
 # Begun 2025-11-03
 
@@ -12,14 +12,11 @@ from pgzero.builtins import Actor, animate, keyboard, keys
 
 WIDTH, HEIGHT=1600,1080
 
-from enoPrismBar  import *
-from enoPrismBars import *
-from enoActor     import *
-from prismsTei    import *
+from enoPrisms import *
 
 ##### main ##### 
 
-pt = PrismsTei()
+pt = EnoPrisms()
 p0 = pt.summonPrism('teiLandscape', 0)
 p1 = pt.summonPrism('teiYearsQ4',   1)
 
