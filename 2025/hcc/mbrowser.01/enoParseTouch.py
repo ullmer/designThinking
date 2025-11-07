@@ -4,17 +4,39 @@
 
 import ataBase
 
-class EnoParseTouch(AtaBase):
+class EnoParseGrid(AtaBase):
 
-  cols, rows = None, None
-  x0, y0     = None, None
-  pixDim     = None
-  bindings   = None
+  cols, rows   = None, None
+  x0, y0       = None, None
+  pixDim       = None
+  gridBindings = None
 
   ############# constructor #############
 
   def __init__(self, **kwargs):
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+
+  ############# set grid binding #############
+
+  def setGridBinding(self, row, col, binding):
+    try:
+      if self.gridBindings is None: self.gridBindings = {}
+      self.gridBindings[(row, col)] = binding
+    except: self.err("setGridBinding"); return None
+
+  ############# set grid bindings #############
+
+  def setGridBindings(self, bindings):
+    try:
+      if self.gridBindings is None: self.gridBindings = {}
+      idx = 0
+      numBindings = len(bindings)
+
+      for i in range(self.cols):
+        for j in range(self.rols):
+          if idx < numBindings: self.gridBindings[(i, j)] = bindings[idx]
+          idx += 1
+    except: self.err("setGridBindings")
 
   ############# keyFieldsPopulated #############
 
@@ -49,6 +71,8 @@ class EnoParseTouch(AtaBase):
       intersectingPos = self.collidepoint(pos)
       if intersectingPos is None:  self.msg("parseLocus detects collidepoint issue"); return None
       if intersectingPos is False: return False
+
+      gridPos = self.determineGridPos(pos)
 
     except: self.err("parseLocus"); return None
 
