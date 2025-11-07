@@ -45,6 +45,8 @@ class EnoPrismsTei(AtaBase):
     if whichPrism == "teiYearsQ4"   and whichSlot == 1: 
       p = self.summonPrismTeiYearsQ4();    self.activePrisms.append(p); return p
 
+    return  None
+
   ################### get prism tei landscape left  ###################
 
   def summonPrismTeiLandscapeL(self):
@@ -59,7 +61,10 @@ class EnoPrismsTei(AtaBase):
 
       for b in bindings1: epb1a.addBarL(b)
       for b in bindings1: epb1b.addBarL2(b)
-      return [epb1a, epb1b]
+      pb = [epb1a, epb1b]
+      ep = EnoPrism(prismBars = pb, prismName = "teiLandscape")
+      return ep
+
     except: self.err("summonPrismTeiLandscapeL")
 
   ################### get prism tei years q4 ###################
@@ -84,7 +89,8 @@ class EnoPrismsTei(AtaBase):
       epb2b.baseWidth  =  97
       epb2b.baseShiftX = -260
       for b in bindings2b[3:]: epb2b.addBarL2(b)
-      return [epb2a, epb2b]
+      pb = [epb2a, epb2b]
+      ep = EnoPrism(prismBars = pb, prismName = "teiYearsQ4")
     except: self.err("summonPrismTeiYearsQ4")
 
   ################### initiate ###################
