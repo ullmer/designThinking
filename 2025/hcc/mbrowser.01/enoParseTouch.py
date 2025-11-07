@@ -11,6 +11,9 @@ class EnoParseGrid(AtaBase):
   pixDim       = None
   gridBindings = None
 
+  callbacks       = None
+  callbacksActive = False
+
   ############# constructor #############
 
   def __init__(self, **kwargs):
@@ -103,6 +106,10 @@ class EnoParseGrid(AtaBase):
       if intersectingPos is False: return False
 
       gridPos = self.determineGridPos(pos)
+      if self.callbacksActive:
+
+      if gridPos in self.gridBindings: return self.gridBindings(gridPos)
+      return gridPos
 
     except: self.err("parseLocus"); return None
 
