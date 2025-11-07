@@ -37,6 +37,9 @@ def draw():
 #def on_mouse_down(pos):
 #  parsePress(pos)
 
+def on_key_down(key, mod): 
+  efb.on_key_down(key, mod)
+
 pgzrun.go()
 
 ### end ###

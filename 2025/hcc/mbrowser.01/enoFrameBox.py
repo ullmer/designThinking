@@ -29,5 +29,6 @@ class EnoFrameBox(AtaBase):
       screen.draw.rect(r, self.borderCol)
     except: self.err("draw")
 
+  def on_key_down(self, key, mod): self.msg(str(key))
 
 ### end ###
