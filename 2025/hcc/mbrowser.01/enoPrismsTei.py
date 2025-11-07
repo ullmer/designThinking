@@ -12,7 +12,7 @@ from enoPrismBars  import *
 from enoActor      import *
 from enoParseTouch import *
 
-class PrismsTei(AtaBase):
+class EnoPrismsTei(AtaBase):
 
   #pathMaxDy = 850
   pathMaxDy = 750

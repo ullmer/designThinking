@@ -2,13 +2,9 @@
 # Brygg Ullmer, Clemson University
 # Begun 2025-11-06
 
-import math
-import pygame
-import pygame.gfxdraw
-
 from ataBase       import *
-from enoPrismBar   import *
-from enoPrismBars  import *
+from enoPrism      import *
+from enoPrismsTei  import *
 
 class EnoPrisms(AtaBase):
   prisms = None
