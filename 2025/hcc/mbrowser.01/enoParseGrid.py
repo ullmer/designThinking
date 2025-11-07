@@ -100,7 +100,7 @@ class EnoParseGrid(AtaBase):
       x,         y = pos
       w,         h = self.pixDim
       relX,   relY = x - self.x0, y - self.y0
-      normX, normY = relx / w, rely / h
+      normX, normY = relX / w, relY / h
       fx,       fy = normX * self.cols, normY * self.rows
       gx,       gy = int(normX), int(normY) 
       return((gx, gy))
@@ -134,7 +134,12 @@ class EnoParseGrid(AtaBase):
           try:    self.callbacks[gridPos]()
           except: self.err("parseLocus error on autocallback")
 
-      if gridPos in self.gridBindings: return self.gridBindings(gridPos)
+      if self.gridBindings is not None and gridPos in self.gridBindings: 
+        result = self.gridBindings[gridPos]
+        if self.verbose: self.msg(result)
+        return result
+
+      if self.verbose: self.msg(gridPos)
       return gridPos
 
     except: self.err("parseLocus"); return None

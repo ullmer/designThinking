@@ -42,4 +42,12 @@ class EnoPrism(AtaBase):
       for pb in self.prismBars: pb.draw(screen)
     except: self.err("draw")
 
+  ############# parse locus #############
+
+  def parseLocus(self, pos):
+    try:
+      if self.parseGrid is None: self.msg("parseLocus: parseGrid not present"); return
+      self.parseGrid.parseLocus(pos)
+    except: self.err("parseLocus")
+
 ### end ###
