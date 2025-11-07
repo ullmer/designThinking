@@ -2,7 +2,7 @@
 # Brygg Ullmer, Clemson University
 # Begun 2025-11-06
 
-import ataBase
+from ataBase import *
 
 class EnoParseGrid(AtaBase):
 
