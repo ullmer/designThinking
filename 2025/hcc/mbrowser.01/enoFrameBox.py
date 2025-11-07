@@ -22,6 +22,17 @@ class EnoFrameBox(AtaBase):
   def __init__(self, **kwargs):
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
 
+  ############# keyMod #############
+  
+  def keymod(self, keymod):
+    try:
+      if keymod == 0:    return None
+      if keymod == 1:    return "shf"
+      if keymod == 256:  return "alt"
+      if keymod == 1024: return "win"
+      return None
+    except: return None
+
   ############# draw #############
 
   def draw(self, screen):
@@ -32,8 +43,10 @@ class EnoFrameBox(AtaBase):
 
   def on_key_down(self, key, mod): 
     try:
-      if   key==keys.LEFT : print("left")
-      elif key==keys.RIGHT: print("right")
+      km = self.keymod(mod)
+
+      if   key==keys.LEFT : print("left", km)
+      elif key==keys.RIGHT: print("right", km)
     except: self.err("on_key_down")
 
 ### end ###
