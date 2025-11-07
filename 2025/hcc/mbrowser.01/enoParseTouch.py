@@ -64,11 +64,13 @@ class EnoParseGrid(AtaBase):
 
     except: self.err("collidepoint"); return None
 
-  ############# parseLocus #############
+  ############# determine grid position #############
 
   def determineGridPos(self, pos):
     try:
-      if self.keyFieldUnpopulated(): self.msg("determineGridPos called with key fields unpopulated"); return None
+      if self.keyFieldUnpopulated(): 
+        self.msg("determineGridPos called with key fields unpopulated"); return None
+
       x,         y = pos
       w,         h = self.pixDim
       relX,   relY = x - self.x0, y - self.y0
@@ -78,6 +80,19 @@ class EnoParseGrid(AtaBase):
       return((gx, gy))
 
     except: self.err("determineGridPos"); return None
+
+  ############# determine grid binding #############
+
+  def determineGridBinding(self, pos):
+    try:
+      gridPos = self.determineGridPos(pos)
+      if gridPos is None: 
+        self.msg("determineGridBinding observes problem response from determineGridPos"); return None
+
+      if gridPos in self.gridBindings: return gridBindings[gridPos]
+      self.msg("determineGridBindings receives unbound coordinate"); return None
+
+    except: self.err("determineGridBindings"); return None
 
   ############# parseLocus #############
 
