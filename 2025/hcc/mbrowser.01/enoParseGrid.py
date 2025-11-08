@@ -2,7 +2,8 @@
 # Brygg Ullmer, Clemson University
 # Begun 2025-11-06
 
-from ataBase import *
+from ataBase   import *
+from functools import partial
 
 class EnoParseGrid(AtaBase):
 
@@ -38,6 +39,16 @@ class EnoParseGrid(AtaBase):
 
     except: self.err("setGridCallback"); return None
 
+  ############# get grid binding #############
+
+  def getGridCallback(self, row, col):
+    try:
+      if self.callbacks is None: self.msg("getGridCallback: callbacks unpopulated); return None
+      result = self.callbacks((row,col))
+      return result
+
+    except: self.err("getGridCallback"); return None
+
   ############# set grid bindings #############
 
   def setGridBindings(self, bindings):
@@ -55,16 +66,16 @@ class EnoParseGrid(AtaBase):
 
   ############# set grid callbacks #############
 
-  def setGridCallbacks(self, callbacks):
+  def setGridCallbacks(self, callback): #map a single parameter-receiving callback via partials
     try:
       if self.callbacks is None: self.callbacks = {}
-      idx = 0
       numCallbacks = len(callbacks)
 
       for i in range(self.cols):
         for j in range(self.rols):
-          if idx < numCallbacks: self.callbacks[(i, j)] = callbacks[idx]
-          idx += 1
+          cb = partial(callback, (i, j))
+          self.callbacks[(i, j)] = cb
+
     except: self.err("setGridCallbacks")
 
   ############# keyFieldsPopulated #############
