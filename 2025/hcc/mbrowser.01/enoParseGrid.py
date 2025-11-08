@@ -99,7 +99,12 @@ class EnoParseGrid(AtaBase):
     try:
       if self.keyFieldUnpopulated(): 
         self.msg("mapIdx2Pos called with key fields unpopulated"); return None
-      x = x0
+      w,   h = self.pixDim
+      dw, dh = w/self.cols, h/self.rows
+      x,   y = x0 + col * dw, y0 + row * dh
+      return (x,y)
+
+    except: self.err("mapIdx2Pos"); return None
 
   ############# determine grid position #############
 
