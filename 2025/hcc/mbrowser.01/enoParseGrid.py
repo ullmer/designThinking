@@ -175,6 +175,13 @@ class EnoParseGrid(AtaBase):
         result.append(gb)
         if self.verbose: self.msg(gb)
 
+      if self.callbacksActive:
+        try:
+          row, col = gridPos
+          cb = self.getGridCallback(row, col)
+          cb(gridPos)
+        except: self.err("parseLocus error on calling cb with " + str(gridPos))
+
       return result
 
     except: self.err("parseLocus"); return None
