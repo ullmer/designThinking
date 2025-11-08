@@ -93,6 +93,14 @@ class EnoParseGrid(AtaBase):
 
     except: self.err("collidepoint"); return None
 
+  ############# map tabular index to 2D position #############
+
+  def mapIdx2Pos(self, row, col):
+    try:
+      if self.keyFieldUnpopulated(): 
+        self.msg("mapIdx2Pos called with key fields unpopulated"); return None
+      x = x0
+
   ############# determine grid position #############
 
   def determineGridPos(self, pos):

@@ -65,7 +65,7 @@ class EnoPrismsTei(AtaBase):
       cats1='tools,actuation,AI,computing hardware,art,creativity,dance&theater,music&sound'
       cats2=cats1.split(',')
       epg.setGridBindings(cats2)
-      epg.printGridBindings()
+      #epg.printGridBindings()
 
       ep = EnoPrism(prismBars = pb, prismName = "teiLandscape", parseGrid=epg)
 
