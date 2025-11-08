@@ -140,13 +140,15 @@ class EnoParseGrid(AtaBase):
           try:    self.callbacks[gridPos]()
           except: self.err("parseLocus error on autocallback")
 
-      if self.gridBindings is not None and gridPos in self.gridBindings: 
-        result = self.gridBindings[gridPos]
-        if self.verbose: self.msg(result)
-        return result
-
+      result = [gridPos]
       if self.verbose: self.msg(gridPos)
-      return gridPos
+
+      if self.gridBindings is not None and gridPos in self.gridBindings: 
+        gb = self.gridBindings[gridPos]
+        result.append(gb)
+        if self.verbose: self.msg(gb)
+
+      return result
 
     except: self.err("parseLocus"); return None
 
