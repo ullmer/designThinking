@@ -14,10 +14,12 @@ class EnoEntityListing(AtaBase):
   entryFontColor = (200, 200, 200, 100)
   entryFontAngle = 0
 
-  entryFieldWidths     = None
-  defaultFieldWidths   = 50
-  offsetBetweenEntries = (0, 35)
-  basePos              = (100, 100)
+  entryFieldWidths      = None
+  offsetsBetweenEntries = None
+  defaultFieldWidths    = 50
+  basePos               = (100, 100)
+
+  defaultOffsetBetweenEntries = (0, 35)
 
   ############# constructor #############
 
@@ -77,11 +79,23 @@ class EnoEntityListing(AtaBase):
         return False
 
       x,   y = self.basePos
-      dx, dy = self.offsetBetweenEntries
 
+      numEntries = len(self.entries)
+      if not isinstance(self.offsetsBetweenEntries, list):
+        self.offsetsBetweenEntries = []
+
+      nobe = len(self.offsetsBetweenEntries)
+      if nobe < numEntries:
+        numToAdd = numEntries - nobe
+        dobe     = self.defaultOffsetBetweenEntries
+        for i in range(numToAdd): self.offsetsBetweenEntries.append(dobe)
+
+      idx = 0
       for  entry in self.entries: 
         self.drawEntry(entry, (x, y))
+        dx, dy = self.offsetsBetweenEntries[idx]
         x += dx; y += dy
+        idx += 1
 
     except: self.err("draw")
 
