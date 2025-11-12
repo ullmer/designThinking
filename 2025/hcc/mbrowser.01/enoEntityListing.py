@@ -8,11 +8,13 @@ from enoPrismsTei  import *
 
 class EnoEntityListing(AtaBase):
   entries          = None
-  entryFont        = "barlow_condensed_extralight"
+  entryFontName    = "barlow_condensed_extralight"
   entryFontSize    = 32
 
-  entryFieldWidths   = None
-  defaultFieldWidths = 50
+  entryFieldWidths     = None
+  defaultFieldWidths   = 50
+  offsetBetweenEntries = (0, 35)
+  basePos              = (100, 100)
 
   ############# constructor #############
 
@@ -32,7 +34,7 @@ class EnoEntityListing(AtaBase):
 
   ############# draw #############
 
-  def drawEntry(self, screen, entry):
+  def drawEntry(self, screen, entry, pos):
     try:
       # if not already a list, make it one
       if not isinstance(entry, list): entry = [str(entry)]
@@ -46,7 +48,16 @@ class EnoEntityListing(AtaBase):
         dfw = self.defaultFieldWidths
         for i in numFieldWidthsToAdd: self.entryFieldWidths.append(dfw)
 
-      for field in entry: pass
+      x, y = pos; idx = 0
+      for field in entry: 
+        w     = self.entryFieldWidths[idx]
+        f, fs = self.entryFontName, self.entryFontSize
+
+        idx  += 1
+
+  defaultFieldWidths = 50
+  verticalOffset     = 35
+  basePos            = (100, 100)
 
   ############# draw #############
 
@@ -56,7 +67,13 @@ class EnoEntityListing(AtaBase):
         self.msg("draw issue: internal entries not populated with a list!")
         return False
 
-      for  entry in self.entries: self.drawEntry(entry)
+      x,   y = self.basePos
+      dx, dy = self.offsetBetweenEntries
+
+      for  entry in self.entries: 
+        self.drawEntry(entry, (x, y))
+        x += dx; y += dy
+
     except: self.err("draw")
 
 ### end ###
