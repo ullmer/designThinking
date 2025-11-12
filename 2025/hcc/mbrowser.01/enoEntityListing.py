@@ -19,7 +19,8 @@ class EnoEntityListing(AtaBase):
   defaultFieldWidths    = 50
   basePos               = (100, 100)
 
-  defaultOffsetBetweenEntries = (0, 35)
+  #defaultOffsetBetweenEntries = (0, 35)
+  defaultOffsetBetweenEntries = 35 #if not tuple, consider as dy
 
   ############# constructor #############
 
@@ -84,17 +85,20 @@ class EnoEntityListing(AtaBase):
       if not isinstance(self.offsetsBetweenEntries, list):
         self.offsetsBetweenEntries = []
 
-      nobe = len(self.offsetsBetweenEntries)
-      if nobe < numEntries:
-        numToAdd = numEntries - nobe
+      lobe = len(self.offsetsBetweenEntries)
+      if lobe < numEntries:
+        numToAdd = numEntries - lobe
         dobe     = self.defaultOffsetBetweenEntries
         for i in range(numToAdd): self.offsetsBetweenEntries.append(dobe)
 
       idx = 0
       for  entry in self.entries: 
         self.drawEntry(entry, (x, y))
-        dx, dy = self.offsetsBetweenEntries[idx]
-        x += dx; y += dy
+
+        obe = self.offsetsBetweenEntries[idx]
+        if isinstance(obe, tuple): dx, dy = obe; x += dx
+        else:                      dy     = obe
+        y   += dy
         idx += 1
 
     except: self.err("draw")
