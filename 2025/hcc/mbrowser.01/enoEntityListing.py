@@ -11,7 +11,8 @@ class EnoEntityListing(AtaBase):
   entryFont        = "barlow_condensed_extralight"
   entryFontSize    = 32
 
-  entryFieldWidths = None
+  entryFieldWidths   = None
+  defaultFieldWidths = 50
 
   ############# constructor #############
 
@@ -28,6 +29,24 @@ class EnoEntityListing(AtaBase):
 
     try:    self.entries.append(entry)
     except: self.err("addEntry")
+
+  ############# draw #############
+
+  def drawEntry(self, screen, entry):
+    try:
+      # if not already a list, make it one
+      if not isinstance(entry, list): entry = [str(entry)]
+
+      numFields = len(entry)
+      if self.entryFieldWidths is None: self.entryFieldWidths = []
+      lefw = len(self.entryFieldWidths)
+
+      if numFields > lefw:
+        numFieldWidthsToAdd = numFields - lefw
+        dfw = self.defaultFieldWidths
+        for i in numFieldWidthsToAdd: self.entryFieldWidths.append(dfw)
+
+      for field in entry: pass
 
   ############# draw #############
 
