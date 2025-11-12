@@ -54,9 +54,9 @@ class EnoEntityListing(AtaBase):
         dfw = self.defaultFieldWidths
         for i in numFieldWidthsToAdd: self.entryFieldWidths.append(dfw)
 
-      x, y = pos; idx = 0
-      an = self.entryFieldWidths[idx], self.self.entryFontAngle 
-      f, fs = self.entryFontName, self.entryFontSize
+      x, y  = pos; idx = 0
+      an    = self.entryFieldWidths[idx], self.self.entryFontAngle 
+      f, fs = self.entryFontName,  self.entryFontSize
       a, c  = self.entryFontAlpha, self.entryFontColor
 
       for field in entry: 
