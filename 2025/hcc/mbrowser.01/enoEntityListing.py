@@ -7,9 +7,12 @@ from enoPrism      import *
 from enoPrismsTei  import *
 
 class EnoEntityListing(AtaBase):
-  entries          = None
-  entryFontName    = "barlow_condensed_extralight"
-  entryFontSize    = 32
+  entries        = None
+  entryFontName  = "barlow_condensed_extralight"
+  entryFontSize  = 32
+  entryFontAlpha = .1
+  entryFontColor = (200, 200, 200, 100)
+  entryFontAngle = 0
 
   entryFieldWidths     = None
   defaultFieldWidths   = 50
@@ -49,11 +52,17 @@ class EnoEntityListing(AtaBase):
         for i in numFieldWidthsToAdd: self.entryFieldWidths.append(dfw)
 
       x, y = pos; idx = 0
-      for field in entry: 
-        w     = self.entryFieldWidths[idx]
-        f, fs = self.entryFontName, self.entryFontSize
+      an = self.entryFieldWidths[idx], self.self.entryFontAngle 
+      f, fs = self.entryFontName, self.entryFontSize
+      a, c  = self.entryFontAlpha, self.entryFontColor
 
-        idx  += 1
+      for field in entry: 
+        w = self.entryFieldWidths[idx]
+
+        screen.draw.text(str(field), midleft=(x,y),  
+          alpha=a, color=c, fontname=fn, fontsize=fs, angle=an)
+
+        x += w; idx += 1
 
   defaultFieldWidths = 50
   verticalOffset     = 35
