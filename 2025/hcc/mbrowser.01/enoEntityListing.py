@@ -55,15 +55,15 @@ class EnoEntityListing(AtaBase):
         for i in range(numFieldWidthsToAdd): 
           self.entryFieldWidths.append(dfw)
 
-      x, y  = pos; idx = 0
-      an    = self.entryFontAngle 
-      f, fs = self.entryFontName,  self.entryFontSize
-      a, c  = self.entryFontAlpha, self.entryFontColor
+      x,  y  = pos; idx = 0
+      an     = self.entryFontAngle 
+      fn, fs = self.entryFontName,  self.entryFontSize
+      a,  c  = self.entryFontAlpha, self.entryFontColor
 
       for field in entry: 
         w = self.entryFieldWidths[idx]
 
-        screen.draw.text(str(field), midleft=(x,y),  
+        screen.draw.text(str(field), midleft=(x,y), \
           alpha=a, color=c, fontname=fn, fontsize=fs, angle=an)
 
         x += w; idx += 1
