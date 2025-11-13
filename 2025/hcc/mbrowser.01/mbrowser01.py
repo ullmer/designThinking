@@ -23,7 +23,7 @@ ep = EnoPrisms()
 ep.summonPrism('teiLandscape', 0)
 ep.summonPrism('teiYearsQ4',   1)
 
-yf  = open('yaml/sampleEntries.yaml', 'rt']
+yf  = open('yaml/sampleEntries.yaml', 'rt')
 yd  = yaml.safe_load(yf); yf.close()
 eel = EnoEntityListing(entries=yd)
 

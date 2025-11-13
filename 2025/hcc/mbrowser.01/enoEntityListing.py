@@ -67,10 +67,6 @@ class EnoEntityListing(AtaBase):
 
         x += w; idx += 1
 
-  defaultFieldWidths = 50
-  verticalOffset     = 35
-  basePos            = (100, 100)
-
   ############# draw #############
 
   def draw(self, screen):
