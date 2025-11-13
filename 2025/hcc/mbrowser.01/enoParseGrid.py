@@ -43,7 +43,8 @@ class EnoParseGrid(AtaBase):
 
   def getGridCallback(self, row, col):
     try:
-      if self.callbacks is None: self.msg("getGridCallback: callbacks unpopulated); return None
+      if self.callbacks is None: 
+        self.msg("getGridCallback: callbacks unpopulated"); return None
       result = self.callbacks((row,col))
       return result
 
