@@ -52,10 +52,11 @@ class EnoEntityListing(AtaBase):
       if numFields > lefw:
         numFieldWidthsToAdd = numFields - lefw
         dfw = self.defaultFieldWidths
-        for i in numFieldWidthsToAdd: self.entryFieldWidths.append(dfw)
+        for i in range(numFieldWidthsToAdd): 
+          self.entryFieldWidths.append(dfw)
 
       x, y  = pos; idx = 0
-      an    = self.entryFieldWidths[idx], self.self.entryFontAngle 
+      an    = self.entryFontAngle 
       f, fs = self.entryFontName,  self.entryFontSize
       a, c  = self.entryFontAlpha, self.entryFontColor
 
@@ -90,7 +91,7 @@ class EnoEntityListing(AtaBase):
 
       idx = 0
       for  entry in self.entries: 
-        self.drawEntry(entry, (x, y))
+        self.drawEntry(screen, entry, (x, y))
 
         obe = self.offsetsBetweenEntries[idx]
         if isinstance(obe, tuple): dx, dy = obe; x += dx
