@@ -10,14 +10,17 @@ class EnoEntityListing(AtaBase):
   entries        = None
   entryFontName  = "barlow_condensed_extralight"
   entryFontSize  = 32
-  entryFontAlpha = .1
-  entryFontColor = (200, 200, 200, 100)
+  entryFontAlpha = .8
+  entryFontColor = (250, 250, 250, 150)
   entryFontAngle = 0
+
+  fieldsToPostfix = None
+  postfix         = ':'
 
   entryFieldWidths      = None
   offsetsBetweenEntries = None
-  defaultFieldWidths    = 50
-  basePos               = (100, 100)
+  defaultFieldWidths    = 100
+  basePos               = (20, 100)
 
   #defaultOffsetBetweenEntries = (0, 35)
   defaultOffsetBetweenEntries = 35 #if not tuple, consider as dy
@@ -55,15 +58,20 @@ class EnoEntityListing(AtaBase):
         for i in range(numFieldWidthsToAdd): 
           self.entryFieldWidths.append(dfw)
 
-      x,  y  = pos; idx = 0
-      an     = self.entryFontAngle 
-      fn, fs = self.entryFontName,  self.entryFontSize
-      a,  c  = self.entryFontAlpha, self.entryFontColor
+      x,  y   = pos; idx = 0
+      an      = self.entryFontAngle 
+      fn, fs  = self.entryFontName,  self.entryFontSize
+      a,  c   = self.entryFontAlpha, self.entryFontColor
+      ftp, pf = self.fieldsToPostfix, self.postfix
 
       for field in entry: 
         w = self.entryFieldWidths[idx]
 
-        screen.draw.text(str(field), midleft=(x,y), \
+        #self.msg("drawEntry: " + str([field,x,y,a,c,fn,fs,an]))
+        strf = str(field)
+        if ftp is not None and idx in ftp: strf += pf #add postfix
+
+        screen.draw.text(strf, midleft=(x,y), \
           alpha=a, color=c, fontname=fn, fontsize=fs, angle=an)
 
         x += w; idx += 1
@@ -73,6 +81,7 @@ class EnoEntityListing(AtaBase):
 
   def draw(self, screen):
     try: 
+      #if self.verbose: self.msg("draw begun")
       if not isinstance(self.entries, list):
         self.msg("draw issue: internal entries not populated with a list!")
         return False
@@ -98,6 +107,9 @@ class EnoEntityListing(AtaBase):
         else:                      dy     = obe
         y   += dy
         idx += 1
+        #self.msg("draw: " + str([idx,x,y]))
+
+      #self.msg("draw ends, idx: " + str(idx))
 
     except: self.err("draw")
 

@@ -25,7 +25,7 @@ ep.summonPrism('teiYearsQ4',   1)
 
 yf  = open('yaml/sampleEntries.yaml', 'rt')
 yd  = yaml.safe_load(yf); yf.close()
-eel = EnoEntityListing(entries=yd)
+eel = EnoEntityListing(entries=yd, fieldsToPostfix=[0])
 
 rb  = EnoRefractBar((WIDTH, 80), (0, 750))
 efb = EnoFrameBox()
