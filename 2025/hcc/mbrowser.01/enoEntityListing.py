@@ -66,6 +66,7 @@ class EnoEntityListing(AtaBase):
           alpha=a, color=c, fontname=fn, fontsize=fs, angle=an)
 
         x += w; idx += 1
+    except: self.err("drawEntry")
 
   ############# draw #############
 
