@@ -22,6 +22,22 @@ class EnoPrism(AtaBase):
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     if self.prismBars is None: self.prismBars = []
 
+  ############# number prism bars #############
+
+  def numPrismBars(self):
+    try:
+      if self.prismBars is None: return 0
+      return len(self.prismBars)
+    except: self.err("numPrismBars")
+
+  ############# get prism bar #############
+
+  def getPrismBar(self, whichBar: int):
+    try:
+      if self.prismBars is None: return None
+      return self.prismBars[whichBar]
+    except: self.err("getPrismBars)
+
   ############# add prism bar #############
 
   def addPrismBar(self, prismBar):
