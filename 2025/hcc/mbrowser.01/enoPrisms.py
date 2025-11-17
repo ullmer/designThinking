@@ -37,7 +37,7 @@ class EnoPrisms(AtaBase):
     try:
       if self.epi is None: self.msg("intersectPrismBarPair: epi backend not initiated")
       prism1, prism2 = self.prisms[idx1], self.prisms[idx2]
-      bar1, bar2     = prism1.getPrismBar(idx1), prism2.getPrismBar(idx2)  # something perhaps slightly askew
+      bar1, bar2     = prism1.getPrismBar(0), prism2.getPrismBar(0)  # "upper portions"
       verts1, verts2 = bar1.barList[bar1idx].vertices, bar2.barList[bar2idx].vertices
 
       if verts1 is None or verts2 is None: self.msg("intersectPrismBarPair: bar vertices undefined"); return
