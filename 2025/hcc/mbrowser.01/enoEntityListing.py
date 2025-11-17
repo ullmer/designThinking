@@ -14,13 +14,19 @@ class EnoEntityListing(AtaBase):
   entryFontColor = (250, 250, 250, 150)
   entryFontAngle = 0
 
+  drawRowBands        = True
+  rowBandsAlternating = True
+
+  rowBand1 = (40, 40, 40, 80)
+  rowBand2 = (20, 20, 20, 60)
+
   fieldsToPostfix = None
   postfix         = ':'
 
   entryFieldWidths      = None
   offsetsBetweenEntries = None
   defaultFieldWidths    = 100
-  basePos               = (20, 100)
+  basePos               = (20, 200)
 
   #defaultOffsetBetweenEntries = (0, 35)
   defaultOffsetBetweenEntries = 35 #if not tuple, consider as dy
