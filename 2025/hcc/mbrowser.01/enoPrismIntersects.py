@@ -24,7 +24,7 @@ class EnoPrismIntersects(AtaBase):
 
   ############# generate horiz bar coords #############
 
-  def genHorizBarCoords(self, vertPos: int]) -> List[CoordI]:
+  def genHorizBarCoords(self, vertPos: int) -> List[CoordI]:
     a, b = (0, vertPos), (self.winWidth, vertPos)
     c    = (self.winWidth, vertPos + self.barHeight)
     d    = (0,             vertPos + self.barHeight)

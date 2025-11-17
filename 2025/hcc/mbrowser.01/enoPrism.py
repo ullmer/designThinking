@@ -36,7 +36,7 @@ class EnoPrism(AtaBase):
     try:
       if self.prismBars is None: return None
       return self.prismBars[whichBar]
-    except: self.err("getPrismBars)
+    except: self.err("getPrismBars")
 
   ############# add prism bar #############
 

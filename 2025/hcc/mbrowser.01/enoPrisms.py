@@ -35,12 +35,17 @@ class EnoPrisms(AtaBase):
 
   def intersectPrismBarPair(self, idx1, idx2, bar1idx, bar2idx):
     try:
+      if self.epi is None: self.msg("intersectPrismBarPair: epi backend not initiated")
       prism1, prism2 = self.prisms[idx1], self.prisms[idx2]
       bar1, bar2     = prism1.getPrismBar(bar1idx), prism2.getPrismBar(bar2idx)
-      self.epi
+      verts1, verts2 = bar1.vertices, bar2.vertices
 
-      #intersectQuadPolysI
-    except: self.err(intersectPrismBarPair)
+      if verts1 is None or verts2 is None: self.msg("intersectPrismBarPair: bar vertices undefined"); return
+
+      self.msg("ipbp: " + str(verts1) + str(verts2))
+
+      #self.epi.intersectQuadPolysI
+    except: self.err("intersectPrismBarPair")
 
   ############# summon prism #############
 
