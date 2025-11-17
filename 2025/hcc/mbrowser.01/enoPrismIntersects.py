@@ -47,8 +47,10 @@ class EnoPrismIntersects(AtaBase):
       clip = quadPolyB
   
       pc = pyclipper.Pyclipper()
-      pc.AddPaths(subj, pyclipper.PT_SUBJECT, closed=True)
-      pc.AddPaths(clip, pyclipter.PT_CLIP, closed=True)  # <-- typo fixed below
+      #pc.AddPaths(subj, pyclipper.PT_SUBJECT, closed=True)
+      #pc.AddPaths(clip, pyclipter.PT_CLIP, closed=True)  # <-- typo fixed below
+      pc.AddPath(subj, pyclipper.PT_SUBJECT, closed=True)
+      pc.AddPath(clip, pyclipper.PT_CLIP,    closed=True)
 
       # Execute the intersection. For convex quads this will be 0 or 1 path most of the time.
       solution = pc.Execute(pyclipper.CT_INTERSECTION, pyclipper.PFT_NONZERO, pyclipper.PFT_NONZERO)
