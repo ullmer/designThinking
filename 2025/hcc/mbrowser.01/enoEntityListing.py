@@ -15,6 +15,8 @@ class EnoEntityListing(AtaBase):
   entryFontAngle = 0
 
   winDim = None
+  rowDim = None
+  defaultRowHeight = 30
 
   drawRowBands        = True
   rowBandsAlternating = True
@@ -37,8 +39,15 @@ class EnoEntityListing(AtaBase):
   ############# constructor #############
 
   def __init__(self, **kwargs):
-    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
-    if self.entries is None: self.entries = []
+    try:
+      self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+      if self.entries is None: self.entries = []
+ 
+      if self.rowDim is None and self.winDim is not None:
+        w, h = self.winDim
+        self.rowDim = (w, self.defaultRowHeight)
+
+    except: self.err("constructor")
 
   ############# add entry #############
 
@@ -75,12 +84,12 @@ class EnoEntityListing(AtaBase):
 
       if self.drawRowBands:
         rbcol = self.rowBand1
-        if self.winDim is None: self.msg("drawEntry trying to draw row bands, but window dimensions unknown"); return 
+        if self.rowDim is None: self.msg("drawEntry trying to draw row bands, but row dimensions unknown"); return 
 
         if (self.rowBandLastColor is None or self.rowBandLastColor == 1): self.rowBandLastColor = 0
         else:                                      rbcol = self.rowBand2; self.rowBandLastColor = 1
 
-        r = Rect(pos, self.winDim)
+        r = Rect(pos, self.rowDim)
         screen.draw.rect(r, rbcol)
 
       for field in entry: 
