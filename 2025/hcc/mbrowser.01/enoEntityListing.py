@@ -14,11 +14,14 @@ class EnoEntityListing(AtaBase):
   entryFontColor = (250, 250, 250, 150)
   entryFontAngle = 0
 
+  winDim = None
+
   drawRowBands        = True
   rowBandsAlternating = True
 
   rowBand1 = (40, 40, 40, 80)
   rowBand2 = (20, 20, 20, 60)
+  rowBandLastColor = None
 
   fieldsToPostfix = None
   postfix         = ':'
@@ -69,6 +72,16 @@ class EnoEntityListing(AtaBase):
       fn, fs  = self.entryFontName,  self.entryFontSize
       a,  c   = self.entryFontAlpha, self.entryFontColor
       ftp, pf = self.fieldsToPostfix, self.postfix
+
+      if self.drawRowBands:
+        rbcol = self.rowBand1
+        if self.winDim is None: self.msg("drawEntry trying to draw row bands, but window dimensions unknown"); return 
+
+        if (self.rowBandLastColor is None or self.rowBandLastColor == 1): self.rowBandLastColor = 0
+        else:                                      rbcol = self.rowBand2; self.rowBandLastColor = 1
+
+        r = Rect(pos, self.winDim)
+        screen.draw.rect(r, rbcol)
 
       for field in entry: 
         w = self.entryFieldWidths[idx]
