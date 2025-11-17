@@ -42,7 +42,19 @@ class EnoPrisms(AtaBase):
 
       if verts1 is None or verts2 is None: self.msg("intersectPrismBarPair: bar vertices undefined"); return
 
+      b1Len = len(bar1.barList)
+      b2Len = len(bar2.barList)
+
       self.msg("ipbp: " + str(verts1) + str(verts2))
+
+      #intersect = self.epi.intersectQuadPolysI(verts1, verts2)
+      #self.msg("intersect: " + str(intersect))
+
+      for i in range(b1Len):
+        for j in range(b2Len):
+          verts1, verts2 = bar1.barList[i].vertices, bar2.barList[j].vertices
+          intersect = self.epi.intersectQuadPolysI(verts1, verts2)
+          self.msg(str([i,j]) + str(intersect))
 
       intersect = self.epi.intersectQuadPolysI(verts1, verts2)
       self.msg("intersect: " + str(intersect))
