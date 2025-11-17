@@ -17,6 +17,7 @@ class EnoEntityListing(AtaBase):
   winDim = None
   rowDim = None
   defaultRowHeight = 30
+  defaultRowShift  = (0, -12)
 
   drawRowBands        = True
   rowBandsAlternating = True
@@ -89,8 +90,11 @@ class EnoEntityListing(AtaBase):
         if (self.rowBandLastColor is None or self.rowBandLastColor == 1): self.rowBandLastColor = 0
         else:                                      rbcol = self.rowBand2; self.rowBandLastColor = 1
 
-        r = Rect(pos, self.rowDim)
-        screen.draw.rect(r, rbcol)
+        dx, dy = self.defaultRowShift  
+        rpos = (x+dx, y+dy)
+
+        r = Rect(rpos, self.rowDim)
+        screen.draw.filled_rect(r, rbcol)
 
       for field in entry: 
         w = self.entryFieldWidths[idx]

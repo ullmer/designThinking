@@ -25,7 +25,9 @@ ep.summonPrism('teiYearsQ4',   1)
 
 yf  = open('yaml/sampleEntries.yaml', 'rt')
 yd  = yaml.safe_load(yf); yf.close()
-eel = EnoEntityListing(entries=yd, fieldsToPostfix=[0])
+winDim = (WIDTH, HEIGHT)
+eel = EnoEntityListing(entries=yd, fieldsToPostfix=[0],
+                       entryFontSize=25, winDim=winDim)
 
 rb  = EnoRefractBar((WIDTH, 80), (0, 750))
 efb = EnoFrameBox()
@@ -35,13 +37,13 @@ def update(): ep.update()
 ################ draw ################
 def draw(): 
   screen.clear()
+  eel.draw(screen)
   ep.draw(screen)
   rb.draw(screen)
   rcol = rb.fillColor
   screen.draw.text("TEI", midleft=(305,70), alpha=.2, 
     color=rcol, fontname="barlow_black", fontsize=250)
   efb.draw(screen)
-  eel.draw(screen)
 
 ################ on_mouse/key_down ################
 
