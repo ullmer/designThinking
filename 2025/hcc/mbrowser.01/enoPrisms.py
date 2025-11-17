@@ -11,6 +11,11 @@ class EnoPrisms(AtaBase):
   prisms       = None
   domainPrisms = None
 
+  activateIntersects = False
+  epi          = None
+
+  drawPrismBarSelIntersection   = True
+
   currentPrismIntersectBars     = None
   currentPrismIntersectVertices = None
 
@@ -23,6 +28,19 @@ class EnoPrisms(AtaBase):
 
     ept = EnoPrismsTei() #clearly needs further abstraction; a bridge 
     self.domainPrisms.append(ept)
+
+    if self.activateIntersects: self.epi = EnoPrismIntersects()
+
+  ############# summon prism #############
+
+  def intersectPrismBarPair(self, idx1, idx2, bar1idx, bar2idx):
+    try:
+      prism1, prism2 = self.prisms[idx1], self.prisms[idx2]
+      bar1, bar2     = prism1.getPrismBar(bar1idx), prism2.getPrismBar(bar2idx)
+      self.epi
+
+      #intersectQuadPolysI
+    except: self.err(intersectPrismBarPair)
 
   ############# summon prism #############
 
