@@ -5,10 +5,14 @@
 from ataBase       import *
 from enoPrism      import *
 from enoPrismsTei  import *
+from enoPrismIntersects import *
 
 class EnoPrisms(AtaBase):
-  prisms = None
+  prisms       = None
   domainPrisms = None
+
+  currentPrismIntersectBars     = None
+  currentPrismIntersectVertices = None
 
   ############# constructor #############
 
