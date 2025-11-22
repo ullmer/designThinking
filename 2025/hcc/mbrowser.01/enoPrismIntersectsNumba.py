@@ -5,10 +5,14 @@
 import numpy as np
 import numba as nb
 
+################## _cross ##################
+
 @nb.njit
 def _cross(ax, ay, bx, by):
     # int64 intermediates to avoid overflow of products
     return np.int64(ax) * np.int64(by) - np.int64(ay) * np.int64(bx)
+
+################## point in quads, batch ##################
 
 @nb.njit(parallel=True)
 def point_in_quads_batch(px, py, quads, bounds):
@@ -70,6 +74,8 @@ def point_in_quads_batch(px, py, quads, bounds):
 
     return out
 
+################## compute AABBs from quads##################
+
 def compute_aabbs_from_quads(quads: np.ndarray) -> np.ndarray:
     """
     Build [xmin, ymin, xmax, ymax] for each quad.
@@ -82,6 +88,8 @@ def compute_aabbs_from_quads(quads: np.ndarray) -> np.ndarray:
     ymin = ys.min(axis=1)
     ymax = ys.max(axis=1)
     return np.stack((xmin, ymin, xmax, ymax), axis=1).astype(quads.dtype)
+
+################## ensure CCW quads ##################
 
 def ensure_ccw_quads(quads: np.ndarray) -> np.ndarray:
     """
@@ -102,6 +110,8 @@ def ensure_ccw_quads(quads: np.ndarray) -> np.ndarray:
     out[to_flip] = out[to_flip, ::-1, :]
     return out
 
+################## quads from list ##################
+
 def quads_from_list(quad_list, dtype=np.int32):
     """
     quad_list: list of length N; each element is an iterable of 4 (x,y) pairs
@@ -114,6 +124,5 @@ def quads_from_list(quad_list, dtype=np.int32):
 
 # Usage
 #quads = quads_from_list(quad_list, dtype=np.int32)
-
 
 ### end ###
