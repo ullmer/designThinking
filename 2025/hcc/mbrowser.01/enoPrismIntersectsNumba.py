@@ -70,3 +70,50 @@ def point_in_quads_batch(px, py, quads, bounds):
 
     return out
 
+def compute_aabbs_from_quads(quads: np.ndarray) -> np.ndarray:
+    """
+    Build [xmin, ymin, xmax, ymax] for each quad.
+    quads: (N,4,2) int32/int64
+    """
+    xs = quads[..., 0]
+    ys = quads[..., 1]
+    xmin = xs.min(axis=1)
+    xmax = xs.max(axis=1)
+    ymin = ys.min(axis=1)
+    ymax = ys.max(axis=1)
+    return np.stack((xmin, ymin, xmax, ymax), axis=1).astype(quads.dtype)
+
+def ensure_ccw_quads(quads: np.ndarray) -> np.ndarray:
+    """
+    Ensure each quad is CCW-ordered (shoelace area > 0). Returns a copy if any flipped.
+    """
+    xs = quads[..., 0]; ys = quads[..., 1]
+    # Shoelace area: sum(x_i*y_{i+1} - y_i*x_{i+1})
+    area = (xs[:,0]*ys[:,1] - ys[:,0]*xs[:,1] +
+            xs[:,1]*ys[:,2] - ys[:,1]*xs[:,2] +
+            xs[:,2]*ys[:,3] - ys[:,2]*xs[:,3] +
+            xs[:,3]*ys[:,0] - ys[:,3]*xs[:,0])
+    ccw = (area > 0)
+    if np.all(ccw):
+        return quads
+    out = quads.copy()
+    to_flip = np.where(~ccw)[0]
+    # Reverse vertex order for those quads
+    out[to_flip] = out[to_flip, ::-1, :]
+    return out
+
+def quads_from_list(quad_list, dtype=np.int32):
+    """
+    quad_list: list of length N; each element is an iterable of 4 (x,y) pairs
+    Returns: np.ndarray of shape (N,4,2), dtype=dtype (C-contiguous)
+    """
+    arr = np.asarray(quad_list, dtype=dtype)
+    if arr.ndim != 3 or arr.shape[1:] != (4, 2):
+        raise ValueError(f"Expected shape (N,4,2), got {arr.shape}")
+    return np.ascontiguousarray(arr)
+
+# Usage
+#quads = quads_from_list(quad_list, dtype=np.int32)
+
+
+### end ###
