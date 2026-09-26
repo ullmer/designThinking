@@ -19,6 +19,8 @@ if numRd > rows * cols: numRd = rows * cols
 
 row, col = 0, 0
 
+show_abbrevTitle = True;
+
 for i in range(numRd):
   a = Actor('readings_box_1c', topleft=(x, y))
   actors.append(a); y += dy; row += 1
@@ -26,7 +28,8 @@ for i in range(numRd):
   if row >= rows: 
     row = 0; col += 1; y = y0; x += dx
 
-font1  = "oswald-medium"
+#This should be changed to your own font settings
+font1  = "/users/xiaowan/library/fonts/pingfang.ttf"
 cwhite = "#ffffff"
 cblack = "#000000"
 
@@ -46,9 +49,14 @@ def draw():
 def on_mouse_down(pos): 
   for i in range(len(actors)):
     if actors[i].collidepoint(pos): print("Actor " + str(i) + " was pressed")
+
+def on_key_down(key):
+  global show_abbrevTitle
+  if key == key.C:
+   show_abbrevTitle = not show_abbrevTitle
   
 def drawReading(reading, x0, y0):
-  au, yr, abTi, prDa = reading.getFields(['author', 'year', 'abbrevTitle', 'presentedDate']) 
+  au, yr, abTi, abTiC, prDa = reading.getFields(['author', 'year', 'abbrevTitle','abbrevTitleC', 'presentedDate']) 
   mo, da = prDa.split('-')
   fs = 40
 
@@ -59,7 +67,12 @@ def drawReading(reading, x0, y0):
 
   screen.draw.text(au2,  topleft  = (x0+  3, y0- 7), fontsize=fs, fontname=font1, color=cwhite, alpha=0.2)
   screen.draw.text(yr2,  topright = (x0+285, y0- 7), fontsize=fs, fontname=font1, color=cwhite, alpha=0.2)
-  screen.draw.text(abTi, topleft  = (x0+  3, y0+41), fontsize=fs, fontname=font1, color=cwhite, alpha=0.5)
+  
+  if show_abbrevTitle:
+  	screen.draw.text(abTi, topleft  = (x0+  3, y0+41), fontsize=fs, fontname=font1, color=cwhite, alpha=0.5)
+  else:
+  	screen.draw.text(abTiC, topleft  = (x0+  3, y0+41), fontsize=fs, fontname=font1, color=cwhite, alpha=0.5)
+  
   screen.draw.text(mo,   topright = (x0+332, y0- 7), fontsize=fs, fontname=font1, color=cblack, alpha=0.4)
   screen.draw.text(da,   topright = (x0+332, y0+41), fontsize=fs, fontname=font1, color=cwhite, alpha=0.3)
 
