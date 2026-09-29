@@ -11,4 +11,4 @@ print(score)
 #https://spacy.io/usage/spacy-101
 #https://spacy.io/api/doc/
 #https://campus.datacamp.com/courses/natural-language-processing-with-spacy/spacy-linguistic-annotations-and-word-vectors?ex=13
- 
+#python -m spacy download en_core_web_md 
