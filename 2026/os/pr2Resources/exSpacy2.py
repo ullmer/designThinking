@@ -14,14 +14,21 @@ doc1, doc2 = nlp(str1), nlp(str2)
 score = doc1.similarity(doc2)
 printSim(str1, str2, score)
 
-str3, str4, str5 = "apples", "oranges", "aardvarks"
-doc3, doc4, doc5 = nlp(str3), nlp(str4), nlp(str5)
+str3, str4, str5, str6 = "apples", "oranges", "aardvarks", "elephants"
+doc3, doc4, doc5, doc6 = nlp(str3), nlp(str4), nlp(str5), nlp(str6)
+
+str7 = "African ant bear"
+doc7 = nlp(str7)
 
 score34 = doc3.similarity(doc4)
 score35 = doc3.similarity(doc5)
+score56 = doc5.similarity(doc6)
+score57 = doc5.similarity(doc7)
 
 printSim(str3, str4, score34)
 printSim(str3, str5, score35)
+printSim(str5, str6, score56)
+printSim(str5, str7, score57)
  
 #https://spacy.io/usage/spacy-101
 #https://spacy.io/api/doc/
