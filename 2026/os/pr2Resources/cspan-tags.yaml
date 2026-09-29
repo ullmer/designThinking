@@ -38,8 +38,8 @@ interactionPanel:
     w: [wasPol,  exeBra, fedGov, impPro, legBra, preTra, pubFig]
     P: [pathfn,  clemsn, souCar, uniSta, artInt, natSci]
 
-  colorMap: {B: 2175B1, C: 848688, c: 373435, E: F58634, F: 3C4978, H: 00A859, h: DBCA42,
-             J: 965929, M: B58160, T: 9B632A, S: 650955, s: 6B1F71, W: ED3237, P: F58634}
+  colorMap: {B: 0x2175B1, C: 0x848688, c: 0x373435, E: 0xF58634, F: 0x3C4978, H: 0x00A859, h: 0xDBCA42,
+             J: 0x965929, M: 0xB58160, T: 0x9B632A, S: 0x650955, s: 0x6B1F71, W: 0xED3237, P: 0xF58634}
 
   akaiColorMap: {busCom: 42, camEle:  4, comTod:  2, couJud: 10, eduIss: 63, forDef: 42,
                  heaWel: 26, hisSoc: 14, minEqu: 63, sciTec: 62, socPol: 50, staPol: 50,
