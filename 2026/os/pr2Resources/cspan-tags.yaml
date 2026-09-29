@@ -1,0 +1,170 @@
+# Interaction panel descriptor for C-SPAN tags (mostly 2013-vintage)
+# By Brygg Ullmer, Clemson University
+# Begun 2023-10-10
+
+interactionPanel: 
+  name:      "C-SPAN : Tags 2013" #quoted because of colon within 
+  addr:      https://enodia.computing.clemson.edu/spreads/org.c-span/tags/ #not yet, but candidate
+  imgPrefix: images/cspt13/125
+  bgImg:     images/cspt13/bg125a
+
+  charMatrix: |-
+    MMMPPPPP
+    ccccTTTTT
+    FFFFFFFFF
+    FFFFFFFFF
+    FFhhhhhhS
+    EEwwwwwws
+    HHHHCCCCC
+    JJBBBBBBB
+    JJJJJJJJJ
+
+  charMap:  
+    B: [busCom,  agricu, banFin, comput, fedBud, ecoPol, empPol, transp]
+    C: [camEle,  campai, legBra, preCam, preNom, camWhi]
+    c: [comTod,  commun, journa, media,  onlTec]
+    E: [eduIss,  colUni, eduPol]
+    F: [forDef,  africa, asia,   ausNeZ, carBas, cenAme, dptDef, druPol, 
+                 easEur, forPol, humRig, intSec, intTra, midEas, norAme, 
+                 pacRim, perGul, souAme, sovUni, wesEur, weapon]
+    H: [heaWel,  heaCar, heaPol, socPol]
+    h: [hisSoc,  amePre, ameWri, Books,  ExeBra, Histor, Music]
+    J: [couJud,  civRig, consti, crime,  druPol, heaPol, judPro, 
+                 lawEnf, supCou, scAppt, scCase, scJust]
+    M: [minEqu,  civRig, minori, racRel]
+    T: [sciTec*, enePol, enviro, space,  cliCha] # * indicates whole-cell presence of category
+    S: [staPol*]
+    s: [socPol*]
+    w: [wasPol,  exeBra, fedGov, impPro, legBra, preTra, pubFig]
+    P: [pathfn,  clemsn, souCar, uniSta, artInt, natSci]
+
+  colorMap: {B: 2175B1, C: 848688, c: 373435, E: F58634, F: 3C4978, H: 00A859, h: DBCA42,
+             J: 965929, M: B58160, T: 9B632A, S: 650955, s: 6B1F71, W: ED3237, P: F58634}
+
+  akaiColorMap: {busCom: 42, camEle:  4, comTod:  2, couJud: 10, eduIss: 63, forDef: 42,
+                 heaWel: 26, hisSoc: 14, minEqu: 63, sciTec: 62, socPol: 50, staPol: 50,
+                 wasPol: 6 }
+
+tags:
+  busCom: 
+    - {catLet: B,   catName: "Business & Commerce",          subcats:  35, programs: 14332}
+    - {abbrev: agricu, name: "Agriculture",                                programs:    30, tagId: 191}
+    - {abbrev: banFin, name: "Banking & Financial Markets", subcats:   8, programs:  1071}
+    - {abbrev: comput, name: "Computer",                                  programs:   232}
+    - {abbrev: fedBud, name: "Federal Budget",              subcats:   8, programs:  6040, tagId: 200}
+    - {abbrev: ecoPol, name: "Economic Policy",             subcats:   5, programs:  4624, tagId: 224}
+    - {abbrev: empPol, name: "Employment Policy",           subcats:   9, programs:  1572}
+    - {abbrev: transp, name: "Transportation",              subcats:   4, programs:   995}
+
+  camEle:
+    - {catLet: C,   catName: "Campaigns & Elections",        subcats: 145, programs: 25820}
+    - {abbrev: campai, name:  "Campaigns",                   subcats:  32, programs: 14971}
+    - {abbrev: legBra, name:  "Legislative Branch",          subcats:   9, programs: 17013, tagId: 1341}
+    - {abbrev: preCam, name:  "Presidential Campaign",       subcats:  15, programs:  1944}
+    - {abbrev: preNom, name:  "Presidential Nomination",     subcats:  86, programs:  7037}
+    - {abbrev: camWhi, name:  "Campaigns Road to the White House" }
+
+  comTod:
+    - {catLet: c,   catName: "Communication Today",          subcats:  28, programs: 6547}
+    - {abbrev: commun, name: "Communication",                subcats:   6, programs: 2177}
+    - {abbrev: journa, name: "Journalism",                   subcats:   6, programs: 1101}
+    - {abbrev: media,  name: "Media",                        subcats: 161, programs: 3269}
+    - {abbrev: onlTec, name: "Online Technology",            subcats:   2, programs:  385}
+
+  couJud:
+    - {catLet: J,   catName: "Courts & Judicial Process",    subcats: 183, programs: 9701}
+    - {abbrev: civRig, name: "Civil Rights",                 subcats:   2, programs:  331}
+    - {abbrev: consti, name: "Constitution",                 subcats:   8, programs:  739}
+    - {abbrev: crime,  name: "Crime",                        subcats:   3, programs:  855}
+    - {abbrev: druPol, name: "Drug Policy",                  subcats:   2, programs:  213}
+    - {abbrev: heaPol, name: "Health Policy",                subcats:   5, programs:  509}
+    - {abbrev: judPro, name: "Judicial Process",             subcats:  12, programs: 2046}
+    - {abbrev: lawEnf, name: "Law Enforcement",              subcats:  12, programs: 2348}
+    - {abbrev: supCou, name: "Supreme Court",                subcats:   1, programs:  739}
+    - {abbrev: scAppt, name: "Supreme Court Appointments",   subcats:  14, programs: 1217}
+    - {abbrev: scCase, name: "Supreme Court Cases",          subcats: 106, programs:  389}
+    - {abbrev: scJust, name: "Supreme Court Justices",       subcats:  18, programs:  292}
+
+  eduIss:
+    - {catLet: E,   catName: "Educational Issues",          subcats:    2, programs: 2034}
+    - {abbrev: colUni, name:  "Colleges & Universities",                   programs:   76}
+    - {abbrev: eduPol, name:  "Educational Policy",         subcats:   18, programs: 1958}
+
+  forDef:
+    - {catLet: F,   catName: "Foreign Affairs & Defense",   subcats: 183, programs: 38593}
+    - {abbrev: africa, name:  "Africa",                     subcats:  22, programs:   868}
+    - {abbrev: asia,   name:  "Asia",                       subcats:   7, programs:  2059}
+    - {abbrev: ausNeZ, name:  "Australia & New Zealand",    subcats:   2, programs:  3737}
+    - {abbrev: carBas, name:  "Caribbean Basin",            subcats:   2, programs:  2385}
+    - {abbrev: cenAme, name:  "Central America",            subcats:   5, programs:   395}
+    - {abbrev: dptDef, name:  "Department of Defense",      subcats:  20, programs:  5325}
+    - {abbrev: druPol, name:  "Drug Policy",                subcats:   2, programs:   189}
+    - {abbrev: easEur, name:  "Eastern Europe",             subcats:   9, programs:   751}
+    - {abbrev: forPol, name:  "Foreign Policy",             subcats:  11, programs:  2327}
+    - {abbrev: humRig, name:  "Human Rights",               subcats:   4, programs:   261}
+    - {abbrev: intSec, name:  "International Security",     subcats:  13, programs:  7150}
+    - {abbrev: intTra, name:  "International Trade",        subcats:  15, programs:  2406}
+    - {abbrev: midEas, name:  "Middle East",                subcats:   8, programs:  2317}
+    - {abbrev: norAme, name:  "North America",              subcats:   3, programs:   656} 
+    - {abbrev: pacRim, name:  "Pacific Rim",                subcats:  14, programs:  1852}
+    - {abbrev: perGul, name:  "Persian Gulf",               subcats:  16, programs:  7904}
+    - {abbrev: souAme, name:  "South America",              subcats:   6, programs:   242}
+    - {abbrev: sovUni, name:  "Soviet Union",               subcats:   8, programs:   779}
+    - {abbrev: wesEur, name:  "Western Europe",             subcats:  16, programs:  2690}
+    - {abbrev: weapon, name:  "Weapons"}
+
+  heaWel:
+    - {catLet: H,   catName:  "Health & Welfare",           programs: 11881}
+    - {abbrev: druPol, name:  "Drug Policy",                programs:   334}
+    - {abbrev: heaCar, name:  "Health Care Reform",         programs:   119}
+    - {abbrev: heaPol, name:  "Health Policy",              programs:  6399}
+    - {abbrev: socPol, name:  "Social Policy",              programs:  4131}
+
+    - {abbrev: , name:  "",                subcats: 334, programs:  11881}
+
+#Health & Welfare Health Care Reform 119    
+#Health & Welfare Health Policy 6399    
+#Health & Welfare Social Policy 4131    
+  hisSoc:
+    - {abbrev: , name:  "",                subcats: 334, programs:  11881}
+  minEqu:
+  sciTec:
+  socPol:
+  staPol:
+  wasPol:
+
+#
+#History & Society American Presidents 42  20833  h
+#History & Society American Writers 548    
+#History & Society Books 1360    
+#History & Society Executive Branch 4215    
+#History & Society History 7048    
+#History & Society Music 47    
+#
+#Minorities & Equal Opportunity Civil Rights 693  4404  M
+#Minorities & Equal Opportunity Minorities 3,593    
+#Minorities & Equal Opportunity Racial Relations 118    
+#
+#Science & Technology Energy Policy 768    T
+#Science & Technology Environment 2391    
+#Science & Technology Space     
+#
+#Social Policy Disaster Relief     S
+#
+#State Politics County Politics 5752  5752  s
+#
+#Washington Politics Executive Branch 463  4193  W
+#Washington Politics Federal Government 80    
+#Washington Politics Impeachment Process 308    
+#Washington Politics Legislative Branch 2869    
+#Washington Politics Presidential Transition 431    
+#Washington Politics Public Figures 31    
+#
+#  mapExpansion:  
+#    CECAS: 
+#      CECAS: {n: "College of Engineering, Computing, & Applied Sciences", u: "https://clemson.edu/cecas/"}
+#      AE:    {n: "Automotive Engineering",              u: "https://clemson.edu/cecas/departments/automotive-engineering/"}
+#      BioE:  {n: "Bioengineering",                      u: "https://clemson.edu/cecas/departments/bioe/"}
+#      CE:    {n: "Civil Engineering",                   u: "https://clemson.edu/cecas/departments/ce/"}
+#      ECE:   {n: "Electrical & Computer Engineering",   u: "https://clemson.edu/cecas/departments/ece/"}
+### end ###
