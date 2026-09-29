@@ -23,7 +23,7 @@ for tag in tags:
       tagName = tagEl['name']
       catStr += tagName + ". "
 
-    print(catStr)
+    print(catStr + "\n")
 
   except: print(">> ignoring error on tag", tag)
 
