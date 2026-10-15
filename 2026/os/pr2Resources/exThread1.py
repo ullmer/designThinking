@@ -1,6 +1,6 @@
 import threading
 
-NTHREADS = 4
+NTHREADS = 10
 
 results = [None] * NTHREADS
 threads = []
@@ -8,8 +8,8 @@ threads = []
 def go(n):
     print(f"Hello from thread {n}")
 
-    # equivalent to thread_exit(10 + n)
-    results[n] = 10 + n
+    # equivalent to thread_exit(100 + n)
+    results[n] = 100 + n
 
     # any code after the "return value" would still execute
     # unless you explicitly return
